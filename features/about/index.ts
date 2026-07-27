@@ -5,11 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * About feature public exports.
+ * About feature exports.
  *
  * Changes:
  * - July 27, 2026
- *   - Added About section export.
+ *   - Added About export.
  *
  * -----------------------------------------------------------------------------
  */
