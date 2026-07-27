@@ -11,8 +11,11 @@ import Link from "next/link";
 import { navigation } from "@/constants/navigation";
 import Logo from "../ui/Logo";
 import MobileMenu from "./MobileMenu";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#EDE4D9] bg-white shadow-sm backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
@@ -21,15 +24,26 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-10">
-          {navigation.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-sm font-medium tracking-[0.5px] text-[#3B2A26] hover:text-[#C6A15B] transition-all duration-300 hover:scale-[1.02]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href;
+            
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`
+                  text-sm font-medium tracking-[0.5px] 
+                  transition-all duration-300 hover:scale-[1.02]
+                  ${isActive 
+                    ? "text-[#C6A15B] relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-full after:bg-[#C6A15B]" 
+                    : "text-[#3B2A26] hover:text-[#C6A15B]"
+                  }
+                `}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Mobile Menu */}
