@@ -4,10 +4,7 @@
  * Section.tsx
  *
  * Description:
- * Reusable luxury section wrapper.
- *
- * Changes:
- * - v1.0.1 added spacing system.
+ * Luxury page section wrapper.
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,7 +22,6 @@ children:React.ReactNode;
 
 className?:string;
 
-
 }){
 
 
@@ -34,8 +30,8 @@ return (
 <section
 
 className={`
-px-6
 py-24
+px-6
 ${className}
 `}
 
@@ -45,8 +41,8 @@ ${className}
 <div
 
 className="
+max-w-7xl
 mx-auto
-max-w-6xl
 "
 
 >
