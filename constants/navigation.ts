@@ -1,93 +1,60 @@
 /**
  * -----------------------------------------------------------------------------
- * File: navigation.ts
+ * File:
+ * constants/navigation.ts
  *
- * Created: July 27, 2026
+ * Created:
+ * July 27, 2026
  *
  * Description:
- * Main website navigation configuration.
+ * Main website navigation anchors.
  *
  * Changes:
- * - July 27, 2026
- *   - Added v0.9.0 navigation system.
- *
+ * - Added contact navigation in v1.1.0
  * -----------------------------------------------------------------------------
  */
 
 
 export const navigation = [
 
+  {
+    label: "Home",
+    href: "#home",
+  },
 
-{
-label:
+  {
+    label: "About",
+    href: "#about",
+  },
 
-"Home",
+  {
+    label: "Services",
+    href: "#services",
+  },
 
-href:
+  {
+    label: "Gallery",
+    href: "#gallery",
+  },
 
-"#home"
+  {
+    label: "Reviews",
+    href: "#testimonials",
+  },
 
-},
+  {
+    label: "FAQ",
+    href: "#faq",
+  },
 
+  {
+    label: "Book Now",
+    href: "#booking",
+  },
 
-{
-label:
-
-"About",
-
-href:
-
-"#about"
-
-},
-
-
-{
-label:
-
-"Services",
-
-href:
-
-"#services"
-
-},
-
-
-{
-label:
-
-"Gallery",
-
-href:
-
-"#gallery"
-
-},
-
-
-{
-label:
-
-"Reviews",
-
-href:
-
-"#testimonials"
-
-},
-
-
-{
-label:
-
-"Book",
-
-href:
-
-"#booking"
-
-}
-
+  {
+    label: "Contact",
+    href: "#contact",
+  },
 
 ];
