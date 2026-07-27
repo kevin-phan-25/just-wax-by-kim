@@ -41,217 +41,326 @@
  *   - Added emotional brand positioning section.
  *   - Added premium customer journey flow.
  *
+ * - July 27, 2026
+ *   - Added v1.0.2 FAQ Experience.
+ *   - Added customer education before booking.
+ *
  * -----------------------------------------------------------------------------
  */
 
 
 import Hero from "@/features/hero";
 
+
 import LuxuryPromise from "@/features/luxury";
+
 
 import About from "@/features/about";
 
+
 import Mission from "@/features/about/Mission";
+
 
 import Services from "@/features/services";
 
+
 import Experience from "@/features/experience";
+
 
 import Gallery from "@/features/gallery";
 
+
 import Testimonials from "@/features/testimonials";
 
+
 import Instagram from "@/features/instagram";
+
+
+import FAQ from "@/features/faq";
+
 
 import Booking from "@/features/booking";
 
 
 
-export default function Home() {
+export default function Home(){
 
 
-  return (
+return (
 
-    <main>
 
+<main>
 
-      {/*
-        v0.3.0
 
-        Luxury Hero Experience
 
-        First impression:
-        Brand identity + primary CTA
-      */}
-      <section id="home">
+{/*
 
-        <Hero />
+v0.3.0
 
-      </section>
+Luxury Hero Experience
 
+First impression:
+Brand identity + primary CTA
 
+*/}
 
+<section id="home">
 
+<Hero />
 
-      {/*
-        v1.0.2
+</section>
 
-        Luxury Promise Experience
 
-        Emotional brand positioning:
 
-        "More Than Just A Wax"
 
-        Establishes:
-        - Comfort
-        - Confidence
-        - Premium care
-      */}
-      <section id="experience">
 
-        <LuxuryPromise />
+{/*
 
-      </section>
+v1.0.2
 
+Luxury Promise Experience
 
 
+Brand positioning:
 
+"More Than Just A Wax"
 
-      {/*
-        v0.4.0
 
-        About Kim Experience
+Creates emotional connection:
 
-        Builds trust and personal connection.
-      */}
-      <section id="about">
+- Comfort
+- Confidence
+- Premium care
 
-        <About />
+*/}
 
-      </section>
+<section id="experience">
 
+<LuxuryPromise />
 
+</section>
 
 
 
-      {/*
-        v0.4.0
 
-        Brand Mission
 
-        Explains the philosophy behind
-        Just Wax by Kim.
-      */}
-      <Mission />
+{/*
 
+v0.4.0
 
+About Kim Experience
 
 
+Creates trust:
 
-      {/*
-        v0.5.0
+- Personal story
+- Professional connection
 
-        Services Experience
+*/}
 
-        Displays:
+<section id="about">
 
-        - Signature waxing
-        - Pricing
-        - Service categories
-      */}
-      <section id="services">
+<About />
 
-        <Services />
+</section>
 
-      </section>
 
 
 
 
+{/*
 
-      {/*
-        v0.7.0
+v0.4.0
 
-        Gallery Experience
+Mission Experience
 
-        Builds visual trust:
 
-        - Studio atmosphere
-        - Luxury environment
-        - Professional presentation
-      */}
-      <section id="gallery">
+Explains:
 
-        <Gallery />
+Why Just Wax by Kim exists.
 
-      </section>
+*/}
 
+<Mission />
 
 
 
 
-      {/*
-        v0.8.0
 
-        Testimonials Experience
+{/*
 
-        Builds customer confidence:
+v0.5.0
 
-        - Reviews
-        - Client satisfaction
-        - Social proof
-      */}
-      <section id="testimonials">
+Services Experience
 
-        <Testimonials />
 
-      </section>
+Displays:
 
+- Waxing services
+- Pricing
+- Service categories
 
+*/}
 
+<section id="services">
 
+<Services />
 
-      {/*
-        v0.8.0
+</section>
 
-        Instagram Experience
 
-        Shows:
 
-        - Brand personality
-        - Social presence
-        - Recent content
-      */}
-      <section id="instagram">
 
-        <Instagram />
 
-      </section>
+{/*
 
+v1.0.2
 
+Studio Experience
 
 
+Adds:
 
-      {/*
-        v0.6.0
+- Luxury atmosphere
+- Client journey
+- Premium environment
 
-        Booking Experience
+*/}
 
-        Final conversion point:
+<section id="experience-details">
 
-        - Appointment CTA
-        - Scheduling workflow
-      */}
-      <section id="booking">
+<Experience />
 
-        <Booking />
+</section>
 
-      </section>
 
 
 
-    </main>
 
-  );
+{/*
+
+v0.7.0
+
+Gallery Experience
+
+
+Visual trust:
+
+- Studio
+- Results
+- Luxury details
+
+*/}
+
+<section id="gallery">
+
+<Gallery />
+
+</section>
+
+
+
+
+
+{/*
+
+v0.8.0
+
+Testimonials Experience
+
+
+Social proof:
+
+- Reviews
+- Client confidence
+
+*/}
+
+<section id="testimonials">
+
+<Testimonials />
+
+</section>
+
+
+
+
+
+{/*
+
+v0.8.0
+
+Instagram Experience
+
+
+Brand personality:
+
+- Social content
+- Community
+
+*/}
+
+<section id="instagram">
+
+<Instagram />
+
+</section>
+
+
+
+
+
+{/*
+
+v1.0.2
+
+FAQ Experience
+
+
+Removes booking hesitation:
+
+- Preparation
+- Expectations
+- First visit questions
+
+*/}
+
+<section id="faq">
+
+<FAQ />
+
+</section>
+
+
+
+
+
+{/*
+
+v0.6.0
+
+Booking Experience
+
+
+Final conversion:
+
+- Appointment CTA
+- Scheduling workflow
+
+*/}
+
+<section id="booking">
+
+<Booking />
+
+</section>
+
+
+
+</main>
+
+
+);
+
 
 }
