@@ -1,18 +1,8 @@
 /**
  * -----------------------------------------------------------------------------
- * File: colors.ts
+ * Luxury Brand Colors
  *
- * Created: July 27, 2026
- *
- * Description:
- * Central luxury brand color system.
- *
- * All brand colors should be managed here.
- * Components should never contain raw hex values.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial luxury color palette.
+ * Just Wax by Kim
  *
  * -----------------------------------------------------------------------------
  */
@@ -20,16 +10,65 @@
 
 export const colors = {
 
-  background: "#FAF8F5",
 
-  foreground: "#1F1F1F",
+  background: {
 
-  gold: "#C9A227",
 
-  taupe: "#8A817C",
+    primary:
+      "#FCF8F3",
 
-  border: "#ECE7E1",
 
-  white: "#FFFFFF",
+    secondary:
+      "#F6E7E1",
 
-} as const;
+
+  },
+
+
+
+  brand: {
+
+
+    champagne:
+      "#D8B4A0",
+
+
+    gold:
+      "#C6A15B",
+
+
+    rose:
+      "#E8C8BC",
+
+
+    taupe:
+      "#8C7468",
+
+
+    espresso:
+      "#3B2A26",
+
+
+  },
+
+
+
+  text: {
+
+
+    primary:
+      "#3B2A26",
+
+
+    secondary:
+      "#6F5A50",
+
+
+    muted:
+      "#9A857A",
+
+
+  },
+
+
+};
