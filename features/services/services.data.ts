@@ -2,160 +2,90 @@
  * -----------------------------------------------------------------------------
  * File: services.data.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Central service catalog data.
- *
- * Changes:
- * - July 27, 2026
- *   - Added initial waxing services.
+ * Luxury waxing service catalog.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type {
-Service,
-ServiceCategory
-} from "./services.types";
-
-
-
-export const serviceCategories: ServiceCategory[] = [
-
-{
-
-title:
-"Signature Waxing",
-
-description:
-"Premium waxing services designed for smooth, confident results."
-
-},
-
-
-{
-
-title:
-"Face & Beauty",
-
-description:
-"Gentle facial waxing services with attention to detail."
-
-},
-
-
-{
-
-title:
-"Body Care",
-
-description:
-"Customized body waxing treatments for every client."
-
-}
-
-];
+import { Service } from "./services.types";
 
 
 
 export const services: Service[] = [
 
 
-{
 
-id:
-"brazilian-wax",
+  {
+    id: "brazilian-wax",
 
-name:
-"Brazilian Wax",
+    name: "Brazilian Wax",
 
-description:
-"A luxury waxing experience focused on comfort, precision, and long-lasting smoothness.",
+    category: "Signature Waxing",
 
-price:
-"$75",
+    description:
+      "A luxury waxing experience focused on comfort, precision, and long-lasting smoothness.",
 
-duration:
-"45 minutes",
+    price: "$75",
 
-category:
-"Signature Waxing"
-
-},
+    duration: "45 minutes",
+  },
 
 
 
-{
 
-id:
-"bikini-wax",
+  {
+    id: "bikini-wax",
 
-name:
-"Bikini Wax",
+    name: "Bikini Wax",
 
-description:
-"A clean, comfortable waxing service tailored to your preference.",
+    category: "Signature Waxing",
 
-price:
-"$45",
+    description:
+      "A clean, comfortable waxing service tailored to your personal preference.",
 
-duration:
-"30 minutes",
+    price: "$45",
 
-category:
-"Signature Waxing"
-
-},
+    duration: "30 minutes",
+  },
 
 
 
-{
 
-id:
-"facial-wax",
+  {
+    id: "facial-wax",
 
-name:
-"Facial Wax",
+    name: "Facial Wax",
 
-description:
-"Gentle facial waxing designed for a polished and refreshed look.",
+    category: "Face & Beauty",
 
-price:
-"$20",
+    description:
+      "Gentle facial waxing designed for a polished and refreshed appearance.",
 
-duration:
-"15 minutes",
+    price: "$20",
 
-category:
-"Face & Beauty"
-
-},
+    duration: "15 minutes",
+  },
 
 
 
-{
 
-id:
-"full-leg",
+  {
+    id: "full-leg-wax",
 
-name:
-"Full Leg Wax",
+    name: "Full Leg Wax",
 
-description:
-"A smooth full-leg treatment for beautiful, confident skin.",
+    category: "Body Care",
 
-price:
-"$90",
+    description:
+      "A smooth full-leg treatment created for beautiful, confident skin.",
 
-duration:
-"60 minutes",
+    price: "$90",
 
-category:
-"Body Care"
+    duration: "60 minutes",
+  },
 
-}
 
 
 ];
