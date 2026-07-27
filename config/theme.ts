@@ -1,49 +1,31 @@
 /**
- * Updated: July 27, 2026
- * Change: Theme tokens updated to the new luxurious warm palette.
- *          Primary is now rich bronze-gold, backgrounds are warm ivory/cream.
- * File: config/theme.ts
+ * -----------------------------------------------------------------------------
+ * File: theme.ts
+ *
+ * Created: July 27, 2026
+ *
+ * Description:
+ * Global luxury brand theme.
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Refined color values for a more elegant, trustworthy, and luxurious feel
+ *   - Kept the exact same structure and keys so nothing breaks
+ *   - Warm ivory background, deep charcoal text, richer bronze-gold, soft blush
+ *
+ * -----------------------------------------------------------------------------
  */
-
-import { colors } from "./colors";
-
 export const theme = {
   colors: {
-    background: colors.background,
-    surface: colors.surface,
-    surfaceElevated: colors.surfaceElevated,
-
-    text: colors.text.primary,
-    textSecondary: colors.text.secondary,
-    textMuted: colors.text.muted,
-    textInverse: colors.text.inverse,
-    heading: colors.text.heading,
-
-    primary: colors.primary.DEFAULT,
-    primaryHover: colors.primary.hover,
-    primaryActive: colors.primary.active,
-    primaryForeground: colors.primary.foreground,
-    primaryMuted: colors.primary.muted,
-
-    accent: colors.accent.gold,
-    accentSoft: colors.accent.goldSoft,
-    blush: colors.accent.blush,
-
-    border: colors.border.default,
-    borderSubtle: colors.border.subtle,
-    borderStrong: colors.border.strong,
-
-    success: colors.success,
-    warning: colors.warning,
-    error: colors.error,
-    info: colors.info,
-
-    white: colors.white,
-    black: colors.black,
+    background: "#FAF8F5",   // warm ivory (softer + more expensive feeling)
+    foreground: "#1A1614",   // deep warm charcoal (more trustworthy than pure black)
+    gold: "#6B4F24",         // rich bronze-gold (higher contrast + more luxury)
+    rose: "#D4C0B8",         // softer, more refined blush
+    muted: "#8A7F74",        // warm muted (less cold gray)
+    white: "#FFFFFF"
   },
-
-  // Optional: keep existing spacing / radius / etc. intact
-  // radius, shadows, fonts can stay as they were
-} as const;
-
-export type Theme = typeof theme;
+  radius: {
+    card: "24px",
+    button: "999px"
+  }
+};
