@@ -24,6 +24,9 @@
  * - July 27, 2026
  *   - Added v0.6.0 Booking Experience.
  *
+ * - July 27, 2026
+ *   - Added v0.7.0 Gallery Experience.
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -35,6 +38,8 @@ import About from "@/features/about";
 import Mission from "@/features/about/Mission";
 
 import Services from "@/features/services";
+
+import Gallery from "@/features/gallery";
 
 import Booking from "@/features/booking";
 
@@ -48,47 +53,64 @@ export default function Home() {
     <main>
 
 
-      {/* 
-        Hero Experience
-        Luxury first impression
-      */}
+      {/*
+        v0.3.0
+        Luxury Hero Experience
 
+        First impression:
+        Brand identity + primary CTA
+      */}
       <Hero />
 
 
 
       {/*
-        About Kim
+        v0.4.0
+        About Kim Experience
+
         Builds trust and personal connection
       */}
-
       <About />
 
 
 
       {/*
+        v0.4.0
         Brand Mission
-        Reinforces philosophy
-      */}
 
+        Explains the philosophy behind
+        Just Wax by Kim
+      */}
       <Mission />
 
 
 
       {/*
-        Services Catalog
-        Main conversion section
-      */}
+        v0.5.0
+        Services Experience
 
+        Converts visitors into customers
+      */}
       <Services />
 
 
 
       {/*
-        Booking Experience
-        Appointment conversion
-      */}
+        v0.7.0
+        Gallery Experience
 
+        Builds visual trust and luxury feel
+      */}
+      <Gallery />
+
+
+
+      {/*
+        v0.6.0
+        Booking Experience
+
+        Final conversion point
+      */}
       <Booking />
 
 
