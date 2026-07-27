@@ -1,101 +1,78 @@
 /**
  * -----------------------------------------------------------------------------
- * File: Heading.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * Heading.tsx
  *
  * Description:
- * Luxury typography component.
- *
- * Changes:
- * - July 27, 2026
- *   - Migrated colors to design tokens.
+ * Luxury typography system.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-interface HeadingProps {
-
-eyebrow?:
-string;
-
-title:
-string;
-
-subtitle?:
-string;
-
-centered?:
-boolean;
-
-}
-
-
 export default function Heading({
 
-eyebrow,
+children,
 
-title,
+subtitle
 
-subtitle,
 
-centered = false,
+}:{
 
-}: HeadingProps) {
+children:React.ReactNode;
+
+subtitle?:string;
+
+
+}){
 
 
 return (
 
-<div className={centered ? "text-center" : ""}>
+<div className="mb-14">
 
 
-{eyebrow && (
+{subtitle &&
 
-<p className="
-mb-4
-text-sm
+<p
+
+className="
 uppercase
-tracking-[0.3em]
-text-brand-gold
-">
+tracking-[0.4em]
+text-sm
+text-[#C9A227]
+"
 
-{eyebrow}
-
-</p>
-
-)}
-
-
-<h2 className="
-text-4xl
-leading-tight
-md:text-5xl
-">
-
-{title}
-
-</h2>
-
-
-{subtitle && (
-
-<p className="
-mt-6
-max-w-2xl
-text-lg
-text-brand-taupe
-">
+>
 
 {subtitle}
 
 </p>
 
-)}
+}
+
+
+
+<h2
+
+className="
+mt-4
+font-serif
+text-4xl
+md:text-5xl
+"
+
+>
+
+{children}
+
+</h2>
+
 
 
 </div>
 
 );
+
 
 }
