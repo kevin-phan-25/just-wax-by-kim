@@ -1,38 +1,44 @@
 /**
  * -----------------------------------------------------------------------------
- * File: HeroContent.tsx
+ * File:
+ * HeroContent.tsx
  *
- * Created: July 27, 2026
+ * v1.0.2
  *
- * Description:
- * Hero text content.
- *
- * Changes:
- * - July 27, 2026
- *   - Created luxury hero messaging.
+ * Luxury hero messaging.
  *
  * -----------------------------------------------------------------------------
  */
 
 
+import Container from "@/components/ui/Container";
+
+import FadeIn from "@/components/motion/FadeIn";
+
 import HeroButtons from "./HeroButtons";
 
 
-export default function HeroContent() {
+export default function HeroContent(){
 
 
 return (
 
-<div>
+<Container>
 
 
-<p className="
-mb-5
-text-sm
+<FadeIn>
+
+
+<p
+
+className="
 uppercase
-tracking-[0.4em]
-text-brand-champagne
-">
+tracking-[0.3em]
+text-sm
+text-brand-gold
+"
+
+>
 
 Luxury Wax Studio
 
@@ -40,27 +46,39 @@ Luxury Wax Studio
 
 
 
-<h1 className="
+<h1
+
+className="
+mt-6
 text-5xl
-leading-tight
 md:text-7xl
-">
+font-serif
+text-white
+leading-tight
+"
+
+>
 
 More Than
-<br />
-Just a Wax
+
+<br/>
+
+Just A Wax
 
 </h1>
 
 
 
-<p className="
-mt-8
+<p
+
+className="
+mt-6
 max-w-xl
 text-lg
-leading-relaxed
-text-brand-taupe
-">
+text-white/80
+"
+
+>
 
 A premium waxing experience focused on comfort,
 confidence, and elegance.
@@ -69,17 +87,15 @@ confidence, and elegance.
 
 
 
-<div className="
-mt-10
-">
-
 <HeroButtons />
 
-</div>
+
+</FadeIn>
 
 
-</div>
+</Container>
 
 );
+
 
 }
