@@ -1,5 +1,26 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: app/globals.css
+ *
+ * Created: July 27, 2026
+ *
+ * Description:
+ * Global styles + Tailwind v4 theme tokens.
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Added full @theme block so brand-* utilities work
+ *   - Refined palette for elegance, trust, and luxury
+ *   - Kept existing CSS variables for compatibility
+ *
+ * -----------------------------------------------------------------------------
+ */
+
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────
+   CSS Variables (used by body + selection)
+   ───────────────────────────────────────── */
 :root {
   --background: #FCF8F3;
   --foreground: #3B2A26;
@@ -11,6 +32,31 @@
   --espresso: #3B2A26;
 }
 
+/* ─────────────────────────────────────────
+   Tailwind v4 Theme Tokens
+   These power: bg-brand-gold, text-brand-black, etc.
+   ───────────────────────────────────────── */
+@theme {
+  /* Brand colors */
+  --color-brand-gold: #C6A15B;
+  --color-brand-champagne: #D8B4A0;
+  --color-brand-rose: #E8C8BC;
+  --color-brand-taupe: #8C7468;
+  --color-brand-espresso: #3B2A26;
+  --color-brand-black: #1A1614;
+  --color-brand-white: #FFFFFF;
+  --color-brand-border: #E8DFD6;
+  --color-brand-cream: #FCF8F3;
+  --color-brand-muted: #8C7468;
+
+  /* Map common aliases so existing classes keep working */
+  --color-brand-primary: #C6A15B;
+  --color-brand-secondary: #E8C8BC;
+}
+
+/* ─────────────────────────────────────────
+   Base styles
+   ───────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
