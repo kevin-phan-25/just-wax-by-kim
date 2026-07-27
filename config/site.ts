@@ -9,31 +9,62 @@
  *
  * Changes:
  * - July 27, 2026
- *   - Initial creation.
+ *   - Added v1.0.0 production configuration.
  *
  * -----------------------------------------------------------------------------
  */
 
+
 export const siteConfig = {
 
-  name:
-    "Just Wax by Kim",
 
-  slogan:
-    "More Than Just a Wax",
+name:
 
-  description:
-    "Luxury waxing services designed around confidence, comfort, and beauty.",
+"Just Wax by Kim",
 
-  url:
-    "https://justwaxbykim.com",
 
-  keywords: [
-    "waxing",
-    "luxury waxing",
-    "Brazilian waxing",
-    "beauty studio",
-    "wax studio",
-  ],
+
+title:
+
+"Just Wax by Kim | Luxury Wax Studio",
+
+
+
+description:
+
+"More Than Just A Wax. A luxury waxing experience focused on comfort, confidence, and elegance.",
+
+
+
+url:
+
+"https://justwaxbykim.com",
+
+
+
+location:
+
+"Virginia",
+
+
+
+email:
+
+"hello@justwaxbykim.com",
+
+
+
+phone:
+
+"+1-555-555-5555",
+
+
+
+socials:[
+
+"https://instagram.com/justwaxbykim"
+
+]
+
 
 };
