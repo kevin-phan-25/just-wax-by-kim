@@ -34,30 +34,3 @@ string;
 export default function Card({
 
 children,
-
-className,
-
-}: CardProps) {
-
-
-return (
-
-<div
-
-className={cn(
-
-"rounded-2xl border border-brand-border bg-brand-white p-6 shadow-sm transition duration-300 hover:shadow-md",
-
-className
-
-)}
-
->
-
-{children}
-
-</div>
-
-);
-
-}
