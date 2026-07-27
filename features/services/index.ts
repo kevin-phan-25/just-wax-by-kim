@@ -5,11 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * Services feature public exports.
+ * Services public export.
  *
  * Changes:
  * - July 27, 2026
- *   - Added Services section export.
+ *   - Added Services export.
  *
  * -----------------------------------------------------------------------------
  */
