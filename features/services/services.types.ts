@@ -3,34 +3,55 @@
  * File: services.types.ts
  *
  * Description:
- * Service data contract.
+ * Service domain models.
  *
  * v1.0.0 Production
- * Luxury waxing service model.
  *
  * -----------------------------------------------------------------------------
  */
 
 
+
 export interface Service {
 
 
-id:string;
+  id: string;
 
 
-name:string;
+  name: string;
 
 
-category:string;
+  category: string;
 
 
-description:string;
+  description: string;
 
 
-price:string;
+  price: string;
 
 
-duration:string;
+  duration: string;
+
+
+}
+
+
+
+
+
+export interface ServiceCategory {
+
+
+  id: string;
+
+
+  name: string;
+
+
+  description: string;
+
+
+  services: Service[];
 
 
 }
