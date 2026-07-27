@@ -5,16 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * Standardized luxury typography component.
- *
- * Used for:
- * - Hero titles
- * - Section headings
- * - Marketing copy
+ * Luxury typography component.
  *
  * Changes:
  * - July 27, 2026
- *   - Initial creation.
+ *   - Migrated colors to design tokens.
  *
  * -----------------------------------------------------------------------------
  */
@@ -22,69 +17,54 @@
 
 interface HeadingProps {
 
-  eyebrow?:
-    string;
+eyebrow?:
+string;
 
-  title:
-    string;
+title:
+string;
 
-  subtitle?:
-    string;
+subtitle?:
+string;
 
-  centered?:
-    boolean;
+centered?:
+boolean;
 
 }
 
 
 export default function Heading({
 
-  eyebrow,
+eyebrow,
 
-  title,
+title,
 
-  subtitle,
+subtitle,
 
-  centered = false,
+centered = false,
 
 }: HeadingProps) {
 
 
 return (
 
-<div
-
-className={
-
-centered
-?
-"text-center"
-:
-""
-
-}
-
->
+<div className={centered ? "text-center" : ""}>
 
 
-{
-eyebrow && (
+{eyebrow && (
 
 <p className="
 mb-4
 text-sm
 uppercase
 tracking-[0.3em]
-text-[#C9A227]
+text-brand-gold
 ">
 
 {eyebrow}
 
 </p>
 
-)
-
-}
+)}
 
 
 <h2 className="
@@ -98,23 +78,20 @@ md:text-5xl
 </h2>
 
 
-{
-subtitle && (
+{subtitle && (
 
 <p className="
 mt-6
 max-w-2xl
 text-lg
-text-[#8A817C]
+text-brand-taupe
 ">
 
 {subtitle}
 
 </p>
 
-)
-
-}
+)}
 
 
 </div>
