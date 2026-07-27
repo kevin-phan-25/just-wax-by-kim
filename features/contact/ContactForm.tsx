@@ -1,9 +1,7 @@
 /**
  * -----------------------------------------------------------------------------
  * File: ContactForm.tsx
- *
- * Description: Contact form UI - Compact & Elegant
- * Updated: July 27, 2026
+ * Updated: Compact Version
  * -----------------------------------------------------------------------------
  */
 
@@ -28,25 +26,25 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setMessage("✅ Thank you! Your message has been sent.");
+        setMessage("✅ Message sent successfully!");
         e.currentTarget.reset();
       } else {
-        setMessage("❌ Something went wrong. Please try again.");
+        setMessage("❌ Please try again.");
       }
     } catch {
-      setMessage("❌ Failed to send message. Please try again.");
+      setMessage("❌ Something went wrong.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <input
         type="text"
         name="name"
         required
-        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
+        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
         placeholder="Your Name"
       />
 
@@ -54,36 +52,34 @@ export default function ContactForm() {
         type="email"
         name="email"
         required
-        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
+        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
         placeholder="Email Address"
       />
 
       <input
         type="tel"
         name="phone"
-        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
-        placeholder="Phone Number"
+        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
+        placeholder="Phone Number (optional)"
       />
 
       <textarea
         name="message"
         required
-        rows={4} 
-        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors resize-y min-h-[100px]"
+        rows={3}
+        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B] resize-y"
         placeholder="How can Kim help?"
       />
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-2xl bg-[#C6A15B] py-4 font-medium text-white text-base transition hover:brightness-110 disabled:opacity-70"
+        className="w-full rounded-xl bg-[#C6A15B] py-3.5 font-medium text-white transition hover:brightness-110 disabled:opacity-70 mt-2"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
 
-      {message && (
-        <p className="text-center text-sm font-medium">{message}</p>
-      )}
+      {message && <p className="text-center text-sm">{message}</p>}
     </form>
   );
 }
