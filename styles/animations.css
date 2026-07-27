@@ -1,0 +1,49 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: animations.css
+ *
+ * Created: July 27, 2026
+ *
+ * Description:
+ * Global luxury animations.
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Added fade and reveal animations.
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+
+.fade-in {
+
+animation:
+fadeIn .8s ease forwards;
+
+}
+
+
+@keyframes fadeIn {
+
+from {
+
+opacity:
+0;
+
+transform:
+translateY(20px);
+
+}
+
+
+to {
+
+opacity:
+1;
+
+transform:
+translateY(0);
+
+}
+
+}
