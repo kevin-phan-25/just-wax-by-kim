@@ -1,124 +1,23 @@
-/**
- * Updated: July 27, 2026
- * Change: CSS custom properties rewritten for the new elegant / luxurious color system.
- *          Warm ivory backgrounds, deep charcoal text, rich bronze-gold primary.
- * File: app/globals.css
- */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  /* ── Neutrals ── */
-  --color-ivory-50:  #FDFCFA;
-  --color-ivory-100: #FAF8F5;
-  --color-ivory-200: #F5F0E8;
-  --color-ivory-300: #EDE6DB;
-  --color-ivory-400: #E5DCD0;
-  --color-ivory-500: #D6CBBC;
-
-  --color-charcoal-400: #8A7F74;
-  --color-charcoal-500: #6B6159;
-  --color-charcoal-700: #2C2522;
-  --color-charcoal-800: #1A1614;
-  --color-charcoal-900: #12100E;
-
-  /* ── Gold ── */
-  --color-gold-200: #E8D9B8;
-  --color-gold-400: #C9A86C;
-  --color-gold-700: #6B4F24;
-  --color-gold-800: #5A411C;
-  --color-gold-900: #3F2E12;
-
-  /* ── Blush ── */
-  --color-blush-200: #E8D9D4;
-  --color-blush-300: #D4C0B8;
-
-  /* ── Semantic ── */
-  --background: #FAF8F5;
-  --surface: #F5F0E8;
-  --surface-elevated: #FDFCFA;
-
-  --foreground: #2C2522;
-  --foreground-secondary: #6B6159;
-  --foreground-muted: #8A7F74;
-  --heading: #1A1614;
-
-  --primary: #6B4F24;
-  --primary-hover: #5A411C;
-  --primary-foreground: #FFFFFF;
-  --primary-muted: #E8D9B8;
-
-  --accent: #C9A86C;
-  --accent-soft: #E8D9B8;
-  --blush: #D4C0B8;
-
-  --border: #E5DCD0;
-  --border-subtle: #EDE6DB;
-  --border-strong: #D6CBBC;
-
-  --success: #5C7A5A;
-  --warning: #A67C3D;
-  --error: #8B4A42;
-  --info: #5A6B7A;
-
-  --radius: 0.5rem;
+  --background: #FCF8F3;
+  --foreground: #3B2A26;
+  --gold: #C6A15B;
+  --rose: #E8C8BC;
+  --muted: #8C7468;
+  --champagne: #D8B4A0;
+  --taupe: #8C7468;
+  --espresso: #3B2A26;
 }
 
-@layer base {
-  * {
-    border-color: var(--border);
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    font-feature-settings: "rlig" 1, "calt" 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    color: var(--heading);
-  }
-
-  /* Selection */
-  ::selection {
-    background-color: var(--color-gold-200);
-    color: var(--color-charcoal-800);
-  }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
 }
 
-/* Optional utility helpers */
-@layer utilities {
-  .bg-ivory {
-    background-color: var(--background);
-  }
-  .bg-surface {
-    background-color: var(--surface);
-  }
-  .text-heading {
-    color: var(--heading);
-  }
-  .text-muted {
-    color: var(--foreground-muted);
-  }
-  .border-soft {
-    border-color: var(--border);
-  }
-  .text-gold {
-    color: var(--accent);
-  }
-  .bg-primary {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
-  }
-  .bg-primary:hover {
-    background-color: var(--primary-hover);
-  }
+::selection {
+  background: #D8B4A0;
+  color: #3B2A26;
 }
