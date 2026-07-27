@@ -2,14 +2,11 @@
  * -----------------------------------------------------------------------------
  * File: services.types.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Type definitions for services feature.
+ * Service data contract.
  *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * v1.0.0 Production
+ * Luxury waxing service model.
  *
  * -----------------------------------------------------------------------------
  */
@@ -17,25 +14,23 @@
 
 export interface Service {
 
-    id: string;
 
-    name: string;
-
-    description: string;
-
-    price: string;
-
-    duration: string;
-
-    category: string;
-
-}
+id:string;
 
 
-export interface ServiceCategory {
+name:string;
 
-    title: string;
 
-    description: string;
+category:string;
+
+
+description:string;
+
+
+price:string;
+
+
+duration:string;
+
 
 }
