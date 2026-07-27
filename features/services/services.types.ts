@@ -11,14 +11,13 @@
  */
 
 
-
 export interface Service {
 
 
   id: string;
 
 
-  name: string;
+  title: string;
 
 
   category: string;
@@ -45,7 +44,7 @@ export interface ServiceCategory {
   id: string;
 
 
-  name: string;
+  title: string;
 
 
   description: string;
