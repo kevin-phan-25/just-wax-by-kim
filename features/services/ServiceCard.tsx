@@ -1,62 +1,40 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * ServiceCard.tsx
- *
- * Changes:
- * - v1.0.1 luxury cards.
- *
- * -----------------------------------------------------------------------------
- */
-
-
 export default function ServiceCard({
 
 title,
 
-description
+price,
+
+description,
+
+duration
 
 }:{
 
 title:string;
 
+price:string;
+
 description:string;
 
+duration:string;
 
 }){
 
 
 return (
 
-
 <div
 
 className="
-rounded-3xl
 bg-white
+rounded-3xl
 p-8
-luxury-shadow
-hover:-translate-y-2
-transition
+shadow-xl
+border
+border-neutral-100
 "
-
 
 >
-
-
-<div
-
-className="
-mb-5
-h-12
-w-12
-rounded-full
-bg-[#E8C7C8]
-"
-
-
-/>
-
 
 
 <h3
@@ -85,6 +63,50 @@ text-gray-600
 {description}
 
 </p>
+
+
+<div
+
+className="
+mt-6
+flex
+justify-between
+items-center
+"
+
+>
+
+
+<span
+
+className="
+text-[#C9A227]
+text-2xl
+font-semibold
+"
+
+>
+
+{price}
+
+</span>
+
+
+<span
+
+className="
+text-sm
+text-gray-500
+"
+
+>
+
+{duration}
+
+</span>
+
+
+</div>
 
 
 </div>
