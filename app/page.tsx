@@ -7,7 +7,12 @@
  * Description:
  * Main homepage composition.
  *
- * This file controls the order of homepage sections.
+ * This file controls:
+ *
+ * - Homepage section ordering
+ * - Customer journey flow
+ * - Feature composition
+ * - Navigation anchors
  *
  * Changes:
  *
@@ -44,6 +49,11 @@
  * - July 27, 2026
  *   - Added v1.0.2 FAQ Experience.
  *   - Added customer education before booking.
+ *
+ * - July 27, 2026
+ *   - Added v1.1.0 Contact Experience.
+ *   - Added customer support section.
+ *   - Added location, hours, and contact workflow.
  *
  * -----------------------------------------------------------------------------
  */
@@ -82,6 +92,9 @@ import FAQ from "@/features/faq";
 import Booking from "@/features/booking";
 
 
+import Contact from "@/features/contact";
+
+
 
 export default function Home(){
 
@@ -94,14 +107,23 @@ return (
 
 
 {/*
+------------------------------------------------
 
 v0.3.0
 
 Luxury Hero Experience
 
-First impression:
-Brand identity + primary CTA
+Purpose:
 
+First impression.
+
+Creates:
+
+- Brand identity
+- Emotional connection
+- Primary CTA
+
+------------------------------------------------
 */}
 
 <section id="home">
@@ -115,23 +137,24 @@ Brand identity + primary CTA
 
 
 {/*
+------------------------------------------------
 
 v1.0.2
 
 Luxury Promise Experience
-
 
 Brand positioning:
 
 "More Than Just A Wax"
 
 
-Creates emotional connection:
+Creates:
 
 - Comfort
 - Confidence
-- Premium care
+- Premium expectation
 
+------------------------------------------------
 */}
 
 <section id="experience">
@@ -145,17 +168,20 @@ Creates emotional connection:
 
 
 {/*
+------------------------------------------------
 
 v0.4.0
 
 About Kim Experience
 
 
-Creates trust:
+Creates:
 
-- Personal story
-- Professional connection
+- Personal connection
+- Trust
+- Brand story
 
+------------------------------------------------
 */}
 
 <section id="about">
@@ -169,6 +195,7 @@ Creates trust:
 
 
 {/*
+------------------------------------------------
 
 v0.4.0
 
@@ -179,6 +206,7 @@ Explains:
 
 Why Just Wax by Kim exists.
 
+------------------------------------------------
 */}
 
 <Mission />
@@ -188,6 +216,7 @@ Why Just Wax by Kim exists.
 
 
 {/*
+------------------------------------------------
 
 v0.5.0
 
@@ -198,8 +227,9 @@ Displays:
 
 - Waxing services
 - Pricing
-- Service categories
+- Treatment options
 
+------------------------------------------------
 */}
 
 <section id="services">
@@ -213,21 +243,23 @@ Displays:
 
 
 {/*
+------------------------------------------------
 
-v1.0.2
+v1.1.0
 
 Studio Experience
 
 
-Adds:
+Creates luxury atmosphere:
 
-- Luxury atmosphere
 - Client journey
-- Premium environment
+- Professional environment
+- Studio expectations
 
+------------------------------------------------
 */}
 
-<section id="experience-details">
+<section id="studio">
 
 <Experience />
 
@@ -238,6 +270,7 @@ Adds:
 
 
 {/*
+------------------------------------------------
 
 v0.7.0
 
@@ -250,6 +283,7 @@ Visual trust:
 - Results
 - Luxury details
 
+------------------------------------------------
 */}
 
 <section id="gallery">
@@ -263,6 +297,7 @@ Visual trust:
 
 
 {/*
+------------------------------------------------
 
 v0.8.0
 
@@ -273,7 +308,9 @@ Social proof:
 
 - Reviews
 - Client confidence
+- Customer stories
 
+------------------------------------------------
 */}
 
 <section id="testimonials">
@@ -287,6 +324,7 @@ Social proof:
 
 
 {/*
+------------------------------------------------
 
 v0.8.0
 
@@ -297,7 +335,9 @@ Brand personality:
 
 - Social content
 - Community
+- Recent updates
 
+------------------------------------------------
 */}
 
 <section id="instagram">
@@ -311,6 +351,7 @@ Brand personality:
 
 
 {/*
+------------------------------------------------
 
 v1.0.2
 
@@ -321,8 +362,9 @@ Removes booking hesitation:
 
 - Preparation
 - Expectations
-- First visit questions
+- First appointment questions
 
+------------------------------------------------
 */}
 
 <section id="faq">
@@ -336,22 +378,52 @@ Removes booking hesitation:
 
 
 {/*
+------------------------------------------------
 
 v0.6.0
 
 Booking Experience
 
 
-Final conversion:
+Primary conversion:
 
 - Appointment CTA
 - Scheduling workflow
 
+------------------------------------------------
 */}
 
 <section id="booking">
 
 <Booking />
+
+</section>
+
+
+
+
+
+{/*
+------------------------------------------------
+
+v1.1.0
+
+Contact Experience
+
+
+Customer support:
+
+- Contact information
+- Studio hours
+- Location details
+- Questions before booking
+
+------------------------------------------------
+*/}
+
+<section id="contact">
+
+<Contact />
 
 </section>
 
