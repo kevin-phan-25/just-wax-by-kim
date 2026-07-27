@@ -5,47 +5,36 @@
  * Created: July 27, 2026
  *
  * Description:
- * Central design tokens.
+ * Design system configuration.
  *
  * Changes:
  * - July 27, 2026
- *   - Initial luxury color palette.
+ *   - Updated to use centralized colors.
  *
  * -----------------------------------------------------------------------------
  */
 
 
+import {
+  colors,
+} from "./colors";
+
+
 export const theme = {
 
-  colors: {
 
-    background:
-      "#FAF8F5",
-
-    foreground:
-      "#1F1F1F",
-
-    gold:
-      "#C9A227",
-
-    taupe:
-      "#8A817C",
-
-    border:
-      "#ECE7E1",
-
-  },
+colors,
 
 
-  radius: {
+radius: {
 
-    card:
-      "16px",
+  card:
+    "16px",
 
-    button:
-      "999px",
+  button:
+    "999px",
 
-  },
+},
 
 
 };
