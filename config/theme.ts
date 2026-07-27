@@ -5,11 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * Design system configuration.
+ * Main design system export.
  *
  * Changes:
  * - July 27, 2026
- *   - Updated to use centralized colors.
+ *   - Added colors, spacing, typography.
  *
  * -----------------------------------------------------------------------------
  */
@@ -20,21 +20,34 @@ import {
 } from "./colors";
 
 
+import {
+  spacing,
+} from "./spacing";
+
+
+import {
+  typography,
+} from "./typography";
+
+
 export const theme = {
 
+  colors,
 
-colors,
+  spacing,
+
+  typography,
 
 
-radius: {
+  radius: {
 
-  card:
-    "16px",
+    card:
+      "1rem",
 
-  button:
-    "999px",
+    button:
+      "999px",
 
-},
+  },
 
 
 };
