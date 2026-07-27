@@ -5,11 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * Business information used throughout the website.
+ * Business information.
  *
  * Changes:
  * - July 27, 2026
- *   - Initial business configuration.
+ *   - Added business configuration.
  *
  * -----------------------------------------------------------------------------
  */
@@ -17,22 +17,34 @@
 
 export const business = {
 
-  name:
-    "Just Wax by Kim",
 
-  slogan:
-    "More Than Just a Wax",
+name:
 
-  phone:
-    "",
+"Just Wax by Kim",
 
-  email:
-    "",
 
-  address:
-    "",
 
-  instagram:
-    "",
+tagline:
+
+"More Than Just A Wax",
+
+
+
+location:
+
+"Virginia",
+
+
+
+phone:
+
+"(555) 555-5555",
+
+
+
+email:
+
+"hello@justwaxbykim.com"
+
 
 };
