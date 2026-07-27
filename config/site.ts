@@ -13,58 +13,14 @@
  *
  * -----------------------------------------------------------------------------
  */
-
-
 export const siteConfig = {
-
-
-name:
-
-"Just Wax by Kim",
-
-
-
-title:
-
-"Just Wax by Kim | Luxury Wax Studio",
-
-
-
-description:
-
-"More Than Just A Wax. A luxury waxing experience focused on comfort, confidence, and elegance.",
-
-
-
-url:
-
-"https://justwaxbykim.com",
-
-
-
-location:
-
-"Virginia",
-
-
-
-email:
-
-"hello@justwaxbykim.com",
-
-
-
-phone:
-
-"+1-555-555-5555",
-
-
-
-socials:[
-
-"https://instagram.com/justwaxbykim"
-
-]
-
-
+  name: "Just Wax by Kim",
+  title: "Just Wax by Kim | Luxury Wax Studio",
+  description:
+    "More Than Just A Wax. A luxury waxing experience focused on comfort, confidence, and elegance.",
+  url: "https://justwaxbykim.com",
+  location: "Virginia",
+  email: "hello@justwaxbykim.com",
+  phone: "+1-555-555-5555",
+  socials: ["https://instagram.com/justwaxbykim"]
 };
