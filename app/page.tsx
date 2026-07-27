@@ -5,32 +5,40 @@
  * Created: July 27, 2026
  *
  * Description:
- * Homepage entry point.
+ * Main homepage composition.
+ *
+ * This file controls the order of homepage sections.
  *
  * Changes:
  * - July 27, 2026
- *   - Created initial landing page shell.
- *   - Added luxury brand introduction.
+ *   - Added v0.3.0 luxury hero experience.
+ *   - Connected feature-based homepage architecture.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Button from "@/components/ui/Button";
+import Hero from "@/features/hero";
+import About from "@/features/about";
+import Services from "@/features/services";
 
 
 export default function Home() {
 
 
-return (
+  return (
 
-<>
+    <main>
+
+      <Hero />
+
+      <About />
+
+      <Services />
+
+    </main>
+
+  );
 
 
-<section className="
-flex
-min-h-screen
-items-center
-">
+}
