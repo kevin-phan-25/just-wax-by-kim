@@ -28,7 +28,7 @@ export const services: Service[] = [
 {
 id:"brazilian-wax",
 
-name:"Brazilian Wax",
+title:"Brazilian Wax",
 
 category:"Signature Waxing",
 
@@ -46,7 +46,7 @@ duration:"45 minutes",
 {
 id:"bikini-wax",
 
-name:"Bikini Wax",
+title:"Bikini Wax",
 
 category:"Signature Waxing",
 
@@ -64,7 +64,7 @@ duration:"30 minutes",
 {
 id:"facial-wax",
 
-name:"Facial Wax",
+title:"Facial Wax",
 
 category:"Face & Beauty",
 
@@ -82,7 +82,7 @@ duration:"15 minutes",
 {
 id:"full-leg-wax",
 
-name:"Full Leg Wax",
+title:"Full Leg Wax",
 
 category:"Body Care",
 
@@ -114,15 +114,14 @@ export const serviceCategories: ServiceCategory[] = [
 
 id:"signature-waxing",
 
-
-name:"Signature Waxing",
-
+title:"Signature Waxing",
 
 description:
 "Premium waxing services designed around comfort, confidence, and quality.",
 
+services:
 
-services: services.filter(
+services.filter(
 
 (service)=>
 
@@ -135,20 +134,20 @@ service.category==="Signature Waxing"
 
 
 
+
 {
 
 
 id:"face-beauty",
 
-
-name:"Face & Beauty",
-
+title:"Face & Beauty",
 
 description:
-"Gentle facial services with attention to detail.",
+"Gentle facial waxing services with attention to detail.",
 
+services:
 
-services: services.filter(
+services.filter(
 
 (service)=>
 
@@ -161,20 +160,20 @@ service.category==="Face & Beauty"
 
 
 
+
 {
 
 
 id:"body-care",
 
-
-name:"Body Care",
-
+title:"Body Care",
 
 description:
-"Customized body treatments for smooth confident skin.",
+"Customized body waxing treatments for every client.",
 
+services:
 
-services: services.filter(
+services.filter(
 
 (service)=>
 
