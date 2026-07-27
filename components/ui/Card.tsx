@@ -5,23 +5,19 @@
  * Created: July 27, 2026
  *
  * Description:
- * Reusable luxury card container.
- *
- * Used for:
- * - Services
- * - Testimonials
- * - Gallery
- * - Experience sections
+ * Luxury reusable card component.
  *
  * Changes:
  * - July 27, 2026
- *   - Initial creation.
+ *   - Migrated colors to design tokens.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import { cn } from "@/lib/cn";
+import {
+  cn,
+} from "@/lib/cn";
 
 
 interface CardProps {
@@ -50,7 +46,7 @@ return (
 
 className={cn(
 
-"rounded-2xl border border-[#ECE7E1] bg-white p-6 shadow-sm transition duration-300 hover:shadow-md",
+"rounded-2xl border border-brand-border bg-brand-white p-6 shadow-sm transition duration-300 hover:shadow-md",
 
 className
 
