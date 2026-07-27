@@ -1,4 +1,21 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: Hero.tsx
+ *
+ * Description:
+ * Luxury hero experience.
+ *
+ * v1.0.2
+ * - Added premium layout.
+ * - Added image background.
+ * - Added animation layer.
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+
 import HeroContent from "./HeroContent";
+
 import HeroImage from "./HeroImage";
 
 
@@ -9,36 +26,31 @@ return (
 
 <section
 
-id="home"
-
 className="
-bg-[#FAF7F2]
-py-24
-px-6
+relative
+min-h-screen
+flex
+items-center
+overflow-hidden
 "
 
 >
+
+
+<HeroImage />
 
 
 <div
 
 className="
-max-w-7xl
-mx-auto
-grid
-md:grid-cols-2
-gap-16
-items-center
+relative
+z-10
+w-full
 "
 
 >
 
-
 <HeroContent />
-
-
-<HeroImage />
-
 
 </div>
 
