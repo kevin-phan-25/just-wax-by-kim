@@ -5,88 +5,148 @@
  * Created: July 27, 2026
  *
  * Description:
- * Services preview.
+ * Main luxury services section.
  *
  * Changes:
  * - July 27, 2026
- *   - Added homepage services preview.
+ *   - Rebuilt service experience.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-export default function Services() {
+import {
+SERVICES_CONFIG
+} from "./services.constants";
 
 
-const services = [
+import {
+serviceCategories
+} from "./services.data";
 
-"Brazilian Wax",
 
-"Facial Wax",
+import ServiceCategory from "./ServiceCategory";
 
-"Body Wax",
+import ServiceGrid from "./ServiceGrid";
 
-];
+import ServicePricing from "./ServicePricing";
+
+
+
+export default function Services(){
 
 
 return (
 
-<section className="
-bg-brand-white
+<section
+
+className="
+bg-brand-ivory
 px-6
-py-20
-">
+py-24
+"
+
+>
+
+
+<div
+
+className="
+mx-auto
+max-w-7xl
+"
+
+>
 
 
 <div className="
-mx-auto
-max-w-6xl
 text-center
 ">
 
 
-<h2 className="
-text-4xl
+<p className="
+text-sm
+uppercase
+tracking-[0.35em]
+text-brand-champagne
 ">
 
-Our Services
+{SERVICES_CONFIG.eyebrow}
+
+</p>
+
+
+
+<h2 className="
+mt-5
+text-4xl
+md:text-5xl
+">
+
+{SERVICES_CONFIG.title}
 
 </h2>
 
 
+
+<p className="
+mx-auto
+mt-6
+max-w-2xl
+text-brand-taupe
+">
+
+{SERVICES_CONFIG.description}
+
+</p>
+
+
+</div>
+
+
+
 <div className="
-mt-10
+mt-16
 grid
-gap-6
+gap-8
 md:grid-cols-3
 ">
 
 
 {
-services.map((service)=>(
 
-<div
+serviceCategories.map((category)=>(
 
-key={service}
 
-className="
-rounded-2xl
-border
-border-brand-border
-p-8
-"
+<ServiceCategory
 
->
+key={category.title}
 
-{service}
+category={category}
 
-</div>
+/>
+
 
 ))
+
 }
 
 
 </div>
+
+
+
+<div className="
+mt-16
+">
+
+<ServiceGrid />
+
+</div>
+
+
+
+<ServicePricing />
 
 
 </div>
@@ -95,5 +155,6 @@ p-8
 </section>
 
 );
+
 
 }
