@@ -1,161 +1,137 @@
 /**
  * -----------------------------------------------------------------------------
- * File:
- * LuxuryPromise.tsx
+ * File: LuxuryPromise.tsx
+ *
+ * Created: July 27, 2026
  *
  * Description:
- * Emotional luxury positioning section.
+ * Luxury brand promise section.
  *
- * v1.0.2
+ * Establishes the emotional positioning of:
+ *
+ * "More Than Just A Wax"
+ *
+ * Focus:
+ * - Comfort
+ * - Confidence
+ * - Premium care
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Added v1.0.2 luxury visual experience.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import Container from "@/components/ui/Container";
-
-import LuxuryCard from "@/components/ui/LuxuryCard";
-
-import FadeIn from "@/components/motion/FadeIn";
+import { Sparkles } from "lucide-react";
 
 
-const cards=[
-
-
-{
-title:"Comfort First",
-description:
-"Every appointment is designed around relaxation, privacy, and confidence."
-},
-
-
-{
-title:"Premium Care",
-description:
-"Every detail is intentional, from technique to atmosphere."
-},
-
-
-{
-title:"Confidence",
-description:
-"Leave feeling beautiful, refreshed, and completely yourself."
-}
-
-
+const promises = [
+  {
+    title: "Comfort First",
+    description:
+      "Every appointment is designed around relaxation, privacy, and your personal comfort.",
+  },
+  {
+    title: "Confidence Always",
+    description:
+      "Professional care that helps you feel beautiful, confident, and refreshed.",
+  },
+  {
+    title: "Luxury Experience",
+    description:
+      "Thoughtful details create an experience that goes beyond traditional waxing.",
+  },
 ];
 
 
-
-export default function LuxuryPromise(){
-
-
-return (
-
-<section
-
-className="
-py-24
-bg-brand-cream
-"
-
->
+export default function LuxuryPromise() {
 
 
-<Container>
+  return (
+
+    <section className="bg-brand-cream py-24">
 
 
-<FadeIn>
+      <div className="mx-auto max-w-6xl px-6">
 
 
-<div
-
-className="
-text-center
-max-w-3xl
-mx-auto
-"
-
->
-
-<h2
-
-className="
-text-4xl
-md:text-5xl
-font-serif
-"
-
->
-
-More Than Just A Wax
-
-</h2>
+        <div className="mx-auto max-w-3xl text-center">
 
 
-<p
-
-className="
-mt-5
-text-neutral-600
-text-lg
-"
-
->
-
-A luxury experience where beauty,
-comfort, and confidence meet.
-
-</p>
+          <Sparkles
+            className="mx-auto mb-6 h-8 w-8 text-brand-gold"
+          />
 
 
-</div>
+          <h2 className="text-4xl font-semibold tracking-tight text-brand-dark md:text-5xl">
+
+            More Than
+            <br />
+            Just a Wax
+
+          </h2>
 
 
-</FadeIn>
+          <p className="mt-6 text-lg leading-relaxed text-neutral-600">
+
+            A premium waxing experience focused on comfort,
+            confidence, and elegance.
+
+          </p>
+
+
+        </div>
 
 
 
-<div
 
-className="
-grid
-md:grid-cols-3
-gap-8
-mt-16
-"
-
->
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
 
 
-{
+          {promises.map((item) => (
 
-cards.map(card=>(
+            <div
+              key={item.title}
+              className="
+                rounded-2xl
+                border
+                border-neutral-200
+                bg-white
+                p-8
+                text-center
+                shadow-sm
+              "
+            >
 
-<LuxuryCard
+              <h3 className="text-xl font-semibold text-brand-dark">
 
-key={card.title}
+                {item.title}
 
-title={card.title}
-
-description={card.description}
-
-/>
-
-))
-
-}
-
-
-</div>
-
-
-</Container>
+              </h3>
 
 
-</section>
+              <p className="mt-4 text-neutral-600">
 
-);
+                {item.description}
 
+              </p>
+
+
+            </div>
+
+          ))}
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  );
 
 }
