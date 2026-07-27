@@ -1,49 +1,79 @@
 /**
  * -----------------------------------------------------------------------------
- * File: HeroImage.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * HeroImage.tsx
  *
  * Description:
- * Hero image container.
+ * Luxury hero image container.
  *
  * Changes:
- * - July 27, 2026
- *   - Added luxury image placeholder.
+ * - v1.0.1 added visual treatment.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-export default function HeroImage() {
+export default function HeroImage(){
 
 
 return (
 
-<div className="
+<div
+
+className="
 relative
+h-[520px]
+rounded-[40px]
 overflow-hidden
-rounded-[2rem]
-">
+bg-gradient-to-br
+from-[#E8C7C8]
+via-[#FAF7F2]
+to-[#C9A227]
+shadow-2xl
+"
+
+>
 
 
-<div className="
-aspect-[4/5]
-bg-brand-rose/20
+<div
+
+className="
+absolute
+inset-0
 flex
 items-center
 justify-center
-">
+"
+
+>
+
+<div className="text-center">
 
 
-<p className="
-text-center
-text-brand-taupe
-">
+<p
+
+className="
+font-serif
+text-3xl
+"
+
+>
 
 Luxury Studio
-<br/>
-Image Coming Soon
+
+</p>
+
+
+<p
+
+className="
+mt-3
+text-gray-600
+"
+
+>
+
+Kim's photo coming soon
 
 </p>
 
@@ -53,6 +83,11 @@ Image Coming Soon
 
 </div>
 
+
+</div>
+
+
 );
+
 
 }
