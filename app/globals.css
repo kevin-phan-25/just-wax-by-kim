@@ -1,44 +1,15 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * globals.css
- *
- * Created:
- * July 27, 2026
- *
- * Description:
- * Global luxury styling.
- *
- * Changes:
- * - Added v1.0.1 luxury polish.
- *
- * -----------------------------------------------------------------------------
- */
-
-
 @import "tailwindcss";
 
 
 :root {
 
 
---background:#FAF7F2;
-
---foreground:#1D1D1D;
-
---gold:#C9A227;
-
---rose:#E8C7C8;
+  --background:
+    #FCF8F3;
 
 
-}
-
-
-
-html {
-
-
-scroll-behavior:smooth;
+  --foreground:
+    #3B2A26;
 
 
 }
@@ -48,52 +19,32 @@ scroll-behavior:smooth;
 body {
 
 
-background:
+  background:
+    var(--background);
 
-var(--background);
+
+  color:
+    var(--foreground);
 
 
-color:
-
-var(--foreground);
+  font-family:
+    var(--font-inter),
+    sans-serif;
 
 
 }
+
 
 
 ::selection {
 
 
-background:
-
-var(--gold);
-
-
-color:white;
+  background:
+    #D8B4A0;
 
 
-}
-
-
-
-.luxury-shadow {
-
-
-box-shadow:
-
-0 20px 50px rgba(0,0,0,.08);
-
-
-}
-
-
-
-.gold-text {
-
-
-color:
-
-var(--gold);
+  color:
+    white;
 
 
 }
