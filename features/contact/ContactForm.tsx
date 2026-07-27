@@ -2,134 +2,88 @@
  * -----------------------------------------------------------------------------
  * File: ContactForm.tsx
  *
- * Created: July 27, 2026
- *
- * Description:
- * Contact form UI.
- *
- * Changes:
- * - v1.0.3
- *   - Added customer inquiry form.
- *   - Prepared for future API integration.
- *
+ * Description: Contact form UI - Compact & Elegant
+ * Updated: July 27, 2026
  * -----------------------------------------------------------------------------
  */
 
-
 "use client";
 
+import { useState } from "react";
 
-export default function ContactForm(){
+export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
+    const formData = new FormData(e.currentTarget);
 
-return (
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
 
-<form
+      if (response.ok) {
+        setMessage("✅ Thank you! Your message has been sent.");
+        e.currentTarget.reset();
+      } else {
+        setMessage("❌ Something went wrong. Please try again.");
+      }
+    } catch {
+      setMessage("❌ Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-className="
-space-y-5
-"
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <input
+        type="text"
+        name="name"
+        required
+        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
+        placeholder="Your Name"
+      />
 
->
+      <input
+        type="email"
+        name="email"
+        required
+        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
+        placeholder="Email Address"
+      />
 
+      <input
+        type="tel"
+        name="phone"
+        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors"
+        placeholder="Phone Number"
+      />
 
-<input
+      <textarea
+        name="message"
+        required
+        rows={4} 
+        className="w-full rounded-2xl border border-gray-200 p-4 text-[15px] outline-none focus:border-[#C6A15B] transition-colors resize-y min-h-[100px]"
+        placeholder="How can Kim help?"
+      />
 
-className="
-w-full
-rounded-xl
-border
-p-4
-outline-none
-"
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full rounded-2xl bg-[#C6A15B] py-4 font-medium text-white text-base transition hover:brightness-110 disabled:opacity-70"
+      >
+        {isSubmitting ? "Sending..." : "Send Message"}
+      </button>
 
-placeholder="Your Name"
-
-/>
-
-
-
-<input
-
-className="
-w-full
-rounded-xl
-border
-p-4
-outline-none
-"
-
-placeholder="Email Address"
-
-/>
-
-
-
-
-<input
-
-className="
-w-full
-rounded-xl
-border
-p-4
-outline-none
-"
-
-placeholder="Phone Number"
-
-/>
-
-
-
-
-<textarea
-
-className="
-h-32
-w-full
-rounded-xl
-border
-p-4
-outline-none
-"
-
-placeholder="How can Kim help?"
-
-/>
-
-
-
-
-<button
-
-type="submit"
-
-className="
-w-full
-rounded-xl
-bg-brand-gold
-px-6
-py-4
-font-medium
-text-white
-transition
-hover:opacity-90
-"
-
->
-
-Send Message
-
-</button>
-
-
-
-</form>
-
-
-);
-
-
+      {message && (
+        <p className="text-center text-sm font-medium">{message}</p>
+      )}
+    </form>
+  );
 }
