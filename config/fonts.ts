@@ -1,10 +1,14 @@
 /**
  * -----------------------------------------------------------------------------
- * File:
- * fonts.ts
+ * File: fonts.ts
+ *
+ * Created: July 27, 2026
  *
  * Description:
- * Luxury typography.
+ * Luxury brand typography.
+ *
+ * Changes:
+ * - Added v1.0.1 typography system.
  *
  * -----------------------------------------------------------------------------
  */
@@ -22,16 +26,43 @@ from "next/font/google";
 
 
 
+
 export const headingFont = Playfair_Display({
 
-subsets:["latin"]
+subsets:[
+
+"latin"
+
+],
+
+variable:
+
+"--font-heading",
+
+display:
+
+"swap"
 
 });
 
 
 
+
+
 export const bodyFont = Montserrat({
 
-subsets:["latin"]
+subsets:[
+
+"latin"
+
+],
+
+variable:
+
+"--font-body",
+
+display:
+
+"swap"
 
 });
