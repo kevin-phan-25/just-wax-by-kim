@@ -1,67 +1,64 @@
 /**
  * -----------------------------------------------------------------------------
- * File: Section.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * Section.tsx
  *
  * Description:
- * Standard website section wrapper.
+ * Reusable luxury section wrapper.
  *
  * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * - v1.0.1 added spacing system.
  *
  * -----------------------------------------------------------------------------
  */
-
-
-import {
-cn,
-} from "@/lib/cn";
-
-
-interface Props {
-
-children:
-React.ReactNode;
-
-id?:
-string;
-
-className?:
-string;
-
-}
 
 
 export default function Section({
 
 children,
 
-id,
+className=""
 
-className,
+}:{
 
-}: Props) {
+children:React.ReactNode;
+
+className?:string;
+
+
+}){
 
 
 return (
 
 <section
 
-id={id}
+className={`
+px-6
+py-24
+${className}
+`}
 
-className={cn(
-"py-24 lg:py-32",
-className
-)}
+>
+
+
+<div
+
+className="
+mx-auto
+max-w-6xl
+"
 
 >
 
 {children}
 
+</div>
+
+
 </section>
 
 );
+
 
 }
