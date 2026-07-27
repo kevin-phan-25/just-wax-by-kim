@@ -5,39 +5,57 @@
  * Created: July 27, 2026
  *
  * Description:
- * Search engine crawler rules.
- *
- * Controls indexing behavior for SEO.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * Search crawler configuration.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type { MetadataRoute } from "next";
+import type {
+
+MetadataRoute
+
+}
+
+from "next";
 
 
-export default function robots(): MetadataRoute.Robots {
+import {
 
-  return {
+siteConfig
 
-    rules: {
+}
 
-      userAgent:
-        "*",
-
-      allow:
-        "/",
-
-    },
+from "@/config/site";
 
 
-    sitemap:
-      "https://justwaxbykim.com/sitemap.xml",
 
-  };
+export default function robots():
+
+MetadataRoute.Robots {
+
+
+return {
+
+
+rules:{
+
+
+userAgent:"*",
+
+
+allow:"/"
+
+
+},
+
+
+sitemap:
+
+`${siteConfig.url}/sitemap.xml`
+
+
+};
+
 
 }
