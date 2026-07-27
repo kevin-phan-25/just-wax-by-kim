@@ -7,10 +7,15 @@
  * Description:
  * Global styling foundation.
  *
+ * Provides:
+ * - Brand tokens
+ * - Tailwind theme mapping
+ * - Global typography
+ *
  * Changes:
  * - July 27, 2026
- *   - Added luxury color variables.
- *   - Added typography defaults.
+ *   - Added centralized luxury color system.
+ *   - Removed scattered color values.
  *
  * -----------------------------------------------------------------------------
  */
@@ -19,22 +24,36 @@
 @import "tailwindcss";
 
 
+@theme {
+
+  --color-brand-background:
+    #FAF8F5;
+
+  --color-brand-foreground:
+    #1F1F1F;
+
+  --color-brand-gold:
+    #C9A227;
+
+  --color-brand-taupe:
+    #8A817C;
+
+  --color-brand-border:
+    #ECE7E1;
+
+  --color-brand-white:
+    #FFFFFF;
+
+}
+
+
 :root {
 
   --background:
-    #FAF8F5;
+    var(--color-brand-background);
 
   --foreground:
-    #1F1F1F;
-
-  --gold:
-    #C9A227;
-
-  --taupe:
-    #8A817C;
-
-  --border:
-    #ECE7E1;
+    var(--color-brand-foreground);
 
 }
 
