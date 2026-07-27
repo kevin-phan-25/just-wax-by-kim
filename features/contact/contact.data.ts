@@ -27,7 +27,7 @@ export const CONTACT_DATA = {
 
 
     email:
-    "hello@justwaxbykim.com",
+    "justwaxbykim@gmail.com",
 
 
     location:
