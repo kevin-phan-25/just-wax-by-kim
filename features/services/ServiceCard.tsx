@@ -1,77 +1,103 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: ServiceCard.tsx
+ *
+ * Description:
+ * Luxury service presentation card.
+ *
+ * v1.0.0 Production:
+ * - Uses Service object
+ * - Supports future expansion
+ * - Keeps pricing and content centralized
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+
+import { Service } from "./services.types";
+
+
+interface ServiceCardProps {
+
+  service: Service;
+
+}
+
+
+
 export default function ServiceCard({
 
-title,
+  service,
 
-price,
-
-description,
-
-duration
-
-}:{
-
-title:string;
-
-price:string;
-
-description:string;
-
-duration:string;
-
-}){
+}: ServiceCardProps) {
 
 
 return (
 
-<div
+<article
 
 className="
-bg-white
+group
 rounded-3xl
-p-8
-shadow-xl
 border
-border-neutral-100
+border-brand-gold/20
+bg-white
+p-8
+shadow-sm
+transition
+duration-300
+hover:-translate-y-2
+hover:shadow-xl
 "
 
 >
+
+
+<div className="space-y-5">
 
 
 <h3
 
 className="
-font-serif
 text-2xl
+font-semibold
+tracking-wide
+text-brand-dark
 "
 
 >
 
-{title}
+{service.title}
 
 </h3>
+
 
 
 <p
 
 className="
-mt-4
-text-gray-600
+text-sm
+leading-relaxed
+text-neutral-600
 "
 
 >
 
-{description}
+{service.description}
 
 </p>
+
 
 
 <div
 
 className="
-mt-6
 flex
-justify-between
 items-center
+justify-between
+border-t
+border-neutral-200
+pt-5
 "
 
 >
@@ -80,37 +106,41 @@ items-center
 <span
 
 className="
-text-[#C9A227]
-text-2xl
+text-xl
 font-semibold
+text-brand-gold
 "
 
 >
 
-{price}
+{service.price}
 
 </span>
+
 
 
 <span
 
 className="
 text-sm
-text-gray-500
+text-neutral-500
 "
 
 >
 
-{duration}
+{service.duration}
 
 </span>
 
 
-</div>
-
 
 </div>
 
+
+</div>
+
+
+</article>
 
 );
 
