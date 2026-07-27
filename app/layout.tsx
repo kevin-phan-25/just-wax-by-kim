@@ -9,8 +9,7 @@
  *
  * Changes:
  * - July 27, 2026
- *   - Added global fonts.
- *   - Added navigation and footer shell.
+ *   - Added v1.0.0 production SEO.
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,19 +17,98 @@
 
 import type { Metadata } from "next";
 
-import "./globals.css";
+
+import Script from "next/script";
+
+
+import Navbar from "@/components/layout/Navbar";
+
+import Footer from "@/components/layout/Footer";
+
 
 import {
-  headingFont,
-  bodyFont,
-} from "@/config/fonts";
 
-import Navbar
-from "@/components/layout/Navbar";
+createMetadata
 
-import Footer
-from "@/components/layout/Footer";
+}
+
+from "@/lib/metadata";
 
 
-export const metadata: Metadata = {
+import {
 
+businessSchema
+
+}
+
+from "@/lib/seo";
+
+
+import "./globals.css";
+
+
+
+export const metadata: Metadata = createMetadata();
+
+
+
+export default function RootLayout({
+
+children
+
+}:{
+
+children:React.ReactNode
+
+}){
+
+
+return (
+
+<html lang="en">
+
+
+<body>
+
+
+<Script
+
+id="business-schema"
+
+type="application/ld+json"
+
+dangerouslySetInnerHTML={{
+
+__html:
+
+JSON.stringify(
+
+businessSchema()
+
+)
+
+}}
+
+/>
+
+
+
+<Navbar />
+
+
+{children}
+
+
+<Footer />
+
+
+</body>
+
+
+</html>
+
+
+);
+
+
+}
