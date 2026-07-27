@@ -1,10 +1,15 @@
 /**
  * -----------------------------------------------------------------------------
- * File:
- * providers.tsx
+ * File: providers.tsx
+ *
+ * Created: July 27, 2026
  *
  * Description:
- * Global providers.
+ * Global client-side providers.
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Added Vercel Analytics.
  *
  * -----------------------------------------------------------------------------
  */
@@ -29,7 +34,7 @@ children
 
 }:{
 
-children:React.ReactNode
+children:React.ReactNode;
 
 }){
 
@@ -38,9 +43,12 @@ return (
 
 <>
 
+
 {children}
 
+
 <Analytics />
+
 
 </>
 
