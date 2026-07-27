@@ -5,17 +5,11 @@
  * Created: July 27, 2026
  *
  * Description:
- * Global styling foundation.
- *
- * Provides:
- * - Brand tokens
- * - Tailwind theme mapping
- * - Global typography
+ * Global luxury design tokens.
  *
  * Changes:
  * - July 27, 2026
- *   - Added centralized luxury color system.
- *   - Removed scattered color values.
+ *   - Added Tailwind brand tokens.
  *
  * -----------------------------------------------------------------------------
  */
@@ -24,76 +18,90 @@
 @import "tailwindcss";
 
 
+@import "../styles/animations.css";
+
+
 @theme {
 
-  --color-brand-background:
-    #FAF8F5;
 
-  --color-brand-foreground:
-    #1F1F1F;
+--color-brand-ivory:
+#FAF8F5;
 
-  --color-brand-gold:
-    #C9A227;
 
-  --color-brand-taupe:
-    #8A817C;
+--color-brand-espresso:
+#1F1F1F;
 
-  --color-brand-border:
-    #ECE7E1;
 
-  --color-brand-white:
-    #FFFFFF;
+--color-brand-champagne:
+#C9A227;
+
+
+--color-brand-taupe:
+#8A817C;
+
+
+--color-brand-rose:
+#D8B4A0;
+
+
+--color-brand-border:
+#ECE7E1;
+
+
+--color-brand-white:
+#FFFFFF;
+
 
 }
 
 
 :root {
 
-  --background:
-    var(--color-brand-background);
+--background:
+#FAF8F5;
 
-  --foreground:
-    var(--color-brand-foreground);
+
+--foreground:
+#1F1F1F;
 
 }
 
 
 html {
 
-  scroll-behavior:
-    smooth;
+scroll-behavior:
+smooth;
 
 }
 
 
 body {
 
-  background:
-    var(--background);
+background:
+var(--background);
 
-  color:
-    var(--foreground);
+color:
+var(--foreground);
 
-  font-family:
-    var(--font-body);
+font-family:
+var(--font-body);
 
 }
 
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
 
-  font-family:
-    var(--font-heading);
+font-family:
+var(--font-heading);
 
 }
 
 
 * {
 
-  box-sizing:
-    border-box;
+box-sizing:
+border-box;
 
 }
