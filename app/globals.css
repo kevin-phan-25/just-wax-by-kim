@@ -1,0 +1,80 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: globals.css
+ *
+ * Created: July 27, 2026
+ *
+ * Description:
+ * Global styling foundation.
+ *
+ * Changes:
+ * - July 27, 2026
+ *   - Added luxury color variables.
+ *   - Added typography defaults.
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+
+@import "tailwindcss";
+
+
+:root {
+
+  --background:
+    #FAF8F5;
+
+  --foreground:
+    #1F1F1F;
+
+  --gold:
+    #C9A227;
+
+  --taupe:
+    #8A817C;
+
+  --border:
+    #ECE7E1;
+
+}
+
+
+html {
+
+  scroll-behavior:
+    smooth;
+
+}
+
+
+body {
+
+  background:
+    var(--background);
+
+  color:
+    var(--foreground);
+
+  font-family:
+    var(--font-body);
+
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+
+  font-family:
+    var(--font-heading);
+
+}
+
+
+* {
+
+  box-sizing:
+    border-box;
+
+}
