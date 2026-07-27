@@ -2,53 +2,103 @@
  * -----------------------------------------------------------------------------
  * File: Logo.tsx
  *
- * Created: July 27, 2026
- *
  * Description:
  * Luxury brand logo component.
  *
- * Changes:
- * - July 27, 2026
- *   - Initial logo system.
+ * Just Wax by Kim
  *
  * -----------------------------------------------------------------------------
  */
 
 
-export default function Logo() {
+import Image from "next/image";
+
+
+interface LogoProps {
+
+  size?: "sm" | "md" | "lg";
+
+}
+
+
+
+export default function Logo({
+
+  size = "md",
+
+}: LogoProps) {
+
+
+
+const sizes = {
+
+
+  sm: {
+
+    width: 130,
+
+    height: 90,
+
+  },
+
+
+  md: {
+
+    width: 180,
+
+    height: 120,
+
+  },
+
+
+  lg: {
+
+    width: 280,
+
+    height: 180,
+
+  },
+
+
+};
+
 
 
 return (
 
-<div className="
-text-center
-leading-none
-">
+<div
+
+className="
+flex
+items-center
+justify-center
+"
+
+>
 
 
-<p className="
-text-2xl
-tracking-[0.3em]
-">
+<Image
 
-JUST WAX
+src="/logo/just-wax-by-kim.png"
 
-</p>
+alt="Just Wax by Kim - More Than Just A Wax"
 
+width={sizes[size].width}
 
-<p className="
-text-sm
-tracking-[0.5em]
-text-brand-champagne
-">
+height={sizes[size].height}
 
-BY KIM
+priority
 
-</p>
+className="
+object-contain
+"
+
+/>
 
 
 </div>
 
 );
+
 
 }
