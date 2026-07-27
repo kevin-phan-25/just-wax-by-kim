@@ -1,53 +1,53 @@
 /**
  * -----------------------------------------------------------------------------
- * File: theme.ts
+ * File:
+ * theme.ts
  *
- * Created: July 27, 2026
+ * Created:
+ * July 27, 2026
  *
  * Description:
- * Main design system export.
+ * Global luxury brand theme.
  *
  * Changes:
- * - July 27, 2026
- *   - Added colors, spacing, typography.
+ * - Added v1.0.1 luxury visual system.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import {
-  colors,
-} from "./colors";
-
-
-import {
-  spacing,
-} from "./spacing";
-
-
-import {
-  typography,
-} from "./typography";
-
-
 export const theme = {
 
-  colors,
 
-  spacing,
-
-  typography,
+colors:{
 
 
-  radius: {
+background:"#FAF7F2",
 
-    card:
-      "1rem",
+foreground:"#1D1D1D",
 
-    button:
-      "999px",
+gold:"#C9A227",
 
-  },
+rose:"#E8C7C8",
+
+muted:"#6B6B6B",
+
+white:"#FFFFFF"
+
+
+},
+
+
+radius:{
+
+
+card:"24px",
+
+
+button:"999px"
+
+
+}
 
 
 };
