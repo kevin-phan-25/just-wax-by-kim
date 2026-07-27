@@ -11,7 +11,7 @@
  */
 
 
-import { Service } from "./services.types";
+import type { Service } from "./services.types";
 
 
 
@@ -84,6 +84,7 @@ export default function ServiceCard({
 
 
 
+
           <h3
 
 
@@ -99,7 +100,7 @@ export default function ServiceCard({
           >
 
 
-            {service.name}
+            {service.title}
 
 
           </h3>
