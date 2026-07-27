@@ -1,52 +1,87 @@
 /**
  * -----------------------------------------------------------------------------
- * File: HeroButtons.tsx
- *
- * Created: July 27, 2026
- *
- * Description:
- * Hero CTA buttons.
+ * File:
+ * HeroButtons.tsx
  *
  * Changes:
- * - July 27, 2026
- *   - Created appointment actions.
+ * - v1.0.1 luxury CTA styling.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import Button from "@/components/ui/Button";
+import Link from "next/link";
 
 
-export default function HeroButtons() {
+
+export default function HeroButtons(){
 
 
 return (
 
-<div className="
+
+<div
+
+className="
+mt-10
 flex
-flex-col
 gap-4
-sm:flex-row
-">
+flex-wrap
+"
 
 
-<Button>
+>
+
+
+<Link
+
+href="#booking"
+
+className="
+rounded-full
+bg-[#C9A227]
+px-8
+py-4
+text-white
+transition
+hover:scale-105
+"
+
+>
 
 Book Your Appointment
 
-</Button>
+</Link>
 
 
-<Button variant="secondary">
+
+<Link
+
+href="#services"
+
+className="
+rounded-full
+border
+border-[#C9A227]
+px-8
+py-4
+hover:bg-[#C9A227]
+hover:text-white
+transition
+"
+
+>
 
 Explore Services
 
-</Button>
+</Link>
+
 
 
 </div>
 
+
 );
+
 
 }
