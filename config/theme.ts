@@ -1,53 +1,49 @@
 /**
- * -----------------------------------------------------------------------------
- * File:
- * theme.ts
- *
- * Created:
- * July 27, 2026
- *
- * Description:
- * Global luxury brand theme.
- *
- * Changes:
- * - Added v1.0.1 luxury visual system.
- *
- * -----------------------------------------------------------------------------
+ * Updated: July 27, 2026
+ * Change: Theme tokens updated to the new luxurious warm palette.
+ *          Primary is now rich bronze-gold, backgrounds are warm ivory/cream.
+ * File: config/theme.ts
  */
 
+import { colors } from "./colors";
 
 export const theme = {
+  colors: {
+    background: colors.background,
+    surface: colors.surface,
+    surfaceElevated: colors.surfaceElevated,
 
+    text: colors.text.primary,
+    textSecondary: colors.text.secondary,
+    textMuted: colors.text.muted,
+    textInverse: colors.text.inverse,
+    heading: colors.text.heading,
 
-colors:{
+    primary: colors.primary.DEFAULT,
+    primaryHover: colors.primary.hover,
+    primaryActive: colors.primary.active,
+    primaryForeground: colors.primary.foreground,
+    primaryMuted: colors.primary.muted,
 
+    accent: colors.accent.gold,
+    accentSoft: colors.accent.goldSoft,
+    blush: colors.accent.blush,
 
-background:"#FAF7F2",
+    border: colors.border.default,
+    borderSubtle: colors.border.subtle,
+    borderStrong: colors.border.strong,
 
-foreground:"#1D1D1D",
+    success: colors.success,
+    warning: colors.warning,
+    error: colors.error,
+    info: colors.info,
 
-gold:"#C9A227",
+    white: colors.white,
+    black: colors.black,
+  },
 
-rose:"#E8C7C8",
+  // Optional: keep existing spacing / radius / etc. intact
+  // radius, shadows, fonts can stay as they were
+} as const;
 
-muted:"#6B6B6B",
-
-white:"#FFFFFF"
-
-
-},
-
-
-radius:{
-
-
-card:"24px",
-
-
-button:"999px"
-
-
-}
-
-
-};
+export type Theme = typeof theme;
