@@ -5,62 +5,58 @@
  * Created: July 27, 2026
  *
  * Description:
- * Web app manifest configuration.
- *
- * Provides metadata for browsers and mobile devices.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * Progressive web app metadata.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type { MetadataRoute } from "next";
+import type {
+
+MetadataRoute
+
+}
+
+from "next";
 
 
-export default function manifest(): MetadataRoute.Manifest {
 
-  return {
+export default function manifest():
 
-    name:
-      "Just Wax by Kim",
+MetadataRoute.Manifest {
 
-    short_name:
-      "Just Wax by Kim",
 
-    description:
-      "Luxury waxing services designed around confidence, comfort, and beauty.",
+return {
 
-    start_url:
-      "/",
 
-    display:
-      "standalone",
+name:
 
-    background_color:
-      "#FAF8F5",
+"Just Wax by Kim",
 
-    theme_color:
-      "#C9A227",
 
-    icons: [
+short_name:
 
-      {
-        src: "/icon-192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
+"Just Wax Kim",
 
-      {
-        src: "/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
 
-    ],
+description:
 
-  };
+"Luxury waxing experience",
+
+
+start_url:"/",
+
+
+display:"standalone",
+
+
+background_color:"#ffffff",
+
+
+theme_color:"#C9A227"
+
+
+};
+
 
 }
