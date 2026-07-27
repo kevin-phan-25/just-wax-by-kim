@@ -1,15 +1,10 @@
 /**
  * -----------------------------------------------------------------------------
- * File: About.tsx
- *
- * Created: July 27, 2026
- *
- * Description:
- * Main About Kim section.
+ * File:
+ * About.tsx
  *
  * Changes:
- * - July 27, 2026
- *   - Created luxury about layout.
+ * - v1.0.1 luxury about redesign.
  *
  * -----------------------------------------------------------------------------
  */
@@ -20,34 +15,43 @@ import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
 
 
-export default function About() {
+
+export default function About(){
 
 
 return (
 
+
 <section
+
+id="about"
+
 className="
-bg-brand-white
+bg-white
 px-6
 py-24
 "
+
+
 >
 
 
 <div
+
 className="
 mx-auto
+max-w-6xl
 grid
-max-w-7xl
-items-center
-gap-12
 md:grid-cols-2
+gap-16
+items-center
 "
+
+
 >
 
 
 <AboutImage />
-
 
 <AboutContent />
 
@@ -57,6 +61,8 @@ md:grid-cols-2
 
 </section>
 
+
 );
+
 
 }
