@@ -5,33 +5,51 @@
  * Created: July 27, 2026
  *
  * Description:
- * Generates sitemap for search engines.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * Search engine sitemap.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type { MetadataRoute } from "next";
+import type {
+
+MetadataRoute
+
+}
+
+from "next";
 
 
-export default function sitemap(): MetadataRoute.Sitemap {
+import {
+
+siteConfig
+
+}
+
+from "@/config/site";
+
+
+
+export default function sitemap():
+
+MetadataRoute.Sitemap {
 
 
 return [
 
-  {
 
-    url:
-      "https://justwaxbykim.com",
+{
 
-    lastModified:
-      new Date(),
+url:
 
-  },
+siteConfig.url,
+
+lastModified:
+
+new Date()
+
+}
+
 
 ];
 
