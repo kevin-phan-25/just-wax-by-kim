@@ -1,115 +1,96 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ServiceCard.tsx
- *
- * Created: July 27, 2026
- *
- * Description:
- * Individual service display card.
+ * File:
+ * ServiceCard.tsx
  *
  * Changes:
- * - July 27, 2026
- *   - Added luxury service card.
+ * - v1.0.1 luxury cards.
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type {
-Service
-} from "./services.types";
-
-
-interface Props {
-
-service: Service;
-
-}
-
-
-
 export default function ServiceCard({
-service
-}: Props) {
+
+title,
+
+description
+
+}:{
+
+title:string;
+
+description:string;
+
+
+}){
 
 
 return (
 
+
 <div
 
 className="
-group
 rounded-3xl
-border
-border-brand-border
-bg-brand-white
+bg-white
 p-8
+luxury-shadow
+hover:-translate-y-2
 transition
-hover:-translate-y-1
 "
+
 
 >
 
 
-<div className="
-flex
-items-start
-justify-between
-gap-4
-">
+<div
+
+className="
+mb-5
+h-12
+w-12
+rounded-full
+bg-[#E8C7C8]
+"
 
 
-<h3 className="
-text-xl
-font-semibold
-">
+/>
 
-{service.name}
+
+
+<h3
+
+className="
+font-serif
+text-2xl
+"
+
+>
+
+{title}
 
 </h3>
 
 
-<p className="
-text-brand-gold
-font-medium
-">
+<p
 
-{service.price}
+className="
+mt-4
+text-gray-600
+"
 
-</p>
+>
 
-
-</div>
-
-
-
-<p className="
-mt-5
-text-sm
-leading-relaxed
-text-brand-taupe
-">
-
-{service.description}
+{description}
 
 </p>
 
 
-
-<div className="
-mt-6
-text-sm
-text-brand-taupe
-">
-
-{service.duration}
-
 </div>
 
-
-
-</div>
 
 );
+
 
 }
