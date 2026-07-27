@@ -31,6 +31,10 @@
  *   - Added v0.8.0 Testimonials Experience.
  *   - Added Instagram Social Experience.
  *
+ * - July 27, 2026
+ *   - Added v0.9.0 navigation anchors.
+ *   - Connected homepage sections for smooth scrolling.
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -61,6 +65,7 @@ export default function Home() {
     <main>
 
 
+
       {/*
         v0.3.0
 
@@ -70,7 +75,13 @@ export default function Home() {
         Brand identity + primary CTA
       */}
 
-      <Hero />
+      <section id="home">
+
+        <Hero />
+
+      </section>
+
+
 
 
 
@@ -82,7 +93,13 @@ export default function Home() {
         Builds trust and personal connection
       */}
 
-      <About />
+      <section id="about">
+
+        <About />
+
+      </section>
+
+
 
 
 
@@ -99,16 +116,23 @@ export default function Home() {
 
 
 
+
+
       {/*
         v0.5.0
 
         Services Experience
 
-        Displays waxing services
-        and value proposition
+        Displays services and value
       */}
 
-      <Services />
+      <section id="services">
+
+        <Services />
+
+      </section>
+
+
 
 
 
@@ -117,13 +141,20 @@ export default function Home() {
 
         Gallery Experience
 
-        Builds visual trust through:
-        - Studio photos
-        - Luxury atmosphere
-        - Brand presentation
+        Builds visual trust:
+
+        - Studio atmosphere
+        - Luxury environment
+        - Professional presentation
       */}
 
-      <Gallery />
+      <section id="gallery">
+
+        <Gallery />
+
+      </section>
+
+
 
 
 
@@ -133,12 +164,19 @@ export default function Home() {
         Testimonials Experience
 
         Builds customer confidence:
+
         - Reviews
-        - Client feedback
+        - Client satisfaction
         - Social proof
       */}
 
-      <Testimonials />
+      <section id="testimonials">
+
+        <Testimonials />
+
+      </section>
+
+
 
 
 
@@ -148,12 +186,15 @@ export default function Home() {
         Instagram Experience
 
         Shows:
-        - Social presence
+
         - Brand personality
+        - Social presence
         - Recent content
       */}
 
       <Instagram />
+
+
 
 
 
@@ -163,10 +204,17 @@ export default function Home() {
         Booking Experience
 
         Final conversion point:
-        Appointment scheduling
+
+        - Appointment CTA
+        - Scheduling workflow
       */}
 
-      <Booking />
+      <section id="booking">
+
+        <Booking />
+
+      </section>
+
 
 
     </main>
