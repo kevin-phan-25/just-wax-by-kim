@@ -4,13 +4,15 @@
  * HeroImage.tsx
  *
  * Description:
- * Luxury hero image container.
+ * Hero background image.
  *
- * Changes:
- * - v1.0.1 added visual treatment.
+ * v1.0.2
  *
  * -----------------------------------------------------------------------------
  */
+
+
+import Image from "next/image";
 
 
 export default function HeroImage(){
@@ -21,18 +23,29 @@ return (
 <div
 
 className="
-relative
-h-[520px]
-rounded-[40px]
-overflow-hidden
-bg-gradient-to-br
-from-[#E8C7C8]
-via-[#FAF7F2]
-to-[#C9A227]
-shadow-2xl
+absolute
+inset-0
 "
 
 >
+
+
+<Image
+
+src="/hero/hero-main.webp"
+
+alt="Luxury waxing studio"
+
+fill
+
+priority
+
+className="
+object-cover
+"
+
+/>
+
 
 
 <div
@@ -40,52 +53,16 @@ shadow-2xl
 className="
 absolute
 inset-0
-flex
-items-center
-justify-center
+bg-gradient-to-r
+from-black/60
+via-black/30
+to-transparent
 "
 
->
-
-<div className="text-center">
-
-
-<p
-
-className="
-font-serif
-text-3xl
-"
-
->
-
-Luxury Studio
-
-</p>
-
-
-<p
-
-className="
-mt-3
-text-gray-600
-"
-
->
-
-Kim's photo coming soon
-
-</p>
+/>
 
 
 </div>
-
-
-</div>
-
-
-</div>
-
 
 );
 
