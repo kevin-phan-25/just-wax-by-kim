@@ -5,14 +5,19 @@
  * Created: July 27, 2026
  *
  * Description:
- * About section placeholder.
+ * Main About Kim section.
  *
  * Changes:
  * - July 27, 2026
- *   - Added homepage section placeholder.
+ *   - Created luxury about layout.
  *
  * -----------------------------------------------------------------------------
  */
+
+
+import AboutContent from "./AboutContent";
+
+import AboutImage from "./AboutImage";
 
 
 export default function About() {
@@ -20,33 +25,34 @@ export default function About() {
 
 return (
 
-<section className="
+<section
+className="
+bg-brand-white
 px-6
-py-20
-text-center
-">
+py-24
+"
+>
 
 
-<h2 className="
-text-4xl
-">
-
-Meet Kim
-
-</h2>
-
-
-<p className="
+<div
+className="
 mx-auto
-mt-6
-max-w-xl
-text-brand-taupe
-">
+grid
+max-w-7xl
+items-center
+gap-12
+md:grid-cols-2
+"
+>
 
-Creating a comfortable and elevated waxing
-experience designed around confidence.
 
-</p>
+<AboutImage />
+
+
+<AboutContent />
+
+
+</div>
 
 
 </section>
