@@ -1,27 +1,5 @@
-/**
- * -----------------------------------------------------------------------------
- * File: ServiceGrid.tsx
- *
- * Created: July 27, 2026
- *
- * Description:
- * Service card grid.
- *
- * Changes:
- * - July 27, 2026
- *   - Added responsive service layout.
- *
- * -----------------------------------------------------------------------------
- */
-
-
-import {
-services
-} from "./services.data";
-
-
 import ServiceCard from "./ServiceCard";
-
+import { services } from "./services.data";
 
 
 export default function ServiceGrid(){
@@ -33,8 +11,9 @@ return (
 
 className="
 grid
-gap-6
+gap-8
 md:grid-cols-2
+lg:grid-cols-4
 "
 
 >
@@ -42,8 +21,7 @@ md:grid-cols-2
 
 {
 
-services.map((service)=>(
-
+services.map((service)=> (
 
 <ServiceCard
 
@@ -52,7 +30,6 @@ key={service.id}
 service={service}
 
 />
-
 
 ))
 
