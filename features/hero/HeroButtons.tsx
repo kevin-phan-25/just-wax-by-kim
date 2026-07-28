@@ -5,8 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Replaced gold accent with luxury mauve/plum
- *   - Cleaner feminine luxury CTA styling
+ *   - Fixed missing button background
+ *   - Added luxury pill styling
+ *   - Improved secondary button interaction
  *
  * -----------------------------------------------------------------------------
  */
@@ -17,7 +18,7 @@ export default function HeroButtons() {
   return (
     <div
       className="
-        mt-10
+        mt-8
         flex
         flex-wrap
         items-center
@@ -25,43 +26,57 @@ export default function HeroButtons() {
         gap-4
       "
     >
+      {/* Primary CTA */}
       <Link
         href="#booking"
         className="
+          inline-flex
+          items-center
+          justify-center
           rounded-full
-          bg-brand-plum
+          bg-[#8C5A6B]
           px-8
           py-3.5
           text-sm
           font-medium
           tracking-wide
           text-white
-          transition
+          shadow-sm
+          transition-all
           duration-300
-          hover:bg-brand-plum/90
-          hover:scale-[1.02]
+          hover:bg-[#7A4B5B]
+          hover:shadow-md
+          hover:-translate-y-0.5
         "
       >
         Book Your Appointment
       </Link>
 
+
+      {/* Secondary CTA */}
       <Link
         href="#services"
         className="
+          inline-flex
+          items-center
+          justify-center
           rounded-full
           border
-          border-brand-plum/40
+          border-[#8C5A6B]/40
+          bg-white/40
           px-8
           py-3.5
           text-sm
           font-medium
           tracking-wide
           text-brand-espresso
-          transition
+          backdrop-blur-sm
+          transition-all
           duration-300
-          hover:bg-brand-plum
+          hover:bg-[#8C5A6B]
           hover:text-white
-          hover:border-brand-plum
+          hover:border-[#8C5A6B]
+          hover:-translate-y-0.5
         "
       >
         Explore Services
