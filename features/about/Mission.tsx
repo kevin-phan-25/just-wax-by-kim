@@ -2,45 +2,26 @@
  * -----------------------------------------------------------------------------
  * File: Mission.tsx
  *
- * Created: July 27, 2026
- *
- * Description:
- * Brand mission component.
- *
  * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * - July 28, 2026
+ *   - Fully centered mission quote
+ *   - Tailored around the new brand statement
  *
  * -----------------------------------------------------------------------------
  */
-
-
 export default function Mission() {
+  return (
+    <section className="px-6 py-20 md:py-28">
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto mb-8 h-px w-16 bg-brand-gold/50" />
 
+        <p className="font-serif text-2xl md:text-3xl leading-relaxed text-brand-espresso italic">
+          &ldquo;Every experience is crafted to leave you feeling vibrant,
+          empowered, and beautifully renewed.&rdquo;
+        </p>
 
-return (
-
-<div
-className="
-border-l
-border-brand-champagne
-pl-6
-"
->
-
-
-<p className="
-italic
-text-brand-taupe
-">
-
-"Every experience is crafted to leave you feeling vibrant, empowered, and beautifully renewed."
-
-</p>
-
-
-</div>
-
-);
-
+        <div className="mx-auto mt-8 h-px w-16 bg-brand-gold/50" />
+      </div>
+    </section>
+  );
 }
