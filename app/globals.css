@@ -8,191 +8,372 @@
  * Global styles + Tailwind v4 theme tokens.
  *
  * Version:
- * v1.0.4 — Navbar offset + luxury polish
+ * v1.0.5 — Luxury section separation + unified brand palette
  *
  * Changes:
  * - July 28, 2026
- *   - Added scroll-padding-top so anchor links land cleanly under sticky navbar
- *   - Kept elegant background + theme tokens
+ *   - Unified background colors across all sections
+ *   - Added luxury section borders
+ *   - Updated accent palette toward dusty pink / mauve
+ *   - Removed conflicting background gradients
  *
  * -----------------------------------------------------------------------------
  */
 
 @import "tailwindcss";
 
+
 /* ------------------------------------------------------------------
    CSS Variables
 -------------------------------------------------------------------*/
+
 :root {
-  --background: #F8EDEE;
+
+  --background: #FCF8F3;
   --foreground: #3B2A26;
-  --gold: #C9A45A;
-  --rose: #F2D8D4;
-  --champagne: #E3C5BC;
-  --taupe: #7A625C;
+
+  --gold: #C6A15B;
+  --rose: #E8C8BC;
+  --dusty-pink: #D4A9B6;
+  --champagne: #D8B4A0;
+  --taupe: #8C7468;
   --espresso: #3B2A26;
+  --plum: #8C5A6B;
+
 }
+
 
 /* ------------------------------------------------------------------
    Tailwind Theme Tokens
 -------------------------------------------------------------------*/
+
 @theme {
-  --color-brand-gold: #C9A45A;
-  --color-brand-champagne: #E3C5BC;
-  --color-brand-rose: #F2D8D4;
-  --color-brand-taupe: #7A625C;
+
+  --color-brand-gold: #C6A15B;
+
+  --color-brand-champagne: #D8B4A0;
+
+  --color-brand-rose: #E8C8BC;
+
+  --color-brand-dusty-pink: #D4A9B6;
+
+  --color-brand-taupe: #8C7468;
+
   --color-brand-espresso: #3B2A26;
+
+  --color-brand-plum: #8C5A6B;
+
   --color-brand-black: #241B19;
+
   --color-brand-white: #FFFFFF;
+
   --color-brand-border: #E7D6D2;
-  --color-brand-cream: #FFFDFC;
-  --color-brand-muted: #7A625C;
-  --color-brand-primary: #C9A45A;
-  --color-brand-secondary: #F2D8D4;
+
+  --color-brand-cream: #FCF8F3;
+
+  --color-brand-muted: #8C7468;
+
 }
+
 
 /* ------------------------------------------------------------------
    Global Reset
 -------------------------------------------------------------------*/
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+
 html {
+
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem; /* matches reduced navbar height */
+
+  /*
+    Matches sticky navbar height
+  */
+  scroll-padding-top: 5.5rem;
+
 }
 
-/* ------------------------------------------------------------------
-   Body
--------------------------------------------------------------------*/
+
 body {
+
   min-height: 100vh;
-  background: linear-gradient(
-    180deg,
-    #FFFDFC 0%,
-    #FCF6F5 18%,
-    #FAF1F0 45%,
-    #F8EDEE 72%,
-    #F6EBEB 100%
-  );
+
+  background: #FCF8F3;
+
   color: var(--foreground);
+
   font-family: var(--font-inter), sans-serif;
+
   -webkit-font-smoothing: antialiased;
+
   -moz-osx-font-smoothing: grayscale;
+
 }
+
 
 /* ------------------------------------------------------------------
    Typography
 -------------------------------------------------------------------*/
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+
   color: #2E211F;
+
   font-weight: 600;
+
   letter-spacing: -0.03em;
+
   line-height: 1.15;
+
 }
 
+
 p {
+
   color: #6D5954;
+
   line-height: 1.8;
+
 }
+
 
 /* ------------------------------------------------------------------
    Links
 -------------------------------------------------------------------*/
+
 a {
+
   color: inherit;
+
   text-decoration: none;
+
   transition: all 0.25s ease;
+
 }
 
+
 a:hover {
+
   opacity: 0.85;
+
 }
+
 
 /* ------------------------------------------------------------------
    Images
 -------------------------------------------------------------------*/
+
 img {
+
   display: block;
+
   max-width: 100%;
+
   height: auto;
+
   user-select: none;
+
   -webkit-user-drag: none;
+
 }
+
 
 /* ------------------------------------------------------------------
    Selection
 -------------------------------------------------------------------*/
+
 ::selection {
-  background: #E3C5BC;
+
+  background: #D8B4A0;
+
   color: #3B2A26;
+
 }
+
 
 /* ------------------------------------------------------------------
    Scrollbar
 -------------------------------------------------------------------*/
+
 ::-webkit-scrollbar {
+
   width: 10px;
+
 }
+
 
 ::-webkit-scrollbar-track {
+
   background: #F7ECEA;
+
 }
+
 
 ::-webkit-scrollbar-thumb {
-  background: #C9A45A;
+
+  background: #8C5A6B;
+
   border-radius: 999px;
+
 }
 
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8924C;
+
+  background: #734454;
+
 }
+
 
 /* ------------------------------------------------------------------
    Utility Classes
 -------------------------------------------------------------------*/
+
 .section-padding {
+
   padding: 7rem 1.5rem;
+
 }
+
 
 .container-luxury {
+
   max-width: 1280px;
+
   margin: 0 auto;
+
 }
+
+
+/* ------------------------------------------------------------------
+   Luxury Branding Utilities
+-------------------------------------------------------------------*/
+
+.plum-gradient {
+
+  background: linear-gradient(
+    90deg,
+    #8C5A6B,
+    #B98295
+  );
+
+}
+
+
+.text-plum {
+
+  color: #8C5A6B;
+
+}
+
 
 .gold-gradient {
-  background: linear-gradient(90deg, #C9A45A, #E5C17A);
+
+  background: linear-gradient(
+    90deg,
+    #C6A15B,
+    #E5C17A
+  );
+
 }
+
 
 .text-gold {
-  color: #C9A45A;
+
+  color: #C6A15B;
+
 }
+
+
+/* ------------------------------------------------------------------
+   Shadows
+-------------------------------------------------------------------*/
 
 .shadow-luxury {
+
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.06),
-    0 2px 8px rgba(0, 0, 0, 0.04);
+
+    0 10px 30px rgba(59, 42, 38, 0.06),
+
+    0 2px 8px rgba(59, 42, 38, 0.04);
+
 }
+
+
+/* ------------------------------------------------------------------
+   Cards
+-------------------------------------------------------------------*/
 
 .card-luxury {
-  background: rgba(255, 255, 255, 0.82);
+
+  background: rgba(255,255,255,0.72);
+
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  border:
+
+    1px solid rgba(212,169,182,0.35);
+
   border-radius: 28px;
+
 }
+
+
+/* ------------------------------------------------------------------
+   Borders
+-------------------------------------------------------------------*/
 
 .border-gold {
-  border: 1px solid rgba(201, 164, 90, 0.25);
+
+  border:
+
+    1px solid rgba(198,161,91,0.25);
+
 }
 
+
+.border-luxury {
+
+  border:
+
+    1px solid rgba(212,169,182,0.35);
+
+}
+
+
+/* ------------------------------------------------------------------
+   Section Separation
+-------------------------------------------------------------------*/
+
+.section-luxury {
+
+  border-top:
+
+    1px solid rgba(212,169,182,0.35);
+
+  padding-top: 5rem;
+
+  padding-bottom: 5rem;
+
+}
+
+
+/* ------------------------------------------------------------------
+   Transition
+-------------------------------------------------------------------*/
+
 .transition-luxury {
+
   transition: all 0.35s ease;
+
 }
