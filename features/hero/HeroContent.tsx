@@ -1,18 +1,3 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * HeroContent.tsx
- *
- * Changes:
- * - July 28, 2026
- *   - Removed logo
- *   - Centered around the brand quote
- *   - Replaced gold accent with luxury mauve accent
- *   - Reduced spacing for tighter hero layout
- *
- * -----------------------------------------------------------------------------
- */
-
 export default function HeroContent() {
   return (
     <div className="flex flex-col items-center text-center">
@@ -30,10 +15,11 @@ export default function HeroContent() {
         Luxury Wax Studio
       </p>
 
+
       {/* Main Headline */}
       <h1
         className="
-          mt-4
+          mt-3
           font-serif
           text-4xl
           md:text-6xl
@@ -47,10 +33,11 @@ export default function HeroContent() {
         Just A Wax
       </h1>
 
+
       {/* Supporting line */}
       <p
         className="
-          mt-4
+          mt-3
           max-w-md
           text-sm
           md:text-base
