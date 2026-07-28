@@ -1,17 +1,3 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * Hero.tsx
- *
- * Changes:
- * - July 28, 2026
- *   - Restored centered hero layout
- *   - Added breathing room below navbar
- *   - Added spacing before Mission section
- *
- * -----------------------------------------------------------------------------
- */
-
 import HeroContent from "./HeroContent";
 import HeroButtons from "./HeroButtons";
 
@@ -24,12 +10,9 @@ export default function Hero() {
         items-center
         justify-center
         px-6
-        pt-16
-        pb-20
-        bg-gradient-to-b
-        from-brand-cream
-        via-[#FDF8F7]
-        to-brand-rose/20
+        pt-20
+        pb-24
+        bg-brand-cream
       "
     >
 
@@ -43,8 +26,11 @@ export default function Hero() {
           text-center
         "
       >
+
         <HeroContent />
+
         <HeroButtons />
+
       </div>
 
     </section>
