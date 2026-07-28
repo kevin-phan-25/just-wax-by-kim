@@ -15,7 +15,8 @@ export default function ContactHours() {
       </div>
 
       <p className="mt-8 text-xs leading-relaxed text-brand-taupe/80">
-        Appointments are highly recommended to ensure your preferred time.
+        By appointment only. Appointments are highly recommended to ensure your 
+        preferred date and time.
       </p>
     </div>
   );
