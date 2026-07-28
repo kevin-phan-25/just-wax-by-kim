@@ -7,12 +7,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Centered section heading
- *   - Balanced two-column luxury cards
- *   - Increased card internal spacing
- *   - Improved content breathing room
- *   - Added form introduction text
- *   - Removed duplicate Studio Hours
+ *   - Added inner card spacing
+ *   - Shifted content away from card edges
+ *   - Improved luxury balance
  *
  * -----------------------------------------------------------------------------
  */
@@ -23,7 +20,6 @@ import ContactHours from "./ContactHours";
 
 
 export default function Contact() {
-
 
   return (
 
@@ -42,7 +38,6 @@ export default function Contact() {
 
     >
 
-
       <div
 
         className="
@@ -51,8 +46,6 @@ export default function Contact() {
         "
 
       >
-
-
 
 
         {/* Header */}
@@ -108,19 +101,14 @@ export default function Contact() {
 
 
 
-
-
-
         {/* Contact Cards */}
 
         <div
 
           className="
             mt-14
-            mx-auto
-            max-w-5xl
             grid
-            gap-10
+            gap-8
             md:grid-cols-2
             items-start
           "
@@ -139,17 +127,14 @@ export default function Contact() {
               rounded-3xl
               border
               border-brand-border
-              bg-white/80
-              px-12
-              py-10
+              bg-white/70
+              p-10
               shadow-luxury
             "
 
           >
 
-
             <ContactInfo />
-
 
 
             <div
@@ -168,9 +153,7 @@ export default function Contact() {
             </div>
 
 
-
           </div>
-
 
 
 
@@ -187,26 +170,20 @@ export default function Contact() {
               rounded-3xl
               border
               border-brand-border
-              bg-white/80
-              px-12
-              py-10
+              bg-white/70
+              p-10
               shadow-luxury
             "
 
           >
 
-
-
             <div
 
               className="
-                mb-8
-                text-center
-                px-2
+                mb-6
               "
 
             >
-
 
               <h3
 
@@ -223,21 +200,17 @@ export default function Contact() {
               </h3>
 
 
-
-
               <p
 
                 className="
-                  mt-3
+                  mt-2
                   text-sm
-                  leading-relaxed
                   text-brand-taupe
                 "
 
               >
 
                 Don't hesitate to ask questions.
-                Kim is here to help.
 
               </p>
 
@@ -245,26 +218,17 @@ export default function Contact() {
             </div>
 
 
-
-
-
             <ContactForm />
-
 
 
           </div>
 
 
 
-
-
         </div>
 
 
-
-
       </div>
-
 
 
     </section>
