@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "Just Wax by Kim <contact@justwaxbykim.com>", // Update after domain verification
+      from: "Just Wax by Kim <contact@justwaxbykim.com>",   // Your verified domain
       to: [process.env.CONTACT_TO_EMAIL || "justwaxbykim@gmail.com"],
       replyTo: email,
       subject: `New Message from ${name}`,
@@ -30,15 +30,60 @@ export async function POST(request: NextRequest) {
         <head>
           <meta charset="utf-8">
           <style>
-            body { font-family: system-ui, -apple-system, sans-serif; background: #f9f5f1; padding: 40px 20px; }
-            .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-            .header { background: #4a2c1f; color: white; padding: 35px 40px; text-align: center; }
-            .header h1 { margin: 0; font-size: 28px; font-weight: 500; }
-            .content { padding: 40px; line-height: 1.7; color: #3f2a1e; }
-            .label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: #9c7c6a; margin-bottom: 4px; }
-            .value { font-size: 17px; margin-bottom: 20px; }
-            .message-box { background: #f9f5f1; padding: 20px; border-radius: 12px; white-space: pre-wrap; }
-            .footer { text-align: center; padding: 25px; color: #9c7c6a; font-size: 14px; border-top: 1px solid #f0e9e0; }
+            body { 
+              font-family: system-ui, -apple-system, sans-serif; 
+              background: #f9f5f1; 
+              padding: 40px 20px; 
+            }
+            .container { 
+              max-width: 600px; 
+              margin: 0 auto; 
+              background: white; 
+              border-radius: 16px; 
+              overflow: hidden; 
+              box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            }
+            .header { 
+              background: #4a2c1f; 
+              color: white; 
+              padding: 35px 40px; 
+              text-align: center; 
+            }
+            .header h1 { 
+              margin: 0; 
+              font-size: 28px; 
+              font-weight: 500; 
+            }
+            .content { 
+              padding: 40px; 
+              line-height: 1.7; 
+              color: #3f2a1e; 
+            }
+            .label { 
+              font-size: 13px; 
+              text-transform: uppercase; 
+              letter-spacing: 1px; 
+              color: #9c7c6a; 
+              margin-bottom: 4px; 
+            }
+            .value { 
+              font-size: 17px; 
+              margin-bottom: 20px; 
+            }
+            .message-box { 
+              background: #f9f5f1; 
+              padding: 20px; 
+              border-radius: 12px; 
+              white-space: pre-wrap; 
+              font-size: 16px;
+            }
+            .footer { 
+              text-align: center; 
+              padding: 25px; 
+              color: #9c7c6a; 
+              font-size: 14px; 
+              border-top: 1px solid #f0e9e0; 
+            }
           </style>
         </head>
         <body>
