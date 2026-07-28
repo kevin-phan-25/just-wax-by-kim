@@ -38,14 +38,8 @@ export default function Home() {
 
 
       {/* Mission */}
-      <section
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
         <Mission />
-      </section>
+  
 
 
       {/* About */}
