@@ -7,10 +7,10 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Removed duplicate form headings
- *   - Removed extra Studio Hours duplication
- *   - Rebalanced header alignment
- *   - Improved card content spacing
+ *   - Centered contact heading
+ *   - Removed duplicate Studio Hours
+ *   - Balanced card layout
+ *   - Improved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -21,6 +21,7 @@ import ContactHours from "./ContactHours";
 
 
 export default function Contact() {
+
 
   return (
 
@@ -39,6 +40,7 @@ export default function Contact() {
 
     >
 
+
       <div
 
         className="
@@ -49,15 +51,15 @@ export default function Contact() {
       >
 
 
-        {/* Header */}
+
+        {/* Section Header */}
 
         <div
 
           className="
-            max-w-3xl
             mx-auto
+            max-w-3xl
             text-center
-            md:translate-x-10
           "
 
         >
@@ -103,14 +105,15 @@ export default function Contact() {
 
 
 
-        {/* Contact Cards */}
+
+        {/* Contact Layout */}
 
         <div
 
           className="
             mt-14
             grid
-            gap-8
+            gap-10
             md:grid-cols-2
             items-start
           "
@@ -120,7 +123,7 @@ export default function Contact() {
 
 
 
-          {/* Contact Information */}
+          {/* Information Card */}
 
           <div
 
@@ -128,12 +131,14 @@ export default function Contact() {
               rounded-3xl
               border
               border-brand-border
-              bg-white/70
-              p-8
+              bg-white/80
+              p-10
               shadow-luxury
+              text-center
             "
 
           >
+
 
             <ContactInfo />
 
@@ -162,7 +167,9 @@ export default function Contact() {
 
 
 
-          {/* Contact Form */}
+
+
+          {/* Form Card */}
 
           <div
 
@@ -170,17 +177,36 @@ export default function Contact() {
               rounded-3xl
               border
               border-brand-border
-              bg-white/70
-              p-8
+              bg-white/80
+              p-10
               shadow-luxury
             "
 
           >
 
+            <h3
+
+              className="
+                mb-8
+                text-center
+                font-serif
+                text-2xl
+                text-brand-espresso
+              "
+
+            >
+
+              Send A Message
+
+            </h3>
+
+
             <ContactForm />
 
 
           </div>
+
+
 
 
 
