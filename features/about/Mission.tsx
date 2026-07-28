@@ -5,9 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Matched hero background
- *   - Improved luxury spacing
- *   - Removed cramped text behavior
+ *   - Matched hero background styling
+ *   - Reduced content size by 25%
+ *   - Centered mission statement
  *
  * -----------------------------------------------------------------------------
  */
@@ -17,9 +17,9 @@ export default function Mission() {
     <section
       className="
         w-full
-        px-5
-        py-11
-        md:py-15
+        px-6
+        py-10
+        md:py-12
         bg-gradient-to-b
         from-brand-cream
         via-[#FDF8F7]
@@ -31,21 +31,19 @@ export default function Mission() {
           mx-auto
           max-w-3xl
           flex
-          justify-end
-          pr-0
-          md:pr-12
+          justify-center
+          text-center
         "
       >
         <p
           className="
-            max-w-xl
+            max-w-lg
             font-serif
-            text-sm
-            md:text-base
+            text-xs
+            md:text-sm
             leading-relaxed
             text-brand-espresso/85
             italic
-            text-right
           "
         >
           “Every experience is crafted to leave you feeling vibrant,
