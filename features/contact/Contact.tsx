@@ -5,11 +5,12 @@
  * Description:
  * Luxury contact section.
  *
- * Changes:
- * - July 28, 2026
- *   - Centered form header content
- *   - Shifted main heading alignment
- *   - Improved card interior balance
+ * Redesigned:
+ * - Elegant centered header
+ * - Spacious luxury layout
+ * - Premium card spacing
+ * - Better visual hierarchy
+ * - Responsive two-column layout
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,221 +19,167 @@ import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import ContactHours from "./ContactHours";
 
-
 export default function Contact() {
-
   return (
-
     <section
-
       id="contact"
-
       className="
+        relative
+        overflow-hidden
         bg-brand-cream
-        border-t
-        border-brand-border/50
-        px-6
-        py-20
-        md:py-28
+        py-32
       "
-
     >
+      {/* Decorative Background Glow */}
 
       <div
-
         className="
-          mx-auto
-          max-w-6xl
+          pointer-events-none
+          absolute
+          left-1/2
+          top-0
+          h-[420px]
+          w-[420px]
+          -translate-x-1/2
+          rounded-full
+          bg-brand-dusty-pink/10
+          blur-3xl
         "
+      />
 
-      >
-
-
+      <div className="relative mx-auto max-w-6xl px-6">
         {/* Header */}
 
-        <div
-
-          className="
-            mx-auto
-            max-w-3xl
-            text-center
-            translate-x-6
-          "
-
-        >
-
-          <p
-
+        <div className="mx-auto max-w-3xl text-center">
+          <span
             className="
+              inline-block
+              rounded-full
+              border
+              border-brand-border
+              bg-white/70
+              px-5
+              py-2
               text-xs
               uppercase
               tracking-[0.35em]
               text-brand-dusty-pink
+              shadow-sm
             "
-
           >
-
             Get In Touch
-
-          </p>
-
-
+          </span>
 
           <h2
-
             className="
-              mt-5
+              mt-8
               font-serif
-              text-4xl
-              md:text-5xl
+              text-5xl
+              leading-tight
               text-brand-espresso
+              md:text-6xl
             "
-
           >
-
-            We Would Love To Hear From You
-
+            We'd Love To Hear From You
           </h2>
 
-
+          <p
+            className="
+              mx-auto
+              mt-8
+              max-w-2xl
+              text-lg
+              leading-8
+              text-brand-taupe
+            "
+          >
+            Whether you're preparing for your first appointment or simply have a
+            question about our services, we're here to make every step feel
+            welcoming, comfortable, and beautifully personal.
+          </p>
         </div>
 
-
-
-
-
-        {/* Contact Cards */}
+        {/* Content */}
 
         <div
-
           className="
-            mt-14
+            mt-24
             grid
-            gap-8
-            md:grid-cols-2
+            gap-10
+            lg:grid-cols-[0.95fr_1.05fr]
             items-start
           "
-
         >
-
-
-
-
-          {/* Contact Information */}
+          {/* Contact Card */}
 
           <div
-
             className="
-              rounded-3xl
+              rounded-[36px]
               border
               border-brand-border
-              bg-white/70
-              p-10
+              bg-white/80
+              p-12
               shadow-luxury
+              backdrop-blur-sm
             "
-
           >
-
             <ContactInfo />
 
-
             <div
-
               className="
-                mt-10
-                border-t
-                border-brand-border
-                pt-8
+                my-12
+                h-px
+                bg-brand-border
               "
+            />
 
-            >
-
-              <ContactHours />
-
-            </div>
-
-
+            <ContactHours />
           </div>
 
-
-
-
-
-
-
-
-          {/* Contact Form */}
+          {/* Form Card */}
 
           <div
-
             className="
-              rounded-3xl
+              rounded-[36px]
               border
               border-brand-border
-              bg-white/70
-              p-10
+              bg-white/80
+              p-12
               shadow-luxury
+              backdrop-blur-sm
             "
-
           >
-
-            <div
-
-              className="
-                mb-6
-                text-center
-              "
-
-            >
-
+            <div className="text-center">
               <h3
-
                 className="
                   font-serif
-                  text-2xl
+                  text-3xl
                   text-brand-espresso
                 "
-
               >
-
-                Send A Message
-
+                Send a Message
               </h3>
 
-
               <p
-
                 className="
-                  mt-2
-                  text-sm
+                  mx-auto
+                  mt-4
+                  max-w-md
+                  leading-7
                   text-brand-taupe
                 "
-
               >
-
-                Don't hesitate to ask questions.
-
+                We'd be delighted to answer your questions and help you choose
+                the services that are right for you.
               </p>
-
-
             </div>
 
-
-            <ContactForm />
-
-
+            <div className="mt-10">
+              <ContactForm />
+            </div>
           </div>
-
-
-
         </div>
-
-
       </div>
-
-
     </section>
-
   );
-
 }
