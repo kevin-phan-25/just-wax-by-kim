@@ -1,180 +1,63 @@
 /**
  * -----------------------------------------------------------------------------
  * File: Contact.tsx
- *
- * Description:
- * Luxury contact section.
- *
- * Redesigned:
- * - Elegant centered header
- * - Spacious luxury layout
- * - Premium card spacing
- * - Better visual hierarchy
- * - Responsive two-column layout
- *
+ * Luxury Contact Section – Elegant & Refined
  * -----------------------------------------------------------------------------
  */
-
-import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
 import ContactHours from "./ContactHours";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="
-        relative
-        overflow-hidden
-        bg-brand-cream
-        py-32
-      "
+      className="relative overflow-hidden bg-brand-cream py-28 lg:py-36"
     >
-      {/* Decorative Background Glow */}
+      {/* Decorative Background Glows */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-brand-dusty-pink/5 blur-[100px]" />
+      <div className="pointer-events-none absolute right-10 bottom-20 h-96 w-96 rounded-full bg-brand-plum/5 blur-[90px]" />
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-0
-          h-[420px]
-          w-[420px]
-          -translate-x-1/2
-          rounded-full
-          bg-brand-dusty-pink/10
-          blur-3xl
-        "
-      />
-
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         {/* Header */}
-
         <div className="mx-auto max-w-3xl text-center">
-          <span
-            className="
-              inline-block
-              rounded-full
-              border
-              border-brand-border
-              bg-white/70
-              px-5
-              py-2
-              text-xs
-              uppercase
-              tracking-[0.35em]
-              text-brand-dusty-pink
-              shadow-sm
-            "
-          >
+          <span className="inline-block rounded-full border border-brand-border bg-white/70 px-6 py-2.5 text-xs uppercase tracking-[0.4em] text-brand-dusty-pink shadow-sm">
             Get In Touch
           </span>
 
-          <h2
-            className="
-              mt-8
-              font-serif
-              text-5xl
-              leading-tight
-              text-brand-espresso
-              md:text-6xl
-            "
-          >
+          <h2 className="mt-8 font-serif text-5xl leading-tight text-brand-espresso md:text-6xl lg:text-7xl">
             We'd Love To Hear From You
           </h2>
 
-          <p
-            className="
-              mx-auto
-              mt-8
-              max-w-2xl
-              text-lg
-              leading-8
-              text-brand-taupe
-            "
-          >
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-brand-taupe">
             Whether you're preparing for your first appointment or simply have a
-            question about our services, we're here to make every step feel
-            welcoming, comfortable, and beautifully personal.
+            question, we’re here to make every interaction feel warm and personal.
           </p>
         </div>
 
-        {/* Content */}
-
-        <div
-          className="
-            mt-24
-            grid
-            gap-10
-            lg:grid-cols-[0.95fr_1.05fr]
-            items-start
-          "
-        >
-          {/* Contact Card */}
-
-          <div
-            className="
-              rounded-[36px]
-              border
-              border-brand-border
-              bg-white/80
-              p-12
-              shadow-luxury
-              backdrop-blur-sm
-            "
-          >
-            <ContactInfo />
-
-            <div
-              className="
-                my-12
-                h-px
-                bg-brand-border
-              "
-            />
-
-            <ContactHours />
+        {/* Main Content */}
+        <div className="mt-20 grid gap-12 lg:grid-cols-5 lg:gap-16">
+          {/* Contact Information */}
+          <div className="lg:col-span-2">
+            <div className="rounded-3xl border border-brand-border bg-white/80 p-10 lg:p-14 shadow-luxury backdrop-blur-sm">
+              <ContactInfo />
+              <div className="my-12 h-px bg-brand-border" />
+              <ContactHours />
+            </div>
           </div>
 
-          {/* Form Card */}
+          {/* Contact Form */}
+          <div className="lg:col-span-3">
+            <div className="rounded-3xl border border-brand-border bg-white/80 p-10 lg:p-14 shadow-luxury backdrop-blur-sm">
+              <div className="mb-12 text-center">
+                <h3 className="font-serif text-4xl text-brand-espresso">
+                  Send a Message
+                </h3>
+                <p className="mx-auto mt-4 max-w-md text-brand-taupe">
+                  We typically reply within a few hours during studio hours.
+                </p>
+              </div>
 
-          <div
-            className="
-              rounded-[36px]
-              border
-              border-brand-border
-              bg-white/80
-              p-12
-              shadow-luxury
-              backdrop-blur-sm
-            "
-          >
-            <div className="text-center">
-              <h3
-                className="
-                  font-serif
-                  text-3xl
-                  text-brand-espresso
-                "
-              >
-                Send a Message
-              </h3>
-
-              <p
-                className="
-                  mx-auto
-                  mt-4
-                  max-w-md
-                  leading-7
-                  text-brand-taupe
-                "
-              >
-                We'd be delighted to answer your questions and help you choose
-                the services that are right for you.
-              </p>
-            </div>
-
-            <div className="mt-10">
               <ContactForm />
             </div>
           </div>
