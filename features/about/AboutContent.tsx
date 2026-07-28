@@ -2,75 +2,32 @@
  * -----------------------------------------------------------------------------
  * File: AboutContent.tsx
  *
- * Created: July 27, 2026
- *
- * Description:
- * About Kim text content.
- *
  * Changes:
- * - July 27, 2026
- *   - Added brand storytelling.
+ * - July 28, 2026
+ *   - Refined storytelling around the new brand quote
+ *   - Cleaner typography and spacing
  *
  * -----------------------------------------------------------------------------
  */
-
-
-import {
-aboutContent
-} from "./about.data";
-
-
+import { aboutContent } from "./about.data";
 import Credentials from "./Credentials";
 
-
 export default function AboutContent() {
+  return (
+    <div>
+      <p className="mb-5 text-xs uppercase tracking-[0.35em] text-brand-gold">
+        {aboutContent.eyebrow}
+      </p>
 
+      <h2 className="font-serif text-4xl md:text-5xl leading-tight text-brand-espresso">
+        {aboutContent.title}
+      </h2>
 
-return (
+      <p className="mt-6 text-base leading-relaxed text-brand-taupe max-w-lg">
+        {aboutContent.description}
+      </p>
 
-<div>
-
-
-<p className="
-mb-5
-text-sm
-uppercase
-tracking-[0.35em]
-text-brand-champagne
-">
-
-{aboutContent.eyebrow}
-
-</p>
-
-
-<h2 className="
-text-4xl
-leading-tight
-md:text-5xl
-">
-
-{aboutContent.title}
-
-</h2>
-
-
-<p className="
-mt-6
-leading-relaxed
-text-brand-taupe
-">
-
-{aboutContent.description}
-
-</p>
-
-
-<Credentials />
-
-
-</div>
-
-);
-
+      <Credentials />
+    </div>
+  );
 }
