@@ -5,9 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Removed background to prevent two-tone effect
- *   - Centered quote
- *   - Added spacing between Hero and Mission
+ *   - Removed background
+ *   - Prevented two-tone transition
+ *   - Added spacing from Hero
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ export default function Mission() {
       className="
         w-full
         px-6
-        pt-12
+        pt-8
         pb-12
       "
     >
