@@ -2,78 +2,27 @@
  * -----------------------------------------------------------------------------
  * File: Credentials.tsx
  *
- * Created: July 27, 2026
- *
- * Description:
- * Trust building credential cards.
- *
  * Changes:
- * - July 27, 2026
- *   - Added credential display.
+ * - July 28, 2026
+ *   - Cleaner vertical rhythm
  *
  * -----------------------------------------------------------------------------
  */
-
-
-import {
-credentials
-} from "./about.data";
-
+import { credentials } from "./about.data";
 
 export default function Credentials() {
-
-
-return (
-
-<div
-className="
-mt-10
-space-y-5
-"
->
-
-
-{
-
-credentials.map((item)=>(
-
-
-<div
-key={item.title}
->
-
-
-<h3 className="
-font-semibold
-"
->
-
-{item.title}
-
-</h3>
-
-
-<p className="
-text-sm
-text-brand-taupe
-"
->
-
-{item.description}
-
-</p>
-
-
-</div>
-
-
-))
-
-}
-
-
-</div>
-
-);
-
+  return (
+    <div className="mt-12 space-y-7">
+      {credentials.map((item) => (
+        <div key={item.title}>
+          <h3 className="text-base font-medium text-brand-espresso">
+            {item.title}
+          </h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-brand-taupe">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
