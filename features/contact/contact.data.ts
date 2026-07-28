@@ -2,51 +2,45 @@
  * -----------------------------------------------------------------------------
  * File: contact.data.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Contact business information.
- *
- * Changes:
- * - v1.0.3
- *   - Added business contact configuration.
+ * Business contact information used throughout the website.
  *
  * -----------------------------------------------------------------------------
  */
 
-
 export const CONTACT_DATA = {
+  businessName: "Just Wax by Kim",
 
+  tagline: "Luxury Waxing Studio",
 
-    businessName:
-    "Just Wax by Kim",
+  description:
+    "Whether you're preparing for your first appointment or returning for your regular visit, we're here to make every experience comfortable, relaxing, and beautifully personal.",
 
+  phone: "(555) 555-5555",
 
-    phone:
-    "(555) 555-5555",
+  email: "justwaxbykim@gmail.com",
 
+  location: "Private Wax Studio",
 
-    email:
-    "justwaxbykim@gmail.com",
+  address: "Virginia, United States",
 
+  instagram: "@justwaxbykim",
 
-    location:
-    "Luxury Wax Studio",
+  bookingText:
+    "Appointments are recommended to ensure your preferred date and time.",
 
-
-    address:
-    "Virginia, United States",
-
-
-
-    instagram:
-    "@justwaxbykim",
-
-
-
-    description:
-    "Questions about services, appointments, or your first waxing experience? Kim is here to help."
-
-
-
-};
+  hours: [
+    {
+      day: "Monday – Friday",
+      time: "9:00 AM – 6:00 PM",
+    },
+    {
+      day: "Saturday",
+      time: "9:00 AM – 3:00 PM",
+    },
+    {
+      day: "Sunday",
+      time: "Closed",
+    },
+  ],
+} as const;
