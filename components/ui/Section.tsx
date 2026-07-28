@@ -7,8 +7,7 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Increased vertical padding for more breathing room
- *   - More elegant, less cramped spacing
+ *   - Increased vertical padding for clearer section separation
  *
  * -----------------------------------------------------------------------------
  */
@@ -22,7 +21,7 @@ export default function Section({
   return (
     <section
       className={`
-        py-20 md:py-28 lg:py-32
+        py-24 md:py-32 lg:py-36
         px-6
         ${className}
       `}
