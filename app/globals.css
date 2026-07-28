@@ -7,10 +7,15 @@
  * Description:
  * Global styles + Tailwind v4 theme tokens.
  *
+ * Version:
+ * v1.0.3 — Luxury Background Refresh
+ *
  * Changes:
- * - Updated luxury background to Dusty Rose
- * - Added subtle luxury gradients
- * - Improved premium feel
+ * - Removed radial gradients
+ * - Added elegant white → dusty rose background
+ * - Softer luxury color palette
+ * - Improved typography
+ * - Premium scrollbar
  * -----------------------------------------------------------------------------
  */
 
@@ -26,15 +31,13 @@
 
   --foreground: #3B2A26;
 
-  --gold: #C6A15B;
+  --gold: #C9A45A;
 
-  --rose: #E8C8BC;
+  --rose: #F2D8D4;
 
-  --muted: #8C7468;
+  --champagne: #E3C5BC;
 
-  --champagne: #D8B4A0;
-
-  --taupe: #8C7468;
+  --taupe: #7A625C;
 
   --espresso: #3B2A26;
 
@@ -47,39 +50,45 @@
 
 @theme {
 
-  --color-brand-gold: #C6A15B;
+  --color-brand-gold: #C9A45A;
 
-  --color-brand-champagne: #D8B4A0;
+  --color-brand-champagne: #E3C5BC;
 
-  --color-brand-rose: #E8C8BC;
+  --color-brand-rose: #F2D8D4;
 
-  --color-brand-taupe: #8C7468;
+  --color-brand-taupe: #7A625C;
 
   --color-brand-espresso: #3B2A26;
 
-  --color-brand-black: #1A1614;
+  --color-brand-black: #241B19;
 
   --color-brand-white: #FFFFFF;
 
-  --color-brand-border: #E8DFD6;
+  --color-brand-border: #E7D6D2;
 
-  --color-brand-cream: #FCF8F3;
+  --color-brand-cream: #FFFDFC;
 
-  --color-brand-muted: #8C7468;
+  --color-brand-muted: #7A625C;
 
-  --color-brand-primary: #C6A15B;
+  --color-brand-primary: #C9A45A;
 
-  --color-brand-secondary: #E8C8BC;
+  --color-brand-secondary: #F2D8D4;
 
 }
 
 
 /* ------------------------------------------------------------------
-   Base
+   Global Reset
 -------------------------------------------------------------------*/
 
 *{
+
   box-sizing:border-box;
+
+  margin:0;
+
+  padding:0;
+
 }
 
 html{
@@ -88,30 +97,23 @@ html{
 
 }
 
+
+/* ------------------------------------------------------------------
+   Body
+-------------------------------------------------------------------*/
+
 body{
 
   min-height:100vh;
 
-  background:
-
-    radial-gradient(
-      circle at top right,
-      rgba(183,139,147,0.12),
-      transparent 42%
-    ),
-
-    radial-gradient(
-      circle at bottom left,
-      rgba(214,180,160,0.15),
-      transparent 38%
-    ),
-
-    linear-gradient(
-      180deg,
-      #FBF4F3 0%,
-      #F8EDEE 45%,
-      #F5E7E7 100%
-    );
+  background:linear-gradient(
+    180deg,
+    #FFFDFC 0%,
+    #FCF6F5 18%,
+    #FAF1F0 45%,
+    #F8EDEE 72%,
+    #F6EBEB 100%
+  );
 
   color:var(--foreground);
 
@@ -135,17 +137,61 @@ h4,
 h5,
 h6{
 
-  color:#2F201D;
+  color:#2E211F;
 
-  letter-spacing:-0.02em;
+  font-weight:600;
+
+  letter-spacing:-0.03em;
+
+  line-height:1.15;
 
 }
 
 p{
 
-  color:#6E5B56;
+  color:#6D5954;
 
-  line-height:1.75;
+  line-height:1.8;
+
+}
+
+
+/* ------------------------------------------------------------------
+   Links
+-------------------------------------------------------------------*/
+
+a{
+
+  color:inherit;
+
+  text-decoration:none;
+
+  transition:all .25s ease;
+
+}
+
+a:hover{
+
+  opacity:.85;
+
+}
+
+
+/* ------------------------------------------------------------------
+   Images
+-------------------------------------------------------------------*/
+
+img{
+
+  display:block;
+
+  max-width:100%;
+
+  height:auto;
+
+  user-select:none;
+
+  -webkit-user-drag:none;
 
 }
 
@@ -156,7 +202,7 @@ p{
 
 ::selection{
 
-  background:#D8B4A0;
+  background:#E3C5BC;
 
   color:#3B2A26;
 
@@ -175,13 +221,13 @@ p{
 
 ::-webkit-scrollbar-track{
 
-  background:#F3E6E6;
+  background:#F7ECEA;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-  background:#C6A15B;
+  background:#C9A45A;
 
   border-radius:999px;
 
@@ -189,36 +235,75 @@ p{
 
 ::-webkit-scrollbar-thumb:hover{
 
-  background:#B8904B;
+  background:#B8924C;
 
 }
 
 
 /* ------------------------------------------------------------------
-   Images
+   Utility Classes
 -------------------------------------------------------------------*/
 
-img{
+.section-padding{
 
-  user-select:none;
-
-  -webkit-user-drag:none;
+  padding:7rem 1.5rem;
 
 }
 
+.container-luxury{
 
-/* ------------------------------------------------------------------
-   Links
--------------------------------------------------------------------*/
+  max-width:1280px;
 
-a{
-
-  transition:all .25s ease;
+  margin:0 auto;
 
 }
 
-a:hover{
+.gold-gradient{
 
-  opacity:.9;
+  background:linear-gradient(
+    90deg,
+    #C9A45A,
+    #E5C17A
+  );
+
+}
+
+.text-gold{
+
+  color:#C9A45A;
+
+}
+
+.shadow-luxury{
+
+  box-shadow:
+
+    0 10px 30px rgba(0,0,0,.06),
+
+    0 2px 8px rgba(0,0,0,.04);
+
+}
+
+.card-luxury{
+
+  background:rgba(255,255,255,.82);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,.45);
+
+  border-radius:28px;
+
+}
+
+.border-gold{
+
+  border:1px solid rgba(201,164,90,.25);
+
+}
+
+.transition-luxury{
+
+  transition:all .35s ease;
 
 }
