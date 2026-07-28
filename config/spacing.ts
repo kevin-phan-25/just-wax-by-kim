@@ -8,25 +8,14 @@
  * Global spacing scale.
  *
  * Changes:
- * - July 27, 2026
- *   - Initial luxury spacing system.
+ * - July 28, 2026
+ *   - Increased section spacing for a more luxurious, open feel
  *
  * -----------------------------------------------------------------------------
  */
-
-
 export const spacing = {
-
-  section:
-    "6rem",
-
-  sectionMobile:
-    "4rem",
-
-  container:
-    "80rem",
-
-  card:
-    "1.5rem",
-
+  section: "8rem",        // 128px
+  sectionMobile: "5rem",  // 80px
+  container: "80rem",
+  card: "1.5rem",
 } as const;
