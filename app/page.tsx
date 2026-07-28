@@ -129,35 +129,6 @@ Creates:
 
 
 
-{/*
-------------------------------------------------
-
-v1.0.2
-
-Luxury Promise Experience
-
-Brand positioning:
-
-"More Than Just A Wax"
-
-
-Creates:
-
-- Comfort
-- Confidence
-- Premium expectation
-
-------------------------------------------------
-*/}
-
-<section id="experience">
-
-<LuxuryPromise />
-
-</section>
-
-
-
 
 
 {/*
