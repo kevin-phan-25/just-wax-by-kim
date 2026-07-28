@@ -2,23 +2,15 @@
  * -----------------------------------------------------------------------------
  * File: app/globals.css
  *
- * Created: July 27, 2026
- *
  * Description:
  * Global styles + Tailwind v4 theme tokens.
  *
  * Version:
- * v1.0.5 — Luxury section separation + unified brand palette
- *
- * Changes:
- * - July 28, 2026
- *   - Unified background colors across all sections
- *   - Added luxury section borders
- *   - Updated accent palette toward dusty pink / mauve
- *   - Removed conflicting background gradients
+ * v1.0.5 — Unified luxury dusty pink palette
  *
  * -----------------------------------------------------------------------------
  */
+
 
 @import "tailwindcss";
 
@@ -30,17 +22,25 @@
 :root {
 
   --background: #FCF8F3;
+
   --foreground: #3B2A26;
 
   --gold: #C6A15B;
-  --rose: #E8C8BC;
-  --dusty-pink: #D4A9B6;
+
   --champagne: #D8B4A0;
-  --taupe: #8C7468;
-  --espresso: #3B2A26;
+
+  --rose: #E8C8BC;
+
+  --dusty-pink: #D4A9B6;
+
   --plum: #8C5A6B;
 
+  --taupe: #8C7468;
+
+  --espresso: #3B2A26;
+
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -57,11 +57,11 @@
 
   --color-brand-dusty-pink: #D4A9B6;
 
+  --color-brand-plum: #8C5A6B;
+
   --color-brand-taupe: #8C7468;
 
   --color-brand-espresso: #3B2A26;
-
-  --color-brand-plum: #8C5A6B;
 
   --color-brand-black: #241B19;
 
@@ -71,33 +71,39 @@
 
   --color-brand-cream: #FCF8F3;
 
-  --color-brand-muted: #8C7468;
-
 }
+
 
 
 /* ------------------------------------------------------------------
-   Global Reset
+   Reset
 -------------------------------------------------------------------*/
 
 * {
+
   box-sizing: border-box;
+
   margin: 0;
+
   padding: 0;
+
 }
+
 
 
 html {
 
   scroll-behavior: smooth;
 
-  /*
-    Matches sticky navbar height
-  */
   scroll-padding-top: 5.5rem;
 
 }
 
+
+
+/* ------------------------------------------------------------------
+   Body
+-------------------------------------------------------------------*/
 
 body {
 
@@ -114,6 +120,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -138,6 +145,7 @@ h6 {
 }
 
 
+
 p {
 
   color: #6D5954;
@@ -145,6 +153,7 @@ p {
   line-height: 1.8;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -157,16 +166,18 @@ a {
 
   text-decoration: none;
 
-  transition: all 0.25s ease;
+  transition: all .25s ease;
 
 }
+
 
 
 a:hover {
 
-  opacity: 0.85;
+  opacity: .85;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -175,17 +186,14 @@ a:hover {
 
 img {
 
-  display: block;
+  display:block;
 
-  max-width: 100%;
+  max-width:100%;
 
-  height: auto;
-
-  user-select: none;
-
-  -webkit-user-drag: none;
+  height:auto;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -194,11 +202,12 @@ img {
 
 ::selection {
 
-  background: #D8B4A0;
+  background:#D4A9B6;
 
-  color: #3B2A26;
+  color:#3B2A26;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -207,92 +216,106 @@ img {
 
 ::-webkit-scrollbar {
 
-  width: 10px;
+  width:10px;
 
 }
+
 
 
 ::-webkit-scrollbar-track {
 
-  background: #F7ECEA;
+  background:#F6E7E1;
 
 }
+
 
 
 ::-webkit-scrollbar-thumb {
 
-  background: #8C5A6B;
+  background:#8C5A6B;
 
-  border-radius: 999px;
+  border-radius:999px;
 
 }
+
 
 
 ::-webkit-scrollbar-thumb:hover {
 
-  background: #734454;
+  background:#734454;
 
 }
 
 
+
 /* ------------------------------------------------------------------
-   Utility Classes
+   Utilities
 -------------------------------------------------------------------*/
 
 .section-padding {
 
-  padding: 7rem 1.5rem;
+  padding:7rem 1.5rem;
 
 }
+
 
 
 .container-luxury {
 
-  max-width: 1280px;
+  max-width:1280px;
 
-  margin: 0 auto;
+  margin:0 auto;
 
 }
 
 
+
 /* ------------------------------------------------------------------
-   Luxury Branding Utilities
+   Luxury Branding
 -------------------------------------------------------------------*/
 
 .plum-gradient {
 
-  background: linear-gradient(
-    90deg,
-    #8C5A6B,
-    #B98295
-  );
+  background:
+
+    linear-gradient(
+      90deg,
+      #8C5A6B,
+      #D4A9B6
+    );
 
 }
+
 
 
 .text-plum {
 
-  color: #8C5A6B;
+  color:#8C5A6B;
 
 }
 
-
-.gold-gradient {
-
-  background: linear-gradient(
-    90deg,
-    #C6A15B,
-    #E5C17A
-  );
-
-}
 
 
 .text-gold {
 
-  color: #C6A15B;
+  color:#C6A15B;
 
 }
+
+
+
+.gold-gradient {
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #C6A15B,
+      #E5C17A
+    );
+
+}
+
 
 
 /* ------------------------------------------------------------------
@@ -303,11 +326,12 @@ img {
 
   box-shadow:
 
-    0 10px 30px rgba(59, 42, 38, 0.06),
+    0 10px 30px rgba(59,42,38,.06),
 
-    0 2px 8px rgba(59, 42, 38, 0.04);
+    0 2px 8px rgba(59,42,38,.04);
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -316,17 +340,20 @@ img {
 
 .card-luxury {
 
-  background: rgba(255,255,255,0.72);
+  background:
 
-  backdrop-filter: blur(18px);
+    rgba(255,255,255,.75);
+
+  backdrop-filter:blur(18px);
 
   border:
 
-    1px solid rgba(212,169,182,0.35);
+    1px solid rgba(212,169,182,.35);
 
-  border-radius: 28px;
+  border-radius:28px;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -337,18 +364,20 @@ img {
 
   border:
 
-    1px solid rgba(198,161,91,0.25);
+    1px solid rgba(198,161,91,.25);
 
 }
+
 
 
 .border-luxury {
 
   border:
 
-    1px solid rgba(212,169,182,0.35);
+    1px solid rgba(212,169,182,.35);
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -359,13 +388,14 @@ img {
 
   border-top:
 
-    1px solid rgba(212,169,182,0.35);
+    1px solid rgba(212,169,182,.35);
 
-  padding-top: 5rem;
+  padding-top:5rem;
 
-  padding-bottom: 5rem;
+  padding-bottom:5rem;
 
 }
+
 
 
 /* ------------------------------------------------------------------
@@ -374,6 +404,6 @@ img {
 
 .transition-luxury {
 
-  transition: all 0.35s ease;
+  transition:all .35s ease;
 
 }
