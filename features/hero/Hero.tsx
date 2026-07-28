@@ -3,61 +3,73 @@
  * File: Hero.tsx
  *
  * Description:
- * Luxury hero experience.
+ * Luxury cinematic hero experience.
  *
- * v1.0.2
- * - Added premium layout.
- * - Added image background.
- * - Added animation layer.
+ * v2.0.0
+ * - Redesigned luxury layout.
+ * - Added controlled viewport height.
+ * - Added premium spacing.
+ * - Added content container.
  *
  * -----------------------------------------------------------------------------
  */
 
-
 import HeroContent from "./HeroContent";
-
 import HeroImage from "./HeroImage";
 
 
-export default function Hero(){
+export default function Hero() {
+
+  return (
+
+    <section
+      className="
+        relative
+        h-[92vh]
+        min-h-[720px]
+        overflow-hidden
+        flex
+        items-center
+      "
+    >
+
+      {/* Background Image */}
+      <HeroImage />
 
 
-return (
-
-<section
-
-className="
-relative
-min-h-screen
-flex
-items-center
-overflow-hidden
-"
-
->
+      {/* Luxury Overlay */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gradient-to-r
+          from-black/40
+          via-black/20
+          to-transparent
+        "
+      />
 
 
-<HeroImage />
+      {/* Content */}
+      <div
+        className="
+          relative
+          z-10
+          w-full
+          max-w-7xl
+          mx-auto
+          px-6
+          lg:px-12
+        "
+      >
+
+        <HeroContent />
+
+      </div>
 
 
-<div
+    </section>
 
-className="
-relative
-z-10
-w-full
-"
-
->
-
-<HeroContent />
-
-</div>
-
-
-</section>
-
-);
-
+  );
 
 }
