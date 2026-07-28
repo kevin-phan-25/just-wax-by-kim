@@ -9,7 +9,8 @@
  * - July 28, 2026
  *   - Centered section heading
  *   - Balanced two-column luxury cards
- *   - Left aligned contact information
+ *   - Increased card internal spacing
+ *   - Improved content breathing room
  *   - Added form introduction text
  *   - Removed duplicate Studio Hours
  *
@@ -109,6 +110,7 @@ export default function Contact() {
 
 
 
+
         {/* Contact Cards */}
 
         <div
@@ -129,7 +131,6 @@ export default function Contact() {
 
 
 
-
           {/* Contact Information */}
 
           <div
@@ -139,7 +140,8 @@ export default function Contact() {
               border
               border-brand-border
               bg-white/80
-              p-10
+              px-12
+              py-10
               shadow-luxury
             "
 
@@ -186,7 +188,8 @@ export default function Contact() {
               border
               border-brand-border
               bg-white/80
-              p-10
+              px-12
+              py-10
               shadow-luxury
             "
 
@@ -199,6 +202,7 @@ export default function Contact() {
               className="
                 mb-8
                 text-center
+                px-2
               "
 
             >
