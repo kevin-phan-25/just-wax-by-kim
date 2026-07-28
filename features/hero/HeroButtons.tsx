@@ -5,9 +5,8 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Increased CTA size
- *   - Added stronger typography
- *   - Improved luxury button proportions
+ *   - Increased CTA size by 25%
+ *   - Stronger luxury button presence
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,7 +17,7 @@ export default function HeroButtons() {
   return (
     <div
       className="
-        mt-8
+        mt-10
         flex
         flex-wrap
         items-center
@@ -35,9 +34,9 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-10
-          py-4
-          text-base
+          px-12
+          py-5
+          text-lg
           font-semibold
           tracking-wide
           text-white
@@ -60,9 +59,9 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-10
-          py-4
-          text-base
+          px-12
+          py-5
+          text-lg
           font-semibold
           tracking-wide
           text-white
