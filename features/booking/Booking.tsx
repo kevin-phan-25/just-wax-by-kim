@@ -9,8 +9,9 @@
  * - July 28, 2026
  *   - Unified background with Hero
  *   - Removed ivory override
- *   - Added luxury section border
- *   - Updated spacing hierarchy
+ *   - Removed duplicate Studio Hours
+ *   - Simplified booking flow
+ *   - Improved spacing hierarchy
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,12 +26,6 @@ import BookingCTA from "./BookingCTA";
 import BookingBenefits from "./BookingBenefits";
 
 import BookingWidget from "./BookingWidget";
-
-
-import {
-  businessHours,
-  cancellationPolicy
-} from "./booking.data";
 
 
 
@@ -63,6 +58,8 @@ export default function Booking() {
       >
 
 
+
+
         {/* Header */}
 
         <div
@@ -74,6 +71,7 @@ export default function Booking() {
           "
 
         >
+
 
 
           <p
@@ -90,6 +88,7 @@ export default function Booking() {
             {BOOKING_CONFIG.eyebrow}
 
           </p>
+
 
 
 
@@ -113,6 +112,7 @@ export default function Booking() {
 
 
 
+
           <p
 
             className="
@@ -132,6 +132,7 @@ export default function Booking() {
 
 
 
+
           <div
 
             className="
@@ -145,7 +146,13 @@ export default function Booking() {
           </div>
 
 
+
+
         </div>
+
+
+
+
 
 
 
@@ -170,26 +177,20 @@ export default function Booking() {
 
 
 
-        {/* Booking + Hours */}
+
+
+
+        {/* Booking Widget */}
 
         <div
 
           className="
             mt-16
-            grid
-            gap-10
-            md:grid-cols-2
+            mx-auto
+            max-w-4xl
           "
 
         >
-
-
-
-          <BookingWidget />
-
-
-
-
 
           <div
 
@@ -199,106 +200,24 @@ export default function Booking() {
               border-brand-border
               bg-white/60
               p-8
+              shadow-luxury
             "
 
           >
 
-
-
-            <h3
-
-              className="
-                font-serif
-                text-2xl
-                text-brand-espresso
-              "
-
-            >
-
-              Studio Hours
-
-            </h3>
-
-
-
-
-
-            <div
-
-              className="
-                mt-6
-                space-y-4
-              "
-
-            >
-
-              {
-                businessHours.map((item)=>(
-
-                  <div
-
-                    key={item.day}
-
-                    className="
-                      flex
-                      justify-between
-                      text-sm
-                      text-brand-taupe
-                    "
-
-                  >
-
-                    <span>
-
-                      {item.day}
-
-                    </span>
-
-
-
-                    <span>
-
-                      {item.hours}
-
-                    </span>
-
-
-                  </div>
-
-
-                ))
-              }
-
-            </div>
-
-
-
-
-
-            <p
-
-              className="
-                mt-8
-                text-sm
-                text-brand-taupe
-              "
-
-            >
-
-              {cancellationPolicy}
-
-            </p>
-
-
+            <BookingWidget />
 
           </div>
-
 
 
         </div>
 
 
+
+
+
       </div>
+
 
 
     </section>
