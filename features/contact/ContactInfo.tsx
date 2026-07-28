@@ -2,159 +2,182 @@
  * -----------------------------------------------------------------------------
  * File: ContactInfo.tsx
  *
- * Created: July 27, 2026
- *
  * Description:
  * Contact information display.
  *
  * Changes:
- * - v1.0.3
- *   - Added luxury contact details.
+ * - July 28, 2026
+ *   - Updated luxury styling
+ *   - Unified colors with brand theme
+ *   - Improved hierarchy
  *
  * -----------------------------------------------------------------------------
  */
 
 
 import {
+  CONTACT_DATA
+} from "./contact.data";
 
-CONTACT_DATA
 
-}
 
-from "./contact.data";
+export default function ContactInfo() {
 
 
+  return (
 
-export default function ContactInfo(){
+    <div
 
+      className="
+        space-y-8
+      "
 
-return (
+    >
 
 
-<div
 
-className="
-space-y-6
-"
+      {/* Studio Location */}
 
->
+      <div>
 
 
-<div>
+        <h3
 
-<h3
+          className="
+            font-serif
+            text-xl
+            text-brand-espresso
+          "
 
-className="
-font-serif
-text-xl
-"
+        >
 
->
+          Visit The Studio
 
-Visit The Studio
+        </h3>
 
-</h3>
 
 
-<p
+        <p
 
-className="
-mt-2
-text-gray-600
-"
+          className="
+            mt-3
+            text-sm
+            leading-relaxed
+            text-brand-taupe
+          "
 
->
+        >
 
-{CONTACT_DATA.location}
+          {CONTACT_DATA.location}
 
-<br/>
+          <br />
 
-{CONTACT_DATA.address}
+          {CONTACT_DATA.address}
 
-</p>
+        </p>
 
-</div>
 
+      </div>
 
 
 
 
-<div>
 
-<h3
 
-className="
-font-serif
-text-xl
-"
+      {/* Contact */}
 
->
+      <div>
 
-Contact
 
-</h3>
+        <h3
 
+          className="
+            font-serif
+            text-xl
+            text-brand-espresso
+          "
 
-<p
+        >
 
-className="
-mt-2
-text-gray-600
-"
+          Contact
 
->
+        </h3>
 
-{CONTACT_DATA.phone}
 
-<br/>
 
-{CONTACT_DATA.email}
+        <p
 
-</p>
+          className="
+            mt-3
+            text-sm
+            leading-relaxed
+            text-brand-taupe
+          "
 
-</div>
+        >
 
+          {CONTACT_DATA.phone}
 
+          <br />
 
+          {CONTACT_DATA.email}
 
+        </p>
 
-<div>
 
-<h3
+      </div>
 
-className="
-font-serif
-text-xl
-"
 
->
 
-Follow
 
-</h3>
 
 
-<p
 
-className="
-mt-2
-text-gray-600
-"
+      {/* Social */}
 
->
+      <div>
 
-{CONTACT_DATA.instagram}
 
-</p>
+        <h3
 
-</div>
+          className="
+            font-serif
+            text-xl
+            text-brand-espresso
+          "
 
+        >
 
+          Follow
 
-</div>
+        </h3>
 
 
-);
+
+        <p
+
+          className="
+            mt-3
+            text-sm
+            text-brand-taupe
+          "
+
+        >
+
+          {CONTACT_DATA.instagram}
+
+        </p>
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+  );
 
 
 }
