@@ -3,22 +3,19 @@
  * File: ContactInfo.tsx
  *
  * Description:
- * Contact information display.
+ * Luxury contact information display.
  *
  * Changes:
  * - July 28, 2026
- *   - Updated luxury styling
- *   - Unified colors with brand theme
- *   - Improved hierarchy
+ *   - Left aligned studio information
+ *   - Improved luxury hierarchy
  *
  * -----------------------------------------------------------------------------
  */
 
-
 import {
   CONTACT_DATA
 } from "./contact.data";
-
 
 
 export default function ContactInfo() {
@@ -30,6 +27,7 @@ export default function ContactInfo() {
 
       className="
         space-y-8
+        text-left
       "
 
     >
@@ -78,6 +76,7 @@ export default function ContactInfo() {
 
 
       </div>
+
 
 
 
@@ -173,11 +172,8 @@ export default function ContactInfo() {
 
 
 
-
-
     </div>
 
   );
-
 
 }
