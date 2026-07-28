@@ -51,11 +51,9 @@ export default function ContactForm() {
 
       } else {
 
-
         setMessage(
           "Please try again."
         );
-
 
       }
 
@@ -82,16 +80,15 @@ export default function ContactForm() {
 
 
 
-
   const inputStyle = `
 
     w-full
     rounded-2xl
     border
     border-brand-border
-    bg-brand-cream/50
+    bg-brand-cream
     px-5
-    py-3.5
+    py-4
     text-sm
     text-brand-espresso
     outline-none
@@ -104,15 +101,17 @@ export default function ContactForm() {
 
   return (
 
+
     <form
 
       onSubmit={handleSubmit}
 
       className="
-        space-y-4
+        space-y-5
       "
 
     >
+
 
 
       <input
@@ -165,7 +164,7 @@ export default function ContactForm() {
 
         required
 
-        rows={4}
+        rows={5}
 
         className={`${inputStyle} resize-none`}
 
@@ -203,6 +202,8 @@ export default function ContactForm() {
 
           transition-all
 
+          duration-300
+
           hover:bg-[#734454]
 
           hover:-translate-y-1
@@ -223,6 +224,7 @@ export default function ContactForm() {
 
 
       </button>
+
 
 
 
@@ -250,6 +252,7 @@ export default function ContactForm() {
 
 
     </form>
+
 
   );
 
