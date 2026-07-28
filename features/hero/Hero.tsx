@@ -5,9 +5,8 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Reduced navbar-to-hero spacing by 75%
- *   - Tightened hero vertical height
- *   - Moved content closer to navbar
+ *   - Added spacing below navbar
+ *   - Added breathing room before Mission section
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,8 +24,8 @@ export default function Hero() {
         items-start
         justify-center
         px-6
-        pt-4
-        pb-12
+        pt-8
+        pb-16
       "
     >
       {/* Soft background glow */}
