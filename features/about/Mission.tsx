@@ -5,10 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Removed background styling
- *   - Centered mission quote
- *   - Reduced size
- *   - Kept quote as single line
+ *   - Added spacing between Hero and Mission
+ *   - Kept transparent background
+ *   - Centered luxury quote
  *
  * -----------------------------------------------------------------------------
  */
@@ -19,8 +18,8 @@ export default function Mission() {
       className="
         w-full
         px-6
-        py-8
-        md:py-10
+        pt-6
+        pb-10
       "
     >
       <div
