@@ -3,13 +3,11 @@
  * File:
  * Hero.tsx
  *
- * Description:
- * Luxury hero experience.
- *
  * Changes:
  * - July 28, 2026
- *   - Reduced top spacing by 75%
- *   - Tightened navbar-to-hero transition
+ *   - Reduced navbar-to-hero spacing by 75%
+ *   - Tightened hero vertical height
+ *   - Moved content closer to navbar
  *
  * -----------------------------------------------------------------------------
  */
@@ -22,14 +20,13 @@ export default function Hero() {
     <section
       className="
         relative
-        min-h-[65vh]
-        md:min-h-[70vh]
+        min-h-0
         flex
-        items-center
+        items-start
         justify-center
         px-6
         pt-4
-        pb-10
+        pb-12
       "
     >
       {/* Soft background glow */}
