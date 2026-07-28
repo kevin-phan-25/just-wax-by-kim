@@ -46,12 +46,14 @@ export default function Home() {
       </section>
 
       <Divider />
+      <Divider />
 
       {/* Services */}
       <section id="services">
         <Services />
       </section>
 
+      <Divider />
       <Divider />
 
       {/* Studio / Experience */}
@@ -60,12 +62,14 @@ export default function Home() {
       </section>
 
       <Divider />
+      <Divider />
 
       {/* Gallery */}
       <section id="gallery">
         <Gallery />
       </section>
 
+      <Divider />
       <Divider />
 
       {/* Testimonials */}
@@ -74,12 +78,14 @@ export default function Home() {
       </section>
 
       <Divider />
+      <Divider />
 
       {/* Instagram */}
       <section id="instagram">
         <Instagram />
       </section>
 
+      <Divider />
       <Divider />
 
       {/* FAQ */}
@@ -88,12 +94,14 @@ export default function Home() {
       </section>
 
       <Divider />
+      <Divider />
 
       {/* Booking */}
       <section id="booking">
         <Booking />
       </section>
 
+      <Divider />
       <Divider />
 
       {/* Contact */}
