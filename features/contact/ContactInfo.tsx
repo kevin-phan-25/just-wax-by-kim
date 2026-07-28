@@ -1,286 +1,169 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ContactInfo.tsx
+ * File: ContactHours.tsx
  *
  * Description:
- * Luxury contact information panel.
+ * Luxury studio hours display.
  *
  * Redesigned:
- * - Elegant icon layout
+ * - Boutique spa styling
+ * - Elegant visual hierarchy
+ * - Icon header
  * - Premium spacing
- * - Boutique spa aesthetic
- * - Better visual hierarchy
  *
  * -----------------------------------------------------------------------------
  */
 
 import {
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
+  Clock3,
 } from "lucide-react";
 
-import { CONTACT_DATA } from "./contact.data";
+const HOURS = [
+  {
+    day: "Monday – Friday",
+    time: "9:00 AM – 6:00 PM",
+  },
+  {
+    day: "Saturday",
+    time: "9:00 AM – 3:00 PM",
+  },
+  {
+    day: "Sunday",
+    time: "Closed",
+  },
+];
 
-export default function ContactInfo() {
+export default function ContactHours() {
   return (
     <div>
-      {/* Section Heading */}
+      {/* Header */}
 
-      <div>
-        <p
+      <div className="flex items-center gap-4">
+        <div
           className="
-            text-xs
-            uppercase
-            tracking-[0.30em]
-            text-brand-dusty-pink
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            bg-brand-dusty-pink/10
           "
         >
-          Visit Us
-        </p>
+          <Clock3
+            size={20}
+            className="text-brand-dusty-pink"
+          />
+        </div>
 
-        <h3
-          className="
-            mt-3
-            font-serif
-            text-3xl
-            text-brand-espresso
-          "
-        >
-          Boutique Studio
-        </h3>
+        <div>
+          <p
+            className="
+              text-xs
+              uppercase
+              tracking-[0.30em]
+              text-brand-dusty-pink
+            "
+          >
+            Availability
+          </p>
 
-        <p
-          className="
-            mt-5
-            max-w-md
-            leading-8
-            text-brand-taupe
-          "
-        >
-          A calm, welcoming studio designed to help you feel relaxed,
-          comfortable, and confident from the moment you arrive.
-        </p>
+          <h3
+            className="
+              mt-1
+              font-serif
+              text-3xl
+              text-brand-espresso
+            "
+          >
+            Studio Hours
+          </h3>
+        </div>
       </div>
 
-      {/* Contact Items */}
+      {/* Description */}
 
-      <div className="mt-12 space-y-8">
+      <p
+        className="
+          mt-6
+          max-w-md
+          leading-8
+          text-brand-taupe
+        "
+      >
+        Every appointment is thoughtfully scheduled to provide a calm,
+        unhurried experience with personalized attention from beginning
+        to end.
+      </p>
 
-        {/* Location */}
-
-        <div
-          className="
-            flex
-            items-start
-            gap-5
-          "
-        >
-          <div
-            className="
-              flex
-              h-12
-              w-12
-              shrink-0
-              items-center
-              justify-center
-              rounded-full
-              bg-brand-dusty-pink/10
-            "
-          >
-            <MapPin
-              size={20}
-              className="text-brand-dusty-pink"
-            />
-          </div>
-
-          <div>
-            <h4
-              className="
-                font-medium
-                text-brand-espresso
-              "
-            >
-              Studio Location
-            </h4>
-
-            <p
-              className="
-                mt-2
-                leading-7
-                text-brand-taupe
-              "
-            >
-              {CONTACT_DATA.location}
-              <br />
-              {CONTACT_DATA.address}
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-brand-border/60" />
-
-        {/* Phone */}
-
-        <div
-          className="
-            flex
-            items-start
-            gap-5
-          "
-        >
-          <div
-            className="
-              flex
-              h-12
-              w-12
-              shrink-0
-              items-center
-              justify-center
-              rounded-full
-              bg-brand-dusty-pink/10
-            "
-          >
-            <Phone
-              size={20}
-              className="text-brand-dusty-pink"
-            />
-          </div>
-
-          <div>
-            <h4
-              className="
-                font-medium
-                text-brand-espresso
-              "
-            >
-              Phone
-            </h4>
-
-            <p
-              className="
-                mt-2
-                text-brand-taupe
-              "
-            >
-              {CONTACT_DATA.phone}
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-brand-border/60" />
-
-        {/* Email */}
-
-        <div
-          className="
-            flex
-            items-start
-            gap-5
-          "
-        >
-          <div
-            className="
-              flex
-              h-12
-              w-12
-              shrink-0
-              items-center
-              justify-center
-              rounded-full
-              bg-brand-dusty-pink/10
-            "
-          >
-            <Mail
-              size={20}
-              className="text-brand-dusty-pink"
-            />
-          </div>
-
-          <div>
-            <h4
-              className="
-                font-medium
-                text-brand-espresso
-              "
-            >
-              Email
-            </h4>
-
-            <p
-              className="
-                mt-2
-                break-all
-                text-brand-taupe
-              "
-            >
-              {CONTACT_DATA.email}
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-brand-border/60" />
-
-        {/* Instagram */}
-
-        <div
-          className="
-            flex
-            items-start
-            gap-5
-          "
-        >
-          <div
-            className="
-              flex
-              h-12
-              w-12
-              shrink-0
-              items-center
-              justify-center
-              rounded-full
-              bg-brand-dusty-pink/10
-            "
-          >
-            <Instagram
-              size={20}
-              className="text-brand-dusty-pink"
-            />
-          </div>
-
-          <div>
-            <h4
-              className="
-                font-medium
-                text-brand-espresso
-              "
-            >
-              Instagram
-            </h4>
-
-            <p
-              className="
-                mt-2
-                text-brand-taupe
-              "
-            >
-              {CONTACT_DATA.instagram}
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      {/* Bottom Note */}
+      {/* Schedule */}
 
       <div
         className="
-          mt-12
-          rounded-2xl
+          mt-10
+          overflow-hidden
+          rounded-3xl
           border
           border-brand-border
-          bg-brand-cream/60
+          bg-white
+        "
+      >
+        {HOURS.map((item, index) => (
+          <div
+            key={item.day}
+            className={`
+              flex
+              items-center
+              justify-between
+              px-8
+              py-6
+              ${
+                index !== HOURS.length - 1
+                  ? "border-b border-brand-border/60"
+                  : ""
+              }
+            `}
+          >
+            <div>
+              <p
+                className="
+                  font-medium
+                  text-brand-espresso
+                "
+              >
+                {item.day}
+              </p>
+            </div>
+
+            <div>
+              <span
+                className={`
+                  rounded-full
+                  px-4
+                  py-2
+                  text-sm
+                  font-medium
+                  ${
+                    item.time === "Closed"
+                      ? "bg-gray-100 text-gray-500"
+                      : "bg-brand-cream text-brand-espresso"
+                  }
+                `}
+              >
+                {item.time}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer Note */}
+
+      <div
+        className="
+          mt-8
+          rounded-2xl
+          bg-brand-cream/70
           px-6
           py-5
         "
@@ -292,9 +175,9 @@ export default function ContactInfo() {
             text-brand-taupe
           "
         >
-          We recommend scheduling your appointment in advance to ensure
-          your preferred date and time. If you have questions before
-          booking, we're always happy to help.
+          Appointment times outside regular studio hours may be available
+          upon request. Please reach out if you need a time that better
+          fits your schedule.
         </p>
       </div>
     </div>
