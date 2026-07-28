@@ -5,9 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Removed background
- *   - Added proper spacing
+ *   - Removed background to prevent two-tone effect
  *   - Centered quote
+ *   - Added spacing between Hero and Mission
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,11 +18,8 @@ export default function Mission() {
       className="
         w-full
         px-6
-        pt-10
-        pb-16
-        bg-gradient-to-b
-        from-brand-rose/20
-        to-brand-cream
+        pt-12
+        pb-12
       "
     >
       <div
