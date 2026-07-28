@@ -34,35 +34,3 @@ export default function Contact() {
             question, we’re here to make every interaction feel warm and personal.
           </p>
         </div>
-
-        {/* Main Content */}
-        <div className="mt-20 grid gap-12 lg:grid-cols-5 lg:gap-16">
-          {/* Contact Information */}
-          <div className="lg:col-span-2">
-            <div className="rounded-3xl border border-brand-border bg-white/80 p-10 lg:p-14 shadow-luxury backdrop-blur-sm">
-              <ContactInfo />
-              <div className="my-12 h-px bg-brand-border" />
-              <ContactHours />
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <div className="rounded-3xl border border-brand-border bg-white/80 p-10 lg:p-14 shadow-luxury backdrop-blur-sm">
-              <div className="mb-12 text-center">
-                <h3 className="font-serif text-4xl text-brand-espresso">
-                  Send a Message
-                </h3>
-                <p className="mx-auto mt-4 max-w-md text-brand-taupe">
-                  We typically reply within a few hours during studio hours.
-                </p>
-              </div>
-
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
