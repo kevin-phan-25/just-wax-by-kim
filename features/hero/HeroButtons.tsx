@@ -1,15 +1,29 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File:
+ * HeroButtons.tsx
+ *
+ * Changes:
+ * - July 28, 2026
+ *   - Increased CTA size
+ *   - Added stronger typography
+ *   - Improved luxury button proportions
+ *
+ * -----------------------------------------------------------------------------
+ */
+
 import Link from "next/link";
 
 export default function HeroButtons() {
   return (
     <div
       className="
-        mt-6
+        mt-8
         flex
         flex-wrap
         items-center
         justify-center
-        gap-4
+        gap-5
       "
     >
 
@@ -21,17 +35,17 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-8
-          py-3.5
-          text-sm
-          font-medium
+          px-10
+          py-4
+          text-base
+          font-semibold
           tracking-wide
           text-white
           transition-all
           duration-300
           hover:bg-[#734454]
-          hover:-translate-y-0.5
-          hover:shadow-md
+          hover:-translate-y-1
+          hover:shadow-lg
         "
       >
         Book Your Appointment
@@ -46,17 +60,17 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-8
-          py-3.5
-          text-sm
-          font-medium
+          px-10
+          py-4
+          text-base
+          font-semibold
           tracking-wide
           text-white
           transition-all
           duration-300
           hover:bg-[#734454]
-          hover:-translate-y-0.5
-          hover:shadow-md
+          hover:-translate-y-1
+          hover:shadow-lg
         "
       >
         Explore Services
