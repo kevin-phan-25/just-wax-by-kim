@@ -34,8 +34,7 @@ italic
 text-brand-taupe
 ">
 
-"Every appointment should leave you feeling
-confident, comfortable, and beautiful."
+"Every experience is crafted to leave you feeling vibrant, empowered, and beautifully renewed."
 
 </p>
 
