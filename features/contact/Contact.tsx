@@ -7,10 +7,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Redesigned layout
- *   - Added elegant card structure
- *   - Reduced visual footprint
- *   - Unified with Hero theme
+ *   - Fixed center alignment
+ *   - Added form heading
+ *   - Improved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -49,13 +48,13 @@ export default function Contact() {
       >
 
 
-        {/* Header */}
+        {/* Center Header */}
 
         <div
 
           className="
             mx-auto
-            max-w-2xl
+            max-w-3xl
             text-center
           "
 
@@ -99,8 +98,12 @@ export default function Contact() {
           <p
 
             className="
+              mx-auto
               mt-5
+              max-w-xl
+              text-center
               text-brand-taupe
+              leading-relaxed
             "
 
           >
@@ -118,7 +121,7 @@ export default function Contact() {
 
 
 
-        {/* Contact Layout */}
+        {/* Cards */}
 
         <div
 
@@ -127,12 +130,14 @@ export default function Contact() {
             grid
             gap-8
             md:grid-cols-2
+            items-start
           "
 
         >
 
 
-          {/* Information Card */}
+
+          {/* Left Card */}
 
           <div
 
@@ -148,6 +153,7 @@ export default function Contact() {
           >
 
             <ContactInfo />
+
 
             <div
 
@@ -172,7 +178,7 @@ export default function Contact() {
 
 
 
-          {/* Form Card */}
+          {/* Right Card */}
 
           <div
 
@@ -187,7 +193,50 @@ export default function Contact() {
 
           >
 
+            <div
+
+              className="
+                mb-6
+              "
+
+            >
+
+              <h3
+
+                className="
+                  font-serif
+                  text-2xl
+                  text-brand-espresso
+                "
+
+              >
+
+                Have Questions?
+
+              </h3>
+
+
+              <p
+
+                className="
+                  mt-2
+                  text-sm
+                  text-brand-taupe
+                "
+
+              >
+
+                Send Kim a message and she will get
+                back to you as soon as possible.
+
+              </p>
+
+
+            </div>
+
+
             <ContactForm />
+
 
           </div>
 
