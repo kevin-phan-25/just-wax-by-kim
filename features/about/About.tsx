@@ -1,16 +1,3 @@
-/**
- * -----------------------------------------------------------------------------
- * File: About.tsx
- *
- * Changes:
- * - July 28, 2026
- *   - Matched hero luxury background
- *   - Removed white section break
- *   - Maintained elegant spacing
- *
- * -----------------------------------------------------------------------------
- */
-
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
 
