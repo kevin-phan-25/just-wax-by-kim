@@ -1,185 +1,258 @@
-/**
- * -----------------------------------------------------------------------------
- * File: ContactHours.tsx
- *
- * Description:
- * Luxury studio hours display.
- *
- * Redesigned:
- * - Boutique spa styling
- * - Elegant visual hierarchy
- * - Icon header
- * - Premium spacing
- *
- * -----------------------------------------------------------------------------
- */
+"use client";
+
+import { useState } from "react";
 
 import {
-  Clock3,
+  ArrowRight,
+  LoaderCircle,
 } from "lucide-react";
 
-const HOURS = [
-  {
-    day: "Monday – Friday",
-    time: "9:00 AM – 6:00 PM",
-  },
-  {
-    day: "Saturday",
-    time: "9:00 AM – 3:00 PM",
-  },
-  {
-    day: "Sunday",
-    time: "Closed",
-  },
-];
+export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
-export default function ContactHours() {
+  async function handleSubmit(
+    e: React.FormEvent<HTMLFormElement>
+  ) {
+    e.preventDefault();
+
+    setIsSubmitting(true);
+    setMessage("");
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setMessage(
+          "Thank you for reaching out. Your message has been sent successfully."
+        );
+
+        e.currentTarget.reset();
+      } else {
+        setMessage(
+          "We couldn't send your message. Please try again."
+        );
+      }
+    } catch {
+      setMessage(
+        "Something went wrong. Please try again in a few moments."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  const inputStyle = `
+    w-full
+    rounded-2xl
+    border
+    border-brand-border
+    bg-brand-cream/50
+    px-6
+    py-5
+    text-[15px]
+    text-brand-espresso
+    placeholder:text-brand-taupe/70
+    outline-none
+    transition-all
+    duration-300
+    focus:border-brand-dusty-pink
+    focus:bg-white
+    focus:ring-4
+    focus:ring-brand-dusty-pink/10
+  `;
+
   return (
-    <div>
-      {/* Header */}
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-7"
+    >
+      {/* Name */}
 
-      <div className="flex items-center gap-4">
+      <div>
+        <label
+          htmlFor="name"
+          className="
+            mb-2
+            block
+            text-sm
+            font-medium
+            text-brand-espresso
+          "
+        >
+          Full Name
+        </label>
+
+        <input
+          id="name"
+          name="name"
+          required
+          placeholder="Jane Smith"
+          className={inputStyle}
+        />
+      </div>
+
+      {/* Email */}
+
+      <div>
+        <label
+          htmlFor="email"
+          className="
+            mb-2
+            block
+            text-sm
+            font-medium
+            text-brand-espresso
+          "
+        >
+          Email Address
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          placeholder="you@example.com"
+          className={inputStyle}
+        />
+      </div>
+
+      {/* Phone */}
+
+      <div>
+        <label
+          htmlFor="phone"
+          className="
+            mb-2
+            block
+            text-sm
+            font-medium
+            text-brand-espresso
+          "
+        >
+          Phone Number
+        </label>
+
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          placeholder="(555) 555-5555"
+          className={inputStyle}
+        />
+      </div>
+
+      {/* Message */}
+
+      <div>
+        <label
+          htmlFor="message"
+          className="
+            mb-2
+            block
+            text-sm
+            font-medium
+            text-brand-espresso
+          "
+        >
+          How Can Kim Help?
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={7}
+          placeholder="Tell us a little about the services you're interested in or ask us any questions..."
+          className={`${inputStyle} resize-none`}
+        />
+      </div>
+
+      {/* Button */}
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="
+          group
+          flex
+          w-full
+          items-center
+          justify-center
+          gap-3
+          rounded-full
+          bg-brand-plum
+          px-8
+          py-5
+          font-medium
+          tracking-[0.18em]
+          uppercase
+          text-white
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:bg-[#734454]
+          hover:shadow-xl
+          disabled:cursor-not-allowed
+          disabled:opacity-70
+        "
+      >
+        {isSubmitting ? (
+          <>
+            <LoaderCircle
+              size={18}
+              className="animate-spin"
+            />
+
+            Sending...
+          </>
+        ) : (
+          <>
+            Send Message
+
+            <ArrowRight
+              size={18}
+              className="
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
+          </>
+        )}
+      </button>
+
+      {/* Status */}
+
+      {message && (
         <div
           className="
-            flex
-            h-12
-            w-12
-            items-center
-            justify-center
-            rounded-full
-            bg-brand-dusty-pink/10
+            rounded-2xl
+            border
+            border-brand-border
+            bg-brand-cream/60
+            px-5
+            py-4
           "
         >
-          <Clock3
-            size={20}
-            className="text-brand-dusty-pink"
-          />
-        </div>
-
-        <div>
           <p
             className="
-              text-xs
-              uppercase
-              tracking-[0.30em]
-              text-brand-dusty-pink
+              text-center
+              text-sm
+              leading-7
+              text-brand-taupe
             "
           >
-            Availability
+            {message}
           </p>
-
-          <h3
-            className="
-              mt-1
-              font-serif
-              text-3xl
-              text-brand-espresso
-            "
-          >
-            Studio Hours
-          </h3>
         </div>
-      </div>
-
-      {/* Description */}
-
-      <p
-        className="
-          mt-6
-          max-w-md
-          leading-8
-          text-brand-taupe
-        "
-      >
-        Every appointment is thoughtfully scheduled to provide a calm,
-        unhurried experience with personalized attention from beginning
-        to end.
-      </p>
-
-      {/* Schedule */}
-
-      <div
-        className="
-          mt-10
-          overflow-hidden
-          rounded-3xl
-          border
-          border-brand-border
-          bg-white
-        "
-      >
-        {HOURS.map((item, index) => (
-          <div
-            key={item.day}
-            className={`
-              flex
-              items-center
-              justify-between
-              px-8
-              py-6
-              ${
-                index !== HOURS.length - 1
-                  ? "border-b border-brand-border/60"
-                  : ""
-              }
-            `}
-          >
-            <div>
-              <p
-                className="
-                  font-medium
-                  text-brand-espresso
-                "
-              >
-                {item.day}
-              </p>
-            </div>
-
-            <div>
-              <span
-                className={`
-                  rounded-full
-                  px-4
-                  py-2
-                  text-sm
-                  font-medium
-                  ${
-                    item.time === "Closed"
-                      ? "bg-gray-100 text-gray-500"
-                      : "bg-brand-cream text-brand-espresso"
-                  }
-                `}
-              >
-                {item.time}
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Footer Note */}
-
-      <div
-        className="
-          mt-8
-          rounded-2xl
-          bg-brand-cream/70
-          px-6
-          py-5
-        "
-      >
-        <p
-          className="
-            text-sm
-            leading-7
-            text-brand-taupe
-          "
-        >
-          Appointment times outside regular studio hours may be available
-          upon request. Please reach out if you need a time that better
-          fits your schedule.
-        </p>
-      </div>
-    </div>
+      )}
+    </form>
   );
 }
