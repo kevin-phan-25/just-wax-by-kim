@@ -7,9 +7,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Added inner card spacing
- *   - Shifted content away from card edges
- *   - Improved luxury balance
+ *   - Centered form header content
+ *   - Shifted main heading alignment
+ *   - Improved card interior balance
  *
  * -----------------------------------------------------------------------------
  */
@@ -56,6 +56,7 @@ export default function Contact() {
             mx-auto
             max-w-3xl
             text-center
+            translate-x-6
           "
 
         >
@@ -100,7 +101,6 @@ export default function Contact() {
 
 
 
-
         {/* Contact Cards */}
 
         <div
@@ -114,7 +114,6 @@ export default function Contact() {
           "
 
         >
-
 
 
 
@@ -181,6 +180,7 @@ export default function Contact() {
 
               className="
                 mb-6
+                text-center
               "
 
             >
