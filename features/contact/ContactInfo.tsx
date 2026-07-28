@@ -1,143 +1,63 @@
-"use client";
-import { useState } from "react";
-import { ArrowRight, LoaderCircle } from "lucide-react";
+import { CONTACT_DATA } from "./contact.data";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 
-export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus(null);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setStatus({
-          type: "success",
-          message: "Thank you. Your message has been sent successfully.",
-        });
-        e.currentTarget.reset();
-      } else {
-        setStatus({
-          type: "error",
-          message: result.error || "Failed to send message. Please try again.",
-        });
-      }
-    } catch (err) {
-      setStatus({
-        type: "error",
-        message: "Something went wrong. Please try again later.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const inputStyle = `
-    w-full rounded-2xl border border-brand-border 
-    bg-brand-cream/70 px-7 py-5 
-    text-[15px] text-brand-espresso 
-    placeholder:text-brand-taupe/70 
-    outline-none transition-all duration-300
-    focus:border-brand-dusty-pink focus:bg-white 
-    focus:ring-4 focus:ring-brand-dusty-pink/10
-  `;
+export default function ContactInfo() {
+  const { businessName, tagline, phone, email, address, instagram } = CONTACT_DATA;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
-      <div>
-        <label htmlFor="name" className="mb-2 block text-sm font-medium text-brand-espresso">
-          Full Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          required
-          placeholder="Jane Smith"
-          className={inputStyle}
-        />
+    <div>
+      <div className="mb-10">
+        <h3 className="font-serif text-3xl text-brand-espresso">{businessName}</h3>
+        <p className="mt-1 text-brand-dusty-pink">{tagline}</p>
       </div>
 
-      <div>
-        <label htmlFor="email" className="mb-2 block text-sm font-medium text-brand-espresso">
-          Email Address
-        </label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          required
-          placeholder="you@example.com"
-          className={inputStyle}
-        />
-      </div>
+      <div className="space-y-7">
+        <a href={`tel:${phone}`} className="group flex items-center gap-4 hover:text-brand-espresso transition-colors">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-dusty-pink/10 text-brand-dusty-pink transition-colors group-hover:bg-brand-dusty-pink/20">
+            <Phone size={22} />
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-widest text-brand-taupe">Phone</div>
+            <div className="font-medium text-brand-espresso">{phone}</div>
+          </div>
+        </a>
 
-      <div>
-        <label htmlFor="phone" className="mb-2 block text-sm font-medium text-brand-espresso">
-          Phone Number
-        </label>
-        <input
-          id="phone"
-          type="tel"
-          name="phone"
-          placeholder="(555) 555-5555"
-          className={inputStyle}
-        />
-      </div>
+        <a href={`mailto:${email}`} className="group flex items-center gap-4 hover:text-brand-espresso transition-colors">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-dusty-pink/10 text-brand-dusty-pink transition-colors group-hover:bg-brand-dusty-pink/20">
+            <Mail size={22} />
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-widest text-brand-taupe">Email</div>
+            <div className="font-medium text-brand-espresso">{email}</div>
+          </div>
+        </a>
 
-      <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-brand-espresso">
-          How Can Kim Help?
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={7}
-          placeholder="Tell us about the services you're interested in..."
-          className={`${inputStyle} resize-none`}
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="group flex w-full items-center justify-center gap-3 rounded-full bg-brand-plum px-10 py-5 font-medium tracking-[0.2em] uppercase text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#6a3f4e] hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        {isSubmitting ? (
-          <>
-            <LoaderCircle size={20} className="animate-spin" />
-            Sending...
-          </>
-        ) : (
-          <>
-            Send Message
-            <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
-          </>
-        )}
-      </button>
-
-      {status && (
-        <div
-          className={`rounded-2xl border px-6 py-5 text-center text-sm leading-relaxed ${
-            status.type === "success"
-              ? "border-green-200 bg-green-50 text-green-800"
-              : "border-red-200 bg-red-50 text-red-800"
-          }`}
-        >
-          {status.message}
+        <div className="flex items-center gap-4">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-dusty-pink/10 text-brand-dusty-pink">
+            <MapPin size={22} />
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-widest text-brand-taupe">Studio</div>
+            <div className="font-medium text-brand-espresso">{address}</div>
+            <div className="text-sm text-brand-taupe">Private Studio • By Appointment Only</div>
+          </div>
         </div>
-      )}
-    </form>
+
+        <a
+          href={`https://www.instagram.com/${instagram.replace("@", "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-4 hover:text-brand-espresso transition-colors"
+        >
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-dusty-pink/10 text-brand-dusty-pink transition-colors group-hover:bg-brand-dusty-pink/20">
+            <Instagram size={22} />
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-widest text-brand-taupe">Instagram</div>
+            <div className="font-medium text-brand-espresso">{instagram}</div>
+          </div>
+        </a>
+      </div>
+    </div>
   );
 }
