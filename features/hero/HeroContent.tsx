@@ -25,12 +25,6 @@ export default function HeroContent() {
         Just A Wax
       </h1>
 
-      {/* Brand Quote — the emotional center */}
-      <p className="mt-8 max-w-2xl font-serif text-lg md:text-xl leading-relaxed text-brand-espresso/80 italic">
-        “Every experience is crafted to leave you feeling vibrant,
-        empowered, and beautifully renewed.”
-      </p>
-
       {/* Supporting line */}
       <p className="mt-6 max-w-md text-sm md:text-base leading-relaxed text-brand-taupe">
         A personalized waxing experience designed around comfort,
