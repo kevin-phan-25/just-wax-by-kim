@@ -8,10 +8,8 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Removed logo/image from hero
- *   - Rebuilt around the brand quote for a stronger first impression
- *   - Reduced top spacing between navbar and hero
- *   - Improved luxury spacing balance
+ *   - Reduced top spacing by 75%
+ *   - Tightened navbar-to-hero transition
  *
  * -----------------------------------------------------------------------------
  */
@@ -24,14 +22,14 @@ export default function Hero() {
     <section
       className="
         relative
-        min-h-[72vh]
-        md:min-h-[78vh]
+        min-h-[65vh]
+        md:min-h-[70vh]
         flex
         items-center
         justify-center
         px-6
-        pt-16
-        pb-16
+        pt-4
+        pb-10
       "
     >
       {/* Soft background glow */}
