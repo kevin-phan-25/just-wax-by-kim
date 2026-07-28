@@ -4,41 +4,29 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Forced single line on desktop
- *   - Properly centered
- *   - Reduced size for balance
+ *   - Removed internal dividers (page.tsx already provides them)
+ *   - Forced true horizontal centering
+ *   - Single clean line of text
  *
  * -----------------------------------------------------------------------------
  */
 export default function Mission() {
   return (
-    <section className="px-6 py-14 md:py-18">
-      <div className="mx-auto max-w-4xl text-center">
-        <div className="mx-auto mb-5 flex items-center justify-center gap-3">
-          <div className="h-px w-10 bg-brand-gold/40" />
-          <div className="h-1 w-1 rounded-full bg-brand-gold/60" />
-          <div className="h-px w-10 bg-brand-gold/40" />
-        </div>
-
+    <section className="w-full px-6 py-12 md:py-16">
+      <div className="mx-auto max-w-4xl flex justify-center">
         <p
           className="
             font-serif
-            text-sm md:text-base
+            text-sm md:text-[15px]
             leading-relaxed
-            text-brand-espresso/90
+            text-brand-espresso/85
             italic
+            text-center
             whitespace-nowrap
-            overflow-x-auto
           "
         >
           “Every experience is crafted to leave you feeling vibrant, empowered, and beautifully renewed.”
         </p>
-
-        <div className="mx-auto mt-5 flex items-center justify-center gap-3">
-          <div className="h-px w-10 bg-brand-gold/40" />
-          <div className="h-1 w-1 rounded-full bg-brand-gold/60" />
-          <div className="h-px w-10 bg-brand-gold/40" />
-        </div>
       </div>
     </section>
   );
