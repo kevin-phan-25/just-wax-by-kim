@@ -6,7 +6,7 @@
  * Changes:
  * - July 28, 2026
  *   - Removed background styling
- *   - Shifted quote further right
+ *   - Centered mission quote
  *   - Reduced size
  *   - Kept quote as single line
  *
@@ -28,9 +28,8 @@ export default function Mission() {
           mx-auto
           max-w-6xl
           flex
-          justify-end
-          pr-2
-          md:pr-16
+          justify-center
+          text-center
         "
       >
         <p
