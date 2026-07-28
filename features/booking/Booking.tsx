@@ -2,26 +2,22 @@
  * -----------------------------------------------------------------------------
  * File: Booking.tsx
  *
- * Created: July 27, 2026
- *
  * Description:
- * Main booking experience section.
+ * Luxury booking experience section.
  *
  * Changes:
- * - July 27, 2026
- *   - Created luxury booking section.
+ * - July 28, 2026
+ *   - Unified background with Hero
+ *   - Removed ivory override
+ *   - Added luxury section border
+ *   - Updated spacing hierarchy
  *
  * -----------------------------------------------------------------------------
  */
 
-
 import {
-
-BOOKING_CONFIG
-
-}
-
-from "./booking.constants";
+  BOOKING_CONFIG
+} from "./booking.constants";
 
 
 import BookingCTA from "./BookingCTA";
@@ -32,219 +28,281 @@ import BookingWidget from "./BookingWidget";
 
 
 import {
+  businessHours,
+  cancellationPolicy
+} from "./booking.data";
 
-businessHours,
 
-cancellationPolicy
 
-}
+export default function Booking() {
 
-from "./booking.data";
 
+  return (
 
+    <section
 
+      className="
+        bg-brand-cream
+        border-t
+        border-brand-border/50
+        px-6
+        py-24
+        md:py-32
+      "
 
-export default function Booking(){
+    >
 
 
-return (
+      <div
 
-<section
+        className="
+          mx-auto
+          max-w-7xl
+        "
 
-className="
-bg-brand-ivory
-px-6
-py-24
-"
+      >
 
->
 
+        {/* Header */}
 
-<div
+        <div
 
-className="
-mx-auto
-max-w-7xl
-"
+          className="
+            mx-auto
+            max-w-3xl
+            text-center
+          "
 
->
+        >
 
 
+          <p
 
-<div
+            className="
+              uppercase
+              tracking-[0.35em]
+              text-sm
+              text-brand-dusty-pink
+            "
 
-className="
-text-center
-"
+          >
 
->
+            {BOOKING_CONFIG.eyebrow}
 
+          </p>
 
-<p className="
-uppercase
-tracking-[0.35em]
-text-sm
-text-brand-champagne
-">
 
-{BOOKING_CONFIG.eyebrow}
 
-</p>
 
+          <h2
 
+            className="
+              mt-5
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-brand-espresso
+            "
 
-<h2 className="
-mt-5
-text-4xl
-md:text-5xl
-">
+          >
 
-{BOOKING_CONFIG.title}
+            {BOOKING_CONFIG.title}
 
-</h2>
+          </h2>
 
 
 
-<p className="
-mx-auto
-mt-6
-max-w-2xl
-text-brand-taupe
-">
 
-{BOOKING_CONFIG.description}
+          <p
 
-</p>
+            className="
+              mx-auto
+              mt-6
+              max-w-2xl
+              text-brand-taupe
+              leading-relaxed
+            "
 
+          >
 
+            {BOOKING_CONFIG.description}
 
-<div className="
-mt-8
-">
+          </p>
 
-<BookingCTA />
 
-</div>
 
 
+          <div
 
-</div>
+            className="
+              mt-10
+            "
 
+          >
 
+            <BookingCTA />
 
+          </div>
 
-<div className="
-mt-16
-">
 
-<BookingBenefits />
+        </div>
 
-</div>
 
 
 
 
-<div className="
-mt-16
-grid
-gap-10
-md:grid-cols-2
-">
+        {/* Benefits */}
 
+        <div
 
-<BookingWidget />
+          className="
+            mt-16
+          "
 
+        >
 
+          <BookingBenefits />
 
-<div>
+        </div>
 
 
-<h3 className="
-text-2xl
-">
 
-Studio Hours
 
-</h3>
 
 
+        {/* Booking + Hours */}
 
-<div className="
-mt-5
-space-y-3
-">
+        <div
 
-{
+          className="
+            mt-16
+            grid
+            gap-10
+            md:grid-cols-2
+          "
 
-businessHours.map((item)=>(
+        >
 
 
-<div
 
-key={item.day}
+          <BookingWidget />
 
-className="
-flex
-justify-between
-text-sm
-"
 
->
 
 
-<span>
 
-{item.day}
+          <div
 
-</span>
+            className="
+              rounded-3xl
+              border
+              border-brand-border
+              bg-white/60
+              p-8
+            "
 
+          >
 
 
-<span>
 
-{item.hours}
+            <h3
 
-</span>
+              className="
+                font-serif
+                text-2xl
+                text-brand-espresso
+              "
 
+            >
 
+              Studio Hours
 
-</div>
+            </h3>
 
 
-))
 
 
-}
 
-</div>
+            <div
 
+              className="
+                mt-6
+                space-y-4
+              "
 
+            >
 
+              {
+                businessHours.map((item)=>(
 
-<p className="
-mt-8
-text-sm
-text-brand-taupe
-">
+                  <div
 
-{cancellationPolicy}
+                    key={item.day}
 
-</p>
+                    className="
+                      flex
+                      justify-between
+                      text-sm
+                      text-brand-taupe
+                    "
 
+                  >
 
+                    <span>
 
-</div>
+                      {item.day}
 
+                    </span>
 
-</div>
 
 
-</div>
+                    <span>
 
+                      {item.hours}
 
-</section>
+                    </span>
 
-);
 
+                  </div>
+
+
+                ))
+              }
+
+            </div>
+
+
+
+
+
+            <p
+
+              className="
+                mt-8
+                text-sm
+                text-brand-taupe
+              "
+
+            >
+
+              {cancellationPolicy}
+
+            </p>
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  );
 
 }
