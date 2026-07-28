@@ -1,300 +1,205 @@
-"use client";
+/**
+ * -----------------------------------------------------------------------------
+ * File: Contact.tsx
+ *
+ * Description:
+ * Luxury contact section.
+ *
+ * Changes:
+ * - July 28, 2026
+ *   - Redesigned layout
+ *   - Added elegant card structure
+ *   - Reduced visual footprint
+ *   - Unified with Hero theme
+ *
+ * -----------------------------------------------------------------------------
+ */
 
-import { useState } from "react";
-
-
-export default function ContactForm() {
-
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const [message, setMessage] = useState("");
-
-
-
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ) => {
-
-
-    e.preventDefault();
-
-    setIsSubmitting(true);
+import ContactForm from "./ContactForm";
+import ContactInfo from "./ContactInfo";
+import ContactHours from "./ContactHours";
 
 
-
-    const formData = new FormData(
-      e.currentTarget
-    );
-
-
-
-    try {
-
-
-      const response = await fetch(
-        "/api/contact",
-        {
-          method:"POST",
-          body:formData,
-        }
-      );
-
-
-
-      if(response.ok){
-
-        setMessage(
-          "Thank you! Your message has been sent successfully."
-        );
-
-
-        e.currentTarget.reset();
-
-
-      } else {
-
-
-        setMessage(
-          "Something went wrong. Please try again."
-        );
-
-
-      }
-
-
-
-    } catch {
-
-
-      setMessage(
-        "Failed to send message. Please try again later."
-      );
-
-
-
-    } finally {
-
-
-      setIsSubmitting(false);
-
-
-    }
-
-
-  };
-
-
-
+export default function Contact() {
 
   return (
 
-    <form
+    <section
 
-      onSubmit={handleSubmit}
+      id="contact"
 
       className="
-        space-y-5
+        bg-brand-cream
+        border-t
+        border-brand-border/50
+        px-6
+        py-20
+        md:py-28
       "
 
     >
 
-
-
-      <input
-
-        type="text"
-
-        name="name"
-
-        required
+      <div
 
         className="
-          w-full
-          rounded-2xl
-          border
-          border-brand-border
-          bg-white/70
-          px-5
-          py-4
-          text-brand-espresso
-          outline-none
-          transition
-          focus:border-brand-dusty-pink
+          mx-auto
+          max-w-6xl
         "
-
-        placeholder="Your Name"
-
-      />
-
-
-
-
-
-      <input
-
-        type="email"
-
-        name="email"
-
-        required
-
-        className="
-          w-full
-          rounded-2xl
-          border
-          border-brand-border
-          bg-white/70
-          px-5
-          py-4
-          text-brand-espresso
-          outline-none
-          transition
-          focus:border-brand-dusty-pink
-        "
-
-        placeholder="Email Address"
-
-      />
-
-
-
-
-
-      <input
-
-        type="tel"
-
-        name="phone"
-
-        className="
-          w-full
-          rounded-2xl
-          border
-          border-brand-border
-          bg-white/70
-          px-5
-          py-4
-          text-brand-espresso
-          outline-none
-          transition
-          focus:border-brand-dusty-pink
-        "
-
-        placeholder="Phone Number"
-
-      />
-
-
-
-
-
-
-      <textarea
-
-
-        name="message"
-
-
-        required
-
-
-        rows={5}
-
-
-        className="
-          w-full
-          rounded-2xl
-          border
-          border-brand-border
-          bg-white/70
-          px-5
-          py-4
-          text-brand-espresso
-          outline-none
-          transition
-          focus:border-brand-dusty-pink
-        "
-
-
-        placeholder="How can Kim help?"
-
-
-      />
-
-
-
-
-
-
-
-      <button
-
-
-        type="submit"
-
-
-        disabled={isSubmitting}
-
-
-        className="
-          w-full
-          rounded-full
-          bg-brand-plum
-          px-8
-          py-5
-          font-semibold
-          tracking-wide
-          text-white
-          transition-all
-          duration-300
-          hover:bg-[#734454]
-          hover:-translate-y-1
-          hover:shadow-lg
-          disabled:opacity-70
-        "
-
 
       >
 
-        {
-          isSubmitting
-          ? "Sending..."
-          : "Send Message"
-        }
 
+        {/* Header */}
 
-      </button>
+        <div
 
+          className="
+            mx-auto
+            max-w-2xl
+            text-center
+          "
 
-
-
-
-
-      {
-        message && (
+        >
 
           <p
 
             className="
-              text-center
-              text-sm
+              text-xs
+              uppercase
+              tracking-[0.35em]
+              text-brand-dusty-pink
+            "
+
+          >
+
+            Get In Touch
+
+          </p>
+
+
+
+          <h2
+
+            className="
+              mt-5
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-brand-espresso
+            "
+
+          >
+
+            We Would Love To Hear From You
+
+          </h2>
+
+
+
+          <p
+
+            className="
+              mt-5
               text-brand-taupe
             "
 
           >
 
-            {message}
+            Have questions about services, appointments,
+            or your first waxing experience?
+            Kim is here to help.
 
           </p>
 
-        )
-      }
+
+        </div>
 
 
 
 
-    </form>
+
+        {/* Contact Layout */}
+
+        <div
+
+          className="
+            mt-14
+            grid
+            gap-8
+            md:grid-cols-2
+          "
+
+        >
+
+
+          {/* Information Card */}
+
+          <div
+
+            className="
+              rounded-3xl
+              border
+              border-brand-border
+              bg-white/70
+              p-8
+              shadow-luxury
+            "
+
+          >
+
+            <ContactInfo />
+
+            <div
+
+              className="
+                mt-10
+                border-t
+                border-brand-border
+                pt-8
+              "
+
+            >
+
+              <ContactHours />
+
+            </div>
+
+
+          </div>
+
+
+
+
+
+
+          {/* Form Card */}
+
+          <div
+
+            className="
+              rounded-3xl
+              border
+              border-brand-border
+              bg-white/70
+              p-8
+              shadow-luxury
+            "
+
+          >
+
+            <ContactForm />
+
+          </div>
+
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
 
   );
 
