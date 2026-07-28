@@ -2,24 +2,48 @@
  * -----------------------------------------------------------------------------
  * File: constants/colors.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Brand color constants.
- *
- * Changes:
- * - July 27, 2026
- *   - Aligned values with the rest of the design system
- *   - Kept every existing key
+ * Single source of truth for Just Wax by Kim brand colors.
  *
  * -----------------------------------------------------------------------------
  */
+
 export const COLORS = {
-  gold: "#C6A15B",
-  champagne: "#D8B4A0",
-  cream: "#FCF8F3",
-  ivory: "#FFFDF8",
-  espresso: "#3B2A26",
-  rose: "#E8C8BC",
-  black: "#1A1614"
+
+  background: {
+    primary: "#FCF8F3",
+    secondary: "#F6E7E1",
+  },
+
+
+  brand: {
+
+    champagne: "#D8B4A0",
+
+    gold: "#C6A15B",
+
+    rose: "#E8C8BC",
+
+    dustyPink: "#D4A9B6",
+
+    plum: "#8C5A6B",
+
+    taupe: "#8C7468",
+
+    espresso: "#3B2A26",
+
+  },
+
+
+  text: {
+
+    primary: "#3B2A26",
+
+    secondary: "#6F5A50",
+
+    muted: "#9A857A",
+
+  },
+
+
 };
