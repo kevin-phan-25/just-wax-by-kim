@@ -1,85 +1,256 @@
-/**
- * -----------------------------------------------------------------------------
- * File: ContactForm.tsx
- * Updated: Compact Version
- * -----------------------------------------------------------------------------
- */
-
 "use client";
 
 import { useState } from "react";
 
-export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+export default function ContactForm() {
+
+
+  const [isSubmitting,setIsSubmitting] = useState(false);
+
+  const [message,setMessage] = useState("");
+
+
+
+  const handleSubmit = async (
+    e:React.FormEvent<HTMLFormElement>
+  ) => {
+
+
     e.preventDefault();
+
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
+
+    const formData = new FormData(
+      e.currentTarget
+    );
+
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
 
-      if (response.ok) {
-        setMessage("✅ Message sent successfully!");
+
+      const response = await fetch(
+        "/api/contact",
+        {
+          method:"POST",
+          body:formData
+        }
+      );
+
+
+
+      if(response.ok){
+
+        setMessage(
+          "✓ Message sent successfully!"
+        );
+
         e.currentTarget.reset();
+
+
       } else {
-        setMessage("❌ Please try again.");
+
+
+        setMessage(
+          "Please try again."
+        );
+
+
       }
+
+
+
     } catch {
-      setMessage("❌ Something went wrong.");
+
+
+      setMessage(
+        "Something went wrong."
+      );
+
+
     } finally {
+
+
       setIsSubmitting(false);
+
+
     }
+
+
   };
 
+
+
+
+  const inputStyle = `
+
+    w-full
+    rounded-2xl
+    border
+    border-brand-border
+    bg-brand-cream/50
+    px-5
+    py-3.5
+    text-sm
+    text-brand-espresso
+    outline-none
+    transition
+    focus:border-brand-dusty-pink
+
+  `;
+
+
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+
+    <form
+
+      onSubmit={handleSubmit}
+
+      className="
+        space-y-4
+      "
+
+    >
+
+
       <input
-        type="text"
+
         name="name"
+
         required
-        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
+
+        className={inputStyle}
+
         placeholder="Your Name"
+
       />
 
+
+
       <input
-        type="email"
+
         name="email"
+
+        type="email"
+
         required
-        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
+
+        className={inputStyle}
+
         placeholder="Email Address"
+
       />
 
+
+
       <input
-        type="tel"
+
         name="phone"
-        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B]"
-        placeholder="Phone Number (optional)"
+
+        type="tel"
+
+        className={inputStyle}
+
+        placeholder="Phone Number"
+
       />
+
+
 
       <textarea
+
         name="message"
+
         required
-        rows={3}
-        className="w-full rounded-xl border border-gray-200 px-5 py-3 text-sm outline-none focus:border-[#C6A15B] resize-y"
+
+        rows={4}
+
+        className={`${inputStyle} resize-none`}
+
         placeholder="How can Kim help?"
+
       />
 
+
+
+
+
       <button
+
         type="submit"
+
         disabled={isSubmitting}
-        className="w-full rounded-xl bg-[#C6A15B] py-3.5 font-medium text-white transition hover:brightness-110 disabled:opacity-70 mt-2"
+
+        className="
+
+          mt-3
+
+          w-full
+
+          rounded-full
+
+          bg-brand-plum
+
+          py-4
+
+          font-semibold
+
+          tracking-wide
+
+          text-white
+
+          transition-all
+
+          hover:bg-[#734454]
+
+          hover:-translate-y-1
+
+          hover:shadow-lg
+
+          disabled:opacity-70
+
+        "
+
       >
-        {isSubmitting ? "Sending..." : "Send Message"}
+
+        {
+          isSubmitting
+          ? "Sending..."
+          : "Send Message"
+        }
+
+
       </button>
 
-      {message && <p className="text-center text-sm">{message}</p>}
+
+
+
+      {
+        message && (
+
+          <p
+
+            className="
+              text-center
+              text-sm
+              text-brand-taupe
+            "
+
+          >
+
+            {message}
+
+          </p>
+
+        )
+      }
+
+
+
     </form>
+
   );
+
 }
