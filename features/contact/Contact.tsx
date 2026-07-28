@@ -7,10 +7,11 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Centered contact heading
+ *   - Centered section heading
+ *   - Balanced two-column luxury cards
+ *   - Left aligned contact information
+ *   - Added form introduction text
  *   - Removed duplicate Studio Hours
- *   - Balanced card layout
- *   - Improved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -52,7 +53,8 @@ export default function Contact() {
 
 
 
-        {/* Section Header */}
+
+        {/* Header */}
 
         <div
 
@@ -106,12 +108,15 @@ export default function Contact() {
 
 
 
-        {/* Contact Layout */}
+
+        {/* Contact Cards */}
 
         <div
 
           className="
             mt-14
+            mx-auto
+            max-w-5xl
             grid
             gap-10
             md:grid-cols-2
@@ -123,7 +128,9 @@ export default function Contact() {
 
 
 
-          {/* Information Card */}
+
+
+          {/* Contact Information */}
 
           <div
 
@@ -134,13 +141,13 @@ export default function Contact() {
               bg-white/80
               p-10
               shadow-luxury
-              text-center
             "
 
           >
 
 
             <ContactInfo />
+
 
 
             <div
@@ -159,6 +166,7 @@ export default function Contact() {
             </div>
 
 
+
           </div>
 
 
@@ -169,7 +177,7 @@ export default function Contact() {
 
 
 
-          {/* Form Card */}
+          {/* Contact Form */}
 
           <div
 
@@ -184,24 +192,60 @@ export default function Contact() {
 
           >
 
-            <h3
+
+
+            <div
 
               className="
                 mb-8
                 text-center
-                font-serif
-                text-2xl
-                text-brand-espresso
               "
 
             >
 
-              Send A Message
 
-            </h3>
+              <h3
+
+                className="
+                  font-serif
+                  text-2xl
+                  text-brand-espresso
+                "
+
+              >
+
+                Send A Message
+
+              </h3>
+
+
+
+
+              <p
+
+                className="
+                  mt-3
+                  text-sm
+                  leading-relaxed
+                  text-brand-taupe
+                "
+
+              >
+
+                Don't hesitate to ask questions.
+                Kim is here to help.
+
+              </p>
+
+
+            </div>
+
+
+
 
 
             <ContactForm />
+
 
 
           </div>
@@ -213,7 +257,10 @@ export default function Contact() {
         </div>
 
 
+
+
       </div>
+
 
 
     </section>
