@@ -6,8 +6,8 @@
  * Changes:
  * - July 28, 2026
  *   - Restored centered hero layout
- *   - Fixed navbar-to-hero spacing
- *   - Added breathing room before Mission
+ *   - Added breathing room below navbar
+ *   - Added spacing before Mission section
  *
  * -----------------------------------------------------------------------------
  */
@@ -32,6 +32,7 @@ export default function Hero() {
         to-brand-rose/20
       "
     >
+
       <div
         className="
           relative
@@ -45,6 +46,7 @@ export default function Hero() {
         <HeroContent />
         <HeroButtons />
       </div>
+
     </section>
   );
 }
