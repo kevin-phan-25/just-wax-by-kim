@@ -7,7 +7,8 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Left aligned studio information
+ *   - Left aligned information
+ *   - Added inner spacing from card edge
  *   - Improved luxury hierarchy
  *
  * -----------------------------------------------------------------------------
@@ -28,6 +29,7 @@ export default function ContactInfo() {
       className="
         space-y-8
         text-left
+        pl-2
       "
 
     >
