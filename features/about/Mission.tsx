@@ -5,9 +5,9 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Added spacing between Hero and Mission
- *   - Kept transparent background
- *   - Centered luxury quote
+ *   - Removed background
+ *   - Added proper spacing
+ *   - Centered quote
  *
  * -----------------------------------------------------------------------------
  */
@@ -18,8 +18,11 @@ export default function Mission() {
       className="
         w-full
         px-6
-        pt-6
-        pb-10
+        pt-10
+        pb-16
+        bg-gradient-to-b
+        from-brand-rose/20
+        to-brand-cream
       "
     >
       <div
@@ -34,8 +37,8 @@ export default function Mission() {
         <p
           className="
             font-serif
-            text-xs
-            md:text-sm
+            text-sm
+            md:text-base
             leading-relaxed
             text-brand-espresso/85
             italic
