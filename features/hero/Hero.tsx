@@ -8,8 +8,8 @@
  * Changes:
  * - July 28, 2026
  *   - Removed dark grey gradient overlays
- *   - Cleaner, more elegant presentation
- *   - Kept controlled height + premium spacing
+ *   - Reduced height + adjusted alignment to eliminate large gap under navbar
+ *   - Content now sits closer to the top for a tighter, more elegant look
  *
  * -----------------------------------------------------------------------------
  */
@@ -21,24 +21,26 @@ export default function Hero() {
     <section
       className="
         relative
-        h-[92vh]
-        min-h-[720px]
+        min-h-[70vh]
+        md:min-h-[75vh]
         overflow-hidden
         flex
-        items-center
+        items-start
+        pt-28 md:pt-36
+        pb-20
       "
     >
       {/* Background Image */}
       <HeroImage />
 
-      {/* Soft light veil instead of dark gradient (optional – remove if you want pure image) */}
+      {/* Soft light veil */}
       <div
         className="
           absolute inset-0
           bg-gradient-to-b
-          from-brand-cream/10
+          from-brand-cream/5
           via-transparent
-          to-brand-cream/30
+          to-brand-cream/20
         "
       />
 
