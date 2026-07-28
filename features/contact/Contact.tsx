@@ -7,10 +7,10 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Centered form card content
- *   - Centered "Have Questions" header
- *   - Shifted section alignment slightly right
- *   - Improved luxury balance
+ *   - Removed duplicate form headings
+ *   - Removed extra Studio Hours duplication
+ *   - Rebalanced header alignment
+ *   - Improved card content spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -44,7 +44,6 @@ export default function Contact() {
         className="
           mx-auto
           max-w-6xl
-          md:translate-x-6
         "
 
       >
@@ -55,9 +54,10 @@ export default function Contact() {
         <div
 
           className="
-            mx-auto
             max-w-3xl
+            mx-auto
             text-center
+            md:translate-x-10
           "
 
         >
@@ -87,7 +87,6 @@ export default function Contact() {
               text-4xl
               md:text-5xl
               text-brand-espresso
-              text-center
             "
 
           >
@@ -97,26 +96,6 @@ export default function Contact() {
           </h2>
 
 
-
-          <p
-
-            className="
-              mx-auto
-              mt-5
-              max-w-xl
-              text-center
-              text-brand-taupe
-            "
-
-          >
-
-            Have questions about services, appointments,
-            or your first waxing experience?
-            Kim is here to help.
-
-          </p>
-
-
         </div>
 
 
@@ -124,7 +103,7 @@ export default function Contact() {
 
 
 
-        {/* Cards */}
+        {/* Contact Cards */}
 
         <div
 
@@ -141,7 +120,7 @@ export default function Contact() {
 
 
 
-          {/* Left Information Card */}
+          {/* Contact Information */}
 
           <div
 
@@ -183,8 +162,7 @@ export default function Contact() {
 
 
 
-
-          {/* Right Form Card */}
+          {/* Contact Form */}
 
           <div
 
@@ -195,60 +173,9 @@ export default function Contact() {
               bg-white/70
               p-8
               shadow-luxury
-              text-center
             "
 
           >
-
-
-            <div
-
-              className="
-                mb-7
-                text-center
-              "
-
-            >
-
-              <h3
-
-                className="
-                  font-serif
-                  text-2xl
-                  text-brand-espresso
-                  text-center
-                "
-
-              >
-
-                Have Questions?
-
-              </h3>
-
-
-
-              <p
-
-                className="
-                  mt-3
-                  text-sm
-                  text-brand-taupe
-                  text-center
-                "
-
-              >
-
-                Send Kim a message and she will get
-                back to you as soon as possible.
-
-              </p>
-
-
-            </div>
-
-
-
-
 
             <ContactForm />
 
