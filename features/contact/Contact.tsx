@@ -7,9 +7,10 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Fixed center alignment
- *   - Added form heading
- *   - Improved luxury spacing
+ *   - Centered form card content
+ *   - Centered "Have Questions" header
+ *   - Shifted section alignment slightly right
+ *   - Improved luxury balance
  *
  * -----------------------------------------------------------------------------
  */
@@ -43,12 +44,13 @@ export default function Contact() {
         className="
           mx-auto
           max-w-6xl
+          md:translate-x-6
         "
 
       >
 
 
-        {/* Center Header */}
+        {/* Header */}
 
         <div
 
@@ -85,6 +87,7 @@ export default function Contact() {
               text-4xl
               md:text-5xl
               text-brand-espresso
+              text-center
             "
 
           >
@@ -103,7 +106,6 @@ export default function Contact() {
               max-w-xl
               text-center
               text-brand-taupe
-              leading-relaxed
             "
 
           >
@@ -116,6 +118,7 @@ export default function Contact() {
 
 
         </div>
+
 
 
 
@@ -137,7 +140,8 @@ export default function Contact() {
 
 
 
-          {/* Left Card */}
+
+          {/* Left Information Card */}
 
           <div
 
@@ -178,7 +182,9 @@ export default function Contact() {
 
 
 
-          {/* Right Card */}
+
+
+          {/* Right Form Card */}
 
           <div
 
@@ -189,14 +195,17 @@ export default function Contact() {
               bg-white/70
               p-8
               shadow-luxury
+              text-center
             "
 
           >
 
+
             <div
 
               className="
-                mb-6
+                mb-7
+                text-center
               "
 
             >
@@ -207,6 +216,7 @@ export default function Contact() {
                   font-serif
                   text-2xl
                   text-brand-espresso
+                  text-center
                 "
 
               >
@@ -216,12 +226,14 @@ export default function Contact() {
               </h3>
 
 
+
               <p
 
                 className="
-                  mt-2
+                  mt-3
                   text-sm
                   text-brand-taupe
+                  text-center
                 "
 
               >
@@ -233,6 +245,9 @@ export default function Contact() {
 
 
             </div>
+
+
+
 
 
             <ContactForm />
