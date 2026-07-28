@@ -1,46 +1,51 @@
 /**
  * -----------------------------------------------------------------------------
- * File: About.tsx
+ * File:
+ * Mission.tsx
  *
  * Changes:
  * - July 28, 2026
- *   - Matched hero luxury background
- *   - Removed white section break
- *   - Maintained elegant spacing
+ *   - Removed background styling
+ *   - Shifted quote further right
+ *   - Reduced size
+ *   - Kept quote as single line
  *
  * -----------------------------------------------------------------------------
  */
 
-import AboutContent from "./AboutContent";
-import AboutImage from "./AboutImage";
-
-export default function About() {
+export default function Mission() {
   return (
     <section
-      id="about"
       className="
-        bg-gradient-to-b
-        from-brand-cream
-        via-[#FDF8F7]
-        to-brand-rose/20
+        w-full
         px-6
-        py-20
-        md:py-28
+        py-8
+        md:py-10
       "
     >
       <div
         className="
           mx-auto
           max-w-6xl
-          grid
-          md:grid-cols-2
-          gap-12
-          md:gap-20
-          items-center
+          flex
+          justify-end
+          pr-2
+          md:pr-16
         "
       >
-        <AboutImage />
-        <AboutContent />
+        <p
+          className="
+            font-serif
+            text-xs
+            md:text-sm
+            leading-relaxed
+            text-brand-espresso/85
+            italic
+            whitespace-nowrap
+          "
+        >
+          “Every experience is crafted to leave you feeling vibrant, empowered, and beautifully renewed.”
+        </p>
       </div>
     </section>
   );
