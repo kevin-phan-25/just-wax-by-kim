@@ -17,9 +17,9 @@ export default function Mission() {
     <section
       className="
         w-full
-        px-6
-        py-12
-        md:py-16
+        px-5
+        py-11
+        md:py-15
         bg-gradient-to-b
         from-brand-cream
         via-[#FDF8F7]
@@ -29,7 +29,7 @@ export default function Mission() {
       <div
         className="
           mx-auto
-          max-w-4xl
+          max-w-3xl
           flex
           justify-end
           pr-0
