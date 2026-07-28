@@ -13,8 +13,8 @@
  * -----------------------------------------------------------------------------
  */
 import Hero from "@/features/hero";
-import About from "@/features/about";
 import Mission from "@/features/about/Mission";
+import About from "@/features/about";
 import Services from "@/features/services";
 import Experience from "@/features/experience";
 import Gallery from "@/features/gallery";
@@ -35,15 +35,15 @@ export default function Home() {
 
       <Divider />
 
+      {/* Mission */}
+      <Mission />
+
+      <Divider />
+
       {/* About */}
       <section id="about">
         <About />
       </section>
-
-      <Divider />
-
-      {/* Mission */}
-      <Mission />
 
       <Divider />
 
