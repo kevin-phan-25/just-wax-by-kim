@@ -4,7 +4,7 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Cleaner spacing + refined typography
+ *   - Tighter spacing so content feels more cohesive under the navbar
  *
  * -----------------------------------------------------------------------------
  */
@@ -17,7 +17,7 @@ export default function HeroContent() {
 
       <p
         className="
-          mt-10
+          mt-8
           text-xs md:text-sm
           uppercase tracking-[0.4em]
           text-brand-taupe
@@ -28,7 +28,7 @@ export default function HeroContent() {
 
       <h1
         className="
-          mt-5
+          mt-4
           font-serif
           text-5xl md:text-7xl
           leading-[1.1]
@@ -42,7 +42,7 @@ export default function HeroContent() {
 
       <p
         className="
-          mt-6
+          mt-5
           max-w-lg
           text-base md:text-lg
           leading-relaxed
