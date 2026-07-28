@@ -35,8 +35,8 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-16
-          py-6
+          px-20
+          py-7
           text-lg
           font-semibold
           tracking-wide
@@ -60,8 +60,8 @@ export default function HeroButtons() {
           justify-center
           rounded-full
           bg-[#8C5A6B]
-          px-16
-          py-6
+          px-20
+          py-7
           text-lg
           font-semibold
           tracking-wide
