@@ -8,14 +8,13 @@
  * Global styles + Tailwind v4 theme tokens.
  *
  * Version:
- * v1.0.3 — Luxury Background Refresh
+ * v1.0.4 — Navbar offset + luxury polish
  *
  * Changes:
- * - Removed radial gradients
- * - Added elegant white → dusty rose background
- * - Softer luxury color palette
- * - Improved typography
- * - Premium scrollbar
+ * - July 28, 2026
+ *   - Added scroll-padding-top so anchor links land cleanly under sticky navbar
+ *   - Kept elegant background + theme tokens
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -24,89 +23,54 @@
 /* ------------------------------------------------------------------
    CSS Variables
 -------------------------------------------------------------------*/
-
 :root {
-
   --background: #F8EDEE;
-
   --foreground: #3B2A26;
-
   --gold: #C9A45A;
-
   --rose: #F2D8D4;
-
   --champagne: #E3C5BC;
-
   --taupe: #7A625C;
-
   --espresso: #3B2A26;
-
 }
-
 
 /* ------------------------------------------------------------------
    Tailwind Theme Tokens
 -------------------------------------------------------------------*/
-
 @theme {
-
   --color-brand-gold: #C9A45A;
-
   --color-brand-champagne: #E3C5BC;
-
   --color-brand-rose: #F2D8D4;
-
   --color-brand-taupe: #7A625C;
-
   --color-brand-espresso: #3B2A26;
-
   --color-brand-black: #241B19;
-
   --color-brand-white: #FFFFFF;
-
   --color-brand-border: #E7D6D2;
-
   --color-brand-cream: #FFFDFC;
-
   --color-brand-muted: #7A625C;
-
   --color-brand-primary: #C9A45A;
-
   --color-brand-secondary: #F2D8D4;
-
 }
-
 
 /* ------------------------------------------------------------------
    Global Reset
 -------------------------------------------------------------------*/
-
-*{
-
-  box-sizing:border-box;
-
-  margin:0;
-
-  padding:0;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html{
-
-  scroll-behavior:smooth;
-
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* matches reduced navbar height */
 }
-
 
 /* ------------------------------------------------------------------
    Body
 -------------------------------------------------------------------*/
-
-body{
-
-  min-height:100vh;
-
-  background:linear-gradient(
+body {
+  min-height: 100vh;
+  background: linear-gradient(
     180deg,
     #FFFDFC 0%,
     #FCF6F5 18%,
@@ -114,196 +78,121 @@ body{
     #F8EDEE 72%,
     #F6EBEB 100%
   );
-
-  color:var(--foreground);
-
-  font-family:var(--font-inter),sans-serif;
-
-  -webkit-font-smoothing:antialiased;
-
-  -moz-osx-font-smoothing:grayscale;
-
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 
 /* ------------------------------------------------------------------
    Typography
 -------------------------------------------------------------------*/
-
 h1,
 h2,
 h3,
 h4,
 h5,
-h6{
-
-  color:#2E211F;
-
-  font-weight:600;
-
-  letter-spacing:-0.03em;
-
-  line-height:1.15;
-
+h6 {
+  color: #2E211F;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
-p{
-
-  color:#6D5954;
-
-  line-height:1.8;
-
+p {
+  color: #6D5954;
+  line-height: 1.8;
 }
-
 
 /* ------------------------------------------------------------------
    Links
 -------------------------------------------------------------------*/
-
-a{
-
-  color:inherit;
-
-  text-decoration:none;
-
-  transition:all .25s ease;
-
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-a:hover{
-
-  opacity:.85;
-
+a:hover {
+  opacity: 0.85;
 }
-
 
 /* ------------------------------------------------------------------
    Images
 -------------------------------------------------------------------*/
-
-img{
-
-  display:block;
-
-  max-width:100%;
-
-  height:auto;
-
-  user-select:none;
-
-  -webkit-user-drag:none;
-
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
-
 
 /* ------------------------------------------------------------------
    Selection
 -------------------------------------------------------------------*/
-
-::selection{
-
-  background:#E3C5BC;
-
-  color:#3B2A26;
-
+::selection {
+  background: #E3C5BC;
+  color: #3B2A26;
 }
-
 
 /* ------------------------------------------------------------------
    Scrollbar
 -------------------------------------------------------------------*/
-
-::-webkit-scrollbar{
-
-  width:10px;
-
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-::-webkit-scrollbar-track{
-
-  background:#F7ECEA;
-
+::-webkit-scrollbar-track {
+  background: #F7ECEA;
 }
 
-::-webkit-scrollbar-thumb{
-
-  background:#C9A45A;
-
-  border-radius:999px;
-
+::-webkit-scrollbar-thumb {
+  background: #C9A45A;
+  border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb:hover{
-
-  background:#B8924C;
-
+::-webkit-scrollbar-thumb:hover {
+  background: #B8924C;
 }
-
 
 /* ------------------------------------------------------------------
    Utility Classes
 -------------------------------------------------------------------*/
-
-.section-padding{
-
-  padding:7rem 1.5rem;
-
+.section-padding {
+  padding: 7rem 1.5rem;
 }
 
-.container-luxury{
-
-  max-width:1280px;
-
-  margin:0 auto;
-
+.container-luxury {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.gold-gradient{
-
-  background:linear-gradient(
-    90deg,
-    #C9A45A,
-    #E5C17A
-  );
-
+.gold-gradient {
+  background: linear-gradient(90deg, #C9A45A, #E5C17A);
 }
 
-.text-gold{
-
-  color:#C9A45A;
-
+.text-gold {
+  color: #C9A45A;
 }
 
-.shadow-luxury{
-
+.shadow-luxury {
   box-shadow:
-
-    0 10px 30px rgba(0,0,0,.06),
-
-    0 2px 8px rgba(0,0,0,.04);
-
+    0 10px 30px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.card-luxury{
-
-  background:rgba(255,255,255,.82);
-
-  backdrop-filter:blur(18px);
-
-  border:1px solid rgba(255,255,255,.45);
-
-  border-radius:28px;
-
+.card-luxury {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 28px;
 }
 
-.border-gold{
-
-  border:1px solid rgba(201,164,90,.25);
-
+.border-gold {
+  border: 1px solid rgba(201, 164, 90, 0.25);
 }
 
-.transition-luxury{
-
-  transition:all .35s ease;
-
+.transition-luxury {
+  transition: all 0.35s ease;
 }
