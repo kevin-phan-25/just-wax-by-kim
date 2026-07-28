@@ -3,57 +3,40 @@
  * File: Hero.tsx
  *
  * Description:
- * Luxury cinematic hero experience.
+ * Luxury hero experience.
  *
  * Changes:
  * - July 28, 2026
- *   - Removed dark grey gradient overlays
- *   - Reduced height + adjusted alignment to eliminate large gap under navbar
- *   - Content now sits closer to the top for a tighter, more elegant look
+ *   - Removed logo/image from hero
+ *   - Rebuilt around the brand quote for a stronger first impression
+ *   - Cleaner, more elegant entry experience
  *
  * -----------------------------------------------------------------------------
  */
 import HeroContent from "./HeroContent";
-import HeroImage from "./HeroImage";
+import HeroButtons from "./HeroButtons";
 
 export default function Hero() {
   return (
     <section
       className="
         relative
-        min-h-[70vh]
-        md:min-h-[75vh]
-        overflow-hidden
+        min-h-[78vh]
+        md:min-h-[85vh]
         flex
-        items-start
-        pt-28 md:pt-36
+        items-center
+        justify-center
+        px-6
+        pt-28
         pb-20
       "
     >
-      {/* Background Image */}
-      <HeroImage />
+      {/* Soft background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-cream via-[#FDF8F7] to-brand-rose/20" />
 
-      {/* Soft light veil */}
-      <div
-        className="
-          absolute inset-0
-          bg-gradient-to-b
-          from-brand-cream/5
-          via-transparent
-          to-brand-cream/20
-        "
-      />
-
-      {/* Content */}
-      <div
-        className="
-          relative z-10
-          w-full max-w-7xl
-          mx-auto
-          px-6 lg:px-12
-        "
-      >
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
         <HeroContent />
+        <HeroButtons />
       </div>
     </section>
   );
