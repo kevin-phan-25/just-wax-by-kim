@@ -3,13 +3,12 @@
  * File: ContactInfo.tsx
  *
  * Description:
- * Luxury contact information display.
+ * Contact information display.
  *
  * Changes:
  * - July 28, 2026
- *   - Left aligned information
- *   - Added inner spacing from card edge
- *   - Improved luxury hierarchy
+ *   - Added inner text indentation
+ *   - Improved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -28,18 +27,15 @@ export default function ContactInfo() {
 
       className="
         space-y-8
-        text-left
-        pl-2
+        pl-4
       "
 
     >
 
 
-
       {/* Studio Location */}
 
       <div>
-
 
         <h3
 
@@ -83,12 +79,9 @@ export default function ContactInfo() {
 
 
 
-
-
       {/* Contact */}
 
       <div>
-
 
         <h3
 
@@ -133,11 +126,9 @@ export default function ContactInfo() {
 
 
 
-
       {/* Social */}
 
       <div>
-
 
         <h3
 
