@@ -17,10 +17,6 @@
  * Changes:
  *
  * - July 27, 2026
- *   - Added v0.3.0 luxury hero experience.
- *   - Connected feature-based homepage architecture.
- *
- * - July 27, 2026
  *   - Added v0.4.0 About Kim experience.
  *   - Added Mission section.
  *
@@ -60,9 +56,6 @@
 
 
 import Hero from "@/features/hero";
-
-
-import LuxuryPromise from "@/features/luxury";
 
 
 import About from "@/features/about";
