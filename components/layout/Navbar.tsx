@@ -6,9 +6,10 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Matched navbar background with CTA button color
+ *   - Kept off-white navbar background
  *   - Reduced navbar height by 25%
- *   - Updated navigation contrast for dark luxury background
+ *   - Updated hover underline to match CTA bubble color
+ *   - Updated active navigation accent
  *
  * -----------------------------------------------------------------------------
  */
@@ -28,8 +29,8 @@ export default function Navbar() {
     <header
       className="
         sticky top-0 z-50
-        border-b border-white/10
-        bg-[#8C5A6B]
+        border-b border-brand-border/50
+        bg-[#FCF8F3]/95
         backdrop-blur-md
         shadow-sm
       "
@@ -69,8 +70,8 @@ export default function Navbar() {
 
                   ${
                     isActive
-                      ? "text-[#FCF8F3]"
-                      : "text-[#FCF8F3]/80 hover:text-white"
+                      ? "text-[#8C5A6B]"
+                      : "text-brand-espresso/80 hover:text-[#8C5A6B]"
                   }
 
                   after:absolute
@@ -78,7 +79,7 @@ export default function Navbar() {
                   after:left-0
                   after:h-[1.5px]
                   after:w-0
-                  after:bg-[#FCF8F3]
+                  after:bg-[#8C5A6B]
                   after:transition-all
                   after:duration-300
 
