@@ -1,24 +1,10 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * HeroButtons.tsx
- *
- * Changes:
- * - July 28, 2026
- *   - Fixed missing button background
- *   - Added luxury pill styling
- *   - Improved secondary button interaction
- *
- * -----------------------------------------------------------------------------
- */
-
 import Link from "next/link";
 
 export default function HeroButtons() {
   return (
     <div
       className="
-        mt-8
+        mt-6
         flex
         flex-wrap
         items-center
@@ -26,7 +12,7 @@ export default function HeroButtons() {
         gap-4
       "
     >
-      {/* Primary CTA */}
+
       <Link
         href="#booking"
         className="
@@ -41,19 +27,17 @@ export default function HeroButtons() {
           font-medium
           tracking-wide
           text-white
-          shadow-sm
           transition-all
           duration-300
-          hover:bg-[#7A4B5B]
-          hover:shadow-md
+          hover:bg-[#734454]
           hover:-translate-y-0.5
+          hover:shadow-md
         "
       >
         Book Your Appointment
       </Link>
 
 
-      {/* Secondary CTA */}
       <Link
         href="#services"
         className="
@@ -61,26 +45,23 @@ export default function HeroButtons() {
           items-center
           justify-center
           rounded-full
-          border
-          border-[#8C5A6B]/40
-          bg-white/40
+          bg-[#8C5A6B]
           px-8
           py-3.5
           text-sm
           font-medium
           tracking-wide
-          text-brand-espresso
-          backdrop-blur-sm
+          text-white
           transition-all
           duration-300
-          hover:bg-[#8C5A6B]
-          hover:text-white
-          hover:border-[#8C5A6B]
+          hover:bg-[#734454]
           hover:-translate-y-0.5
+          hover:shadow-md
         "
       >
         Explore Services
       </Link>
+
     </div>
   );
 }
