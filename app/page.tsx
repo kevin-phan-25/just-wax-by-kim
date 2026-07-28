@@ -7,11 +7,13 @@
  *
  * Changes:
  * - July 28, 2026
- *   - Added elegant dividers between every major section
- *   - Clearer visual separation so the eye can rest and focus
+ *   - Removed excessive dividers
+ *   - Added luxury section separation
+ *   - Improved visual hierarchy
  *
  * -----------------------------------------------------------------------------
  */
+
 import Hero from "@/features/hero";
 import Mission from "@/features/about/Mission";
 import About from "@/features/about";
@@ -23,90 +25,136 @@ import Instagram from "@/features/instagram";
 import FAQ from "@/features/faq";
 import Booking from "@/features/booking";
 import Contact from "@/features/contact";
-import Divider from "@/components/ui/Divider";
+
 
 export default function Home() {
   return (
     <main>
+
       {/* Hero */}
       <section id="home">
         <Hero />
       </section>
 
-      <Divider />
 
       {/* Mission */}
-      <Mission />
+      <section
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
+        <Mission />
+      </section>
 
-      <Divider />
 
       {/* About */}
-      <section id="about">
+      <section
+        id="about"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <About />
       </section>
 
-      <Divider />
-
 
       {/* Services */}
-      <section id="services">
+      <section
+        id="services"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Services />
       </section>
 
-      <Divider />
 
-
-      {/* Studio / Experience */}
-      <section id="studio">
+      {/* Experience */}
+      <section
+        id="studio"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Experience />
       </section>
 
-      <Divider />
-
 
       {/* Gallery */}
-      <section id="gallery">
+      <section
+        id="gallery"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Gallery />
       </section>
 
-      <Divider />
-
 
       {/* Testimonials */}
-      <section id="testimonials">
+      <section
+        id="testimonials"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Testimonials />
       </section>
 
-      <Divider />
-
 
       {/* Instagram */}
-      <section id="instagram">
+      <section
+        id="instagram"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Instagram />
       </section>
 
-      <Divider />
-
 
       {/* FAQ */}
-      <section id="faq">
+      <section
+        id="faq"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <FAQ />
       </section>
 
-      <Divider />
-
 
       {/* Booking */}
-      <section id="booking">
+      <section
+        id="booking"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Booking />
       </section>
 
-      <Divider />
 
       {/* Contact */}
-      <section id="contact">
+      <section
+        id="contact"
+        className="
+          border-t
+          border-brand-border/60
+        "
+      >
         <Contact />
       </section>
+
     </main>
   );
 }
