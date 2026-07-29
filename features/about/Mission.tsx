@@ -1,37 +1,18 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * Mission.tsx
- *
- * Date: July 29, 2026
- *
- * Description:
- * Signature luxury brand statement.
- *
- * Changes:
- * • Refined wording
- * • Increased editorial feel
- * • Softer spacing
- * -----------------------------------------------------------------------------
- */
-
 export default function Mission() {
   return (
     <section
       className="
-        w-full
+        bg-[#FCF8F3]
         px-6
-        pt-10
-        pb-20
+        pt-8
+        pb-24
       "
     >
 
       <div
         className="
           mx-auto
-          max-w-4xl
-          flex
-          justify-center
+          max-w-3xl
           text-center
         "
       >
@@ -41,14 +22,15 @@ export default function Mission() {
             font-serif
             text-base
             md:text-lg
-            leading-[1.8]
-            text-[#3B2A26]/85
+            leading-[1.9]
             italic
+            text-[#3B2A26]/80
           "
         >
           “A thoughtful beauty experience designed to help you feel confident,
           cared for, and beautifully yourself.”
         </p>
+
 
       </div>
 
