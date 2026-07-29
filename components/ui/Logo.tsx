@@ -8,8 +8,8 @@
  * Brand logo for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Sized to fit the taller navbar (94px / 104px) without clipping
- * • object-contain keeps the full stacked lockup visible
+ * • Logo size increased 50% (56→84px mobile, 64→96px desktop)
+ * • object-contain keeps the full stacked lockup visible inside the bar
  * -----------------------------------------------------------------------------
  */
 import Image from "next/image";
@@ -30,12 +30,12 @@ export function Logo({ className = "", priority = false }: LogoProps) {
       <Image
         src="/logo/just-wax-by-kim.png"
         alt="Just Wax by Kim"
-        width={180}
-        height={64}
+        width={270}
+        height={96}
         priority={priority}
         className="
-          h-[56px] md:h-[64px] w-auto
-          max-h-[64px]
+          h-[84px] md:h-[96px] w-auto
+          max-h-[96px]
           object-contain object-left
           transition-opacity duration-300
           group-hover:opacity-80
