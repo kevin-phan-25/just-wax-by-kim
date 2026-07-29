@@ -2,7 +2,16 @@
  * -----------------------------------------------------------------------------
  * File: features/about/Credentials.tsx
  *
- * Editorial sidebar.
+ * Date: July 29, 2026
+ *
+ * Description:
+ * Editorial credentials displayed beneath portrait.
+ *
+ * Changes:
+ * • Converted from horizontal cards to vertical editorial list
+ * • Reduced visual weight
+ * • Added refined dividers
+ * • Designed for portrait continuation layout
  * -----------------------------------------------------------------------------
  */
 
@@ -10,41 +19,45 @@ import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <aside
+    <div
       className="
         w-full
-        max-w-[320px]
-        my-auto
+        max-w-[360px]
       "
     >
+
       {credentials.map((item, index) => (
         <div
           key={item.title}
           className={`
             ${
               index !== credentials.length - 1
-                ? "mb-10 pb-10 border-b border-[#E8DDD8]"
+                ? "pb-8 mb-8 border-b border-[#E8DDD8]"
                 : ""
             }
           `}
         >
+
+          {/* Number */}
           <p
             className="
-              mb-3
-              text-[0.65rem]
+              mb-2
+              text-[0.6rem]
               uppercase
-              tracking-[0.30em]
+              tracking-[0.35em]
               text-[#B28A62]
             "
           >
             {String(index + 1).padStart(2, "0")}
           </p>
 
+
+          {/* Title */}
           <h3
             className="
-              mb-3
+              mb-2
               font-serif
-              text-[1.2rem]
+              text-[1.15rem]
               leading-tight
               text-[#3B2A26]
             "
@@ -52,17 +65,21 @@ export default function Credentials() {
             {item.title}
           </h3>
 
+
+          {/* Description */}
           <p
             className="
-              text-[0.9rem]
-              leading-[1.9]
-              text-[#7E6B63]
+              text-[0.85rem]
+              leading-[1.8]
+              text-[#8A776E]
             "
           >
             {item.description}
           </p>
+
         </div>
       ))}
-    </aside>
+
+    </div>
   );
 }
