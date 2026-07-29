@@ -5,10 +5,12 @@
  * Date: July 29, 2026
  *
  * Description:
- * Text content for the About section (used inside the left grid column).
+ * Text that wraps around the floated portrait.
+ * Smaller, calmer type scale to prevent overlapping.
  *
  * Changes:
- * • July 29, 2026 – Cleaned for grid layout (no float-specific styles)
+ * • July 29, 2026 – Reduced title and body sizes
+ * • July 29, 2026 – Tighter, more refined spacing
  * -----------------------------------------------------------------------------
  */
 import { aboutContent } from "./about.data";
@@ -20,36 +22,37 @@ export default function AboutContent() {
       {/* Eyebrow */}
       <p
         className="
-          mb-5
-          text-[0.65rem]
-          uppercase tracking-[0.38em]
+          mb-4
+          text-[0.6rem]
+          uppercase tracking-[0.35em]
           text-[#B28A62]
         "
       >
         {aboutContent.eyebrow}
       </p>
 
-      {/* Title */}
+      {/* Title — smaller so it doesn’t dominate */}
       <h2
         className="
           font-serif
-          text-3xl sm:text-4xl
-          leading-[1.15]
-          tracking-[-0.03em]
+          text-2xl sm:text-3xl
+          leading-[1.2]
+          tracking-[-0.02em]
           text-[#3B2A26]
+          max-w-md
         "
       >
         {aboutContent.title}
       </h2>
 
       {/* Accent line */}
-      <div className="my-7 h-px w-14 bg-[#D4A9B6]" />
+      <div className="my-6 h-px w-12 bg-[#D4A9B6]" />
 
       {/* Body */}
       <p
         className="
-          text-[0.98rem] md:text-[1.05rem]
-          leading-[1.9]
+          text-[0.9rem] sm:text-[0.95rem]
+          leading-[1.85]
           text-[#7E6B63]
         "
       >
