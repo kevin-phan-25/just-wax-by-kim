@@ -8,14 +8,14 @@
  * Luxury editorial About section.
  *
  * Layout:
- * • Editorial text flow
- * • Portrait floats within content
- * • Credentials positioned beneath portrait
+ * • Left   — Story content
+ * • Center — Portrait
+ * • Right  — Credentials
  *
  * Changes:
- * • Replaced rigid grid layout with editorial composition
- * • Portrait now integrates with text flow
- * • Improved luxury magazine-style spacing
+ * • Moved credentials back beside portrait
+ * • Removed bottom stacking layout
+ * • Created balanced editorial 3-column composition
  * -----------------------------------------------------------------------------
  */
 
@@ -45,13 +45,12 @@ export default function About() {
         aria-hidden
         className="
           pointer-events-none
-          absolute
-          inset-0
+          absolute inset-0
           bg-[radial-gradient(ellipse_at_80%_30%,rgba(232,200,188,0.14),transparent_55%)]
         "
       />
 
-      {/* Top divider */}
+      {/* Divider */}
       <div
         aria-hidden
         className="
@@ -59,48 +58,60 @@ export default function About() {
           top-0
           left-1/2
           -translate-x-1/2
-          h-px
           w-[min(92%,1200px)]
+          h-px
           bg-[#E8DDD8]
         "
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-7xl">
 
         <div
           className="
-            relative
-            text-[#3B2A26]
+            grid
+            grid-cols-1
+            lg:grid-cols-[1.1fr_auto_0.9fr]
+            items-center
+            gap-12
+            xl:gap-20
           "
         >
 
-          {/* Floating portrait */}
+          {/* LEFT CONTENT */}
           <div
             className="
-              float-none
-              md:float-right
-              md:ml-14
-              lg:ml-20
-              mb-12
-              md:mb-8
+              order-2
+              lg:order-1
             "
           >
-            <AboutImage />
-
-            {/* Credentials under image */}
-            <div
-              className="
-                mt-14
-                w-full
-              "
-            >
-              <Credentials />
-            </div>
+            <AboutContent />
           </div>
 
 
-          {/* Editorial copy */}
-          <AboutContent />
+          {/* IMAGE */}
+          <div
+            className="
+              order-1
+              lg:order-2
+              flex
+              justify-center
+              lg:translate-x-4
+            "
+          >
+            <AboutImage />
+          </div>
+
+
+          {/* CREDENTIALS */}
+          <div
+            className="
+              order-3
+              flex
+              items-center
+            "
+          >
+            <Credentials />
+          </div>
 
         </div>
 
