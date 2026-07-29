@@ -8,11 +8,10 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Book Appointment: no solid purple on hover (outline only)
- * • CTA bubble padding increased ~25%; text size unchanged
- * • Navbar vertical size reduced ~½ inch top + ½ inch bottom
- * • Logo scaled to fit the tighter bar without clipping
- * • Links remain shifted right; order unchanged
+ * • Navbar height held at ~2 inches (192px)
+ * • Logo target size ~1.75 inches (handled in Logo.tsx)
+ * • Book Appointment: outline only, no solid purple on hover
+ * • CTA bubble kept roomy; text size unchanged
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -58,12 +57,8 @@ export default function Navbar() {
         `}
       >
         <div className="container-luxury">
-          {/*
-            Previous: 200px / 220px
-            − ~½ inch (48px) top + ½ inch (48px) bottom ≈ −96px
-            → 104px / 124px
-          */}
-          <nav className="flex h-[104px] md:h-[124px] items-center justify-between gap-6">
+          {/* ~2 inches tall */}
+          <nav className="flex h-[192px] items-center justify-between gap-6">
             {/* Brand */}
             <div className="flex-shrink-0 flex items-center h-full">
               <Logo priority />
@@ -93,7 +88,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              {/* Outline CTA — larger bubble, same text, no purple fill on hover */}
+              {/* Outline CTA — roomy bubble, no purple fill on hover */}
               <Link
                 href="#booking"
                 className="
