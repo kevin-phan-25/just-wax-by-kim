@@ -2,16 +2,7 @@
  * -----------------------------------------------------------------------------
  * File: features/about/AboutImage.tsx
  *
- * Date: July 29, 2026
- *
- * Description:
- * Luxury portrait frame for editorial About section.
- *
- * Changes:
- * • Enlarged portrait for 3-column layout
- * • Better centered proportions
- * • Softer luxury shadow
- * • Slightly taller editorial aspect ratio
+ * Luxury editorial portrait.
  * -----------------------------------------------------------------------------
  */
 
@@ -21,27 +12,28 @@ export default function AboutImage() {
       className="
         relative
         w-full
-        max-w-[260px]
-        sm:max-w-[300px]
-        lg:max-w-[360px]
-        xl:max-w-[400px]
+        max-w-[270px]
+        sm:max-w-[310px]
+        lg:max-w-[380px]
+        xl:max-w-[420px]
         aspect-[4/5]
+        lg:translate-x-8
+        xl:translate-x-12
       "
     >
-      {/* Ambient glow */}
+      {/* Ambient Glow */}
       <div
         aria-hidden
         className="
           absolute
           -inset-5
-          rounded-[2.25rem]
+          rounded-[2rem]
           bg-[#E8DDD8]/40
           blur-2xl
           -z-10
         "
       />
 
-      {/* Portrait Frame */}
       <div
         className="
           relative
@@ -52,7 +44,7 @@ export default function AboutImage() {
           border
           border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_30px_70px_-18px_rgba(59,42,38,0.18)]
+          shadow-[0_32px_80px_-18px_rgba(59,42,38,0.18)]
           flex
           items-center
           justify-center
@@ -74,7 +66,6 @@ export default function AboutImage() {
         </p>
       </div>
 
-      {/* Bottom Accent */}
       <div
         aria-hidden
         className="
