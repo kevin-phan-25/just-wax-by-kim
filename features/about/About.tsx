@@ -8,14 +8,15 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Refined spacing and composition
- * • Updated to match hero luxury aesthetic
- * • Softer background transition
+ * • Added transition spacing from hero
+ * • Rebalanced image/content layout
+ * • Reduced visual density
  * -----------------------------------------------------------------------------
  */
 
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
+
 
 export default function About() {
   return (
@@ -26,55 +27,63 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        py-24
-        md:py-32
+        pt-32
+        pb-28
+        md:pt-40
+        md:pb-36
       "
     >
 
-      {/* Soft ambient glow */}
+      {/* Soft transition from hero */}
       <div
         aria-hidden
         className="
-          pointer-events-none
           absolute
-          inset-0
-          bg-[radial-gradient(ellipse_at_70%_20%,rgba(212,169,182,0.18),transparent_55%)]
+          top-0
+          left-1/2
+          -translate-x-1/2
+          h-px
+          w-[min(92%,1200px)]
+          bg-[#E8DDD8]
         "
       />
+
 
       <div
         className="
           relative
-          z-10
           mx-auto
           max-w-6xl
           grid
-          md:grid-cols-12
+          grid-cols-1
+          lg:grid-cols-12
           gap-12
-          lg:gap-20
+          lg:gap-16
           items-center
         "
       >
 
-        {/* Image */}
+        {/* Content LEFT */}
         <div
           className="
-            md:col-span-5
+            lg:col-span-7
             order-1
           "
         >
-          <AboutImage />
+          <AboutContent />
         </div>
 
 
-        {/* Content */}
+        {/* Image RIGHT */}
         <div
           className="
-            md:col-span-7
+            lg:col-span-5
             order-2
+            flex
+            justify-center
           "
         >
-          <AboutContent />
+          <AboutImage />
         </div>
 
       </div>
