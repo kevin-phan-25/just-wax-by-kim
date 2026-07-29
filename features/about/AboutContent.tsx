@@ -5,12 +5,10 @@
  * Date: July 29, 2026
  *
  * Description:
- * Text content that wraps around the floated portrait.
+ * Text content for the About section (used inside the left grid column).
  *
  * Changes:
- * • July 29, 2026 – Redesigned for clean wrap behavior
- * • July 29, 2026 – Stronger title presence and refined body leading
- * • July 29, 2026 – Credentials clear below the float
+ * • July 29, 2026 – Cleaned for grid layout (no float-specific styles)
  * -----------------------------------------------------------------------------
  */
 import { aboutContent } from "./about.data";
@@ -39,7 +37,6 @@ export default function AboutContent() {
           leading-[1.15]
           tracking-[-0.03em]
           text-[#3B2A26]
-          max-w-lg
         "
       >
         {aboutContent.title}
@@ -48,7 +45,7 @@ export default function AboutContent() {
       {/* Accent line */}
       <div className="my-7 h-px w-14 bg-[#D4A9B6]" />
 
-      {/* Body — wraps around the image */}
+      {/* Body */}
       <p
         className="
           text-[0.98rem] md:text-[1.05rem]
@@ -59,7 +56,6 @@ export default function AboutContent() {
         {aboutContent.description}
       </p>
 
-      {/* Credentials sit cleanly below the wrap */}
       <Credentials />
     </div>
   );
