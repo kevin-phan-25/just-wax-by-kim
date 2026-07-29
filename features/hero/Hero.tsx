@@ -24,6 +24,7 @@ export default function Hero() {
         relative
         overflow-hidden
         bg-[#FCF8F3]
+        mb-[0.75in]
       "
     >
       {/*
