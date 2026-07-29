@@ -8,10 +8,9 @@
  * Hero portrait image with soft floating frame.
  *
  * Changes (July 29, 2026):
- * • Moved to left side of hero
- * • Image size reduced ~50% (max-width ~280–300px)
+ * • Left-side placement
+ * • Reduced size for proportion (~280–300px max)
  * • Consistent 4/5 aspect ratio
- * • Softer shadow and thinner accent line
  * -----------------------------------------------------------------------------
  */
 import Image from "next/image";
@@ -19,7 +18,6 @@ import Image from "next/image";
 export function HeroImage() {
   return (
     <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px]">
-      {/* Soft floating frame — ~50% smaller */}
       <div
         className="
           relative aspect-[4/5]
@@ -38,7 +36,6 @@ export function HeroImage() {
           className="object-cover object-center"
         />
 
-        {/* Very light bottom wash */}
         <div
           aria-hidden
           className="
@@ -48,7 +45,6 @@ export function HeroImage() {
         />
       </div>
 
-      {/* Decorative accent line under image */}
       <div
         aria-hidden
         className="
