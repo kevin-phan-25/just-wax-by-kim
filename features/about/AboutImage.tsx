@@ -1,35 +1,23 @@
-/**
- * -----------------------------------------------------------------------------
- * File: AboutImage.tsx
- *
- * Date: July 29, 2026
- *
- * Description:
- * Luxury founder portrait placeholder.
- *
- * -----------------------------------------------------------------------------
- */
-
 export default function AboutImage() {
   return (
     <div
       className="
         relative
         w-full
-        max-w-[280px]
-        lg:max-w-[320px]
+        max-w-[250px]
+        md:max-w-[280px]
       "
     >
 
       <div
         className="
           aspect-[4/5]
-          rounded-[2rem]
+          rounded-[1.75rem]
           overflow-hidden
           border
           border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_25px_60px_rgba(59,42,38,0.08)]
+          shadow-[0_20px_45px_rgba(59,42,38,0.08)]
           flex
           items-center
           justify-center
@@ -40,9 +28,9 @@ export default function AboutImage() {
           className="
             text-center
             text-[#8A776E]
-            text-xs
+            text-[0.65rem]
             uppercase
-            tracking-[0.28em]
+            tracking-[0.25em]
             leading-loose
           "
         >
@@ -54,16 +42,15 @@ export default function AboutImage() {
       </div>
 
 
-      {/* Bottom accent */}
       <div
         aria-hidden
         className="
           absolute
-          -bottom-5
+          -bottom-4
           left-1/2
           -translate-x-1/2
-          w-14
           h-px
+          w-12
           bg-[#D4A9B6]
         "
       />
