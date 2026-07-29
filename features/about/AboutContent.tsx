@@ -5,11 +5,7 @@
  * Date: July 29, 2026
  *
  * Description:
- * Text content that fills more of the left column.
- *
- * Changes:
- * • July 29, 2026 – Body text allowed to use more width
- * • July 29, 2026 – Slightly denser spacing
+ * Text content for the left column.
  * -----------------------------------------------------------------------------
  */
 import { aboutContent } from "./about.data";
