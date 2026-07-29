@@ -3,10 +3,31 @@ import Link from "next/link";
 export function HeroButtons() {
   return (
     <>
-      <Link href="#booking" className="btn-primary">
+      <Link
+        href="#booking"
+        className="
+          inline-flex items-center justify-center
+          rounded-full bg-[#8C5A6B] px-7 py-3.5
+          text-[0.68rem] font-semibold uppercase tracking-[0.18em]
+          text-white transition-all duration-300
+          hover:bg-[#7A4A5A] hover:-translate-y-0.5
+          hover:shadow-[0_14px_32px_rgba(140,90,107,0.28)]
+        "
+      >
         Book Appointment
       </Link>
-      <Link href="#services" className="btn-secondary">
+
+      <Link
+        href="#services"
+        className="
+          inline-flex items-center justify-center
+          rounded-full border border-[#E8DDD8] bg-white
+          px-7 py-3.5
+          text-[0.68rem] font-semibold uppercase tracking-[0.18em]
+          text-[#8C5A6B] transition-all duration-300
+          hover:border-[#D4A9B6] hover:bg-[#F6E7E1]
+        "
+      >
         View Services
       </Link>
     </>
