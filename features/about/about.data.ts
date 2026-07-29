@@ -1,36 +1,52 @@
 /**
  * -----------------------------------------------------------------------------
- * File: about.data.ts
+ * File: features/about/about.data.ts
  *
- * Changes:
- * - July 28, 2026
- *   - Updated messaging to align with the new brand quote
+ * Date: July 29, 2026
+ *
+ * Description:
+ * Luxury About section content.
  *
  * -----------------------------------------------------------------------------
  */
-import type { Credential, AboutSection } from "./about.types";
+
+import type {
+  Credential,
+  AboutSection,
+} from "./about.types";
+
 
 export const aboutContent: AboutSection = {
+
   eyebrow: "Meet Kim",
-  title: "Beauty, Comfort, and Confidence Through Every Detail.",
+
+  title:
+    "Creating Moments Where Beauty Feels Effortless.",
+
   description:
-    "Just Wax by Kim was created with one goal: providing a luxury waxing experience where every client feels comfortable, confident, and cared for. Every detail is intentional — so you leave feeling vibrant, empowered, and beautifully renewed.",
+    "Just Wax by Kim was created from a passion for helping every client feel confident, comfortable, and beautifully cared for. Each appointment is thoughtfully personalized — creating a calm, refined experience where you can relax, reconnect, and leave feeling your absolute best.",
+
 };
 
+
 export const credentials: Credential[] = [
+
   {
-    title: "Luxury Experience",
+    title: "Thoughtful Experience",
     description:
-      "Personalized services designed around comfort, quality, and how you want to feel.",
+      "Every detail is designed to create a comfortable, calming, and elevated experience.",
   },
+
   {
-    title: "Professional Care",
+    title: "Expert Care",
     description:
-      "A gentle, skilled approach focused on your confidence and long-lasting results.",
+      "A gentle and precise approach focused on beautiful results and lasting confidence.",
   },
+
   {
-    title: "Personal Attention",
+    title: "Personal Connection",
     description:
-      "Every appointment receives thoughtful attention so you feel seen, cared for, and renewed.",
+      "Every guest receives dedicated attention and care that feels personal and intentional.",
   },
+
 ];
