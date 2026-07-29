@@ -6,15 +6,23 @@
  *
  * Description:
  * Luxury editorial About section.
- * Full-width 2-column grid — text left, portrait right.
+ *
+ * Layout:
+ * • Left   — Heading + Description
+ * • Center — Portrait
+ * • Right  — Credentials
  *
  * Changes:
- * • July 29, 2026 – Works with responsive aspect-ratio portrait
- * • July 29, 2026 – Tightened gaps to reduce dead space
+ * • Switched from 2-column to editorial 3-column layout
+ * • Portrait becomes the visual centerpiece
+ * • Credentials now sit to the right of the portrait
+ * • Preserved responsive mobile stacking
  * -----------------------------------------------------------------------------
  */
+
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
+import Credentials from "./Credentials";
 
 export default function About() {
   return (
@@ -33,46 +41,78 @@ export default function About() {
         md:pb-28
       "
     >
-      {/* Soft ambient glow */}
+      {/* Ambient glow */}
       <div
         aria-hidden
         className="
-          pointer-events-none absolute inset-0
+          pointer-events-none
+          absolute
+          inset-0
           bg-[radial-gradient(ellipse_at_80%_30%,rgba(232,200,188,0.14),transparent_55%)]
         "
       />
 
-      {/* Thin top rule */}
+      {/* Top divider */}
       <div
         aria-hidden
         className="
-          absolute top-0 left-1/2 -translate-x-1/2
-          w-[min(92%,1200px)] h-px bg-[#E8DDD8]
+          absolute
+          top-0
+          left-1/2
+          -translate-x-1/2
+          h-px
+          w-[min(92%,1200px)]
+          bg-[#E8DDD8]
         "
       />
 
       <div className="relative mx-auto max-w-7xl">
+
         <div
           className="
             grid
             grid-cols-1
-            lg:grid-cols-12
-            gap-10
-            lg:gap-10
-            xl:gap-12
-            items-center
+            lg:grid-cols-[1.3fr_auto_0.9fr]
+            items-start
+            gap-12
+            xl:gap-20
           "
         >
-          {/* LEFT — Text */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
+          {/* ------------------------------------------------------------------
+             LEFT COLUMN
+          ------------------------------------------------------------------- */}
+          <div className="order-2 lg:order-1">
             <AboutContent />
           </div>
 
-          {/* RIGHT — Image */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          {/* ------------------------------------------------------------------
+             CENTER PORTRAIT
+          ------------------------------------------------------------------- */}
+          <div
+            className="
+              order-1
+              lg:order-2
+              flex
+              justify-center
+            "
+          >
             <AboutImage />
           </div>
+
+          {/* ------------------------------------------------------------------
+             RIGHT SIDEBAR
+          ------------------------------------------------------------------- */}
+          <div
+            className="
+              order-3
+              pt-2
+              lg:pt-10
+            "
+          >
+            <Credentials />
+          </div>
         </div>
+
       </div>
     </section>
   );
