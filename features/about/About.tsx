@@ -6,14 +6,15 @@
  *
  * Description:
  * Luxury editorial About section.
- * Classic 2-column layout: text on the left, portrait on the right.
- * Entire block is centered on the page.
+ * Portrait floats on the right; body text wraps around it.
+ * Soft ambient wash + layered depth for volume.
  *
  * Changes:
- * • July 29, 2026 – Switched to clear 2-column grid (left / right)
- * • July 29, 2026 – Centered container (max-w-5xl / max-w-6xl)
- * • July 29, 2026 – Safe top spacing after Hero
- * • July 29, 2026 – Image pushed to the right column
+ * • July 29, 2026 – Full redesign with proper text-wrap around image
+ * • July 29, 2026 – Image on the right (float-right)
+ * • July 29, 2026 – Controlled container width to avoid empty right space
+ * • July 29, 2026 – Safe, visible gap after Hero
+ * • July 29, 2026 – Soft radial glow for depth
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -41,7 +42,7 @@ export default function About() {
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_70%_40%,rgba(232,200,188,0.15),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_75%_30%,rgba(232,200,188,0.18),transparent_55%)]
         "
       />
 
@@ -54,28 +55,27 @@ export default function About() {
         "
       />
 
-      {/* Centered 2-column container */}
-      <div className="relative mx-auto max-w-5xl lg:max-w-6xl">
-        <div
-          className="
-            grid
-            grid-cols-1
-            lg:grid-cols-2
-            gap-12
-            lg:gap-16
-            xl:gap-20
-            items-center
-          "
-        >
-          {/* LEFT — Text */}
-          <div className="order-2 lg:order-1">
-            <AboutContent />
-          </div>
-
-          {/* RIGHT — Image */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+      <div className="relative mx-auto max-w-5xl">
+        {/* 
+          Float container
+          Image sits on the right, text flows around it.
+        */}
+        <div className="relative">
+          {/* Portrait — right side */}
+          <div
+            className="
+              mb-10 mx-auto
+              w-full max-w-[260px] sm:max-w-[280px]
+              lg:float-right
+              lg:ml-12 lg:mb-8
+              xl:ml-14
+            "
+          >
             <AboutImage />
           </div>
+
+          {/* Text wraps the image */}
+          <AboutContent />
         </div>
       </div>
     </section>
