@@ -1,11 +1,24 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: features/about/Credentials.tsx
+ *
+ * Date: July 29, 2026
+ *
+ * Description:
+ * Three credential items under the About text.
+ *
+ * Changes:
+ * • July 29, 2026 – Clean 3-column grid on larger screens
+ * -----------------------------------------------------------------------------
+ */
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div className="mt-14 clear-both">
+    <div className="mt-14">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
         {credentials.map((item) => (
-          <div key={item.title} className="group">
+          <div key={item.title}>
             <h3
               className="
                 text-[0.7rem] uppercase tracking-[0.22em]
@@ -15,12 +28,7 @@ export default function Credentials() {
             >
               {item.title}
             </h3>
-            <p
-              className="
-                text-sm leading-[1.8]
-                text-[#8A776E]
-              "
-            >
+            <p className="text-sm leading-[1.8] text-[#8A776E]">
               {item.description}
             </p>
           </div>
