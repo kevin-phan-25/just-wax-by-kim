@@ -7,16 +7,11 @@
  * Description:
  * Luxury editorial About section.
  *
- * Layout:
+ * Layout
  * • Left   — Heading + Description
  * • Center — Portrait
  * • Right  — Credentials
  *
- * Changes:
- * • Switched from 2-column to editorial 3-column layout
- * • Portrait becomes the visual centerpiece
- * • Credentials now sit to the right of the portrait
- * • Preserved responsive mobile stacking
  * -----------------------------------------------------------------------------
  */
 
@@ -34,14 +29,12 @@ export default function About() {
         bg-[#FCF8F3]
         px-6
         mt-16
-        pt-16
-        pb-24
+        pt-20
+        pb-28
         md:mt-20
-        md:pt-20
-        md:pb-28
       "
     >
-      {/* Ambient glow */}
+      {/* Ambient Glow */}
       <div
         aria-hidden
         className="
@@ -52,7 +45,7 @@ export default function About() {
         "
       />
 
-      {/* Top divider */}
+      {/* Top Divider */}
       <div
         aria-hidden
         className="
@@ -61,58 +54,60 @@ export default function About() {
           left-1/2
           -translate-x-1/2
           h-px
-          w-[min(92%,1200px)]
+          w-[min(92%,1240px)]
           bg-[#E8DDD8]
         "
       />
 
       <div className="relative mx-auto max-w-7xl">
-
         <div
           className="
             grid
             grid-cols-1
-            lg:grid-cols-[1.3fr_auto_0.9fr]
-            items-start
-            gap-12
-            xl:gap-20
+            lg:grid-cols-[1.15fr_auto_0.85fr]
+            items-center
+            gap-y-16
+            gap-x-12
+            xl:gap-x-24
           "
         >
-          {/* ------------------------------------------------------------------
-             LEFT COLUMN
-          ------------------------------------------------------------------- */}
-          <div className="order-2 lg:order-1">
+          {/* LEFT */}
+          <div
+            className="
+              order-2
+              lg:order-1
+              self-center
+            "
+          >
             <AboutContent />
           </div>
 
-          {/* ------------------------------------------------------------------
-             CENTER PORTRAIT
-          ------------------------------------------------------------------- */}
+          {/* CENTER */}
           <div
             className="
               order-1
               lg:order-2
               flex
               justify-center
+              self-center
             "
           >
             <AboutImage />
           </div>
 
-          {/* ------------------------------------------------------------------
-             RIGHT SIDEBAR
-          ------------------------------------------------------------------- */}
+          {/* RIGHT */}
           <div
             className="
               order-3
-              pt-2
-              lg:pt-10
+              flex
+              items-center
+              justify-start
+              h-full
             "
           >
             <Credentials />
           </div>
         </div>
-
       </div>
     </section>
   );
