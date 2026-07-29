@@ -6,14 +6,12 @@
  *
  * Description:
  * Luxury editorial About section.
- * CSS Grid layout — text left, portrait right.
- * Soft ambient wash for volume.
+ * Portrait on the right, text wraps around it.
  *
  * Changes:
- * • July 29, 2026 – Switched from float to pure CSS Grid
- * • July 29, 2026 – Image on the right
- * • July 29, 2026 – Centered container, no empty right-side space
- * • July 29, 2026 – Safe top spacing after Hero
+ * • July 29, 2026 – Returned to float for true text wrap
+ * • July 29, 2026 – Reduced overall type scale to stop collisions
+ * • July 29, 2026 – Controlled container width to avoid empty space
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -41,7 +39,7 @@ export default function About() {
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_75%_30%,rgba(232,200,188,0.16),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_75%_30%,rgba(232,200,188,0.14),transparent_55%)]
         "
       />
 
@@ -50,31 +48,25 @@ export default function About() {
         aria-hidden
         className="
           absolute top-0 left-1/2 -translate-x-1/2
-          w-[min(92%,1000px)] h-px bg-[#E8DDD8]
+          w-[min(92%,960px)] h-px bg-[#E8DDD8]
         "
       />
 
-      {/* Centered grid container */}
-      <div className="relative mx-auto max-w-5xl lg:max-w-6xl">
-        <div
-          className="
-            grid
-            grid-cols-1
-            lg:grid-cols-12
-            gap-12
-            lg:gap-16
-            items-center
-          "
-        >
-          {/* LEFT — Text (7 cols) */}
-          <div className="lg:col-span-7 order-2 lg:order-1">
-            <AboutContent />
-          </div>
-
-          {/* RIGHT — Image (5 cols) */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+      <div className="relative mx-auto max-w-4xl">
+        <div className="relative">
+          {/* Portrait — right side, text wraps around it */}
+          <div
+            className="
+              mb-10 mx-auto
+              w-full max-w-[240px] sm:max-w-[260px]
+              lg:float-right
+              lg:ml-10 lg:mb-6
+            "
+          >
             <AboutImage />
           </div>
+
+          <AboutContent />
         </div>
       </div>
     </section>
