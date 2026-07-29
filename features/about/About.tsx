@@ -8,9 +8,9 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Added transition spacing from hero
- * • Rebalanced image/content layout
- * • Reduced visual density
+ * • Reduced spacing from hero
+ * • Balanced image and content
+ * • Softer luxury composition
  * -----------------------------------------------------------------------------
  */
 
@@ -27,14 +27,14 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        pt-32
-        pb-28
-        md:pt-40
-        md:pb-36
+        pt-24
+        pb-20
+        md:pt-28
+        md:pb-24
       "
     >
 
-      {/* Soft transition from hero */}
+      {/* Section divider */}
       <div
         aria-hidden
         className="
@@ -42,8 +42,8 @@ export default function About() {
           top-0
           left-1/2
           -translate-x-1/2
-          h-px
           w-[min(92%,1200px)]
+          h-px
           bg-[#E8DDD8]
         "
       />
@@ -57,13 +57,13 @@ export default function About() {
           grid
           grid-cols-1
           lg:grid-cols-12
-          gap-12
+          gap-10
           lg:gap-16
           items-center
         "
       >
 
-        {/* Content LEFT */}
+        {/* Content */}
         <div
           className="
             lg:col-span-7
@@ -74,7 +74,7 @@ export default function About() {
         </div>
 
 
-        {/* Image RIGHT */}
+        {/* Image */}
         <div
           className="
             lg:col-span-5
