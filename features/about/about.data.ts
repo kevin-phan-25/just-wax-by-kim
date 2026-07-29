@@ -5,10 +5,10 @@
  * Date: July 29, 2026
  *
  * Description:
- * Static content for the About section (eyebrow, title, body, credentials).
+ * Static content for the About section.
  *
  * Changes:
- * • July 29, 2026 – Content finalized for luxury editorial tone
+ * • July 29, 2026 – Removed em dash from description
  * -----------------------------------------------------------------------------
  */
 import type {
@@ -20,7 +20,7 @@ export const aboutContent: AboutSection = {
   eyebrow: "Meet Kim",
   title: "Creating Moments Where Beauty Feels Effortless.",
   description:
-    "Just Wax by Kim was created from a passion for helping every client feel confident, comfortable, and beautifully cared for. Each appointment is thoughtfully personalized — creating a calm, refined experience where you can relax, reconnect, and leave feeling your absolute best.",
+    "Just Wax by Kim was created from a passion for helping every client feel confident, comfortable, and beautifully cared for. Each appointment is thoughtfully personalized, creating a calm, refined experience where you can relax, reconnect, and leave feeling your absolute best.",
 };
 
 export const credentials: Credential[] = [
