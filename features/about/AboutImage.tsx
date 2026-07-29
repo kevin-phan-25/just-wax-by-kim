@@ -8,13 +8,12 @@
  * Portrait frame with soft depth and volume.
  *
  * Changes:
- * • July 29, 2026 – Soft blur layer + deeper shadow for presence
- * • July 29, 2026 – Slightly refined proportions
+ * • July 29, 2026 – Soft blur layer + deeper shadow retained
  * -----------------------------------------------------------------------------
  */
 export default function AboutImage() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px]">
       {/* Soft depth layer */}
       <div
         aria-hidden
