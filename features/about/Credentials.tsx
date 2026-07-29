@@ -3,61 +3,34 @@ import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div
-      className="
-        mt-12
-        grid
-        gap-7
-      "
-    >
+    <div className="mt-10 space-y-6">
 
       {credentials.map((item) => (
 
-        <div
-          key={item.title}
-          className="
-            flex
-            gap-5
-          "
-        >
+        <div key={item.title}>
 
-          <span
+          <h3
+            className="
+              text-xs
+              uppercase
+              tracking-[0.2em]
+              text-[#3B2A26]
+            "
+          >
+            {item.title}
+          </h3>
+
+
+          <p
             className="
               mt-2
-              h-1.5
-              w-1.5
-              rounded-full
-              bg-[#D4A9B6]
-              flex-shrink-0
+              text-sm
+              leading-[1.75]
+              text-[#8A776E]
             "
-          />
-
-          <div>
-
-            <h3
-              className="
-                text-sm
-                tracking-[0.12em]
-                uppercase
-                text-[#3B2A26]
-              "
-            >
-              {item.title}
-            </h3>
-
-
-            <p
-              className="
-                mt-2
-                text-sm
-                leading-[1.8]
-                text-[#8A776E]
-              "
-            >
-              {item.description}
-            </p>
-
-          </div>
+          >
+            {item.description}
+          </p>
 
         </div>
 
