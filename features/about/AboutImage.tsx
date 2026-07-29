@@ -5,15 +5,30 @@
  * Date: July 29, 2026
  *
  * Description:
- * Larger portrait to reduce empty space on the right.
+ * Portrait frame with responsive aspect ratios and soft depth.
  *
  * Changes:
- * • July 29, 2026 – Increased max size so it fills more of the column
+ * • July 29, 2026 – Added responsive aspect ratios
+ *   - Mobile: aspect-[3/4] (slightly taller)
+ *   - md+: aspect-[4/5] (classic portrait)
+ * • July 29, 2026 – Responsive max-widths for better scaling
  * -----------------------------------------------------------------------------
  */
 export default function AboutImage() {
   return (
-    <div className="relative w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
+    <div
+      className="
+        relative
+        w-full
+        max-w-[240px]
+        sm:max-w-[260px]
+        lg:max-w-[300px]
+        xl:max-w-[320px]
+        aspect-[3/4]
+        md:aspect-[4/5]
+      "
+    >
+      {/* Soft depth layer */}
       <div
         aria-hidden
         className="
@@ -28,7 +43,7 @@ export default function AboutImage() {
       <div
         className="
           relative
-          aspect-[4/5]
+          h-full w-full
           rounded-[1.7rem]
           overflow-hidden
           border border-[#E8DDD8]
@@ -49,6 +64,7 @@ export default function AboutImage() {
         </p>
       </div>
 
+      {/* Accent under frame */}
       <div
         aria-hidden
         className="
