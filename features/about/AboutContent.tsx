@@ -5,12 +5,13 @@
  * Date: July 29, 2026
  *
  * Description:
- * Left editorial content for the About section.
+ * Editorial text content for About section.
  *
  * Changes:
- * • Removed Credentials component
- * • Increased visual balance with portrait
- * • Narrowed text width for luxury editorial feel
+ * • Optimized for floating portrait layout
+ * • Removed credential dependency
+ * • Increased editorial spacing
+ * • Allows natural text wrapping around image
  * -----------------------------------------------------------------------------
  */
 
@@ -18,58 +19,72 @@ import { aboutContent } from "./about.data";
 
 export default function AboutContent() {
   return (
-    <div className="w-full max-w-xl">
+    <div className="w-full">
+
       {/* Eyebrow */}
       <p
         className="
-          mb-4
+          mb-5
           text-[0.62rem]
           uppercase
-          tracking-[0.35em]
+          tracking-[0.38em]
           text-[#B28A62]
         "
       >
         {aboutContent.eyebrow}
       </p>
 
-      {/* Heading */}
+
+      {/* Main Heading */}
       <h2
         className="
+          max-w-3xl
           font-serif
           text-3xl
-          sm:text-[2.15rem]
-          lg:text-[2.55rem]
+          sm:text-[2.2rem]
+          lg:text-[2.65rem]
           leading-[1.15]
           tracking-[-0.03em]
           text-[#3B2A26]
-          max-w-lg
         "
       >
         {aboutContent.title}
       </h2>
 
-      {/* Accent Line */}
+
+      {/* Accent */}
       <div
         className="
-          mt-8
-          mb-8
+          my-8
           h-px
           w-14
           bg-[#D4A9B6]
         "
       />
 
-      {/* Description */}
-      <p
+
+      {/* Editorial Body */}
+      <div
         className="
-          max-w-md
+          max-w-3xl
           text-[0.95rem]
+          sm:text-[1rem]
           leading-[2]
           text-[#7E6B63]
         "
       >
-        {aboutContent.description}
-      </p>
+        <p>
+          {aboutContent.description}
+        </p>
+
+        <p className="mt-8">
+          At Just Wax by Kim, every detail is thoughtfully considered to create
+          an experience that feels calm, welcoming, and personalized. From the
+          moment you arrive, the focus is on comfort, confidence, and helping
+          you feel beautifully cared for.
+        </p>
+      </div>
+
     </div>
   );
 }
