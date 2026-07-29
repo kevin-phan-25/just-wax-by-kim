@@ -1,104 +1,26 @@
-/**
- * -----------------------------------------------------------------------------
- * File: Logo.tsx
- *
- * Description:
- * Luxury brand logo component.
- *
- * Just Wax by Kim
- *
- * -----------------------------------------------------------------------------
- */
-
-
 import Image from "next/image";
-
+import Link from "next/link";
 
 interface LogoProps {
-
-  size?: "sm" | "md" | "lg";
-
+  className?: string;
+  priority?: boolean;
 }
 
-
-
-export default function Logo({
-
-  size = "md",
-
-}: LogoProps) {
-
-
-
-const sizes = {
-
-
-  sm: {
-
-    width: 130,
-
-    height: 90,
-
-  },
-
-
-  md: {
-
-    width: 180,
-
-    height: 120,
-
-  },
-
-
-  lg: {
-
-    width: 280,
-
-    height: 180,
-
-  },
-
-
-};
-
-
-
-return (
-
-<div
-
-className="
-flex
-items-center
-justify-center
-"
-
->
-
-
-<Image
-
-src="/logo/just-wax-by-kim.png"
-
-alt="Just Wax by Kim - More Than Just A Wax"
-
-width={sizes[size].width}
-
-height={sizes[size].height}
-
-priority
-
-className="
-object-contain
-"
-
-/>
-
-
-</div>
-
-);
-
-
+export function Logo({ className = "", priority = false }: LogoProps) {
+  return (
+    <Link
+      href="/"
+      className={`inline-flex items-center gap-3 group ${className}`}
+      aria-label="Just Wax by Kim — Home"
+    >
+      <Image
+        src="/logo/just-wax-by-kim.png"
+        alt="Just Wax by Kim"
+        width={160}
+        height={48}
+        priority={priority}
+        className="h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-80"
+      />
+    </Link>
+  );
 }
