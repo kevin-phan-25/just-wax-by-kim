@@ -8,9 +8,9 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Increased top spacing so About sits a full 2 inches below the Hero
- * • Clean, even breathing room between the two thin rules
- * • Preserved editorial layout
+ * • Restored sensible spacing after the Hero
+ * • ~1 inch of open space between the two thin rules
+ * • Content no longer pushed off-screen
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -25,15 +25,15 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-48          /* ← 2 inches (192 px) after the Hero bottom rule */
-        pt-16          /* ← modest internal padding so content isn’t flush with the divider */
+        mt-16          /* ← ~0.75–1 inch after Hero (safe, visible) */
+        pt-12          /* ← small breathing room before content */
         pb-20
-        md:mt-52
-        md:pt-20
+        md:mt-20
+        md:pt-16
         md:pb-28
       "
     >
-      {/* Section divider – now sits a full 2" below the Hero rule */}
+      {/* Section divider */}
       <div
         aria-hidden
         className="
