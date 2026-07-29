@@ -5,12 +5,11 @@
  * Date: July 29, 2026
  *
  * Description:
- * Text that wraps around the floated portrait.
- * Smaller, calmer type scale to prevent overlapping.
+ * Text content that fills the left column.
  *
  * Changes:
- * • July 29, 2026 – Reduced title and body sizes
- * • July 29, 2026 – Tighter, more refined spacing
+ * • July 29, 2026 – Removed max-width constraints so text uses the full column
+ * • July 29, 2026 – Balanced type scale
  * -----------------------------------------------------------------------------
  */
 import { aboutContent } from "./about.data";
@@ -18,7 +17,7 @@ import Credentials from "./Credentials";
 
 export default function AboutContent() {
   return (
-    <div>
+    <div className="w-full">
       {/* Eyebrow */}
       <p
         className="
@@ -31,15 +30,14 @@ export default function AboutContent() {
         {aboutContent.eyebrow}
       </p>
 
-      {/* Title — smaller so it doesn’t dominate */}
+      {/* Title */}
       <h2
         className="
           font-serif
-          text-2xl sm:text-3xl
+          text-2xl sm:text-3xl lg:text-[2.4rem]
           leading-[1.2]
           tracking-[-0.02em]
           text-[#3B2A26]
-          max-w-md
         "
       >
         {aboutContent.title}
@@ -54,6 +52,7 @@ export default function AboutContent() {
           text-[0.9rem] sm:text-[0.95rem]
           leading-[1.85]
           text-[#7E6B63]
+          max-w-xl
         "
       >
         {aboutContent.description}
