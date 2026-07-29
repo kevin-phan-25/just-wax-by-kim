@@ -6,15 +6,14 @@
  *
  * Description:
  * Luxury editorial About section.
- * Portrait floats on the right; body text wraps around it.
- * Soft ambient wash + layered depth for volume.
+ * CSS Grid layout — text left, portrait right.
+ * Soft ambient wash for volume.
  *
  * Changes:
- * • July 29, 2026 – Full redesign with proper text-wrap around image
- * • July 29, 2026 – Image on the right (float-right)
- * • July 29, 2026 – Controlled container width to avoid empty right space
- * • July 29, 2026 – Safe, visible gap after Hero
- * • July 29, 2026 – Soft radial glow for depth
+ * • July 29, 2026 – Switched from float to pure CSS Grid
+ * • July 29, 2026 – Image on the right
+ * • July 29, 2026 – Centered container, no empty right-side space
+ * • July 29, 2026 – Safe top spacing after Hero
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -42,7 +41,7 @@ export default function About() {
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_75%_30%,rgba(232,200,188,0.18),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_75%_30%,rgba(232,200,188,0.16),transparent_55%)]
         "
       />
 
@@ -55,27 +54,27 @@ export default function About() {
         "
       />
 
-      <div className="relative mx-auto max-w-5xl">
-        {/* 
-          Float container
-          Image sits on the right, text flows around it.
-        */}
-        <div className="relative">
-          {/* Portrait — right side */}
-          <div
-            className="
-              mb-10 mx-auto
-              w-full max-w-[260px] sm:max-w-[280px]
-              lg:float-right
-              lg:ml-12 lg:mb-8
-              xl:ml-14
-            "
-          >
-            <AboutImage />
+      {/* Centered grid container */}
+      <div className="relative mx-auto max-w-5xl lg:max-w-6xl">
+        <div
+          className="
+            grid
+            grid-cols-1
+            lg:grid-cols-12
+            gap-12
+            lg:gap-16
+            items-center
+          "
+        >
+          {/* LEFT — Text (7 cols) */}
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <AboutContent />
           </div>
 
-          {/* Text wraps the image */}
-          <AboutContent />
+          {/* RIGHT — Image (5 cols) */}
+          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+            <AboutImage />
+          </div>
         </div>
       </div>
     </section>
