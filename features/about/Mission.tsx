@@ -3,12 +3,15 @@
  * File:
  * Mission.tsx
  *
- * Changes:
- * - July 28, 2026
- *   - Removed background
- *   - Prevented two-tone transition
- *   - Added spacing from Hero
+ * Date: July 29, 2026
  *
+ * Description:
+ * Signature luxury brand statement.
+ *
+ * Changes:
+ * • Refined wording
+ * • Increased editorial feel
+ * • Softer spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -18,33 +21,37 @@ export default function Mission() {
       className="
         w-full
         px-6
-        pt-8
-        pb-12
+        pt-10
+        pb-20
       "
     >
+
       <div
         className="
           mx-auto
-          max-w-6xl
+          max-w-4xl
           flex
           justify-center
           text-center
         "
       >
+
         <p
           className="
             font-serif
-            text-sm
-            md:text-base
-            leading-relaxed
-            text-brand-espresso/85
+            text-base
+            md:text-lg
+            leading-[1.8]
+            text-[#3B2A26]/85
             italic
-            whitespace-nowrap
           "
         >
-          “Every experience is crafted to leave you feeling vibrant, empowered, and beautifully renewed.”
+          “A thoughtful beauty experience designed to help you feel confident,
+          cared for, and beautifully yourself.”
         </p>
+
       </div>
+
     </section>
   );
 }
