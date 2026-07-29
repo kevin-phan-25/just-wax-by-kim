@@ -5,32 +5,66 @@
  * Date: July 29, 2026
  *
  * Description:
- * Three credential items under the About text.
+ * Editorial credentials sidebar displayed to the right of the portrait.
+ *
+ * Changes:
+ * • Converted from 3-column grid to luxury vertical sidebar
+ * • Added subtle divider between items
+ * • Increased spacing for premium editorial feel
  * -----------------------------------------------------------------------------
  */
+
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div className="mt-10">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
-        {credentials.map((item) => (
-          <div key={item.title}>
-            <h3
-              className="
-                text-[0.65rem] uppercase tracking-[0.2em]
-                text-[#3B2A26]
-                mb-2
-              "
-            >
-              {item.title}
-            </h3>
-            <p className="text-[0.8rem] leading-[1.7] text-[#8A776E]">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
+    <aside className="w-full max-w-[320px]">
+      {credentials.map((item, index) => (
+        <div
+          key={item.title}
+          className={`
+            ${
+              index !== credentials.length - 1
+                ? "mb-10 pb-10 border-b border-[#E8DDD8]"
+                : ""
+            }
+          `}
+        >
+          <p
+            className="
+              mb-3
+              text-[0.65rem]
+              uppercase
+              tracking-[0.32em]
+              text-[#B28A62]
+            "
+          >
+            {String(index + 1).padStart(2, "0")}
+          </p>
+
+          <h3
+            className="
+              mb-3
+              font-serif
+              text-[1.25rem]
+              leading-tight
+              text-[#3B2A26]
+            "
+          >
+            {item.title}
+          </h3>
+
+          <p
+            className="
+              text-[0.9rem]
+              leading-[1.9]
+              text-[#7E6B63]
+            "
+          >
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </aside>
   );
 }
