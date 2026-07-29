@@ -8,14 +8,14 @@
  * Luxury editorial About section.
  *
  * Layout:
- * • Left   — Story content
- * • Center — Portrait
- * • Right  — Credentials
+ * • Left   — Brand story
+ * • Center — Portrait focal point
+ * • Right  — Experience highlights
  *
  * Changes:
- * • Moved credentials back beside portrait
- * • Removed bottom stacking layout
- * • Created balanced editorial 3-column composition
+ * • Increased editorial spacing
+ * • Enlarged visual centerpiece
+ * • Improved column balance
  * -----------------------------------------------------------------------------
  */
 
@@ -33,24 +33,27 @@ export default function About() {
         bg-[#FCF8F3]
         px-6
         mt-16
-        pt-20
-        pb-28
+        pt-24
+        pb-32
         md:mt-20
-        md:pt-24
-        md:pb-32
+        md:pt-28
+        md:pb-36
       "
     >
+
       {/* Ambient glow */}
       <div
         aria-hidden
         className="
           pointer-events-none
-          absolute inset-0
-          bg-[radial-gradient(ellipse_at_80%_30%,rgba(232,200,188,0.14),transparent_55%)]
+          absolute
+          inset-0
+          bg-[radial-gradient(ellipse_at_75%_35%,rgba(232,200,188,0.16),transparent_55%)]
         "
       />
 
-      {/* Divider */}
+
+      {/* Top divider */}
       <div
         aria-hidden
         className="
@@ -58,11 +61,12 @@ export default function About() {
           top-0
           left-1/2
           -translate-x-1/2
-          w-[min(92%,1200px)]
+          w-[min(92%,1240px)]
           h-px
           bg-[#E8DDD8]
         "
       />
+
 
       <div className="relative mx-auto max-w-7xl">
 
@@ -70,10 +74,10 @@ export default function About() {
           className="
             grid
             grid-cols-1
-            lg:grid-cols-[1.1fr_auto_0.9fr]
+            lg:grid-cols-[1fr_auto_1fr]
             items-center
-            gap-12
-            xl:gap-20
+            gap-16
+            xl:gap-24
           "
         >
 
@@ -82,6 +86,7 @@ export default function About() {
             className="
               order-2
               lg:order-1
+              max-w-xl
             "
           >
             <AboutContent />
@@ -95,19 +100,22 @@ export default function About() {
               lg:order-2
               flex
               justify-center
-              lg:translate-x-4
+              lg:translate-x-6
+              xl:translate-x-10
             "
           >
             <AboutImage />
           </div>
 
 
-          {/* CREDENTIALS */}
+          {/* RIGHT CONTENT */}
           <div
             className="
               order-3
               flex
               items-center
+              justify-start
+              lg:pl-6
             "
           >
             <Credentials />
@@ -116,6 +124,7 @@ export default function About() {
         </div>
 
       </div>
+
     </section>
   );
 }
