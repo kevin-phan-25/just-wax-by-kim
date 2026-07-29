@@ -8,10 +8,9 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Navbar height held at ~2 inches (192px)
- * • Logo target size ~1.75 inches (handled in Logo.tsx)
+ * • Navbar height set to 1.75 inches (168px)
+ * • Logo sized to nearly fill the bar without clipping
  * • Book Appointment: outline only, no solid purple on hover
- * • CTA bubble kept roomy; text size unchanged
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -57,14 +56,12 @@ export default function Navbar() {
         `}
       >
         <div className="container-luxury">
-          {/* ~2 inches tall */}
-          <nav className="flex h-[192px] items-center justify-between gap-6">
-            {/* Brand */}
+          {/* 1.75 inches */}
+          <nav className="flex h-[168px] items-center justify-between gap-6">
             <div className="flex-shrink-0 flex items-center h-full">
               <Logo priority />
             </div>
 
-            {/* Right cluster */}
             <div className="flex items-center gap-8 xl:gap-12 ml-auto">
               <ul className="hidden xl:flex items-center gap-6 2xl:gap-8">
                 {NAV_LINKS.map((link) => (
@@ -88,7 +85,6 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              {/* Outline CTA — roomy bubble, no purple fill on hover */}
               <Link
                 href="#booking"
                 className="
