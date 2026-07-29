@@ -1,23 +1,16 @@
 /**
  * -----------------------------------------------------------------------------
- * File: about.constants.ts
+ * File: features/about/about.constants.ts
  *
- * Created: July 27, 2026
+ * Date: July 27, 2026
  *
  * Description:
- * Static configuration for About section.
+ * Static configuration values for the About section (image paths, etc.).
  *
  * Changes:
- * - July 27, 2026
- *   - Initial creation.
- *
+ * • July 27, 2026 – Initial creation
  * -----------------------------------------------------------------------------
  */
-
-
 export const ABOUT_IMAGE = {
-
-  placeholder:
-    "/about/kim-placeholder.svg",
-
+  placeholder: "/about/kim-placeholder.svg",
 };
