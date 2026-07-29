@@ -5,18 +5,17 @@
  * Date: July 29, 2026
  *
  * Description:
- * Three credential items that sit below the wrapped text.
+ * Three credential items under the About text.
  *
  * Changes:
- * • July 29, 2026 – clear-both so it always sits under the float
- * • July 29, 2026 – Clean 3-column grid on larger screens
+ * • July 29, 2026 – Simple 3-column grid (no clear-both needed)
  * -----------------------------------------------------------------------------
  */
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div className="mt-14 clear-both">
+    <div className="mt-12">
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
         {credentials.map((item) => (
           <div key={item.title}>
