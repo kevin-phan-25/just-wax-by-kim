@@ -8,10 +8,11 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Nav links shifted further right for better balance with large logo
- * • Book Appointment: removed solid purple fill → outline bubble
- * • CTA text and padding enlarged for easier tapping / readability
- * • Nav order: Home, About, Services, Gallery, Testimonials, FAQ, Booking, Contact
+ * • Book Appointment: no solid purple on hover (outline only)
+ * • CTA bubble padding increased ~25%; text size unchanged
+ * • Navbar vertical size reduced ~½ inch top + ½ inch bottom
+ * • Logo scaled to fit the tighter bar without clipping
+ * • Links remain shifted right; order unchanged
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -57,15 +58,19 @@ export default function Navbar() {
         `}
       >
         <div className="container-luxury">
-          <nav className="flex h-[200px] md:h-[220px] items-center justify-between gap-6">
-            {/* Brand — left */}
-            <div className="flex-shrink-0 flex items-center h-full py-3">
+          {/*
+            Previous: 200px / 220px
+            − ~½ inch (48px) top + ½ inch (48px) bottom ≈ −96px
+            → 104px / 124px
+          */}
+          <nav className="flex h-[104px] md:h-[124px] items-center justify-between gap-6">
+            {/* Brand */}
+            <div className="flex-shrink-0 flex items-center h-full">
               <Logo priority />
             </div>
 
-            {/* Right cluster: links + CTA pushed further right */}
+            {/* Right cluster */}
             <div className="flex items-center gap-8 xl:gap-12 ml-auto">
-              {/* Desktop links */}
               <ul className="hidden xl:flex items-center gap-6 2xl:gap-8">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
@@ -88,7 +93,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              {/* Outline CTA — larger, no purple fill */}
+              {/* Outline CTA — larger bubble, same text, no purple fill on hover */}
               <Link
                 href="#booking"
                 className="
@@ -96,19 +101,18 @@ export default function Navbar() {
                   rounded-full
                   border-2 border-[#8C5A6B]
                   bg-transparent
-                  px-8 py-4
+                  px-10 py-5
                   text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                   text-[#8C5A6B]
                   transition-all duration-300 whitespace-nowrap
-                  hover:bg-[#8C5A6B] hover:text-white
-                  hover:-translate-y-0.5
-                  hover:shadow-[0_12px_28px_rgba(140,90,107,0.2)]
+                  hover:border-[#6E4A55]
+                  hover:text-[#6E4A55]
+                  hover:bg-[#F6E7E1]/60
                 "
               >
                 Book Appointment
               </Link>
 
-              {/* Mobile menu toggle */}
               <button
                 type="button"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
