@@ -6,13 +6,14 @@
  *
  * Description:
  * Luxury editorial About section.
- * Entire block is centered. Text on the left, portrait pushed to the right.
+ * Classic 2-column layout: text on the left, portrait on the right.
+ * Entire block is centered on the page.
  *
  * Changes:
- * • July 29, 2026 – Centered the whole content block (mx-auto)
- * • July 29, 2026 – Flex layout so image is pushed right inside the centered container
- * • July 29, 2026 – Safe top spacing that does not push the section off-screen
- * • July 29, 2026 – Removed large empty right-side space
+ * • July 29, 2026 – Switched to clear 2-column grid (left / right)
+ * • July 29, 2026 – Centered container (max-w-5xl / max-w-6xl)
+ * • July 29, 2026 – Safe top spacing after Hero
+ * • July 29, 2026 – Image pushed to the right column
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -53,25 +54,26 @@ export default function About() {
         "
       />
 
-      {/* Centered container */}
-      <div className="relative mx-auto max-w-5xl">
+      {/* Centered 2-column container */}
+      <div className="relative mx-auto max-w-5xl lg:max-w-6xl">
         <div
           className="
-            flex flex-col
-            lg:flex-row
-            items-center
-            justify-between
+            grid
+            grid-cols-1
+            lg:grid-cols-2
             gap-12
             lg:gap-16
+            xl:gap-20
+            items-center
           "
         >
-          {/* Text — left */}
-          <div className="w-full lg:w-[55%] order-2 lg:order-1">
+          {/* LEFT — Text */}
+          <div className="order-2 lg:order-1">
             <AboutContent />
           </div>
 
-          {/* Image — pushed right */}
-          <div className="w-full lg:w-[40%] order-1 lg:order-2 flex justify-center lg:justify-end">
+          {/* RIGHT — Image */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <AboutImage />
           </div>
         </div>
