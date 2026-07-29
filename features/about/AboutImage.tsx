@@ -5,57 +5,67 @@
  * Date: July 29, 2026
  *
  * Description:
- * Portrait frame with responsive aspect ratios and soft depth.
+ * Luxury portrait frame for editorial About section.
  *
  * Changes:
- * • July 29, 2026 – Added responsive aspect ratios
- *   - Mobile: aspect-[3/4] (slightly taller)
- *   - md+: aspect-[4/5] (classic portrait)
- * • July 29, 2026 – Responsive max-widths for better scaling
+ * • Enlarged portrait for 3-column layout
+ * • Better centered proportions
+ * • Softer luxury shadow
+ * • Slightly taller editorial aspect ratio
  * -----------------------------------------------------------------------------
  */
+
 export default function AboutImage() {
   return (
     <div
       className="
         relative
         w-full
-        max-w-[240px]
-        sm:max-w-[260px]
-        lg:max-w-[300px]
-        xl:max-w-[320px]
-        aspect-[3/4]
-        md:aspect-[4/5]
+        max-w-[260px]
+        sm:max-w-[300px]
+        lg:max-w-[360px]
+        xl:max-w-[400px]
+        aspect-[4/5]
       "
     >
-      {/* Soft depth layer */}
+      {/* Ambient glow */}
       <div
         aria-hidden
         className="
-          absolute -inset-3
-          rounded-[1.85rem]
-          bg-[#E8DDD8]/35
-          blur-xl
+          absolute
+          -inset-5
+          rounded-[2.25rem]
+          bg-[#E8DDD8]/40
+          blur-2xl
           -z-10
         "
       />
 
+      {/* Portrait Frame */}
       <div
         className="
           relative
-          h-full w-full
-          rounded-[1.7rem]
+          h-full
+          w-full
           overflow-hidden
-          border border-[#E8DDD8]
+          rounded-[2rem]
+          border
+          border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_22px_44px_-10px_rgba(59,42,38,0.16)]
-          flex items-center justify-center
+          shadow-[0_30px_70px_-18px_rgba(59,42,38,0.18)]
+          flex
+          items-center
+          justify-center
         "
       >
         <p
           className="
-            text-center text-[#8A776E]
-            text-[0.65rem] uppercase tracking-[0.25em] leading-loose
+            text-center
+            uppercase
+            tracking-[0.28em]
+            leading-loose
+            text-[#8A776E]
+            text-[0.68rem]
           "
         >
           Kim&apos;s Portrait
@@ -64,12 +74,17 @@ export default function AboutImage() {
         </p>
       </div>
 
-      {/* Accent under frame */}
+      {/* Bottom Accent */}
       <div
         aria-hidden
         className="
-          absolute -bottom-4 left-1/2 -translate-x-1/2
-          h-px w-12 bg-[#D4A9B6]
+          absolute
+          left-1/2
+          -bottom-5
+          -translate-x-1/2
+          h-px
+          w-14
+          bg-[#D4A9B6]
         "
       />
     </div>
