@@ -1,3 +1,20 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/layout/Navbar.tsx
+ *
+ * Date: July 29, 2026
+ *
+ * Description:
+ * Fixed top navigation for Just Wax by Kim.
+ *
+ * Changes (July 29, 2026):
+ * • Reduced height to 72px / 80px for better proportion with hero
+ * • Softer glass background + thinner border
+ * • Refined link tracking and hover underline
+ * • Smaller, quieter Book CTA
+ * • Mobile menu toggle refined
+ * -----------------------------------------------------------------------------
+ */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -39,10 +56,8 @@ export default function Navbar() {
       >
         <div className="container-luxury">
           <nav className="flex h-[72px] md:h-[80px] items-center justify-between">
-            {/* Brand */}
             <Logo priority />
 
-            {/* Desktop nav */}
             <ul className="hidden lg:flex items-center gap-9">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -65,7 +80,6 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA + mobile */}
             <div className="flex items-center gap-3">
               <Link
                 href="#booking"
