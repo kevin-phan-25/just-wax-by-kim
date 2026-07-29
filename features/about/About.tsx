@@ -9,11 +9,10 @@
  *
  * Changes:
  * • Fixed Hero → About transition spacing
- * • Reduced gap to approximately 1 inch
+ * • 1-inch gap after Hero bottom rule + 1-inch before About content
  * • Preserved editorial layout
  * -----------------------------------------------------------------------------
  */
-
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
 
@@ -25,20 +24,15 @@ export default function About() {
         relative
         overflow-hidden
         bg-[#FCF8F3]
-
         px-6
-
-        mt-24
-
-        pt-20
+        mt-24          /* ← 1 inch (96 px) after the Hero */
+        pt-24          /* ← 1 inch before About content starts */
         pb-20
-
         md:mt-24
-        md:pt-24
+        md:pt-28
         md:pb-28
       "
     >
-
       {/* Section divider */}
       <div
         aria-hidden
@@ -58,44 +52,24 @@ export default function About() {
           relative
           mx-auto
           max-w-7xl
-
           grid
           grid-cols-1
           lg:grid-cols-12
-
           gap-12
           lg:gap-20
-
           items-center
         "
       >
-
         {/* Content */}
-        <div
-          className="
-            lg:col-span-7
-            order-1
-          "
-        >
+        <div className="lg:col-span-7 order-1">
           <AboutContent />
         </div>
 
-
         {/* Image */}
-        <div
-          className="
-            lg:col-span-5
-            order-2
-
-            flex
-            justify-center
-          "
-        >
+        <div className="lg:col-span-5 order-2 flex justify-center">
           <AboutImage />
         </div>
-
       </div>
-
     </section>
   );
 }
