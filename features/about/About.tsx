@@ -6,13 +6,13 @@
  *
  * Description:
  * Luxury editorial About section.
- * Balanced two-column grid (text left, portrait right).
+ * Entire block is centered. Text on the left, portrait pushed to the right.
  *
  * Changes:
- * • July 29, 2026 – Removed extreme inch margins that pushed section off-screen
- * • July 29, 2026 – Restored safe, visible gap after Hero (mt-16 / md:mt-20)
- * • July 29, 2026 – Grid layout so content fills the section (no empty right side)
- * • July 29, 2026 – Image on the right
+ * • July 29, 2026 – Centered the whole content block (mx-auto)
+ * • July 29, 2026 – Flex layout so image is pushed right inside the centered container
+ * • July 29, 2026 – Safe top spacing that does not push the section off-screen
+ * • July 29, 2026 – Removed large empty right-side space
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -40,7 +40,7 @@ export default function About() {
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_75%_35%,rgba(232,200,188,0.16),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_70%_40%,rgba(232,200,188,0.15),transparent_55%)]
         "
       />
 
@@ -49,31 +49,31 @@ export default function About() {
         aria-hidden
         className="
           absolute top-0 left-1/2 -translate-x-1/2
-          w-[min(92%,1100px)] h-px bg-[#E8DDD8]
+          w-[min(92%,1000px)] h-px bg-[#E8DDD8]
         "
       />
 
-      <div
-        className="
-          relative
-          mx-auto
-          max-w-6xl
-          grid
-          grid-cols-1
-          lg:grid-cols-12
-          gap-12
-          lg:gap-16
-          items-center
-        "
-      >
-        {/* Text — left */}
-        <div className="lg:col-span-7 order-2 lg:order-1">
-          <AboutContent />
-        </div>
+      {/* Centered container */}
+      <div className="relative mx-auto max-w-5xl">
+        <div
+          className="
+            flex flex-col
+            lg:flex-row
+            items-center
+            justify-between
+            gap-12
+            lg:gap-16
+          "
+        >
+          {/* Text — left */}
+          <div className="w-full lg:w-[55%] order-2 lg:order-1">
+            <AboutContent />
+          </div>
 
-        {/* Portrait — right */}
-        <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
-          <AboutImage />
+          {/* Image — pushed right */}
+          <div className="w-full lg:w-[40%] order-1 lg:order-2 flex justify-center lg:justify-end">
+            <AboutImage />
+          </div>
         </div>
       </div>
     </section>
