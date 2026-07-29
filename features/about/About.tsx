@@ -8,9 +8,9 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Reduced spacing from hero
- * • Balanced image and content
- * • Softer luxury composition
+ * • Added large transition spacing from Hero
+ * • Shifted About section down approximately 2 inches
+ * • Preserved editorial layout
  * -----------------------------------------------------------------------------
  */
 
@@ -26,11 +26,18 @@ export default function About() {
         relative
         overflow-hidden
         bg-[#FCF8F3]
+
         px-6
-        pt-48
+
+        /* Creates visible separation from Hero */
+        mt-48
+
+        pt-20
         pb-20
-        md:pt-56
-        md:pb-24
+
+        md:mt-56
+        md:pt-24
+        md:pb-28
       "
     >
 
@@ -53,12 +60,15 @@ export default function About() {
         className="
           relative
           mx-auto
-          max-w-6xl
+          max-w-7xl
+
           grid
           grid-cols-1
           lg:grid-cols-12
-          gap-10
-          lg:gap-16
+
+          gap-12
+          lg:gap-20
+
           items-center
         "
       >
