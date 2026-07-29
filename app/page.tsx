@@ -15,8 +15,8 @@
  */
 
 import Hero from "@/features/hero";
-import Mission from "@/features/about/Mission";
 import About from "@/features/about";
+import Mission from "@/features/about/Mission";
 import Services from "@/features/services";
 import Experience from "@/features/experience";
 import Gallery from "@/features/gallery";
@@ -37,11 +37,6 @@ export default function Home() {
       </section>
 
 
-      {/* Mission */}
-        <Mission />
-  
-
-
       {/* About */}
       <section
         id="about"
@@ -53,7 +48,9 @@ export default function Home() {
         <About />
       </section>
 
-
+       {/* Mission */}
+       <Mission />
+      
       {/* Services */}
       <section
         id="services"
