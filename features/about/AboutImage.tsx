@@ -1,13 +1,26 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: features/about/AboutImage.tsx
+ *
+ * Date: July 29, 2026
+ *
+ * Description:
+ * Portrait frame with soft depth and volume.
+ *
+ * Changes:
+ * • July 29, 2026 – Kept soft blur layer + deeper shadow for presence
+ * -----------------------------------------------------------------------------
+ */
 export default function AboutImage() {
   return (
-    <div className="relative w-full">
-      {/* Soft drop shadow layer for depth */}
+    <div className="relative w-full max-w-[280px] md:max-w-[300px]">
+      {/* Soft depth layer */}
       <div
         aria-hidden
         className="
           absolute -inset-3
           rounded-[2rem]
-          bg-[#E8DDD8]/40
+          bg-[#E8DDD8]/35
           blur-xl
           -z-10
         "
@@ -37,7 +50,7 @@ export default function AboutImage() {
         </p>
       </div>
 
-      {/* Accent line under the frame */}
+      {/* Accent under frame */}
       <div
         aria-hidden
         className="
