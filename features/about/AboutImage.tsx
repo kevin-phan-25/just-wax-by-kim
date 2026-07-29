@@ -5,22 +5,21 @@
  * Date: July 29, 2026
  *
  * Description:
- * Portrait frame with soft depth and volume.
+ * Portrait frame with soft depth.
  *
  * Changes:
- * • July 29, 2026 – Soft blur layer + deeper shadow retained
+ * • July 29, 2026 – Slightly smaller max size for better wrap
  * -----------------------------------------------------------------------------
  */
 export default function AboutImage() {
   return (
-    <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px]">
-      {/* Soft depth layer */}
+    <div className="relative w-full">
       <div
         aria-hidden
         className="
-          absolute -inset-3
-          rounded-[2rem]
-          bg-[#E8DDD8]/40
+          absolute -inset-2.5
+          rounded-[1.75rem]
+          bg-[#E8DDD8]/35
           blur-xl
           -z-10
         "
@@ -30,18 +29,18 @@ export default function AboutImage() {
         className="
           relative
           aspect-[4/5]
-          rounded-[1.85rem]
+          rounded-[1.6rem]
           overflow-hidden
           border border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_25px_50px_-12px_rgba(59,42,38,0.18)]
+          shadow-[0_20px_40px_-10px_rgba(59,42,38,0.15)]
           flex items-center justify-center
         "
       >
         <p
           className="
             text-center text-[#8A776E]
-            text-[0.7rem] uppercase tracking-[0.28em] leading-loose
+            text-[0.65rem] uppercase tracking-[0.25em] leading-loose
           "
         >
           Kim&apos;s Portrait
@@ -50,12 +49,11 @@ export default function AboutImage() {
         </p>
       </div>
 
-      {/* Accent under frame */}
       <div
         aria-hidden
         className="
-          absolute -bottom-5 left-1/2 -translate-x-1/2
-          h-px w-14 bg-[#D4A9B6]
+          absolute -bottom-4 left-1/2 -translate-x-1/2
+          h-px w-12 bg-[#D4A9B6]
         "
       />
     </div>
