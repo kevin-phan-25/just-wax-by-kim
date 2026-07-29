@@ -8,11 +8,13 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Reduced height to 72px / 80px for better proportion with hero
- * • Softer glass background + thinner border
- * • Refined link tracking and hover underline
- * • Smaller, quieter Book CTA
- * • Mobile menu toggle refined
+ * • Navbar height increased ~30% (94px mobile / 104px desktop)
+ *   so the stacked logo sits fully inside the bar
+ * • Logo max-height raised and vertically centered
+ * • Nav order locked: Home, About, Services, Gallery,
+ *   Testimonials, FAQ, Booking, Contact
+ * • Slightly larger link type + spacing for the taller bar
+ * • Book Appointment CTA scaled to match
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -24,9 +26,12 @@ import { MobileMenu } from "@/components/layout/MobileMenu";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Gallery", href: "#gallery" },
-  { label: "About", href: "#about" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Booking", href: "#booking" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -49,24 +54,29 @@ export default function Navbar() {
           transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
           ${
             scrolled
-              ? "bg-[#FCF8F3]/92 backdrop-blur-xl border-b border-[#E8DDD8] shadow-[0_6px_24px_rgba(59,42,38,0.05)]"
-              : "bg-[#FCF8F3]/70 backdrop-blur-md border-b border-transparent"
+              ? "bg-[#FCF8F3]/95 backdrop-blur-xl border-b border-[#E8DDD8] shadow-[0_6px_24px_rgba(59,42,38,0.05)]"
+              : "bg-[#FCF8F3]/85 backdrop-blur-md border-b border-transparent"
           }
         `}
       >
         <div className="container-luxury">
-          <nav className="flex h-[72px] md:h-[80px] items-center justify-between">
-            <Logo priority />
+          {/* ~30% taller than previous 72/80 → 94/104 */}
+          <nav className="flex h-[94px] md:h-[104px] items-center justify-between gap-4">
+            {/* Brand */}
+            <div className="flex-shrink-0 flex items-center h-full py-3">
+              <Logo priority />
+            </div>
 
-            <ul className="hidden lg:flex items-center gap-9">
+            {/* Desktop links */}
+            <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="
-                      relative text-[0.68rem] font-semibold uppercase
-                      tracking-[0.2em] text-[#3B2A26]/75
-                      transition-colors duration-300
+                      relative text-[0.64rem] font-semibold uppercase
+                      tracking-[0.15em] text-[#3B2A26]/75
+                      transition-colors duration-300 whitespace-nowrap
                       hover:text-[#8C5A6B]
                       after:absolute after:left-0 after:-bottom-[3px]
                       after:h-px after:w-0 after:bg-[#D4A9B6]
@@ -80,14 +90,15 @@ export default function Navbar() {
               ))}
             </ul>
 
-            <div className="flex items-center gap-3">
+            {/* CTA + mobile toggle */}
+            <div className="flex items-center gap-3 flex-shrink-0">
               <Link
                 href="#booking"
                 className="
                   hidden sm:inline-flex items-center justify-center
-                  rounded-full bg-[#8C5A6B] px-5 py-2.5
-                  text-[0.65rem] font-semibold uppercase tracking-[0.18em]
-                  text-white transition-all duration-300
+                  rounded-full bg-[#8C5A6B] px-5 py-3
+                  text-[0.62rem] font-semibold uppercase tracking-[0.16em]
+                  text-white transition-all duration-300 whitespace-nowrap
                   hover:bg-[#7A4A5A] hover:-translate-y-0.5
                   hover:shadow-[0_12px_28px_rgba(140,90,107,0.25)]
                 "
@@ -101,7 +112,7 @@ export default function Navbar() {
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen((v) => !v)}
                 className="
-                  lg:hidden flex h-10 w-10 items-center justify-center
+                  xl:hidden flex h-11 w-11 items-center justify-center
                   rounded-full border border-[#E8DDD8] bg-white/90
                   text-[#3B2A26] transition-colors hover:border-[#D4A9B6]
                 "
