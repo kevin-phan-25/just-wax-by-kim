@@ -5,25 +5,25 @@
  * Date: July 29, 2026
  *
  * Description:
- * Three credential items under the About text.
+ * Slightly denser credentials to reduce vertical emptiness.
  *
  * Changes:
- * • July 29, 2026 – Clean spacing, no overlapping
+ * • July 29, 2026 – Tighter vertical spacing
  * -----------------------------------------------------------------------------
  */
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div className="mt-12">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+    <div className="mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
         {credentials.map((item) => (
           <div key={item.title}>
             <h3
               className="
                 text-[0.65rem] uppercase tracking-[0.2em]
                 text-[#3B2A26]
-                mb-2.5
+                mb-2
               "
             >
               {item.title}
