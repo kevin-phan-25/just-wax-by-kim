@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
-export function Navbar() {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -39,10 +39,8 @@ export function Navbar() {
       >
         <div className="container-luxury">
           <nav className="flex h-[88px] items-center justify-between">
-            {/* Brand */}
             <Logo priority />
 
-            {/* Desktop links */}
             <ul className="hidden lg:flex items-center gap-10">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -65,7 +63,6 @@ export function Navbar() {
               ))}
             </ul>
 
-            {/* CTA + mobile toggle */}
             <div className="flex items-center gap-4">
               <Link
                 href="#booking"
