@@ -5,7 +5,12 @@
  * Date: July 29, 2026
  *
  * Description:
- * Luxury editorial About section — text elegantly wraps around the portrait.
+ * Luxury editorial About section.
+ *
+ * Changes:
+ * • Restored the balanced 2-column grid + spacing that felt perfect
+ * • Kept cream background + thin top rule for smooth Hero transition
+ * • Image left / content right on desktop, stacked on mobile
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -20,39 +25,41 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-16
-        pt-14
-        pb-20
-        md:mt-20
-        md:pt-16
-        md:pb-28
+        py-24
       "
     >
-      {/* Thin top rule */}
+      {/* Thin top rule – soft transition from Hero */}
       <div
         aria-hidden
         className="
-          absolute top-0 left-1/2 -translate-x-1/2
-          w-[min(92%,1200px)] h-px bg-[#E8DDD8]
+          absolute
+          top-0
+          left-1/2
+          -translate-x-1/2
+          w-[min(92%,1100px)]
+          h-px
+          bg-[#E8DDD8]
         "
       />
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="relative">
-          {/* Portrait — floats right on large screens */}
-          <div
-            className="
-              mb-10 mx-auto
-              w-full max-w-[250px] md:max-w-[280px]
-              lg:float-right
-              lg:ml-12 lg:mb-8
-              xl:ml-16 xl:mb-10
-            "
-          >
-            <AboutImage />
-          </div>
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-6xl
+          grid
+          md:grid-cols-2
+          gap-16
+          items-center
+        "
+      >
+        {/* Image */}
+        <div className="flex justify-center md:justify-start">
+          <AboutImage />
+        </div>
 
-          {/* Text flows around the image */}
+        {/* Content */}
+        <div>
           <AboutContent />
         </div>
       </div>
