@@ -6,16 +6,18 @@ export default function Hero() {
     <section
       id="home"
       className="
-        relative min-h-[100svh] flex items-center
-        pt-[88px] overflow-hidden
+        relative flex items-center
+        pt-[72px] md:pt-[80px]
+        overflow-hidden
         bg-[#FCF8F3]
       "
     >
+      {/* Soft ambient wash — kept very light */}
       <div
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_70%_20%,rgba(232,200,188,0.35),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_75%_15%,rgba(232,200,188,0.28),transparent_50%)]
         "
       />
 
@@ -23,22 +25,24 @@ export default function Hero() {
         <div
           className="
             grid grid-cols-1 lg:grid-cols-12
-            gap-12 lg:gap-8
+            gap-10 lg:gap-12 xl:gap-16
             items-center
-            min-h-[calc(100svh-88px)]
-            py-16 lg:py-20
+            py-14 md:py-16 lg:py-20
           "
         >
-          <div className="lg:col-span-6 xl:col-span-5 order-2 lg:order-1">
+          {/* Content */}
+          <div className="lg:col-span-5 order-2 lg:order-1">
             <HeroContent />
           </div>
 
-          <div className="lg:col-span-6 xl:col-span-7 order-1 lg:order-2">
+          {/* Image */}
+          <div className="lg:col-span-7 order-1 lg:order-2">
             <HeroImage />
           </div>
         </div>
       </div>
 
+      {/* Thin bottom rule */}
       <div
         aria-hidden
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[min(92%,1280px)] h-px bg-[#E8DDD8]"
