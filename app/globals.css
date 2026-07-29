@@ -2,765 +2,435 @@
  * -----------------------------------------------------------------------------
  * File: app/globals.css
  *
- * Project:
- * Just Wax by Kim
- *
- * Description:
- * Global application stylesheet and Tailwind v4 design system.
- *
- * This file establishes the visual language for the entire website,
- * including typography, colors, spacing, shadows, borders,
- * utility classes, and reusable luxury styling tokens.
- *
- * Design Direction:
- * Boutique Luxury Beauty Studio
- * Inspired by premium editorial brands including:
- *
- * • Chanel Beauty
- * • Dior Beauty
- * • Aesop
- * • Luxury Med Spa
- * • Boutique Esthetics Studio
- *
- * Version:
- * v2.0.0
- *
- * Updated:
- * July 29, 2026
- *
- * Changes:
- * • Complete redesign of the global design system.
- * • Introduced refined ivory and dusty rose palette.
- * • Removed heavy gradients.
- * • Softer editorial typography.
- * • Increased breathing room throughout the site.
- * • Redesigned luxury card system.
- * • New shadow system.
- * • Improved scrollbar styling.
- * • Updated Tailwind v4 theme tokens.
- * • Added reusable luxury utility classes.
- *
+ * Project: Just Wax by Kim
+ * Design: Boutique Luxury Beauty Studio — editorial / print aesthetic
+ * Updated: July 29, 2026
  * -----------------------------------------------------------------------------
  */
-
 @import "tailwindcss";
 
 /* =============================================================================
    CSS VARIABLES
    ========================================================================== */
-
 :root {
-
-  /* --------------------------------------------------------------------------
-     Brand Backgrounds
-  --------------------------------------------------------------------------- */
-
-  --background: #FBF8F5;
-
-  --background-secondary: #F7F2EF;
-
+  /* Backgrounds */
+  --background: #FCF8F3;
+  --background-secondary: #F6E7E1;
   --background-card: #FFFFFF;
 
-  /* --------------------------------------------------------------------------
-     Brand Colors
-  --------------------------------------------------------------------------- */
+  /* Brand */
+  --champagne: #D8B4A0;
+  --gold: #C6A15B;
+  --soft-rose: #E8C8BC;
+  --dusty-pink: #D4A9B6;
+  --plum: #8C5A6B;
+  --taupe: #8C7468;
+  --espresso: #3B2A26;
 
-  --dusty-rose: #C8919B;
+  /* Borders & lines */
+  --line: #E8DDD8;
 
-  --mauve: #98707C;
-
-  --soft-rose: #E9D8D9;
-
-  --line: #E9DFDB;
-
-  --espresso: #382C2C;
-
-  --taupe: #7A6762;
-
-  --warm-gray: #A1918B;
-
-  /* --------------------------------------------------------------------------
-     Text
-  --------------------------------------------------------------------------- */
-
-  --foreground: #382C2C;
-
-  --text-secondary: #76635F;
-
-  --text-muted: #A2918B;
-
+  /* Text */
+  --foreground: #3B2A26;
+  --text-secondary: #6F5A50;
+  --text-muted: #9A857A;
 }
 
 /* =============================================================================
    TAILWIND v4 THEME TOKENS
    ========================================================================== */
-
 @theme {
-
-  --color-brand-background: #FBF8F5;
-
-  --color-brand-background-soft: #F7F2EF;
-
+  --color-brand-background: #FCF8F3;
+  --color-brand-background-soft: #F6E7E1;
   --color-brand-card: #FFFFFF;
-
-  --color-brand-dusty-rose: #C8919B;
-
-  --color-brand-mauve: #98707C;
-
-  --color-brand-soft-rose: #E9D8D9;
-
-  --color-brand-border: #E9DFDB;
-
-  --color-brand-espresso: #382C2C;
-
-  --color-brand-taupe: #7A6762;
-
-  --color-brand-muted: #A2918B;
-
+  --color-brand-champagne: #D8B4A0;
+  --color-brand-gold: #C6A15B;
+  --color-brand-soft-rose: #E8C8BC;
+  --color-brand-dusty-pink: #D4A9B6;
+  --color-brand-plum: #8C5A6B;
+  --color-brand-taupe: #8C7468;
+  --color-brand-espresso: #3B2A26;
+  --color-brand-border: #E8DDD8;
+  --color-brand-muted: #9A857A;
 }
 
 /* =============================================================================
    RESET
    ========================================================================== */
-
 *,
 *::before,
 *::after {
-
   box-sizing: border-box;
-
   margin: 0;
-
   padding: 0;
-
 }
 
 html {
-
   scroll-behavior: smooth;
-
-  scroll-padding-top: 90px;
-
+  scroll-padding-top: 96px;
 }
 
 body {
-
   min-height: 100vh;
-
   background: var(--background);
-
   color: var(--foreground);
-
-  font-family: var(--font-inter), sans-serif;
-
+  font-family: var(--font-inter), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
-
   -webkit-font-smoothing: antialiased;
-
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 /* =============================================================================
    TYPOGRAPHY
    ========================================================================== */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-
+h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
-
   font-weight: 500;
-
-  letter-spacing: -0.04em;
-
+  letter-spacing: -0.035em;
   line-height: 1.08;
-
 }
 
 h1 {
-
-  font-size: clamp(3rem, 6vw, 5.5rem);
-
+  font-size: clamp(3.25rem, 7vw, 5.75rem);
 }
 
 h2 {
-
   font-size: clamp(2.5rem, 5vw, 4rem);
-
 }
 
 h3 {
-
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
 }
 
 p {
-
   color: var(--text-secondary);
-
   line-height: 1.95;
-
-  font-size: 1rem;
-
+  font-size: 1.05rem;
 }
 
 /* =============================================================================
    LINKS
    ========================================================================== */
-
 a {
-
   color: inherit;
-
   text-decoration: none;
-
-  transition:
-
-    color .35s ease,
-
-    opacity .35s ease,
-
-    transform .35s ease;
-
+  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
 }
 
 a:hover {
-
-  color: var(--mauve);
-
+  color: var(--plum);
 }
 
 /* =============================================================================
    MEDIA
    ========================================================================== */
-
-img,
-picture,
-video,
-canvas,
-svg {
-
+img, picture, video, canvas, svg {
   display: block;
-
   max-width: 100%;
-
   height: auto;
-
 }
 
 /* =============================================================================
-   TEXT SELECTION
+   SELECTION
    ========================================================================== */
-
 ::selection {
-
-  background: var(--dusty-rose);
-
+  background: var(--dusty-pink);
   color: white;
-
 }
 
 /* =============================================================================
    SCROLLBAR
    ========================================================================== */
-
 ::-webkit-scrollbar {
-
-  width: 10px;
-
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-
-  background: #F5F0ED;
-
+  background: #F6E7E1;
 }
 
 ::-webkit-scrollbar-thumb {
-
-  background: #B78692;
-
+  background: #D4A9B6;
   border-radius: 999px;
-
 }
 
 ::-webkit-scrollbar-thumb:hover {
-
-  background: #9E6F7B;
-
+  background: #8C5A6B;
 }
 
 /* =============================================================================
    LAYOUT HELPERS
    ========================================================================== */
-
 .container-luxury {
-
   width: 100%;
-
-  max-width: 1320px;
-
+  max-width: 1280px;
   margin-inline: auto;
-
-  padding-inline: clamp(1.5rem, 3vw, 3rem);
-
+  padding-inline: clamp(1.5rem, 4vw, 3.5rem);
 }
 
 .section-padding {
-
-  padding-block: clamp(6rem, 8vw, 9rem);
-
-  padding-inline: 1.5rem;
-
+  padding-block: clamp(7rem, 10vw, 10rem);
 }
 
 .section-padding-lg {
-
-  padding-block: clamp(8rem, 11vw, 11rem);
-
-  padding-inline: 1.5rem;
-
+  padding-block: clamp(8.5rem, 12vw, 12rem);
 }
 
 /* =============================================================================
    LUXURY SHADOW SYSTEM
    ========================================================================== */
-
 .shadow-soft {
-
   box-shadow:
-    0 12px 32px rgba(56, 44, 44, 0.04),
-    0 2px 8px rgba(56, 44, 44, 0.03);
-
+    0 12px 32px rgba(59, 42, 38, 0.04),
+    0 2px 8px rgba(59, 42, 38, 0.03);
 }
 
 .shadow-card {
-
-  box-shadow:
-    0 24px 70px rgba(56, 44, 44, 0.06);
-
+  box-shadow: 0 24px 70px rgba(59, 42, 38, 0.06);
 }
 
 .shadow-floating {
-
-  box-shadow:
-    0 35px 90px rgba(56, 44, 44, 0.08);
-
+  box-shadow: 0 35px 90px rgba(59, 42, 38, 0.08);
 }
 
 /* =============================================================================
    LUXURY CARD SYSTEM
    ========================================================================== */
-
 .card-luxury {
-
-  background: rgba(255,255,255,.88);
-
-  backdrop-filter: blur(18px);
-
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
   border: 1px solid var(--line);
-
-  border-radius: 34px;
-
+  border-radius: 28px;
   transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    border-color .35s ease;
-
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
 }
 
 .card-luxury:hover {
-
   transform: translateY(-6px);
-
-  border-color: var(--dusty-rose);
-
-  box-shadow:
-    0 30px 80px rgba(56,44,44,.08);
-
+  border-color: var(--dusty-pink);
+  box-shadow: 0 30px 80px rgba(59, 42, 38, 0.08);
 }
 
 .card-soft {
-
   background: var(--background-card);
-
-  border-radius: 28px;
-
+  border-radius: 24px;
   border: 1px solid var(--line);
-
 }
 
 /* =============================================================================
    BUTTONS
    ========================================================================== */
-
 .btn-primary {
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:.75rem;
-
-  padding:1rem 2.5rem;
-
-  border-radius:999px;
-
-  background:var(--mauve);
-
-  color:white;
-
-  font-size:.82rem;
-
-  font-weight:600;
-
-  letter-spacing:.18em;
-
-  text-transform:uppercase;
-
-  transition:all .35s ease;
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.05rem 2.6rem;
+  border-radius: 999px;
+  background: var(--plum);
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.btn-primary:hover{
-
-  background:#87616D;
-
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 18px 45px rgba(152,112,124,.25);
-
+.btn-primary:hover {
+  background: #7A4A5A;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(140, 90, 107, 0.28);
 }
 
-.btn-secondary{
-
-  display:inline-flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:.75rem;
-
-  padding:1rem 2.5rem;
-
-  border-radius:999px;
-
-  border:1px solid var(--line);
-
-  background:white;
-
-  color:var(--mauve);
-
-  font-size:.82rem;
-
-  font-weight:600;
-
-  letter-spacing:.18em;
-
-  text-transform:uppercase;
-
-  transition:all .35s ease;
-
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.05rem 2.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #FFFFFF;
+  color: var(--plum);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.btn-secondary:hover{
-
-  background:var(--background-secondary);
-
-  border-color:var(--dusty-rose);
-
+.btn-secondary:hover {
+  background: var(--background-secondary);
+  border-color: var(--dusty-pink);
 }
 
 /* =============================================================================
-   BORDERS
+   BORDERS & DIVIDERS
    ========================================================================== */
-
-.border-luxury{
-
-  border:1px solid var(--line);
-
+.border-luxury {
+  border: 1px solid var(--line);
 }
 
-.divider{
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+}
 
-  width:100%;
+.luxury-line {
+  width: 72px;
+  height: 1px;
+  background: var(--dusty-pink);
+  margin-block: 1.75rem;
+}
 
-  height:1px;
-
-  background:var(--line);
-
+.soft-divider {
+  width: 140px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--dusty-pink),
+    transparent
+  );
 }
 
 /* =============================================================================
    SECTION STYLING
    ========================================================================== */
-
-.section-luxury{
-
-  position:relative;
-
+.section-luxury {
+  position: relative;
 }
 
-.section-luxury::after{
-
-  content:"";
-
-  position:absolute;
-
-  bottom:0;
-
-  left:50%;
-
-  width:min(92%,1320px);
-
-  height:1px;
-
-  background:var(--line);
-
-  transform:translateX(-50%);
-
+.section-luxury::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(92%, 1280px);
+  height: 1px;
+  background: var(--line);
+  transform: translateX(-50%);
 }
 
 /* =============================================================================
    TYPOGRAPHY HELPERS
    ========================================================================== */
-
-.eyebrow{
-
-  display:inline-block;
-
-  color:var(--mauve);
-
-  font-size:.72rem;
-
-  font-weight:600;
-
-  letter-spacing:.38em;
-
-  text-transform:uppercase;
-
+.eyebrow {
+  display: inline-block;
+  color: var(--plum);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
 }
 
-.heading-luxury{
-
-  max-width:760px;
-
-  color:var(--foreground);
-
-  font-weight:500;
-
-  line-height:1.08;
-
-  letter-spacing:-.04em;
-
+.heading-luxury {
+  max-width: 780px;
+  color: var(--foreground);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
 }
 
-.lead{
-
-  max-width:700px;
-
-  color:var(--text-secondary);
-
-  font-size:1.1rem;
-
-  line-height:2;
-
+.lead {
+  max-width: 640px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.95;
 }
 
-.text-mauve{
-
-  color:var(--mauve);
-
+.text-plum {
+  color: var(--plum);
 }
 
-.text-muted{
+.text-muted {
+  color: var(--text-muted);
+}
 
-  color:var(--text-muted);
-
+/* Script / emphasis (pair with a script font if loaded) */
+.script {
+  font-family: var(--font-script), "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 /* =============================================================================
    BACKGROUNDS
    ========================================================================== */
-
-.bg-soft{
-
-  background:var(--background-secondary);
-
+.bg-soft {
+  background: var(--background-secondary);
 }
 
-.bg-card{
-
-  background:white;
-
+.bg-card {
+  background: #FFFFFF;
 }
 
-.bg-luxury{
-
-  background:
-    linear-gradient(
-      to bottom,
-      #FBF8F5,
-      #F7F2EF
-    );
-
-}
-
-/* =============================================================================
-   DECORATIVE ELEMENTS
-   ========================================================================== */
-
-.luxury-line{
-
-  width:80px;
-
-  height:1px;
-
-  background:var(--dusty-rose);
-
-  margin-block:2rem;
-
-}
-
-.luxury-circle{
-
-  width:10px;
-
-  height:10px;
-
-  border-radius:999px;
-
-  background:var(--dusty-rose);
-
-}
-
-.soft-divider{
-
-  width:140px;
-
-  height:2px;
-
-  background:
-    linear-gradient(
-      to right,
-      transparent,
-      var(--dusty-rose),
-      transparent
-    );
-
+.bg-luxury {
+  background: linear-gradient(to bottom, #FCF8F3, #F6E7E1);
 }
 
 /* =============================================================================
    TRANSITIONS
    ========================================================================== */
-
-.transition-luxury{
-
-  transition:
-    all .35s cubic-bezier(.2,.8,.2,1);
-
+.transition-luxury {
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* =============================================================================
-   FOCUS STATES
+   FOCUS
    ========================================================================== */
-
 input:focus,
 textarea:focus,
-select:focus{
-
-  outline:none;
-
-  border-color:var(--dusty-rose);
-
-  box-shadow:
-    0 0 0 4px rgba(200,145,155,.12);
-
+select:focus {
+  outline: none;
+  border-color: var(--dusty-pink);
+  box-shadow: 0 0 0 4px rgba(212, 169, 182, 0.18);
 }
 
-/* =============================================================================
-   FORM ELEMENTS
-   ========================================================================== */
-
-::placeholder{
-
-  color:var(--text-muted);
-
+::placeholder {
+  color: var(--text-muted);
 }
 
 input,
-textarea{
-
-  color:var(--foreground);
-
+textarea {
+  color: var(--foreground);
 }
 
 /* =============================================================================
-   RESPONSIVE HELPERS
+   RESPONSIVE
    ========================================================================== */
-
-@media (max-width:1024px){
-
-  .section-padding{
-
-    padding-block:6rem;
-
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-block: 6.5rem;
   }
-
-  .section-padding-lg{
-
-    padding-block:7rem;
-
+  .section-padding-lg {
+    padding-block: 8rem;
   }
-
 }
 
-@media (max-width:768px){
-
-  h1{
-
-    line-height:1.1;
-
+@media (max-width: 768px) {
+  h1 {
+    line-height: 1.1;
   }
-
-  h2{
-
-    line-height:1.12;
-
+  h2 {
+    line-height: 1.12;
   }
-
-  .container-luxury{
-
-    padding-inline:1.5rem;
-
+  .container-luxury {
+    padding-inline: 1.5rem;
   }
-
 }
 
 /* =============================================================================
    REDUCED MOTION
    ========================================================================== */
-
-@media (prefers-reduced-motion: reduce){
-
-  *{
-
-    animation:none !important;
-
-    transition:none !important;
-
-    scroll-behavior:auto !important;
-
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
-
 }
