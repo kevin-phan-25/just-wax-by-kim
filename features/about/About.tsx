@@ -5,11 +5,13 @@
  * Date: July 29, 2026
  *
  * Description:
- * Luxury editorial About section.
+ * Luxury editorial About section — text wraps around the portrait.
  *
  * Changes:
- * • Forced 1.25-inch gap after Hero using arbitrary value
- * • Guarantees space even if margin collapse or other styles interfere
+ * • Switched from rigid 2-column grid to classic float layout
+ * • Text flows around the image on large screens
+ * • Full use of section width while staying elegant
+ * • Clean 1-inch breathing room after Hero
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -24,12 +26,12 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-[1.25in]     /* ← forced 1.25 inches – cannot be collapsed easily */
-        pt-10
-        pb-20
-        md:mt-[1.5in]
-        md:pt-14
-        md:pb-28
+        mt-16
+        pt-14
+        pb-24
+        md:mt-20
+        md:pt-16
+        md:pb-32
       "
     >
       {/* Section divider */}
@@ -46,27 +48,33 @@ export default function About() {
         "
       />
 
-      <div
-        className="
-          relative
-          mx-auto
-          max-w-7xl
-          grid
-          grid-cols-1
-          lg:grid-cols-12
-          gap-12
-          lg:gap-20
-          items-center
-        "
-      >
-        {/* Content */}
-        <div className="lg:col-span-7 order-1">
-          <AboutContent />
-        </div>
+      <div className="relative mx-auto max-w-7xl">
+        {/* 
+          Classic editorial float:
+          Image sits on the right, text wraps around it.
+          On mobile the image stacks above the text.
+        */}
+        <div className="relative">
+          {/* Portrait — floats right on lg+ */}
+          <div
+            className="
+              mb-10
+              w-full
+              max-w-[260px]
+              mx-auto
+              md:max-w-[280px]
+              lg:float-right
+              lg:ml-12
+              lg:mb-8
+              xl:ml-16
+              xl:mb-10
+            "
+          >
+            <AboutImage />
+          </div>
 
-        {/* Image */}
-        <div className="lg:col-span-5 order-2 flex justify-center">
-          <AboutImage />
+          {/* Text content — wraps around the floated image */}
+          <AboutContent />
         </div>
       </div>
     </section>
