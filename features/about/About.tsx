@@ -7,14 +7,12 @@
  * Description:
  * Luxury editorial About section.
  * Balanced two-column grid (text left, portrait right).
- * Explicit top margin prevents flush contact with Hero.
  *
  * Changes:
- * • July 29, 2026 – Replaced float with CSS Grid to eliminate empty right space
- * • July 29, 2026 – Forced reliable 1.25-inch gap after Hero (mt-[1.25in])
- * • July 29, 2026 – Content now fills its column instead of staying narrow
- * • July 29, 2026 – Image placed on the right
- * • July 29, 2026 – Soft ambient wash + volume retained
+ * • July 29, 2026 – Removed extreme inch margins that pushed section off-screen
+ * • July 29, 2026 – Restored safe, visible gap after Hero (mt-16 / md:mt-20)
+ * • July 29, 2026 – Grid layout so content fills the section (no empty right side)
+ * • July 29, 2026 – Image on the right
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -29,10 +27,10 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-[1.25in]          /* ← forced gap after Hero – will not collapse */
+        mt-16
         pt-16
         pb-24
-        md:mt-[1.5in]
+        md:mt-20
         md:pt-20
         md:pb-28
       "
@@ -68,12 +66,12 @@ export default function About() {
           items-center
         "
       >
-        {/* Text — left side, takes majority of width */}
+        {/* Text — left */}
         <div className="lg:col-span-7 order-2 lg:order-1">
           <AboutContent />
         </div>
 
-        {/* Portrait — right side */}
+        {/* Portrait — right */}
         <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
           <AboutImage />
         </div>
