@@ -8,13 +8,10 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Navbar height increased ~30% (94px mobile / 104px desktop)
- *   so the stacked logo sits fully inside the bar
- * • Logo max-height raised and vertically centered
- * • Nav order locked: Home, About, Services, Gallery,
- *   Testimonials, FAQ, Booking, Contact
- * • Slightly larger link type + spacing for the taller bar
- * • Book Appointment CTA scaled to match
+ * • Nav links shifted further right for better balance with large logo
+ * • Book Appointment: removed solid purple fill → outline bubble
+ * • CTA text and padding enlarged for easier tapping / readability
+ * • Nav order: Home, About, Services, Gallery, Testimonials, FAQ, Booking, Contact
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -60,59 +57,65 @@ export default function Navbar() {
         `}
       >
         <div className="container-luxury">
-          {/* ~30% taller than previous 72/80 → 94/104 */}
-          <nav className="flex h-[94px] md:h-[104px] items-center justify-between gap-4">
-            {/* Brand */}
+          <nav className="flex h-[200px] md:h-[220px] items-center justify-between gap-6">
+            {/* Brand — left */}
             <div className="flex-shrink-0 flex items-center h-full py-3">
               <Logo priority />
             </div>
 
-            {/* Desktop links */}
-            <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="
-                      relative text-[0.64rem] font-semibold uppercase
-                      tracking-[0.15em] text-[#3B2A26]/75
-                      transition-colors duration-300 whitespace-nowrap
-                      hover:text-[#8C5A6B]
-                      after:absolute after:left-0 after:-bottom-[3px]
-                      after:h-px after:w-0 after:bg-[#D4A9B6]
-                      after:transition-all after:duration-300
-                      hover:after:w-full
-                    "
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Right cluster: links + CTA pushed further right */}
+            <div className="flex items-center gap-8 xl:gap-12 ml-auto">
+              {/* Desktop links */}
+              <ul className="hidden xl:flex items-center gap-6 2xl:gap-8">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="
+                        relative text-[0.68rem] font-semibold uppercase
+                        tracking-[0.16em] text-[#3B2A26]/75
+                        transition-colors duration-300 whitespace-nowrap
+                        hover:text-[#8C5A6B]
+                        after:absolute after:left-0 after:-bottom-[3px]
+                        after:h-px after:w-0 after:bg-[#D4A9B6]
+                        after:transition-all after:duration-300
+                        hover:after:w-full
+                      "
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-            {/* CTA + mobile toggle */}
-            <div className="flex items-center gap-3 flex-shrink-0">
+              {/* Outline CTA — larger, no purple fill */}
               <Link
                 href="#booking"
                 className="
                   hidden sm:inline-flex items-center justify-center
-                  rounded-full bg-[#8C5A6B] px-5 py-3
-                  text-[0.62rem] font-semibold uppercase tracking-[0.16em]
-                  text-white transition-all duration-300 whitespace-nowrap
-                  hover:bg-[#7A4A5A] hover:-translate-y-0.5
-                  hover:shadow-[0_12px_28px_rgba(140,90,107,0.25)]
+                  rounded-full
+                  border-2 border-[#8C5A6B]
+                  bg-transparent
+                  px-8 py-4
+                  text-[0.78rem] font-semibold uppercase tracking-[0.18em]
+                  text-[#8C5A6B]
+                  transition-all duration-300 whitespace-nowrap
+                  hover:bg-[#8C5A6B] hover:text-white
+                  hover:-translate-y-0.5
+                  hover:shadow-[0_12px_28px_rgba(140,90,107,0.2)]
                 "
               >
                 Book Appointment
               </Link>
 
+              {/* Mobile menu toggle */}
               <button
                 type="button"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen((v) => !v)}
                 className="
-                  xl:hidden flex h-11 w-11 items-center justify-center
+                  xl:hidden flex h-12 w-12 items-center justify-center
                   rounded-full border border-[#E8DDD8] bg-white/90
                   text-[#3B2A26] transition-colors hover:border-[#D4A9B6]
                 "
@@ -120,18 +123,18 @@ export default function Navbar() {
                 <span className="sr-only">Menu</span>
                 <div className="flex flex-col gap-[5px]">
                   <span
-                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "translate-y-[6px] rotate-45" : ""
+                    className={`block h-px w-5 bg-current transition-transform duration-300 origin-center ${
+                      mobileOpen ? "translate-y-[7px] rotate-45" : ""
                     }`}
                   />
                   <span
-                    className={`block h-px w-4 bg-current transition-opacity duration-300 ${
+                    className={`block h-px w-5 bg-current transition-opacity duration-300 ${
                       mobileOpen ? "opacity-0" : ""
                     }`}
                   />
                   <span
-                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "-translate-y-[6px] -rotate-45" : ""
+                    className={`block h-px w-5 bg-current transition-transform duration-300 origin-center ${
+                      mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
                     }`}
                   />
                 </div>
