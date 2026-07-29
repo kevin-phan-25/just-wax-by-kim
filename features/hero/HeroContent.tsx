@@ -68,10 +68,10 @@ export function HeroContent() {
           max-w-[360px]
         "
       >
-        A refined waxing experience
+        A timeless beauty experience
         <br className="hidden sm:block" />
-        designed around confidence,
-        comfort, and beautiful skin.
+        crafted to leave you feeling confident, 
+        radiant, and beautifully cared for.
       </p>
 
 
