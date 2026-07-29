@@ -5,30 +5,31 @@
  * Date: July 29, 2026
  *
  * Description:
- * Three credential items under the About text.
+ * Three credential items. Fixed overlapping text.
  *
  * Changes:
- * • July 29, 2026 – Simple 3-column grid (no clear-both needed)
+ * • July 29, 2026 – Much smaller type and better spacing to stop collisions
+ * • July 29, 2026 – clear-both so it sits under the float
  * -----------------------------------------------------------------------------
  */
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <div className="mt-12">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10">
+    <div className="mt-12 clear-both">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {credentials.map((item) => (
           <div key={item.title}>
             <h3
               className="
-                text-[0.7rem] uppercase tracking-[0.22em]
+                text-[0.65rem] uppercase tracking-[0.2em]
                 text-[#3B2A26]
-                mb-3
+                mb-2.5
               "
             >
               {item.title}
             </h3>
-            <p className="text-sm leading-[1.8] text-[#8A776E]">
+            <p className="text-[0.8rem] leading-[1.7] text-[#8A776E]">
               {item.description}
             </p>
           </div>
