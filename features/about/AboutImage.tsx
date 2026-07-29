@@ -5,20 +5,20 @@
  * Date: July 29, 2026
  *
  * Description:
- * Portrait frame with soft depth.
+ * Larger portrait to reduce empty space on the right.
  *
  * Changes:
- * • July 29, 2026 – Sized to fill its grid column cleanly
+ * • July 29, 2026 – Increased max size so it fills more of the column
  * -----------------------------------------------------------------------------
  */
 export default function AboutImage() {
   return (
-    <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px]">
+    <div className="relative w-full max-w-[280px] sm:max-w-[300px] lg:max-w-[320px]">
       <div
         aria-hidden
         className="
-          absolute -inset-2.5
-          rounded-[1.75rem]
+          absolute -inset-3
+          rounded-[1.85rem]
           bg-[#E8DDD8]/35
           blur-xl
           -z-10
@@ -29,11 +29,11 @@ export default function AboutImage() {
         className="
           relative
           aspect-[4/5]
-          rounded-[1.6rem]
+          rounded-[1.7rem]
           overflow-hidden
           border border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_20px_40px_-10px_rgba(59,42,38,0.15)]
+          shadow-[0_22px_44px_-10px_rgba(59,42,38,0.16)]
           flex items-center justify-center
         "
       >
