@@ -8,9 +8,8 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Restored sensible spacing after the Hero
- * • ~1 inch of open space between the two thin rules
- * • Content no longer pushed off-screen
+ * • Forced 1.25-inch gap after Hero using arbitrary value
+ * • Guarantees space even if margin collapse or other styles interfere
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -25,11 +24,11 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-16          /* ← ~0.75–1 inch after Hero (safe, visible) */
-        pt-12          /* ← small breathing room before content */
+        mt-[1.25in]     /* ← forced 1.25 inches – cannot be collapsed easily */
+        pt-10
         pb-20
-        md:mt-20
-        md:pt-16
+        md:mt-[1.5in]
+        md:pt-14
         md:pb-28
       "
     >
