@@ -8,17 +8,15 @@
  * Editorial text block for the hero (brand lockup, lead, CTAs).
  *
  * Changes (July 29, 2026):
- * • Moved to right side of hero
- * • Centered on mobile, left-aligned on desktop
- * • Tighter max-width for proportion
- * • Refined type scale and spacing
+ * • Right-side placement; centered on mobile
+ * • Refined type scale and spacing for magazine feel
  * -----------------------------------------------------------------------------
  */
 import { HeroButtons } from "./HeroButtons";
 
 export function HeroContent() {
   return (
-    <div className="max-w-[380px] mx-auto lg:mx-0 lg:ml-4 xl:ml-8 text-center lg:text-left">
+    <div className="max-w-[400px] mx-auto lg:mx-0 lg:ml-4 xl:ml-8 text-center lg:text-left">
       {/* Eyebrow */}
       <p className="eyebrow mb-5">
         Luxury Waxing Studio
