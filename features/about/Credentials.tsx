@@ -2,15 +2,7 @@
  * -----------------------------------------------------------------------------
  * File: features/about/Credentials.tsx
  *
- * Date: July 29, 2026
- *
- * Description:
- * Editorial credentials sidebar displayed to the right of the portrait.
- *
- * Changes:
- * • Converted from 3-column grid to luxury vertical sidebar
- * • Added subtle divider between items
- * • Increased spacing for premium editorial feel
+ * Editorial sidebar.
  * -----------------------------------------------------------------------------
  */
 
@@ -18,7 +10,13 @@ import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
-    <aside className="w-full max-w-[320px]">
+    <aside
+      className="
+        w-full
+        max-w-[320px]
+        my-auto
+      "
+    >
       {credentials.map((item, index) => (
         <div
           key={item.title}
@@ -35,7 +33,7 @@ export default function Credentials() {
               mb-3
               text-[0.65rem]
               uppercase
-              tracking-[0.32em]
+              tracking-[0.30em]
               text-[#B28A62]
             "
           >
@@ -46,7 +44,7 @@ export default function Credentials() {
             className="
               mb-3
               font-serif
-              text-[1.25rem]
+              text-[1.2rem]
               leading-tight
               text-[#3B2A26]
             "
