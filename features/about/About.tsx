@@ -6,14 +6,13 @@
  *
  * Description:
  * Luxury editorial About section.
- * Full-width 2-column grid — text left, portrait right.
- * Uses the entire available space with no dead areas.
+ * Full-width 2-column grid with reduced dead space.
  *
  * Changes:
- * • July 29, 2026 – Switched to full-width CSS Grid (no float)
- * • July 29, 2026 – Wider container so content fills the section
- * • July 29, 2026 – Image on the right, text on the left
- * • July 29, 2026 – Eliminated empty right-side space
+ * • July 29, 2026 – Tightened column gap
+ * • July 29, 2026 – Larger portrait to fill the right side
+ * • July 29, 2026 – Added soft vertical accent to reduce emptiness
+ * • July 29, 2026 – Body text uses more of the left column
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -54,7 +53,6 @@ export default function About() {
         "
       />
 
-      {/* Full-width container */}
       <div className="relative mx-auto max-w-7xl">
         <div
           className="
@@ -62,18 +60,27 @@ export default function About() {
             grid-cols-1
             lg:grid-cols-12
             gap-10
-            lg:gap-14
-            xl:gap-16
+            lg:gap-10
+            xl:gap-12
             items-center
           "
         >
-          {/* LEFT — Text (uses 7 columns) */}
+          {/* LEFT — Text */}
           <div className="lg:col-span-7 order-2 lg:order-1">
             <AboutContent />
           </div>
 
-          {/* RIGHT — Image (uses 5 columns) */}
-          <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          {/* RIGHT — Image + soft accent */}
+          <div className="lg:col-span-5 order-1 lg:order-2 relative flex justify-center lg:justify-end">
+            {/* Soft vertical accent line to fill space */}
+            <div
+              aria-hidden
+              className="
+                hidden lg:block
+                absolute left-0 top-1/2 -translate-y-1/2
+                w-px h-40 bg-[#E8DDD8]/80
+              "
+            />
             <AboutImage />
           </div>
         </div>
