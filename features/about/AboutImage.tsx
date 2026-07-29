@@ -8,7 +8,6 @@ export default function AboutImage() {
         md:max-w-[280px]
       "
     >
-
       <div
         className="
           aspect-[4/5]
@@ -23,7 +22,6 @@ export default function AboutImage() {
           justify-center
         "
       >
-
         <p
           className="
             text-center
@@ -38,10 +36,9 @@ export default function AboutImage() {
           <br />
           Coming Soon
         </p>
-
       </div>
 
-
+      {/* Small accent line under the frame */}
       <div
         aria-hidden
         className="
@@ -54,7 +51,6 @@ export default function AboutImage() {
           bg-[#D4A9B6]
         "
       />
-
     </div>
   );
 }
