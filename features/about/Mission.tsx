@@ -5,16 +5,16 @@
  * Date: July 29, 2026
  *
  * Description:
- * Soft italic pull-quote that follows the About section.
- * Shares the cream background for a continuous editorial feel.
+ * Editorial mission statement following the About section.
  *
  * Changes:
- * • July 29, 2026 – Matched cream background (#FCF8F3)
- * • July 29, 2026 – Centered quote block
- * • July 29, 2026 – Soft top rule for subtle separation
- * • July 29, 2026 – Light top padding + consistent bottom breathing room
+ * • Refined transition from About section
+ * • Increased quote presence
+ * • Added subtle editorial eyebrow
+ * • Maintained continuous cream background
  * -----------------------------------------------------------------------------
  */
+
 export default function Mission() {
   return (
     <section
@@ -22,13 +22,14 @@ export default function Mission() {
         relative
         bg-[#FCF8F3]
         px-6
-        pt-6
+        pt-10
         pb-24
-        md:pt-8
-        md:pb-28
+        md:pt-14
+        md:pb-32
       "
     >
-      {/* Soft top rule */}
+
+      {/* Soft transition rule */}
       <div
         aria-hidden
         className="
@@ -38,25 +39,67 @@ export default function Mission() {
           -translate-x-1/2
           w-[min(70%,700px)]
           h-px
-          bg-[#E8DDD8]/60
+          bg-[#E8DDD8]/50
         "
       />
 
-      <div className="mx-auto max-w-3xl text-center">
+
+      <div
+        className="
+          mx-auto
+          max-w-4xl
+          text-center
+        "
+      >
+
+        {/* Eyebrow */}
         <p
           className="
+            mb-6
+            text-[0.6rem]
+            uppercase
+            tracking-[0.4em]
+            text-[#B28A62]
+          "
+        >
+          Our Philosophy
+        </p>
+
+
+        {/* Quote */}
+        <p
+          className="
+            mx-auto
+            max-w-3xl
             font-serif
-            text-base
-            md:text-lg
-            leading-[1.9]
+            text-xl
+            sm:text-2xl
+            md:text-[2rem]
+            leading-[1.7]
             italic
-            text-[#3B2A26]/80
+            tracking-[-0.02em]
+            text-[#3B2A26]/85
           "
         >
           “A thoughtful beauty experience designed to help you feel confident,
           cared for, and beautifully yourself.”
         </p>
+
+
+        {/* Accent */}
+        <div
+          aria-hidden
+          className="
+            mx-auto
+            mt-8
+            h-px
+            w-12
+            bg-[#D4A9B6]
+          "
+        />
+
       </div>
+
     </section>
   );
 }
