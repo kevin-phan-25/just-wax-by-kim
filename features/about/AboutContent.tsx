@@ -4,13 +4,13 @@ import Credentials from "./Credentials";
 
 export default function AboutContent() {
   return (
-    <div className="max-w-xl">
+    <div className="max-w-lg">
 
 
       <p
         className="
-          mb-6
-          text-[0.65rem]
+          mb-5
+          text-[0.6rem]
           uppercase
           tracking-[0.35em]
           text-[#B28A62]
@@ -23,10 +23,10 @@ export default function AboutContent() {
       <h2
         className="
           font-serif
-          text-4xl
-          md:text-[3.25rem]
-          leading-[1.15]
-          tracking-[-0.03em]
+          text-3xl
+          md:text-4xl
+          leading-[1.18]
+          tracking-[-0.025em]
           text-[#3B2A26]
         "
       >
@@ -36,9 +36,9 @@ export default function AboutContent() {
 
       <div
         className="
-          my-8
+          my-7
           h-px
-          w-16
+          w-14
           bg-[#D4A9B6]
         "
       />
@@ -46,8 +46,8 @@ export default function AboutContent() {
 
       <p
         className="
-          text-[1rem]
-          leading-[1.9]
+          text-[0.95rem]
+          leading-[1.85]
           text-[#7E6B63]
         "
       >
