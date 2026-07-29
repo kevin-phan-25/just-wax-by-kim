@@ -5,11 +5,11 @@
  * Date: July 29, 2026
  *
  * Description:
- * Text content that fills the left column.
+ * Text content that fills more of the left column.
  *
  * Changes:
- * • July 29, 2026 – Removed max-width constraints so text uses the full column
- * • July 29, 2026 – Balanced type scale
+ * • July 29, 2026 – Body text allowed to use more width
+ * • July 29, 2026 – Slightly denser spacing
  * -----------------------------------------------------------------------------
  */
 import { aboutContent } from "./about.data";
@@ -18,7 +18,6 @@ import Credentials from "./Credentials";
 export default function AboutContent() {
   return (
     <div className="w-full">
-      {/* Eyebrow */}
       <p
         className="
           mb-4
@@ -30,11 +29,10 @@ export default function AboutContent() {
         {aboutContent.eyebrow}
       </p>
 
-      {/* Title */}
       <h2
         className="
           font-serif
-          text-2xl sm:text-3xl lg:text-[2.4rem]
+          text-2xl sm:text-3xl lg:text-[2.35rem]
           leading-[1.2]
           tracking-[-0.02em]
           text-[#3B2A26]
@@ -43,16 +41,14 @@ export default function AboutContent() {
         {aboutContent.title}
       </h2>
 
-      {/* Accent line */}
       <div className="my-6 h-px w-12 bg-[#D4A9B6]" />
 
-      {/* Body */}
       <p
         className="
           text-[0.9rem] sm:text-[0.95rem]
           leading-[1.85]
           text-[#7E6B63]
-          max-w-xl
+          max-w-2xl
         "
       >
         {aboutContent.description}
