@@ -8,12 +8,12 @@
  * Portrait frame with soft depth.
  *
  * Changes:
- * • July 29, 2026 – Slightly smaller max size for better wrap
+ * • July 29, 2026 – Sized to fill its grid column cleanly
  * -----------------------------------------------------------------------------
  */
 export default function AboutImage() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full max-w-[260px] sm:max-w-[280px] lg:max-w-[300px]">
       <div
         aria-hidden
         className="
