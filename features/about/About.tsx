@@ -27,9 +27,9 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        pt-24
+        pt-48
         pb-20
-        md:pt-28
+        md:pt-56
         md:pb-24
       "
     >
