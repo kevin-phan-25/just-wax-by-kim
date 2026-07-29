@@ -2,84 +2,130 @@
  * -----------------------------------------------------------------------------
  * File: app/globals.css
  *
+ * Project:
+ * Just Wax by Kim
+ *
  * Description:
- * Global styles + Tailwind v4 theme tokens.
+ * Global application stylesheet and Tailwind v4 design system.
+ *
+ * This file establishes the visual language for the entire website,
+ * including typography, colors, spacing, shadows, borders,
+ * utility classes, and reusable luxury styling tokens.
+ *
+ * Design Direction:
+ * Boutique Luxury Beauty Studio
+ * Inspired by premium editorial brands including:
+ *
+ * • Chanel Beauty
+ * • Dior Beauty
+ * • Aesop
+ * • Luxury Med Spa
+ * • Boutique Esthetics Studio
  *
  * Version:
- * v1.0.5 — Unified luxury dusty pink palette
+ * v2.0.0
+ *
+ * Updated:
+ * July 29, 2026
+ *
+ * Changes:
+ * • Complete redesign of the global design system.
+ * • Introduced refined ivory and dusty rose palette.
+ * • Removed heavy gradients.
+ * • Softer editorial typography.
+ * • Increased breathing room throughout the site.
+ * • Redesigned luxury card system.
+ * • New shadow system.
+ * • Improved scrollbar styling.
+ * • Updated Tailwind v4 theme tokens.
+ * • Added reusable luxury utility classes.
  *
  * -----------------------------------------------------------------------------
  */
 
-
 @import "tailwindcss";
 
-
-/* ------------------------------------------------------------------
-   CSS Variables
--------------------------------------------------------------------*/
+/* =============================================================================
+   CSS VARIABLES
+   ========================================================================== */
 
 :root {
 
-  --background: #FCF8F3;
+  /* --------------------------------------------------------------------------
+     Brand Backgrounds
+  --------------------------------------------------------------------------- */
 
-  --foreground: #3B2A26;
+  --background: #FBF8F5;
 
-  --gold: #C6A15B;
+  --background-secondary: #F7F2EF;
 
-  --champagne: #D8B4A0;
+  --background-card: #FFFFFF;
 
-  --rose: #E8C8BC;
+  /* --------------------------------------------------------------------------
+     Brand Colors
+  --------------------------------------------------------------------------- */
 
-  --dusty-pink: #D4A9B6;
+  --dusty-rose: #C8919B;
 
-  --plum: #8C5A6B;
+  --mauve: #98707C;
 
-  --taupe: #8C7468;
+  --soft-rose: #E9D8D9;
 
-  --espresso: #3B2A26;
+  --line: #E9DFDB;
+
+  --espresso: #382C2C;
+
+  --taupe: #7A6762;
+
+  --warm-gray: #A1918B;
+
+  /* --------------------------------------------------------------------------
+     Text
+  --------------------------------------------------------------------------- */
+
+  --foreground: #382C2C;
+
+  --text-secondary: #76635F;
+
+  --text-muted: #A2918B;
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Tailwind Theme Tokens
--------------------------------------------------------------------*/
+/* =============================================================================
+   TAILWIND v4 THEME TOKENS
+   ========================================================================== */
 
 @theme {
 
-  --color-brand-gold: #C6A15B;
+  --color-brand-background: #FBF8F5;
 
-  --color-brand-champagne: #D8B4A0;
+  --color-brand-background-soft: #F7F2EF;
 
-  --color-brand-rose: #E8C8BC;
+  --color-brand-card: #FFFFFF;
 
-  --color-brand-dusty-pink: #D4A9B6;
+  --color-brand-dusty-rose: #C8919B;
 
-  --color-brand-plum: #8C5A6B;
+  --color-brand-mauve: #98707C;
 
-  --color-brand-taupe: #8C7468;
+  --color-brand-soft-rose: #E9D8D9;
 
-  --color-brand-espresso: #3B2A26;
+  --color-brand-border: #E9DFDB;
 
-  --color-brand-black: #241B19;
+  --color-brand-espresso: #382C2C;
 
-  --color-brand-white: #FFFFFF;
+  --color-brand-taupe: #7A6762;
 
-  --color-brand-border: #E7D6D2;
-
-  --color-brand-cream: #FCF8F3;
+  --color-brand-muted: #A2918B;
 
 }
 
+/* =============================================================================
+   RESET
+   ========================================================================== */
 
-
-/* ------------------------------------------------------------------
-   Reset
--------------------------------------------------------------------*/
-
-* {
+*,
+*::before,
+*::after {
 
   box-sizing: border-box;
 
@@ -89,31 +135,25 @@
 
 }
 
-
-
 html {
 
   scroll-behavior: smooth;
 
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 90px;
 
 }
-
-
-
-/* ------------------------------------------------------------------
-   Body
--------------------------------------------------------------------*/
 
 body {
 
   min-height: 100vh;
 
-  background: #FCF8F3;
+  background: var(--background);
 
   color: var(--foreground);
 
   font-family: var(--font-inter), sans-serif;
+
+  text-rendering: optimizeLegibility;
 
   -webkit-font-smoothing: antialiased;
 
@@ -121,11 +161,9 @@ body {
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Typography
--------------------------------------------------------------------*/
+/* =============================================================================
+   TYPOGRAPHY
+   ========================================================================== */
 
 h1,
 h2,
@@ -134,31 +172,47 @@ h4,
 h5,
 h6 {
 
-  color: #2E211F;
+  color: var(--foreground);
 
-  font-weight: 600;
+  font-weight: 500;
 
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 
-  line-height: 1.15;
+  line-height: 1.08;
 
 }
 
+h1 {
 
+  font-size: clamp(3rem, 6vw, 5.5rem);
+
+}
+
+h2 {
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+}
+
+h3 {
+
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+
+}
 
 p {
 
-  color: #6D5954;
+  color: var(--text-secondary);
 
-  line-height: 1.8;
+  line-height: 1.95;
+
+  font-size: 1rem;
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Links
--------------------------------------------------------------------*/
+/* =============================================================================
+   LINKS
+   ========================================================================== */
 
 a {
 
@@ -166,244 +220,547 @@ a {
 
   text-decoration: none;
 
-  transition: all .25s ease;
+  transition:
+
+    color .35s ease,
+
+    opacity .35s ease,
+
+    transform .35s ease;
 
 }
-
-
 
 a:hover {
 
-  opacity: .85;
+  color: var(--mauve);
 
 }
 
+/* =============================================================================
+   MEDIA
+   ========================================================================== */
 
+img,
+picture,
+video,
+canvas,
+svg {
 
-/* ------------------------------------------------------------------
-   Images
--------------------------------------------------------------------*/
+  display: block;
 
-img {
+  max-width: 100%;
 
-  display:block;
-
-  max-width:100%;
-
-  height:auto;
+  height: auto;
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Selection
--------------------------------------------------------------------*/
+/* =============================================================================
+   TEXT SELECTION
+   ========================================================================== */
 
 ::selection {
 
-  background:#D4A9B6;
+  background: var(--dusty-rose);
 
-  color:#3B2A26;
+  color: white;
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Scrollbar
--------------------------------------------------------------------*/
+/* =============================================================================
+   SCROLLBAR
+   ========================================================================== */
 
 ::-webkit-scrollbar {
 
-  width:10px;
+  width: 10px;
 
 }
-
-
 
 ::-webkit-scrollbar-track {
 
-  background:#F6E7E1;
+  background: #F5F0ED;
 
 }
-
-
 
 ::-webkit-scrollbar-thumb {
 
-  background:#8C5A6B;
+  background: #B78692;
 
-  border-radius:999px;
+  border-radius: 999px;
 
 }
-
-
 
 ::-webkit-scrollbar-thumb:hover {
 
-  background:#734454;
+  background: #9E6F7B;
 
 }
 
-
-
-/* ------------------------------------------------------------------
-   Utilities
--------------------------------------------------------------------*/
-
-.section-padding {
-
-  padding:7rem 1.5rem;
-
-}
-
-
+/* =============================================================================
+   LAYOUT HELPERS
+   ========================================================================== */
 
 .container-luxury {
 
-  max-width:1280px;
+  width: 100%;
 
-  margin:0 auto;
+  max-width: 1320px;
 
-}
+  margin-inline: auto;
 
-
-
-/* ------------------------------------------------------------------
-   Luxury Branding
--------------------------------------------------------------------*/
-
-.plum-gradient {
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #8C5A6B,
-      #D4A9B6
-    );
+  padding-inline: clamp(1.5rem, 3vw, 3rem);
 
 }
 
+.section-padding {
 
+  padding-block: clamp(6rem, 8vw, 9rem);
 
-.text-plum {
-
-  color:#8C5A6B;
-
-}
-
-
-
-.text-gold {
-
-  color:#C6A15B;
+  padding-inline: 1.5rem;
 
 }
 
+.section-padding-lg {
 
+  padding-block: clamp(8rem, 11vw, 11rem);
 
-.gold-gradient {
-
-  background:
-
-    linear-gradient(
-      90deg,
-      #C6A15B,
-      #E5C17A
-    );
+  padding-inline: 1.5rem;
 
 }
 
+/* =============================================================================
+   LUXURY SHADOW SYSTEM
+   ========================================================================== */
 
-
-/* ------------------------------------------------------------------
-   Shadows
--------------------------------------------------------------------*/
-
-.shadow-luxury {
+.shadow-soft {
 
   box-shadow:
-
-    0 10px 30px rgba(59,42,38,.06),
-
-    0 2px 8px rgba(59,42,38,.04);
+    0 12px 32px rgba(56, 44, 44, 0.04),
+    0 2px 8px rgba(56, 44, 44, 0.03);
 
 }
 
+.shadow-card {
 
+  box-shadow:
+    0 24px 70px rgba(56, 44, 44, 0.06);
 
-/* ------------------------------------------------------------------
-   Cards
--------------------------------------------------------------------*/
+}
+
+.shadow-floating {
+
+  box-shadow:
+    0 35px 90px rgba(56, 44, 44, 0.08);
+
+}
+
+/* =============================================================================
+   LUXURY CARD SYSTEM
+   ========================================================================== */
 
 .card-luxury {
 
-  background:
+  background: rgba(255,255,255,.88);
 
-    rgba(255,255,255,.75);
+  backdrop-filter: blur(18px);
 
-  backdrop-filter:blur(18px);
+  border: 1px solid var(--line);
 
-  border:
+  border-radius: 34px;
 
-    1px solid rgba(212,169,182,.35);
-
-  border-radius:28px;
-
-}
-
-
-
-/* ------------------------------------------------------------------
-   Borders
--------------------------------------------------------------------*/
-
-.border-gold {
-
-  border:
-
-    1px solid rgba(198,161,91,.25);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
 
 }
 
+.card-luxury:hover {
 
+  transform: translateY(-6px);
 
-.border-luxury {
+  border-color: var(--dusty-rose);
 
-  border:
-
-    1px solid rgba(212,169,182,.35);
-
-}
-
-
-
-/* ------------------------------------------------------------------
-   Section Separation
--------------------------------------------------------------------*/
-
-.section-luxury {
-
-  border-top:
-
-    1px solid rgba(212,169,182,.35);
-
-  padding-top:5rem;
-
-  padding-bottom:5rem;
+  box-shadow:
+    0 30px 80px rgba(56,44,44,.08);
 
 }
 
+.card-soft {
 
+  background: var(--background-card);
 
-/* ------------------------------------------------------------------
-   Transition
--------------------------------------------------------------------*/
+  border-radius: 28px;
 
-.transition-luxury {
+  border: 1px solid var(--line);
+
+}
+
+/* =============================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn-primary {
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.75rem;
+
+  padding:1rem 2.5rem;
+
+  border-radius:999px;
+
+  background:var(--mauve);
+
+  color:white;
+
+  font-size:.82rem;
+
+  font-weight:600;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
 
   transition:all .35s ease;
+
+}
+
+.btn-primary:hover{
+
+  background:#87616D;
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 18px 45px rgba(152,112,124,.25);
+
+}
+
+.btn-secondary{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.75rem;
+
+  padding:1rem 2.5rem;
+
+  border-radius:999px;
+
+  border:1px solid var(--line);
+
+  background:white;
+
+  color:var(--mauve);
+
+  font-size:.82rem;
+
+  font-weight:600;
+
+  letter-spacing:.18em;
+
+  text-transform:uppercase;
+
+  transition:all .35s ease;
+
+}
+
+.btn-secondary:hover{
+
+  background:var(--background-secondary);
+
+  border-color:var(--dusty-rose);
+
+}
+
+/* =============================================================================
+   BORDERS
+   ========================================================================== */
+
+.border-luxury{
+
+  border:1px solid var(--line);
+
+}
+
+.divider{
+
+  width:100%;
+
+  height:1px;
+
+  background:var(--line);
+
+}
+
+/* =============================================================================
+   SECTION STYLING
+   ========================================================================== */
+
+.section-luxury{
+
+  position:relative;
+
+}
+
+.section-luxury::after{
+
+  content:"";
+
+  position:absolute;
+
+  bottom:0;
+
+  left:50%;
+
+  width:min(92%,1320px);
+
+  height:1px;
+
+  background:var(--line);
+
+  transform:translateX(-50%);
+
+}
+
+/* =============================================================================
+   TYPOGRAPHY HELPERS
+   ========================================================================== */
+
+.eyebrow{
+
+  display:inline-block;
+
+  color:var(--mauve);
+
+  font-size:.72rem;
+
+  font-weight:600;
+
+  letter-spacing:.38em;
+
+  text-transform:uppercase;
+
+}
+
+.heading-luxury{
+
+  max-width:760px;
+
+  color:var(--foreground);
+
+  font-weight:500;
+
+  line-height:1.08;
+
+  letter-spacing:-.04em;
+
+}
+
+.lead{
+
+  max-width:700px;
+
+  color:var(--text-secondary);
+
+  font-size:1.1rem;
+
+  line-height:2;
+
+}
+
+.text-mauve{
+
+  color:var(--mauve);
+
+}
+
+.text-muted{
+
+  color:var(--text-muted);
+
+}
+
+/* =============================================================================
+   BACKGROUNDS
+   ========================================================================== */
+
+.bg-soft{
+
+  background:var(--background-secondary);
+
+}
+
+.bg-card{
+
+  background:white;
+
+}
+
+.bg-luxury{
+
+  background:
+    linear-gradient(
+      to bottom,
+      #FBF8F5,
+      #F7F2EF
+    );
+
+}
+
+/* =============================================================================
+   DECORATIVE ELEMENTS
+   ========================================================================== */
+
+.luxury-line{
+
+  width:80px;
+
+  height:1px;
+
+  background:var(--dusty-rose);
+
+  margin-block:2rem;
+
+}
+
+.luxury-circle{
+
+  width:10px;
+
+  height:10px;
+
+  border-radius:999px;
+
+  background:var(--dusty-rose);
+
+}
+
+.soft-divider{
+
+  width:140px;
+
+  height:2px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      var(--dusty-rose),
+      transparent
+    );
+
+}
+
+/* =============================================================================
+   TRANSITIONS
+   ========================================================================== */
+
+.transition-luxury{
+
+  transition:
+    all .35s cubic-bezier(.2,.8,.2,1);
+
+}
+
+/* =============================================================================
+   FOCUS STATES
+   ========================================================================== */
+
+input:focus,
+textarea:focus,
+select:focus{
+
+  outline:none;
+
+  border-color:var(--dusty-rose);
+
+  box-shadow:
+    0 0 0 4px rgba(200,145,155,.12);
+
+}
+
+/* =============================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+::placeholder{
+
+  color:var(--text-muted);
+
+}
+
+input,
+textarea{
+
+  color:var(--foreground);
+
+}
+
+/* =============================================================================
+   RESPONSIVE HELPERS
+   ========================================================================== */
+
+@media (max-width:1024px){
+
+  .section-padding{
+
+    padding-block:6rem;
+
+  }
+
+  .section-padding-lg{
+
+    padding-block:7rem;
+
+  }
+
+}
+
+@media (max-width:768px){
+
+  h1{
+
+    line-height:1.1;
+
+  }
+
+  h2{
+
+    line-height:1.12;
+
+  }
+
+  .container-luxury{
+
+    padding-inline:1.5rem;
+
+  }
+
+}
+
+/* =============================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce){
+
+  *{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+  }
 
 }
