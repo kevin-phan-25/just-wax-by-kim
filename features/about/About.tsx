@@ -8,8 +8,8 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Added large transition spacing from Hero
- * • Shifted About section down approximately 2 inches
+ * • Matched Hero → About spacing with Navbar → Hero spacing
+ * • Uses consistent 200px transition gap
  * • Preserved editorial layout
  * -----------------------------------------------------------------------------
  */
@@ -29,13 +29,18 @@ export default function About() {
 
         px-6
 
-        /* Creates visible separation from Hero */
-        mt-48
+        /*
+          Matches Hero top spacing.
+          Creates equal breathing room:
+          Navbar → Hero = 200px
+          Hero → About = 200px
+        */
+        mt-[200px]
 
         pt-20
         pb-20
 
-        md:mt-56
+        md:mt-[200px]
         md:pt-24
         md:pb-28
       "
