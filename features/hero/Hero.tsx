@@ -8,11 +8,9 @@
  * Primary hero section — editorial magazine layout.
  *
  * Changes (July 29, 2026):
- * • Hero content begins at 2.75 inches (264px) from top of viewport
- *   (navbar ~1.75 in / 168px + ~1 in clearance)
- * • Image on LEFT, text on RIGHT
- * • Image kept proportional (reduced size)
- * • Centered grid with balanced vertical padding
+ * • Fixed “smooshed under navbar” by using an explicit spacer + padding
+ * • Content starts at ~2.75–3 in from top (navbar 1.75 in + clearance)
+ * • Image left / text right preserved
  * -----------------------------------------------------------------------------
  */
 import { HeroContent } from "./HeroContent";
@@ -23,12 +21,18 @@ export default function Hero() {
     <section
       id="home"
       className="
-        relative flex items-center justify-center
-        pt-[264px]
+        relative
         overflow-hidden
         bg-[#FCF8F3]
       "
     >
+      {/*
+        Explicit spacer = navbar height (168px / 1.75in)
+        + clearance (96px / 1in)
+        = 264px total before hero content begins
+      */}
+      <div className="h-[264px] w-full flex-shrink-0" aria-hidden />
+
       {/* Soft ambient wash */}
       <div
         aria-hidden
@@ -44,6 +48,7 @@ export default function Hero() {
             grid grid-cols-1 lg:grid-cols-12
             gap-10 lg:gap-12
             items-center justify-items-center
+            pt-4
             pb-16 md:pb-20 lg:pb-24
           "
         >
