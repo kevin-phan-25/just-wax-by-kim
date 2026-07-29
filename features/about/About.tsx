@@ -7,11 +7,15 @@
  * Description:
  * Luxury editorial About section.
  *
- * Layout
- * • Left   — Heading + Description
- * • Center — Portrait
- * • Right  — Credentials
+ * Layout:
+ * • Editorial text flow
+ * • Portrait floats within content
+ * • Credentials positioned beneath portrait
  *
+ * Changes:
+ * • Replaced rigid grid layout with editorial composition
+ * • Portrait now integrates with text flow
+ * • Improved luxury magazine-style spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -32,9 +36,11 @@ export default function About() {
         pt-20
         pb-28
         md:mt-20
+        md:pt-24
+        md:pb-32
       "
     >
-      {/* Ambient Glow */}
+      {/* Ambient glow */}
       <div
         aria-hidden
         className="
@@ -45,7 +51,7 @@ export default function About() {
         "
       />
 
-      {/* Top Divider */}
+      {/* Top divider */}
       <div
         aria-hidden
         className="
@@ -54,60 +60,50 @@ export default function About() {
           left-1/2
           -translate-x-1/2
           h-px
-          w-[min(92%,1240px)]
+          w-[min(92%,1200px)]
           bg-[#E8DDD8]
         "
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
+
         <div
           className="
-            grid
-            grid-cols-1
-            lg:grid-cols-[1.15fr_auto_0.85fr]
-            items-center
-            gap-y-16
-            gap-x-12
-            xl:gap-x-24
+            relative
+            text-[#3B2A26]
           "
         >
-          {/* LEFT */}
-          <div
-            className="
-              order-2
-              lg:order-1
-              self-center
-            "
-          >
-            <AboutContent />
-          </div>
 
-          {/* CENTER */}
+          {/* Floating portrait */}
           <div
             className="
-              order-1
-              lg:order-2
-              flex
-              justify-center
-              self-center
+              float-none
+              md:float-right
+              md:ml-14
+              lg:ml-20
+              mb-12
+              md:mb-8
             "
           >
             <AboutImage />
+
+            {/* Credentials under image */}
+            <div
+              className="
+                mt-14
+                w-full
+              "
+            >
+              <Credentials />
+            </div>
           </div>
 
-          {/* RIGHT */}
-          <div
-            className="
-              order-3
-              flex
-              items-center
-              justify-start
-              h-full
-            "
-          >
-            <Credentials />
-          </div>
+
+          {/* Editorial copy */}
+          <AboutContent />
+
         </div>
+
       </div>
     </section>
   );
