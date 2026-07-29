@@ -1,42 +1,39 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/about/about.data.ts
+ * File: features/about/Credentials.tsx
  *
  * Date: July 29, 2026
  *
  * Description:
- * Static content for the About section.
+ * Three credential items under the About text.
  *
  * Changes:
- * • July 29, 2026 – Removed em dash from description
+ * • July 29, 2026 – Clean spacing, no overlapping
  * -----------------------------------------------------------------------------
  */
-import type {
-  Credential,
-  AboutSection,
-} from "./about.types";
+import { credentials } from "./about.data";
 
-export const aboutContent: AboutSection = {
-  eyebrow: "Meet Kim",
-  title: "Creating Moments Where Beauty Feels Effortless.",
-  description:
-    "Just Wax by Kim was created from a passion for helping every client feel confident, comfortable, and beautifully cared for. Each appointment is thoughtfully personalized, creating a calm, refined experience where you can relax, reconnect, and leave feeling your absolute best.",
-};
-
-export const credentials: Credential[] = [
-  {
-    title: "Thoughtful Experience",
-    description:
-      "Every detail is designed to create a comfortable, calming, and elevated experience.",
-  },
-  {
-    title: "Expert Care",
-    description:
-      "A gentle and precise approach focused on beautiful results and lasting confidence.",
-  },
-  {
-    title: "Personal Connection",
-    description:
-      "Every guest receives dedicated attention and care that feels personal and intentional.",
-  },
-];
+export default function Credentials() {
+  return (
+    <div className="mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {credentials.map((item) => (
+          <div key={item.title}>
+            <h3
+              className="
+                text-[0.65rem] uppercase tracking-[0.2em]
+                text-[#3B2A26]
+                mb-2.5
+              "
+            >
+              {item.title}
+            </h3>
+            <p className="text-[0.8rem] leading-[1.7] text-[#8A776E]">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
