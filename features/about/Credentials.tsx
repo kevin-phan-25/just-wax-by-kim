@@ -5,10 +5,7 @@
  * Date: July 29, 2026
  *
  * Description:
- * Slightly denser credentials to reduce vertical emptiness.
- *
- * Changes:
- * • July 29, 2026 – Tighter vertical spacing
+ * Three credential items under the About text.
  * -----------------------------------------------------------------------------
  */
 import { credentials } from "./about.data";
