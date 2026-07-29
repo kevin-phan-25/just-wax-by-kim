@@ -5,32 +5,44 @@
  * Date: July 29, 2026
  *
  * Description:
- * Editorial text block for the hero (brand lockup, lead, CTAs).
+ * Editorial text block for the hero.
  *
  * Changes (July 29, 2026):
- * • Right-side placement; centered on mobile
- * • Refined type scale and spacing for magazine feel
+ * • Removed CTA buttons
+ * • Removed scroll cue
+ * • Redesigned as luxury brand introduction
+ * • Increased editorial spacing and elegance
  * -----------------------------------------------------------------------------
  */
-import { HeroButtons } from "./HeroButtons";
 
 export function HeroContent() {
   return (
-    <div className="max-w-[400px] mx-auto lg:mx-0 lg:ml-4 xl:ml-8 text-center lg:text-left">
+    <div className="max-w-[430px] mx-auto lg:mx-0 lg:ml-4 xl:ml-8 text-center lg:text-left">
+
       {/* Eyebrow */}
-      <p className="eyebrow mb-5">
+      <p className="eyebrow mb-6">
         Luxury Waxing Studio
       </p>
 
+
       {/* Brand lockup */}
       <h1 className="heading-luxury">
-        <span className="block text-[clamp(2.4rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.035em]">
-          Just Wax
-        </span>
+
         <span
           className="
-            script mt-1.5 block
-            text-[clamp(1.5rem,3vw,2.15rem)]
+            block
+            text-[clamp(2.7rem,5vw,4rem)]
+            leading-[1.02]
+            tracking-[-0.045em]
+          "
+        >
+          Just Wax
+        </span>
+
+        <span
+          className="
+            script mt-2 block
+            text-[clamp(1.7rem,3vw,2.3rem)]
             leading-none
             text-[#8C5A6B]
             font-normal
@@ -38,30 +50,59 @@ export function HeroContent() {
         >
           by Kim
         </span>
+
       </h1>
 
-      {/* Thin refined divider */}
-      <div className="luxury-line mx-auto lg:mx-0 my-6" />
 
-      {/* Lead */}
-      <p className="lead !text-[1rem] !leading-[1.85] mx-auto lg:mx-0">
-        Every appointment is tailored
+      {/* Divider */}
+      <div className="luxury-line mx-auto lg:mx-0 my-7" />
+
+
+      {/* Luxury statement */}
+      <p
+        className="
+          lead
+          !text-[1.05rem]
+          !leading-[1.9]
+          mx-auto lg:mx-0
+          max-w-[360px]
+        "
+      >
+        A refined waxing experience
         <br className="hidden sm:block" />
-        exclusively for you.
+        designed around confidence,
+        comfort, and beautiful skin.
       </p>
 
-      {/* Buttons */}
-      <div className="mt-8 flex flex-col sm:flex-row items-center gap-3.5 justify-center lg:justify-start">
-        <HeroButtons />
+
+      {/* Signature detail */}
+      <div
+        className="
+          mt-9
+          flex
+          items-center
+          justify-center
+          lg:justify-start
+          gap-3
+          text-[#9A857A]
+        "
+      >
+        <span className="h-px w-8 bg-[#D4A9B6]" />
+
+        <span
+          className="
+            text-[0.62rem]
+            uppercase
+            tracking-[0.28em]
+            font-medium
+          "
+        >
+          Personalized Care
+        </span>
+
+        <span className="h-px w-8 bg-[#D4A9B6]" />
       </div>
 
-      {/* Scroll cue */}
-      <div className="mt-12 hidden lg:flex items-center gap-3 text-[#9A857A]">
-        <span className="text-[0.6rem] uppercase tracking-[0.26em] font-medium">
-          Scroll
-        </span>
-        <span className="block h-6 w-px bg-[#E8DDD8]" />
-      </div>
     </div>
   );
 }
