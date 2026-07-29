@@ -5,13 +5,12 @@
  * Date: July 29, 2026
  *
  * Description:
- * Editorial credentials displayed beneath portrait.
+ * Editorial credentials displayed beside portrait.
  *
  * Changes:
- * • Converted from horizontal cards to vertical editorial list
- * • Reduced visual weight
- * • Added refined dividers
- * • Designed for portrait continuation layout
+ * • Removed numbered labels
+ * • Returned to right-side layout
+ * • Softer luxury presentation
  * -----------------------------------------------------------------------------
  */
 
@@ -22,10 +21,9 @@ export default function Credentials() {
     <div
       className="
         w-full
-        max-w-[360px]
+        max-w-[320px]
       "
     >
-
       {credentials.map((item, index) => (
         <div
           key={item.title}
@@ -38,26 +36,11 @@ export default function Credentials() {
           `}
         >
 
-          {/* Number */}
-          <p
-            className="
-              mb-2
-              text-[0.6rem]
-              uppercase
-              tracking-[0.35em]
-              text-[#B28A62]
-            "
-          >
-            {String(index + 1).padStart(2, "0")}
-          </p>
-
-
-          {/* Title */}
           <h3
             className="
-              mb-2
+              mb-3
               font-serif
-              text-[1.15rem]
+              text-[1.2rem]
               leading-tight
               text-[#3B2A26]
             "
@@ -66,11 +49,10 @@ export default function Credentials() {
           </h3>
 
 
-          {/* Description */}
           <p
             className="
               text-[0.85rem]
-              leading-[1.8]
+              leading-[1.85]
               text-[#8A776E]
             "
           >
@@ -79,7 +61,6 @@ export default function Credentials() {
 
         </div>
       ))}
-
     </div>
   );
 }
