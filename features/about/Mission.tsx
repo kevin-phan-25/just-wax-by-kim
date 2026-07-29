@@ -1,12 +1,18 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/about/Mission.tsx (or wherever it lives)
+ * File: features/about/Mission.tsx
  *
  * Date: July 29, 2026
  *
  * Description:
- * Soft pull-quote that follows the About section.
- * Matches the cream background and elegant spacing of the About block.
+ * Soft italic pull-quote that follows the About section.
+ * Shares the cream background for a continuous editorial feel.
+ *
+ * Changes:
+ * • July 29, 2026 – Matched cream background (#FCF8F3)
+ * • July 29, 2026 – Light top padding so it feels connected to About
+ * • July 29, 2026 – Soft optional top rule for subtle separation
+ * • July 29, 2026 – Consistent bottom breathing room (pb-24 / md:pb-28)
  * -----------------------------------------------------------------------------
  */
 export default function Mission() {
@@ -16,13 +22,13 @@ export default function Mission() {
         relative
         bg-[#FCF8F3]
         px-6
-        pt-4
+        pt-6
         pb-24
-        md:pt-6
+        md:pt-8
         md:pb-28
       "
     >
-      {/* Optional thin rule if you want a subtle separation from About */}
+      {/* Soft top rule */}
       <div
         aria-hidden
         className="
@@ -32,7 +38,7 @@ export default function Mission() {
           -translate-x-1/2
           w-[min(70%,700px)]
           h-px
-          bg-[#E8DDD8]/70
+          bg-[#E8DDD8]/60
         "
       />
 
