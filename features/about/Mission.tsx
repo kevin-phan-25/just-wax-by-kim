@@ -10,9 +10,9 @@
  *
  * Changes:
  * • July 29, 2026 – Matched cream background (#FCF8F3)
- * • July 29, 2026 – Light top padding so it feels connected to About
- * • July 29, 2026 – Soft optional top rule for subtle separation
- * • July 29, 2026 – Consistent bottom breathing room (pb-24 / md:pb-28)
+ * • July 29, 2026 – Centered quote block
+ * • July 29, 2026 – Soft top rule for subtle separation
+ * • July 29, 2026 – Light top padding + consistent bottom breathing room
  * -----------------------------------------------------------------------------
  */
 export default function Mission() {
