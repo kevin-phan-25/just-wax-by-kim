@@ -5,8 +5,16 @@
  * Date: July 29, 2026
  *
  * Description:
- * Luxury editorial About — portrait on the right, text wraps around it.
- * Added volume, depth, and richer spacing.
+ * Luxury editorial About section.
+ * Balanced two-column grid (text left, portrait right).
+ * Explicit top margin prevents flush contact with Hero.
+ *
+ * Changes:
+ * • July 29, 2026 – Replaced float with CSS Grid to eliminate empty right space
+ * • July 29, 2026 – Forced reliable 1.25-inch gap after Hero (mt-[1.25in])
+ * • July 29, 2026 – Content now fills its column instead of staying narrow
+ * • July 29, 2026 – Image placed on the right
+ * • July 29, 2026 – Soft ambient wash + volume retained
  * -----------------------------------------------------------------------------
  */
 import AboutContent from "./AboutContent";
@@ -21,16 +29,20 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        py-24
-        md:py-28
+        mt-[1.25in]          /* ← forced gap after Hero – will not collapse */
+        pt-16
+        pb-24
+        md:mt-[1.5in]
+        md:pt-20
+        md:pb-28
       "
     >
-      {/* Soft ambient glow for volume */}
+      {/* Soft ambient glow */}
       <div
         aria-hidden
         className="
           pointer-events-none absolute inset-0
-          bg-[radial-gradient(ellipse_at_70%_40%,rgba(232,200,188,0.18),transparent_60%)]
+          bg-[radial-gradient(ellipse_at_75%_35%,rgba(232,200,188,0.16),transparent_55%)]
         "
       />
 
@@ -43,27 +55,27 @@ export default function About() {
         "
       />
 
-      <div className="relative mx-auto max-w-6xl">
-        {/* 
-          Float layout: image on the right, text wraps around it.
-          On mobile the image stacks above.
-        */}
-        <div className="relative">
-          {/* Portrait — right side on desktop */}
-          <div
-            className="
-              mb-12 mx-auto
-              w-full max-w-[280px] md:max-w-[300px]
-              lg:float-right
-              lg:ml-14 lg:mb-10
-              xl:ml-16
-            "
-          >
-            <AboutImage />
-          </div>
-
-          {/* Text content wraps the image */}
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-6xl
+          grid
+          grid-cols-1
+          lg:grid-cols-12
+          gap-12
+          lg:gap-16
+          items-center
+        "
+      >
+        {/* Text — left side, takes majority of width */}
+        <div className="lg:col-span-7 order-2 lg:order-1">
           <AboutContent />
+        </div>
+
+        {/* Portrait — right side */}
+        <div className="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
+          <AboutImage />
         </div>
       </div>
     </section>
