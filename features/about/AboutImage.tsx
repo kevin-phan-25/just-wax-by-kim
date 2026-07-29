@@ -1,68 +1,60 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/about/AboutImage.tsx
+ * File: AboutImage.tsx
  *
  * Date: July 29, 2026
  *
  * Description:
- * Luxury founder portrait frame.
+ * Luxury founder portrait placeholder.
  *
- * Changes:
- * • Refined editorial styling
- * • Added soft floating frame effect
- * • Prepared for future Kim portrait
  * -----------------------------------------------------------------------------
  */
 
 export default function AboutImage() {
   return (
-    <div className="relative mx-auto w-full max-w-[380px]">
+    <div
+      className="
+        relative
+        w-full
+        max-w-[280px]
+        lg:max-w-[320px]
+      "
+    >
 
-      {/* Image Frame */}
       <div
         className="
-          relative
           aspect-[4/5]
-          overflow-hidden
           rounded-[2rem]
+          overflow-hidden
           border
           border-[#E8DDD8]
           bg-[#F6E7E1]
           shadow-[0_25px_60px_rgba(59,42,38,0.08)]
+          flex
+          items-center
+          justify-center
         "
       >
 
-        {/* Temporary placeholder */}
-        <div
+        <p
           className="
-            absolute
-            inset-0
-            flex
-            items-center
-            justify-center
-            bg-[radial-gradient(ellipse_at_center,rgba(212,169,182,0.25),transparent_70%)]
+            text-center
+            text-[#8A776E]
+            text-xs
+            uppercase
+            tracking-[0.28em]
+            leading-loose
           "
         >
-          <p
-            className="
-              text-center
-              text-[#8A776E]
-              text-xs
-              uppercase
-              tracking-[0.25em]
-              leading-loose
-            "
-          >
-            Kim&apos;s Portrait
-            <br />
-            Coming Soon
-          </p>
-        </div>
+          Kim&apos;s Portrait
+          <br />
+          Coming Soon
+        </p>
 
       </div>
 
 
-      {/* Decorative accent */}
+      {/* Bottom accent */}
       <div
         aria-hidden
         className="
@@ -70,8 +62,8 @@ export default function AboutImage() {
           -bottom-5
           left-1/2
           -translate-x-1/2
+          w-14
           h-px
-          w-16
           bg-[#D4A9B6]
         "
       />
