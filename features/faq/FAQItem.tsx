@@ -1,3 +1,22 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File:
+ * features/faq/FAQItem.tsx
+ *
+ * Description:
+ * Individual FAQ accordion item.
+ *
+ * Changes:
+ *
+ * - July 30, 2026
+ * - Centered FAQ questions
+ * - Right aligned expand icon
+ * - Improved luxury editorial spacing
+ * - Preserved animated accordion behavior
+ *
+ * -----------------------------------------------------------------------------
+ */
+
 "use client";
 
 import {
@@ -16,103 +35,163 @@ import {
 
 interface Props {
 
-item: FAQItemType;
+  item: FAQItemType;
 
 }
 
 
 export default function FAQItem({
 
-item,
+  item,
 
-}:Props){
+}: Props){
 
 
 const [
-open,
-setOpen
-]=useState(false);
+
+  open,
+
+  setOpen,
+
+] = useState(false);
 
 
 
 return (
 
 <div
+
   className="
+    w-full
+    border-b
+    border-[#E8DDD8]
     py-8
   "
->
-
-
-<button
-
-onClick={()=>setOpen(!open)}
-
-className="
-  flex
-  w-full
-  items-center
-  justify-between
-  text-left
-"
 
 >
 
 
-<span
-  className="
-    font-serif
-    text-xl
-    text-[#3B2A26]
-  "
->
+  {/* QUESTION */}
 
-{item.question}
+  <button
 
-</span>
+    onClick={()=>setOpen(!open)}
 
+    className="
+      relative
+      flex
+      w-full
+      items-center
+      justify-center
+      px-8
+    "
 
-{
-open
-
-?
-
-<Minus
-  size={22}
-  className="text-[#8C5A6B]"
-/>
-
-:
-
-<Plus
-  size={22}
-  className="text-[#8C5A6B]"
-/>
-
-}
+  >
 
 
-</button>
+    <span
+
+      className="
+        font-serif
+        text-xl
+        md:text-2xl
+        text-center
+        text-[#3B2A26]
+      "
+
+    >
+
+      {item.question}
+
+    </span>
 
 
 
-{
-open &&
+    {/* ICON */}
 
-<div
-  className="
-    mt-5
-    max-w-4xl
-    text-[#8C7468]
-    leading-relaxed
-  "
->
+    <span
 
-{item.answer}
+      className="
+        absolute
+        right-0
+        flex
+        items-center
+        justify-center
+      "
 
-</div>
+    >
 
-}
+      {
+        open
+
+        ?
+
+        <Minus
+
+          size={22}
+
+          strokeWidth={1.5}
+
+          className="
+            text-[#8C5A6B]
+          "
+
+        />
+
+        :
+
+        <Plus
+
+          size={22}
+
+          strokeWidth={1.5}
+
+          className="
+            text-[#8C5A6B]
+          "
+
+        />
+
+      }
+
+
+    </span>
+
+
+  </button>
+
+
+
+
+  {/* ANSWER */}
+
+  {
+
+    open &&
+
+    (
+
+      <div
+
+        className="
+          mx-auto
+          mt-6
+          max-w-3xl
+          text-center
+          text-[#8C7468]
+          leading-relaxed
+        "
+
+      >
+
+        {item.answer}
+
+      </div>
+
+    )
+
+  }
+
 
 
 </div>
