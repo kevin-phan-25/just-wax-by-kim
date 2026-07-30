@@ -15,7 +15,6 @@
  *   - ~1 inch (96px / gap-24) separation between each section
  * -----------------------------------------------------------------------------
  */
-import NaviBar from "@/components/layout/NaviBar";
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
@@ -32,7 +31,6 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-24">
       {/* gap-12 ≈ 48px ≈ 1/2 inch between each section */}
-      <NaviBar />
       <Hero />
       <About />
       <Mission />
