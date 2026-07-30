@@ -6,14 +6,10 @@ import {
 } from "react";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-import {
-  Logo,
-} from "@/components/ui/Logo";
-
-import {
-  MobileMenu,
-} from "@/components/layout/MobileMenu";
+import { Logo } from "@/components/ui/Logo";
+import { MobileMenu } from "@/components/layout/MobileMenu";
 
 import {
   navigation,
@@ -24,21 +20,7 @@ const scrollToSection = (
   href:string
 )=>{
 
-  if(href === "#home"){
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth",
-    });
-
-    return;
-
-  }
-
-
-  const id =
-    href.replace("#","");
-
+  const id = href.replace("#","");
 
   const element =
     document.getElementById(id);
@@ -51,19 +33,14 @@ const scrollToSection = (
 
 
   const position =
-    element.getBoundingClientRect().top
-    +
-    window.scrollY
-    -
+    element.getBoundingClientRect().top +
+    window.scrollY -
     navbarHeight;
 
 
   window.scrollTo({
-
     top:position,
-
     behavior:"smooth",
-
   });
 
 };
@@ -72,26 +49,31 @@ const scrollToSection = (
 
 export default function Navbar(){
 
+const pathname = usePathname();
+
+const router = useRouter();
+
+
 const [
-  scrolled,
-  setScrolled,
+scrolled,
+setScrolled,
 ] = useState(false);
 
 
+
 const [
-  mobileOpen,
-  setMobileOpen,
+mobileOpen,
+setMobileOpen,
 ] = useState(false);
 
 
 
 useEffect(()=>{
 
-
 const handleScroll = ()=>{
 
 setScrolled(
-  window.scrollY > 16
+window.scrollY > 16
 );
 
 };
@@ -123,6 +105,40 @@ handleScroll
 
 
 
+const handleNavigation = (
+href:string
+)=>{
+
+
+// internal section links
+if(
+href.startsWith("#")
+){
+
+// already home
+if(
+pathname === "/"
+){
+
+scrollToSection(href);
+
+}
+
+
+// from service pages
+else{
+
+router.push(`/${href}`);
+
+}
+
+
+}
+
+};
+
+
+
 return (
 
 <>
@@ -143,7 +159,6 @@ h-[168px]
 
 transition-all
 duration-500
-
 
 ${
 scrolled
@@ -189,7 +204,6 @@ left-12
 
 
 
-
 {/* NAV */}
 
 <nav
@@ -217,8 +231,9 @@ gap-10
 {
 navigation.map((link)=>(
 
+
 <li
-key={link.label}
+key={link.href}
 className="
 relative
 group
@@ -228,16 +243,28 @@ group
 
 <Link
 
-href={link.href}
+href={
+link.href.startsWith("#")
+?
+pathname === "/"
+?
+link.href
+:
+`/${link.href}`
+:
+link.href
+}
 
 onClick={(e)=>{
 
 
-if(link.href.startsWith("#")){
+if(
+link.href.startsWith("#")
+){
 
 e.preventDefault();
 
-scrollToSection(
+handleNavigation(
 link.href
 );
 
@@ -247,25 +274,20 @@ link.href
 }}
 
 className="
-
 uppercase
-
 font-semibold
-
 tracking-[0.16em]
-
 text-[#3B2A26]/80
 
-text-[1rem]
-
-transition-colors
+transition
 
 hover:text-[#8C5A6B]
+
+relative
 
 "
 
 >
-
 
 {link.label}
 
@@ -292,10 +314,6 @@ text-[#8C5A6B]
 </Link>
 
 
-
-
-
-{/* DROPDOWN */}
 
 {
 link.dropdown && (
@@ -357,13 +375,11 @@ duration-300
 {
 link.dropdown.map((item)=>(
 
-
 <Link
 
 key={item.href}
 
 href={item.href}
-
 
 className="
 
@@ -375,7 +391,6 @@ items-center
 
 
 rounded-2xl
-
 
 px-6
 
@@ -398,8 +413,8 @@ text-[#3B2A26]
 
 hover:bg-[#F6E7E1]
 
-hover:text-[#8C5A6B]
 
+hover:text-[#8C5A6B]
 
 transition
 
@@ -409,9 +424,7 @@ transition
 
 {item.label}
 
-
 </Link>
-
 
 ))
 
@@ -420,10 +433,10 @@ transition
 
 </div>
 
-
 )
 
 }
+
 
 
 </li>
@@ -432,6 +445,7 @@ transition
 ))
 
 }
+
 
 
 </ul>
@@ -443,25 +457,38 @@ transition
 
 
 
-{/* BOOK BUTTON */}
+{/* BOOK */}
 
 <div
+
 className="
 absolute
 right-12
 "
+
 >
 
 
 <Link
 
-href="#booking"
+href={
+pathname === "/"
+?
+"#booking"
+:
+"/#booking"
+}
 
 onClick={(e)=>{
+
+
+if(pathname === "/"){
 
 e.preventDefault();
 
 scrollToSection("#booking");
+
+}
 
 }}
 
@@ -471,33 +498,25 @@ hidden
 
 sm:inline-flex
 
-
 rounded-full
-
 
 border-2
 
 border-[#8C5A6B]
 
-
 px-8
 
 py-4
-
 
 uppercase
 
 tracking-[0.18em]
 
-
 text-sm
-
 
 text-[#8C5A6B]
 
-
 hover:bg-[#F6E7E1]
-
 
 transition
 
@@ -513,11 +532,11 @@ Book Appointment
 </div>
 
 
+
 </div>
 
 
 </header>
-
 
 
 
