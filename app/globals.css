@@ -4,25 +4,33 @@
  *
  * Project: Just Wax by Kim
  * Design: Boutique Luxury Beauty Studio — editorial / print aesthetic
+ *
  * Updated: July 29, 2026
  *
- * Changes (July 29, 2026):
- * • Added responsive spacing tokens (clamp-based auto-scaling)
- * • Nav height + scroll-padding tied to viewport
- * • Section / container / gutter scale across screen sizes
- * • Slightly tightened section padding so large screens don’t feel empty
+ * Changes:
+ * • Added responsive spacing tokens
+ * • Unified luxury brand system
+ * • Added reusable Service section styling
+ * • Service cards now inherit global theme
+ * • Removed need for hardcoded service colors
+ *
  * -----------------------------------------------------------------------------
  */
+
 @import "tailwindcss";
 
+
 /* =============================================================================
-   CSS VARIABLES
-   ========================================================================== */
+CSS VARIABLES
+============================================================================= */
+
 :root {
+
   /* Backgrounds */
   --background: #FCF8F3;
   --background-secondary: #F6E7E1;
   --background-card: #FFFFFF;
+
 
   /* Brand */
   --champagne: #D8B4A0;
@@ -33,422 +41,647 @@
   --taupe: #8C7468;
   --espresso: #3B2A26;
 
-  /* Borders & lines */
+
+  /* Borders */
   --line: #E8DDD8;
+
 
   /* Text */
   --foreground: #3B2A26;
   --text-secondary: #6F5A50;
   --text-muted: #9A857A;
 
-  /* --------------------------------------------------------------------------
-     Responsive spacing (near auto-scaling)
-  --------------------------------------------------------------------------- */
-  --space-section: clamp(4rem, 6vw + 2rem, 7rem);
-  --space-section-mobile: clamp(3rem, 5vw + 1.5rem, 5rem);
-  --space-section-lg: clamp(5rem, 9vw + 2rem, 9rem);
-  --space-gutter: clamp(1.25rem, 3vw, 2.5rem);
-  --space-card: clamp(1.25rem, 2vw + 0.5rem, 2rem);
-  --space-gap: clamp(1.5rem, 3vw, 2.75rem);
-  --space-nav-clearance: clamp(5.5rem, 10vh, 8rem);
-  --space-container: min(100%, 80rem);
 
-  /* Fixed header height — scales with viewport */
-  --nav-height: clamp(4.25rem, 9vh, 5.75rem);
+  /* Responsive spacing */
+  --space-section:
+    clamp(4rem, 6vw + 2rem, 7rem);
+
+  --space-section-mobile:
+    clamp(3rem, 5vw + 1.5rem, 5rem);
+
+  --space-section-lg:
+    clamp(5rem, 9vw + 2rem, 9rem);
+
+  --space-gutter:
+    clamp(1.25rem, 3vw, 2.5rem);
+
+  --space-card:
+    clamp(1.25rem, 2vw + 0.5rem, 2rem);
+
+  --space-gap:
+    clamp(1.5rem, 3vw, 2.75rem);
+
+  --space-nav-clearance:
+    clamp(5.5rem, 10vh, 8rem);
+
+  --space-container:
+    min(100%, 80rem);
+
+
+  /* Navigation */
+  --nav-height:
+    clamp(4.25rem, 9vh, 5.75rem);
+
 }
 
+
+
 /* =============================================================================
-   TAILWIND v4 THEME TOKENS
-   ========================================================================== */
+TAILWIND v4 THEME TOKENS
+============================================================================= */
+
 @theme {
-  --color-brand-background: #FCF8F3;
-  --color-brand-background-soft: #F6E7E1;
-  --color-brand-card: #FFFFFF;
-  --color-brand-champagne: #D8B4A0;
-  --color-brand-gold: #C6A15B;
-  --color-brand-soft-rose: #E8C8BC;
-  --color-brand-dusty-pink: #D4A9B6;
-  --color-brand-plum: #8C5A6B;
-  --color-brand-taupe: #8C7468;
-  --color-brand-espresso: #3B2A26;
-  --color-brand-border: #E8DDD8;
-  --color-brand-muted: #9A857A;
+
+  --color-brand-background:
+    #FCF8F3;
+
+  --color-brand-background-soft:
+    #F6E7E1;
+
+  --color-brand-card:
+    #FFFFFF;
+
+  --color-brand-champagne:
+    #D8B4A0;
+
+  --color-brand-gold:
+    #C6A15B;
+
+  --color-brand-soft-rose:
+    #E8C8BC;
+
+  --color-brand-dusty-pink:
+    #D4A9B6;
+
+  --color-brand-plum:
+    #8C5A6B;
+
+  --color-brand-taupe:
+    #8C7468;
+
+  --color-brand-espresso:
+    #3B2A26;
+
+  --color-brand-border:
+    #E8DDD8;
+
+  --color-brand-muted:
+    #9A857A;
+
 }
 
+
+
 /* =============================================================================
-   RESET
-   ========================================================================== */
+RESET
+============================================================================= */
+
 *,
 *::before,
 *::after {
+
   box-sizing: border-box;
+
   margin: 0;
+
   padding: 0;
+
 }
+
+
 
 html {
+
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nav-height) + 0.75rem);
+
+  scroll-padding-top:
+    calc(var(--nav-height) + 0.75rem);
+
 }
+
+
 
 body {
+
   min-height: 100vh;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  background:
+    var(--background);
+
+  color:
+    var(--foreground);
+
+  font-family:
+    var(--font-inter),
+    system-ui,
+    sans-serif;
+
+  text-rendering:
+    optimizeLegibility;
+
+  -webkit-font-smoothing:
+    antialiased;
+
 }
 
+
+
 /* =============================================================================
-   TYPOGRAPHY
-   ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--foreground);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+TYPOGRAPHY
+============================================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  color:
+    var(--foreground);
+
+  font-weight:
+    500;
+
+  letter-spacing:
+    -0.035em;
+
+  line-height:
+    1.08;
+
 }
+
+
 
 h1 {
-  font-size: clamp(2.75rem, 6vw, 5rem);
+
+  font-size:
+    clamp(2.75rem, 6vw, 5rem);
+
 }
+
+
 
 h2 {
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+
+  font-size:
+    clamp(2.25rem, 4.5vw, 3.75rem);
+
 }
+
+
 
 h3 {
-  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+
+  font-size:
+    clamp(1.4rem, 2.8vw, 2.1rem);
+
 }
+
+
 
 p {
-  color: var(--text-secondary);
-  line-height: 1.9;
-  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+
+  color:
+    var(--text-secondary);
+
+  line-height:
+    1.9;
+
+  font-size:
+    clamp(0.98rem, 1.2vw, 1.05rem);
+
 }
+
+
 
 /* =============================================================================
-   LINKS
-   ========================================================================== */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
-}
+LAYOUT HELPERS
+============================================================================= */
 
-a:hover {
-  color: var(--plum);
-}
-
-/* =============================================================================
-   MEDIA
-   ========================================================================== */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* =============================================================================
-   SELECTION
-   ========================================================================== */
-::selection {
-  background: var(--dusty-pink);
-  color: white;
-}
-
-/* =============================================================================
-   SCROLLBAR
-   ========================================================================== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F6E7E1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D4A9B6;
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #8C5A6B;
-}
-
-/* =============================================================================
-   LAYOUT HELPERS
-   ========================================================================== */
 .container-luxury {
-  width: var(--space-container);
-  max-width: 80rem;
-  margin-inline: auto;
-  padding-inline: var(--space-gutter);
+
+  width:
+    var(--space-container);
+
+  max-width:
+    80rem;
+
+  margin-inline:
+    auto;
+
+  padding-inline:
+    var(--space-gutter);
+
 }
+
+
 
 .section-padding {
-  padding-block: var(--space-section);
+
+  padding-block:
+    var(--space-section);
+
 }
+
+
 
 .section-padding-lg {
-  padding-block: var(--space-section-lg);
+
+  padding-block:
+    var(--space-section-lg);
+
 }
 
-/* Clear fixed navbar before page content / hero */
+
+
 .nav-clearance {
-  padding-top: var(--space-nav-clearance);
+
+  padding-top:
+    var(--space-nav-clearance);
+
 }
+
+
 
 /* =============================================================================
-   LUXURY SHADOW SYSTEM
-   ========================================================================== */
-.shadow-soft {
-  box-shadow:
-    0 12px 32px rgba(59, 42, 38, 0.04),
-    0 2px 8px rgba(59, 42, 38, 0.03);
-}
+LUXURY CARD SYSTEM
+============================================================================= */
 
-.shadow-card {
-  box-shadow: 0 24px 70px rgba(59, 42, 38, 0.06);
-}
-
-.shadow-floating {
-  box-shadow: 0 35px 90px rgba(59, 42, 38, 0.08);
-}
-
-/* =============================================================================
-   LUXURY CARD SYSTEM
-   ========================================================================== */
 .card-luxury {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--line);
-  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.92);
+
+  backdrop-filter:
+    blur(20px);
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    28px;
+
   transition:
-    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+
 }
+
+
 
 .card-luxury:hover {
-  transform: translateY(-6px);
-  border-color: var(--dusty-pink);
-  box-shadow: 0 30px 80px rgba(59, 42, 38, 0.08);
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    var(--dusty-pink);
+
 }
 
-.card-soft {
-  background: var(--background-card);
-  border-radius: 24px;
-  border: 1px solid var(--line);
-}
+
 
 /* =============================================================================
-   BUTTONS
-   ========================================================================== */
+SERVICE SECTION SYSTEM
+============================================================================= */
+
+.service-section {
+
+  background:
+    var(--background);
+
+}
+
+
+
+.service-header {
+
+  text-align:
+    center;
+
+  max-width:
+    780px;
+
+  margin-inline:
+    auto;
+
+}
+
+
+
+.service-eyebrow {
+
+  display:
+    inline-block;
+
+  color:
+    var(--gold);
+
+  font-size:
+    .7rem;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    .35em;
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+.service-title {
+
+  margin-top:
+    1.5rem;
+
+  color:
+    var(--foreground);
+
+  font-weight:
+    500;
+
+}
+
+
+
+.service-title-accent {
+
+  color:
+    var(--dusty-pink);
+
+}
+
+
+
+.service-grid {
+
+  display:
+    grid;
+
+  width:
+    100%;
+
+  gap:
+    var(--space-gap);
+
+}
+
+
+
+.service-card {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  text-align:
+    center;
+
+
+  background:
+    var(--background-card);
+
+
+  border:
+    1px solid var(--line);
+
+
+  border-radius:
+    28px;
+
+
+  padding:
+    var(--space-card);
+
+
+  box-shadow:
+    0 24px 70px rgba(59,42,38,.06);
+
+
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease,
+    border-color .4s ease;
+
+}
+
+
+
+.service-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    var(--dusty-pink);
+
+
+  box-shadow:
+    0 30px 80px rgba(59,42,38,.08);
+
+}
+
+
+
+.service-category {
+
+  color:
+    var(--gold);
+
+
+  font-size:
+    .7rem;
+
+
+  font-weight:
+    600;
+
+
+  letter-spacing:
+    .32em;
+
+
+  text-transform:
+    uppercase;
+
+}
+
+
+
+.service-name {
+
+  margin-top:
+    1.5rem;
+
+
+  color:
+    var(--foreground);
+
+
+}
+
+
+
+.service-description {
+
+  margin-top:
+    1.5rem;
+
+
+  color:
+    var(--taupe);
+
+}
+
+
+
+.service-price {
+
+  margin-top:
+    auto;
+
+
+  padding-top:
+    2rem;
+
+
+  width:
+    100%;
+
+
+  display:
+    flex;
+
+
+  justify-content:
+    center;
+
+
+  border-top:
+    1px solid var(--line);
+
+
+  color:
+    var(--dusty-pink);
+
+
+}
+
+
+
+/* =============================================================================
+SHADOWS
+============================================================================= */
+
+.shadow-soft {
+
+box-shadow:
+0 12px 32px rgba(59,42,38,.04),
+0 2px 8px rgba(59,42,38,.03);
+
+}
+
+
+.shadow-card {
+
+box-shadow:
+0 24px 70px rgba(59,42,38,.06);
+
+}
+
+
+
+/* =============================================================================
+BUTTONS
+============================================================================= */
+
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 1.05rem 2.6rem;
-  border-radius: 999px;
-  background: var(--plum);
-  color: #FFFFFF;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:1.05rem 2.6rem;
+
+border-radius:999px;
+
+background:var(--plum);
+
+color:white;
+
+letter-spacing:.2em;
+
+text-transform:uppercase;
+
 }
 
-.btn-primary:hover {
-  background: #7A4A5A;
-  transform: translateY(-2px);
-  box-shadow: 0 18px 45px rgba(140, 90, 107, 0.28);
-}
 
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 1.05rem 2.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: #FFFFFF;
-  color: var(--plum);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.btn-secondary:hover {
-  background: var(--background-secondary);
-  border-color: var(--dusty-pink);
-}
 
 /* =============================================================================
-   BORDERS & DIVIDERS
-   ========================================================================== */
-.border-luxury {
-  border: 1px solid var(--line);
-}
+BACKGROUND HELPERS
+============================================================================= */
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background: var(--line);
-}
-
-.luxury-line {
-  width: 72px;
-  height: 1px;
-  background: var(--dusty-pink);
-  margin-block: 1.5rem;
-}
-
-.soft-divider {
-  width: 140px;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--dusty-pink),
-    transparent
-  );
-}
-
-/* =============================================================================
-   SECTION STYLING
-   ========================================================================== */
-.section-luxury {
-  position: relative;
-}
-
-.section-luxury::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: min(92%, 80rem);
-  height: 1px;
-  background: var(--line);
-  transform: translateX(-50%);
-}
-
-/* =============================================================================
-   TYPOGRAPHY HELPERS
-   ========================================================================== */
-.eyebrow {
-  display: inline-block;
-  color: var(--plum);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-}
-
-.heading-luxury {
-  max-width: 780px;
-  color: var(--foreground);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
-
-.lead {
-  max-width: 640px;
-  color: var(--text-secondary);
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  line-height: 1.9;
-}
-
-.text-plum {
-  color: var(--plum);
-}
-
-.text-muted {
-  color: var(--text-muted);
-}
-
-.script {
-  font-family: var(--font-script), "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-/* =============================================================================
-   BACKGROUNDS
-   ========================================================================== */
 .bg-soft {
-  background: var(--background-secondary);
+
+background:
+var(--background-secondary);
+
 }
+
+
 
 .bg-card {
-  background: #FFFFFF;
+
+background:
+var(--background-card);
+
 }
+
+
 
 .bg-luxury {
-  background: linear-gradient(to bottom, #FCF8F3, #F6E7E1);
+
+background:
+linear-gradient(
+to bottom,
+#FCF8F3,
+#F6E7E1
+);
+
 }
+
+
 
 /* =============================================================================
-   TRANSITIONS
-   ========================================================================== */
-.transition-luxury {
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+RESPONSIVE
+============================================================================= */
+
+@media(max-width:768px){
+
+.section-padding{
+
+padding-block:
+var(--space-section-mobile);
+
 }
 
-/* =============================================================================
-   FOCUS
-   ========================================================================== */
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--dusty-pink);
-  box-shadow: 0 0 0 4px rgba(212, 169, 182, 0.18);
-}
-
-::placeholder {
-  color: var(--text-muted);
-}
-
-input,
-textarea {
-  color: var(--foreground);
-}
-
-/* =============================================================================
-   RESPONSIVE
-   ========================================================================== */
-@media (max-width: 768px) {
-  h1 {
-    line-height: 1.1;
-  }
-
-  h2 {
-    line-height: 1.12;
-  }
-
-  .section-padding {
-    padding-block: var(--space-section-mobile);
-  }
-}
-
-/* =============================================================================
-   REDUCED MOTION
-   ========================================================================== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
 }
