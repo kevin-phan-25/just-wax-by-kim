@@ -1,140 +1,103 @@
 /**
  * -----------------------------------------------------------------------------
- * File: FAQ.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * features/faq/FAQ.tsx
  *
  * Description:
  * Luxury FAQ section.
  *
  * Changes:
- * - v1.0.2
- *   - Added customer education section.
+ *
+ * - Removed fixed width restrictions
+ * - Centered heading layout
+ * - Expanded FAQ presentation
+ * - Removed boxed card appearance
+ * - Matched editorial luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
 
-
-import Container from "@/components/ui/Container";
-
 import Section from "@/components/ui/Section";
-
-import Heading from "@/components/ui/Heading";
-
-
 import FAQAccordion from "./FAQAccordion";
 
+import {
+  FAQ_DATA,
+} from "./faq.data";
 
 import {
-FAQ_DATA
-}
-from "./faq.data";
-
-
-import {
-FAQ_CONSTANTS
-}
-from "./faq.constants";
-
+  FAQ_CONSTANTS,
+} from "./faq.constants";
 
 
 export default function FAQ(){
 
 
-
 return (
 
-
 <section
-
-id={FAQ_CONSTANTS.sectionId}
-
+  id={FAQ_CONSTANTS.sectionId}
+  className="
+    w-full
+    px-6
+    py-24
+  "
 >
 
 
-<Section>
+  {/* HEADER */}
+
+  <div
+    className="
+      w-full
+      text-center
+    "
+  >
+
+    <h2
+      className="
+        font-serif
+        text-4xl
+        md:text-5xl
+        text-[#3B2A26]
+      "
+    >
+      {FAQ_CONSTANTS.title}
+    </h2>
+
+
+    <p
+      className="
+        mt-6
+        text-lg
+        text-[#8C7468]
+      "
+    >
+      {FAQ_CONSTANTS.subtitle}
+    </p>
+
+
+  </div>
 
 
 
-<Container>
+  {/* FAQ CONTENT */}
 
+  <div
+    className="
+      mt-16
+      w-full
+    "
+  >
 
+    <FAQAccordion
+      items={FAQ_DATA}
+    />
 
-<div
-
-className="
-mx-auto
-max-w-3xl
-"
-
->
-
-
-<Heading>
-
-{FAQ_CONSTANTS.title}
-
-</Heading>
-
-
-
-<p
-
-className="
-mt-4
-text-center
-text-gray-600
-"
-
->
-
-{FAQ_CONSTANTS.subtitle}
-
-</p>
-
-
-
-<div
-
-className="
-mt-10
-rounded-2xl
-bg-white
-p-6
-shadow-sm
-"
-
->
-
-
-<FAQAccordion
-
-items={FAQ_DATA}
-
-/>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</Container>
-
-
-
-</Section>
-
+  </div>
 
 
 </section>
 
-
 );
-
 
 }
