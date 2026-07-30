@@ -10,13 +10,26 @@
  *
  * - July 30, 2026
  *   • Added Services dropdown
- *   • Added Ladies / Gentlemen service anchors
+ *   • Added Ladies / Gentlemen service links
+ *   • Added shared navigation types
  *
  * -----------------------------------------------------------------------------
  */
 
 
-export const navigation = [
+export interface NavigationItem {
+
+  label: string;
+
+  href: string;
+
+  dropdown?: readonly NavigationItem[];
+
+}
+
+
+
+export const navigation: readonly NavigationItem[] = [
 
   {
     label: "Home",
@@ -41,12 +54,14 @@ export const navigation = [
         href: "#ladies-services",
       },
 
+
       {
         label: "Gentlemen Waxing",
         href: "#gentlemen-services",
       },
 
     ],
+
   },
 
 
@@ -80,4 +95,4 @@ export const navigation = [
   },
 
 
-] as const;
+];
