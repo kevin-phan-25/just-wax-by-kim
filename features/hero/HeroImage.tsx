@@ -2,16 +2,8 @@
  * -----------------------------------------------------------------------------
  * File: features/hero/HeroImage.tsx
  *
- * Date: July 29, 2026
- *
  * Description:
- * Luxury hero banner image.
- *
- * Changes:
- * • Full-width responsive banner
- * • Optimized for generated banner artwork
- * • Soft luxury overlay
- * • Keeps image focus centered
+ * Full-width luxury hero banner.
  * -----------------------------------------------------------------------------
  */
 
@@ -19,10 +11,10 @@ import Image from "next/image";
 
 export function HeroImage() {
   return (
-    <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[420px] overflow-hidden rounded-[32px] shadow-2xl">
+    <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] overflow-hidden rounded-[32px] shadow-xl">
       <Image
-        src="/public/hero/just-wax-by-kim-banner.jpg"
-        alt="Luxury waxing experience"
+        src="/hero/just-wax-by-kim.jpg"
+        alt="Just Wax by Kim"
         fill
         priority
         className="object-cover object-center"
