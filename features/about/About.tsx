@@ -6,15 +6,15 @@
  * Luxury editorial About section.
  *
  * Layout:
- * • Left — Portrait focal point
+ * • Left — Portrait
  * • Center — Experience highlights
  * • Right — Brand story
  *
  * Changes:
- * • Rebalanced three-column composition
- * • Portrait anchored left
- * • Credentials centered
- * • Content shifted right
+ * • Removed fixed widths
+ * • Uses full section width
+ * • Flexible editorial composition
+ * • Improved spacing balance
  * ------------------------------------------------------------------
  */
 
@@ -28,17 +28,18 @@ export default function About() {
       id="about"
       className="
         relative
+
         py-28
       "
     >
 
       <div
         className="
-          mx-auto
-          max-w-7xl
+          w-full
 
           px-6
-          lg:px-10
+          lg:px-12
+          xl:px-20
         "
       >
 
@@ -48,14 +49,12 @@ export default function About() {
 
             grid-cols-1
 
-            lg:grid-cols-[0.85fr_0.9fr_1.25fr]
-
-            xl:grid-cols-[430px_360px_1fr]
+            lg:grid-cols-[1fr_1fr_1.4fr]
 
             items-center
 
             gap-12
-            xl:gap-16
+            xl:gap-20
           "
         >
 
@@ -71,25 +70,15 @@ export default function About() {
 
 
           {/* CENTER - EXPERIENCE */}
-          <div
-            className="
-              flex
-              items-center
-            "
-          >
+          <div>
             <Credentials />
           </div>
 
 
-          {/* RIGHT - BRAND STORY */}
-          <div
-            className="
-              lg:pl-6
-            "
-          >
+          {/* RIGHT - STORY */}
+          <div>
             <AboutContent />
           </div>
-
 
         </div>
 
