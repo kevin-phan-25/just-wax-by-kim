@@ -1,6 +1,6 @@
 /**
  * -----------------------------------------------------------------------------
- * File: page.tsx
+ * File: app/page.tsx
  *
  * Description:
  * Main homepage composition.
@@ -9,11 +9,12 @@
  * - July 28, 2026
  *   - Removed excessive dividers
  *   - Added luxury section separation
- *   - Improved visual hierarchy
- *
+ * - July 29, 2026
+ *   - Removed all border-t wrappers (cluttered seams)
+ *   - Removed double <section> wrappers; features own their ids
+ *   - ~1 inch (96px / gap-24) separation between each section
  * -----------------------------------------------------------------------------
  */
-
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
@@ -26,126 +27,21 @@ import FAQ from "@/features/faq";
 import Booking from "@/features/booking";
 import Contact from "@/features/contact";
 
-
 export default function Home() {
   return (
-    <main>
-
-      {/* Hero */}
-      <section id="home">
-        <Hero />
-      </section>
-
-
-      {/* About */}
-      <section
-        id="about"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <About />
-      </section>
-
-       {/* Mission */}
-       <Mission />
-      
-      {/* Services */}
-      <section
-        id="services"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Services />
-      </section>
-
-
-      {/* Experience */}
-      <section
-        id="studio"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Experience />
-      </section>
-
-
-      {/* Gallery */}
-      <section
-        id="gallery"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Gallery />
-      </section>
-
-
-      {/* Testimonials */}
-      <section
-        id="testimonials"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Testimonials />
-      </section>
-
-
-      {/* Instagram */}
-      <section
-        id="instagram"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Instagram />
-      </section>
-
-
-      {/* FAQ */}
-      <section
-        id="faq"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <FAQ />
-      </section>
-
-
-      {/* Booking */}
-      <section
-        id="booking"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Booking />
-      </section>
-
-
-      {/* Contact */}
-      <section
-        id="contact"
-        className="
-          border-t
-          border-brand-border/60
-        "
-      >
-        <Contact />
-      </section>
-
+    <main className="flex flex-col gap-24">
+      {/* gap-24 ≈ 96px ≈ 1 inch between each section */}
+      <Hero />
+      <About />
+      <Mission />
+      <Services />
+      <Experience />
+      <Gallery />
+      <Testimonials />
+      <Instagram />
+      <FAQ />
+      <Booking />
+      <Contact />
     </main>
   );
 }
