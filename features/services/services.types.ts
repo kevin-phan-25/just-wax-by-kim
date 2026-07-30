@@ -9,9 +9,7 @@
  * -----------------------------------------------------------------------------
  */
 
-
 export interface Service {
-
   id: string;
 
   title: string;
@@ -25,15 +23,10 @@ export interface Service {
   duration: string;
 
   gender: "ladies" | "gentlemen";
-
-  image: string;
-
 }
 
 
-
 export interface ServiceCategory {
-
   id: string;
 
   title: string;
@@ -41,5 +34,4 @@ export interface ServiceCategory {
   description: string;
 
   services: Service[];
-
 }
