@@ -4,12 +4,6 @@
  *
  * Description:
  * Luxury editorial gallery grid.
- *
- * Changes:
- * • Editorial masonry-inspired layout
- * • Mixed image heights
- * • Better spacing
- * • Responsive
  * -----------------------------------------------------------------------------
  */
 
@@ -24,7 +18,7 @@ export default function GalleryGrid() {
         grid-cols-1
         sm:grid-cols-2
         lg:grid-cols-3
-        auto-rows-[260px]
+        auto-rows-[220px]
         gap-6
       "
     >
@@ -35,7 +29,7 @@ export default function GalleryGrid() {
           featured={
             index === 0 ||
             index === 3 ||
-            index === 5
+            index === 4
           }
         />
       ))}
