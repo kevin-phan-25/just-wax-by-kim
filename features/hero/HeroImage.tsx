@@ -13,7 +13,7 @@ export function HeroImage() {
   return (
     <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] overflow-hidden rounded-[32px] shadow-xl">
       <Image
-        src="/hero/just-wax-by-kim.jpg"
+        src="public/hero/just-wax-by-kim.jpg"
         alt="Just Wax by Kim"
         fill
         priority
