@@ -6,46 +6,108 @@
  * Main luxury services section.
  *
  * Changes:
- * - July 28, 2026
- *   - Fully centered layout
- *   - Removed category clutter above cards
- *   - More breathing room
- *   - Cleaner hierarchy
+ *
+ * July 29, 2026
+ *
+ * - Removed fixed sizing and scaling constraints
+ * - Uses global luxury typography system
+ * - Unified spacing with brand theme
+ * - Cleaner editorial hierarchy
+ * - Fully centered luxury presentation
  *
  * -----------------------------------------------------------------------------
  */
+
 import { SERVICES_CONFIG } from "./services.constants";
 import ServiceGrid from "./ServiceGrid";
 import ServicePricing from "./ServicePricing";
 
 export default function Services() {
   return (
-    <section className="bg-brand-cream px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-7xl">
-        {/* Header — fully centered */}
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.35em] text-brand-gold">
-            {SERVICES_CONFIG.eyebrow}
-          </p>
+    <section
+      id="services"
+      className="
+        section-luxury
+        section-padding
+        bg-luxury
+      "
+    >
+      <div
+        className="
+          container-luxury
+          flex
+          flex-col
+          items-center
+          text-center
+        "
+      >
 
-          <h2 className="mt-5 font-serif text-4xl md:text-5xl text-brand-espresso leading-tight">
+        {/* Header */}
+        <div
+          className="
+            service-header
+          "
+        >
+
+          <span
+            className="
+              service-eyebrow
+            "
+          >
+            {SERVICES_CONFIG.eyebrow}
+          </span>
+
+
+          <h2
+            className="
+              service-title
+              heading-luxury
+            "
+          >
             {SERVICES_CONFIG.title}
           </h2>
 
-          <p className="mt-6 text-brand-taupe leading-relaxed">
+
+          <p
+            className="
+              lead
+              mt-6
+            "
+          >
             {SERVICES_CONFIG.description}
           </p>
+
         </div>
 
-        {/* Cards */}
-        <div className="mt-16 md:mt-20">
+
+        {/* Service Cards */}
+        <div
+          className="
+            service-grid
+            mt-16
+            md:mt-20
+            w-full
+            grid-cols-1
+            md:grid-cols-2
+            lg:grid-cols-3
+          "
+        >
           <ServiceGrid />
         </div>
 
-        {/* Pricing note */}
-        <div className="mt-12 text-center">
+
+        {/* Pricing Note */}
+        <div
+          className="
+            mt-12
+            w-full
+            text-center
+          "
+        >
           <ServicePricing />
         </div>
+
+
       </div>
     </section>
   );
