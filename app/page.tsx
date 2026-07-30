@@ -30,7 +30,7 @@ import Contact from "@/features/contact";
 export default function Home() {
   return (
     <main className="flex flex-col gap-24">
-      {/* gap-24 ≈ 96px ≈ 1 inch between each section */}
+      {/* gap-12 ≈ 48px ≈ 1/2 inch between each section */}
       <Hero />
       <About />
       <Mission />
