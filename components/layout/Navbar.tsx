@@ -1,121 +1,125 @@
+/**
+ * --------------------------------------------------------------------------
+ * File:
+ * components/layout/MobileMenu.tsx
+ *
+ * Description:
+ * Luxury responsive mobile navigation.
+ *
+ * Changes:
+ * - July 30, 2026
+ *   - Added route-aware section navigation
+ *   - Supports service page routing
+ *   - Supports Services dropdown
+ *   - Keeps luxury styling
+ *
+ * --------------------------------------------------------------------------
+ */
+
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from "react";
-
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-import { Logo } from "@/components/ui/Logo";
-import { MobileMenu } from "@/components/layout/MobileMenu";
 
-import {
-  navigation,
-} from "@/constants/navigation";
+interface MobileMenuItem {
+
+  label:string;
+
+  href:string;
+
+  dropdown?: readonly MobileMenuItem[];
+
+}
+
+
+
+interface MobileMenuProps {
+
+  open:boolean;
+
+  onClose:()=>void;
+
+  links: readonly MobileMenuItem[];
+
+}
+
 
 
 const scrollToSection = (
   href:string
 )=>{
 
-  const id = href.replace("#","");
 
-  const element =
-    document.getElementById(id);
-
-
-  if(!element) return;
+const id =
+href.replace("#","");
 
 
-  const navbarHeight = 168;
+const element =
+document.getElementById(id);
 
 
-  const position =
-    element.getBoundingClientRect().top +
-    window.scrollY -
-    navbarHeight;
+if(!element) return;
 
 
-  window.scrollTo({
-    top:position,
-    behavior:"smooth",
-  });
+const navbarHeight = 168;
+
+
+const position =
+element.getBoundingClientRect().top +
+window.scrollY -
+navbarHeight;
+
+
+
+window.scrollTo({
+
+top:position,
+
+behavior:"smooth",
+
+});
+
 
 };
 
 
 
-export default function Navbar(){
+
+export function MobileMenu({
+
+open,
+
+onClose,
+
+links,
+
+}:MobileMenuProps){
+
 
 const pathname = usePathname();
 
 const router = useRouter();
 
 
-const [
-scrolled,
-setScrolled,
-] = useState(false);
 
-
-
-const [
-mobileOpen,
-setMobileOpen,
-] = useState(false);
-
-
-
-useEffect(()=>{
-
-const handleScroll = ()=>{
-
-setScrolled(
-window.scrollY > 16
-);
-
-};
-
-
-handleScroll();
-
-
-window.addEventListener(
-"scroll",
-handleScroll,
-{
-passive:true
-}
-);
-
-
-return ()=>{
-
-window.removeEventListener(
-"scroll",
-handleScroll
-);
-
-};
-
-
-},[]);
-
-
-
-const handleNavigation = (
+const handleClick = (
 href:string
 )=>{
 
 
-// internal section links
+onClose();
+
+
+
 if(
 href.startsWith("#")
 ){
 
-// already home
+
+// already homepage
+
 if(
 pathname === "/"
 ){
@@ -125,7 +129,8 @@ scrollToSection(href);
 }
 
 
-// from service pages
+// service pages
+
 else{
 
 router.push(`/${href}`);
@@ -141,118 +146,184 @@ router.push(`/${href}`);
 
 return (
 
-<>
-
-<header
+<div
 
 className={`
 
 fixed
 
-top-0
-left-0
-right-0
+inset-0
 
-z-50
+z-40
 
-h-[168px]
+xl:hidden
 
-transition-all
-duration-500
+
+transition-opacity
+
+duration-300
+
 
 ${
-scrolled
+open
 
 ?
 
-"bg-[#FCF8F3]/95 backdrop-blur-xl border-b border-[#E8DDD8]"
+"opacity-100 pointer-events-auto"
 
 :
 
-"bg-[#FCF8F3]/90 backdrop-blur-md"
+"opacity-0 pointer-events-none"
 
 }
 
-`}
+`
+
+}
+
+aria-hidden={!open}
 
 >
 
+
+{/* BACKDROP */}
+
+<button
+
+type="button"
+
+aria-label="Close menu"
+
+onClick={onClose}
+
+className="
+
+absolute
+
+inset-0
+
+bg-black/20
+
+backdrop-blur-sm
+
+"
+
+/>
+
+
+
+{/* MENU PANEL */}
 
 <div
-className="
-relative
-h-full
-flex
-items-center
-px-12
-"
->
 
+className={`
 
-{/* LOGO */}
-
-<div
-className="
 absolute
-left-12
-"
->
 
-<Logo />
+top-[168px]
 
-</div>
+left-4
 
+right-4
 
 
-{/* NAV */}
+rounded-[32px]
 
-<nav
 
-className="
-absolute
-left-1/2
--translate-x-1/2
-hidden
-xl:flex
-"
+border
+
+border-[#E8DDD8]
+
+
+bg-[#FCF8F3]/95
+
+
+backdrop-blur-xl
+
+
+shadow-[0_20px_60px_rgba(59,42,38,0.12)]
+
+
+px-8
+
+py-10
+
+
+transition-transform
+
+duration-300
+
+
+${
+open
+
+?
+
+"translate-y-0"
+
+:
+
+"-translate-y-6"
+
+}
+
+`
+
+}
 
 >
 
 
 <ul
+
 className="
+
 flex
-items-center
-gap-10
+
+flex-col
+
+gap-6
+
 "
+
 >
 
 
 {
-navigation.map((link)=>(
+links.map((link)=>(
 
 
 <li
+
 key={link.href}
-className="
-relative
-group
-"
+
+className="relative"
+
 >
 
 
 <Link
 
 href={
+
 link.href.startsWith("#")
+
 ?
+
 pathname === "/"
+
 ?
+
 link.href
+
 :
+
 `/${link.href}`
+
 :
+
 link.href
+
 }
 
 onClick={(e)=>{
@@ -264,7 +335,7 @@ link.href.startsWith("#")
 
 e.preventDefault();
 
-handleNavigation(
+handleClick(
 link.href
 );
 
@@ -274,16 +345,29 @@ link.href
 }}
 
 className="
-uppercase
-font-semibold
-tracking-[0.16em]
-text-[#3B2A26]/80
 
-transition
+block
+
+
+text-[0.82rem]
+
+
+font-semibold
+
+
+uppercase
+
+
+tracking-[0.24em]
+
+
+text-[#3B2A26]
+
+
+transition-colors
+
 
 hover:text-[#8C5A6B]
-
-relative
 
 "
 
@@ -297,23 +381,32 @@ relative
 link.dropdown && (
 
 <span
+
 className="
+
 ml-2
+
 text-[#8C5A6B]
+
 "
+
 >
+
 ▾
+
 </span>
 
 )
 
 }
 
-
-
 </Link>
 
 
+
+
+
+{/* SERVICES DROPDOWN */}
 
 {
 link.dropdown && (
@@ -322,50 +415,21 @@ link.dropdown && (
 
 className="
 
-absolute
+mt-4
 
-left-1/2
+ml-4
 
-top-full
+flex
 
-mt-6
+flex-col
 
--translate-x-1/2
+gap-3
 
-
-w-72
-
-
-rounded-[32px]
-
-
-border
+border-l
 
 border-[#E8DDD8]
 
-
-bg-[#FCF8F3]
-
-
-p-4
-
-
-shadow-[0_20px_60px_rgba(59,42,38,0.12)]
-
-
-opacity-0
-
-invisible
-
-
-group-hover:opacity-100
-
-group-hover:visible
-
-
-transition-all
-
-duration-300
+pl-5
 
 "
 
@@ -375,37 +439,35 @@ duration-300
 {
 link.dropdown.map((item)=>(
 
+
 <Link
 
 key={item.href}
 
 href={item.href}
 
+onClick={onClose}
+
 className="
 
-flex
-
-justify-center
-
-items-center
+block
 
 
-rounded-2xl
-
-px-6
-
-py-5
+rounded-xl
 
 
-text-center
+px-4
+
+py-3
+
+
+text-xs
 
 
 uppercase
 
-tracking-[0.25em]
 
-
-text-sm
+tracking-[0.22em]
 
 
 text-[#3B2A26]
@@ -416,6 +478,7 @@ hover:bg-[#F6E7E1]
 
 hover:text-[#8C5A6B]
 
+
 transition
 
 "
@@ -425,6 +488,7 @@ transition
 {item.label}
 
 </Link>
+
 
 ))
 
@@ -451,19 +515,23 @@ transition
 </ul>
 
 
-</nav>
 
 
 
-
-
-{/* BOOK */}
+{/* BOOK BUTTON */}
 
 <div
 
 className="
-absolute
-right-12
+
+mt-10
+
+pt-8
+
+border-t
+
+border-[#E8DDD8]
+
 "
 
 >
@@ -472,17 +540,28 @@ right-12
 <Link
 
 href={
+
 pathname === "/"
+
 ?
+
 "#booking"
+
 :
+
 "/#booking"
+
 }
 
 onClick={(e)=>{
 
 
-if(pathname === "/"){
+onClose();
+
+
+if(
+pathname === "/"
+){
 
 e.preventDefault();
 
@@ -490,13 +569,14 @@ scrollToSection("#booking");
 
 }
 
+
 }}
 
 className="
 
-hidden
+block
 
-sm:inline-flex
+w-full
 
 rounded-full
 
@@ -504,19 +584,29 @@ border-2
 
 border-[#8C5A6B]
 
-px-8
+
+px-6
 
 py-4
 
+
+text-center
+
+
 uppercase
+
 
 tracking-[0.18em]
 
+
 text-sm
+
 
 text-[#8C5A6B]
 
+
 hover:bg-[#F6E7E1]
+
 
 transition
 
@@ -536,22 +626,7 @@ Book Appointment
 </div>
 
 
-</header>
-
-
-
-<MobileMenu
-
-open={mobileOpen}
-
-onClose={()=>setMobileOpen(false)}
-
-links={navigation}
-
-/>
-
-
-</>
+</div>
 
 );
 
