@@ -1,3 +1,15 @@
+/**
+ * --------------------------------------------------------------------------
+ * File:
+ * app/services/gentlemen/page.tsx
+ *
+ * Description:
+ * Gentlemen waxing pricing page.
+ *
+ * --------------------------------------------------------------------------
+ */
+
+
 import ServicePricingSection from "@/features/services/ServicePricingSection";
 
 import {
@@ -5,71 +17,94 @@ import {
 } from "@/features/services/data/gentlemen.data";
 
 
+
 export default function GentlemenServicesPage(){
 
 return (
 
 <main
-className="
-pt-[168px]
-px-6
-pb-24
-"
->
 
-
-<section
 className="
-mx-auto
-max-w-7xl
+  relative
+
+  pt-[216px]
+
+  pb-24
 "
+
 >
 
 
 <div
+
 className="
-text-center
-max-w-3xl
-mx-auto
-mb-16
+  container-luxury
 "
+
 >
 
-<span
+
+<div
+
 className="
-uppercase
-tracking-[0.4em]
-text-sm
-text-[#8C5A6B]
+  text-center
+  mb-16
 "
+
 >
+
+
+<span
+
+className="
+  uppercase
+  tracking-[0.4em]
+  text-sm
+  text-[#8C5A6B]
+"
+
+>
+
 Gentlemen Services
+
 </span>
 
 
+
 <h1
+
 className="
-mt-6
-font-serif
-text-5xl
-text-[#3B2A26]
+  mt-6
+  font-serif
+  text-5xl
+  md:text-6xl
+  text-[#3B2A26]
 "
+
 >
-Professional Waxing
-<br/>
-For Him
+
+Gentlemen Waxing
+
 </h1>
 
 
+
 <p
+
 className="
-mt-6
-text-lg
-text-[#8C7468]
+  mx-auto
+  mt-6
+  max-w-xl
+  text-lg
+  leading-relaxed
+  text-[#8C7468]
 "
+
 >
-Luxury grooming services designed for men
+
+Professional waxing services designed for men
 who value confidence, comfort, and care.
+
 </p>
 
 
@@ -93,7 +128,7 @@ services={gentlemenServices}
 />
 
 
-</section>
+</div>
 
 
 </main>
