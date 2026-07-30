@@ -79,6 +79,8 @@ comfort, confidence, and beautifully cared skin.
 
 <ServicePricingSection
 
+id="ladies-pricing"
+
 title="Ladies Waxing"
 
 description="
