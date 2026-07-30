@@ -8,8 +8,7 @@
  *
  * Changes:
  *
- * - Added category hero image support
- * - Reduced hero image height
+ * - Removed category hero image
  * - Centered service presentation
  * - Removed fixed width restrictions
  * - Unified luxury spacing
@@ -17,13 +16,11 @@
  * -----------------------------------------------------------------------------
  */
 
-import Image from "next/image";
 import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
 
 interface ServicePricingSectionProps {
   id: string;
-  image: string;
   title: string;
   description: string;
   services: Service[];
@@ -31,7 +28,6 @@ interface ServicePricingSectionProps {
 
 export default function ServicePricingSection({
   id,
-  image,
   title,
   description,
   services,
@@ -45,57 +41,6 @@ export default function ServicePricingSection({
         pb-24
       "
     >
-
-      {/* CATEGORY HERO IMAGE */}
-      <div
-        className="
-          relative
-          mx-auto
-          w-full
-          h-[220px]
-          overflow-hidden
-          rounded-[2px]
-          mb-16
-        "
-      >
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="100vw"
-          priority
-          className="
-            object-cover
-            object-center
-          "
-        />
-
-        {/* Luxury Overlay */}
-        <div
-          aria-hidden
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-r
-            from-[#2D211D]/25
-            via-transparent
-            to-[#2D211D]/10
-          "
-        />
-
-        <div
-          aria-hidden
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-[#3B2A26]/20
-            via-transparent
-            to-transparent
-          "
-        />
-      </div>
-
 
       {/* HEADER */}
       <div
@@ -139,7 +84,6 @@ export default function ServicePricingSection({
       >
         <ServiceGrid services={services} />
       </div>
-
 
     </section>
   );
