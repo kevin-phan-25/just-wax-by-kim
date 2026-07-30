@@ -11,10 +11,9 @@
  * • Right — Brand story
  *
  * Changes:
- * • Removed fixed widths
- * • Uses full section width
- * • Flexible editorial composition
- * • Improved spacing balance
+ * • Balanced three-column spacing
+ * • Portrait shifted right
+ * • Equal column distribution
  * ------------------------------------------------------------------
  */
 
@@ -28,7 +27,6 @@ export default function About() {
       id="about"
       className="
         relative
-
         py-28
       "
     >
@@ -36,7 +34,6 @@ export default function About() {
       <div
         className="
           w-full
-
           px-6
           lg:px-12
           xl:px-20
@@ -48,21 +45,24 @@ export default function About() {
             grid
 
             grid-cols-1
-
-            lg:grid-cols-[1fr_1fr_1.4fr]
+            lg:grid-cols-3
 
             items-center
 
-            gap-12
-            xl:gap-20
+            gap-x-20
+            xl:gap-x-28
+
+            gap-y-16
           "
         >
 
-          {/* LEFT - PORTRAIT */}
+          {/* LEFT - PHOTO */}
           <div
             className="
               flex
               justify-start
+
+              lg:translate-x-[48px]
             "
           >
             <AboutImage />
@@ -70,15 +70,25 @@ export default function About() {
 
 
           {/* CENTER - EXPERIENCE */}
-          <div>
+          <div
+            className="
+              w-full
+            "
+          >
             <Credentials />
           </div>
 
 
           {/* RIGHT - STORY */}
-          <div>
+          <div
+            className="
+              w-full
+              max-w-xl
+            "
+          >
             <AboutContent />
           </div>
+
 
         </div>
 
