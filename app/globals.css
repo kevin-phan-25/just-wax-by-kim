@@ -244,8 +244,6 @@ LAYOUT SYSTEM
 
 width:100%;
 
-max-width:1280px;
-
 margin-inline:auto;
 
 padding-inline:
@@ -339,7 +337,6 @@ color:var(--foreground);
 
 .service-grid {
 
-
 display:grid;
 
 width:100%;
@@ -347,9 +344,33 @@ width:100%;
 grid-template-columns:
 repeat(1,minmax(0,1fr));
 
-gap:
-var(--space-gap);
+gap:2rem;
 
+}
+
+
+
+@media(min-width:640px){
+
+.service-grid {
+
+grid-template-columns:
+repeat(2,minmax(0,1fr));
+
+}
+
+}
+
+
+
+@media(min-width:1024px){
+
+.service-grid {
+
+grid-template-columns:
+repeat(4,minmax(0,1fr));
+
+}
 
 }
 
@@ -392,7 +413,8 @@ SERVICE CARD
 
 width:100%;
 
-
+min-width:0;
+   
 display:flex;
 
 flex-direction:column;
