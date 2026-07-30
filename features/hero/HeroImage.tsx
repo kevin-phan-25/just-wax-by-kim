@@ -5,51 +5,61 @@
  * Date: July 29, 2026
  *
  * Description:
- * Hero portrait image with soft floating frame.
+ * Luxury hero banner image.
  *
- * Changes (July 29, 2026):
- * • Left-side placement
- * • Reduced size for proportion (~280–300px max)
- * • Consistent 4/5 aspect ratio
+ * Changes:
+ * • Full-width responsive banner
+ * • Optimized for generated banner artwork
+ * • Soft luxury overlay
+ * • Keeps image focus centered
  * -----------------------------------------------------------------------------
  */
+
 import Image from "next/image";
 
 export function HeroImage() {
   return (
-    <div className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px]">
-      <div
-        className="
-          relative aspect-[4/5]
-          overflow-hidden rounded-[24px]
-          border border-[#E8DDD8]
-          shadow-[0_20px_50px_rgba(59,42,38,0.07)]
-          bg-[#F6E7E1]
-        "
-      >
-        <Image
-          src="/hero/just-wax-by-kim.png"
-          alt="Just Wax by Kim — refined luxury waxing experience"
-          fill
-          priority
-          sizes="(max-width: 768px) 280px, 300px"
-          className="object-cover object-center"
-        />
+    <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[420px] overflow-hidden rounded-[32px] shadow-2xl">
+      <Image
+        src="/images/hero/just-wax-by-kim-banner.jpg"
+        alt="Luxury waxing experience"
+        fill
+        priority
+        className="object-cover object-center"
+      />
 
-        <div
-          aria-hidden
-          className="
-            absolute inset-0
-            bg-gradient-to-t from-[#3B2A26]/08 via-transparent to-transparent
-          "
-        />
-      </div>
-
+      {/* Luxury Gradient Overlay */}
       <div
         aria-hidden
         className="
-          absolute -bottom-4 left-1/2 -translate-x-1/2
-          w-12 h-px bg-[#D4A9B6]
+          absolute inset-0
+          bg-gradient-to-r
+          from-[#2D211D]/25
+          via-transparent
+          to-[#2D211D]/10
+        "
+      />
+
+      {/* Soft Bottom Fade */}
+      <div
+        aria-hidden
+        className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-[#3B2A26]/12
+          via-transparent
+          to-transparent
+        "
+      />
+
+      {/* Decorative Accent */}
+      <div
+        aria-hidden
+        className="
+          absolute bottom-8 left-1/2
+          -translate-x-1/2
+          w-20 h-px
+          bg-[#D4A9B6]
         "
       />
     </div>
