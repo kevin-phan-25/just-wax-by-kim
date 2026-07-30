@@ -7,11 +7,11 @@
  * Description:
  * Full-width luxury hero banner.
  *
- * Changes (July 29, 2026):
+ * Changes:
  * • Removed HeroContent
  * • Banner image only
- * • Full-width editorial layout
- * • Preserved luxury spacing from navbar
+ * • Hero starts ~4 inches from viewport top
+ * • Preserved luxury section spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -20,13 +20,12 @@ import { HeroImage } from "./HeroImage";
 export default function Hero() {
   return (
     <section
-      id="home"
+      id="hero"
       className="
         relative
-        bg-[#FAF7F5]
         overflow-hidden
         pt-[384px]
-        pb-20
+        pb-24
       "
     >
       {/* Soft ambient wash */}
