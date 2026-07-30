@@ -27,7 +27,7 @@ export function HeroImage() {
 
       {/* Main Image */}
       <Image
-        src="/images/hero-banner.jpg"
+        src="/hero/just-wax-by-kim-banner.jpg"
         alt="Luxury waxing studio"
         fill
         priority
