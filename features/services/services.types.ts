@@ -9,6 +9,7 @@
  * -----------------------------------------------------------------------------
  */
 
+
 export interface Service {
 
   id: string;
@@ -24,8 +25,6 @@ export interface Service {
   duration: string;
 
   gender: "ladies" | "gentlemen";
-
-  image:string;
 
 }
 
