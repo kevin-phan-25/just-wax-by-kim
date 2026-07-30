@@ -1,7 +1,7 @@
 /**
  * -----------------------------------------------------------------------------
  * File:
- * gentlemen.data.ts
+ * features/services/data/gentlemen.data.ts
  *
  * Description:
  * Gentlemen waxing service catalog.
@@ -9,21 +9,24 @@
  * -----------------------------------------------------------------------------
  */
 
-import type {
-  Service,
-} from "../services.types";
+import type { Service } from "../services.types";
 
 
 export const gentlemenServices: Service[] = [
 
+  // ---------------------------------------------------------------------------
+  // FACE & GROOMING
+  // ---------------------------------------------------------------------------
+
   {
-    id: "gentlemen-brows",
+    id: "gentlemen-eyebrows",
     title: "Eyebrows",
     category: "Face & Grooming",
     description:
-      "Professional eyebrow cleanup for a clean and natural appearance.",
+      "Professional eyebrow waxing designed for a clean, natural, polished appearance.",
     price: "$20",
     duration: "15 minutes",
+    gender: "gentlemen",
   },
 
 
@@ -35,6 +38,7 @@ export const gentlemenServices: Service[] = [
       "Quick and comfortable nose waxing service.",
     price: "$25",
     duration: "10 minutes",
+    gender: "gentlemen",
   },
 
 
@@ -43,87 +47,50 @@ export const gentlemenServices: Service[] = [
     title: "Ears",
     category: "Face & Grooming",
     description:
-      "Precision ear waxing for a polished appearance.",
+      "Precision ear waxing for a clean, groomed appearance.",
     price: "$20",
     duration: "10 minutes",
+    gender: "gentlemen",
   },
 
+
+  // ---------------------------------------------------------------------------
+  // BODY GROOMING
+  // ---------------------------------------------------------------------------
 
   {
     id: "gentlemen-chest",
     title: "Chest",
-    category: "Body Care",
+    category: "Body Grooming",
     description:
       "Professional chest waxing for smooth lasting results.",
-    price: "$35",
-    duration: "10 minutes",
-  },
-
-
-  {
-    id: "gentlemen-stomach",
-    title: "Stomach",
-    category: "Body Care",
-    description:
-      "Complete stomach waxing service.",
-    price: "$35",
-    duration: "10 minutes",
-  },
-
-
-  {
-    id: "gentlemen-chest-stomach",
-    title: "Chest + Stomach",
-    category: "Body Care",
-    description:
-      "Combined chest and stomach waxing service.",
-    price: "$65",
+    price: "$55",
     duration: "20 minutes",
+    gender: "gentlemen",
   },
 
 
   {
     id: "gentlemen-back",
-    title: "Full Back",
-    category: "Body Care",
+    title: "Back",
+    category: "Body Grooming",
     description:
-      "Professional back waxing designed around comfort and confidence.",
-    price: "$65",
-    duration: "20 minutes",
-  },
-
-
-  {
-    id: "gentlemen-full-arms",
-    title: "Full Arms",
-    category: "Body Care",
-    description:
-      "Complete arm waxing treatment.",
-    price: "$83",
+      "Complete back waxing service designed for comfort and confidence.",
+    price: "$75",
     duration: "30 minutes",
-  },
-
-
-  {
-    id: "gentlemen-full-legs",
-    title: "Full Legs",
-    category: "Body Care",
-    description:
-      "Complete leg waxing service.",
-    price: "$105",
-    duration: "40 minutes",
+    gender: "gentlemen",
   },
 
 
   {
     id: "gentlemen-full-body",
     title: "Full Body",
-    category: "Body Care",
+    category: "Body Grooming",
     description:
-      "Complete luxury waxing experience from head to toe.",
-    price: "$450",
+      "A complete luxury waxing experience designed specifically for men.",
+    price: "$500",
     duration: "3 hours",
+    gender: "gentlemen",
   },
-
 
 ];
