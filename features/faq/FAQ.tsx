@@ -1,21 +1,20 @@
 /**
  * -----------------------------------------------------------------------------
- * File:
- * features/faq/FAQ.tsx
+ * File: FAQ.tsx
  *
  * Description:
  * Luxury FAQ section.
  *
  * Changes:
- *
- * - Removed fixed width restrictions
- * - Full width editorial layout
- * - Centered FAQ presentation
+ * - Removed restrictive max width
+ * - Centered FAQ content
  * - Improved luxury spacing
- *
  * -----------------------------------------------------------------------------
  */
 
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Heading from "@/components/ui/Heading";
 import FAQAccordion from "./FAQAccordion";
 
 import {
@@ -33,84 +32,72 @@ export default function FAQ(){
 return (
 
 <section
-
   id={FAQ_CONSTANTS.sectionId}
-
   className="
-    w-full
+    bg-[#FCF8F3]
     px-6
     py-24
   "
-
 >
 
 
-  {/* HEADER */}
-
   <div
-
     className="
+      mx-auto
       w-full
       text-center
     "
-
   >
 
-    <h2
 
+    <h2
       className="
-        font-serif
         text-4xl
         md:text-5xl
+        font-serif
         text-[#3B2A26]
       "
-
     >
-
       {FAQ_CONSTANTS.title}
-
     </h2>
 
 
-    <p
 
+    <p
       className="
-        mt-6
-        text-lg
+        mx-auto
+        mt-4
+        max-w-2xl
+        text-center
         text-[#8C7468]
       "
-
     >
-
       {FAQ_CONSTANTS.subtitle}
-
     </p>
 
 
+
+    <div
+      className="
+        mx-auto
+        mt-12
+        w-full
+        max-w-5xl
+        rounded-[32px]
+        bg-white
+        p-8
+        shadow-[0_20px_60px_rgba(59,42,38,0.06)]
+      "
+    >
+
+      <FAQAccordion
+        items={FAQ_DATA}
+      />
+
+    </div>
+
+
   </div>
-
-
-
-
-  {/* FAQ */}
-
-  <div
-
-    className="
-      mt-16
-      w-full
-    "
-
-  >
-
-    <FAQAccordion
-
-      items={FAQ_DATA}
-
-    />
-
-  </div>
-
 
 
 </section>
