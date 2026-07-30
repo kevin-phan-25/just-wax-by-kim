@@ -10,13 +10,14 @@
  *
  * Changes:
  *
- * July 29, 2026
+ * - July 29, 2026
  *
- * - Unified with luxury theme
- * - Reduced visual weight
+ *   - Unified with luxury theme
+ *   - Reduced visual weight
  *
  * -----------------------------------------------------------------------------
  */
+
 
 import type {
   ServiceCategory,
@@ -32,12 +33,10 @@ export default function ServiceCategory({
   category,
 }: Props) {
 
+
   return (
-    <div
-      className="
-        text-center
-      "
-    >
+
+    <div>
 
       <h3
         className="
@@ -62,5 +61,7 @@ export default function ServiceCategory({
 
 
     </div>
+
   );
+
 }
