@@ -1,26 +1,67 @@
+/**
+ *
+ * ---
+ * File:
+ * components/layout/Navbar.tsx
+ *
+ * Description:
+ * Luxury responsive website navigation.
+ *
+ * Changes:
+ *
+ * - July 30, 2026
+ *   - Increased navbar breathing room
+ *   - Enlarged Book Appointment button
+ *   - Improved luxury spacing
+ *   - Fixed anchor navigation routing
+ *   - Updated scroll offset
+ *
+ * ---
+ *
+ */
+
+
 "use client";
+
 
 import {
   useEffect,
   useState,
 } from "react";
 
+
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+
+
+import {
+  usePathname,
+  useRouter,
+} from "next/navigation";
+
 
 import { Logo } from "@/components/ui/Logo";
+
 import { MobileMenu } from "@/components/layout/MobileMenu";
+
 
 import {
   navigation,
 } from "@/constants/navigation";
 
 
+
+const NAVBAR_HEIGHT = 200;
+
+
+
 const scrollToSection = (
   href:string
 )=>{
 
-  const id = href.replace("#","");
+
+  const id =
+    href.replace("#","");
+
 
   const element =
     document.getElementById(id);
@@ -29,29 +70,39 @@ const scrollToSection = (
   if(!element) return;
 
 
-  const navbarHeight = 168;
-
 
   const position =
     element.getBoundingClientRect().top +
     window.scrollY -
-    navbarHeight;
+    NAVBAR_HEIGHT;
+
 
 
   window.scrollTo({
-    top:position,
+
+    top: position,
+
     behavior:"smooth",
+
   });
+
 
 };
 
 
 
+
+
 export default function Navbar(){
 
-const pathname = usePathname();
 
-const router = useRouter();
+const pathname =
+usePathname();
+
+
+const router =
+useRouter();
+
 
 
 const [
@@ -68,7 +119,10 @@ setMobileOpen,
 
 
 
+
+
 useEffect(()=>{
+
 
 const handleScroll = ()=>{
 
@@ -79,7 +133,9 @@ window.scrollY > 16
 };
 
 
+
 handleScroll();
+
 
 
 window.addEventListener(
@@ -89,6 +145,7 @@ handleScroll,
 passive:true
 }
 );
+
 
 
 return ()=>{
@@ -105,43 +162,55 @@ handleScroll
 
 
 
+
+
+
 const handleNavigation = (
 href:string
 )=>{
 
 
-// internal section links
-if(
-href.startsWith("#")
-){
+if(!href.startsWith("#")){
 
-// already home
-if(
-pathname === "/"
-){
+return;
+
+}
+
+
+
+if(pathname === "/"){
+
+
+setTimeout(()=>{
 
 scrollToSection(href);
 
+},50);
+
+
 }
 
-
-// from service pages
 else{
+
 
 router.push(`/${href}`);
 
-}
-
 
 }
+
 
 };
+
+
+
+
 
 
 
 return (
 
 <>
+
 
 <header
 
@@ -150,15 +219,21 @@ className={`
 fixed
 
 top-0
+
 left-0
+
 right-0
 
 z-50
 
-h-[168px]
+
+h-[200px]
+
 
 transition-all
+
 duration-500
+
 
 ${
 scrolled
@@ -178,24 +253,25 @@ scrolled
 >
 
 
-<div
-className="
-relative
-h-full
-flex
-items-center
-px-12
-"
->
+
 
 
 {/* LOGO */}
 
 <div
+
 className="
+
 absolute
-left-12
+
+left-10
+
+top-1/2
+
+-translate-y-1/2
+
 "
+
 >
 
 <Logo />
@@ -204,27 +280,39 @@ left-12
 
 
 
-{/* NAV */}
+
+
+
+
+{/* DESKTOP NAV */}
 
 <nav
 
 className="
+
 absolute
+
 left-1/2
+
+top-1/2
+
 -translate-x-1/2
+
+-translate-y-1/2
+
+
 hidden
+
 xl:flex
-"
-
->
 
 
-<ul
-className="
-flex
 items-center
+
+
 gap-10
+
 "
+
 >
 
 
@@ -232,58 +320,84 @@ gap-10
 navigation.map((link)=>(
 
 
-<li
+<div
+
 key={link.href}
+
 className="
+
 relative
+
 group
+
 "
+
 >
 
 
 <Link
 
 href={
+
 link.href.startsWith("#")
+
 ?
+
 pathname === "/"
+
 ?
+
 link.href
+
 :
+
 `/${link.href}`
+
 :
+
 link.href
+
 }
+
 
 onClick={(e)=>{
 
 
-if(
-link.href.startsWith("#")
-){
+if(link.href.startsWith("#")){
+
 
 e.preventDefault();
+
 
 handleNavigation(
 link.href
 );
+
 
 }
 
 
 }}
 
+
+
 className="
+
 uppercase
+
 font-semibold
+
 tracking-[0.16em]
+
+text-sm
+
 text-[#3B2A26]/80
+
 
 transition
 
-hover:text-[#8C5A6B]
 
-relative
+hover:text-[#8C5A6B]
 
 "
 
@@ -297,12 +411,19 @@ relative
 link.dropdown && (
 
 <span
+
 className="
+
 ml-2
+
 text-[#8C5A6B]
+
 "
+
 >
+
 ▾
+
 </span>
 
 )
@@ -312,6 +433,9 @@ text-[#8C5A6B]
 
 
 </Link>
+
+
+
 
 
 
@@ -355,15 +479,18 @@ shadow-[0_20px_60px_rgba(59,42,38,0.12)]
 
 opacity-0
 
+
 invisible
 
 
 group-hover:opacity-100
 
+
 group-hover:visible
 
 
 transition-all
+
 
 duration-300
 
@@ -374,6 +501,7 @@ duration-300
 
 {
 link.dropdown.map((item)=>(
+
 
 <Link
 
@@ -392,7 +520,9 @@ items-center
 
 rounded-2xl
 
+
 px-6
+
 
 py-5
 
@@ -401,6 +531,7 @@ text-center
 
 
 uppercase
+
 
 tracking-[0.25em]
 
@@ -416,6 +547,7 @@ hover:bg-[#F6E7E1]
 
 hover:text-[#8C5A6B]
 
+
 transition
 
 "
@@ -426,9 +558,11 @@ transition
 
 </Link>
 
+
 ))
 
 }
+
 
 
 </div>
@@ -439,16 +573,12 @@ transition
 
 
 
-</li>
+</div>
 
 
 ))
 
 }
-
-
-
-</ul>
 
 
 </nav>
@@ -457,13 +587,22 @@ transition
 
 
 
-{/* BOOK */}
+
+
+{/* BOOK APPOINTMENT */}
 
 <div
 
 className="
+
 absolute
-right-12
+
+right-10
+
+top-1/2
+
+-translate-y-1/2
+
 "
 
 >
@@ -471,60 +610,116 @@ right-12
 
 <Link
 
+
 href={
+
 pathname === "/"
+
 ?
+
 "#booking"
+
 :
+
 "/#booking"
+
 }
+
+
 
 onClick={(e)=>{
 
 
 if(pathname === "/"){
 
+
 e.preventDefault();
+
 
 scrollToSection("#booking");
 
+
 }
+
 
 }}
 
+
+
 className="
 
-hidden
 
-sm:inline-flex
+inline-flex
+
+
+items-center
+
+
+justify-center
+
+
+
+min-w-[260px]
+
+
 
 rounded-full
 
+
+
 border-2
+
+
 
 border-[#8C5A6B]
 
-px-8
 
-py-4
+
+px-12
+
+
+
+py-6
+
+
 
 uppercase
 
-tracking-[0.18em]
 
-text-sm
+
+tracking-[0.22em]
+
+
+
+text-base
+
+
+
+font-semibold
+
+
 
 text-[#8C5A6B]
 
+
+
 hover:bg-[#F6E7E1]
 
+
+
 transition
+
+
+
+shadow-[0_12px_35px_rgba(59,42,38,0.10)]
+
 
 "
 
 >
 
 Book Appointment
+
 
 </Link>
 
@@ -533,12 +728,11 @@ Book Appointment
 
 
 
-</div>
 
 
-</header>
 
 
+{/* MOBILE MENU */}
 
 <MobileMenu
 
@@ -549,6 +743,9 @@ onClose={()=>setMobileOpen(false)}
 links={navigation}
 
 />
+
+
+</header>
 
 
 </>
