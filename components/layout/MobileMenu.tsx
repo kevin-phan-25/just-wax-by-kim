@@ -1,504 +1,168 @@
 /**
+ * -----------------------------------------------------------------------------
+ * File: components/layout/MobileMenu.tsx
  *
- * ---
- * File:
- * components/layout/MobileMenu.tsx
+ * Date: July 30, 2026
  *
  * Description:
- * Luxury responsive mobile navigation.
+ * Mobile navigation panel for Just Wax by Kim.
  *
- * Changes:
- *
- * - July 30, 2026
- *   - Added route-aware section navigation
- *   - Fixed homepage scrolling
- *   - Fixed service page navigation
- *   - Supports Services dropdown
- *
- * ---
- *
+ * Props:
+ * - open
+ * - onClose
+ * - links
+ * -----------------------------------------------------------------------------
  */
-
 "use client";
 
-
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-
-interface MobileMenuItem {
-
+type NavItem = {
   label: string;
-
   href: string;
-
-  dropdown?: readonly MobileMenuItem[];
-
-}
-
-
+  dropdown?: { label: string; href: string }[];
+};
 
 interface MobileMenuProps {
-
   open: boolean;
-
   onClose: () => void;
-
-  links: readonly MobileMenuItem[];
-
+  links: readonly NavItem[] | NavItem[];
 }
 
+const NAVBAR_HEIGHT = 168;
 
-
-const scrollToSection = (
-  href: string
-) => {
-
-
-  const id =
-    href.replace("#","");
-
-
-  const element =
-    document.getElementById(id);
-
-
-  if(!element) return;
-
-
-
-  const navbarHeight = 168;
-
+function scrollToSection(href: string) {
+  const id = href.replace("#", "");
+  const element = document.getElementById(id);
+  if (!element) return;
 
   const position =
-    element.getBoundingClientRect().top +
-    window.scrollY -
-    navbarHeight;
-
-
+    element.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
 
   window.scrollTo({
-
     top: position,
-
-    behavior:"smooth",
-
+    behavior: "smooth",
   });
-
-
-};
-
-
-
-
-export function MobileMenu({
-
-  open,
-
-  onClose,
-
-  links,
-
-}:MobileMenuProps){
-
-
-const pathname =
-usePathname();
-
-
-const router =
-useRouter();
-
-
-
-
-const handleClick = (
-  href:string
-)=>{
-
-
-  onClose();
-
-
-
-  // dropdown pages
-  if(!href.startsWith("#")){
-
-    router.push(href);
-
-    return;
-
-  }
-
-
-
-  // homepage section
-  if(pathname === "/"){
-
-
-    setTimeout(()=>{
-
-      scrollToSection(href);
-
-    },50);
-
-
-    return;
-
-  }
-
-
-
-  // other routes
-  router.push(`/${href}`);
-
-
-};
-
-
-
-
-return (
-
-<div
-
-className={`
-fixed
-inset-0
-z-40
-xl:hidden
-
-transition-opacity
-duration-300
-
-${
-open
-
-?
-"opacity-100 pointer-events-auto"
-
-:
-
-"opacity-0 pointer-events-none"
-
 }
 
-`}
-
-aria-hidden={!open}
-
->
-
-
-<button
-
-type="button"
-
-aria-label="Close menu"
-
-onClick={onClose}
-
-className="
-absolute
-inset-0
-bg-black/20
-backdrop-blur-sm
-"
-
-/>
-
-
-
-<div
-
-className={`
-absolute
-
-top-[168px]
-
-left-4
-
-right-4
-
-rounded-[32px]
-
-border
-
-border-[#E8DDD8]
-
-bg-[#FCF8F3]/95
-
-backdrop-blur-xl
-
-shadow-[0_20px_60px_rgba(59,42,38,0.12)]
-
-px-8
-
-py-10
-
-transition-transform
-
-duration-300
-
-${
-open
-
-?
-
-"translate-y-0"
-
-:
-
-"-translate-y-6"
-
-}
-
-`}
-
->
-
-
-<div
-
-className="
-flex
-flex-col
-gap-6
-"
-
->
-
-
-{
-links.map((link)=>(
-
-
-<div
-
-key={link.href}
-
-className="relative"
-
->
-
-
-<button
-
-onClick={()=>handleClick(link.href)}
-
-className="
-w-full
-text-left
-
-block
-
-text-[0.82rem]
-
-font-semibold
-
-uppercase
-
-tracking-[0.24em]
-
-text-[#3B2A26]
-
-transition-colors
-
-hover:text-[#8C5A6B]
-"
-
->
-
-
-{link.label}
-
-
-
-{
-link.dropdown && (
-
-<span
-
-className="
-ml-2
-text-[#8C5A6B]
-"
-
->
-
-▾
-
-</span>
-
-)
-
-}
-
-
-</button>
-
-
-
-{
-link.dropdown && (
-
-<div
-
-className="
-mt-4
-
-ml-4
-
-flex
-
-flex-col
-
-gap-3
-
-border-l
-
-border-[#E8DDD8]
-
-pl-5
-"
-
->
-
-
-{
-link.dropdown.map((item)=>(
-
-
-<button
-
-key={item.href}
-
-onClick={()=>handleClick(item.href)}
-
-className="
-block
-
-rounded-xl
-
-px-4
-
-py-3
-
-text-left
-
-text-xs
-
-uppercase
-
-tracking-[0.22em]
-
-text-[#3B2A26]
-
-hover:bg-[#F6E7E1]
-
-hover:text-[#8C5A6B]
-
-transition
-"
-
->
-
-{item.label}
-
-
-</button>
-
-
-))
-
-}
-
-
-</div>
-
-)
-
-}
-
-
-</div>
-
-
-))
-
-}
-
-
-
-<div
-
-className="
-mt-10
-
-pt-8
-
-border-t
-
-border-[#E8DDD8]
-"
-
->
-
-
-<button
-
-onClick={()=>handleClick("#booking")}
-
-className="
-block
-
-w-full
-
-rounded-full
-
-border-2
-
-border-[#8C5A6B]
-
-px-6
-
-py-4
-
-text-center
-
-uppercase
-
-tracking-[0.18em]
-
-text-sm
-
-text-[#8C5A6B]
-
-hover:bg-[#F6E7E1]
-
-transition
-
-"
-
->
-
-Book Appointment
-
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-);
-
+export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLink = (href: string) => {
+    onClose();
+
+    if (!href.startsWith("#")) return;
+
+    if (pathname === "/") {
+      window.setTimeout(() => scrollToSection(href), 150);
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
+  return (
+    <div
+      className={`
+        fixed inset-0 z-40 xl:hidden
+        transition-opacity duration-300
+        ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+      `}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0 bg-[#3B2A26]/30 backdrop-blur-sm"
+        onClick={onClose}
+        aria-hidden
+      />
+
+      {/* Panel */}
+      <div
+        className={`
+          absolute top-[168px] left-4 right-4
+          max-h-[calc(100svh-168px-1.5rem)] overflow-y-auto
+          rounded-[28px] border border-[#E8DDD8]
+          bg-[#FCF8F3]/98 backdrop-blur-xl
+          shadow-[0_24px_60px_rgba(59,42,38,0.12)]
+          px-6 py-8
+          transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]
+          ${open ? "translate-y-0" : "-translate-y-3"}
+        `}
+      >
+        <ul className="flex flex-col gap-1">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={
+                  link.href.startsWith("#")
+                    ? pathname === "/"
+                      ? link.href
+                      : `/${link.href}`
+                    : link.href
+                }
+                onClick={(e) => {
+                  if (link.href.startsWith("#")) {
+                    e.preventDefault();
+                    handleLink(link.href);
+                  } else {
+                    onClose();
+                  }
+                }}
+                className="
+                  block rounded-2xl px-4 py-4
+                  text-[0.72rem] font-semibold uppercase tracking-[0.2em]
+                  text-[#3B2A26]
+                  hover:bg-[#F6E7E1] hover:text-[#8C5A6B]
+                  transition-colors
+                "
+              >
+                {link.label}
+              </Link>
+
+              {link.dropdown?.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className="
+                    block rounded-2xl px-6 py-3
+                    text-[0.65rem] font-medium uppercase tracking-[0.18em]
+                    text-[#6F5A50]
+                    hover:text-[#8C5A6B] hover:bg-[#F6E7E1]/70
+                    transition-colors
+                  "
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 pt-6 border-t border-[#E8DDD8]">
+          <Link
+            href={pathname === "/" ? "#booking" : "/#booking"}
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                handleLink("#booking");
+              } else {
+                onClose();
+              }
+            }}
+            className="
+              flex w-full items-center justify-center
+              rounded-full border-2 border-[#8C5A6B]
+              px-8 py-4
+              text-[0.72rem] font-semibold uppercase tracking-[0.18em]
+              text-[#8C5A6B] hover:bg-[#F6E7E1] transition
+            "
+          >
+            Book Appointment
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
