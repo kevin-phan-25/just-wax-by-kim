@@ -1,63 +1,280 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: ContactInfo.tsx
+ *
+ * Description:
+ * Luxury contact information.
+ *
+ * Changes:
+ * - July 30, 2026
+ *   • Removed duplicate styling
+ *   • Removed fixed sizing
+ *   • Unified with luxury editorial theme
+ * -----------------------------------------------------------------------------
+ */
+
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Instagram,
+} from "lucide-react";
+
 import { CONTACT_DATA } from "./contact.data";
-import { Phone, Mail, MapPin, Instagram } from "lucide-react";
 
 export default function ContactInfo() {
-  const { businessName, tagline, phone, email, address, instagram } = CONTACT_DATA;
+  const {
+    businessName,
+    tagline,
+    phone,
+    email,
+    address,
+    instagram,
+  } = CONTACT_DATA;
 
   return (
-    <div>
-      <div className="mb-10">
-        <h3 className="font-serif text-3xl text-[#3B2A26]">{businessName}</h3>
-        <p className="mt-1 text-[#8C5A6B]">{tagline}</p>
-      </div>
+    <section>
+      {/* Business */}
+      <header
+        className="
+          mb-10
+        "
+      >
+        <h3
+          className="
+            font-serif
+            text-3xl
+            text-brand-espresso
+          "
+        >
+          {businessName}
+        </h3>
 
-      <div className="space-y-7">
-        <a href={`tel:${phone}`} className="group flex items-center gap-4 hover:text-[#3B2A26] transition-colors">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A9B6]/10 text-[#8C5A6B] transition-colors group-hover:bg-[#D4A9B6]/20">
-            <Phone size={22} />
+        <p
+          className="
+            mt-2
+            uppercase
+            tracking-[0.28em]
+            text-sm
+            text-brand-dusty-pink
+          "
+        >
+          {tagline}
+        </p>
+      </header>
+
+      <div
+        className="
+          space-y-8
+        "
+      >
+        {/* Phone */}
+        <a
+          href={`tel:${phone}`}
+          className="
+            group
+            flex
+            items-start
+            gap-4
+            transition-colors
+          "
+        >
+          <div
+            className="
+              rounded-2xl
+              border
+              border-brand-border
+              bg-brand-ivory
+              p-3
+              text-brand-dusty-pink
+              transition-colors
+              group-hover:bg-white
+            "
+          >
+            <Phone size={20} />
           </div>
+
           <div>
-            <div className="text-xs uppercase tracking-widest text-[#8C7468]">Phone</div>
-            <div className="font-medium text-[#3B2A26]">{phone}</div>
+            <p
+              className="
+                text-xs
+                uppercase
+                tracking-[0.24em]
+                text-brand-taupe
+              "
+            >
+              Phone
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-brand-espresso
+                font-medium
+              "
+            >
+              {phone}
+            </p>
           </div>
         </a>
 
-        <a href={`mailto:${email}`} className="group flex items-center gap-4 hover:text-[#3B2A26] transition-colors">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A9B6]/10 text-[#8C5A6B] transition-colors group-hover:bg-[#D4A9B6]/20">
-            <Mail size={22} />
+        {/* Email */}
+        <a
+          href={`mailto:${email}`}
+          className="
+            group
+            flex
+            items-start
+            gap-4
+            transition-colors
+          "
+        >
+          <div
+            className="
+              rounded-2xl
+              border
+              border-brand-border
+              bg-brand-ivory
+              p-3
+              text-brand-dusty-pink
+              transition-colors
+              group-hover:bg-white
+            "
+          >
+            <Mail size={20} />
           </div>
+
           <div>
-            <div className="text-xs uppercase tracking-widest text-[#8C7468]">Email</div>
-            <div className="font-medium text-[#3B2A26]">{email}</div>
+            <p
+              className="
+                text-xs
+                uppercase
+                tracking-[0.24em]
+                text-brand-taupe
+              "
+            >
+              Email
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-brand-espresso
+                font-medium
+              "
+            >
+              {email}
+            </p>
           </div>
         </a>
 
-        <div className="flex items-center gap-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A9B6]/10 text-[#8C5A6B]">
-            <MapPin size={22} />
+        {/* Studio */}
+        <div
+          className="
+            flex
+            items-start
+            gap-4
+          "
+        >
+          <div
+            className="
+              rounded-2xl
+              border
+              border-brand-border
+              bg-brand-ivory
+              p-3
+              text-brand-dusty-pink
+            "
+          >
+            <MapPin size={20} />
           </div>
+
           <div>
-            <div className="text-xs uppercase tracking-widest text-[#8C7468]">Studio</div>
-            <div className="font-medium text-[#3B2A26]">{address}</div>
-            <div className="text-sm text-[#8C7468]">Private Studio • By Appointment Only</div>
+            <p
+              className="
+                text-xs
+                uppercase
+                tracking-[0.24em]
+                text-brand-taupe
+              "
+            >
+              Studio
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-brand-espresso
+                font-medium
+              "
+            >
+              {address}
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-sm
+                text-brand-taupe
+              "
+            >
+              Private Studio • By Appointment Only
+            </p>
           </div>
         </div>
 
+        {/* Instagram */}
         <a
-          href={`https://www.instagram.com/${instagram.replace("@", "")}`}
+          href={`https://instagram.com/${instagram.replace("@", "")}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-4 hover:text-[#3B2A26] transition-colors"
+          className="
+            group
+            flex
+            items-start
+            gap-4
+            transition-colors
+          "
         >
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#D4A9B6]/10 text-[#8C5A6B] transition-colors group-hover:bg-[#D4A9B6]/20">
-            <Instagram size={22} />
+          <div
+            className="
+              rounded-2xl
+              border
+              border-brand-border
+              bg-brand-ivory
+              p-3
+              text-brand-dusty-pink
+              transition-colors
+              group-hover:bg-white
+            "
+          >
+            <Instagram size={20} />
           </div>
+
           <div>
-            <div className="text-xs uppercase tracking-widest text-[#8C7468]">Instagram</div>
-            <div className="font-medium text-[#3B2A26]">{instagram}</div>
+            <p
+              className="
+                text-xs
+                uppercase
+                tracking-[0.24em]
+                text-brand-taupe
+              "
+            >
+              Instagram
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-brand-espresso
+                font-medium
+              "
+            >
+              {instagram}
+            </p>
           </div>
         </a>
       </div>
-    </div>
+    </section>
   );
 }
