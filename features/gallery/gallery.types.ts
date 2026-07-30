@@ -1,33 +1,20 @@
 /**
  * -----------------------------------------------------------------------------
- * File: gallery.types.ts
- *
- * Created: July 27, 2026
+ * File: features/gallery/gallery.types.ts
  *
  * Description:
- * Type definitions for gallery feature.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial gallery types.
- *
+ * Gallery type definitions.
  * -----------------------------------------------------------------------------
  */
 
-
 export interface GalleryImage {
+  id: string;
+  src: string;
+  alt: string;
+  title: string;
 
-
-    id: string;
-
-
-    src: string;
-
-
-    alt: string;
-
-
-    title: string;
-
-
+  /**
+   * Optional vertical image.
+   */
+  featured?: boolean;
 }
