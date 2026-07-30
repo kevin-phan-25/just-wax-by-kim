@@ -36,6 +36,8 @@ className="
 
 id="gentlemen-pricing"
 
+image="/images/services/gentlemen-waxing.jpg"
+
 title="Gentlemen Waxing"
 
 description="
