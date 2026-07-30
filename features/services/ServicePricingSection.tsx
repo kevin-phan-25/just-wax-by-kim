@@ -7,6 +7,7 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
+ *
  * - Added category hero image support
  * - Centered page heading
  * - Removed fixed width restrictions
@@ -15,6 +16,7 @@
  *
  * -----------------------------------------------------------------------------
  */
+
 import Image from "next/image";
 import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
@@ -38,30 +40,59 @@ export default function ServicePricingSection({
     <section
       id={id}
       className="
-        scroll-mt-[168px]
-        pb-32
+        w-full
       "
     >
-      {/* HERO IMAGE */}
+
+      {/* CATEGORY HERO IMAGE */}
       <div
         className="
           relative
           w-full
           h-[420px]
           overflow-hidden
+          rounded-[2px]
           mb-20
-          bg-[#F6E7E1]
         "
       >
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover"
           priority
-          sizes="100vw"
+          className="
+            object-cover
+            object-center
+          "
+        />
+
+        {/* Luxury Gradient Overlay */}
+        <div
+          aria-hidden
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#2D211D]/30
+            via-transparent
+            to-[#2D211D]/10
+          "
+        />
+
+        {/* Soft Bottom Fade */}
+        <div
+          aria-hidden
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-[#3B2A26]/20
+            via-transparent
+            to-transparent
+          "
         />
       </div>
+
 
       {/* HEADER */}
       <div
@@ -82,6 +113,7 @@ export default function ServicePricingSection({
         >
           {title}
         </h1>
+
         <p
           className="
             mt-6
@@ -96,6 +128,7 @@ export default function ServicePricingSection({
         </p>
       </div>
 
+
       {/* SERVICES */}
       <div
         className="
@@ -105,6 +138,7 @@ export default function ServicePricingSection({
       >
         <ServiceGrid services={services} />
       </div>
+
     </section>
   );
 }
