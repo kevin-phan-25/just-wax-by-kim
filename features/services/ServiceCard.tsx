@@ -7,31 +7,40 @@
  *
  * Changes:
  *
- * July 29, 2026
+ * - July 29, 2026
  *
- * - Matched Just Wax by Kim luxury theme
- * - Removed fixed sizing constraints
- * - Removed visual clutter
- * - Unified typography and colors
+ *   - Removed fixed sizing constraints
+ *   - Removed visual clutter
+ *   - Unified typography and colors
+ *   - Natural content-based height
  *
  * -----------------------------------------------------------------------------
  */
 
+
 import type { Service } from "./services.types";
+
 
 interface ServiceCardProps {
   service: Service;
 }
 
+
 export default function ServiceCard({
   service,
 }: ServiceCardProps) {
+
+
   return (
+
     <article
       className="
         service-card
+        text-center
+        p-8
       "
     >
+
 
       <span
         className="
@@ -43,6 +52,7 @@ export default function ServiceCard({
       >
         {service.category}
       </span>
+
 
 
       <h3
@@ -57,6 +67,7 @@ export default function ServiceCard({
       </h3>
 
 
+
       <p
         className="
           mt-5
@@ -68,17 +79,18 @@ export default function ServiceCard({
       </p>
 
 
+
       <div
         className="
           mt-8
           pt-6
-          w-full
           border-t
           border-brand-border
           flex
           justify-center
         "
       >
+
         <span
           className="
             font-medium
@@ -87,9 +99,13 @@ export default function ServiceCard({
         >
           {service.price}
         </span>
+
+
       </div>
 
 
     </article>
+
   );
+
 }
