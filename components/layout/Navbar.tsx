@@ -1,21 +1,3 @@
-/**
- * ------------------------------------------------------------------
- * File: components/layout/Navbar.tsx
- *
- * Date: July 29, 2026
- *
- * Description:
- * Fixed luxury navigation for Just Wax by Kim.
- *
- * Changes:
- * • Navbar height: 168px
- * • Logo anchored left
- * • Navigation centered to viewport
- * • Navigation typography refined
- * • Book button anchored right
- * ------------------------------------------------------------------
- */
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -34,6 +16,27 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
+const scrollToSection = (href: string) => {
+  if (href === "/") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const id = href.replace("#", "");
+  const element = document.getElementById(id);
+
+  if (element) {
+    const navbarHeight = 168;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,13 +47,9 @@ export default function Navbar() {
     };
 
     onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-    window.addEventListener("scroll", onScroll, {
-      passive: true,
-    });
-
-    return () =>
-      window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -79,76 +78,44 @@ export default function Navbar() {
         <div className="relative h-full flex items-center px-12">
 
           {/* LEFT LOGO */}
-          <div
-            className="
-              absolute
-              left-12
-              flex
-              items-center
-            "
-          >
+          <div className="absolute left-12 flex items-center">
             <Logo />
           </div>
 
-
           {/* CENTER NAVIGATION */}
-          <nav
-            className="
-              absolute
-              left-1/2
-              -translate-x-1/2
-
-              hidden
-              xl:flex
-
-              items-center
-            "
-          >
-            <ul
-              className="
-                flex
-                items-center
-
-                gap-8
-                2xl:gap-10
-              "
-            >
+          <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center">
+            <ul className="flex items-center gap-8 2xl:gap-10">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
+                    onClick={(e) => {
+                      if (link.href.startsWith("#")) {
+                        e.preventDefault();
+                        scrollToSection(link.href);
+                      }
+                    }}
                     className="
                       relative
-
                       uppercase
                       font-semibold
-
                       tracking-[0.16em]
-
                       text-[#3B2A26]/80
-
                       whitespace-nowrap
-
                       text-[0.9rem]
                       2xl:text-[1.1rem]
-
                       transition-colors
                       duration-300
-
                       hover:text-[#8C5A6B]
 
                       after:absolute
                       after:left-0
                       after:-bottom-[5px]
-
                       after:h-px
                       after:w-0
-
                       after:bg-[#D4A9B6]
-
                       after:transition-all
                       after:duration-300
-
                       hover:after:w-full
                     "
                   >
@@ -159,49 +126,32 @@ export default function Navbar() {
             </ul>
           </nav>
 
-
           {/* RIGHT BOOK BUTTON */}
-          <div
-            className="
-              absolute
-              right-12
-
-              flex
-              items-center
-            "
-          >
+          <div className="absolute right-12 flex items-center">
             <Link
               href="#booking"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("#booking");
+              }}
               className="
                 hidden
                 sm:inline-flex
-
                 items-center
                 justify-center
-
                 rounded-full
-
                 border-2
                 border-[#8C5A6B]
-
                 px-8
                 py-4
-
                 text-[0.85rem]
-
                 font-semibold
-
                 uppercase
-
                 tracking-[0.18em]
-
                 text-[#8C5A6B]
-
                 transition-all
                 duration-300
-
                 whitespace-nowrap
-
                 hover:border-[#6E4A55]
                 hover:text-[#6E4A55]
                 hover:bg-[#F6E7E1]/60
@@ -210,55 +160,35 @@ export default function Navbar() {
               Book Appointment
             </Link>
 
-
-            {/* MOBILE MENU */}
+            {/* MOBILE MENU BUTTON */}
             <button
               type="button"
-              aria-label={
-                mobileOpen
-                  ? "Close menu"
-                  : "Open menu"
-              }
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
-              onClick={() =>
-                setMobileOpen((v) => !v)
-              }
+              onClick={() => setMobileOpen((v) => !v)}
               className="
                 xl:hidden
-
                 flex
                 h-11
                 w-11
-
                 items-center
                 justify-center
-
                 rounded-full
-
                 border
                 border-[#E8DDD8]
-
                 bg-white/90
-
                 text-[#3B2A26]
               "
             >
-              <span className="sr-only">
-                Menu
-              </span>
-
               <div className="flex flex-col gap-[5px]">
                 <span className="block h-px w-4 bg-current" />
                 <span className="block h-px w-4 bg-current" />
                 <span className="block h-px w-4 bg-current" />
               </div>
             </button>
-
           </div>
-
         </div>
       </header>
-
 
       <MobileMenu
         open={mobileOpen}
