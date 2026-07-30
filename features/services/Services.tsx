@@ -7,37 +7,38 @@
  *
  * Changes:
  *
- * July 29, 2026
+ * - July 29, 2026
  *
- * - Removed fixed sizing and scaling constraints
- * - Uses global luxury typography system
- * - Unified spacing with brand theme
- * - Cleaner editorial hierarchy
- * - Fully centered luxury presentation
+ *   - Removed fixed sizing and scaling constraints
+ *   - Uses global luxury typography system
+ *   - Unified spacing with brand theme
+ *   - Cleaner editorial hierarchy
+ *   - Fully centered luxury presentation
  *
  * -----------------------------------------------------------------------------
  */
+
 
 import { SERVICES_CONFIG } from "./services.constants";
 import ServiceGrid from "./ServiceGrid";
 import ServicePricing from "./ServicePricing";
 
+
 export default function Services() {
+
   return (
+
     <section
       id="services"
       className="
-        section-luxury
-        section-padding
-        bg-luxury
+        w-full
+        py-24
       "
     >
+
       <div
         className="
-          container-luxury
-          flex
-          flex-col
-          items-center
+          mx-auto
           text-center
         "
       >
@@ -62,6 +63,7 @@ export default function Services() {
             className="
               service-title
               heading-luxury
+              mt-4
             "
           >
             {SERVICES_CONFIG.title}
@@ -86,10 +88,11 @@ export default function Services() {
             service-grid
             mt-16
             md:mt-20
-            w-full
+            grid
             grid-cols-1
             md:grid-cols-2
             lg:grid-cols-3
+            gap-10
           "
         >
           <ServiceGrid />
@@ -99,8 +102,7 @@ export default function Services() {
         {/* Pricing Note */}
         <div
           className="
-            mt-12
-            w-full
+            mt-16
             text-center
           "
         >
@@ -109,6 +111,8 @@ export default function Services() {
 
 
       </div>
+
     </section>
+
   );
 }
