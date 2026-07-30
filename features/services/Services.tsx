@@ -64,8 +64,9 @@ export default function Services() {
           className="
             mt-6
             mx-auto
-            max-w-3xl
-            text-lg
+            text-base
+            md:text-lg
+            text-center
             leading-relaxed
             text-[#8C7468]
           "
