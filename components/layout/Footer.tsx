@@ -2,26 +2,20 @@
  * -----------------------------------------------------------------------------
  * File: Footer.tsx
  *
- * Created:
- * July 27, 2026
- *
  * Description:
- * Luxury footer section.
+ * Minimal luxury footer section.
  *
  * Changes:
  *
  * - July 30, 2026
+ *   • Removed unused business information
  *   • Removed Connect section
- *   • Removed Contact heading
- *   • Simplified luxury footer layout
- *   • Removed unnecessary duplication
+ *   • Removed Contact section
+ *   • Removed social links
+ *   • Simplified luxury presentation
  *
  * -----------------------------------------------------------------------------
  */
-
-import {
-  business,
-} from "@/constants/business";
 
 
 export default function Footer() {
@@ -32,7 +26,7 @@ export default function Footer() {
       className="
         bg-brand-black
         px-6
-        py-16
+        py-12
         text-white
       "
     >
@@ -49,67 +43,39 @@ export default function Footer() {
         <h2
           className="
             font-serif
-            text-3xl
+            text-2xl
+            tracking-wide
           "
         >
-          {business.name}
+          Just Wax by Kim
         </h2>
 
 
-        <p
-          className="
-            mt-3
-            text-white/70
-            leading-relaxed
-          "
-        >
-          {business.tagline}
-        </p>
 
-
+        {/* Divider */}
         <div
           className="
-            mt-8
-            space-y-2
-            text-white/70
+            mx-auto
+            my-8
+            h-px
+            w-full
+            max-w-xl
+            bg-white/20
+          "
+        />
+
+
+
+        {/* Copyright */}
+        <p
+          className="
+            text-sm
+            text-white/60
           "
         >
+          © 2026 Just Wax by Kim. All rights reserved.
+        </p>
 
-          <p>
-            {business.location}
-          </p>
-
-
-          <p>
-            {business.phone}
-          </p>
-
-        </div>
-
-
-      </div>
-
-
-
-      {/* Copyright */}
-      <div
-        className="
-          mx-auto
-          mt-12
-          max-w-7xl
-
-          border-t
-          border-white/20
-
-          pt-6
-
-          text-center
-          text-sm
-          text-white/60
-        "
-      >
-
-        © 2026 {business.name}. All rights reserved.
 
       </div>
 
