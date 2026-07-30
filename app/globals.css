@@ -108,8 +108,6 @@
 
 --color-brand-champagne:#D8B4A0;
 
---color-brand-gold:#C6A15B;
-
 --color-brand-soft-rose:#E8C8BC;
 
 --color-brand-dusty-pink:#D4A9B6;
@@ -311,7 +309,7 @@ margin-inline:auto;
 
 display:inline-block;
 
-color:var(--gold);
+color:var(--mauve);
 
 font-size:.7rem;
 
