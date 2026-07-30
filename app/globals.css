@@ -283,7 +283,6 @@ padding-top:
 SERVICE SYSTEM
 ============================================================================= */
 
-
 .service-section {
 
 background:
@@ -333,11 +332,18 @@ color:var(--foreground);
 
 
 
+/* =============================================================================
+SERVICE GRID
+============================================================================= */
+
+
 .service-grid {
 
 display:grid;
 
 width:100%;
+
+justify-items:center;
 
 grid-template-columns:
 repeat(1,minmax(0,1fr));
@@ -366,20 +372,7 @@ repeat(2,minmax(0,1fr));
 .service-grid {
 
 grid-template-columns:
-repeat(4,minmax(0,1fr));
-
-}
-
-}
-
-
-
-@media(min-width:768px){
-
-.service-grid {
-
-grid-template-columns:
-repeat(2,minmax(0,1fr));
+repeat(3,minmax(0,1fr));
 
 }
 
@@ -392,12 +385,11 @@ repeat(2,minmax(0,1fr));
 .service-grid {
 
 grid-template-columns:
-repeat(3,minmax(0,1fr));
+repeat(4,minmax(0,1fr));
 
 }
 
 }
-
 
 
 
@@ -408,11 +400,12 @@ SERVICE CARD
 
 .service-card {
 
-
 width:100%;
 
+max-width:280px;
+
 min-width:0;
-   
+
 display:flex;
 
 flex-direction:column;
@@ -421,26 +414,20 @@ align-items:center;
 
 text-align:center;
 
-
 background:
 var(--background-card);
-
 
 border:
 
 1px solid var(--line);
 
-
 border-radius:28px;
 
-
-padding:1.75rem;
-
+padding:1.5rem;
 
 box-shadow:
 
 0 24px 70px rgba(59,42,38,.06);
-
 
 
 transition:
@@ -449,26 +436,21 @@ transform .4s cubic-bezier(.2,.8,.2,1),
 box-shadow .4s ease,
 border-color .4s ease;
 
-
 }
 
 
 
 .service-card:hover {
 
-
 transform:
 translateY(-6px);
-
 
 border-color:
 var(--dusty-pink);
 
-
 box-shadow:
 
 0 30px 80px rgba(59,42,38,.08);
-
 
 }
 
@@ -476,10 +458,8 @@ box-shadow:
 
 .service-category {
 
-
 color:
 var(--mauve);
-
 
 font-size:.7rem;
 
@@ -489,19 +469,16 @@ letter-spacing:.32em;
 
 text-transform:uppercase;
 
-
 }
 
 
 
 .service-name {
 
-
-margin-top:1.25rem;
+margin-top:1rem;
 
 color:
 var(--foreground);
-
 
 }
 
@@ -509,12 +486,14 @@ var(--foreground);
 
 .service-description {
 
-
-margin-top:1rem;
+margin-top:.75rem;
 
 color:
 var(--taupe);
 
+font-size:.9rem;
+
+line-height:1.8;
 
 }
 
@@ -522,10 +501,9 @@ var(--taupe);
 
 .service-price {
 
+margin-top:1.5rem;
 
-margin-top:2rem;
-
-padding-top:1.5rem;
+padding-top:1rem;
 
 width:100%;
 
@@ -533,15 +511,35 @@ border-top:
 
 1px solid var(--line);
 
-
 display:flex;
 
 justify-content:center;
 
-
 color:
 var(--dusty-pink);
 
+}
+
+
+
+/* Mobile refinement */
+
+@media(max-width:640px){
+
+.service-card {
+
+max-width:240px;
+
+padding:1.25rem;
+
+}
+
+
+.service-description {
+
+font-size:.85rem;
+
+}
 
 }
 
