@@ -13,7 +13,6 @@
  * • Image left / text right preserved
  * -----------------------------------------------------------------------------
  */
-import { HeroContent } from "./HeroContent";
 import { HeroImage } from "./HeroImage";
 
 export default function Hero() {
