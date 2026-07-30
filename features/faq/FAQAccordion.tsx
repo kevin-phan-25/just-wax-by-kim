@@ -1,70 +1,59 @@
 /**
  * -----------------------------------------------------------------------------
- * File: FAQAccordion.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * features/faq/FAQAccordion.tsx
  *
  * Description:
  * FAQ accordion collection.
  *
  * Changes:
- * - v1.0.2
- *   - Added FAQ list renderer.
+ *
+ * - Full width layout
+ * - Improved spacing
+ * - Luxury editorial presentation
  *
  * -----------------------------------------------------------------------------
  */
 
-
 import FAQItem from "./FAQItem";
 
 import {
-FAQItemType
-}
-from "./faq.types";
-
+  FAQItemType,
+} from "./faq.types";
 
 
 interface Props {
 
-items:FAQItemType[];
+items: FAQItemType[];
 
 }
 
 
-
 export default function FAQAccordion({
 
-items
+items,
 
 }:Props){
 
 
-
 return (
 
-
 <div
-
-className="
-divide-y
-divide-transparent
-"
-
+  className="
+    w-full
+    divide-y
+    divide-[#E8DDD8]
+  "
 >
 
-
 {
-
 items.map(
 
 (item)=>(
 
 <FAQItem
-
-key={item.id}
-
-item={item}
-
+  key={item.id}
+  item={item}
 />
 
 )
@@ -73,12 +62,8 @@ item={item}
 
 }
 
-
-
 </div>
 
-
 );
-
 
 }
