@@ -265,7 +265,7 @@ LAYOUT HELPERS
     var(--space-container);
 
   max-width:
-    80rem;
+    100%;
 
   margin-inline:
     auto;
@@ -358,14 +358,11 @@ SERVICE SECTION SYSTEM
 
 .service-header {
 
-  text-align:
-    center;
+width:100%;
 
-  max-width:
-    780px;
+text-align:center;
 
-  margin-inline:
-    auto;
+margin-inline:auto;
 
 }
 
@@ -421,14 +418,41 @@ SERVICE SECTION SYSTEM
 
 .service-grid {
 
-  display:
-    grid;
+display:grid;
 
-  width:
-    100%;
+width:100%;
 
-  gap:
-    var(--space-gap);
+grid-template-columns:
+repeat(1,minmax(0,1fr));
+
+gap:
+var(--space-gap);
+
+}
+
+
+
+@media(min-width:768px){
+
+.service-grid{
+
+grid-template-columns:
+repeat(2,minmax(0,1fr));
+
+}
+
+}
+
+
+
+@media(min-width:1280px){
+
+.service-grid{
+
+grid-template-columns:
+repeat(3,minmax(0,1fr));
+
+}
 
 }
 
@@ -439,7 +463,7 @@ SERVICE SECTION SYSTEM
   width:
     100%;
 
-  height:
+  min-height:
     100%;
 
   display:
