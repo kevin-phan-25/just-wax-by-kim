@@ -1,20 +1,21 @@
 /**
  * -----------------------------------------------------------------------------
  * File:
- * Services.tsx
+ * features/services/Services.tsx
  *
  * Description:
  * Luxury services landing section.
  *
  * Changes:
- * - July 30, 2026
- *   - Added Ladies / Gentlemen separation
- *   - Added dedicated pricing sections
- *   - Removed duplicated service imports
- *   - Unified luxury editorial theme
+ * - Added Ladies / Gentlemen pricing sections
+ * - Connected navigation anchors
+ * - Removed unused category imports
+ * - Uses separated service data files
  *
  * -----------------------------------------------------------------------------
  */
+
+import ServicePricingSection from "./ServicePricingSection";
 
 import {
   ladiesServices,
@@ -25,145 +26,110 @@ import {
 } from "./data/gentlemen.data";
 
 
-import ServicePricingSection from "./ServicePricingSection";
-
-
 export default function Services() {
 
-return (
-
-<section
-  id="services"
-  className="
-    px-6
-    py-24
-  "
->
-
-  <div
-    className="
-      mx-auto
-      max-w-7xl
-    "
-  >
-
-
-    {/* HEADER */}
-
-    <div
+  return (
+    <section
+      id="services"
       className="
-        mx-auto
-        max-w-3xl
-        text-center
+        px-6
+        py-24
       "
     >
 
-      <span
+      <div
         className="
-          uppercase
-          tracking-[0.4em]
-          text-sm
-          text-[#8C5A6B]
-        "
-      >
-        Our Services
-      </span>
-
-
-      <h2
-        className="
-          mt-6
-          font-serif
-          text-4xl
-          md:text-5xl
-          text-[#3B2A26]
-        "
-      >
-        Luxury Waxing
-        <br />
-        Designed Around You
-      </h2>
-
-
-      <p
-        className="
-          mt-6
           mx-auto
-          max-w-xl
-          text-lg
-          leading-relaxed
-          text-[#8C7468]
+          max-w-7xl
         "
       >
-        Personalized waxing experiences created
-        for confidence, comfort, and beautifully
-        cared skin.
-      </p>
 
-    </div>
+        {/* HEADER */}
 
+        <div
+          className="
+            mx-auto
+            max-w-3xl
+            text-center
+          "
+        >
 
-
-    {/* LADIES PRICING */}
-
-    <div
-      id="ladies-services"
-      className="
-        mt-20
-        scroll-mt-40
-      "
-    >
-
-      <ServicePricingSection
-
-        title="Ladies Waxing"
-
-        description="
-          Luxury waxing services created around
-          comfort, precision, and confidence.
-        "
-
-        services={ladiesServices}
-
-      />
-
-    </div>
+          <span
+            className="
+              uppercase
+              tracking-[0.4em]
+              text-sm
+              text-[#8C5A6B]
+            "
+          >
+            Our Services
+          </span>
 
 
+          <h2
+            className="
+              mt-6
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-[#3B2A26]
+            "
+          >
+            Luxury Waxing
+            <br />
+            For Everyone
+          </h2>
 
 
+          <p
+            className="
+              mx-auto
+              mt-6
+              max-w-xl
+              text-lg
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
+            Personalized waxing experiences designed
+            around comfort, confidence, and beautifully
+            cared skin.
+          </p>
 
-    {/* GENTLEMEN PRICING */}
 
-    <div
-      id="gentlemen-services"
-      className="
-        mt-32
-        scroll-mt-40
-      "
-    >
-
-      <ServicePricingSection
-
-        title="Gentlemen Waxing"
-
-        description="
-          Professional waxing services designed
-          for men who value confidence and care.
-        "
-
-        services={gentlemenServices}
-
-      />
-
-    </div>
+        </div>
 
 
 
-  </div>
+        {/* LADIES PRICING */}
 
-</section>
+        <ServicePricingSection
+          id="ladies-services"
+          title="Ladies Waxing"
+          description="
+            Luxury waxing services created around comfort,
+            precision, and confidence.
+          "
+          services={ladiesServices}
+        />
 
-);
 
+
+        {/* GENTLEMEN PRICING */}
+
+        <ServicePricingSection
+          id="gentlemen-services"
+          title="Gentlemen Waxing"
+          description="
+            Professional waxing services designed for men
+            who value confidence, comfort, and care.
+          "
+          services={gentlemenServices}
+        />
+
+
+      </div>
+
+    </section>
+  );
 }
