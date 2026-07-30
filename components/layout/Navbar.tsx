@@ -9,10 +9,10 @@
  * Changes:
  *
  * - July 30, 2026
- *   • Connected centralized navigation constants
- *   • Added Services dropdown menu
- *   • Added Ladies / Gentlemen service links
- *   • Preserved luxury theme styling
+ *   • Uses centralized navigation constants
+ *   • Added centered Services dropdown
+ *   • Added Ladies / Gentlemen service navigation
+ *   • Refined luxury spacing and styling
  *
  * -----------------------------------------------------------------------------
  */
@@ -76,34 +76,37 @@ const scrollToSection = (
 
 
 
-  if (element) {
-
-    const navbarHeight = 168;
-
-
-    const elementPosition =
-      element.getBoundingClientRect().top;
+  if (!element) return;
 
 
 
-    const offsetPosition =
-      elementPosition +
-      window.scrollY -
-      navbarHeight;
+  const navbarHeight = 168;
 
 
 
-    window.scrollTo({
+  const elementPosition =
+    element.getBoundingClientRect().top;
 
-      top: offsetPosition,
 
-      behavior: "smooth",
 
-    });
+  const offsetPosition =
+    elementPosition +
+    window.scrollY -
+    navbarHeight;
 
-  }
+
+
+  window.scrollTo({
+
+    top: offsetPosition,
+
+    behavior: "smooth",
+
+  });
+
 
 };
+
 
 
 
@@ -128,10 +131,10 @@ export default function Navbar() {
 
 
 
-  useEffect(() => {
+  useEffect(()=>{
 
 
-    const onScroll = () => {
+    const handleScroll = () => {
 
       setScrolled(
         window.scrollY > 16
@@ -141,13 +144,13 @@ export default function Navbar() {
 
 
 
-    onScroll();
+    handleScroll();
 
 
 
     window.addEventListener(
       "scroll",
-      onScroll,
+      handleScroll,
       {
         passive:true,
       }
@@ -155,11 +158,11 @@ export default function Navbar() {
 
 
 
-    return () => {
+    return ()=>{
 
       window.removeEventListener(
         "scroll",
-        onScroll
+        handleScroll
       );
 
     };
@@ -171,565 +174,708 @@ export default function Navbar() {
 
 
 
-  return (
+return (
 
-    <>
+<>
 
 
-      <header
+<header
 
-        className={`
-          fixed
-          top-0
-          left-0
-          right-0
-          z-50
+className={`
 
-          h-[168px]
+fixed
 
-          transition-all
-          duration-500
+top-0
 
-          ease-[cubic-bezier(0.2,0.8,0.2,1)]
+left-0
 
-          ${
-            scrolled
+right-0
 
-            ? `
-              bg-[#FCF8F3]/95
-              backdrop-blur-xl
-              border-b
-              border-[#E8DDD8]
-              shadow-[0_6px_24px_rgba(59,42,38,0.05)]
-            `
+z-50
 
-            :
 
-            `
-              bg-[#FCF8F3]/90
-              backdrop-blur-md
-              border-b
-              border-transparent
-            `
-          }
-        `}
+h-[168px]
 
-      >
 
+transition-all
 
+duration-500
 
-        <div
-          className="
-            relative
-            h-full
-            flex
-            items-center
-            px-12
-          "
-        >
 
+ease-[cubic-bezier(0.2,0.8,0.2,1)]
 
 
-          {/* LEFT LOGO */}
+${
 
-          <div
-            className="
-              absolute
-              left-12
-              flex
-              items-center
-            "
-          >
+scrolled
 
-            <Logo />
+?
 
-          </div>
+`
+bg-[#FCF8F3]/95
 
+backdrop-blur-xl
 
+border-b
 
+border-[#E8DDD8]
 
+shadow-[0_6px_24px_rgba(59,42,38,0.05)]
 
+`
 
-          {/* DESKTOP NAVIGATION */}
+:
 
-          <nav
+`
 
-            className="
-              absolute
-              left-1/2
-              -translate-x-1/2
+bg-[#FCF8F3]/90
 
-              hidden
-              xl:flex
-              items-center
-            "
+backdrop-blur-md
 
-          >
+border-b
 
+border-transparent
 
-            <ul
+`
 
-              className="
-                flex
-                items-center
-                gap-8
-                2xl:gap-10
-              "
+}
 
-            >
+`}
 
+>
 
-              {navigation.map((link)=>(
 
+<div
 
-                <li
+className="
 
-                  key={link.href}
+relative
 
-                  className="
-                    relative
-                    group
-                  "
+h-full
 
-                >
+flex
 
+items-center
 
+px-12
 
-                  <Link
+"
 
-                    href={link.href}
+>
 
-                    onClick={(e)=>{
 
 
-                      if(
-                        link.href.startsWith("#")
-                      ){
+{/* LOGO */}
 
-                        e.preventDefault();
+<div
 
+className="
 
-                        scrollToSection(
-                          link.href
-                        );
+absolute
 
-                      }
+left-12
 
+flex
 
-                    }}
+items-center
 
+"
 
-                    className="
-                      relative
+>
 
-                      uppercase
-                      font-semibold
+<Logo />
 
-                      tracking-[0.16em]
+</div>
 
-                      text-[#3B2A26]/80
 
-                      whitespace-nowrap
 
-                      text-[0.9rem]
 
-                      2xl:text-[1.1rem]
 
-                      transition-colors
 
-                      duration-300
 
-                      hover:text-[#8C5A6B]
+{/* DESKTOP NAV */}
 
-                      after:absolute
+<nav
 
-                      after:left-0
+className="
 
-                      after:-bottom-[5px]
+absolute
 
-                      after:h-px
+left-1/2
 
-                      after:w-0
+-translate-x-1/2
 
-                      after:bg-[#D4A9B6]
 
-                      after:transition-all
+hidden
 
-                      after:duration-300
+xl:flex
 
-                      hover:after:w-full
-                    "
+items-center
 
-                  >
+"
 
-                    {link.label}
+>
 
 
+<ul
 
-                    {link.dropdown && (
+className="
 
-                      <span
-                        className="
-                          ml-2
-                          text-[#8C5A6B]
-                        "
-                      >
-                        ▾
-                      </span>
+flex
 
-                    )}
+items-center
 
+gap-8
 
-                  </Link>
+2xl:gap-10
 
+"
 
+>
 
 
+{navigation.map((link)=>(
 
 
-                  {/* SERVICES DROPDOWN */}
+<li
 
-                  {link.dropdown && (
+key={link.href}
 
-                    <div
+className="
 
-                      className="
-                        absolute
+relative
 
-                        left-1/2
+group
 
-                        top-10
+"
 
-                        -translate-x-1/2
+>
 
 
-                        w-64
 
+<Link
 
-                        rounded-[28px]
+href={link.href}
 
-                        border
+onClick={(e)=>{
 
-                        border-[#E8DDD8]
 
+if(link.href.startsWith("#")){
 
-                        bg-[#FCF8F3]/95
+e.preventDefault();
 
-                        backdrop-blur-xl
+scrollToSection(
+link.href
+);
 
+}
 
-                        p-4
 
+}}
 
-                        shadow-[0_20px_60px_rgba(59,42,38,0.12)]
 
+className="
 
-                        opacity-0
+relative
 
-                        invisible
 
+uppercase
 
-                        group-hover:opacity-100
+font-semibold
 
-                        group-hover:visible
 
+tracking-[0.16em]
 
-                        transition-all
 
-                        duration-300
+text-[#3B2A26]/80
 
-                        translate-y-2
 
-                        group-hover:translate-y-0
-                      "
+whitespace-nowrap
 
-                    >
 
+text-[0.9rem]
 
 
-                      {link.dropdown.map((item)=>(
+2xl:text-[1.1rem]
 
 
-                        <Link
+transition-colors
 
-                          key={item.href}
 
-                          href={item.href}
+duration-300
 
 
-                          onClick={(e)=>{
+hover:text-[#8C5A6B]
 
 
-                            e.preventDefault();
+after:absolute
 
 
-                            scrollToSection(
-                              item.href
-                            );
+after:left-0
 
 
-                          }}
+after:-bottom-[5px]
 
 
-                          className="
-                            block
+after:h-px
 
-                            rounded-2xl
 
-                            px-5
+after:w-0
 
-                            py-4
 
+after:bg-[#D4A9B6]
 
-                            text-sm
 
-                            uppercase
+after:transition-all
 
-                            tracking-[0.18em]
 
+after:duration-300
 
-                            text-[#3B2A26]
 
+hover:after:w-full
 
-                            transition-all
+"
 
+>
 
-                            hover:bg-[#F6E7E1]
 
+{link.label}
 
-                            hover:text-[#8C5A6B]
-                          "
 
-                        >
 
-                          {item.label}
+{link.dropdown && (
 
+<span
 
-                        </Link>
+className="
 
+ml-2
 
-                      ))}
+text-[#8C5A6B]
 
+"
 
+>
 
-                    </div>
+▾
 
-                  )}
+</span>
 
+)}
 
 
-                </li>
 
+</Link>
 
-              ))}
 
 
-            </ul>
 
 
-          </nav>
 
 
 
+{/* DROPDOWN */}
 
+{link.dropdown && (
 
+<div
 
+className="
 
-          {/* RIGHT BUTTON */}
+absolute
 
-          <div
+left-1/2
 
-            className="
-              absolute
-              right-12
-              flex
-              items-center
-            "
+top-full
 
-          >
+mt-6
 
+-translate-x-1/2
 
 
-            <Link
+w-72
 
-              href="#booking"
 
-              onClick={(e)=>{
+rounded-[32px]
 
-                e.preventDefault();
 
-                scrollToSection(
-                  "#booking"
-                );
+border
 
-              }}
+border-[#E8DDD8]
 
-              className="
-                hidden
 
-                sm:inline-flex
+bg-[#FCF8F3]/95
 
-                items-center
 
-                justify-center
+backdrop-blur-xl
 
 
-                rounded-full
+p-4
 
 
-                border-2
+shadow-[0_20px_60px_rgba(59,42,38,0.12)]
 
 
-                border-[#8C5A6B]
+opacity-0
 
+invisible
 
-                px-8
 
+group-hover:opacity-100
 
-                py-4
+group-hover:visible
 
 
-                text-[0.85rem]
+transition-all
 
 
-                font-semibold
+duration-300
 
 
-                uppercase
+translate-y-3
 
 
-                tracking-[0.18em]
+group-hover:translate-y-0
 
+"
 
-                text-[#8C5A6B]
+>
 
 
-                transition-all
+{link.dropdown.map((item)=>(
 
 
-                duration-300
+<Link
 
+key={item.href}
 
-                hover:border-[#6E4A55]
+href={item.href}
 
 
-                hover:text-[#6E4A55]
+onClick={(e)=>{
 
+e.preventDefault();
 
-                hover:bg-[#F6E7E1]/60
-              "
+scrollToSection(
+item.href
+);
 
-            >
+}}
 
-              Book Appointment
 
+className="
 
-            </Link>
+flex
 
+items-center
 
+justify-center
 
 
+rounded-2xl
 
 
-            {/* MOBILE BUTTON */}
+px-6
 
-            <button
 
-              type="button"
+py-5
 
-              aria-label={
-                mobileOpen
-                ? "Close menu"
-                : "Open menu"
-              }
 
-              onClick={() =>
-                setMobileOpen(
-                  (value)=>!value
-                )
-              }
+text-center
 
 
-              className="
-                xl:hidden
+text-sm
 
-                flex
 
-                h-11
+uppercase
 
-                w-11
 
-                items-center
+tracking-[0.22em]
 
-                justify-center
 
+text-[#3B2A26]
 
-                rounded-full
 
+transition-all
 
-                border
 
-                border-[#E8DDD8]
+duration-300
 
 
-                bg-white/90
+hover:bg-[#F6E7E1]
 
 
-                text-[#3B2A26]
-              "
+hover:text-[#8C5A6B]
 
-            >
+"
 
+>
 
-              <div
-                className="
-                  flex
-                  flex-col
-                  gap-[5px]
-                "
-              >
 
-                <span className="block h-px w-4 bg-current" />
+{item.label}
 
-                <span className="block h-px w-4 bg-current" />
 
-                <span className="block h-px w-4 bg-current" />
+</Link>
 
-              </div>
 
+))}
 
-            </button>
 
 
+</div>
 
-          </div>
+)}
 
 
-        </div>
 
+</li>
 
-      </header>
 
+))}
 
 
+</ul>
 
 
-      <MobileMenu
+</nav>
 
-        open={mobileOpen}
 
-        onClose={() =>
-          setMobileOpen(false)
-        }
 
-        links={navigation}
 
-      />
 
 
 
-    </>
 
-  );
+{/* RIGHT BOOK BUTTON */}
+
+<div
+
+className="
+
+absolute
+
+right-12
+
+flex
+
+items-center
+
+"
+
+>
+
+
+
+<Link
+
+href="#booking"
+
+
+onClick={(e)=>{
+
+e.preventDefault();
+
+scrollToSection(
+"#booking"
+);
+
+}}
+
+
+className="
+
+hidden
+
+sm:inline-flex
+
+
+items-center
+
+
+justify-center
+
+
+rounded-full
+
+
+border-2
+
+
+border-[#8C5A6B]
+
+
+px-8
+
+
+py-4
+
+
+text-[0.85rem]
+
+
+font-semibold
+
+
+uppercase
+
+
+tracking-[0.18em]
+
+
+text-[#8C5A6B]
+
+
+transition-all
+
+
+duration-300
+
+
+whitespace-nowrap
+
+
+hover:border-[#6E4A55]
+
+
+hover:text-[#6E4A55]
+
+
+hover:bg-[#F6E7E1]/60
+
+"
+
+>
+
+Book Appointment
+
+</Link>
+
+
+
+
+
+
+
+{/* MOBILE BUTTON */}
+
+<button
+
+type="button"
+
+aria-label={
+mobileOpen
+?
+"Close menu"
+:
+"Open menu"
+}
+
+
+onClick={()=>{
+
+setMobileOpen(
+(value)=>!value
+);
+
+}}
+
+
+className="
+
+xl:hidden
+
+
+flex
+
+
+h-11
+
+
+w-11
+
+
+items-center
+
+
+justify-center
+
+
+rounded-full
+
+
+border
+
+
+border-[#E8DDD8]
+
+
+bg-white/90
+
+
+text-[#3B2A26]
+
+"
+
+>
+
+
+<div
+
+className="
+
+flex
+
+flex-col
+
+gap-[5px]
+
+"
+
+>
+
+<span className="block h-px w-4 bg-current"/>
+
+<span className="block h-px w-4 bg-current"/>
+
+<span className="block h-px w-4 bg-current"/>
+
+
+</div>
+
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+<MobileMenu
+
+open={mobileOpen}
+
+onClose={()=>setMobileOpen(false)}
+
+links={navigation}
+
+/>
+
+
+
+</>
+
+);
+
 
 }
