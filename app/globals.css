@@ -1,132 +1,127 @@
 /**
  * -----------------------------------------------------------------------------
- * File: app/globals.css
+ * File:
+ * app/globals.css
  *
- * Project: Just Wax by Kim
- * Design: Boutique Luxury Beauty Studio — editorial / print aesthetic
+ * Project:
+ * Just Wax by Kim
  *
- * Updated: July 29, 2026
+ * Design:
+ * Boutique Luxury Beauty Studio — Editorial / Print Aesthetic
+ *
+ * Updated:
+ * July 30, 2026
  *
  * Changes:
- * • Added responsive spacing tokens
- * • Unified luxury brand system
- * • Added reusable Service section styling
- * • Service cards now inherit global theme
- * • Removed need for hardcoded service colors
- *
+ * - Unified Hero + Services spacing rhythm
+ * - Reduced service card sizing
+ * - Removed restrictive service widths
+ * - Improved editorial layout balance
  * -----------------------------------------------------------------------------
  */
+
 
 @import "tailwindcss";
 
 
 /* =============================================================================
-CSS VARIABLES
+   CSS VARIABLES
 ============================================================================= */
 
 :root {
 
-  /* Backgrounds */
-  --background: #FCF8F3;
-  --background-secondary: #F6E7E1;
-  --background-card: #FFFFFF;
+  --background:#FCF8F3;
+
+  --background-secondary:#F6E7E1;
+
+  --background-card:#FFFFFF;
 
 
-  /* Brand */
-  --champagne: #D8B4A0;
-  --gold: #C6A15B;
-  --soft-rose: #E8C8BC;
-  --dusty-pink: #D4A9B6;
-  --plum: #8C5A6B;
-  --taupe: #8C7468;
-  --espresso: #3B2A26;
+  --champagne:#D8B4A0;
+
+  --gold:#C6A15B;
+
+  --soft-rose:#E8C8BC;
+
+  --dusty-pink:#D4A9B6;
+
+  --plum:#8C5A6B;
+
+  --taupe:#8C7468;
+
+  --espresso:#3B2A26;
 
 
-  /* Borders */
-  --line: #E8DDD8;
+  --line:#E8DDD8;
 
 
-  /* Text */
-  --foreground: #3B2A26;
-  --text-secondary: #6F5A50;
-  --text-muted: #9A857A;
+  --foreground:#3B2A26;
+
+  --text-secondary:#6F5A50;
+
+  --text-muted:#9A857A;
 
 
-  /* Responsive spacing */
+
+  /* spacing */
+
   --space-section:
-    clamp(4rem, 6vw + 2rem, 7rem);
+  clamp(4rem,6vw + 2rem,7rem);
 
-  --space-section-mobile:
-    clamp(3rem, 5vw + 1.5rem, 5rem);
 
   --space-section-lg:
-    clamp(5rem, 9vw + 2rem, 9rem);
+  clamp(5rem,9vw + 2rem,9rem);
+
 
   --space-gutter:
-    clamp(1.25rem, 3vw, 2.5rem);
+  clamp(1.25rem,3vw,2.5rem);
 
-  --space-card:
-    clamp(1.25rem, 2vw + 0.5rem, 2rem);
+
 
   --space-gap:
-    clamp(1.5rem, 3vw, 2.75rem);
-
-  --space-nav-clearance:
-    clamp(5.5rem, 10vh, 8rem);
-
-  --space-container:
-    min(100%, 80rem);
+  clamp(1.5rem,3vw,2.75rem);
 
 
-  /* Navigation */
+
   --nav-height:
-    clamp(4.25rem, 9vh, 5.75rem);
+  168px;
+
 
 }
 
 
 
 /* =============================================================================
-TAILWIND v4 THEME TOKENS
+   THEME TOKENS
 ============================================================================= */
+
 
 @theme {
 
-  --color-brand-background:
-    #FCF8F3;
 
-  --color-brand-background-soft:
-    #F6E7E1;
+--color-brand-background:#FCF8F3;
 
-  --color-brand-card:
-    #FFFFFF;
+--color-brand-background-soft:#F6E7E1;
 
-  --color-brand-champagne:
-    #D8B4A0;
+--color-brand-card:#FFFFFF;
 
-  --color-brand-gold:
-    #C6A15B;
 
-  --color-brand-soft-rose:
-    #E8C8BC;
+--color-brand-champagne:#D8B4A0;
 
-  --color-brand-dusty-pink:
-    #D4A9B6;
+--color-brand-gold:#C6A15B;
 
-  --color-brand-plum:
-    #8C5A6B;
+--color-brand-soft-rose:#E8C8BC;
 
-  --color-brand-taupe:
-    #8C7468;
+--color-brand-dusty-pink:#D4A9B6;
 
-  --color-brand-espresso:
-    #3B2A26;
+--color-brand-plum:#8C5A6B;
 
-  --color-brand-border:
-    #E8DDD8;
+--color-brand-taupe:#8C7468;
 
-  --color-brand-muted:
-    #9A857A;
+--color-brand-espresso:#3B2A26;
+
+--color-brand-border:#E8DDD8;
+
 
 }
 
@@ -136,15 +131,16 @@ TAILWIND v4 THEME TOKENS
 RESET
 ============================================================================= */
 
+
 *,
 *::before,
 *::after {
 
-  box-sizing: border-box;
+box-sizing:border-box;
 
-  margin: 0;
+margin:0;
 
-  padding: 0;
+padding:0;
 
 }
 
@@ -152,10 +148,9 @@ RESET
 
 html {
 
-  scroll-behavior: smooth;
+scroll-behavior:smooth;
 
-  scroll-padding-top:
-    calc(var(--nav-height) + 0.75rem);
+scroll-padding-top:180px;
 
 }
 
@@ -163,24 +158,18 @@ html {
 
 body {
 
-  min-height: 100vh;
+min-height:100vh;
 
-  background:
-    var(--background);
+background:var(--background);
 
-  color:
-    var(--foreground);
+color:var(--foreground);
 
-  font-family:
-    var(--font-inter),
-    system-ui,
-    sans-serif;
+font-family:
+var(--font-inter),
+system-ui,
+sans-serif;
 
-  text-rendering:
-    optimizeLegibility;
-
-  -webkit-font-smoothing:
-    antialiased;
+-webkit-font-smoothing:antialiased;
 
 }
 
@@ -190,24 +179,19 @@ body {
 TYPOGRAPHY
 ============================================================================= */
 
+
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h4 {
 
-  color:
-    var(--foreground);
+color:var(--foreground);
 
-  font-weight:
-    500;
+font-weight:500;
 
-  letter-spacing:
-    -0.035em;
+letter-spacing:-0.035em;
 
-  line-height:
-    1.08;
+line-height:1.08;
 
 }
 
@@ -215,8 +199,8 @@ h6 {
 
 h1 {
 
-  font-size:
-    clamp(2.75rem, 6vw, 5rem);
+font-size:
+clamp(2.75rem,6vw,5rem);
 
 }
 
@@ -224,8 +208,8 @@ h1 {
 
 h2 {
 
-  font-size:
-    clamp(2.25rem, 4.5vw, 3.75rem);
+font-size:
+clamp(2.25rem,4.5vw,3.75rem);
 
 }
 
@@ -233,8 +217,8 @@ h2 {
 
 h3 {
 
-  font-size:
-    clamp(1.4rem, 2.8vw, 2.1rem);
+font-size:
+clamp(1.4rem,2.8vw,2.1rem);
 
 }
 
@@ -242,36 +226,31 @@ h3 {
 
 p {
 
-  color:
-    var(--text-secondary);
+color:var(--text-secondary);
 
-  line-height:
-    1.9;
-
-  font-size:
-    clamp(0.98rem, 1.2vw, 1.05rem);
+line-height:1.9;
 
 }
 
 
 
 /* =============================================================================
-LAYOUT HELPERS
+LAYOUT SYSTEM
 ============================================================================= */
+
 
 .container-luxury {
 
-  width:
-    var(--space-container);
 
-  max-width:
-    100%;
+width:100%;
 
-  margin-inline:
-    auto;
+max-width:1280px;
 
-  padding-inline:
-    var(--space-gutter);
+margin-inline:auto;
+
+padding-inline:
+var(--space-gutter);
+
 
 }
 
@@ -279,8 +258,8 @@ LAYOUT HELPERS
 
 .section-padding {
 
-  padding-block:
-    var(--space-section);
+padding-block:
+var(--space-section);
 
 }
 
@@ -288,8 +267,8 @@ LAYOUT HELPERS
 
 .section-padding-lg {
 
-  padding-block:
-    var(--space-section-lg);
+padding-block:
+var(--space-section-lg);
 
 }
 
@@ -297,60 +276,22 @@ LAYOUT HELPERS
 
 .nav-clearance {
 
-  padding-top:
-    var(--space-nav-clearance);
+padding-top:
+216px;
 
 }
 
 
 
 /* =============================================================================
-LUXURY CARD SYSTEM
+SERVICE SYSTEM
 ============================================================================= */
 
-.card-luxury {
-
-  background:
-    rgba(255,255,255,0.92);
-
-  backdrop-filter:
-    blur(20px);
-
-  border:
-    1px solid var(--line);
-
-  border-radius:
-    28px;
-
-  transition:
-    transform .4s cubic-bezier(.2,.8,.2,1),
-    box-shadow .4s ease,
-    border-color .4s ease;
-
-}
-
-
-
-.card-luxury:hover {
-
-  transform:
-    translateY(-6px);
-
-  border-color:
-    var(--dusty-pink);
-
-}
-
-
-
-/* =============================================================================
-SERVICE SECTION SYSTEM
-============================================================================= */
 
 .service-section {
 
-  background:
-    var(--background);
+background:
+var(--background);
 
 }
 
@@ -370,23 +311,17 @@ margin-inline:auto;
 
 .service-eyebrow {
 
-  display:
-    inline-block;
+display:inline-block;
 
-  color:
-    var(--gold);
+color:var(--gold);
 
-  font-size:
-    .7rem;
+font-size:.7rem;
 
-  font-weight:
-    600;
+font-weight:600;
 
-  letter-spacing:
-    .35em;
+letter-spacing:.35em;
 
-  text-transform:
-    uppercase;
+text-transform:uppercase;
 
 }
 
@@ -394,29 +329,16 @@ margin-inline:auto;
 
 .service-title {
 
-  margin-top:
-    1.5rem;
+margin-top:1.5rem;
 
-  color:
-    var(--foreground);
-
-  font-weight:
-    500;
-
-}
-
-
-
-.service-title-accent {
-
-  color:
-    var(--dusty-pink);
+color:var(--foreground);
 
 }
 
 
 
 .service-grid {
+
 
 display:grid;
 
@@ -428,13 +350,14 @@ repeat(1,minmax(0,1fr));
 gap:
 var(--space-gap);
 
+
 }
 
 
 
 @media(min-width:768px){
 
-.service-grid{
+.service-grid {
 
 grid-template-columns:
 repeat(2,minmax(0,1fr));
@@ -447,7 +370,7 @@ repeat(2,minmax(0,1fr));
 
 @media(min-width:1280px){
 
-.service-grid{
+.service-grid {
 
 grid-template-columns:
 repeat(3,minmax(0,1fr));
@@ -458,51 +381,54 @@ repeat(3,minmax(0,1fr));
 
 
 
+
+/* =============================================================================
+SERVICE CARD
+============================================================================= */
+
+
 .service-card {
 
-  width:
-    100%;
 
-  min-height:
-    100%;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  align-items:
-    center;
-
-  text-align:
-    center;
+width:100%;
 
 
-  background:
-    var(--background-card);
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
 
 
-  border:
-    1px solid var(--line);
+background:
+var(--background-card);
 
 
-  border-radius:
-    28px;
+border:
+
+1px solid var(--line);
 
 
-  padding:
-    var(--space-card);
+border-radius:28px;
 
 
-  box-shadow:
-    0 24px 70px rgba(59,42,38,.06);
+padding:1.75rem;
 
 
-  transition:
-    transform .4s cubic-bezier(.2,.8,.2,1),
-    box-shadow .4s ease,
-    border-color .4s ease;
+box-shadow:
+
+0 24px 70px rgba(59,42,38,.06);
+
+
+
+transition:
+
+transform .4s cubic-bezier(.2,.8,.2,1),
+box-shadow .4s ease,
+border-color .4s ease;
+
 
 }
 
@@ -510,15 +436,19 @@ repeat(3,minmax(0,1fr));
 
 .service-card:hover {
 
-  transform:
-    translateY(-6px);
 
-  border-color:
-    var(--dusty-pink);
+transform:
+translateY(-6px);
 
 
-  box-shadow:
-    0 30px 80px rgba(59,42,38,.08);
+border-color:
+var(--dusty-pink);
+
+
+box-shadow:
+
+0 30px 80px rgba(59,42,38,.08);
+
 
 }
 
@@ -526,24 +456,19 @@ repeat(3,minmax(0,1fr));
 
 .service-category {
 
-  color:
-    var(--gold);
+
+color:
+var(--gold);
 
 
-  font-size:
-    .7rem;
+font-size:.7rem;
 
+font-weight:600;
 
-  font-weight:
-    600;
+letter-spacing:.32em;
 
+text-transform:uppercase;
 
-  letter-spacing:
-    .32em;
-
-
-  text-transform:
-    uppercase;
 
 }
 
@@ -551,12 +476,11 @@ repeat(3,minmax(0,1fr));
 
 .service-name {
 
-  margin-top:
-    1.5rem;
 
+margin-top:1.25rem;
 
-  color:
-    var(--foreground);
+color:
+var(--foreground);
 
 
 }
@@ -565,12 +489,12 @@ repeat(3,minmax(0,1fr));
 
 .service-description {
 
-  margin-top:
-    1.5rem;
 
+margin-top:1rem;
 
-  color:
-    var(--taupe);
+color:
+var(--taupe);
+
 
 }
 
@@ -578,32 +502,25 @@ repeat(3,minmax(0,1fr));
 
 .service-price {
 
-  margin-top:
-    auto;
+
+margin-top:2rem;
+
+padding-top:1.5rem;
+
+width:100%;
+
+border-top:
+
+1px solid var(--line);
 
 
-  padding-top:
-    2rem;
+display:flex;
+
+justify-content:center;
 
 
-  width:
-    100%;
-
-
-  display:
-    flex;
-
-
-  justify-content:
-    center;
-
-
-  border-top:
-    1px solid var(--line);
-
-
-  color:
-    var(--dusty-pink);
+color:
+var(--dusty-pink);
 
 
 }
@@ -611,22 +528,28 @@ repeat(3,minmax(0,1fr));
 
 
 /* =============================================================================
-SHADOWS
+CARD SYSTEM
 ============================================================================= */
 
-.shadow-soft {
 
-box-shadow:
-0 12px 32px rgba(59,42,38,.04),
-0 2px 8px rgba(59,42,38,.03);
-
-}
+.card-luxury {
 
 
-.shadow-card {
+background:
+rgba(255,255,255,.92);
 
-box-shadow:
-0 24px 70px rgba(59,42,38,.06);
+
+backdrop-filter:
+blur(20px);
+
+
+border:
+
+1px solid var(--line);
+
+
+border-radius:28px;
+
 
 }
 
@@ -636,7 +559,9 @@ box-shadow:
 BUTTONS
 ============================================================================= */
 
+
 .btn-primary {
+
 
 display:inline-flex;
 
@@ -644,17 +569,26 @@ align-items:center;
 
 justify-content:center;
 
-padding:1.05rem 2.6rem;
+
+padding:
+1.05rem 2.6rem;
+
 
 border-radius:999px;
 
-background:var(--plum);
+
+background:
+var(--plum);
+
 
 color:white;
 
+
 letter-spacing:.2em;
 
+
 text-transform:uppercase;
+
 
 }
 
@@ -664,13 +598,13 @@ text-transform:uppercase;
 BACKGROUND HELPERS
 ============================================================================= */
 
+
 .bg-soft {
 
 background:
 var(--background-secondary);
 
 }
-
 
 
 .bg-card {
@@ -681,10 +615,10 @@ var(--background-card);
 }
 
 
-
 .bg-luxury {
 
 background:
+
 linear-gradient(
 to bottom,
 #FCF8F3,
@@ -699,13 +633,16 @@ to bottom,
 RESPONSIVE
 ============================================================================= */
 
+
 @media(max-width:768px){
 
-.section-padding{
+
+.section-padding {
 
 padding-block:
-var(--space-section-mobile);
+4rem;
 
 }
+
 
 }
