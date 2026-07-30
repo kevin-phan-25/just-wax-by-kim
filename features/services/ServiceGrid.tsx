@@ -1,35 +1,49 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ServiceGrid.tsx
+ * File:
+ * ServiceGrid.tsx
  *
  * Description:
- * Service card collection.
- *
- * Changes:
- *
- * - July 29, 2026
- *
- *   - Removed fixed sizing
- *   - Removed scaling constraints
- *   - Uses responsive natural grid flow
- *   - Cleaner editorial spacing
+ * Reusable luxury service card grid.
  *
  * -----------------------------------------------------------------------------
  */
 
 import ServiceCard from "./ServiceCard";
-import { services } from "./services.data";
+import type { Service } from "./services.types";
 
 
-export default function ServiceGrid() {
+interface ServiceGridProps {
+  services: Service[];
+}
+
+
+export default function ServiceGrid({
+  services,
+}: ServiceGridProps) {
+
   return (
-    <>
+
+    <div
+      className="
+        grid
+        gap-8
+        md:grid-cols-2
+        lg:grid-cols-3
+      "
+    >
+
       {services.map((service) => (
+
         <ServiceCard
           key={service.id}
           service={service}
         />
+
       ))}
-    </>
+
+    </div>
+
   );
+
 }

@@ -1,22 +1,13 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ServiceCard.tsx
+ * File:
+ * ServiceCard.tsx
  *
  * Description:
- * Luxury service presentation card.
- *
- * Changes:
- *
- * - July 29, 2026
- *
- *   - Removed fixed sizing constraints
- *   - Removed visual clutter
- *   - Unified typography and colors
- *   - Natural content-based height
+ * Luxury service pricing card.
  *
  * -----------------------------------------------------------------------------
  */
-
 
 import type { Service } from "./services.types";
 
@@ -31,81 +22,101 @@ export default function ServiceCard({
 }: ServiceCardProps) {
 
 
-  return (
+return (
 
-    <article
+<article
+  className="
+    rounded-[28px]
+    border
+    border-[#E8DDD8]
+    bg-white/70
+    p-8
+    backdrop-blur-sm
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:shadow-xl
+  "
+>
+
+
+  <span
+    className="
+      text-xs
+      uppercase
+      tracking-[0.35em]
+      text-[#8C5A6B]
+    "
+  >
+    {service.category}
+  </span>
+
+
+
+  <h3
+    className="
+      mt-5
+      font-serif
+      text-2xl
+      text-[#3B2A26]
+    "
+  >
+    {service.title}
+  </h3>
+
+
+
+  <p
+    className="
+      mt-4
+      leading-relaxed
+      text-[#8C7468]
+    "
+  >
+    {service.description}
+  </p>
+
+
+
+  <div
+    className="
+      mt-8
+      flex
+      items-center
+      justify-between
+      border-t
+      border-[#E8DDD8]
+      pt-6
+    "
+  >
+
+    <span
       className="
-        service-card
-        text-center
-        p-8
+        text-sm
+        text-[#8C7468]
       "
     >
-
-
-      <span
-        className="
-          uppercase
-          tracking-[0.3em]
-          text-sm
-          text-brand-gold
-        "
-      >
-        {service.category}
-      </span>
+      {service.duration}
+    </span>
 
 
 
-      <h3
-        className="
-          mt-5
-          font-medium
-          tracking-wide
-          text-brand-espresso
-        "
-      >
-        {service.title}
-      </h3>
+    <span
+      className="
+        text-xl
+        font-medium
+        text-[#8C5A6B]
+      "
+    >
+      {service.price}
+    </span>
 
 
-
-      <p
-        className="
-          mt-5
-          leading-relaxed
-          text-brand-taupe
-        "
-      >
-        {service.description}
-      </p>
+  </div>
 
 
+</article>
 
-      <div
-        className="
-          mt-8
-          pt-6
-          border-t
-          border-brand-border
-          flex
-          justify-center
-        "
-      >
-
-        <span
-          className="
-            font-medium
-            text-brand-dusty-pink
-          "
-        >
-          {service.price}
-        </span>
-
-
-      </div>
-
-
-    </article>
-
-  );
+);
 
 }

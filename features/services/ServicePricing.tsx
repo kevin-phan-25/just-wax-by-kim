@@ -1,37 +1,19 @@
-/**
- * -----------------------------------------------------------------------------
- * File: ServicePricing.tsx
- *
- * Description:
- * Quiet pricing note below services.
- *
- * Changes:
- *
- * - July 29, 2026
- *
- *   - Matched luxury theme
- *   - Reduced visual prominence
- *
- * -----------------------------------------------------------------------------
- */
+export default function ServicePricing(){
 
+return(
 
-export default function ServicePricing() {
+<p
+className="
+mt-10
+text-center
+text-sm
+text-[#8C7468]
+"
+>
+Pricing may vary based on customization.
+Consultation available before your appointment.
+</p>
 
-  return (
-
-    <p
-      className="
-        text-sm
-        leading-relaxed
-        text-brand-taupe
-      "
-    >
-      Pricing may vary based on customization.
-      <br />
-      Consultation available before your appointment.
-    </p>
-
-  );
+);
 
 }
