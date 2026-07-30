@@ -2,12 +2,13 @@
  * -----------------------------------------------------------------------------
  * File: layout.tsx
  *
- * Created: July 27, 2026
+ * Created:
+ * July 27, 2026
  *
  * Description:
  * Root application layout.
  *
- * This file controls:
+ * Controls:
  * - Global metadata
  * - SEO structured data
  * - Fonts
@@ -15,66 +16,32 @@
  * - Site footer
  * - Global providers
  *
- * Changes:
- * - July 27, 2026
- *   - Added v1.0.0 production SEO.
- *
- * - July 27, 2026
- *   - Added v1.0.1 luxury typography system.
- *   - Added Playfair Display heading font.
- *   - Added Montserrat body font.
- *   - Added Vercel Analytics provider.
- *
  * -----------------------------------------------------------------------------
  */
 
-
 import type { Metadata } from "next";
-
 
 import Script from "next/script";
 
-
 import Navbar from "@/components/layout/Navbar";
-
 import Footer from "@/components/layout/Footer";
-
 
 import Providers from "./providers";
 
+import {
+  createMetadata,
+} from "@/lib/metadata";
 
 import {
-
-createMetadata
-
-}
-
-from "@/lib/metadata";
-
+  businessSchema,
+} from "@/lib/seo";
 
 import {
-
-businessSchema
-
-}
-
-from "@/lib/seo";
-
-
-import {
-
-headingFont,
-
-bodyFont
-
-}
-
-from "@/config/fonts";
-
+  headingFont,
+  bodyFont,
+} from "@/config/fonts";
 
 import "./globals.css";
-
-
 
 
 
@@ -84,129 +51,80 @@ import "./globals.css";
  * -----------------------------------------------------------------------------
  */
 
-
-export const metadata: Metadata = createMetadata();
-
-
-
+export const metadata: Metadata =
+  createMetadata();
 
 
 
 export default function RootLayout({
-
-children
-
+  children,
 }: Readonly<{
-
-children: React.ReactNode;
-
+  children: React.ReactNode;
 }>) {
 
 
+  return (
 
-return (
+    <html
+      lang="en"
+      className={headingFont.className}
+    >
 
+      <body
+        className={`
+          ${bodyFont.className}
 
-<html
-
-lang="en"
-
-className={headingFont.className}
-
->
-
-
-<body
-
-className={bodyFont.className}
-
->
+          min-h-screen
+          flex
+          flex-col
+        `}
+      >
 
 
-
-{/*
-  Google / Search Engine Structured Data
-
-  Helps Google understand:
-
-  - Business type
-  - Location
-  - Brand
-  - Website identity
-
-*/}
-
-
-<Script
-
-id="business-schema"
-
-type="application/ld+json"
-
-strategy="afterInteractive"
-
-dangerouslySetInnerHTML={{
-
-__html:
-
-JSON.stringify(
-
-businessSchema()
-
-)
-
-}}
-
-/>
+        {/* SEO Structured Data */}
+        <Script
+          id="business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html:
+              JSON.stringify(
+                businessSchema
+              ),
+          }}
+        />
 
 
 
+        <Providers>
 
 
-<Providers>
-
-
-
-<Navbar />
-
+          {/* Navigation */}
+          <Navbar />
 
 
 
-<main
-
-id="main-content"
-
-className="
-min-h-screen
-"
-
->
-
-
-{children}
-
-
-</main>
+          {/* Page Content */}
+          <main
+            className="
+              flex-1
+            "
+          >
+            {children}
+          </main>
 
 
 
-
-<Footer />
-
-
-
-</Providers>
+          {/* Footer */}
+          <Footer />
 
 
+        </Providers>
 
 
-</body>
+      </body>
 
+    </html>
 
-</html>
-
-
-);
-
+  );
 
 }
