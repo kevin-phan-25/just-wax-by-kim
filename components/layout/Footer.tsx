@@ -2,218 +2,192 @@
  * -----------------------------------------------------------------------------
  * File: Footer.tsx
  *
- * Created: July 27, 2026
+ * Created:
+ * July 27, 2026
  *
  * Description:
  * Luxury footer section.
  *
  * Changes:
- * - July 27, 2026
- *   - Added v0.9.0 footer redesign.
+ *
+ * - July 30, 2026
+ *   • Fixed JSX structure
+ *   • Removed fixed sizing constraints
+ *   • Matched luxury brand theme
+ *   • Improved responsive layout
  *
  * -----------------------------------------------------------------------------
  */
 
+import {
+  business,
+} from "@/constants/business";
 
 import {
+  socialLinks,
+} from "@/constants/social";
+
+
+export default function Footer() {
+
+  return (
+
+    <footer
+      className="
+        bg-brand-black
+        px-6
+        py-16
+        text-white
+      "
+    >
+
+      <div
+        className="
+          mx-auto
+          max-w-7xl
+          grid
+          gap-10
+          md:grid-cols-3
+        "
+      >
+
+
+        {/* Brand */}
+        <div>
+
+          <h2
+            className="
+              font-serif
+              text-3xl
+            "
+          >
+            {business.name}
+          </h2>
 
-business
 
-}
+          <p
+            className="
+              mt-3
+              text-white/70
+              leading-relaxed
+            "
+          >
+            {business.tagline}
+          </p>
 
-from "@/constants/business";
+        </div>
 
 
-import {
 
-socialLinks
+        {/* Social */}
+        <div>
 
-}
+          <h3
+            className="
+              text-sm
+              uppercase
+              tracking-[0.25em]
+            "
+          >
+            Connect
+          </h3>
 
-from "@/constants/social";
 
+          <div
+            className="
+              mt-5
+              space-y-3
+            "
+          >
 
+            {socialLinks.map((item) => (
 
-export default function Footer(){
+              <a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  block
+                  text-white/70
+                  transition-colors
+                  hover:text-white
+                "
+              >
+                {item.name}
+              </a>
 
+            ))}
 
-return (
+          </div>
 
-<footer
+        </div>
 
-className="
-bg-brand-black
-px-6
-py-16
-text-white
-"
 
->
 
+        {/* Contact */}
+        <div>
 
-<div
+          <h3
+            className="
+              text-sm
+              uppercase
+              tracking-[0.25em]
+            "
+          >
+            Contact
+          </h3>
 
-className="
-mx-auto
-max-w-7xl
-grid
-gap-10
-md:grid-cols-3
-"
 
->
+          <div
+            className="
+              mt-5
+              space-y-3
+              text-white/70
+            "
+          >
 
+            <p>
+              {business.location}
+            </p>
 
-<div>
 
+            <p>
+              {business.phone}
+            </p>
 
-<h2
 
-className="
-text-2xl
-"
+          </div>
 
->
+        </div>
 
-{business.name}
 
-</h2>
+      </div>
 
 
-<p className="
-mt-4
-text-white/70
-"
 
->
+      {/* Bottom */}
+      <div
+        className="
+          mx-auto
+          mt-12
+          max-w-7xl
+          border-t
+          border-white/20
+          pt-6
+          text-center
+          text-sm
+          text-white/60
+        "
+      >
 
-{business.tagline}
+        © 2026 {business.name}. All rights reserved.
 
-</p>
+      </div>
 
 
-</div>
+    </footer>
 
-
-
-
-<div>
-
-
-<h3>
-
-Connect
-
-</h3>
-
-
-<div className="
-mt-4
-space-y-3
-"
-
->
-
-
-{
-
-socialLinks.map(item=>(
-
-
-<a
-
-key={item.name}
-
-href={item.url}
-
-className="
-block
-text-white/70
-hover:text-white
-"
-
->
-
-{item.name}
-
-</a>
-
-
-))
-
-
-}
-
-
-</div>
-
-
-</div>
-
-
-
-
-<div>
-
-
-<h3>
-
-Contact
-
-</h3>
-
-
-<p className="
-mt-4
-text-white/70
-"
-
->
-
-{business.location}
-
-</p>
-
-
-<p>
-
-{business.phone}
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<div
-
-className="
-mt-12
-border-t
-border-white/20
-pt-6
-text-center
-text-sm
-text-white/60
-"
-
->
-
-
-© 2026 {business.name}. All rights reserved.
-
-
-</div>
-
-
-
-</footer>
-
-);
-
+  );
 
 }
