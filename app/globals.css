@@ -402,7 +402,7 @@ SERVICE CARD
 
 width:100%;
 
-max-width:280px;
+max-width:150px;
 
 min-width:0;
 
@@ -421,13 +421,13 @@ border:
 
 1px solid var(--line);
 
-border-radius:28px;
+border-radius:18px;
 
-padding:1.5rem;
+padding:.85rem;
 
 box-shadow:
 
-0 24px 70px rgba(59,42,38,.06);
+0 12px 35px rgba(59,42,38,.05);
 
 
 transition:
@@ -443,14 +443,14 @@ border-color .4s ease;
 .service-card:hover {
 
 transform:
-translateY(-6px);
+translateY(-4px);
 
 border-color:
 var(--dusty-pink);
 
 box-shadow:
 
-0 30px 80px rgba(59,42,38,.08);
+0 18px 45px rgba(59,42,38,.07);
 
 }
 
@@ -461,11 +461,11 @@ box-shadow:
 color:
 var(--mauve);
 
-font-size:.7rem;
+font-size:.55rem;
 
 font-weight:600;
 
-letter-spacing:.32em;
+letter-spacing:.25em;
 
 text-transform:uppercase;
 
@@ -475,7 +475,9 @@ text-transform:uppercase;
 
 .service-name {
 
-margin-top:1rem;
+margin-top:.6rem;
+
+font-size:1.1rem;
 
 color:
 var(--foreground);
@@ -486,14 +488,14 @@ var(--foreground);
 
 .service-description {
 
-margin-top:.75rem;
+margin-top:.5rem;
+
+font-size:.7rem;
+
+line-height:1.6;
 
 color:
 var(--taupe);
-
-font-size:.9rem;
-
-line-height:1.8;
 
 }
 
@@ -501,9 +503,9 @@ line-height:1.8;
 
 .service-price {
 
-margin-top:1.5rem;
+margin-top:1rem;
 
-padding-top:1rem;
+padding-top:.75rem;
 
 width:100%;
 
@@ -515,6 +517,8 @@ display:flex;
 
 justify-content:center;
 
+font-size:.85rem;
+
 color:
 var(--dusty-pink);
 
@@ -522,22 +526,27 @@ var(--dusty-pink);
 
 
 
-/* Mobile refinement */
-
 @media(max-width:640px){
 
 .service-card {
 
-max-width:240px;
+max-width:150px;
 
-padding:1.25rem;
+padding:.75rem;
+
+}
+
+
+.service-name {
+
+font-size:1rem;
 
 }
 
 
 .service-description {
 
-font-size:.85rem;
+font-size:.65rem;
 
 }
 
