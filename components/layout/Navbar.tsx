@@ -1,233 +1,140 @@
-/**
- * -----------------------------------------------------------------------------
- * File: components/layout/Navbar.tsx
- *
- * Date: July 29, 2026
- *
- * Description:
- * Fixed top navigation for Just Wax by Kim.
- *
- * Changes:
- * • Navbar height: 168px
- * • Logo anchored left
- * • Navigation typography increased
- * • Luxury spacing preserved
- * -----------------------------------------------------------------------------
- */
+{/* RIGHT NAVIGATION */}
+<nav className="flex-1 flex items-center justify-center">
 
-"use client";
+  <ul
+    className="
+      hidden xl:flex
+      items-center
+      justify-center
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { Logo } from "@/components/ui/Logo";
-import { MobileMenu } from "@/components/layout/MobileMenu";
-
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Booking", href: "#booking" },
-  { label: "Contact", href: "#contact" },
-] as const;
-
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 16);
-    };
-
-    onScroll();
-
-    window.addEventListener("scroll", onScroll, {
-      passive: true,
-    });
-
-    return () =>
-      window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <>
-      <header
-        className={`
-          fixed top-0 left-0 right-0 z-50
-          h-[168px]
-          transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
-          ${
-            scrolled
-              ? "bg-[#FCF8F3]/95 backdrop-blur-xl border-b border-[#E8DDD8] shadow-[0_6px_24px_rgba(59,42,38,0.05)]"
-              : "bg-[#FCF8F3]/90 backdrop-blur-md border-b border-transparent"
-          }
-        `}
-      >
-        <div
+      gap-10
+      2xl:gap-14
+    "
+  >
+    {NAV_LINKS.map((link) => (
+      <li key={link.href}>
+        <Link
+          href={link.href}
           className="
-            h-full
-            w-full
-            px-8
-            lg:px-12
-            flex
-            items-center
-            justify-between
+            relative
+
+            text-[3.4rem]
+            font-semibold
+            uppercase
+            tracking-[0.18em]
+
+            text-[#3B2A26]/80
+
+            transition-colors
+            duration-300
+
+            whitespace-nowrap
+
+            hover:text-[#8C5A6B]
+
+            after:absolute
+            after:left-0
+            after:-bottom-[8px]
+            after:h-px
+            after:w-0
+            after:bg-[#D4A9B6]
+            after:transition-all
+            after:duration-300
+
+            hover:after:w-full
           "
         >
-          {/* LEFT LOGO */}
-          <div className="flex items-center">
-            <Logo />
-          </div>
+          {link.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
 
 
-          {/* RIGHT NAVIGATION */}
-          <nav className="flex items-center gap-8 xl:gap-12">
+  {/* BOOK BUTTON */}
+  <Link
+    href="#booking"
+    className="
+      hidden
+      sm:inline-flex
 
-            <ul
-              className="
-                hidden xl:flex
-                items-center
-                gap-7
-                2xl:gap-9
-              "
-            >
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="
-                      relative
+      ml-12
 
-                      text-[0.85rem]
-                      font-semibold
-                      uppercase
-                      tracking-[0.18em]
+      items-center
+      justify-center
 
-                      text-[#3B2A26]/80
+      rounded-full
 
-                      transition-colors
-                      duration-300
+      border-2
+      border-[#8C5A6B]
 
-                      whitespace-nowrap
+      bg-transparent
 
-                      hover:text-[#8C5A6B]
+      px-8
+      py-4
 
-                      after:absolute
-                      after:left-0
-                      after:-bottom-[5px]
-                      after:h-px
-                      after:w-0
-                      after:bg-[#D4A9B6]
-                      after:transition-all
-                      after:duration-300
+      text-[0.85rem]
+      font-semibold
+      uppercase
+      tracking-[0.18em]
 
-                      hover:after:w-full
-                    "
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      text-[#8C5A6B]
+
+      transition-all
+      duration-300
+
+      whitespace-nowrap
+
+      hover:border-[#6E4A5]
+      hover:text-[#6E4A55]
+      hover:bg-[#F6E7E1]/60
+    "
+  >
+    Book Appointment
+  </Link>
 
 
-            {/* BOOK BUTTON */}
-            <Link
-              href="#booking"
-              className="
-                hidden
-                sm:inline-flex
+  {/* MOBILE MENU */}
+  <button
+    type="button"
+    aria-label={
+      mobileOpen
+        ? "Close menu"
+        : "Open menu"
+    }
+    aria-expanded={mobileOpen}
+    onClick={() =>
+      setMobileOpen((v) => !v)
+    }
+    className="
+      xl:hidden
 
-                items-center
-                justify-center
+      flex
+      h-11
+      w-11
 
-                rounded-full
+      items-center
+      justify-center
 
-                border-2
-                border-[#8C5A6B]
+      rounded-full
 
-                bg-transparent
+      border
+      border-[#E8DDD8]
 
-                px-8
-                py-4
+      bg-white/90
 
-                text-[0.85rem]
-                font-semibold
-                uppercase
-                tracking-[0.18em]
+      text-[#3B2A26]
+    "
+  >
+    <span className="sr-only">
+      Menu
+    </span>
 
-                text-[#8C5A6B]
+    <div className="flex flex-col gap-[5px]">
+      <span className="block h-px w-4 bg-current" />
+      <span className="block h-px w-4 bg-current" />
+      <span className="block h-px w-4 bg-current" />
+    </div>
+  </button>
 
-                transition-all
-                duration-300
-
-                whitespace-nowrap
-
-                hover:border-[#6E4A55]
-                hover:text-[#6E4A55]
-                hover:bg-[#F6E7E1]/60
-              "
-            >
-              Book Appointment
-            </Link>
-
-
-            {/* MOBILE MENU */}
-            <button
-              type="button"
-              aria-label={
-                mobileOpen
-                  ? "Close menu"
-                  : "Open menu"
-              }
-              aria-expanded={mobileOpen}
-              onClick={() =>
-                setMobileOpen((v) => !v)
-              }
-              className="
-                xl:hidden
-
-                flex
-                h-11
-                w-11
-
-                items-center
-                justify-center
-
-                rounded-full
-
-                border
-                border-[#E8DDD8]
-
-                bg-white/90
-
-                text-[#3B2A26]
-              "
-            >
-              <span className="sr-only">
-                Menu
-              </span>
-
-              <div className="flex flex-col gap-[5px]">
-                <span className="block h-px w-4 bg-current" />
-                <span className="block h-px w-4 bg-current" />
-                <span className="block h-px w-4 bg-current" />
-              </div>
-            </button>
-
-          </nav>
-        </div>
-      </header>
-
-
-      <MobileMenu
-        open={mobileOpen}
-        onClose={() => setMobileOpen(false)}
-        links={NAV_LINKS}
-      />
-    </>
-  );
-}
+</nav>
