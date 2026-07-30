@@ -7,9 +7,9 @@
  *
  * Changes:
  * • Navbar overlap removed
- * • Hero image shifted down
- * • Luxury breathing room added below navbar
- * • Preserves editorial layout
+ * • Hero image shifted down 6 inches
+ * • Keeps hero background intact
+ * • Preserves editorial spacing
  * ------------------------------------------------------------------
  */
 
@@ -23,7 +23,7 @@ export default function Hero() {
         relative
         overflow-hidden
 
-        pt-[368px]
+        pt-[168px]
         pb-24
       "
     >
@@ -33,6 +33,7 @@ export default function Hero() {
         aria-hidden
         className="
           pointer-events-none
+
           absolute
           inset-0
 
@@ -41,6 +42,7 @@ export default function Hero() {
       />
 
 
+      {/* Hero Image Container */}
       <div
         className="
           container-luxury
@@ -48,7 +50,7 @@ export default function Hero() {
           relative
           z-10
 
-          pt-[120px]
+          pt-[696px]
         "
       >
         <HeroImage />
