@@ -1,65 +1,89 @@
 /**
- * ------------------------------------------------------------------
- * File: features/about/Credentials.tsx
+ * -----------------------------------------------------------------------------
+ * File: features/about/AboutContent.tsx
+ *
+ * Date: July 29, 2026
  *
  * Description:
- * Right-side editorial experience highlights.
- * ------------------------------------------------------------------
+ * Editorial text content for About section.
+ *
+ * Changes:
+ * • Optimized for floating portrait layout
+ * • Removed credential dependency
+ * • Increased editorial spacing
+ * • Allows natural text wrapping around image
+ * -----------------------------------------------------------------------------
  */
 
-import { credentials } from "./about.data";
+import { aboutContent } from "./about.data";
 
-export default function Credentials() {
+export default function AboutContent() {
   return (
-    <div
-      className="
-        space-y-10
-      "
-    >
+    <div className="w-full">
 
-      {credentials.map((item, index) => (
-        <div
-          key={item.title}
-          className={`
-            ${
-              index !== credentials.length - 1
-                ? "pb-8 border-b border-[#E8DDD8]"
-                : ""
-            }
-          `}
-        >
-
-          <h3
-            className="
-              mb-3
-
-              font-serif
-
-              text-[1.35rem]
-
-              leading-tight
-
-              text-[#3B2A26]
-            "
-          >
-            {item.title}
-          </h3>
+      {/* Eyebrow */}
+      <p
+        className="
+          mb-5
+          text-[0.62rem]
+          uppercase
+          tracking-[0.38em]
+          text-[#B28A62]
+        "
+      >
+        {aboutContent.eyebrow}
+      </p>
 
 
-          <p
-            className="
-              text-[0.95rem]
+      {/* Main Heading */}
+      <h2
+        className="
+          max-w-3xl
+          font-serif
+          text-3xl
+          sm:text-[2.2rem]
+          lg:text-[2.65rem]
+          leading-[1.15]
+          tracking-[-0.03em]
+          text-[#3B2A26]
+        "
+      >
+        {aboutContent.title}
+      </h2>
 
-              leading-[1.9]
 
-              text-[#8A776E]
-            "
-          >
-            {item.description}
-          </p>
+      {/* Accent */}
+      <div
+        className="
+          my-8
+          h-px
+          w-14
+          bg-[#D4A9B6]
+        "
+      />
 
-        </div>
-      ))}
+
+      {/* Editorial Body */}
+      <div
+        className="
+          max-w-3xl
+          text-[0.95rem]
+          sm:text-[1rem]
+          leading-[2]
+          text-[#7E6B63]
+        "
+      >
+        <p>
+          {aboutContent.description}
+        </p>
+
+        <p className="mt-8">
+          At Just Wax by Kim, every detail is thoughtfully considered to create
+          an experience that feels calm, welcoming, and personalized. From the
+          moment you arrive, the focus is on comfort, confidence, and helping
+          you feel beautifully cared for.
+        </p>
+      </div>
 
     </div>
   );
