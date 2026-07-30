@@ -1,14 +1,18 @@
 /**
  * -----------------------------------------------------------------------------
- * File: Testimonials.tsx
+ * File:
+ * features/testimonials/Testimonials.tsx
  *
  * Description:
- * Luxury client testimonials section.
+ * Luxury testimonials section.
  *
  * Changes:
- * - Editorial layout
- * - Improved spacing
- * - Centered presentation
+ *
+ * - Removed fixed width restrictions
+ * - Centered section typography
+ * - Expanded testimonial presentation
+ * - Improved luxury spacing
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -19,95 +23,100 @@ import {
 import TestimonialCard from "./TestimonialCard";
 
 
-export default function Testimonials() {
-  return (
-    <section
-      id="testimonials"
+export default function Testimonials(){
+
+return (
+
+<section
+  id="testimonials"
+  className="
+    bg-brand-ivory
+    px-6
+    py-24
+    w-full
+  "
+>
+
+
+  {/* HEADER */}
+  <div
+    className="
+      w-full
+      text-center
+    "
+  >
+
+    <span
       className="
-        bg-[#FCF8F3]
-        px-6
-        py-32
+        uppercase
+        tracking-[0.35em]
+        text-sm
+        text-brand-champagne
       "
     >
-
-      <div
-        className="
-          container-luxury
-        "
-      >
-
-        {/* HEADER */}
-        <header
-          className="
-            mx-auto
-            max-w-4xl
-            text-center
-          "
-        >
-
-          <span
-            className="
-              uppercase
-              tracking-[0.4em]
-              text-xs
-              font-semibold
-              text-[#8C5A6B]
-            "
-          >
-            Client Love
-          </span>
+      Client Love
+    </span>
 
 
-          <h2
-            className="
-              mt-6
-              font-serif
-              text-4xl
-              md:text-6xl
-              text-[#3B2A26]
-            "
-          >
-            Loved By Our Clients
-          </h2>
+    <h2
+      className="
+        mt-5
+        font-serif
+        text-4xl
+        md:text-5xl
+        text-[#3B2A26]
+      "
+    >
+      Loved By Our Clients
+    </h2>
 
 
-          <p
-            className="
-              mt-6
-              text-lg
-              leading-relaxed
-              text-[#8C7468]
-            "
-          >
-            Real experiences from clients who value comfort,
-            confidence, and exceptional care.
-          </p>
+    <p
+      className="
+        mt-6
+        text-lg
+        text-[#8C7468]
+        text-center
+      "
+    >
+      Real experiences from clients who value comfort,
+      confidence, and exceptional care.
+    </p>
 
-        </header>
+
+  </div>
 
 
 
-        {/* REVIEWS */}
-        <div
-          className="
-            mt-20
-            grid
-            gap-8
-            md:grid-cols-3
-          "
-        >
+  {/* TESTIMONIAL GRID */}
+  <div
+    className="
+      mt-16
+      grid
+      w-full
+      gap-8
+      sm:grid-cols-2
+      lg:grid-cols-3
+    "
+  >
 
-          {testimonials.map((item) => (
-            <TestimonialCard
-              key={item.id}
-              testimonial={item}
-            />
-          ))}
+    {
+      testimonials.map((item)=>(
 
-        </div>
+        <TestimonialCard
+          key={item.id}
+          testimonial={item}
+        />
 
-      </div>
+      ))
+    }
 
-    </section>
-  );
+
+  </div>
+
+
+</section>
+
+);
+
 }
