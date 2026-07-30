@@ -7,12 +7,14 @@
  * Description:
  * Fixed top navigation for Just Wax by Kim.
  *
- * Changes (July 29, 2026):
+ * Changes:
  * • Navbar height restored to 1.75 inches (168px)
- * • Logo constrained so it no longer hangs outside the bar
- * • Book Appointment: outline only, no solid purple on hover
+ * • Logo anchored to far left
+ * • Navigation stays aligned right
+ * • Book Appointment remains outline style
  * -----------------------------------------------------------------------------
  */
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -37,9 +39,15 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
+
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
+
+    return () =>
+      window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -55,86 +63,191 @@ export default function Navbar() {
           }
         `}
       >
-        <div className="container-luxury">
-          {/* 1.75 inches = 168px */}
-          <nav className="flex h-[168px] items-center justify-between gap-4 overflow-hidden">
-            <div className="flex-shrink-0 flex items-center h-full max-h-[168px] py-3">
-              <Logo priority />
-            </div>
+        {/* Navbar height: 168px / 1.75 inches */}
+        <div
+          className="
+            w-full
+            h-[168px]
+            px-8
+            lg:px-12
+            flex
+            items-center
+            justify-between
+          "
+        >
+          {/* LEFT - LOGO */}
+          <div className="flex items-center">
+            <Logo />
+          </div>
 
-            <div className="flex items-center gap-6 xl:gap-10 ml-auto">
-              <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="
-                        relative text-[0.65rem] font-semibold uppercase
-                        tracking-[0.15em] text-[#3B2A26]/75
-                        transition-colors duration-300 whitespace-nowrap
-                        hover:text-[#8C5A6B]
-                        after:absolute after:left-0 after:-bottom-[3px]
-                        after:h-px after:w-0 after:bg-[#D4A9B6]
-                        after:transition-all after:duration-300
-                        hover:after:w-full
-                      "
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* RIGHT - NAVIGATION */}
+          <nav className="flex items-center gap-6 xl:gap-10">
+            <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="
+                      relative
+                      text-[0.65rem]
+                      font-semibold
+                      uppercase
+                      tracking-[0.15em]
+                      text-[#3B2A26]/75
+                      transition-colors
+                      duration-300
+                      whitespace-nowrap
+                      hover:text-[#8C5A6B]
 
-              <Link
-                href="#booking"
-                className="
-                  hidden sm:inline-flex items-center justify-center
-                  rounded-full
-                  border-2 border-[#8C5A6B]
-                  bg-transparent
-                  px-7 py-3.5
-                  text-[0.72rem] font-semibold uppercase tracking-[0.16em]
-                  text-[#8C5A6B]
-                  transition-all duration-300 whitespace-nowrap
-                  hover:border-[#6E4A55]
-                  hover:text-[#6E4A55]
-                  hover:bg-[#F6E7E1]/60
-                "
-              >
-                Book Appointment
-              </Link>
+                      after:absolute
+                      after:left-0
+                      after:-bottom-[3px]
+                      after:h-px
+                      after:w-0
+                      after:bg-[#D4A9B6]
+                      after:transition-all
+                      after:duration-300
 
-              <button
-                type="button"
-                aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                aria-expanded={mobileOpen}
-                onClick={() => setMobileOpen((v) => !v)}
-                className="
-                  xl:hidden flex h-11 w-11 items-center justify-center
-                  rounded-full border border-[#E8DDD8] bg-white/90
-                  text-[#3B2A26] transition-colors hover:border-[#D4A9B6]
-                "
-              >
-                <span className="sr-only">Menu</span>
-                <div className="flex flex-col gap-[5px]">
-                  <span
-                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "translate-y-[6px] rotate-45" : ""
-                    }`}
-                  />
-                  <span
-                    className={`block h-px w-4 bg-current transition-opacity duration-300 ${
-                      mobileOpen ? "opacity-0" : ""
-                    }`}
-                  />
-                  <span
-                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "-translate-y-[6px] -rotate-45" : ""
-                    }`}
-                  />
-                </div>
-              </button>
-            </div>
+                      hover:after:w-full
+                    "
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Booking Button */}
+            <Link
+              href="#booking"
+              className="
+                hidden
+                sm:inline-flex
+                items-center
+                justify-center
+                rounded-full
+
+                border-2
+                border-[#8C5A6B]
+
+                bg-transparent
+
+                px-7
+                py-3.5
+
+                text-[0.72rem]
+                font-semibold
+                uppercase
+                tracking-[0.16em]
+
+                text-[#8C5A6B]
+
+                transition-all
+                duration-300
+
+                whitespace-nowrap
+
+                hover:border-[#6E4A55]
+                hover:text-[#6E4A55]
+                hover:bg-[#F6E7E1]/60
+              "
+            >
+              Book Appointment
+            </Link>
+
+            {/* Mobile Menu */}
+            <button
+              type="button"
+              aria-label={
+                mobileOpen
+                  ? "Close menu"
+                  : "Open menu"
+              }
+              aria-expanded={mobileOpen}
+              onClick={() =>
+                setMobileOpen((v) => !v)
+              }
+              className="
+                xl:hidden
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+
+                rounded-full
+
+                border
+                border-[#E8DDD8]
+
+                bg-white/90
+
+                text-[#3B2A26]
+
+                transition-colors
+
+                hover:border-[#D4A9B6]
+              "
+            >
+              <span className="sr-only">
+                Menu
+              </span>
+
+              <div className="flex flex-col gap-[5px]">
+                <span
+                  className={`
+                    block
+                    h-px
+                    w-4
+                    bg-current
+                    transition-transform
+                    duration-300
+                    origin-center
+
+                    ${
+                      mobileOpen
+                        ? "translate-y-[6px] rotate-45"
+                        : ""
+                    }
+                  `}
+                />
+
+                <span
+                  className={`
+                    block
+                    h-px
+                    w-4
+                    bg-current
+                    transition-opacity
+                    duration-300
+
+                    ${
+                      mobileOpen
+                        ? "opacity-0"
+                        : ""
+                    }
+                  `}
+                />
+
+                <span
+                  className={`
+                    block
+                    h-px
+                    w-4
+                    bg-current
+                    transition-transform
+                    duration-300
+                    origin-center
+
+                    ${
+                      mobileOpen
+                        ? "-translate-y-[6px] -rotate-45"
+                        : ""
+                    }
+                  `}
+                />
+              </div>
+            </button>
           </nav>
         </div>
       </header>
