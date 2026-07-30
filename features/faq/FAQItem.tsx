@@ -1,85 +1,47 @@
-/**
- * -----------------------------------------------------------------------------
- * File: FAQItem.tsx
- *
- * Created: July 27, 2026
- *
- * Description:
- * Individual FAQ accordion item.
- *
- * Changes:
- * - v1.0.2
- *   - Added animated expandable FAQ item.
- *
- * -----------------------------------------------------------------------------
- */
-
-
 "use client";
 
+import {
+  Plus,
+  Minus,
+} from "lucide-react";
 
 import {
-Plus,
-Minus
-}
-from "lucide-react";
-
+  useState,
+} from "react";
 
 import {
-useState
-}
-from "react";
-
-
-import {
-FAQItemType
-}
-from "./faq.types";
-
+  FAQItemType,
+} from "./faq.types";
 
 
 interface Props {
 
-item:FAQItemType;
+item: FAQItemType;
 
 }
 
 
-
 export default function FAQItem({
 
-item
+item,
 
 }:Props){
 
 
 const [
-
 open,
-
 setOpen
-
-]
-
-=
-
-useState(false);
+]=useState(false);
 
 
 
 return (
 
-
 <div
-
-className="
-border-b
-border-brand-champagne
-py-5
-"
-
+  className="
+    py-8
+  "
 >
-
 
 
 <button
@@ -87,90 +49,74 @@ py-5
 onClick={()=>setOpen(!open)}
 
 className="
-flex
-w-full
-items-center
-justify-between
-text-left
+  flex
+  w-full
+  items-center
+  justify-between
+  text-left
 "
 
 >
 
 
-
-<h3
-
-className="
-font-serif
-text-lg
-text-brand-dark
-"
-
+<span
+  className="
+    font-serif
+    text-xl
+    text-[#3B2A26]
+  "
 >
 
 {item.question}
 
-</h3>
-
+</span>
 
 
 {
+open
 
-open ?
+?
 
-(
-
-<Minus size={20}/>
-
-)
+<Minus
+  size={22}
+  className="text-[#8C5A6B]"
+/>
 
 :
 
-(
-
-<Plus size={20}/>
-
-)
+<Plus
+  size={22}
+  className="text-[#8C5A6B]"
+/>
 
 }
-
 
 
 </button>
 
 
 
-
 {
-
 open &&
 
-(
-
-<p
-
-className="
-mt-4
-leading-relaxed
-text-gray-600
-"
-
+<div
+  className="
+    mt-5
+    max-w-4xl
+    text-[#8C7468]
+    leading-relaxed
+  "
 >
 
 {item.answer}
 
-</p>
-
-)
+</div>
 
 }
 
 
-
 </div>
 
-
 );
-
 
 }
