@@ -1,15 +1,17 @@
 /**
  * -----------------------------------------------------------------------------
  * File:
- * ServiceCard.tsx
+ * features/services/ServiceCard.tsx
  *
  * Description:
  * Luxury service pricing card.
  *
  * Changes:
- * - Removed fixed sizing
- * - Full width card
- * - Cleaner editorial spacing
+ * - Removed fixed sizing restrictions
+ * - Uses full available grid width
+ * - Improved luxury spacing
+ * - Balanced typography
+ * - Keeps gender-neutral service presentation
  * -----------------------------------------------------------------------------
  */
 
@@ -29,9 +31,9 @@ interface ServiceCardProps {
 
 export default function ServiceCard({
 
-service,
+  service,
 
-}: ServiceCardProps){
+}: ServiceCardProps) {
 
 
 return (
@@ -39,24 +41,45 @@ return (
 <article
 
 className="
-  w-full
-  text-center
-
-  p-8
-
-  transition-all
-  duration-300
+service-card
+w-full
+flex
+flex-col
+items-center
+text-center
 "
 
 >
 
 
+{/* SERVICE CATEGORY */}
+
+<p
+
+className="
+service-category
+"
+
+>
+
+{service.category}
+
+</p>
+
+
+
+{/* SERVICE TITLE */}
+
 <h3
 
 className="
-  font-serif
-  text-2xl
-  text-[#3B2A26]
+service-name
+mt-6
+font-serif
+text-2xl
+md:text-3xl
+font-medium
+text-[#3B2A26]
 "
 
 >
@@ -67,12 +90,17 @@ className="
 
 
 
+{/* DESCRIPTION */}
+
 <p
 
 className="
-  mt-5
-  leading-relaxed
-  text-[#8C7468]
+service-description
+mt-5
+max-w-xl
+text-base
+leading-relaxed
+text-[#8C7468]
 "
 
 >
@@ -83,26 +111,49 @@ className="
 
 
 
+{/* PRICING */}
 
 <div
 
 className="
-  mt-8
-  pt-6
-
-  border-t
-  border-[#E8DDD8]
-
+service-price
+mt-auto
+pt-8
+w-full
+border-t
+border-[#E8DDD8]
+flex
+flex-col
+items-center
+gap-2
 "
 
 >
 
+
 <span
 
 className="
-  text-[#8C5A6B]
-  font-medium
-  text-lg
+text-sm
+uppercase
+tracking-[0.25em]
+text-[#9A857A]
+"
+
+>
+
+Starting At
+
+</span>
+
+
+
+<span
+
+className="
+text-xl
+font-medium
+text-[#8C5A6B]
 "
 
 >
@@ -110,6 +161,7 @@ className="
 {service.price}
 
 </span>
+
 
 
 </div>
