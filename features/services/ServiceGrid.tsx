@@ -4,46 +4,74 @@
  * ServiceGrid.tsx
  *
  * Description:
- * Reusable luxury service card grid.
+ * Service card collection.
  *
  * -----------------------------------------------------------------------------
  */
 
 import ServiceCard from "./ServiceCard";
-import type { Service } from "./services.types";
+
+import type {
+  Service,
+} from "./services.types";
+
 
 
 interface ServiceGridProps {
-  services: Service[];
+
+services: Service[];
+
 }
 
 
+
 export default function ServiceGrid({
-  services,
-}: ServiceGridProps) {
 
-  return (
+services,
 
-    <div
-      className="
-        grid
-        gap-8
-        md:grid-cols-2
-        lg:grid-cols-3
-      "
-    >
+}: ServiceGridProps){
 
-      {services.map((service) => (
 
-        <ServiceCard
-          key={service.id}
-          service={service}
-        />
+return (
 
-      ))}
+<div
 
-    </div>
+className="
 
-  );
+grid
+
+gap-8
+
+md:grid-cols-2
+
+lg:grid-cols-3
+
+"
+
+>
+
+{
+
+services.map((service)=>(
+
+
+<ServiceCard
+
+key={service.id}
+
+service={service}
+
+/>
+
+
+))
+
+}
+
+
+</div>
+
+
+);
 
 }
