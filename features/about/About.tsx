@@ -6,10 +6,10 @@
  * Luxury editorial About section.
  *
  * Changes:
- * • Text wraps around portrait
- * • Removed rigid 3-column layout
- * • Uses full available width
- * • Improved editorial balance
+ * • Portrait remains focal point
+ * • Thoughtful Experience moved right
+ * • Uses full horizontal space
+ * • Removes unused white space
  * ------------------------------------------------------------------
  */
 
@@ -23,7 +23,6 @@ export default function About() {
       id="about"
       className="
         relative
-
         py-28
       "
     >
@@ -39,54 +38,46 @@ export default function About() {
 
         <div
           className="
-            relative
+            grid
+
+            grid-cols-1
+
+            lg:grid-cols-[1.1fr_380px_0.9fr]
+
+            xl:grid-cols-[1.2fr_430px_1fr]
+
+            items-center
+
+            gap-12
+            xl:gap-16
           "
         >
 
-          {/* PORTRAIT FLOAT */}
+          {/* LEFT STORY */}
+          <div>
+            <AboutContent />
+          </div>
+
+
+          {/* CENTER PORTRAIT */}
           <div
             className="
-              float-none
-
-              lg:float-right
-
-              lg:w-[380px]
-              xl:w-[430px]
-
-              lg:ml-16
-              lg:mb-10
+              flex
+              justify-center
             "
           >
             <AboutImage />
           </div>
 
 
-          {/* TEXT CONTENT */}
+          {/* RIGHT EXPERIENCE */}
           <div
             className="
-              max-w-5xl
-            "
-          >
-            <AboutContent />
-          </div>
-
-
-          {/* CREDENTIALS */}
-          <div
-            className="
-              mt-14
-
-              max-w-xl
-
-              lg:ml-4
+              lg:pl-6
             "
           >
             <Credentials />
           </div>
-
-
-          {/* CLEAR FLOAT */}
-          <div className="clear-both" />
 
         </div>
 
