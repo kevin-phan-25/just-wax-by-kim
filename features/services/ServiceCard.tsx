@@ -7,23 +7,21 @@
  * Luxury service pricing card.
  *
  * Changes:
- * - Removed fixed sizing restrictions
- * - Uses full available grid width
- * - Improved luxury spacing
- * - Balanced typography
- * - Keeps gender-neutral service presentation
+ * - Reduced visual size
+ * - Added elegant proportions
+ * - Prevents oversized cards
  * -----------------------------------------------------------------------------
  */
 
 
 import type {
-  Service,
+Service,
 } from "./services.types";
 
 
 interface ServiceCardProps {
 
-  service: Service;
+service:Service;
 
 }
 
@@ -31,9 +29,9 @@ interface ServiceCardProps {
 
 export default function ServiceCard({
 
-  service,
+service,
 
-}: ServiceCardProps) {
+}:ServiceCardProps){
 
 
 return (
@@ -43,16 +41,10 @@ return (
 className="
 service-card
 w-full
-flex
-flex-col
-items-center
-text-center
 "
 
 >
 
-
-{/* SERVICE CATEGORY */}
 
 <p
 
@@ -68,17 +60,13 @@ service-category
 
 
 
-{/* SERVICE TITLE */}
-
 <h3
 
 className="
 service-name
-mt-6
+mt-5
 font-serif
 text-2xl
-md:text-3xl
-font-medium
 text-[#3B2A26]
 "
 
@@ -90,14 +78,11 @@ text-[#3B2A26]
 
 
 
-{/* DESCRIPTION */}
-
 <p
 
 className="
 service-description
-mt-5
-max-w-xl
+mt-4
 text-base
 leading-relaxed
 text-[#8C7468]
@@ -111,42 +96,15 @@ text-[#8C7468]
 
 
 
-{/* PRICING */}
-
 <div
 
 className="
 service-price
-mt-auto
-pt-8
-w-full
-border-t
-border-[#E8DDD8]
-flex
-flex-col
-items-center
-gap-2
+mt-8
+pt-6
 "
 
 >
-
-
-<span
-
-className="
-text-sm
-uppercase
-tracking-[0.25em]
-text-[#9A857A]
-"
-
->
-
-Starting At
-
-</span>
-
-
 
 <span
 
@@ -163,9 +121,7 @@ text-[#8C5A6B]
 </span>
 
 
-
 </div>
-
 
 
 </article>
