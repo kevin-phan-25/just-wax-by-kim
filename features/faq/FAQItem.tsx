@@ -11,8 +11,9 @@
  * - July 30, 2026
  * - Centered FAQ questions
  * - Right aligned expand icon
- * - Improved luxury editorial spacing
- * - Preserved animated accordion behavior
+ * - Added luxury answer bubble
+ * - Centered answer presentation
+ * - Improved editorial spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -83,7 +84,7 @@ return (
       w-full
       items-center
       justify-center
-      px-8
+      px-10
     "
 
   >
@@ -107,7 +108,7 @@ return (
 
 
 
-    {/* ICON */}
+    {/* EXPAND ICON */}
 
     <span
 
@@ -163,7 +164,7 @@ return (
 
 
 
-  {/* ANSWER */}
+  {/* ANSWER BUBBLE */}
 
   {
 
@@ -175,16 +176,32 @@ return (
 
         className="
           mx-auto
-          mt-6
+          mt-8
           max-w-3xl
+          rounded-[28px]
+          bg-[#F6E7E1]
+          px-8
+          py-7
           text-center
-          text-[#8C7468]
-          leading-relaxed
+          shadow-[0_15px_40px_rgba(59,42,38,0.05)]
         "
 
       >
 
-        {item.answer}
+        <p
+
+          className="
+            text-base
+            leading-relaxed
+            text-[#8C7468]
+          "
+
+        >
+
+          {item.answer}
+
+        </p>
+
 
       </div>
 
