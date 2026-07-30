@@ -19,7 +19,6 @@ import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
 import Services from "@/features/services";
-import Experience from "@/features/experience";
 import Gallery from "@/features/gallery";
 import Testimonials from "@/features/testimonials";
 import Instagram from "@/features/instagram";
@@ -35,7 +34,6 @@ export default function Home() {
       <About />
       <Mission />
       <Services />
-      <Experience />
       <Gallery />
       <Testimonials />
       <Instagram />
