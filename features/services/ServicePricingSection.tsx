@@ -7,16 +7,17 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
- * - Hero-style spacing
- * - Full width editorial layout
- * - 4 column desktop grid
- * - Balanced card sizing
- * - Centered typography
+ * - Added category hero image support
+ * - Centered page heading
+ * - Removed fixed width restrictions
+ * - Unified luxury spacing
+ *
  * -----------------------------------------------------------------------------
  */
 
+import Image from "next/image";
 
-import ServiceCard from "./ServiceCard";
+import ServiceGrid from "./ServiceGrid";
 
 import type {
   Service,
@@ -25,13 +26,15 @@ import type {
 
 interface ServicePricingSectionProps {
 
-  id:string;
+  id: string;
 
-  title:string;
+  image: string;
 
-  description:string;
+  title: string;
 
-  services:Service[];
+  description: string;
+
+  services: Service[];
 
 }
 
@@ -41,151 +44,136 @@ export default function ServicePricingSection({
 
   id,
 
+  image,
+
   title,
 
   description,
 
   services,
 
-}:ServicePricingSectionProps){
+}: ServicePricingSectionProps) {
 
 
 return (
 
 <section
 
-id={id}
+  id={id}
 
-className="
-relative
-overflow-hidden
-scroll-mt-[168px]
-pb-24
-"
+  className="
+    scroll-mt-[168px]
+    pb-32
+  "
 
 >
 
 
-{/* NAVBAR CLEARANCE */}
+  {/* HERO IMAGE */}
 
-<div
+  <div
+    className="
+      relative
+      w-full
+      overflow-hidden
+      mb-20
+    "
+  >
 
-className="
-h-[216px]
-"
+    <Image
 
-/>
+      src={image}
 
+      alt={title}
 
+      width={1600}
 
-<div
+      height={900}
 
-className="
-w-full
-px-6
-sm:px-10
-lg:px-16
-"
+      className="
+        w-full
+        h-[420px]
+        object-cover
+      "
 
->
+      priority
 
+    />
 
-
-{/* HEADER */}
-
-<div
-
-className="
-w-full
-text-center
-mb-20
-"
-
->
-
-
-<h1
-
-className="
-font-serif
-text-4xl
-md:text-5xl
-lg:text-6xl
-font-medium
-text-[#3B2A26]
-"
-
->
-
-{title}
-
-</h1>
+  </div>
 
 
 
-<p
+  {/* HEADER */}
 
-className="
-mx-auto
-mt-6
-max-w-5xl
-text-lg
-leading-relaxed
-text-[#8C7468]
-"
+  <div
 
->
+    className="
+      w-full
+      px-6
+      text-center
+      mb-20
+    "
 
-{description}
+  >
 
-</p>
+    <h1
 
+      className="
+        font-serif
+        text-4xl
+        md:text-5xl
+        text-[#3B2A26]
+      "
 
-</div>
+    >
 
+      {title}
 
-
-
-{/* GRID */}
-
-<div
-
-className="
-grid
-w-full
-grid-cols-1
-sm:grid-cols-2
-lg:grid-cols-4
-gap-8
-"
-
->
-
-
-{
-
-services.map((service)=>(
-
-
-<ServiceCard
-
-key={service.id}
-
-service={service}
-
-/>
-
-
-))
-
-}
-
-
-</div>
+    </h1>
 
 
 
-</div>
+    <p
+
+      className="
+        mt-6
+        mx-auto
+        max-w-3xl
+        text-lg
+        leading-relaxed
+        text-[#8C7468]
+      "
+
+    >
+
+      {description}
+
+    </p>
+
+
+  </div>
+
+
+
+  {/* SERVICES */}
+
+  <div
+
+    className="
+      w-full
+      px-6
+    "
+
+  >
+
+    <ServiceGrid
+
+      services={services}
+
+    />
+
+  </div>
 
 
 
