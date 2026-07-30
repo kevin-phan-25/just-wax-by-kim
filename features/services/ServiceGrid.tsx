@@ -8,9 +8,10 @@
  *
  * Changes:
  *
- * - Centered service cards
- * - Removed unnecessary width constraints
- * - Preserved responsive luxury layout
+ * - Reduced card spread
+ * - Centered cards
+ * - Improved mobile stacking
+ * - Removed oversized columns
  *
  * -----------------------------------------------------------------------------
  */
@@ -29,12 +30,17 @@ export default function ServiceGrid({
     <div
       className="
         grid
+
         w-full
-        justify-items-center
+
         grid-cols-1
-        md:grid-cols-2
+        sm:grid-cols-2
+        lg:grid-cols-3
         xl:grid-cols-4
-        gap-8
+
+        justify-items-center
+
+        gap-10
       "
     >
       {services.map((service) => (
