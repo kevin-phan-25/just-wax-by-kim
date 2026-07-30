@@ -28,7 +28,7 @@ export function HeroImage() {
         "
       >
         <Image
-          src="/hero/hero-main.jpg"
+          src="/hero/just-wax-by-kim.png"
           alt="Just Wax by Kim — refined luxury waxing experience"
           fill
           priority
