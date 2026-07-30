@@ -4,10 +4,10 @@
  * ServiceGrid.tsx
  *
  * Description:
- * Service card collection.
- *
+ * Responsive luxury service card grid.
  * -----------------------------------------------------------------------------
  */
+
 
 import ServiceCard from "./ServiceCard";
 
@@ -16,10 +16,9 @@ import type {
 } from "./services.types";
 
 
-
 interface ServiceGridProps {
 
-services: Service[];
+  services: Service[];
 
 }
 
@@ -27,7 +26,7 @@ services: Service[];
 
 export default function ServiceGrid({
 
-services,
+  services,
 
 }: ServiceGridProps){
 
@@ -37,41 +36,36 @@ return (
 <div
 
 className="
+  w-full
 
-grid
+  grid
+  grid-cols-1
+  md:grid-cols-2
+  xl:grid-cols-3
 
-gap-8
-
-md:grid-cols-2
-
-lg:grid-cols-3
-
+  gap-10
 "
 
 >
 
 {
-
 services.map((service)=>(
-
 
 <ServiceCard
 
-key={service.id}
+  key={service.id}
 
-service={service}
+  service={service}
 
 />
 
-
 ))
-
 }
-
 
 </div>
 
 
 );
+
 
 }
