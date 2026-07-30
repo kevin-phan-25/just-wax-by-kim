@@ -1,62 +1,177 @@
 /**
  * -----------------------------------------------------------------------------
  * File: Contact.tsx
- * Luxury Contact Section – Clean & Themed
+ *
+ * Description:
+ * Luxury Contact Section
+ *
+ * Changes:
+ * - July 30, 2026
+ *   • Removed fixed sizing constraints
+ *   • Removed duplicate wrappers
+ *   • Uses same editorial spacing as Hero/About/Services
+ *   • Responsive two-column layout
+ *   • Unified luxury theme
  * -----------------------------------------------------------------------------
  */
-import ContactInfo from "./ContactInfo";
-import ContactHours from "./ContactHours";
+
 import ContactForm from "./ContactForm";
+import ContactHours from "./ContactHours";
+import ContactInfo from "./ContactInfo";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#FCF8F3] py-20 lg:py-24"
+      className="
+        relative
+        overflow-hidden
+        bg-brand-ivory
+        py-24
+        lg:py-32
+      "
     >
-      {/* Decorative Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-12 h-[280px] w-[280px] -translate-x-1/2 rounded-full bg-[#D4A9B6]/5 blur-[70px]" />
+      {/* Decorative Glow */}
+      <div
+        aria-hidden="true"
+        className="
+          absolute
+          inset-0
+          pointer-events-none
+        "
+      >
+        <div
+          className="
+            absolute
+            left-1/2
+            top-0
+            h-[34rem]
+            w-[34rem]
+            -translate-x-1/2
+            rounded-full
+            bg-brand-dusty-pink/10
+            blur-3xl
+          "
+        />
+      </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+      <div
+        className="
+          relative
+          container-luxury
+        "
+      >
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="inline-block rounded-full border border-[#E8DDD8] bg-white/70 px-5 py-2 text-sm uppercase tracking-[0.4em] text-[#8C5A6B]">
+        <header
+          className="
+            mx-auto
+            text-center
+            space-y-6
+          "
+        >
+          <span
+            className="
+              service-eyebrow
+            "
+          >
             Get In Touch
           </span>
 
-          <h2 className="mt-6 font-serif text-4xl md:text-5xl leading-tight text-[#3B2A26]">
+          <h2
+            className="
+              heading-luxury
+              text-brand-espresso
+            "
+          >
             We'd Love To Hear From You
           </h2>
 
-          <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-[#8C7468]">
-            Whether you're preparing for your first appointment or simply have a question, 
-            we're here to make every interaction feel warm and personal.
+          <p
+            className="
+              lead
+            "
+          >
+            Whether you're preparing for your first appointment or simply
+            have a question, we're here to make every interaction feel warm,
+            welcoming, and beautifully personal.
           </p>
-        </div>
+        </header>
 
-        {/* Content Grid */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          {/* Left Column - Info */}
-          <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#E8DDD8] bg-white/80 p-8 lg:p-12 shadow-luxury backdrop-blur-sm">
-              <ContactInfo />
-              <div className="my-10 h-px bg-[#E8DDD8]" />
-              <ContactHours />
+        {/* Content */}
+        <div
+          className="
+            mt-20
+            grid
+            gap-10
+            lg:grid-cols-[0.9fr_1.1fr]
+            items-start
+          "
+        >
+          {/* Contact Information */}
+          <aside
+            className="
+              rounded-[2rem]
+              border
+              border-brand-border
+              bg-white/70
+              backdrop-blur-sm
+              p-8
+              lg:p-10
+            "
+          >
+            <ContactInfo />
+
+            <div
+              className="
+                my-10
+                h-px
+                bg-brand-border
+              "
+            />
+
+            <ContactHours />
+          </aside>
+
+          {/* Contact Form */}
+          <div
+            className="
+              rounded-[2rem]
+              border
+              border-brand-border
+              bg-white/70
+              backdrop-blur-sm
+              p-8
+              lg:p-10
+            "
+          >
+            <div
+              className="
+                text-center
+                space-y-4
+              "
+            >
+              <h3
+                className="
+                  font-serif
+                  text-3xl
+                  text-brand-espresso
+                "
+              >
+                Send a Message
+              </h3>
+
+              <p
+                className="
+                  text-brand-taupe
+                  leading-relaxed
+                "
+              >
+                We typically respond within a few hours during normal
+                business hours.
+              </p>
             </div>
-          </div>
 
-          {/* Right Column - Form */}
-          <div className="lg:col-span-7">
-            <div className="rounded-3xl border border-[#E8DDD8] bg-white/80 p-8 lg:p-12 shadow-luxury backdrop-blur-sm">
-              <div className="mb-10 text-center">
-                <h3 className="font-serif text-3xl text-[#3B2A26]">
-                  Send a Message
-                </h3>
-                <p className="mx-auto mt-3 max-w-md text-base text-[#8C7468]">
-                  We typically reply within a few hours during studio hours.
-                </p>
-              </div>
-
+            <div className="mt-10">
               <ContactForm />
             </div>
           </div>
