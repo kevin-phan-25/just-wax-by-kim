@@ -6,8 +6,13 @@
  * Description:
  * Luxury service pricing card.
  *
+ * Changes:
+ * - Removed fixed sizing
+ * - Full width card
+ * - Cleaner editorial spacing
  * -----------------------------------------------------------------------------
  */
+
 
 import type {
   Service,
@@ -24,9 +29,9 @@ interface ServiceCardProps {
 
 export default function ServiceCard({
 
-  service,
+service,
 
-}: ServiceCardProps) {
+}: ServiceCardProps){
 
 
 return (
@@ -34,11 +39,13 @@ return (
 <article
 
 className="
+  w-full
+  text-center
 
-p-8
+  p-8
 
-text-center
-
+  transition-all
+  duration-300
 "
 
 >
@@ -47,13 +54,9 @@ text-center
 <h3
 
 className="
-
-font-serif
-
-text-2xl
-
-text-[#3B2A26]
-
+  font-serif
+  text-2xl
+  text-[#3B2A26]
 "
 
 >
@@ -67,13 +70,9 @@ text-[#3B2A26]
 <p
 
 className="
-
-mt-4
-
-leading-relaxed
-
-text-[#8C7468]
-
+  mt-5
+  leading-relaxed
+  text-[#8C7468]
 "
 
 >
@@ -88,28 +87,22 @@ text-[#8C7468]
 <div
 
 className="
+  mt-8
+  pt-6
 
-mt-6
-
-pt-6
-
-border-t
-
-border-[#E8DDD8]
+  border-t
+  border-[#E8DDD8]
 
 "
 
 >
 
-
 <span
 
 className="
-
-text-[#8C5A6B]
-
-font-medium
-
+  text-[#8C5A6B]
+  font-medium
+  text-lg
 "
 
 >
@@ -122,9 +115,11 @@ font-medium
 </div>
 
 
+
 </article>
 
 
 );
+
 
 }
