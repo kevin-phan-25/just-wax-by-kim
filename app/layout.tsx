@@ -2,9 +2,6 @@
  * -----------------------------------------------------------------------------
  * File: layout.tsx
  *
- * Created:
- * July 27, 2026
- *
  * Description:
  * Root application layout.
  *
@@ -45,12 +42,6 @@ import "./globals.css";
 
 
 
-/**
- * -----------------------------------------------------------------------------
- * Global SEO Metadata
- * -----------------------------------------------------------------------------
- */
-
 export const metadata: Metadata =
   createMetadata();
 
@@ -81,7 +72,7 @@ export default function RootLayout({
       >
 
 
-        {/* SEO Structured Data */}
+        {/* SEO */}
         <Script
           id="business-schema"
           type="application/ld+json"
@@ -97,13 +88,9 @@ export default function RootLayout({
 
         <Providers>
 
-
-          {/* Navigation */}
           <Navbar />
 
 
-
-          {/* Page Content */}
           <main
             className="
               flex-1
@@ -113,12 +100,11 @@ export default function RootLayout({
           </main>
 
 
-
-          {/* Footer */}
-          <Footer />
-
-
         </Providers>
+
+
+
+        <Footer />
 
 
       </body>
