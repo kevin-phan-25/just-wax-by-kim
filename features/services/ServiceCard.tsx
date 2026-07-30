@@ -6,128 +6,86 @@
  * Description:
  * Luxury service pricing card.
  *
- * Changes:
- * - Reduced visual size
- * - Added elegant proportions
- * - Prevents oversized cards
  * -----------------------------------------------------------------------------
  */
 
-
 import type {
-Service,
+  Service,
 } from "./services.types";
 
 
 interface ServiceCardProps {
-
-service:Service;
-
+  service: Service;
 }
 
 
-
 export default function ServiceCard({
+  service,
+}: ServiceCardProps) {
 
-service,
+  return (
 
-}:ServiceCardProps){
+    <article
+      className="
+        service-card
+      "
+    >
 
-
-return (
-
-<article
-
-className="
-service-card
-w-full
-"
-
->
-
-
-<p
-
-className="
-service-category
-"
-
->
-
-{service.category}
-
-</p>
+      {/* SERVICE NAME */}
+      <h3
+        className="
+          service-name
+          font-serif
+          text-2xl
+          text-[#3B2A26]
+        "
+      >
+        {service.title}
+      </h3>
 
 
-
-<h3
-
-className="
-service-name
-mt-5
-font-serif
-text-2xl
-text-[#3B2A26]
-"
-
->
-
-{service.title}
-
-</h3>
+      {/* DESCRIPTION */}
+      <p
+        className="
+          service-description
+          mt-4
+          text-center
+          leading-relaxed
+          text-[#8C7468]
+        "
+      >
+        {service.description}
+      </p>
 
 
+      {/* PRICE */}
+      <div
+        className="
+          service-price
+          mt-8
+          pt-6
+          border-t
+          border-[#E8DDD8]
+          w-full
+          text-center
+        "
+      >
 
-<p
+        <span
+          className="
+            text-[#D4A9B6]
+            font-medium
+            tracking-wide
+          "
+        >
+          {service.price}
+        </span>
 
-className="
-service-description
-mt-4
-text-base
-leading-relaxed
-text-[#8C7468]
-"
-
->
-
-{service.description}
-
-</p>
-
-
-
-<div
-
-className="
-service-price
-mt-8
-pt-6
-"
-
->
-
-<span
-
-className="
-text-xl
-font-medium
-text-[#8C5A6B]
-"
-
->
-
-{service.price}
-
-</span>
+      </div>
 
 
-</div>
+    </article>
 
-
-</article>
-
-
-);
-
+  );
 
 }
