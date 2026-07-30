@@ -8,10 +8,10 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes:
- * • Navbar height restored to 1.75 inches (168px)
- * • Logo anchored to far left
- * • Navigation stays aligned right
- * • Book Appointment remains outline style
+ * • Navbar height: 168px
+ * • Logo anchored left
+ * • Navigation typography increased
+ * • Luxury spacing preserved
  * -----------------------------------------------------------------------------
  */
 
@@ -38,7 +38,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 16);
+    };
 
     onScroll();
 
@@ -55,6 +57,7 @@ export default function Navbar() {
       <header
         className={`
           fixed top-0 left-0 right-0 z-50
+          h-[168px]
           transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)]
           ${
             scrolled
@@ -63,11 +66,10 @@ export default function Navbar() {
           }
         `}
       >
-        {/* Navbar height: 168px / 1.75 inches */}
         <div
           className="
+            h-full
             w-full
-            h-[168px]
             px-8
             lg:px-12
             flex
@@ -75,33 +77,47 @@ export default function Navbar() {
             justify-between
           "
         >
-          {/* LEFT - LOGO */}
+          {/* LEFT LOGO */}
           <div className="flex items-center">
             <Logo />
           </div>
 
-          {/* RIGHT - NAVIGATION */}
-          <nav className="flex items-center gap-6 xl:gap-10">
-            <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
+
+          {/* RIGHT NAVIGATION */}
+          <nav className="flex items-center gap-8 xl:gap-12">
+
+            <ul
+              className="
+                hidden xl:flex
+                items-center
+                gap-7
+                2xl:gap-9
+              "
+            >
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     className="
                       relative
-                      text-[0.65rem]
+
+                      text-[0.85rem]
                       font-semibold
                       uppercase
-                      tracking-[0.15em]
-                      text-[#3B2A26]/75
+                      tracking-[0.18em]
+
+                      text-[#3B2A26]/80
+
                       transition-colors
                       duration-300
+
                       whitespace-nowrap
+
                       hover:text-[#8C5A6B]
 
                       after:absolute
                       after:left-0
-                      after:-bottom-[3px]
+                      after:-bottom-[5px]
                       after:h-px
                       after:w-0
                       after:bg-[#D4A9B6]
@@ -117,14 +133,17 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Booking Button */}
+
+            {/* BOOK BUTTON */}
             <Link
               href="#booking"
               className="
                 hidden
                 sm:inline-flex
+
                 items-center
                 justify-center
+
                 rounded-full
 
                 border-2
@@ -132,13 +151,13 @@ export default function Navbar() {
 
                 bg-transparent
 
-                px-7
-                py-3.5
+                px-8
+                py-4
 
-                text-[0.72rem]
+                text-[0.85rem]
                 font-semibold
                 uppercase
-                tracking-[0.16em]
+                tracking-[0.18em]
 
                 text-[#8C5A6B]
 
@@ -155,7 +174,8 @@ export default function Navbar() {
               Book Appointment
             </Link>
 
-            {/* Mobile Menu */}
+
+            {/* MOBILE MENU */}
             <button
               type="button"
               aria-label={
@@ -169,9 +189,11 @@ export default function Navbar() {
               }
               className="
                 xl:hidden
+
                 flex
                 h-11
                 w-11
+
                 items-center
                 justify-center
 
@@ -183,10 +205,6 @@ export default function Navbar() {
                 bg-white/90
 
                 text-[#3B2A26]
-
-                transition-colors
-
-                hover:border-[#D4A9B6]
               "
             >
               <span className="sr-only">
@@ -194,63 +212,16 @@ export default function Navbar() {
               </span>
 
               <div className="flex flex-col gap-[5px]">
-                <span
-                  className={`
-                    block
-                    h-px
-                    w-4
-                    bg-current
-                    transition-transform
-                    duration-300
-                    origin-center
-
-                    ${
-                      mobileOpen
-                        ? "translate-y-[6px] rotate-45"
-                        : ""
-                    }
-                  `}
-                />
-
-                <span
-                  className={`
-                    block
-                    h-px
-                    w-4
-                    bg-current
-                    transition-opacity
-                    duration-300
-
-                    ${
-                      mobileOpen
-                        ? "opacity-0"
-                        : ""
-                    }
-                  `}
-                />
-
-                <span
-                  className={`
-                    block
-                    h-px
-                    w-4
-                    bg-current
-                    transition-transform
-                    duration-300
-                    origin-center
-
-                    ${
-                      mobileOpen
-                        ? "-translate-y-[6px] -rotate-45"
-                        : ""
-                    }
-                  `}
-                />
+                <span className="block h-px w-4 bg-current" />
+                <span className="block h-px w-4 bg-current" />
+                <span className="block h-px w-4 bg-current" />
               </div>
             </button>
+
           </nav>
         </div>
       </header>
+
 
       <MobileMenu
         open={mobileOpen}
