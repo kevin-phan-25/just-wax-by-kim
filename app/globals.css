@@ -5,6 +5,12 @@
  * Project: Just Wax by Kim
  * Design: Boutique Luxury Beauty Studio — editorial / print aesthetic
  * Updated: July 29, 2026
+ *
+ * Changes (July 29, 2026):
+ * • Added responsive spacing tokens (clamp-based auto-scaling)
+ * • Nav height + scroll-padding tied to viewport
+ * • Section / container / gutter scale across screen sizes
+ * • Slightly tightened section padding so large screens don’t feel empty
  * -----------------------------------------------------------------------------
  */
 @import "tailwindcss";
@@ -34,6 +40,21 @@
   --foreground: #3B2A26;
   --text-secondary: #6F5A50;
   --text-muted: #9A857A;
+
+  /* --------------------------------------------------------------------------
+     Responsive spacing (near auto-scaling)
+  --------------------------------------------------------------------------- */
+  --space-section: clamp(4rem, 6vw + 2rem, 7rem);
+  --space-section-mobile: clamp(3rem, 5vw + 1.5rem, 5rem);
+  --space-section-lg: clamp(5rem, 9vw + 2rem, 9rem);
+  --space-gutter: clamp(1.25rem, 3vw, 2.5rem);
+  --space-card: clamp(1.25rem, 2vw + 0.5rem, 2rem);
+  --space-gap: clamp(1.5rem, 3vw, 2.75rem);
+  --space-nav-clearance: clamp(5.5rem, 10vh, 8rem);
+  --space-container: min(100%, 80rem);
+
+  /* Fixed header height — scales with viewport */
+  --nav-height: clamp(4.25rem, 9vh, 5.75rem);
 }
 
 /* =============================================================================
@@ -67,7 +88,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: calc(var(--nav-height) + 0.75rem);
 }
 
 body {
@@ -91,21 +112,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(3.25rem, 7vw, 5.75rem);
+  font-size: clamp(2.75rem, 6vw, 5rem);
 }
 
 h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
 }
 
 p {
   color: var(--text-secondary);
-  line-height: 1.95;
-  font-size: 1.05rem;
+  line-height: 1.9;
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
 }
 
 /* =============================================================================
@@ -162,18 +183,23 @@ img, picture, video, canvas, svg {
    LAYOUT HELPERS
    ========================================================================== */
 .container-luxury {
-  width: 100%;
-  max-width: 1280px;
+  width: var(--space-container);
+  max-width: 80rem;
   margin-inline: auto;
-  padding-inline: clamp(1.5rem, 4vw, 3.5rem);
+  padding-inline: var(--space-gutter);
 }
 
 .section-padding {
-  padding-block: clamp(7rem, 10vw, 10rem);
+  padding-block: var(--space-section);
 }
 
 .section-padding-lg {
-  padding-block: clamp(8.5rem, 12vw, 12rem);
+  padding-block: var(--space-section-lg);
+}
+
+/* Clear fixed navbar before page content / hero */
+.nav-clearance {
+  padding-top: var(--space-nav-clearance);
 }
 
 /* =============================================================================
@@ -283,7 +309,7 @@ img, picture, video, canvas, svg {
   width: 72px;
   height: 1px;
   background: var(--dusty-pink);
-  margin-block: 1.75rem;
+  margin-block: 1.5rem;
 }
 
 .soft-divider {
@@ -309,7 +335,7 @@ img, picture, video, canvas, svg {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: min(92%, 1280px);
+  width: min(92%, 80rem);
   height: 1px;
   background: var(--line);
   transform: translateX(-50%);
@@ -321,9 +347,9 @@ img, picture, video, canvas, svg {
 .eyebrow {
   display: inline-block;
   color: var(--plum);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 
@@ -338,8 +364,8 @@ img, picture, video, canvas, svg {
 .lead {
   max-width: 640px;
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.95;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.9;
 }
 
 .text-plum {
@@ -350,7 +376,6 @@ img, picture, video, canvas, svg {
   color: var(--text-muted);
 }
 
-/* Script / emphasis (pair with a script font if loaded) */
 .script {
   font-family: var(--font-script), "Cormorant Garamond", Georgia, serif;
   font-style: italic;
@@ -403,24 +428,17 @@ textarea {
 /* =============================================================================
    RESPONSIVE
    ========================================================================== */
-@media (max-width: 1024px) {
-  .section-padding {
-    padding-block: 6.5rem;
-  }
-  .section-padding-lg {
-    padding-block: 8rem;
-  }
-}
-
 @media (max-width: 768px) {
   h1 {
     line-height: 1.1;
   }
+
   h2 {
     line-height: 1.12;
   }
-  .container-luxury {
-    padding-inline: 1.5rem;
+
+  .section-padding {
+    padding-block: var(--space-section-mobile);
   }
 }
 
