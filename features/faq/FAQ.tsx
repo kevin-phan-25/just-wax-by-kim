@@ -9,15 +9,13 @@
  * Changes:
  *
  * - Removed fixed width restrictions
- * - Centered heading layout
- * - Expanded FAQ presentation
- * - Removed boxed card appearance
- * - Matched editorial luxury spacing
+ * - Full width editorial layout
+ * - Centered FAQ presentation
+ * - Improved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
 
-import Section from "@/components/ui/Section";
 import FAQAccordion from "./FAQAccordion";
 
 import {
@@ -35,44 +33,57 @@ export default function FAQ(){
 return (
 
 <section
+
   id={FAQ_CONSTANTS.sectionId}
+
   className="
     w-full
     px-6
     py-24
   "
+
 >
 
 
   {/* HEADER */}
 
   <div
+
     className="
       w-full
       text-center
     "
+
   >
 
     <h2
+
       className="
         font-serif
         text-4xl
         md:text-5xl
         text-[#3B2A26]
       "
+
     >
+
       {FAQ_CONSTANTS.title}
+
     </h2>
 
 
     <p
+
       className="
         mt-6
         text-lg
         text-[#8C7468]
       "
+
     >
+
       {FAQ_CONSTANTS.subtitle}
+
     </p>
 
 
@@ -80,20 +91,26 @@ return (
 
 
 
-  {/* FAQ CONTENT */}
+
+  {/* FAQ */}
 
   <div
+
     className="
       mt-16
       w-full
     "
+
   >
 
     <FAQAccordion
+
       items={FAQ_DATA}
+
     />
 
   </div>
+
 
 
 </section>
