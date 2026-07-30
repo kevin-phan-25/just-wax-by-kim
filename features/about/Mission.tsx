@@ -11,11 +11,10 @@
  *
  * July 29, 2026
  *
- * - Removed eyebrow heading
- * - Removed separator lines
+ * - Converted quote into single-line statement
+ * - Removed decorative separators
+ * - Reduced vertical spacing
  * - Reduced visual weight
- * - Converted from banner to small quote moment
- * - Maintained luxury editorial style
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,10 +24,9 @@ export default function Mission() {
     <section
       className="
         bg-brand-background
-        py-12
+        py-6
       "
     >
-
       <div
         className="
           container-luxury
@@ -37,29 +35,16 @@ export default function Mission() {
           text-center
         "
       >
-
-        <div
+        <p
           className="
-            max-w-2xl
+            font-serif
+            italic
+            text-brand-espresso/80
           "
         >
-
-          <p
-            className="
-              font-serif
-              italic
-              leading-relaxed
-              text-brand-espresso/80
-            "
-          >
-            “A thoughtful beauty experience designed to help you feel confident,
-            cared for, and beautifully yourself.”
-          </p>
-
-        </div>
-
+          “A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.”
+        </p>
       </div>
-
     </section>
   );
 }
