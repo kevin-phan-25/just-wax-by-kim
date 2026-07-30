@@ -9,7 +9,8 @@
  * Changes:
  *
  * - Removed fixed width restrictions
- * - Reduced service image size by 50%
+ * - Reduced service card size
+ * - Made image container fit content
  * - Centered service presentation
  * - Preserved luxury editorial styling
  *
@@ -83,7 +84,7 @@ export default function Services() {
         className="
           mt-16
           grid
-          gap-12
+          gap-16
           md:grid-cols-2
           justify-items-center
         "
@@ -97,15 +98,16 @@ export default function Services() {
             relative
             overflow-hidden
             rounded-[36px]
-            w-full
+            mx-auto
+            w-[65%]
           "
         >
           <img
             src="/images/services/ladies-waxing.jpg"
             alt="Ladies waxing"
             className="
-              mx-auto
-              w-1/2
+              w-full
+              aspect-[4/5]
               object-cover
               transition
               duration-500
@@ -120,6 +122,7 @@ export default function Services() {
               inset-0
               bg-gradient-to-t
               from-black/60
+              via-black/10
               to-transparent
             "
           />
@@ -167,15 +170,16 @@ export default function Services() {
             relative
             overflow-hidden
             rounded-[36px]
-            w-full
+            mx-auto
+            w-[65%]
           "
         >
           <img
             src="/images/services/gentlemen-waxing.jpg"
             alt="Gentlemen waxing"
             className="
-              mx-auto
-              w-1/2
+              w-full
+              aspect-[4/5]
               object-cover
               transition
               duration-500
@@ -190,6 +194,7 @@ export default function Services() {
               inset-0
               bg-gradient-to-t
               from-black/60
+              via-black/10
               to-transparent
             "
           />
