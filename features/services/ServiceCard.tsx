@@ -6,28 +6,38 @@
  * Description:
  * Luxury service pricing card.
  *
+ * Changes:
+ *
+ * - Reduced card visual size
+ * - Added centered max width
+ * - Improved mobile proportions
+ * - Added balanced luxury spacing
+ *
  * -----------------------------------------------------------------------------
  */
 
-import type {
-  Service,
-} from "./services.types";
-
+import type { Service } from "./services.types";
 
 interface ServiceCardProps {
   service: Service;
 }
 
-
 export default function ServiceCard({
   service,
 }: ServiceCardProps) {
-
   return (
-
     <article
       className="
         service-card
+
+        w-full
+        max-w-[280px]
+
+        mx-auto
+
+        p-8
+
+        text-center
       "
     >
 
@@ -49,7 +59,7 @@ export default function ServiceCard({
         className="
           service-description
           mt-4
-          text-center
+          text-sm
           leading-relaxed
           text-[#8C7468]
         "
@@ -67,25 +77,21 @@ export default function ServiceCard({
           border-t
           border-[#E8DDD8]
           w-full
-          text-center
         "
       >
-
         <span
           className="
             text-[#D4A9B6]
             font-medium
             tracking-wide
+            text-lg
           "
         >
           {service.price}
         </span>
-
       </div>
 
 
     </article>
-
   );
-
 }
