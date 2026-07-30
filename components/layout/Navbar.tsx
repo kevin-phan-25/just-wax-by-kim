@@ -9,10 +9,10 @@
  * Changes:
  *
  * - July 30, 2026
- * - Added separate Book Appointment row
- * - Increased navbar breathing room
- * - Updated scroll offset
- * - Improved CTA visibility
+ * - Kept single-row navigation layout
+ * - Increased Book Appointment CTA size
+ * - Improved nav spacing balance
+ * - Preserved Hero clearance spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -38,20 +38,23 @@ import {
 } from "@/constants/navigation";
 
 
+
 const scrollToSection = (
-  href: string
-) => {
+  href:string
+)=>{
 
   const id =
     href.replace("#","");
 
+
   const element =
     document.getElementById(id);
+
 
   if(!element) return;
 
 
-  const navbarHeight = 220;
+  const navbarHeight = 168;
 
 
   const position =
@@ -61,7 +64,7 @@ const scrollToSection = (
 
 
   window.scrollTo({
-    top: position,
+    top:position,
     behavior:"smooth",
   });
 
@@ -69,94 +72,102 @@ const scrollToSection = (
 
 
 
+
+
 export default function Navbar(){
 
-  const pathname =
-    usePathname();
+const pathname =
+usePathname();
 
-  const router =
-    useRouter();
-
-
-  const [
-    scrolled,
-    setScrolled,
-  ] = useState(false);
+const router =
+useRouter();
 
 
-  const [
-    mobileOpen,
-    setMobileOpen,
-  ] = useState(false);
+const [
+scrolled,
+setScrolled,
+]=useState(false);
 
 
-
-  useEffect(()=>{
-
-    const handleScroll = ()=>{
-
-      setScrolled(
-        window.scrollY > 16
-      );
-
-    };
-
-
-    handleScroll();
-
-
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive:true,
-      }
-    );
-
-
-    return ()=>{
-
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
-    };
-
-
-  },[]);
+const [
+mobileOpen,
+setMobileOpen,
+]=useState(false);
 
 
 
 
-  const handleNavigation = (
-    href:string
-  )=>{
+useEffect(()=>{
 
 
-    if(
-      href.startsWith("#")
-    ){
+const handleScroll = ()=>{
 
-      if(
-        pathname === "/"
-      ){
+setScrolled(
+window.scrollY > 16
+);
 
-        scrollToSection(href);
+};
 
-      }
 
-      else{
+handleScroll();
 
-        router.push(
-          `/${href}`
-        );
 
-      }
+window.addEventListener(
+"scroll",
+handleScroll,
+{
+passive:true
+}
+);
 
-    }
 
-  };
+return ()=>{
+
+window.removeEventListener(
+"scroll",
+handleScroll
+);
+
+};
+
+
+},[]);
+
+
+
+
+
+const handleNavigation = (
+href:string
+)=>{
+
+
+if(
+href.startsWith("#")
+){
+
+
+if(
+pathname === "/"
+){
+
+scrollToSection(href);
+
+}
+else{
+
+router.push(
+`/${href}`
+);
+
+}
+
+
+}
+
+
+};
+
 
 
 
@@ -168,18 +179,23 @@ return (
 <nav
 
 className={`
+
 fixed
 
 top-0
 left-0
 right-0
 
+
 z-50
 
-h-[220px]
+
+h-[168px]
+
 
 transition-all
 duration-500
+
 
 ${
 scrolled
@@ -199,16 +215,27 @@ scrolled
 >
 
 
-{/* TOP ROW */}
+
+
+{/* MAIN NAV ROW */}
 
 <div
 
 className="
+
 relative
-h-[150px]
+
+h-full
+
+flex
+
+items-center
+
 "
 
 >
+
+
 
 
 {/* LOGO */}
@@ -216,10 +243,11 @@ h-[150px]
 <div
 
 className="
+
 absolute
-left-12
-top-1/2
--translate-y-1/2
+
+left-8
+
 "
 
 >
@@ -231,23 +259,32 @@ top-1/2
 
 
 
-{/* DESKTOP NAV */}
+
+
+
+{/* DESKTOP NAVIGATION */}
 
 <div
 
 className="
+
 absolute
+
 left-1/2
-top-1/2
+
 -translate-x-1/2
--translate-y-1/2
+
 
 hidden
+
 xl:flex
+
 
 items-center
 
-gap-8
+
+gap-6
+
 "
 
 >
@@ -256,30 +293,51 @@ gap-8
 {
 navigation.map((link)=>(
 
+
 <div
+
 key={link.href}
+
 className="
+
 relative
+
 group
+
 "
+
 >
+
 
 <Link
 
+
 href={
+
 link.href.startsWith("#")
+
 ?
+
 pathname === "/"
+
 ?
+
 link.href
+
 :
+
 `/${link.href}`
+
 :
+
 link.href
+
 }
 
 
+
 onClick={(e)=>{
+
 
 if(
 link.href.startsWith("#")
@@ -287,13 +345,17 @@ link.href.startsWith("#")
 
 e.preventDefault();
 
+
 handleNavigation(
 link.href
 );
 
+
 }
 
+
 }}
+
 
 
 className="
@@ -302,15 +364,21 @@ uppercase
 
 font-semibold
 
-tracking-[0.16em]
+
+tracking-[0.14em]
+
+
+text-xs
+
 
 text-[#3B2A26]/80
 
+
 transition
+
 
 hover:text-[#8C5A6B]
 
-text-sm
 
 "
 
@@ -319,16 +387,24 @@ text-sm
 {link.label}
 
 
+
 {
 link.dropdown && (
 
 <span
+
 className="
+
 ml-2
+
 text-[#8C5A6B]
+
 "
+
 >
+
 ▾
+
 </span>
 
 )
@@ -336,7 +412,10 @@ text-[#8C5A6B]
 }
 
 
+
 </Link>
+
+
 
 
 
@@ -344,47 +423,72 @@ text-[#8C5A6B]
 {/* DROPDOWN */}
 
 {
+
 link.dropdown && (
 
 <div
 
 className="
 
+
 absolute
+
 
 left-1/2
 
+
 top-full
+
 
 mt-6
 
+
 -translate-x-1/2
+
+
 
 w-72
 
+
 rounded-[32px]
+
 
 border
 
+
 border-[#E8DDD8]
+
 
 bg-[#FCF8F3]
 
+
 p-4
+
+
 
 shadow-[0_20px_60px_rgba(59,42,38,0.12)]
 
+
+
 opacity-0
+
 
 invisible
 
+
+
 group-hover:opacity-100
+
 
 group-hover:visible
 
+
+
 transition-all
 
+
 duration-300
+
 
 "
 
@@ -394,39 +498,59 @@ duration-300
 {
 link.dropdown.map((item)=>(
 
+
 <Link
 
 key={item.href}
 
 href={item.href}
 
+
 className="
 
 flex
 
-justify-center
-
 items-center
 
+justify-center
+
+
 rounded-2xl
+
 
 px-6
 
 py-5
 
+
+
 text-center
+
+
 
 uppercase
 
-tracking-[0.25em]
 
-text-sm
+
+tracking-[0.22em]
+
+
+
+text-xs
+
+
 
 text-[#3B2A26]
 
+
+
 hover:bg-[#F6E7E1]
 
+
+
 hover:text-[#8C5A6B]
+
+
 
 transition
 
@@ -434,7 +558,9 @@ transition
 
 >
 
+
 {item.label}
+
 
 </Link>
 
@@ -444,12 +570,12 @@ transition
 }
 
 
+
 </div>
 
 )
 
 }
-
 
 
 </div>
@@ -464,13 +590,12 @@ transition
 </div>
 
 
-</div>
 
 
 
 
 
-{/* BOOK BUTTON SECOND ROW */}
+{/* BOOK BUTTON */}
 
 <div
 
@@ -478,29 +603,34 @@ className="
 
 absolute
 
-bottom-5
-
-left-1/2
-
--translate-x-1/2
+right-8
 
 "
 
 >
 
 
-<a
+<Link
+
 
 href={
+
 pathname === "/"
+
 ?
+
 "#booking"
+
 :
+
 "/#booking"
+
 }
 
 
+
 onClick={(e)=>{
+
 
 if(
 pathname === "/"
@@ -508,57 +638,80 @@ pathname === "/"
 
 e.preventDefault();
 
+
 scrollToSection(
 "#booking"
 );
 
 }
 
+
 }}
+
 
 
 className="
 
-inline-flex
+hidden
+
+sm:inline-flex
+
 
 items-center
 
 justify-center
 
 
+
 rounded-full
+
 
 
 border-2
 
+
 border-[#8C5A6B]
 
 
-bg-[#FCF8F3]
+
+px-10
 
 
-px-12
 
 py-4
 
 
+
 uppercase
 
-tracking-[0.22em]
+
+
+tracking-[0.20em]
+
 
 
 text-sm
 
+
+
 font-semibold
+
 
 
 text-[#8C5A6B]
 
 
-shadow-[0_12px_30px_rgba(59,42,38,0.08)]
+
+bg-[#FCF8F3]
+
+
+
+shadow-[0_8px_30px_rgba(59,42,38,0.08)]
+
 
 
 hover:bg-[#F6E7E1]
+
 
 
 transition
@@ -567,9 +720,11 @@ transition
 
 >
 
+
 Book Appointment
 
-</a>
+
+</Link>
 
 
 </div>
@@ -578,7 +733,9 @@ Book Appointment
 
 
 
-{/* MOBILE */}
+
+
+{/* MOBILE MENU */}
 
 <MobileMenu
 
@@ -589,6 +746,10 @@ onClose={()=>setMobileOpen(false)}
 links={navigation}
 
 />
+
+
+</div>
+
 
 
 </nav>
