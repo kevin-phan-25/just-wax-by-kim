@@ -1,47 +1,39 @@
-/**
- * -----------------------------------------------------------------------------
- * File: features/about/Credentials.tsx
- *
- * Date: July 29, 2026
- *
- * Description:
- * Editorial credentials displayed beside portrait.
- *
- * Changes:
- * • Removed numbered labels
- * • Returned to right-side layout
- * • Softer luxury presentation
- * -----------------------------------------------------------------------------
- */
-
 import { credentials } from "./about.data";
 
 export default function Credentials() {
   return (
     <div
       className="
-        w-full
-        max-w-[320px]
+        flex
+        flex-col
+
+        space-y-10
       "
     >
-      {credentials.map((item, index) => (
+
+      {credentials.map((item) => (
         <div
           key={item.title}
-          className={`
-            ${
-              index !== credentials.length - 1
-                ? "pb-8 mb-8 border-b border-[#E8DDD8]"
-                : ""
-            }
-          `}
+          className="
+            pb-10
+
+            border-b
+            border-[#E8DDD8]
+
+            last:border-none
+          "
         >
 
           <h3
             className="
-              mb-3
+              mb-4
+
               font-serif
-              text-[1.2rem]
+
+              text-[1.35rem]
+
               leading-tight
+
               text-[#3B2A26]
             "
           >
@@ -51,8 +43,10 @@ export default function Credentials() {
 
           <p
             className="
-              text-[0.85rem]
-              leading-[1.85]
+              text-[0.95rem]
+
+              leading-[1.9]
+
               text-[#8A776E]
             "
           >
@@ -61,6 +55,7 @@ export default function Credentials() {
 
         </div>
       ))}
+
     </div>
   );
 }
