@@ -1,118 +1,351 @@
 /**
  * -----------------------------------------------------------------------------
- * File: Services.tsx
+ * File:
+ * features/services/Services.tsx
  *
  * Description:
- * Main luxury services section.
+ * Luxury services category selector.
  *
  * Changes:
  *
- * - July 29, 2026
- *
- *   - Removed fixed sizing and scaling constraints
- *   - Uses global luxury typography system
- *   - Unified spacing with brand theme
- *   - Cleaner editorial hierarchy
- *   - Fully centered luxury presentation
+ * - July 30, 2026
+ *   • Replaced service cards with category imagery
+ *   • Added Ladies / Gentlemen navigation
+ *   • Added luxury editorial presentation
+ *   • Removed fixed sizing constraints
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import { SERVICES_CONFIG } from "./services.constants";
-import ServiceGrid from "./ServiceGrid";
-import ServicePricing from "./ServicePricing";
+import Link from "next/link";
 
 
 export default function Services() {
+
 
   return (
 
     <section
       id="services"
       className="
-        w-full
+        px-6
         py-24
       "
     >
 
+
       <div
         className="
           mx-auto
-          text-center
+          max-w-7xl
         "
       >
 
-        {/* Header */}
+
+
+        {/* HEADER */}
+
         <div
           className="
-            service-header
+            mx-auto
+            max-w-3xl
+            text-center
           "
         >
 
           <span
             className="
-              service-eyebrow
+              uppercase
+              tracking-[0.4em]
+              text-sm
+              text-[#8C5A6B]
             "
           >
-            {SERVICES_CONFIG.eyebrow}
+            Our Services
           </span>
+
 
 
           <h2
             className="
-              service-title
-              heading-luxury
-              mt-4
+              mt-6
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-[#3B2A26]
             "
           >
-            {SERVICES_CONFIG.title}
+            Luxury Waxing
+            <br />
+            For Everyone
           </h2>
+
 
 
           <p
             className="
-              lead
+              mx-auto
               mt-6
+              max-w-xl
+              text-lg
+              leading-relaxed
+              text-[#8C7468]
             "
           >
-            {SERVICES_CONFIG.description}
+            Personalized waxing experiences designed
+            around confidence, comfort, and beautifully
+            cared skin.
           </p>
 
+
         </div>
 
 
-        {/* Service Cards */}
+
+
+
+        {/* CATEGORY CARDS */}
+
         <div
           className="
-            service-grid
             mt-16
-            md:mt-20
+
             grid
-            grid-cols-1
-            md:grid-cols-2
-            lg:grid-cols-3
+
             gap-10
+
+            md:grid-cols-2
           "
         >
-          <ServiceGrid />
-        </div>
 
 
-        {/* Pricing Note */}
-        <div
-          className="
-            mt-16
-            text-center
-          "
-        >
-          <ServicePricing />
+
+
+          {/* LADIES */}
+
+          <Link
+
+            href="#ladies-services"
+
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-[36px]
+            "
+
+          >
+
+
+            <img
+
+              src="/images/ladies-waxing.jpg"
+
+              alt="Ladies waxing services"
+
+              className="
+                aspect-[4/5]
+                w-full
+                object-cover
+
+                transition-transform
+                duration-700
+
+                group-hover:scale-105
+              "
+
+            />
+
+
+
+            {/* Overlay */}
+
+            <div
+
+              className="
+                absolute
+                inset-0
+
+                bg-gradient-to-t
+                from-black/60
+                via-black/10
+                to-transparent
+              "
+
+            />
+
+
+
+            <div
+
+              className="
+                absolute
+                bottom-10
+                left-10
+                text-white
+              "
+
+            >
+
+              <h3
+
+                className="
+                  font-serif
+                  text-4xl
+                  md:text-5xl
+                "
+
+              >
+
+                Ladies
+
+              </h3>
+
+
+
+              <p
+
+                className="
+                  mt-4
+                  uppercase
+                  tracking-[0.35em]
+                  text-sm
+                "
+
+              >
+
+                View Services
+
+              </p>
+
+
+            </div>
+
+
+
+          </Link>
+
+
+
+
+
+
+
+          {/* GENTLEMEN */}
+
+          <Link
+
+            href="#gentlemen-services"
+
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-[36px]
+            "
+
+          >
+
+
+            <img
+
+              src="/images/gentlemen-waxing.jpg"
+
+              alt="Gentlemen waxing services"
+
+              className="
+                aspect-[4/5]
+                w-full
+                object-cover
+
+                transition-transform
+                duration-700
+
+                group-hover:scale-105
+              "
+
+            />
+
+
+
+            <div
+
+              className="
+                absolute
+                inset-0
+
+                bg-gradient-to-t
+                from-black/60
+                via-black/10
+                to-transparent
+              "
+
+            />
+
+
+
+            <div
+
+              className="
+                absolute
+                bottom-10
+                left-10
+                text-white
+              "
+
+            >
+
+              <h3
+
+                className="
+                  font-serif
+                  text-4xl
+                  md:text-5xl
+                "
+
+              >
+
+                Gentlemen
+
+              </h3>
+
+
+
+              <p
+
+                className="
+                  mt-4
+                  uppercase
+                  tracking-[0.35em]
+                  text-sm
+                "
+
+              >
+
+                View Services
+
+              </p>
+
+
+            </div>
+
+
+
+          </Link>
+
+
+
+
+
         </div>
 
 
       </div>
 
+
     </section>
 
   );
+
 }
