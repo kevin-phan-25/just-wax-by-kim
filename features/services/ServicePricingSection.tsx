@@ -7,12 +7,14 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
- * - Removed fixed width restrictions
- * - Full width luxury layout
- * - Centered heading + description
- * - Responsive service grid
+ * - Matches Hero spacing system
+ * - Added navbar breathing room
+ * - Reduced card presentation width
+ * - Centered editorial layout
+ * - Removed oversized service grid
  * -----------------------------------------------------------------------------
  */
+
 
 import ServiceCard from "./ServiceCard";
 
@@ -23,13 +25,13 @@ import type {
 
 interface ServicePricingSectionProps {
 
-  id: string;
+  id:string;
 
-  title: string;
+  title:string;
 
-  description: string;
+  description:string;
 
-  services: Service[];
+  services:Service[];
 
 }
 
@@ -45,7 +47,7 @@ export default function ServicePricingSection({
 
   services,
 
-}: ServicePricingSectionProps) {
+}:ServicePricingSectionProps){
 
 
 return (
@@ -55,24 +57,35 @@ return (
 id={id}
 
 className="
+relative
+overflow-hidden
 scroll-mt-[168px]
-w-full
-py-24
+pb-24
 "
 
 >
+
+
+{/* NAVBAR TRANSITION SPACE */}
+
+<div
+
+className="
+h-[216px]
+"
+
+/>
+
 
 
 <div
 
 className="
-w-full
-px-6
-sm:px-10
-lg:px-16
+container-luxury
 "
 
 >
+
 
 
 {/* HEADER */}
@@ -80,10 +93,10 @@ lg:px-16
 <div
 
 className="
-w-full
-text-center
 mx-auto
-mb-16
+text-center
+max-w-4xl
+mb-20
 "
 
 >
@@ -112,9 +125,7 @@ text-[#3B2A26]
 <p
 
 className="
-mx-auto
 mt-6
-max-w-4xl
 text-lg
 leading-relaxed
 text-[#8C7468]
@@ -132,16 +143,26 @@ text-[#8C7468]
 
 
 
-{/* SERVICE GRID */}
+{/* SERVICES */}
+
+<div
+
+className="
+flex
+justify-center
+"
+
+>
+
 
 <div
 
 className="
 grid
 w-full
+max-w-5xl
 grid-cols-1
 md:grid-cols-2
-xl:grid-cols-3
 gap-8
 "
 
@@ -164,6 +185,10 @@ service={service}
 
 
 </div>
+
+
+</div>
+
 
 
 </div>
