@@ -1,67 +1,80 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ServiceCategory.tsx
- *
- * Created:
- * July 27, 2026
+ * File:
+ * ServiceCategory.tsx
  *
  * Description:
- * Service category heading.
+ * Luxury service category heading.
+ *
+ * Updated:
+ * July 30, 2026
  *
  * Changes:
- *
- * - July 29, 2026
- *
- *   - Unified with luxury theme
- *   - Reduced visual weight
+ * - Removed dependency on ServiceCategory model
+ * - Supports Ladies/Gentlemen pricing sections
+ * - Matches luxury editorial theme
  *
  * -----------------------------------------------------------------------------
  */
 
 
-import type {
-  ServiceCategory,
-} from "./services.types";
+interface ServiceCategoryProps {
 
+title:string;
 
-interface Props {
-  category: ServiceCategory;
+description?:string;
+
 }
 
 
 export default function ServiceCategory({
-  category,
-}: Props) {
+title,
+description,
+}:ServiceCategoryProps){
 
 
-  return (
+return (
 
-    <div>
-
-      <h3
-        className="
-          font-medium
-          tracking-wide
-          text-brand-espresso
-        "
-      >
-        {category.title}
-      </h3>
+<div
+className="
+mb-10
+text-center
+"
+>
 
 
-      <p
-        className="
-          mt-3
-          leading-relaxed
-          text-brand-taupe
-        "
-      >
-        {category.description}
-      </p>
+<h3
+className="
+font-serif
+text-3xl
+md:text-4xl
+text-[#3B2A26]
+"
+>
+{title}
+</h3>
 
 
-    </div>
 
-  );
+{description && (
+
+<p
+className="
+mx-auto
+mt-4
+max-w-xl
+leading-relaxed
+text-[#8C7468]
+"
+>
+{description}
+</p>
+
+)}
+
+
+</div>
+
+);
 
 }
