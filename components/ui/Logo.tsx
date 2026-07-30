@@ -30,11 +30,11 @@ export function Logo({ className = "", priority = false }: LogoProps) {
         src="/logo/just-wax-by-kim.png"
         alt="Just Wax by Kim"
         width={320}
-        height={180}
+        height={220}
         priority={priority}
         className="
-          h-[180px] w-auto
-          max-h-[180px]
+          h-[220px] w-auto
+          max-h-[220px]
           object-contain object-left
           transition-opacity duration-300
           group-hover:opacity-80
