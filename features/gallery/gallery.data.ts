@@ -51,4 +51,27 @@ export const galleryImages: GalleryImage[] = [
     alt: "Kim providing waxing services",
     title: "Expert Care",
   },
+
+  {
+  id: "detail-1",
+  src: "/gallery/detail-1.webp",
+  alt: "Luxury studio details",
+  title: "Beautiful Details",
+  },
+
+  {
+  id: "detail-2",
+  src: "/gallery/detail-2.webp",
+  alt: "Premium waxing supplies",
+  title: "Refined Essentials",
+  },
+
+  {
+  id: "detail-3",
+  src: "/gallery/detail-3.webp",
+  alt: "Relaxing studio atmosphere",
+  title: "A Calm Experience",
+  },
 ];
+
+
