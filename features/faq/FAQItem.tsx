@@ -1,20 +1,15 @@
 /**
  * -----------------------------------------------------------------------------
- * File:
- * features/faq/FAQItem.tsx
+ * File: FAQItem.tsx
  *
  * Description:
- * Individual FAQ accordion item.
+ * Luxury FAQ accordion item.
  *
  * Changes:
- *
- * - July 30, 2026
- * - Centered FAQ questions
- * - Right aligned expand icon
+ * - Centered question layout
  * - Added luxury answer bubble
- * - Centered answer presentation
- * - Improved editorial spacing
- *
+ * - Improved spacing and typography
+ * - Removed left-aligned restriction
  * -----------------------------------------------------------------------------
  */
 
@@ -35,184 +30,144 @@ import {
 
 
 interface Props {
-
   item: FAQItemType;
-
 }
 
 
 export default function FAQItem({
-
   item,
+}: Props) {
 
-}: Props){
 
-
-const [
-
-  open,
-
-  setOpen,
-
-] = useState(false);
+  const [
+    open,
+    setOpen,
+  ] = useState(false);
 
 
 
-return (
+  return (
 
-<div
-
-  className="
-    w-full
-    border-b
-    border-[#E8DDD8]
-    py-8
-  "
-
->
-
-
-  {/* QUESTION */}
-
-  <button
-
-    onClick={()=>setOpen(!open)}
-
-    className="
-      relative
-      flex
-      w-full
-      items-center
-      justify-center
-      px-10
-    "
-
-  >
-
-
-    <span
-
+    <div
       className="
-        font-serif
-        text-xl
-        md:text-2xl
-        text-center
-        text-[#3B2A26]
+        w-full
+        border-b
+        border-[#E8DDD8]
+        py-8
       "
-
     >
 
-      {item.question}
 
-    </span>
+      {/* QUESTION */}
 
+      <button
 
-
-    {/* EXPAND ICON */}
-
-    <span
-
-      className="
-        absolute
-        right-0
-        flex
-        items-center
-        justify-center
-      "
-
-    >
-
-      {
-        open
-
-        ?
-
-        <Minus
-
-          size={22}
-
-          strokeWidth={1.5}
-
-          className="
-            text-[#8C5A6B]
-          "
-
-        />
-
-        :
-
-        <Plus
-
-          size={22}
-
-          strokeWidth={1.5}
-
-          className="
-            text-[#8C5A6B]
-          "
-
-        />
-
-      }
-
-
-    </span>
-
-
-  </button>
-
-
-
-
-  {/* ANSWER BUBBLE */}
-
-  {
-
-    open &&
-
-    (
-
-      <div
+        onClick={() => setOpen(!open)}
 
         className="
-          mx-auto
-          mt-8
-          max-w-3xl
-          rounded-[28px]
-          bg-[#F6E7E1]
-          px-8
-          py-7
+          flex
+          w-full
+          items-center
+          justify-center
+          gap-6
           text-center
-          shadow-[0_15px_40px_rgba(59,42,38,0.05)]
+          transition
         "
 
       >
 
-        <p
-
+        <span
           className="
-            text-base
-            leading-relaxed
-            text-[#8C7468]
+            font-serif
+            text-xl
+            text-[#3B2A26]
+            tracking-tight
           "
-
         >
 
-          {item.answer}
+          {item.question}
 
-        </p>
-
-
-      </div>
-
-    )
-
-  }
+        </span>
 
 
 
-</div>
+        <span
+          className="
+            flex
+            h-8
+            w-8
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-[#D8B4A0]
+            text-[#8C5A6B]
+          "
+        >
 
-);
+          {
+            open
+            ?
+            (
+              <Minus size={16}/>
+            )
+            :
+            (
+              <Plus size={16}/>
+            )
+          }
+
+        </span>
+
+
+      </button>
+
+
+
+      {/* ANSWER */}
+
+      {
+        open && (
+
+          <div
+
+            className="
+              mx-auto
+              mt-6
+              max-w-2xl
+              rounded-3xl
+              border
+              border-[#E8DDD8]
+              bg-[#F6E7E1]
+              px-8
+              py-6
+              text-center
+              shadow-sm
+            "
+
+          >
+
+            <p
+              className="
+                text-base
+                leading-relaxed
+                text-[#6F5A50]
+              "
+            >
+
+              {item.answer}
+
+            </p>
+
+
+          </div>
+
+        )
+      }
+
+
+    </div>
+
+  );
 
 }
