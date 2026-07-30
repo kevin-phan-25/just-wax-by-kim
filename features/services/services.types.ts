@@ -25,6 +25,8 @@ export interface Service {
 
   gender: "ladies" | "gentlemen";
 
+  image:string;
+
 }
 
 
