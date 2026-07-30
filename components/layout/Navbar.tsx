@@ -11,7 +11,7 @@
  * • Navbar height: 168px
  * • Logo anchored left
  * • Navigation centered to viewport
- * • Navigation typography enlarged
+ * • Navigation typography refined
  * • Book button anchored right
  * ------------------------------------------------------------------
  */
@@ -76,20 +76,19 @@ export default function Navbar() {
           }
         `}
       >
-
         <div className="relative h-full flex items-center px-12">
 
-
           {/* LEFT LOGO */}
-          <div className="
-            absolute
-            left-12
-            flex
-            items-center
-          ">
+          <div
+            className="
+              absolute
+              left-12
+              flex
+              items-center
+            "
+          >
             <Logo />
           </div>
-
 
 
           {/* CENTER NAVIGATION */}
@@ -105,7 +104,6 @@ export default function Navbar() {
               items-center
             "
           >
-
             <ul
               className="
                 flex
@@ -115,7 +113,6 @@ export default function Navbar() {
                 2xl:gap-10
               "
             >
-
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -132,8 +129,8 @@ export default function Navbar() {
 
                       whitespace-nowrap
 
-                      text-[1.8rem]
-                      2xl:text-[2.2rem]
+                      text-[0.9rem]
+                      2xl:text-[1.1rem]
 
                       transition-colors
                       duration-300
@@ -142,7 +139,7 @@ export default function Navbar() {
 
                       after:absolute
                       after:left-0
-                      after:-bottom-[8px]
+                      after:-bottom-[5px]
 
                       after:h-px
                       after:w-0
@@ -159,11 +156,8 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-
             </ul>
-
           </nav>
-
 
 
           {/* RIGHT BOOK BUTTON */}
@@ -176,7 +170,6 @@ export default function Navbar() {
               items-center
             "
           >
-
             <Link
               href="#booking"
               className="
@@ -250,7 +243,6 @@ export default function Navbar() {
                 text-[#3B2A26]
               "
             >
-
               <span className="sr-only">
                 Menu
               </span>
@@ -260,14 +252,11 @@ export default function Navbar() {
                 <span className="block h-px w-4 bg-current" />
                 <span className="block h-px w-4 bg-current" />
               </div>
-
             </button>
 
           </div>
 
-
         </div>
-
       </header>
 
 
@@ -276,7 +265,6 @@ export default function Navbar() {
         onClose={() => setMobileOpen(false)}
         links={NAV_LINKS}
       />
-
     </>
   );
 }
