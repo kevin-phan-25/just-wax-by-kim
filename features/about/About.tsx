@@ -8,17 +8,15 @@
  * Luxury editorial About section.
  *
  * Layout:
- * • Left   — Brand story
+ * • Left — Brand story
  * • Center — Portrait focal point
- * • Right  — Experience highlights
+ * • Right — Experience highlights
  *
- * Changes:
- * • Increased editorial spacing
- * • Enlarged visual centerpiece
- * • Improved column balance
+ * Changes (July 29, 2026):
+ * • Added ~1 inch (96px) gap between Hero bottom and About top
+ * • Cleaned top spacing so the transition no longer feels broken
  * -----------------------------------------------------------------------------
  */
-
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
 import Credentials from "./Credentials";
@@ -32,15 +30,15 @@ export default function About() {
         overflow-hidden
         bg-[#FCF8F3]
         px-6
-        mt-16
-        pt-24
-        pb-32
-        md:mt-20
-        md:pt-28
-        md:pb-36
+        /* ~1 inch gap after Hero */
+        mt-24
+        pt-16
+        pb-28
+        md:mt-24
+        md:pt-20
+        md:pb-32
       "
     >
-
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -52,8 +50,7 @@ export default function About() {
         "
       />
 
-
-      {/* Top divider */}
+      {/* Top divider — sits at the start of the 1in gap zone */}
       <div
         aria-hidden
         className="
@@ -67,9 +64,7 @@ export default function About() {
         "
       />
 
-
       <div className="relative mx-auto max-w-7xl">
-
         <div
           className="
             grid
@@ -80,18 +75,10 @@ export default function About() {
             xl:gap-24
           "
         >
-
           {/* LEFT CONTENT */}
-          <div
-            className="
-              order-2
-              lg:order-1
-              max-w-xl
-            "
-          >
+          <div className="order-2 lg:order-1 max-w-xl">
             <AboutContent />
           </div>
-
 
           {/* IMAGE */}
           <div
@@ -107,24 +94,12 @@ export default function About() {
             <AboutImage />
           </div>
 
-
           {/* RIGHT CONTENT */}
-          <div
-            className="
-              order-3
-              flex
-              items-center
-              justify-start
-              lg:pl-6
-            "
-          >
+          <div className="order-3 flex items-center justify-start lg:pl-6">
             <Credentials />
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }
