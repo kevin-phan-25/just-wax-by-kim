@@ -169,7 +169,7 @@ rounded-[36px]
 
 <img
 
-src="/images/ladies-waxing.jpg"
+src="/images/services/ladies-waxing.jpg"
 
 alt="Ladies waxing"
 
@@ -299,7 +299,7 @@ rounded-[36px]
 
 <img
 
-src="/images/gentlemen-waxing.jpg"
+src="/images/services/gentlemen-waxing.jpg"
 
 alt="Gentlemen waxing"
 
