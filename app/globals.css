@@ -39,8 +39,8 @@
 
   --champagne:#D8B4A0;
 
-  --gold:#C6A15B;
-
+  --mauve:#9A6B7A;
+   
   --soft-rose:#E8C8BC;
 
   --dusty-pink:#D4A9B6;
@@ -480,7 +480,7 @@ box-shadow:
 
 
 color:
-var(--gold);
+var(--mauve);
 
 
 font-size:.7rem;
