@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * constants/navigation.ts
  *
@@ -9,31 +10,27 @@
  * Changes:
  *
  * - July 30, 2026
- *   • Added Services dropdown
- *   • Added Ladies / Gentlemen service links
- *   • Added shared navigation types
+ *   - Added Services dropdown
+ *   - Added Ladies / Gentlemen service links
+ *   - Fixed Home anchor reference
+ *   - Added shared navigation types
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
-
 export interface NavigationItem {
-
   label: string;
-
   href: string;
-
   dropdown?: readonly NavigationItem[];
-
 }
-
 
 
 export const navigation: readonly NavigationItem[] = [
 
   {
     label: "Home",
-    href: "#home",
+    href: "#hero",
   },
 
 
@@ -61,7 +58,6 @@ export const navigation: readonly NavigationItem[] = [
       },
 
     ],
-
   },
 
 
@@ -93,6 +89,5 @@ export const navigation: readonly NavigationItem[] = [
     label: "Contact",
     href: "#contact",
   },
-
 
 ];
