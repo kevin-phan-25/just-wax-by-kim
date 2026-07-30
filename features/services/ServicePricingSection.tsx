@@ -6,14 +6,6 @@
  * Description:
  * Luxury service pricing presentation section.
  *
- * Changes:
- *
- * - Added category hero image support
- * - Centered page heading
- * - Removed fixed width restrictions
- * - Unified luxury spacing
- * - Improved hero image with fill + fixed height container
- *
  * -----------------------------------------------------------------------------
  */
 
@@ -41,6 +33,8 @@ export default function ServicePricingSection({
       id={id}
       className="
         w-full
+        px-6
+        pb-24
       "
     >
 
@@ -59,6 +53,7 @@ export default function ServicePricingSection({
           src={image}
           alt={title}
           fill
+          sizes="100vw"
           priority
           className="
             object-cover
@@ -66,7 +61,6 @@ export default function ServicePricingSection({
           "
         />
 
-        {/* Luxury Gradient Overlay */}
         <div
           aria-hidden
           className="
@@ -79,7 +73,6 @@ export default function ServicePricingSection({
           "
         />
 
-        {/* Soft Bottom Fade */}
         <div
           aria-hidden
           className="
@@ -98,7 +91,6 @@ export default function ServicePricingSection({
       <div
         className="
           w-full
-          px-6
           text-center
           mb-20
         "
@@ -130,14 +122,7 @@ export default function ServicePricingSection({
 
 
       {/* SERVICES */}
-      <div
-        className="
-          w-full
-          px-6
-        "
-      >
-        <ServiceGrid services={services} />
-      </div>
+      <ServiceGrid services={services} />
 
     </section>
   );
