@@ -31,20 +31,34 @@ export const aboutContent: AboutSection = {
 };
 
 
-export const credentials: Credential[] = [
+export const credentials = [
   {
     title: "Thoughtful Experience",
     description:
       "Every appointment is intentionally designed to create a calm, comfortable, and elevated experience from beginning to end.",
   },
+
   {
     title: "Expert Care",
     description:
       "A gentle and precise approach focused on beautiful results, lasting confidence, and care tailored to each guest.",
   },
+
   {
     title: "Personal Connection",
     description:
       "Every guest receives dedicated attention and a personalized experience built on trust, comfort, and genuine connection.",
+  },
+
+  {
+    title: "Premium Attention",
+    description:
+      "Every detail is thoughtfully considered, from personalized recommendations to a relaxing environment designed around your comfort.",
+  },
+
+  {
+    title: "Confidence Through Care",
+    description:
+      "A refined approach that helps every guest feel confident, refreshed, and beautifully cared for long after each appointment.",
   },
 ];
