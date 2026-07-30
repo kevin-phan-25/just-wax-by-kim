@@ -79,10 +79,13 @@ who value confidence, comfort, and care.
 
 <ServicePricingSection
 
+id="gentlemen-pricing"
+
 title="Gentlemen Waxing"
 
 description="
-Professional waxing services tailored for men.
+Professional waxing services tailored for men
+who value confidence, comfort, and care.
 "
 
 services={gentlemenServices}
