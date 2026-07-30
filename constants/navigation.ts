@@ -51,13 +51,13 @@ export const navigation: readonly NavigationItem[] = [
 
       {
         label: "Ladies Waxing",
-        href: "#ladies-services",
+        href: "/services/ladies",
       },
 
 
       {
         label: "Gentlemen Waxing",
-        href: "#gentlemen-services",
+        href: "/services/gentlemen",
       },
 
     ],

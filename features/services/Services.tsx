@@ -4,132 +4,256 @@
  * features/services/Services.tsx
  *
  * Description:
- * Luxury services landing section.
- *
- * Changes:
- * - Added Ladies / Gentlemen pricing sections
- * - Connected navigation anchors
- * - Removed unused category imports
- * - Uses separated service data files
+ * Homepage luxury service selector.
  *
  * -----------------------------------------------------------------------------
  */
 
-import ServicePricingSection from "./ServicePricingSection";
-
-import {
-  ladiesServices,
-} from "./data/ladies.data";
-
-import {
-  gentlemenServices,
-} from "./data/gentlemen.data";
+import Link from "next/link";
 
 
 export default function Services() {
 
-  return (
-    <section
-      id="services"
-      className="
-        px-6
-        py-24
-      "
-    >
+return (
 
-      <div
-        className="
-          mx-auto
-          max-w-7xl
-        "
-      >
+<section
+id="services"
+className="
+px-6
+py-24
+"
+>
 
-        {/* HEADER */}
-
-        <div
-          className="
-            mx-auto
-            max-w-3xl
-            text-center
-          "
-        >
-
-          <span
-            className="
-              uppercase
-              tracking-[0.4em]
-              text-sm
-              text-[#8C5A6B]
-            "
-          >
-            Our Services
-          </span>
+<div
+className="
+mx-auto
+max-w-7xl
+"
+>
 
 
-          <h2
-            className="
-              mt-6
-              font-serif
-              text-4xl
-              md:text-5xl
-              text-[#3B2A26]
-            "
-          >
-            Luxury Waxing
-            <br />
-            For Everyone
-          </h2>
+{/* HEADER */}
+
+<div
+className="
+mx-auto
+max-w-3xl
+text-center
+"
+>
+
+<span
+className="
+uppercase
+tracking-[0.4em]
+text-sm
+text-[#8C5A6B]
+"
+>
+Our Services
+</span>
 
 
-          <p
-            className="
-              mx-auto
-              mt-6
-              max-w-xl
-              text-lg
-              leading-relaxed
-              text-[#8C7468]
-            "
-          >
-            Personalized waxing experiences designed
-            around comfort, confidence, and beautifully
-            cared skin.
-          </p>
+<h2
+className="
+mt-6
+font-serif
+text-4xl
+md:text-5xl
+text-[#3B2A26]
+"
+>
+Luxury Waxing
+<br />
+For Everyone
+</h2>
 
 
-        </div>
+<p
+className="
+mt-6
+text-lg
+text-[#8C7468]
+"
+>
+Personalized waxing experiences designed around confidence,
+comfort, and beautifully cared skin.
+</p>
+
+
+</div>
 
 
 
-        {/* LADIES PRICING */}
+{/* IMAGE SELECTOR */}
 
-        <ServicePricingSection
-          id="ladies-services"
-          title="Ladies Waxing"
-          description="
-            Luxury waxing services created around comfort,
-            precision, and confidence.
-          "
-          services={ladiesServices}
-        />
-
+<div
+className="
+mt-16
+grid
+gap-10
+md:grid-cols-2
+"
+>
 
 
-        {/* GENTLEMEN PRICING */}
+{/* LADIES */}
 
-        <ServicePricingSection
-          id="gentlemen-services"
-          title="Gentlemen Waxing"
-          description="
-            Professional waxing services designed for men
-            who value confidence, comfort, and care.
-          "
-          services={gentlemenServices}
-        />
+<Link
+href="/services/ladies"
+className="
+group
+relative
+overflow-hidden
+rounded-[36px]
+"
+>
+
+<img
+src="/images/ladies-waxing.jpg"
+alt="Ladies waxing services"
+className="
+w-full
+aspect-[4/5]
+object-cover
+transition-transform
+duration-700
+group-hover:scale-105
+"
+/>
 
 
-      </div>
+<div
+className="
+absolute
+inset-0
+bg-gradient-to-t
+from-black/60
+to-transparent
+"
+/>
 
-    </section>
-  );
+
+<div
+className="
+absolute
+bottom-10
+left-10
+text-white
+"
+>
+
+<h3
+className="
+font-serif
+text-5xl
+"
+>
+Ladies
+</h3>
+
+
+<p
+className="
+mt-3
+uppercase
+tracking-[0.35em]
+text-sm
+"
+>
+View Pricing
+</p>
+
+
+</div>
+
+</Link>
+
+
+
+
+
+{/* GENTLEMEN */}
+
+<Link
+href="/services/gentlemen"
+className="
+group
+relative
+overflow-hidden
+rounded-[36px]
+"
+>
+
+<img
+src="/images/gentlemen-waxing.jpg"
+alt="Gentlemen waxing services"
+className="
+w-full
+aspect-[4/5]
+object-cover
+transition-transform
+duration-700
+group-hover:scale-105
+"
+/>
+
+
+<div
+className="
+absolute
+inset-0
+bg-gradient-to-t
+from-black/60
+to-transparent
+"
+/>
+
+
+<div
+className="
+absolute
+bottom-10
+left-10
+text-white
+"
+>
+
+<h3
+className="
+font-serif
+text-5xl
+"
+>
+Gentlemen
+</h3>
+
+
+<p
+className="
+mt-3
+uppercase
+tracking-[0.35em]
+text-sm
+"
+>
+View Pricing
+</p>
+
+
+</div>
+
+
+</Link>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+);
+
 }
