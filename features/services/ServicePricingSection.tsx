@@ -1,5 +1,5 @@
 /**
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * features/services/ServicePricingSection.tsx
  *
@@ -7,12 +7,12 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
- * - Centered pricing section heading
+ * - Full width layout
+ * - Centered heading
  * - Centered description
  * - Removed fixed sizing constraints
- * - Unified luxury spacing
- *
- * --------------------------------------------------------------------------
+ * - Responsive luxury grid
+ * -----------------------------------------------------------------------------
  */
 
 import ServiceCard from "./ServiceCard";
@@ -24,13 +24,13 @@ import type {
 
 interface ServicePricingSectionProps {
 
-  id:string;
+  id: string;
 
-  title:string;
+  title: string;
 
-  description:string;
+  description: string;
 
-  services:Service[];
+  services: Service[];
 
 }
 
@@ -38,157 +38,124 @@ interface ServicePricingSectionProps {
 
 export default function ServicePricingSection({
 
-id,
+  id,
 
-title,
+  title,
 
-description,
+  description,
 
-services,
+  services,
 
-}:ServicePricingSectionProps){
+}: ServicePricingSectionProps) {
 
 
 return (
 
 <section
 
-id={id}
+  id={id}
 
-className="
-
-scroll-mt-[168px]
-
-py-24
-
-"
+  className="
+    scroll-mt-[168px]
+    px-6
+    py-24
+  "
 
 >
 
 
-<div
+  {/* HEADER */}
 
-className="
+  <div
 
-container-luxury
+    className="
+      mx-auto
+      max-w-4xl
+      text-center
+    "
 
-"
+  >
 
+    <h2
 
->
+      className="
+        font-serif
+        text-4xl
+        md:text-5xl
+        text-[#3B2A26]
+      "
 
+    >
 
-{/* HEADER */}
+      {title}
 
-<div
+    </h2>
 
-className="
 
-mx-auto
 
-max-w-3xl
+    <p
 
-text-center
+      className="
+        mx-auto
+        mt-6
+        max-w-3xl
+        text-lg
+        leading-relaxed
+        text-[#8C7468]
+      "
 
-mb-16
+    >
 
-"
+      {description}
 
->
+    </p>
 
 
-<h2
+  </div>
 
-className="
 
-font-serif
 
-text-4xl
 
-md:text-5xl
 
-text-[#3B2A26]
+  {/* SERVICE GRID */}
 
-"
+  <div
 
->
+    className="
+      mt-20
+      w-full
 
-{title}
+      grid
+      grid-cols-1
+      md:grid-cols-2
+      xl:grid-cols-3
 
-</h2>
+      gap-10
+    "
 
+  >
 
+    {
+      services.map((service)=>(
 
-<p
+        <ServiceCard
 
-className="
+          key={service.id}
 
-mt-6
+          service={service}
 
-text-lg
+        />
 
-leading-relaxed
+      ))
+    }
 
-text-[#8C7468]
 
-"
+  </div>
 
->
-
-{description}
-
-</p>
-
-
-</div>
-
-
-
-
-
-{/* SERVICES GRID */}
-
-<div
-
-className="
-
-grid
-
-gap-8
-
-md:grid-cols-2
-
-lg:grid-cols-3
-
-"
-
->
-
-
-{
-services.map((service)=>(
-
-<ServiceCard
-
-key={service.id}
-
-service={service}
-
-/>
-
-))
-
-}
-
-
-</div>
-
-
-
-</div>
 
 
 </section>
+
 
 );
 
