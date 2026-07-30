@@ -1,20 +1,18 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * features/services/Services.tsx
- *
- * Description:
- * Luxury services introduction section.
- *
- * Changes:
- *
- * - Removed fixed width restrictions
- * - Reduced service card size
- * - Made image container fit content
- * - Centered service presentation
- * - Preserved luxury editorial styling
- *
- * -----------------------------------------------------------------------------
+ /**
+  ---
+ File:
+ features/services/Services.tsx
+
+ Description:
+ Luxury services introduction section.
+
+ Changes:
+ - Removed fixed width restrictions
+ - Reduced service card sizing
+ - Improved luxury messaging
+ - Centered service presentation
+ - Preserved editorial styling
+ ---
  */
 
 import Link from "next/link";
@@ -24,7 +22,6 @@ export default function Services() {
     <section
       id="services"
       className="
-        w-full
         px-6
         py-24
       "
@@ -37,6 +34,7 @@ export default function Services() {
           text-center
         "
       >
+
         <span
           className="
             uppercase
@@ -53,30 +51,32 @@ export default function Services() {
           className="
             mt-6
             font-serif
-            text-5xl
+            text-4xl
+            md:text-5xl
             text-[#3B2A26]
           "
         >
-          Luxury Waxing
-          <br />
-          For Everyone
+          Luxury Waxing For Everyone
         </h2>
 
 
         <p
           className="
             mt-6
+            mx-auto
+            max-w-3xl
             text-lg
             leading-relaxed
             text-[#8C7468]
           "
         >
-          Personalized waxing experiences designed around
-          <br />
-          confidence, comfort, and beautifully cared skin.
+          Thoughtfully curated waxing experiences that blend
+          comfort, precision, and refined care for beautifully
+          confident skin.
         </p>
 
       </div>
+
 
 
       {/* SERVICE OPTIONS */}
@@ -84,11 +84,12 @@ export default function Services() {
         className="
           mt-16
           grid
-          gap-16
+          gap-12
           md:grid-cols-2
           justify-items-center
         "
       >
+
 
         {/* LADIES */}
         <Link
@@ -98,10 +99,11 @@ export default function Services() {
             relative
             overflow-hidden
             rounded-[36px]
-            mx-auto
-            w-[65%]
+            w-full
+            max-w-md
           "
         >
+
           <img
             src="/images/services/ladies-waxing.jpg"
             alt="Ladies waxing"
@@ -136,14 +138,17 @@ export default function Services() {
               text-white
             "
           >
+
             <h3
               className="
                 font-serif
-                text-5xl
+                text-4xl
+                md:text-5xl
               "
             >
               Ladies
             </h3>
+
 
             <p
               className="
@@ -170,10 +175,11 @@ export default function Services() {
             relative
             overflow-hidden
             rounded-[36px]
-            mx-auto
-            w-[65%]
+            w-full
+            max-w-md
           "
         >
+
           <img
             src="/images/services/gentlemen-waxing.jpg"
             alt="Gentlemen waxing"
@@ -208,14 +214,17 @@ export default function Services() {
               text-white
             "
           >
+
             <h3
               className="
                 font-serif
-                text-5xl
+                text-4xl
+                md:text-5xl
               "
             >
               Gentlemen
             </h3>
+
 
             <p
               className="
@@ -232,7 +241,9 @@ export default function Services() {
 
         </Link>
 
+
       </div>
+
 
     </section>
   );
