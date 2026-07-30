@@ -6,9 +6,9 @@
  * Full-width luxury hero banner.
  *
  * Changes:
- * • Fixed navbar separation
- * • Creates luxury breathing room
- * • Prevents image behind navbar
+ * • Navbar overlap removed
+ * • Hero image shifted down
+ * • Luxury breathing room added below navbar
  * • Preserves editorial layout
  * ------------------------------------------------------------------
  */
@@ -23,12 +23,12 @@ export default function Hero() {
         relative
         overflow-hidden
 
-        pt-[168px]
+        pt-[368px]
         pb-24
       "
     >
 
-      {/* Luxury background wash */}
+      {/* Soft ambient wash */}
       <div
         aria-hidden
         className="
@@ -48,7 +48,7 @@ export default function Hero() {
           relative
           z-10
 
-          pt-[96px]
+          pt-[120px]
         "
       >
         <HeroImage />
