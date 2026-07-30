@@ -7,29 +7,31 @@
  *
  * Changes:
  *
- * July 29, 2026
+ * - July 29, 2026
  *
- * - Matched luxury theme
- * - Reduced visual prominence
+ *   - Matched luxury theme
+ *   - Reduced visual prominence
  *
  * -----------------------------------------------------------------------------
  */
 
+
 export default function ServicePricing() {
 
   return (
+
     <p
       className="
-        mx-auto
-        max-w-xl
-        text-center
         text-sm
         leading-relaxed
-        text-brand-muted
+        text-brand-taupe
       "
     >
       Pricing may vary based on customization.
+      <br />
       Consultation available before your appointment.
     </p>
+
   );
+
 }
