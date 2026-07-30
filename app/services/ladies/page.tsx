@@ -1,3 +1,14 @@
+/**
+ * --------------------------------------------------------------------------
+ * File:
+ * app/services/ladies/page.tsx
+ *
+ * Description:
+ * Ladies waxing pricing page.
+ *
+ * --------------------------------------------------------------------------
+ */
+
 import ServicePricingSection from "@/features/services/ServicePricingSection";
 
 import {
@@ -10,90 +21,91 @@ export default function LadiesServicesPage(){
 return (
 
 <main
-className="
-pt-[168px]
-px-6
-pb-24
-"
+  className="
+    relative
+
+    pt-[216px]
+
+    pb-24
+  "
 >
 
 
-<section
-className="
-mx-auto
-max-w-7xl
-"
->
+  <div
+    className="
+      container-luxury
+    "
+  >
 
 
-<div
-className="
-text-center
-max-w-3xl
-mx-auto
-mb-16
-"
->
+    <div
+      className="
+        text-center
+        mb-16
+      "
+    >
 
-<span
-className="
-uppercase
-tracking-[0.4em]
-text-sm
-text-[#8C5A6B]
-"
->
-Ladies Services
-</span>
+      <span
+        className="
+          uppercase
+          tracking-[0.4em]
+          text-sm
+          text-[#8C5A6B]
+        "
+      >
+        Ladies Services
+      </span>
 
 
-<h1
-className="
-mt-6
-font-serif
-text-5xl
-text-[#3B2A26]
-"
->
-Luxury Waxing
-<br/>
-For Her
-</h1>
+      <h1
+        className="
+          mt-6
+          font-serif
+          text-5xl
+          md:text-6xl
+          text-[#3B2A26]
+        "
+      >
+        Ladies Waxing
+      </h1>
 
 
-<p
-className="
-mt-6
-text-lg
-text-[#8C7468]
-"
->
-Personalized waxing services designed around
-comfort, confidence, and beautifully cared skin.
-</p>
+      <p
+        className="
+          mx-auto
+          mt-6
+          max-w-xl
+          text-lg
+          leading-relaxed
+          text-[#8C7468]
+        "
+      >
+        Premium waxing services created with
+        precision, comfort, and confidence.
+      </p>
 
 
-</div>
+    </div>
 
 
 
-<ServicePricingSection
+    <ServicePricingSection
 
-id="ladies-pricing"
+      id="ladies-pricing"
 
-title="Ladies Waxing"
+      title="Ladies Waxing"
 
-description="
-Premium waxing services created with precision,
-comfort, and confidence.
-"
+      description="
+        Luxury waxing services designed around
+        comfort, confidence, and beautifully cared skin.
+      "
 
-services={ladiesServices}
+      services={ladiesServices}
 
-/>
+    />
 
 
-</section>
+  </div>
 
 
 </main>
