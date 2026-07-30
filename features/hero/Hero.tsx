@@ -6,9 +6,10 @@
  * Full-width luxury hero banner.
  *
  * Changes:
- * • Clears fixed navbar
- * • Starts around 3 inches from viewport top
- * • Banner-only layout
+ * • Added fixed navbar offset
+ * • Creates 1 inch breathing room below navbar
+ * • Prevents banner overlap
+ * • Keeps luxury editorial spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -22,11 +23,10 @@ export default function Hero() {
         relative
         overflow-hidden
 
-        pt-[360px]
+        pt-[264px]
         pb-24
       "
     >
-
       {/* Soft ambient wash */}
       <div
         aria-hidden
@@ -38,12 +38,13 @@ export default function Hero() {
         "
       />
 
-
       <div
         className="
           container-luxury
           relative
           z-10
+
+          mt-0
         "
       >
         <HeroImage />
