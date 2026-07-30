@@ -7,11 +7,10 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
- * - Full width layout
- * - Centered heading
- * - Centered description
- * - Removed fixed sizing constraints
- * - Responsive luxury grid
+ * - Removed fixed width restrictions
+ * - Full width luxury layout
+ * - Centered heading + description
+ * - Responsive service grid
  * -----------------------------------------------------------------------------
  */
 
@@ -52,106 +51,122 @@ export default function ServicePricingSection({
 return (
 
 <section
-  id={id}
-  className="
-    scroll-mt-[168px]
-    w-screen
-    px-6
-    py-24
-    relative
-    left-1/2
-    -translate-x-1/2
-  "
+
+id={id}
+
+className="
+scroll-mt-[168px]
+w-full
+py-24
+"
+
 >
 
-  {/* HEADER */}
 
-  <div
+<div
 
-    className="
-      mx-auto
-      max-w-4xl
-      text-center
-    "
+className="
+w-full
+px-6
+sm:px-10
+lg:px-16
+"
 
-  >
-
-    <h2
-
-      className="
-        font-serif
-        text-4xl
-        md:text-5xl
-        text-[#3B2A26]
-      "
-
-    >
-
-      {title}
-
-    </h2>
+>
 
 
+{/* HEADER */}
 
-    <p
+<div
 
-      className="
-        mx-auto
-        mt-6
-        max-w-3xl
-        text-lg
-        leading-relaxed
-        text-[#8C7468]
-      "
+className="
+w-full
+text-center
+mx-auto
+mb-16
+"
 
-    >
-
-      {description}
-
-    </p>
+>
 
 
-  </div>
+<h1
+
+className="
+font-serif
+text-4xl
+md:text-5xl
+lg:text-6xl
+font-medium
+tracking-tight
+text-[#3B2A26]
+"
+
+>
+
+{title}
+
+</h1>
 
 
 
+<p
+
+className="
+mx-auto
+mt-6
+max-w-4xl
+text-lg
+leading-relaxed
+text-[#8C7468]
+"
+
+>
+
+{description}
+
+</p>
 
 
-  {/* SERVICE GRID */}
-
-  <div
-
-    className="
-      mt-20
-      w-full
-
-      grid
-      grid-cols-1
-      md:grid-cols-2
-      xl:grid-cols-3
-
-      gap-10
-    "
-
-  >
-
-    {
-      services.map((service)=>(
-
-        <ServiceCard
-
-          key={service.id}
-
-          service={service}
-
-        />
-
-      ))
-    }
+</div>
 
 
-  </div>
 
+
+{/* SERVICE GRID */}
+
+<div
+
+className="
+grid
+w-full
+grid-cols-1
+md:grid-cols-2
+xl:grid-cols-3
+gap-8
+"
+
+>
+
+
+{
+services.map((service)=>(
+
+<ServiceCard
+
+key={service.id}
+
+service={service}
+
+/>
+
+))
+}
+
+
+</div>
+
+
+</div>
 
 
 </section>
