@@ -52,17 +52,17 @@ export default function ServicePricingSection({
 return (
 
 <section
-
   id={id}
-
   className="
     scroll-mt-[168px]
+    w-screen
     px-6
     py-24
+    relative
+    left-1/2
+    -translate-x-1/2
   "
-
 >
-
 
   {/* HEADER */}
 
