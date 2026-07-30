@@ -1,83 +1,123 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * features/services/Services.tsx
- *
- * Description:
- * Homepage luxury service selector.
- *
- * -----------------------------------------------------------------------------
- */
-
 import Link from "next/link";
 
 
-export default function Services() {
+export default function Services(){
 
 return (
 
 <section
+
 id="services"
+
 className="
+
 px-6
+
 py-24
+
 "
+
 >
 
+
 <div
+
 className="
+
 mx-auto
+
 max-w-7xl
+
 "
+
 >
 
 
 {/* HEADER */}
 
 <div
+
 className="
-mx-auto
+
 max-w-3xl
+
+mx-auto
+
 text-center
+
 "
+
 >
 
+
 <span
+
 className="
+
 uppercase
+
 tracking-[0.4em]
+
 text-sm
+
 text-[#8C5A6B]
+
 "
+
 >
+
 Our Services
+
 </span>
 
 
+
 <h2
+
 className="
+
 mt-6
+
 font-serif
-text-4xl
-md:text-5xl
+
+text-5xl
+
 text-[#3B2A26]
+
 "
+
 >
+
 Luxury Waxing
-<br />
+
+<br/>
+
 For Everyone
+
 </h2>
 
 
+
 <p
+
 className="
+
 mt-6
+
 text-lg
+
+leading-relaxed
+
 text-[#8C7468]
+
 "
+
 >
-Personalized waxing experiences designed around confidence,
-comfort, and beautifully cared skin.
+
+Personalized waxing experiences designed around
+
+confidence, comfort, and beautifully cared skin.
+
 </p>
 
 
@@ -85,87 +125,150 @@ comfort, and beautifully cared skin.
 
 
 
-{/* IMAGE SELECTOR */}
+
+
+{/* SERVICE OPTIONS */}
+
 
 <div
+
 className="
+
 mt-16
+
 grid
-gap-10
+
+gap-12
+
 md:grid-cols-2
+
 "
+
 >
 
 
-{/* LADIES */}
 
 <Link
+
 href="/services/ladies"
+
 className="
+
 group
+
 relative
+
 overflow-hidden
+
 rounded-[36px]
+
 "
+
 >
+
 
 <img
+
 src="/images/ladies-waxing.jpg"
-alt="Ladies waxing services"
+
+alt="Ladies waxing"
+
 className="
+
 w-full
-aspect-[4/5]
+
+h-auto
+
 object-cover
-transition-transform
-duration-700
-group-hover:scale-105
+
+transition
+
+duration-500
+
 "
+
 />
 
 
+
 <div
+
 className="
+
 absolute
+
 inset-0
+
 bg-gradient-to-t
+
 from-black/60
+
 to-transparent
+
 "
+
 />
 
 
+
 <div
+
 className="
+
 absolute
+
 bottom-10
+
 left-10
+
 text-white
+
 "
+
 >
+
 
 <h3
+
 className="
+
 font-serif
+
 text-5xl
+
 "
+
 >
+
 Ladies
+
 </h3>
 
 
+
 <p
+
 className="
-mt-3
+
+mt-4
+
 uppercase
-tracking-[0.35em]
+
+tracking-[0.3em]
+
 text-sm
+
 "
+
 >
+
 View Pricing
+
 </p>
 
 
 </div>
+
 
 </Link>
 
@@ -173,71 +276,124 @@ View Pricing
 
 
 
-{/* GENTLEMEN */}
+
 
 <Link
+
 href="/services/gentlemen"
+
 className="
+
 group
+
 relative
+
 overflow-hidden
+
 rounded-[36px]
+
 "
+
 >
+
 
 <img
+
 src="/images/gentlemen-waxing.jpg"
-alt="Gentlemen waxing services"
+
+alt="Gentlemen waxing"
+
 className="
+
 w-full
-aspect-[4/5]
+
+h-auto
+
 object-cover
-transition-transform
-duration-700
-group-hover:scale-105
+
+transition
+
+duration-500
+
 "
+
 />
 
 
+
 <div
+
 className="
+
 absolute
+
 inset-0
+
 bg-gradient-to-t
+
 from-black/60
+
 to-transparent
+
 "
+
 />
 
 
+
 <div
+
 className="
+
 absolute
+
 bottom-10
+
 left-10
+
 text-white
+
 "
+
 >
+
 
 <h3
+
 className="
+
 font-serif
+
 text-5xl
+
 "
+
 >
+
 Gentlemen
+
 </h3>
 
 
+
 <p
+
 className="
-mt-3
+
+mt-4
+
 uppercase
-tracking-[0.35em]
+
+tracking-[0.3em]
+
 text-sm
+
 "
+
 >
+
 View Pricing
+
 </p>
 
 
@@ -247,10 +403,13 @@ View Pricing
 </Link>
 
 
+
+
 </div>
 
 
 </div>
+
 
 </section>
 

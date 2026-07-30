@@ -1,121 +1,417 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * ServiceCard.tsx
- *
- * Description:
- * Luxury service pricing card.
- *
- * -----------------------------------------------------------------------------
- */
-
-import type { Service } from "./services.types";
+import Link from "next/link";
 
 
-interface ServiceCardProps {
-  service: Service;
-}
-
-
-export default function ServiceCard({
-  service,
-}: ServiceCardProps) {
-
+export default function Services(){
 
 return (
 
-<article
-  className="
-    rounded-[28px]
-    border
-    border-[#E8DDD8]
-    bg-white/70
-    p-8
-    backdrop-blur-sm
-    transition-all
-    duration-300
-    hover:-translate-y-1
-    hover:shadow-xl
-  "
+<section
+
+id="services"
+
+className="
+
+px-6
+
+py-24
+
+"
+
 >
 
 
-  <span
-    className="
-      text-xs
-      uppercase
-      tracking-[0.35em]
-      text-[#8C5A6B]
-    "
-  >
-    {service.category}
-  </span>
+<div
+
+className="
+
+mx-auto
+
+max-w-7xl
+
+"
+
+>
+
+
+{/* HEADER */}
+
+<div
+
+className="
+
+max-w-3xl
+
+mx-auto
+
+text-center
+
+"
+
+>
+
+
+<span
+
+className="
+
+uppercase
+
+tracking-[0.4em]
+
+text-sm
+
+text-[#8C5A6B]
+
+"
+
+>
+
+Our Services
+
+</span>
 
 
 
-  <h3
-    className="
-      mt-5
-      font-serif
-      text-2xl
-      text-[#3B2A26]
-    "
-  >
-    {service.title}
-  </h3>
+<h2
+
+className="
+
+mt-6
+
+font-serif
+
+text-5xl
+
+text-[#3B2A26]
+
+"
+
+>
+
+Luxury Waxing
+
+<br/>
+
+For Everyone
+
+</h2>
 
 
 
-  <p
-    className="
-      mt-4
-      leading-relaxed
-      text-[#8C7468]
-    "
-  >
-    {service.description}
-  </p>
+<p
+
+className="
+
+mt-6
+
+text-lg
+
+leading-relaxed
+
+text-[#8C7468]
+
+"
+
+>
+
+Personalized waxing experiences designed around
+
+confidence, comfort, and beautifully cared skin.
+
+</p>
+
+
+</div>
 
 
 
-  <div
-    className="
-      mt-8
-      flex
-      items-center
-      justify-between
-      border-t
-      border-[#E8DDD8]
-      pt-6
-    "
-  >
-
-    <span
-      className="
-        text-sm
-        text-[#8C7468]
-      "
-    >
-      {service.duration}
-    </span>
 
 
-
-    <span
-      className="
-        text-xl
-        font-medium
-        text-[#8C5A6B]
-      "
-    >
-      {service.price}
-    </span>
+{/* SERVICE OPTIONS */}
 
 
-  </div>
+<div
+
+className="
+
+mt-16
+
+grid
+
+gap-12
+
+md:grid-cols-2
+
+"
+
+>
 
 
-</article>
+
+<Link
+
+href="/services/ladies"
+
+className="
+
+group
+
+relative
+
+overflow-hidden
+
+rounded-[36px]
+
+"
+
+>
+
+
+<img
+
+src="/images/ladies-waxing.jpg"
+
+alt="Ladies waxing"
+
+className="
+
+w-full
+
+h-auto
+
+object-cover
+
+transition
+
+duration-500
+
+"
+
+/>
+
+
+
+<div
+
+className="
+
+absolute
+
+inset-0
+
+bg-gradient-to-t
+
+from-black/60
+
+to-transparent
+
+"
+
+/>
+
+
+
+<div
+
+className="
+
+absolute
+
+bottom-10
+
+left-10
+
+text-white
+
+"
+
+>
+
+
+<h3
+
+className="
+
+font-serif
+
+text-5xl
+
+"
+
+>
+
+Ladies
+
+</h3>
+
+
+
+<p
+
+className="
+
+mt-4
+
+uppercase
+
+tracking-[0.3em]
+
+text-sm
+
+"
+
+>
+
+View Pricing
+
+</p>
+
+
+</div>
+
+
+</Link>
+
+
+
+
+
+
+
+<Link
+
+href="/services/gentlemen"
+
+className="
+
+group
+
+relative
+
+overflow-hidden
+
+rounded-[36px]
+
+"
+
+>
+
+
+<img
+
+src="/images/gentlemen-waxing.jpg"
+
+alt="Gentlemen waxing"
+
+className="
+
+w-full
+
+h-auto
+
+object-cover
+
+transition
+
+duration-500
+
+"
+
+/>
+
+
+
+<div
+
+className="
+
+absolute
+
+inset-0
+
+bg-gradient-to-t
+
+from-black/60
+
+to-transparent
+
+"
+
+/>
+
+
+
+<div
+
+className="
+
+absolute
+
+bottom-10
+
+left-10
+
+text-white
+
+"
+
+>
+
+
+<h3
+
+className="
+
+font-serif
+
+text-5xl
+
+"
+
+>
+
+Gentlemen
+
+</h3>
+
+
+
+<p
+
+className="
+
+mt-4
+
+uppercase
+
+tracking-[0.3em]
+
+text-sm
+
+"
+
+>
+
+View Pricing
+
+</p>
+
+
+</div>
+
+
+</Link>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
 
 );
 
