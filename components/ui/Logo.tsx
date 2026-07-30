@@ -33,8 +33,8 @@ export function Logo({ className = "", priority = false }: LogoProps) {
         height={180}
         priority={priority}
         className="
-          h-[168px] w-auto
-          max-h-[168px]
+          h-[180px] w-auto
+          max-h-[180px]
           object-contain object-left
           transition-opacity duration-300
           group-hover:opacity-80
