@@ -8,11 +8,9 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Replaced fixed 168px height with clamp (scales across screens)
- * • Uses CSS --nav-height so scroll-padding stays in sync
- * • Logo scales with the bar
+ * • Navbar height restored to 1.75 inches (168px)
+ * • Logo constrained so it no longer hangs outside the bar
  * • Book Appointment: outline only, no solid purple on hover
- * • Nav: Home, About, Services, Gallery, Testimonials, FAQ, Booking, Contact
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -58,18 +56,12 @@ export default function Navbar() {
         `}
       >
         <div className="container-luxury">
-          <nav
-            className="
-              flex items-center justify-between gap-4
-              h-[var(--nav-height)]
-            "
-          >
-            {/* Brand */}
-            <div className="flex-shrink-0 flex items-center h-full py-2">
+          {/* 1.75 inches = 168px */}
+          <nav className="flex h-[168px] items-center justify-between gap-4 overflow-hidden">
+            <div className="flex-shrink-0 flex items-center h-full max-h-[168px] py-3">
               <Logo priority />
             </div>
 
-            {/* Links + CTA */}
             <div className="flex items-center gap-6 xl:gap-10 ml-auto">
               <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
                 {NAV_LINKS.map((link) => (
