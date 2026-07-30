@@ -8,9 +8,11 @@
  * Fixed top navigation for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Navbar height set to 1.75 inches (168px)
- * • Logo sized to nearly fill the bar without clipping
+ * • Replaced fixed 168px height with clamp (scales across screens)
+ * • Uses CSS --nav-height so scroll-padding stays in sync
+ * • Logo scales with the bar
  * • Book Appointment: outline only, no solid purple on hover
+ * • Nav: Home, About, Services, Gallery, Testimonials, FAQ, Booking, Contact
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -51,26 +53,32 @@ export default function Navbar() {
           ${
             scrolled
               ? "bg-[#FCF8F3]/95 backdrop-blur-xl border-b border-[#E8DDD8] shadow-[0_6px_24px_rgba(59,42,38,0.05)]"
-              : "bg-[#FCF8F3]/85 backdrop-blur-md border-b border-transparent"
+              : "bg-[#FCF8F3]/90 backdrop-blur-md border-b border-transparent"
           }
         `}
       >
         <div className="container-luxury">
-          {/* 1.75 inches */}
-          <nav className="flex h-[168px] items-center justify-between gap-6">
-            <div className="flex-shrink-0 flex items-center h-full">
+          <nav
+            className="
+              flex items-center justify-between gap-4
+              h-[var(--nav-height)]
+            "
+          >
+            {/* Brand */}
+            <div className="flex-shrink-0 flex items-center h-full py-2">
               <Logo priority />
             </div>
 
-            <div className="flex items-center gap-8 xl:gap-12 ml-auto">
-              <ul className="hidden xl:flex items-center gap-6 2xl:gap-8">
+            {/* Links + CTA */}
+            <div className="flex items-center gap-6 xl:gap-10 ml-auto">
+              <ul className="hidden xl:flex items-center gap-5 2xl:gap-7">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       className="
-                        relative text-[0.68rem] font-semibold uppercase
-                        tracking-[0.16em] text-[#3B2A26]/75
+                        relative text-[0.65rem] font-semibold uppercase
+                        tracking-[0.15em] text-[#3B2A26]/75
                         transition-colors duration-300 whitespace-nowrap
                         hover:text-[#8C5A6B]
                         after:absolute after:left-0 after:-bottom-[3px]
@@ -92,8 +100,8 @@ export default function Navbar() {
                   rounded-full
                   border-2 border-[#8C5A6B]
                   bg-transparent
-                  px-10 py-5
-                  text-[0.78rem] font-semibold uppercase tracking-[0.18em]
+                  px-7 py-3.5
+                  text-[0.72rem] font-semibold uppercase tracking-[0.16em]
                   text-[#8C5A6B]
                   transition-all duration-300 whitespace-nowrap
                   hover:border-[#6E4A55]
@@ -110,7 +118,7 @@ export default function Navbar() {
                 aria-expanded={mobileOpen}
                 onClick={() => setMobileOpen((v) => !v)}
                 className="
-                  xl:hidden flex h-12 w-12 items-center justify-center
+                  xl:hidden flex h-11 w-11 items-center justify-center
                   rounded-full border border-[#E8DDD8] bg-white/90
                   text-[#3B2A26] transition-colors hover:border-[#D4A9B6]
                 "
@@ -118,18 +126,18 @@ export default function Navbar() {
                 <span className="sr-only">Menu</span>
                 <div className="flex flex-col gap-[5px]">
                   <span
-                    className={`block h-px w-5 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "translate-y-[7px] rotate-45" : ""
+                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
+                      mobileOpen ? "translate-y-[6px] rotate-45" : ""
                     }`}
                   />
                   <span
-                    className={`block h-px w-5 bg-current transition-opacity duration-300 ${
+                    className={`block h-px w-4 bg-current transition-opacity duration-300 ${
                       mobileOpen ? "opacity-0" : ""
                     }`}
                   />
                   <span
-                    className={`block h-px w-5 bg-current transition-transform duration-300 origin-center ${
-                      mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
+                    className={`block h-px w-4 bg-current transition-transform duration-300 origin-center ${
+                      mobileOpen ? "-translate-y-[6px] -rotate-45" : ""
                     }`}
                   />
                 </div>
