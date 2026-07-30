@@ -6,10 +6,9 @@
  * Full-width luxury hero banner.
  *
  * Changes:
- * • Navbar overlap removed
- * • Hero image shifted down 6 inches
- * • Keeps hero background intact
- * • Preserves editorial spacing
+ * • Fixed navbar transition spacing
+ * • Added 1/2 inch breathing room below navbar
+ * • Hero image positioning stabilized
  * ------------------------------------------------------------------
  */
 
@@ -23,7 +22,6 @@ export default function Hero() {
         relative
         overflow-hidden
 
-        pt-[168px]
         pb-24
       "
     >
@@ -33,7 +31,6 @@ export default function Hero() {
         aria-hidden
         className="
           pointer-events-none
-
           absolute
           inset-0
 
@@ -42,15 +39,21 @@ export default function Hero() {
       />
 
 
-      {/* Hero Image Container */}
+      {/* Navbar transition spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+      {/* Hero Image */}
       <div
         className="
           container-luxury
 
           relative
           z-10
-
-          pt-[696px]
         "
       >
         <HeroImage />
