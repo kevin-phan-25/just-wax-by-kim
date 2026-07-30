@@ -1,16 +1,16 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: features/hero/Hero.tsx
  *
  * Description:
  * Full-width luxury hero banner.
  *
  * Changes:
- * • Added fixed navbar offset
- * • Creates 1 inch breathing room below navbar
- * • Prevents banner overlap
- * • Keeps luxury editorial spacing
- * -----------------------------------------------------------------------------
+ * • Fixed navbar separation
+ * • Creates luxury breathing room
+ * • Prevents image behind navbar
+ * • Preserves editorial layout
+ * ------------------------------------------------------------------
  */
 
 import { HeroImage } from "./HeroImage";
@@ -23,28 +23,32 @@ export default function Hero() {
         relative
         overflow-hidden
 
-        pt-[264px]
+        pt-[168px]
         pb-24
       "
     >
-      {/* Soft ambient wash */}
+
+      {/* Luxury background wash */}
       <div
         aria-hidden
         className="
           pointer-events-none
-          absolute inset-0
+          absolute
+          inset-0
 
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
 
+
       <div
         className="
           container-luxury
+
           relative
           z-10
 
-          mt-0
+          pt-[96px]
         "
       >
         <HeroImage />
