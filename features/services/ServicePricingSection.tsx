@@ -24,7 +24,6 @@ import type { Service } from "./services.types";
 
 interface ServicePricingSectionProps {
   id: string;
-  image: string;
   title: string;
   description: string;
   services: Service[];
