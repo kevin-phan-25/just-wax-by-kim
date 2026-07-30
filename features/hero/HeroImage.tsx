@@ -21,7 +21,7 @@ export function HeroImage() {
   return (
     <div className="relative w-full h-[240px] sm:h-[300px] md:h-[360px] lg:h-[420px] overflow-hidden rounded-[32px] shadow-2xl">
       <Image
-        src="/hero/just-wax-by-kim-banner.jpg"
+        src="/public/hero/just-wax-by-kim-banner.jpg"
         alt="Luxury waxing experience"
         fill
         priority
