@@ -1,13 +1,9 @@
 /**
  * -----------------------------------------------------------------------------
  * File:
- * ServiceGrid.tsx
- *
- * Description:
- * Responsive luxury service card grid.
+ * features/services/ServiceGrid.tsx
  * -----------------------------------------------------------------------------
  */
-
 
 import ServiceCard from "./ServiceCard";
 
@@ -36,36 +32,35 @@ return (
 <div
 
 className="
-  w-full
-
-  grid
-  grid-cols-1
-  md:grid-cols-2
-  xl:grid-cols-3
-
-  gap-10
+grid
+w-full
+grid-cols-1
+md:grid-cols-2
+xl:grid-cols-4
+gap-8
 "
 
 >
+
 
 {
 services.map((service)=>(
 
 <ServiceCard
 
-  key={service.id}
+key={service.id}
 
-  service={service}
+service={service}
 
 />
 
 ))
+
 }
+
 
 </div>
 
-
 );
-
 
 }
