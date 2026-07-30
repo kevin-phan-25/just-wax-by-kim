@@ -8,8 +8,7 @@
  * Brand logo for Just Wax by Kim.
  *
  * Changes (July 29, 2026):
- * • Logo set to ~150px so it fills the 1.75" (168px) navbar
- *   without clipping (true +50% from 168px = 252px cannot fit)
+ * • Height scales with --nav-height / viewport via clamp
  * -----------------------------------------------------------------------------
  */
 import Image from "next/image";
@@ -30,12 +29,13 @@ export function Logo({ className = "", priority = false }: LogoProps) {
       <Image
         src="/logo/just-wax-by-kim.png"
         alt="Just Wax by Kim"
-        width={320}
-        height={250}
+        width={200}
+        height={72}
         priority={priority}
         className="
-          h-[250px] w-auto
-          max-h-[250px]
+          h-[clamp(2.5rem,6.5vh,3.75rem)]
+          w-auto
+          max-h-[calc(var(--nav-height)-0.75rem)]
           object-contain object-left
           transition-opacity duration-300
           group-hover:opacity-80
