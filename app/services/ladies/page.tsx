@@ -35,7 +35,9 @@ className="
 <ServicePricingSection
 
 id="ladies-pricing"
-
+  
+image="/images/services/ladies-waxing.jpg"
+  
 title="Ladies Waxing"
 
 description="
