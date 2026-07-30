@@ -7,11 +7,11 @@
  * Luxury service pricing presentation section.
  *
  * Changes:
- * - Matches Hero spacing system
- * - Added navbar breathing room
- * - Reduced card presentation width
- * - Centered editorial layout
- * - Removed oversized service grid
+ * - Hero-style spacing
+ * - Full width editorial layout
+ * - 4 column desktop grid
+ * - Balanced card sizing
+ * - Centered typography
  * -----------------------------------------------------------------------------
  */
 
@@ -66,7 +66,7 @@ pb-24
 >
 
 
-{/* NAVBAR TRANSITION SPACE */}
+{/* NAVBAR CLEARANCE */}
 
 <div
 
@@ -81,7 +81,10 @@ h-[216px]
 <div
 
 className="
-container-luxury
+w-full
+px-6
+sm:px-10
+lg:px-16
 "
 
 >
@@ -93,9 +96,8 @@ container-luxury
 <div
 
 className="
-mx-auto
+w-full
 text-center
-max-w-4xl
 mb-20
 "
 
@@ -110,7 +112,6 @@ text-4xl
 md:text-5xl
 lg:text-6xl
 font-medium
-tracking-tight
 text-[#3B2A26]
 "
 
@@ -125,7 +126,9 @@ text-[#3B2A26]
 <p
 
 className="
+mx-auto
 mt-6
+max-w-5xl
 text-lg
 leading-relaxed
 text-[#8C7468]
@@ -143,26 +146,16 @@ text-[#8C7468]
 
 
 
-{/* SERVICES */}
-
-<div
-
-className="
-flex
-justify-center
-"
-
->
-
+{/* GRID */}
 
 <div
 
 className="
 grid
 w-full
-max-w-5xl
 grid-cols-1
-md:grid-cols-2
+sm:grid-cols-2
+lg:grid-cols-4
 gap-8
 "
 
@@ -170,7 +163,9 @@ gap-8
 
 
 {
+
 services.map((service)=>(
+
 
 <ServiceCard
 
@@ -180,24 +175,22 @@ service={service}
 
 />
 
+
 ))
+
 }
 
 
 </div>
 
 
-</div>
-
-
 
 </div>
+
 
 
 </section>
 
-
 );
-
 
 }
