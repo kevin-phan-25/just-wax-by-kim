@@ -1,122 +1,105 @@
 /**
  * -----------------------------------------------------------------------------
  * File:
- * ServiceCard.tsx
+ * features/services/ServicePricingSection.tsx
  *
  * Description:
- * Luxury service pricing card.
+ * Luxury pricing section for Ladies and Gentlemen services.
  *
  * -----------------------------------------------------------------------------
  */
 
+import ServiceCard from "./ServiceCard";
 import type { Service } from "./services.types";
 
-
-interface ServiceCardProps {
-  service: Service;
+interface ServicePricingSectionProps {
+  id: string;
+  title: string;
+  description: string;
+  services: Service[];
 }
 
-
-export default function ServiceCard({
-  service,
-}: ServiceCardProps) {
-
-
-return (
-
-<article
-  className="
-    rounded-[28px]
-    border
-    border-[#E8DDD8]
-    bg-white/70
-    p-8
-    backdrop-blur-sm
-    transition-all
-    duration-300
-    hover:-translate-y-1
-    hover:shadow-xl
-  "
->
-
-
-  <span
-    className="
-      text-xs
-      uppercase
-      tracking-[0.35em]
-      text-[#8C5A6B]
-    "
-  >
-    {service.category}
-  </span>
-
-
-
-  <h3
-    className="
-      mt-5
-      font-serif
-      text-2xl
-      text-[#3B2A26]
-    "
-  >
-    {service.title}
-  </h3>
-
-
-
-  <p
-    className="
-      mt-4
-      leading-relaxed
-      text-[#8C7468]
-    "
-  >
-    {service.description}
-  </p>
-
-
-
-  <div
-    className="
-      mt-8
-      flex
-      items-center
-      justify-between
-      border-t
-      border-[#E8DDD8]
-      pt-6
-    "
-  >
-
-    <span
+export default function ServicePricingSection({
+  id,
+  title,
+  description,
+  services,
+}: ServicePricingSectionProps) {
+  return (
+    <section
+      id={id}
       className="
-        text-sm
-        text-[#8C7468]
+        scroll-mt-40
+        px-6
+        py-24
       "
     >
-      {service.duration}
-    </span>
+      <div
+        className="
+          mx-auto
+          max-w-7xl
+        "
+      >
+        {/* HEADER */}
+
+        <div
+          className="
+            mx-auto
+            max-w-3xl
+            text-center
+          "
+        >
+          <h2
+            className="
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-[#3B2A26]
+            "
+          >
+            {title}
+          </h2>
+
+
+          <p
+            className="
+              mt-6
+              text-lg
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
+            {description}
+          </p>
+
+        </div>
 
 
 
-    <span
-      className="
-        text-xl
-        font-medium
-        text-[#8C5A6B]
-      "
-    >
-      {service.price}
-    </span>
+        {/* SERVICES GRID */}
+
+        <div
+          className="
+            mt-16
+            grid
+            gap-8
+            md:grid-cols-2
+            lg:grid-cols-3
+          "
+        >
+
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+            />
+          ))}
+
+        </div>
 
 
-  </div>
+      </div>
 
-
-</article>
-
-);
-
+    </section>
+  );
 }
