@@ -1,66 +1,40 @@
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * features/faq/FAQItem.tsx
  *
  * Description:
- * Luxury FAQ accordion item.
- *
- * Changes:
- * • Added premium interaction states
- * • Added smoother answer transition
- * • Improved question presentation
- * • Refined luxury spacing
- * • Updated editorial alignment
- *
- * ---
- *
+ * Luxury FAQ accordion item – soft bubble / card style.
+ * -----------------------------------------------------------------------------
  */
-
 "use client";
 
-import {
-  Plus,
-  Minus,
-} from "lucide-react";
-
-import {
-  useState,
-} from "react";
-
-import type {
-  FAQItemType,
-} from "./faq.types";
-
+import { Plus, Minus } from "lucide-react";
+import { useState } from "react";
+import type { FAQItemType } from "./faq.types";
 
 interface Props {
   item: FAQItemType;
 }
 
-
-export default function FAQItem({
-  item,
-}: Props) {
-
-  const [
-    open,
-    setOpen,
-  ] = useState(false);
-
-
+export default function FAQItem({ item }: Props) {
+  const [open, setOpen] = useState(false);
 
   return (
-
     <div
-      className="
-        py-10
-      "
+      className={`
+        rounded-3xl
+        border
+        transition-all
+        duration-300
+        ${
+          open
+            ? "border-[#D8B4A0] bg-white shadow-sm"
+            : "border-[#E8DDD8] bg-[#FDF9F5] hover:border-[#D8B4A0] hover:bg-white"
+        }
+      `}
     >
-
-
       {/* QUESTION */}
-
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -70,17 +44,18 @@ export default function FAQItem({
           w-full
           items-center
           justify-between
-          gap-8
+          gap-6
+          px-8
+          py-7
           text-left
         "
       >
-
         <span
           className="
             font-serif
             text-xl
             md:text-2xl
-            leading-relaxed
+            leading-snug
             text-[#3B2A26]
             transition-colors
             duration-300
@@ -90,83 +65,51 @@ export default function FAQItem({
           {item.question}
         </span>
 
-
-
         <span
-          className="
+          className={`
             flex
-            h-10
-            w-10
+            h-11
+            w-11
             shrink-0
             items-center
             justify-center
             rounded-full
             border
-            border-[#D8B4A0]
-            text-[#8C5A6B]
             transition-all
             duration-300
-            group-hover:bg-[#F6E7E1]
-          "
+            ${
+              open
+                ? "border-[#8C5A6B] bg-[#8C5A6B] text-white"
+                : "border-[#D8B4A0] text-[#8C5A6B] group-hover:bg-[#F6E7E1]"
+            }
+          `}
         >
-
-          {
-            open
-              ?
-              <Minus size={17}/>
-              :
-              <Plus size={17}/>
-          }
-
+          {open ? <Minus size={18} /> : <Plus size={18} />}
         </span>
-
-
       </button>
 
-
-
-
       {/* ANSWER */}
-
       <div
         className={`
           grid
           transition-all
           duration-500
           ease-in-out
-
           ${
             open
-              ? "grid-rows-[1fr] opacity-100 mt-8"
-              : "grid-rows-[0fr] opacity-0 mt-0"
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
           }
         `}
       >
-
-        <div
-          className="
-            overflow-hidden
-          "
-        >
-
-          <p
-            className="
-              max-w-4xl
-              text-base
-              leading-8
-              text-[#6F5A50]
-            "
-          >
-            {item.answer}
-          </p>
-
+        <div className="overflow-hidden">
+          <div className="px-8 pb-8 pt-1">
+            <p className="text-base leading-8 text-[#6F5A50]">
+              {item.answer}
+            </p>
+          </div>
         </div>
-
       </div>
-
-
     </div>
-
   );
-
 }
