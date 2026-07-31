@@ -1,103 +1,65 @@
 /**
  * -----------------------------------------------------------------------------
- * File: InstagramPost.tsx
+ * File: features/instagram/InstagramPost.tsx
  *
  * Description:
- * Individual luxury Instagram gallery image.
+ * Single studio image tile — soft luxury treatment.
  *
- * Updated:
- * July 30, 2026
+ * Updated: July 30, 2026
  *
  * Changes:
- * • Added editorial image treatment
- * • Improved hover interaction
- * • Added luxury shadow
- * • Removed generic Instagram tile appearance
+ * • Softer radius + border
+ * • Quieter hover (scale + wash, not heavy lift)
+ * • Consistent square crop
  * -----------------------------------------------------------------------------
  */
-
 import Image from "next/image";
-
-import type {
-  InstagramPost as Post,
-} from "./instagram.types";
-
+import type { InstagramPost as Post } from "./instagram.types";
 
 interface Props {
   post: Post;
 }
 
-
-export default function InstagramPost({
-  post,
-}: Props) {
+export default function InstagramPost({ post }: Props) {
   return (
-    <div
+    <a
+      href={post.href ?? "https://instagram.com/justwaxbykim"}
+      target="_blank"
+      rel="noopener noreferrer"
       className="
-        group
-
-        relative
-
-        overflow-hidden
-
-        rounded-[28px]
-
+        group relative block overflow-hidden
+        rounded-[20px] md:rounded-[24px]
+        border border-[#E8DDD8]
         bg-[#F6E7E1]
-
-        shadow-[0_20px_60px_rgba(59,42,38,0.08)]
-
-        transition-all
-        duration-500
-
-        hover:-translate-y-2
-
-        hover:shadow-[0_30px_80px_rgba(59,42,38,0.14)]
+        shadow-[0_12px_40px_rgba(59,42,38,0.05)]
+        transition-all duration-500
+        hover:border-[#D4A9B6]
+        hover:shadow-[0_20px_50px_rgba(59,42,38,0.09)]
       "
     >
+      <div className="relative aspect-square overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.alt}
+          fill
+          sizes="(max-width: 768px) 50vw, 25vw"
+          className="
+            object-cover
+            transition-transform duration-700 ease-out
+            group-hover:scale-[1.04]
+          "
+        />
 
-      <Image
-        src={post.image}
-        alt={post.alt}
-
-        width={800}
-        height={800}
-
-        className="
-          aspect-square
-
-          h-full
-          w-full
-
-          object-cover
-
-          transition-transform
-          duration-700
-
-          group-hover:scale-110
-        "
-      />
-
-
-      {/* Luxury hover overlay */}
-      <div
-        className="
-          absolute
-          inset-0
-
-          bg-gradient-to-t
-          from-[#3B2A26]/30
-          via-transparent
-          to-transparent
-
-          opacity-0
-
-          transition-opacity
-          duration-500
-
-          group-hover:opacity-100
-        "
-      />
-
-    </div>
+        {/* Soft bottom wash on hover */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-t from-[#3B2A26]/25 via-transparent to-transparent
+            opacity-0 transition-opacity duration-500
+            group-hover:opacity-100
+          "
+        />
+      </div>
+    </a>
   );
 }
