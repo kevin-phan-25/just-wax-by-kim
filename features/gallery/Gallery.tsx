@@ -7,10 +7,10 @@
  * Standalone luxury Gallery page.
  *
  * Updated:
- * • Removed width restrictions
- * • Centered editorial typography
- * • Full-width gallery layout
- * • Luxury page spacing
+ * • Restored editorial sizing
+ * • Centered typography
+ * • Removed unwanted page width restriction
+ * • Preserved luxury spacing rhythm
  *
  * -----------------------------------------------------------------------------
  */
@@ -34,6 +34,7 @@ export default function Gallery() {
       "
     >
 
+
       {/* Ambient background */}
       <div
         aria-hidden
@@ -47,7 +48,7 @@ export default function Gallery() {
 
 
 
-      {/* FULL WIDTH CONTENT */}
+      {/* PAGE CONTENT */}
       <div
         className="
           relative
@@ -62,10 +63,11 @@ export default function Gallery() {
         <header
           className="
             mx-auto
-            w-full
+            max-w-4xl
             text-center
           "
         >
+
 
           <p
             className="
@@ -126,7 +128,7 @@ export default function Gallery() {
 
 
 
-        {/* GALLERY GRID */}
+        {/* GALLERY */}
         <div
           className="
             mt-20
