@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * --------------------------------------------------------------------------
  * File: features/about/about.data.ts
  *
  * Date: July 31, 2026
@@ -9,11 +9,11 @@
  *
  * Changes:
  * • Refined luxury brand messaging
- * • Added intentional paragraph spacing
+ * • Added true paragraph separation
  * • Improved editorial text flow
  * • Highlighted Kim's esthetics + pharmacy background
  * • Updated credentials for stronger trust building
- * -----------------------------------------------------------------------------
+ * --------------------------------------------------------------------------
  */
 
 import type {
@@ -27,25 +27,25 @@ export const aboutContent: AboutSection = {
   eyebrow:
     "Meet Kim",
 
-
   title:
     "Creating Moments Where Beauty Feels Effortless.",
 
+  description: [
+    `Hi, I'm Kim! 🙋🏻‍♀️ Welcome to Just Wax by Kim.`,
 
-  description:
-    `Hi, I'm Kim! 🙋🏻‍♀️ Welcome to Just Wax by Kim.
+    `I graduated from Aveda and have been licensed as an esthetician since 2017. I specialize in full-body waxing with a gentle, detail-oriented approach, always striving to make every appointment as comfortable as possible.`,
 
-I graduated from Aveda and have been a licensed esthetician since 2017. I specialize in full-body waxing with a gentle, detail-oriented approach, always striving to make every appointment as comfortable as possible.
+    `My 12-year background in pharmacy has given me a strong understanding of medications, contraindications, skin health, and proper aftercare. This knowledge allows me to provide safe, personalized treatments while helping every guest feel comfortable, confident, and well cared for.`,
 
-My 12-year background in pharmacy has given me a strong understanding of medications, contraindications, skin health, and proper aftercare. This knowledge allows me to provide safe, personalized treatments while helping every guest feel comfortable, confident, and well cared for. \n
+    `At Just Wax by Kim, I believe every client is unique. I take the time to understand your skin, your concerns, and your goals so every service is thoughtfully tailored to your individual needs.`,
 
-At Just Wax by Kim, I believe every client is unique. I take the time to understand your skin, your concerns, and your goals so every service is thoughtfully tailored to your individual needs.
+    `My goal is to create a warm, welcoming, and judgment-free environment where you can completely relax. I proudly provide a safe, respectful, and inclusive space for people of all genders, body types, skin tones, and backgrounds.`,
 
-My goal is to create a warm, welcoming, and judgment-free environment where you can completely relax. I proudly provide a safe, respectful, and inclusive space for people of all genders, body types, skin tones, and backgrounds.
+    `Whether it is your first wax or you are a longtime guest, every appointment is designed to leave you feeling comfortable, cared for, and confident.`,
 
-Whether it is your first wax or you are a longtime guest, every appointment is designed to leave you feeling comfortable, cared for, and confident.\n
+    `Thank you for trusting me with your care. I look forward to welcoming you to my studio and helping you feel your very best.`,
+  ],
 
-Thank you for trusting me with your care. I look forward to welcoming you to my studio and helping you feel your very best.`,
 };
 
 
