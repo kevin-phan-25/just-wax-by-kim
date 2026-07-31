@@ -1,5 +1,5 @@
 /**
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * features/testimonials/Testimonials.tsx
  *
@@ -7,13 +7,13 @@
  * Standalone luxury testimonials presentation.
  *
  * Updated:
- * • Matched ServicePricingSection spacing system
- * • Added navbar transition spacing
- * • Removed page width restrictions
+ * • Matched Gallery / Instagram standalone spacing system
+ * • Added navbar transition spacer
+ * • Removed width restrictions
  * • Preserved centered editorial typography
  * • Full-width testimonial presentation
  *
- * ---
+ * -----------------------------------------------------------------------------
  */
 
 import { testimonials } from "./testimonials.data";
@@ -29,8 +29,6 @@ export default function Testimonials() {
         min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
-        pt-[216px]
-        pb-32
       "
     >
 
@@ -46,7 +44,16 @@ export default function Testimonials() {
       />
 
 
-      {/* FULL WIDTH CONTENT */}
+      {/* Navbar transition spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+
+      {/* Full width content */}
       <div
         className="
           relative
@@ -108,9 +115,7 @@ export default function Testimonials() {
 
           <p
             className="
-              mx-auto
-              mt-8
-              w-full
+              mt-6
               text-lg
               leading-relaxed
               text-[#8C7468]
@@ -139,14 +144,17 @@ export default function Testimonials() {
 
           {
             testimonials.map((item) => (
+
               <TestimonialCard
                 key={item.id}
                 testimonial={item}
               />
+
             ))
           }
 
         </div>
+
 
 
 
@@ -183,6 +191,7 @@ export default function Testimonials() {
             Book Appointment
           </a>
 
+
         </div>
 
 
@@ -190,7 +199,8 @@ export default function Testimonials() {
 
 
 
-      {/* Bottom Divider */}
+
+      {/* Bottom divider */}
       <div
         aria-hidden
         className="
@@ -202,6 +212,7 @@ export default function Testimonials() {
           bg-[#E8DDD8]
         "
       />
+
 
 
     </section>
