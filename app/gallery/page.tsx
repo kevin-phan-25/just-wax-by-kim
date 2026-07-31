@@ -7,32 +7,29 @@
  * Standalone luxury gallery page.
  *
  * Changes:
- * • Moved Gallery away from homepage
- * • Added dedicated route
- * • Full-page editorial presentation
- *
+ * • Added navbar spacing
+ * • Matches standalone page architecture
+ * • Luxury editorial spacing
  * --------------------------------------------------------------------------
  */
 
-
 import Gallery from "@/features/gallery";
 
-
 export default function GalleryPage() {
-
-
   return (
-
     <main
       className="
         pt-[168px]
+        bg-[#FCF8F3]
       "
     >
-
-      <Gallery />
-
+      <section
+        className="
+          py-32
+        "
+      >
+        <Gallery />
+      </section>
     </main>
-
   );
-
 }
