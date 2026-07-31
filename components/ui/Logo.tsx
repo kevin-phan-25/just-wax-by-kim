@@ -1,19 +1,17 @@
 /**
- * -----------------------------------------------------------------------------
- * File:
- * components/ui/Logo.tsx
- *
- * Description:
- * Responsive brand logo for Just Wax by Kim.
- *
- * Responsive Update:
- * • Mobile optimized
- * • Tablet scaling
- * • Desktop editorial sizing
- * • Smooth hover animation
- * • Matches responsive navbar heights
- *
- * -----------------------------------------------------------------------------
+ ---
+ File:
+ components/ui/Logo.tsx
+
+ Description:
+ Responsive luxury brand logo.
+
+ Updates:
+ - Increased logo presence
+ - Stronger desktop branding
+ - Better mobile/tablet scaling
+ - Matches luxury editorial navbar
+ ---
  */
 
 import Image from "next/image";
@@ -37,32 +35,37 @@ export function Logo({
         items-center
         transition-transform
         duration-300
-        hover:scale-[1.02]
+        hover:scale-[1.03]
+
         ${className}
       `}
     >
+
       <Image
         src="/logo/just-wax-by-kim-logo.jpg"
         alt="Just Wax by Kim"
-        width={420}
-        height={180}
+
+        width={500}
+        height={220}
+
         priority={priority}
+
         className="
-          h-[72px]
-          w-auto
-
-          sm:h-[82px]
-
-          md:h-[96px]
-
-          lg:h-[112px]
-
-          xl:h-[132px]
-
           object-contain
           select-none
+
+          h-[92px]
+
+          sm:h-[110px]
+
+          md:h-[125px]
+
+          lg:h-[145px]
+
+          xl:h-[165px]
         "
       />
+
     </Link>
   );
 }
