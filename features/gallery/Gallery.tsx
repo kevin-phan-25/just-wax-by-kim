@@ -7,10 +7,11 @@
  * Standalone luxury Gallery page.
  *
  * Updated:
- * • Restored editorial sizing
- * • Centered typography
- * • Removed unwanted page width restriction
- * • Preserved luxury spacing rhythm
+ * • Matched ServicePricingSection spacing system
+ * • Added navbar transition spacer
+ * • Removed width restrictions
+ * • Preserved centered editorial styling
+ * • Full-width gallery presentation
  *
  * -----------------------------------------------------------------------------
  */
@@ -26,11 +27,10 @@ export default function Gallery() {
       id="gallery"
       className="
         relative
-        min-h-screen
         w-full
+        min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
-        py-32
       "
     >
 
@@ -48,26 +48,35 @@ export default function Gallery() {
 
 
 
-      {/* PAGE CONTENT */}
+      {/* Navbar transition spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+
+      {/* Content */}
       <div
         className="
           relative
           z-10
           w-full
           px-6
+          text-center
         "
       >
+
 
 
         {/* HEADER */}
         <header
           className="
-            mx-auto
-            max-w-4xl
-            text-center
+            w-full
+            mb-16
           "
         >
-
 
           <p
             className="
@@ -111,12 +120,9 @@ export default function Gallery() {
 
           <p
             className="
-              mx-auto
-              mt-8
-              max-w-3xl
-              text-center
+              mt-6
               text-lg
-              leading-9
+              leading-relaxed
               text-[#8C7468]
             "
           >
@@ -128,19 +134,30 @@ export default function Gallery() {
 
 
 
+
+
         {/* GALLERY */}
-        <div
-          className="
-            mt-20
-            w-full
-          "
-        >
-          <GalleryGrid />
-        </div>
+        <GalleryGrid />
 
 
 
       </div>
+
+
+
+      {/* Bottom divider */}
+      <div
+        aria-hidden
+        className="
+          absolute
+          bottom-0
+          left-1/2
+          -translate-x-1/2
+          w-full
+          h-px
+          bg-[#E8DDD8]
+        "
+      />
 
 
     </section>
