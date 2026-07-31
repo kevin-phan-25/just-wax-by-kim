@@ -2,75 +2,102 @@
  * -----------------------------------------------------------------------------
  * File: InstagramPost.tsx
  *
- * Created: July 27, 2026
- *
  * Description:
- * Instagram image card.
+ * Individual luxury Instagram gallery image.
  *
+ * Updated:
+ * July 30, 2026
+ *
+ * Changes:
+ * • Added editorial image treatment
+ * • Improved hover interaction
+ * • Added luxury shadow
+ * • Removed generic Instagram tile appearance
  * -----------------------------------------------------------------------------
  */
 
-
 import Image from "next/image";
 
-
 import type {
+  InstagramPost as Post,
+} from "./instagram.types";
 
-InstagramPost as Post
 
+interface Props {
+  post: Post;
 }
-
-from "./instagram.types";
-
 
 
 export default function InstagramPost({
+  post,
+}: Props) {
+  return (
+    <div
+      className="
+        group
 
-post
+        relative
 
-}:{
+        overflow-hidden
 
-post:Post
+        rounded-[28px]
 
-}){
+        bg-[#F6E7E1]
 
+        shadow-[0_20px_60px_rgba(59,42,38,0.08)]
 
-return (
+        transition-all
+        duration-500
 
-<div
+        hover:-translate-y-2
 
-className="
-overflow-hidden
-rounded-3xl
-"
+        hover:shadow-[0_30px_80px_rgba(59,42,38,0.14)]
+      "
+    >
 
->
+      <Image
+        src={post.image}
+        alt={post.alt}
 
+        width={800}
+        height={800}
 
-<Image
+        className="
+          aspect-square
 
-src={post.image}
+          h-full
+          w-full
 
-alt={post.alt}
+          object-cover
 
-width={500}
+          transition-transform
+          duration-700
 
-height={500}
-
-className="
-aspect-square
-object-cover
-transition
-duration-500
-hover:scale-105
-"
-
-/>
-
-
-</div>
-
-);
+          group-hover:scale-110
+        "
+      />
 
 
+      {/* Luxury hover overlay */}
+      <div
+        className="
+          absolute
+          inset-0
+
+          bg-gradient-to-t
+          from-[#3B2A26]/30
+          via-transparent
+          to-transparent
+
+          opacity-0
+
+          transition-opacity
+          duration-500
+
+          group-hover:opacity-100
+        "
+      />
+
+    </div>
+  );
 }
