@@ -9,7 +9,9 @@
  *
  * Changes:
  * - July 30, 2026
- *   - Fixed TypeScript: accept readonly NavigationItem[] / dropdown arrays
+ *   - Fixed readonly TypeScript types for navigation
+ *   - Removed fixed widths/scale on link rows
+ *   - Shifted link text ~½ inch (48px) inward from the left
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -87,11 +89,14 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           rounded-[28px] border border-[#E8DDD8]
           bg-[#FCF8F3]/98 backdrop-blur-xl
           shadow-[0_24px_60px_rgba(59,42,38,0.12)]
-          px-6 py-8
+          py-8
+          pl-14
+          pr-6
           transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]
           ${open ? "translate-y-0" : "-translate-y-3"}
         `}
       >
+        {/* pl-14 ≈ 56px ≈ just over ½ inch inset from panel edge */}
         <ul className="flex flex-col gap-1">
           {links.map((link) => (
             <li key={link.href}>
@@ -112,7 +117,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                   }
                 }}
                 className="
-                  block rounded-2xl px-4 py-4
+                  block w-full rounded-2xl py-4
+                  text-left
                   text-[0.72rem] font-semibold uppercase tracking-[0.2em]
                   text-[#3B2A26]
                   hover:bg-[#F6E7E1] hover:text-[#8C5A6B]
@@ -128,7 +134,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                   href={item.href}
                   onClick={onClose}
                   className="
-                    block rounded-2xl px-6 py-3
+                    block w-full rounded-2xl py-3 pl-4
+                    text-left
                     text-[0.65rem] font-medium uppercase tracking-[0.18em]
                     text-[#6F5A50]
                     hover:text-[#8C5A6B] hover:bg-[#F6E7E1]/70
@@ -142,7 +149,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           ))}
         </ul>
 
-        <div className="mt-8 pt-6 border-t border-[#E8DDD8]">
+        <div className="mt-8 pt-6 border-t border-[#E8DDD8] pr-2">
           <Link
             href={pathname === "/" ? "#booking" : "/#booking"}
             onClick={(e) => {
