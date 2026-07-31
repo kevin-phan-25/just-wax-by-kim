@@ -2,34 +2,34 @@
  * -----------------------------------------------------------------------------
  * File: instagram.constants.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Instagram configuration.
+ * Instagram section configuration.
  *
+ * Updated:
+ * July 30, 2026
+ *
+ * Changes:
+ * • Updated luxury editorial messaging
+ * • Removed generic social wording
+ * • Improved brand storytelling
  * -----------------------------------------------------------------------------
  */
 
-
 export const INSTAGRAM_CONFIG = {
 
-
-handle:
-
-"@justwaxbykim",
+  handle:
+    "@justwaxbykim",
 
 
-
-title:
-
-"Follow Our Journey",
+  eyebrow:
+    "Behind The Experience",
 
 
-
-description:
-
-"See behind the scenes, studio moments, and beautiful results."
+  title:
+    "A Glimpse Into Our Studio",
 
 
+  description:
+    "Explore the atmosphere, care, and thoughtful details that create every Just Wax by Kim experience."
 
 };
