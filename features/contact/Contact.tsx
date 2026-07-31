@@ -1,20 +1,20 @@
-/**
- * -----------------------------------------------------------------------------
- * File:
- * features/contact/Contact.tsx
- *
- * Description:
- * Standalone luxury contact presentation.
- *
- * Updates:
- * • Removed width restrictions
- * • Centered Contact title + description
- * • 5-column editorial layout
- * • Reduced empty side cells
- * • Left aligned center content cells
- * • Preserved luxury spacing
- *
- * -----------------------------------------------------------------------------
+ /**
+  ---
+  File:
+  features/contact/Contact.tsx
+
+  Description:
+  Standalone luxury contact presentation.
+
+  Updates:
+  - Removed content width restrictions
+  - Centered heading and description
+  - Added 6-cell editorial grid layout
+  - Reduced outer spacer cells
+  - Added small center spacer cell
+  - Left aligned contact information columns
+  - Maintained luxury editorial spacing
+  ---
  */
 
 import ContactForm from "./ContactForm";
@@ -24,11 +24,9 @@ import ContactInfo from "./ContactInfo";
 export default function Contact() {
   return (
     <section
-      id="contact"
       className="
         relative
         overflow-hidden
-        w-full
       "
     >
 
@@ -44,7 +42,7 @@ export default function Contact() {
       />
 
 
-      {/* Navbar Clearance */}
+      {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
 
 
@@ -53,10 +51,13 @@ export default function Contact() {
         className="
           relative
           z-10
+
           w-full
+
           px-6
-          md:px-10
-          lg:px-16
+          lg:px-10
+          xl:px-16
+
           pb-32
         "
       >
@@ -66,13 +67,10 @@ export default function Contact() {
         <header
           className="
             w-full
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            mx-auto
+
             mb-20
+
+            text-center
           "
         >
 
@@ -91,12 +89,18 @@ export default function Contact() {
           <h1
             className="
               mt-6
+
               w-full
+
               font-serif
+
               text-4xl
               md:text-6xl
+
               leading-tight
+
               text-[#3B2A26]
+
               text-center
             "
           >
@@ -107,9 +111,12 @@ export default function Contact() {
           <div
             className="
               mx-auto
+
               mt-8
+
               h-px
               w-24
+
               bg-[#D8B4A0]
             "
           />
@@ -118,12 +125,16 @@ export default function Contact() {
           <p
             className="
               mt-8
+
               w-full
-              max-w-none
-              text-lg
-              leading-relaxed
-              text-[#8C7468]
+
               text-center
+
+              text-lg
+
+              leading-relaxed
+
+              text-[#8C7468]
             "
           >
             Whether you're preparing for your first appointment
@@ -135,30 +146,34 @@ export default function Contact() {
 
 
 
-        {/* 5 COLUMN EDITORIAL CONTACT GRID */}
+        {/* SIX CELL EDITORIAL GRID */}
         <div
           className="
+            mt-20
+
             grid
-            w-full
 
             grid-cols-1
 
-            lg:grid-cols-[0.25fr_1fr_1fr_1fr_0.25fr]
+            lg:grid-cols-[0.25fr_1fr_0.3fr_1fr_1fr_0.25fr]
 
-            gap-12
-            lg:gap-10
+            gap-10
+
+            xl:gap-12
 
             items-start
+
+            w-full
           "
         >
 
 
-          {/* EMPTY CELL 1 */}
+          {/* CELL 1 - SMALL LEFT SPACER */}
           <div className="hidden lg:block" />
 
 
 
-          {/* CELL 2 - CONTACT INFO */}
+          {/* CELL 2 - CONTACT INFORMATION */}
           <div
             className="
               border-t
@@ -168,6 +183,7 @@ export default function Contact() {
 
               flex
               flex-col
+
               items-start
 
               text-left
@@ -178,8 +194,12 @@ export default function Contact() {
 
 
 
+          {/* CELL 3 - SMALL CENTER SPACER */}
+          <div className="hidden lg:block" />
 
-          {/* CELL 3 - FORM */}
+
+
+          {/* CELL 4 - CONTACT FORM */}
           <div
             className="
               border-t
@@ -189,6 +209,7 @@ export default function Contact() {
 
               flex
               flex-col
+
               items-center
 
               text-center
@@ -198,7 +219,9 @@ export default function Contact() {
             <h2
               className="
                 font-serif
+
                 text-3xl
+
                 text-[#3B2A26]
               "
             >
@@ -209,27 +232,34 @@ export default function Contact() {
             <p
               className="
                 mt-4
-                text-center
+
                 leading-relaxed
+
                 text-[#6F5A50]
               "
             >
-              We typically respond within a few hours during
-              normal business hours.
+              We typically respond within a few hours during normal
+              business hours.
             </p>
 
 
-            <div className="mt-10 w-full">
+            <div
+              className="
+                mt-10
+
+                w-full
+              "
+            >
               <ContactForm />
             </div>
+
 
           </div>
 
 
 
 
-
-          {/* CELL 4 - HOURS */}
+          {/* CELL 5 - CONTACT HOURS */}
           <div
             className="
               border-t
@@ -239,6 +269,7 @@ export default function Contact() {
 
               flex
               flex-col
+
               items-start
 
               text-left
@@ -250,28 +281,35 @@ export default function Contact() {
 
 
 
-          {/* EMPTY CELL 5 */}
+          {/* CELL 6 - SMALL RIGHT SPACER */}
           <div className="hidden lg:block" />
 
 
         </div>
 
+
       </div>
 
 
 
-      {/* Divider */}
+      {/* Bottom Divider */}
       <div
         aria-hidden
         className="
           absolute
+
           bottom-0
+
           left-0
+
           w-full
+
           h-px
+
           bg-[#E8DDD8]
         "
       />
+
 
     </section>
   );
