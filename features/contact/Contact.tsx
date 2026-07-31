@@ -8,10 +8,10 @@
  *
  * Changes:
  * • Matched Gallery / FAQ / Testimonials spacing system
- * • Added navbar transition spacing
+ * • Restored navbar transition spacing
  * • Removed width restrictions
  * • Centered contact information
- * • Moved form to center column
+ * • Form centered in middle column
  * • Preserved luxury editorial layout
  * -----------------------------------------------------------------------------
  */
@@ -30,8 +30,6 @@ export default function Contact() {
         min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
-        pt-[216px]
-        pb-32
       "
     >
 
@@ -47,6 +45,16 @@ export default function Contact() {
       />
 
 
+
+      {/* Navbar Transition Spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+
       {/* CONTENT */}
       <div
         className="
@@ -57,6 +65,7 @@ export default function Contact() {
           text-center
         "
       >
+
 
 
         {/* HEADER */}
@@ -117,6 +126,7 @@ export default function Contact() {
             interaction feel warm, welcoming, and beautifully personal.
           </p>
 
+
         </header>
 
 
@@ -133,6 +143,7 @@ export default function Contact() {
             lg:gap-16
           "
         >
+
 
 
           {/* CONTACT INFORMATION */}
@@ -153,45 +164,37 @@ export default function Contact() {
 
 
 
-          {/* CONTACT FORM */}
+          {/* FORM */}
           <div
             className="
               border-t
               border-[#E8DDD8]
               pt-10
+              text-center
             "
           >
 
-            <div
+            <h2
               className="
-                text-center
+                font-serif
+                text-3xl
+                text-[#3B2A26]
               "
             >
-
-              <h2
-                className="
-                  font-serif
-                  text-3xl
-                  text-[#3B2A26]
-                "
-              >
-                Send A Message
-              </h2>
+              Send A Message
+            </h2>
 
 
-              <p
-                className="
-                  mt-4
-                  leading-relaxed
-                  text-[#6F5A50]
-                "
-              >
-                We typically respond within a few hours during
-                normal business hours.
-              </p>
-
-
-            </div>
+            <p
+              className="
+                mt-4
+                leading-relaxed
+                text-[#6F5A50]
+              "
+            >
+              We typically respond within a few hours during
+              normal business hours.
+            </p>
 
 
             <div
@@ -206,6 +209,7 @@ export default function Contact() {
 
 
           </div>
+
 
 
 
@@ -226,10 +230,13 @@ export default function Contact() {
           </div>
 
 
+
         </div>
 
 
       </div>
+
+
 
 
       {/* Bottom Divider */}
