@@ -7,8 +7,9 @@
  *
  * Updated:
  * • Maintained editorial grid layout
- * • Centered all content
- * • Improved visual balance
+ * • Centered section presentation
+ * • Fixed bullet alignment
+ * • Improved readability
  *
  * ---
  */
@@ -24,10 +25,10 @@ export default function PolicySectionCard({ section }: Props) {
     <article
       className="
         w-full
-        text-center
         flex
         flex-col
         items-center
+        text-center
         border-t
         border-[#D8B4A0]/50
         pt-10
@@ -59,6 +60,8 @@ export default function PolicySectionCard({ section }: Props) {
       />
 
 
+
+      {/* Intro */}
       {section.intro && (
         <p
           className="
@@ -74,6 +77,8 @@ export default function PolicySectionCard({ section }: Props) {
       )}
 
 
+
+      {/* Paragraphs */}
       {section.paragraphs?.map((paragraph) => (
         <p
           key={paragraph.slice(0, 32)}
@@ -90,27 +95,33 @@ export default function PolicySectionCard({ section }: Props) {
       ))}
 
 
+
+      {/* Bullet List */}
       {section.bullets && (
         <ul
           className="
             mt-8
+            mx-auto
             max-w-xl
             space-y-4
+            text-left
           "
         >
+
           {section.bullets.map((bullet) => (
             <li
               key={bullet.slice(0, 32)}
               className="
                 flex
-                justify-center
-                gap-3
-                text-center
+                items-start
+                gap-4
                 text-base
                 leading-8
                 text-[#6F5A50]
               "
             >
+
+              {/* Bullet */}
               <span
                 className="
                   mt-3
@@ -122,16 +133,21 @@ export default function PolicySectionCard({ section }: Props) {
                 "
               />
 
+
+              {/* Text */}
               <span>
                 {bullet}
               </span>
 
             </li>
           ))}
+
         </ul>
       )}
 
 
+
+      {/* Note */}
       {section.note && (
         <p
           className="
