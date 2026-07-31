@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File: Footer.tsx
  *
  * Description:
@@ -7,21 +7,16 @@
  *
  * Changes:
  *
- * - July 30, 2026
- *   • Removed unused business information
- *   • Removed Connect section
- *   • Removed Contact section
- *   • Removed social links
- *   • Simplified luxury presentation
+ * - July 31, 2026
+ * • Removed width restrictions
+ * • Full-width luxury presentation
+ * • Maintained centered alignment
  *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
-
 export default function Footer() {
-
   return (
-
     <footer
       className="
         bg-brand-black
@@ -30,11 +25,10 @@ export default function Footer() {
         text-white
       "
     >
-
       <div
         className="
           mx-auto
-          max-w-7xl
+          w-full
           text-center
         "
       >
@@ -51,7 +45,6 @@ export default function Footer() {
         </h2>
 
 
-
         {/* Divider */}
         <div
           className="
@@ -59,11 +52,9 @@ export default function Footer() {
             my-8
             h-px
             w-full
-            max-w-xl
             bg-white/20
           "
         />
-
 
 
         {/* Copyright */}
@@ -78,10 +69,6 @@ export default function Footer() {
 
 
       </div>
-
-
     </footer>
-
   );
-
 }
