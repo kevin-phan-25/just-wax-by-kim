@@ -6,10 +6,10 @@
  * Luxury editorial policies presentation.
  *
  * Updated:
- * • Full-width editorial layout
- * • Removed content width restrictions
- * • Premium spacing system
- * • Improved client-focused presentation
+ * • Centered full-width editorial layout
+ * • Removed restrictive policy grid
+ * • Matched FAQ / Contact / Gallery spacing system
+ * • Improved luxury presentation
  *
  * ---
  */
@@ -28,11 +28,11 @@ export default function Policies() {
       "
     >
 
-      {/* Navbar Transition */}
+      {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
 
 
-      {/* Content */}
+      {/* CONTENT */}
       <div
         className="
           relative
@@ -40,15 +40,21 @@ export default function Policies() {
           w-full
           px-6
           pb-40
+          flex
+          flex-col
+          items-center
         "
       >
 
-        {/* Header */}
+
+        {/* HEADER */}
         <header
           className="
-            mx-auto
             w-full
             text-center
+            flex
+            flex-col
+            items-center
           "
         >
 
@@ -120,15 +126,15 @@ export default function Policies() {
 
 
 
-        {/* Policies */}
+        {/* POLICY SECTIONS */}
         <div
           className="
             mt-24
-            grid
             w-full
-            grid-cols-1
-            gap-16
-            lg:grid-cols-2
+            flex
+            flex-col
+            items-center
+            gap-20
           "
         >
 
@@ -143,10 +149,9 @@ export default function Policies() {
 
 
 
-        {/* Closing */}
+        {/* CLOSING */}
         <div
           className="
-            mx-auto
             mt-32
             w-full
             text-center
@@ -177,6 +182,7 @@ export default function Policies() {
           </p>
 
         </div>
+
 
       </div>
 
