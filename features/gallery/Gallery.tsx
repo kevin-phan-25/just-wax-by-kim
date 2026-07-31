@@ -10,6 +10,7 @@
  * • Matched ServicePricingSection spacing system
  * • Added navbar transition spacer
  * • Removed width restrictions
+ * • Removed bottom divider
  * • Preserved centered editorial styling
  * • Full-width gallery presentation
  *
@@ -136,28 +137,20 @@ export default function Gallery() {
 
 
 
-        {/* GALLERY */}
-        <GalleryGrid />
+        {/* GALLERY GRID */}
+        <div
+          className="
+            w-full
+          "
+        >
+
+          <GalleryGrid />
+
+        </div>
 
 
 
       </div>
-
-
-
-      {/* Bottom divider */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          bottom-0
-          left-1/2
-          -translate-x-1/2
-          w-full
-          h-px
-          bg-[#E8DDD8]
-        "
-      />
 
 
     </section>
