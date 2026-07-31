@@ -12,6 +12,7 @@
  * • Fixed /#section navigation
  * • Supports Instagram standalone page
  * • Preserved luxury styling
+ * • Removed scrolled border divider
  *
  * --------------------------------------------------------------------------
  */
@@ -289,7 +290,7 @@ export default function Navbar() {
 
             ?
 
-            "bg-[#FCF8F3]/95 backdrop-blur-xl border-b border-[#E8DDD8]"
+            "bg-[#FCF8F3]/95 backdrop-blur-xl"
 
             :
 
