@@ -3,12 +3,11 @@
  * File: features/policies/PolicySectionCard.tsx
  *
  * Description:
- * Luxury centered policy card.
+ * Luxury editorial policy card.
  *
  * Updated:
- * • Maintained editorial grid layout
- * • Centered section presentation
- * • Fixed bullet alignment
+ * • Unified text alignment
+ * • Fixed paragraph indentation
  * • Improved readability
  *
  * ---
@@ -28,7 +27,6 @@ export default function PolicySectionCard({ section }: Props) {
         flex
         flex-col
         items-center
-        text-center
         border-t
         border-[#D8B4A0]/50
         pt-10
@@ -38,6 +36,7 @@ export default function PolicySectionCard({ section }: Props) {
       {/* Title */}
       <h2
         className="
+          text-center
           font-serif
           text-3xl
           md:text-4xl
@@ -51,7 +50,6 @@ export default function PolicySectionCard({ section }: Props) {
       {/* Divider */}
       <div
         className="
-          mx-auto
           mt-5
           h-px
           w-16
@@ -61,107 +59,61 @@ export default function PolicySectionCard({ section }: Props) {
 
 
 
-      {/* Intro */}
-      {section.intro && (
-        <p
-          className="
-            mt-8
-            max-w-xl
-            text-base
-            leading-8
-            text-[#6F5A50]
-          "
-        >
-          {section.intro}
-        </p>
-      )}
+      {/* Content Wrapper */}
+      <div
+        className="
+          mt-8
+          w-full
+          max-w-xl
+          text-left
+        "
+      >
+
+        {section.intro && (
+          <p
+            className="
+              text-base
+              leading-8
+              text-[#6F5A50]
+            "
+          >
+            {section.intro}
+          </p>
+        )}
 
 
 
-      {/* Paragraphs */}
-      {section.paragraphs?.map((paragraph) => (
-        <p
-          key={paragraph.slice(0, 32)}
-          className="
-            mt-5
-            max-w-xl
-            text-base
-            leading-8
-            text-[#6F5A50]
-          "
-        >
-          {paragraph}
-        </p>
-      ))}
+        {section.paragraphs?.map((paragraph) => (
+          <p
+            key={paragraph.slice(0,32)}
+            className="
+              mt-5
+              text-base
+              leading-8
+              text-[#6F5A50]
+            "
+          >
+            {paragraph}
+          </p>
+        ))}
 
 
 
-      {/* Bullet List */}
-      {section.bullets && (
-        <ul
-          className="
-            mt-8
-            mx-auto
-            max-w-xl
-            space-y-4
-            text-left
-          "
-        >
+        {section.note && (
+          <p
+            className="
+              mt-8
+              text-base
+              italic
+              leading-8
+              text-[#8C7468]
+            "
+          >
+            {section.note}
+          </p>
+        )}
 
-          {section.bullets.map((bullet) => (
-            <li
-              key={bullet.slice(0, 32)}
-              className="
-                flex
-                items-start
-                gap-4
-                text-base
-                leading-8
-                text-[#6F5A50]
-              "
-            >
-
-              {/* Bullet */}
-              <span
-                className="
-                  mt-3
-                  h-1.5
-                  w-1.5
-                  shrink-0
-                  rounded-full
-                  bg-[#8C5A6B]
-                "
-              />
-
-
-              {/* Text */}
-              <span>
-                {bullet}
-              </span>
-
-            </li>
-          ))}
-
-        </ul>
-      )}
-
-
-
-      {/* Note */}
-      {section.note && (
-        <p
-          className="
-            mt-8
-            max-w-xl
-            text-base
-            italic
-            leading-8
-            text-[#8C7468]
-          "
-        >
-          {section.note}
-        </p>
-      )}
+      </div>
 
     </article>
   );
