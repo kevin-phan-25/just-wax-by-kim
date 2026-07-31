@@ -7,10 +7,9 @@
  * Description:
  * Mobile navigation panel for Just Wax by Kim.
  *
- * Props:
- * - open
- * - onClose
- * - links
+ * Changes:
+ * - July 30, 2026
+ *   - Fixed TypeScript: accept readonly NavigationItem[] / dropdown arrays
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -18,16 +17,21 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
+type NavLink = {
+  readonly label: string;
+  readonly href: string;
+};
+
 type NavItem = {
-  label: string;
-  href: string;
-  dropdown?: { label: string; href: string }[];
+  readonly label: string;
+  readonly href: string;
+  readonly dropdown?: readonly NavLink[];
 };
 
 interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
-  links: readonly NavItem[] | NavItem[];
+  links: readonly NavItem[];
 }
 
 const NAVBAR_HEIGHT = 168;
@@ -70,14 +74,12 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
       `}
     >
-      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-[#3B2A26]/30 backdrop-blur-sm"
         onClick={onClose}
         aria-hidden
       />
 
-      {/* Panel */}
       <div
         className={`
           absolute top-[168px] left-4 right-4
