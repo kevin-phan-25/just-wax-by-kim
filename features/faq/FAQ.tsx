@@ -10,7 +10,7 @@
  * • Matched Contact / Gallery / Testimonials spacing system
  * • Added internal navbar clearance (spacer pattern)
  * • Removed width restrictions
- * • Centered FAQ content properly
+ * • Centered all FAQ content
  * • Preserved editorial typography
  * -----------------------------------------------------------------------------
  */
@@ -69,6 +69,9 @@ export default function FAQ() {
           px-6
           text-center
           pb-32
+          flex
+          flex-col
+          items-center
         "
       >
 
@@ -79,6 +82,10 @@ export default function FAQ() {
           className="
             w-full
             mb-16
+            flex
+            flex-col
+            items-center
+            text-center
           "
         >
 
@@ -151,9 +158,12 @@ export default function FAQ() {
         <div
           className="
             mt-20
-            mx-auto
             w-full
             max-w-5xl
+            flex
+            flex-col
+            items-center
+            text-center
           "
         >
 
@@ -178,6 +188,7 @@ export default function FAQ() {
             mt-20
             flex
             justify-center
+            w-full
           "
         >
 
