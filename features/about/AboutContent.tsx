@@ -1,26 +1,25 @@
 /**
- * -----------------------------------------------------------------------------
+ * --------------------------------------------------------------------------
  * File: features/about/AboutContent.tsx
  *
- * Date: July 29, 2026
+ * Date: July 31, 2026
  *
  * Description:
  * Editorial text content for About section.
  *
  * Changes:
- * • Optimized for floating portrait layout
- * • Removed credential dependency
- * • Increased editorial spacing
- * • Allows natural text wrapping around image
- * -----------------------------------------------------------------------------
+ * • Supports paragraph-based editorial content
+ * • Added intentional paragraph spacing
+ * • Removed duplicate About messaging
+ * • Improved luxury typography rhythm
+ * --------------------------------------------------------------------------
  */
 
 import { aboutContent } from "./about.data";
 
 export default function AboutContent() {
   return (
-    <div className="w-full">
-
+    <div>
       {/* Eyebrow */}
       <p
         className="
@@ -33,7 +32,6 @@ export default function AboutContent() {
       >
         {aboutContent.eyebrow}
       </p>
-
 
       {/* Main Heading */}
       <h2
@@ -51,7 +49,6 @@ export default function AboutContent() {
         {aboutContent.title}
       </h2>
 
-
       {/* Accent */}
       <div
         className="
@@ -62,29 +59,28 @@ export default function AboutContent() {
         "
       />
 
-
       {/* Editorial Body */}
       <div
         className="
           max-w-3xl
+          space-y-8
           text-[0.95rem]
           sm:text-[1rem]
           leading-[2]
           text-[#7E6B63]
         "
       >
-        <p>
-          {aboutContent.description}
-        </p>
-
-        <p className="mt-8">
-          At Just Wax by Kim, every detail is thoughtfully considered to create
-          an experience that feels calm, welcoming, and personalized. From the
-          moment you arrive, the focus is on comfort, confidence, and helping
-          you feel beautifully cared for.
-        </p>
+        {aboutContent.description.map((paragraph, index) => (
+          <p
+            key={index}
+            className="
+              tracking-[0.01em]
+            "
+          >
+            {paragraph}
+          </p>
+        ))}
       </div>
-
     </div>
   );
 }
