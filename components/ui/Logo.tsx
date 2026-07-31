@@ -44,12 +44,9 @@ export function Logo({
       <Image
         src="/hero/logo/just-wax-by-kim-logo.jpg"
         alt="Just Wax by Kim"
-
         width={420}
         height={180}
-
         priority={priority}
-
         className="
           h-[72px]
           w-auto
