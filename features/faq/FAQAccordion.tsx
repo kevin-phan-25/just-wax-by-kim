@@ -1,3 +1,19 @@
+/**
+ * ------------------------------------------------------------------
+ * File: FAQAccordion.tsx
+ *
+ * Description:
+ * Luxury FAQ accordion collection.
+ *
+ * Changes:
+ *
+ * - Centered accordion content
+ * - Removed left alignment behavior
+ * - Full width editorial layout
+ *
+ * ------------------------------------------------------------------
+ */
+
 import FAQItem from "./FAQItem";
 
 import {
@@ -16,41 +32,47 @@ export default function FAQAccordion({
 
   items,
 
-}:Props){
+}: Props) {
 
 
-return (
+  return (
 
-<div
+    <div
+      className="
+        flex
+        w-full
+        flex-col
+        items-center
+      "
+    >
 
-  className="
-    w-full
-  "
+      {
+        items.map(
 
->
+          (item) => (
 
-{
+            <div
+              key={item.id}
+              className="
+                w-full
+                text-center
+              "
+            >
 
-items.map(
+              <FAQItem
+                item={item}
+              />
 
-(item)=>(
+            </div>
 
-<FAQItem
+          )
 
-  key={item.id}
+        )
+      }
 
-  item={item}
 
-/>
+    </div>
 
-)
-
-)
-
-}
-
-</div>
-
-);
+  );
 
 }
