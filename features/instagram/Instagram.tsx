@@ -9,11 +9,10 @@
  * July 30, 2026
  *
  * Changes:
- * • Removed restrictive max-width feeling
- * • Full editorial layout
- * • Centered luxury typography
- * • Added better section spacing
- * • Integrated Instagram CTA
+ * • Removed restrictive text sizing
+ * • Centered all content
+ * • Improved editorial spacing
+ * • Full width luxury layout
  * -----------------------------------------------------------------------------
  */
 
@@ -35,14 +34,15 @@ export default function Instagram() {
         lg:px-16
       "
     >
+
       <div
         className="
-          mx-auto
           w-full
+
           text-center
         "
       >
-        {/* Eyebrow */}
+
         <span
           className="
             inline-block
@@ -56,14 +56,15 @@ export default function Instagram() {
             text-[#D8B4A0]
           "
         >
-          Social
+          {INSTAGRAM_CONFIG.eyebrow}
         </span>
 
 
-        {/* Title */}
         <h2
           className="
             mt-6
+
+            text-center
 
             text-4xl
             md:text-5xl
@@ -80,14 +81,13 @@ export default function Instagram() {
         </h2>
 
 
-        {/* Description */}
         <p
           className="
-            mx-auto
-
             mt-6
 
-            max-w-2xl
+            mx-auto
+
+            text-center
 
             text-base
             md:text-lg
@@ -101,18 +101,15 @@ export default function Instagram() {
         </p>
 
 
-        {/* Gallery */}
         <div
           className="
             mt-16
-            lg:mt-20
           "
         >
           <InstagramGrid />
         </div>
 
 
-        {/* CTA */}
         <div
           className="
             mt-14
@@ -125,6 +122,7 @@ export default function Instagram() {
         </div>
 
       </div>
+
     </section>
   );
 }
