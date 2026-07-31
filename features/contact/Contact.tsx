@@ -1,5 +1,5 @@
 /**
- * ---------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * features/contact/Contact.tsx
  *
@@ -7,15 +7,13 @@
  * Standalone luxury contact presentation.
  *
  * Changes:
- * • Converted from homepage section
- * • Removed anchor dependency
- * • Added full-page editorial layout
- * • Removed width restrictions
+ * • Matched Gallery / FAQ / Testimonials spacing system
  * • Added navbar transition spacing
- * • Form moved to center column
- * • Preserved luxury 3-column structure
- *
- * ---------------------------------------------------------------------------
+ * • Removed width restrictions
+ * • Centered contact information
+ * • Moved form to center column
+ * • Preserved luxury editorial layout
+ * -----------------------------------------------------------------------------
  */
 
 import ContactForm from "./ContactForm";
@@ -43,20 +41,13 @@ export default function Contact() {
         className="
           pointer-events-none
           absolute
-          top-0
-          left-1/2
-          h-[600px]
-          w-[600px]
-          -translate-x-1/2
-          rounded-full
-          bg-[#F6E7E1]
-          opacity-40
-          blur-3xl
+          inset-0
+          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.30),transparent_65%)]
         "
       />
 
 
-      {/* FULL WIDTH CONTENT */}
+      {/* CONTENT */}
       <div
         className="
           relative
@@ -72,6 +63,7 @@ export default function Contact() {
         <header
           className="
             w-full
+            mb-16
           "
         >
 
@@ -114,11 +106,9 @@ export default function Contact() {
 
           <p
             className="
-              mx-auto
               mt-8
-              w-full
               text-lg
-              leading-9
+              leading-relaxed
               text-[#8C7468]
             "
           >
@@ -131,14 +121,15 @@ export default function Contact() {
 
 
 
+
+
         {/* CONTACT GRID */}
         <div
           className="
             mt-20
             grid
-            w-full
             gap-12
-            lg:grid-cols-[1fr_1.2fr_1fr]
+            lg:grid-cols-3
             lg:gap-16
           "
         >
@@ -150,14 +141,19 @@ export default function Contact() {
               border-t
               border-[#E8DDD8]
               pt-10
+              text-center
             "
           >
+
             <ContactInfo />
+
           </div>
 
 
 
-          {/* CONTACT FORM - CENTER */}
+
+
+          {/* CONTACT FORM */}
           <div
             className="
               border-t
@@ -194,6 +190,7 @@ export default function Contact() {
                 normal business hours.
               </p>
 
+
             </div>
 
 
@@ -202,11 +199,15 @@ export default function Contact() {
                 mt-10
               "
             >
+
               <ContactForm />
+
             </div>
 
 
           </div>
+
+
 
 
 
@@ -216,9 +217,12 @@ export default function Contact() {
               border-t
               border-[#E8DDD8]
               pt-10
+              text-center
             "
           >
+
             <ContactHours />
+
           </div>
 
 
@@ -240,6 +244,7 @@ export default function Contact() {
           bg-[#E8DDD8]
         "
       />
+
 
     </section>
   );
