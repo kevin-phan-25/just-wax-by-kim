@@ -1,168 +1,152 @@
 /**
- * ---------------------------------------------------------------------------
+ * -------------------------------------------------------------------
  * File:
- * features/instagram/InstagramPost.tsx
+ * features/instagram/instagram.data.ts
  *
  * Description:
- * Luxury Instagram image card.
+ * Instagram gallery content data.
  *
  * Changes:
- * • Optimized for 4x4 layout
- * • Preserved square editorial styling
- * • Full image rendering
- * • Premium hover treatment
- * ---------------------------------------------------------------------------
+ * • Expanded standalone Instagram gallery
+ * • Added 16 editorial image slots
+ * • Prepared for 4x4 luxury grid layout
+ * • Added social links
+ *
+ * -------------------------------------------------------------------
  */
 
-import Image from "next/image";
-
 import type {
-  InstagramPost as Post,
+  InstagramPost,
 } from "./instagram.types";
 
 
-interface Props {
+export const instagramPosts: InstagramPost[] = [
+
+  {
+    id: "1",
+    image: "/gallery/studio-1.webp",
+    alt: "Elegant waxing studio interior with a calm luxury atmosphere",
+    href: "https://instagram.com/justwaxbykim",
+  },
 
-  post: Post;
+
+  {
+    id: "2",
+    image: "/gallery/studio-2.webp",
+    alt: "Private treatment space designed for comfort and relaxation",
+    href: "https://instagram.com/justwaxbykim",
+  },
 
-}
+
+  {
+    id: "3",
+    image: "/gallery/studio-3.webp",
+    alt: "Luxury waxing studio details and refined environment",
+    href: "https://instagram.com/justwaxbykim",
+  },
 
-
-
-export default function InstagramPost({
-
-  post,
-
-}: Props) {
-
-
-  return (
-
-    <a
-
-      href={
-        post.href ??
-        "https://instagram.com/justwaxbykim"
-      }
-
-      target="_blank"
-
-      rel="noopener noreferrer"
-
-      className="
-        group
-
-        relative
-
-        block
-
-        aspect-square
-
-        overflow-hidden
-
-        rounded-[28px]
-
-        border
-
-        border-[#E8DDD8]
-
-        bg-[#F6E7E1]
-      "
-
-    >
-
-
-      <Image
-
-        src={post.image}
-
-        alt={post.alt}
-
-        fill
-
-        sizes="
-          (max-width:640px) 100vw,
-          (max-width:1024px) 50vw,
-          25vw
-        "
-
-        className="
-          object-cover
-
-          transition-transform
-
-          duration-700
-
-          ease-out
-
-          group-hover:scale-105
-        "
-
-      />
-
-
-
-      {/* Luxury overlay */}
-
-      <div
-
-        className="
-          absolute
-
-          inset-0
-
-          bg-gradient-to-t
-
-          from-[#3B2A26]/35
-
-          via-transparent
-
-          to-transparent
-
-          opacity-0
-
-          transition-opacity
-
-          duration-500
-
-          group-hover:opacity-100
-        "
-
-      />
-
-
-
-      {/* Border highlight */}
-
-      <div
-
-        className="
-          absolute
-
-          inset-0
-
-          rounded-[28px]
-
-          ring-1
-
-          ring-inset
-
-          ring-white/30
-
-          opacity-0
-
-          transition-opacity
-
-          duration-500
-
-          group-hover:opacity-100
-        "
-
-      />
-
-
-    </a>
-
-  );
-
-}
+
+  {
+    id: "4",
+    image: "/gallery/luxury-detail.webp",
+    alt: "Premium skincare products and waxing essentials",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "5",
+    image: "/gallery/studio-4.webp",
+    alt: "Boutique beauty studio atmosphere",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "6",
+    image: "/gallery/treatment-1.webp",
+    alt: "Professional waxing treatment setup",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "7",
+    image: "/gallery/treatment-2.webp",
+    alt: "Clean and comfortable private treatment room",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "8",
+    image: "/gallery/products-1.webp",
+    alt: "Luxury skincare products displayed in studio",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "9",
+    image: "/gallery/detail-1.webp",
+    alt: "Elegant studio details and beauty accessories",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "10",
+    image: "/gallery/detail-2.webp",
+    alt: "Professional waxing tools and premium supplies",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "11",
+    image: "/gallery/customer-care.webp",
+    alt: "Relaxing beauty experience focused on client comfort",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "12",
+    image: "/gallery/luxury-room.webp",
+    alt: "Luxury private waxing room interior",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "13",
+    image: "/gallery/beauty-detail.webp",
+    alt: "Minimal luxury beauty studio details",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "14",
+    image: "/gallery/waxing-space.webp",
+    alt: "Professional waxing space prepared for appointments",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "15",
+    image: "/gallery/skincare.webp",
+    alt: "Premium aftercare skincare products",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+
+  {
+    id: "16",
+    image: "/gallery/studio-final.webp",
+    alt: "Complete luxury studio experience",
+    href: "https://instagram.com/justwaxbykim",
+  },
+
+];
