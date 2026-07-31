@@ -7,11 +7,10 @@
  * Standalone luxury Gallery page.
  *
  * Updated:
- * • Removed page width restrictions
- * • Added navbar transition spacing
- * • Full-width editorial gallery layout
- * • Header text remains controlled for readability
- * • Matches Services standalone architecture
+ * • Removed width restrictions
+ * • Centered editorial typography
+ * • Full-width gallery layout
+ * • Luxury page spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -19,15 +18,19 @@
 import { GALLERY_CONFIG } from "./gallery.constants";
 import GalleryGrid from "./GalleryGrid";
 
+
 export default function Gallery() {
   return (
+
     <section
       id="gallery"
       className="
         relative
-        overflow-hidden
+        min-h-screen
         w-full
+        overflow-hidden
         bg-[#FCF8F3]
+        py-32
       "
     >
 
@@ -38,122 +41,99 @@ export default function Gallery() {
           pointer-events-none
           absolute
           inset-0
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
-        "
-      />
-
-
-      {/* Navbar transition spacing */}
-      <div
-        className="
-          h-[216px]
+          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
         "
       />
 
 
 
-      {/* Full width content wrapper */}
+      {/* FULL WIDTH CONTENT */}
       <div
         className="
           relative
           z-10
           w-full
+          px-6
         "
       >
-
 
 
         {/* HEADER */}
         <header
           className="
+            mx-auto
             w-full
-            px-6
             text-center
           "
         >
 
+          <p
+            className="
+              uppercase
+              tracking-[0.35em]
+              text-sm
+              text-[#8C5A6B]
+            "
+          >
+            {GALLERY_CONFIG.eyebrow}
+          </p>
+
+
+
+          <h1
+            className="
+              mt-6
+              font-serif
+              text-4xl
+              md:text-6xl
+              leading-tight
+              text-[#3B2A26]
+            "
+          >
+            {GALLERY_CONFIG.title}
+          </h1>
+
+
+
           <div
             className="
               mx-auto
-              max-w-4xl
+              mt-8
+              h-px
+              w-24
+              bg-[#D8B4A0]
+            "
+          />
+
+
+
+          <p
+            className="
+              mx-auto
+              mt-8
+              max-w-3xl
+              text-center
+              text-lg
+              leading-9
+              text-[#8C7468]
             "
           >
-
-            <p
-              className="
-                uppercase
-                tracking-[0.35em]
-                text-sm
-                text-[#8C5A6B]
-              "
-            >
-              {GALLERY_CONFIG.eyebrow}
-            </p>
-
-
-
-            <h1
-              className="
-                mt-6
-                font-serif
-                text-4xl
-                md:text-6xl
-                leading-tight
-                text-[#3B2A26]
-              "
-            >
-              {GALLERY_CONFIG.title}
-            </h1>
-
-
-
-            <div
-              className="
-                mx-auto
-                mt-8
-                h-px
-                w-24
-                bg-[#D8B4A0]
-              "
-            />
-
-
-
-            <p
-              className="
-                mx-auto
-                mt-8
-                max-w-3xl
-                text-lg
-                leading-9
-                text-[#8C7468]
-              "
-            >
-              {GALLERY_CONFIG.description}
-            </p>
-
-
-          </div>
+            {GALLERY_CONFIG.description}
+          </p>
 
 
         </header>
 
 
 
-
-
-        {/* FULL WIDTH GALLERY GRID */}
+        {/* GALLERY GRID */}
         <div
           className="
             mt-20
             w-full
-            px-6
-            pb-24
           "
         >
-
           <GalleryGrid />
-
         </div>
 
 
@@ -162,5 +142,6 @@ export default function Gallery() {
 
 
     </section>
+
   );
 }
