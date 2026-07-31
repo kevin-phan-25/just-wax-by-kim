@@ -1,35 +1,17 @@
 /**
  * -----------------------------------------------------------------------------
- * File: instagram.constants.ts
+ * File: features/instagram/instagram.constants.ts
  *
  * Description:
- * Instagram section configuration.
+ * Instagram section copy.
  *
- * Updated:
- * July 30, 2026
- *
- * Changes:
- * • Updated luxury editorial messaging
- * • Removed generic social wording
- * • Improved brand storytelling
+ * Updated: July 30, 2026
  * -----------------------------------------------------------------------------
  */
-
 export const INSTAGRAM_CONFIG = {
-
-  handle:
-    "@justwaxbykim",
-
-
-  eyebrow:
-    "Behind The Experience",
-
-
-  title:
-    "A Glimpse Into Our Studio",
-
-
+  handle: "@justwaxbykim",
+  eyebrow: "Behind The Experience",
+  title: "A Glimpse Into Our Studio",
   description:
-    "Explore the atmosphere, care, and thoughtful details that create every Just Wax by Kim experience."
-
+    "Quiet details, refined care, and the atmosphere that shapes every appointment.",
 };
