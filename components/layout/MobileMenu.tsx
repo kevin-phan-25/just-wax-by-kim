@@ -8,9 +8,8 @@
  * Mobile-first navigation for Just Wax by Kim — luxury theme.
  *
  * Changes (July 30, 2026):
- * • Link text inset ~½ inch from the left (pl-12 / 48px)
- * • Kept large tap targets and theme styling
- * • Book CTA still lifted from the bottom edge
+ * • All menu labels centered (left inset was not applying in production)
+ * • Large tap targets + theme styling preserved
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -111,7 +110,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         />
 
         <div className="relative flex-1 overflow-y-auto overscroll-contain px-6 py-8">
-          <p className="mb-6 text-center text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#8C5A6B]">
+          <p
+            className="mb-6 text-center text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#8C5A6B]"
+          >
             Menu
           </p>
 
@@ -130,10 +131,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                           setExpanded(isOpen ? null : link.href)
                         }
                         className="
-                          flex w-full items-center justify-between
-                          min-h-[56px] rounded-full
-                          pl-12 pr-6
-                          text-left
+                          relative flex w-full items-center justify-center
+                          min-h-[56px] rounded-full px-6
+                          text-center
                           text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                           text-[#3B2A26]
                           bg-[#FFFFFF]/90 border border-[#E8DDD8]
@@ -145,6 +145,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         <span>{link.label}</span>
                         <span
                           className={`
+                            absolute right-6
                             text-[#C8919B] text-base leading-none
                             transition-transform duration-300
                             ${isOpen ? "rotate-180" : ""}
@@ -155,7 +156,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                       </button>
 
                       {isOpen && (
-                        <ul className="mt-2 flex flex-col gap-2 px-1">
+                        <ul className="mt-2 flex flex-col gap-2">
                           <li>
                             <Link
                               href={resolveHref(link.href)}
@@ -169,9 +170,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                                 }
                               }}
                               className="
-                                flex w-full items-center
-                                min-h-[52px] rounded-full
-                                pl-12 pr-6
+                                flex w-full items-center justify-center
+                                min-h-[52px] rounded-full px-6
+                                text-center
                                 text-[0.72rem] font-semibold uppercase tracking-[0.16em]
                                 text-[#8C5A6B]
                                 bg-[#F6E7E1]
@@ -198,9 +199,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                                   }
                                 }}
                                 className="
-                                  flex w-full items-center
-                                  min-h-[52px] rounded-full
-                                  pl-12 pr-6
+                                  flex w-full items-center justify-center
+                                  min-h-[52px] rounded-full px-6
+                                  text-center
                                   text-[0.72rem] font-medium uppercase tracking-[0.16em]
                                   text-[#3B2A26]/90
                                   bg-[#FFFFFF]/80 border border-[#E8DDD8]/70
@@ -227,9 +228,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         }
                       }}
                       className="
-                        flex w-full items-center
-                        min-h-[56px] rounded-full
-                        pl-12 pr-6
+                        flex w-full items-center justify-center
+                        min-h-[56px] rounded-full px-6
+                        text-center
                         text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                         text-[#3B2A26]
                         bg-[#FFFFFF]/90 border border-[#E8DDD8]
@@ -275,6 +276,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
               min-h-[56px] rounded-full
               border-2 border-[#8C5A6B]
               bg-transparent
+              text-center
               text-[0.78rem] font-semibold uppercase tracking-[0.2em]
               text-[#8C5A6B]
               active:bg-[#F6E7E1]
