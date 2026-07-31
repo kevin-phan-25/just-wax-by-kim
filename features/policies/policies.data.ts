@@ -1,82 +1,127 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File: features/policies/policies.data.ts
- * -----------------------------------------------------------------------------
+ *
+ * Description:
+ * Studio policy content.
+ *
+ * Updated:
+ * • Revised timing requirements
+ * • Improved professional tone
+ * • Client-focused language
+ *
+ * ---
  */
 
 import type { PolicySection } from "./policies.types";
 
 export const POLICIES_DATA: PolicySection[] = [
   {
-    id: "late-arrival",
-    title: "Late Arrival Policy",
+    id: "arrival",
+    title: "Arrival & Timeliness",
+
     intro:
-      "Please plan accordingly and allow extra time for travel, parking, and any unexpected delays.",
+      "Please plan accordingly and allow additional time for travel, parking, and any unexpected delays so your appointment can begin smoothly.",
+
     paragraphs: [
-      "All appointments include a 6-minute grace period. Beginning at the 7-minute mark, your appointment will be considered late and the following fees will apply:",
+      "Each appointment includes a 5-minute grace period. Beginning at the 6-minute mark, your appointment will be considered late and the following adjustments may apply:",
     ],
+
     bullets: [
-      "7+ minutes late: A 25% rescheduling fee will be required to book a new appointment.",
-      "10+ minutes late: Your appointment will be automatically canceled, and 75% of the scheduled service cost will be charged.",
+      "6+ minutes late: A 25% rescheduling fee will be required to reserve a new appointment time.",
+      "10+ minutes late: The appointment may be canceled, and 75% of the scheduled service total will be charged.",
     ],
+
     note:
-      "I value both your time and mine. I make every effort to stay on schedule so that each client receives the full attention and quality service they deserve. Arriving on time allows me to provide the best possible experience for you while respecting the appointments that follow. Please keep in mind that Midtown parking can be unpredictable. Plan ahead to allow enough time for parking and arrival.",
+      "I truly value your time and mine. I make every effort to stay on schedule so each guest receives the full attention and quality experience they deserve. Please keep in mind that Midtown parking can be unpredictable, so planning ahead is highly recommended.",
   },
+
+
   {
-    id: "cancellation",
-    title: "Cancellation & Rescheduling Policy",
+    id: "appointments",
+
+    title: "Appointments & Scheduling",
+
     intro:
-      "I understand that plans can change. If you need to cancel or reschedule, please provide as much notice as possible.",
+      "I understand that schedules can change. If you need to adjust your appointment, please provide as much notice as possible.",
+
     bullets: [
-      "Cancellations or rescheduling requests must be made at least 12 hours before your scheduled appointment time.",
-      "Appointments canceled or rescheduled within the 12-hour window will be subject to a 50% charge of the scheduled service total.",
+      "Cancellations or rescheduling requests must be made at least 24 hours before your scheduled appointment time.",
+      "Appointments canceled or rescheduled within the 24-hour window will be subject to a 50% charge of the scheduled service total.",
     ],
+
     note:
-      "This policy helps protect appointment availability and ensures fairness to both my business and other clients.",
+      "This policy helps protect appointment availability and allows me to provide consistent service for every guest while respecting the time reserved specifically for you.",
   },
+
+
   {
     id: "hair-length",
+
     title: "Hair Length Requirements",
+
     paragraphs: [
-      "For the best waxing results, hair must be approximately ¼ inch long (about the length of a grain of rice or a sprinkle).",
-      "If the hair is too short, the wax may not properly grip the hair, resulting in an ineffective service. If the hair is significantly longer than recommended, additional discomfort may occur.",
-      "Please check the hair length of the area being serviced before your appointment. If it is not at the appropriate length, please reschedule so we can provide the quality results you deserve.",
+      "For optimal waxing results, hair should be approximately ¼ inch long (about the length of a grain of rice or a sprinkle).",
+
+      "If hair is too short, the wax may not properly grip the hair, which can result in an incomplete service. If hair is significantly longer than recommended, additional discomfort may occur.",
+
+      "Please check the length of the area being serviced before your appointment. If the hair is not at the appropriate length, rescheduling may be recommended to ensure the best possible results.",
     ],
   },
+
+
   {
     id: "health-safety",
+
     title: "Health, Safety & Sanitation",
-    intro: "Your comfort and safety are always a priority.",
+
+    intro:
+      "Your comfort, safety, and well-being are always a priority.",
+
     bullets: [
       "Masks are optional. If you prefer to wear a mask during your appointment, I am happy to do the same.",
-      "All treatment areas and equipment are thoroughly cleaned, sanitized, and disinfected between every client.",
-      "All single-use items are properly disposed of after each service.",
+      "All treatment areas and equipment are thoroughly cleaned, sanitized, and disinfected between every guest.",
+      "All single-use supplies are properly disposed of after each service.",
     ],
+
     note:
-      "I maintain a clean, safe, and welcoming environment for every guest.",
+      "I maintain a clean, professional, and welcoming environment where every guest can feel comfortable and cared for.",
   },
+
+
   {
-    id: "genital-waxing",
-    title: "Genital Waxing Policy",
+    id: "specialty-services",
+
+    title: "Specialty Service Guidelines",
+
     intro:
-      "Due to personal and professional boundaries, genital waxing services are currently available only to female and gender-diverse clients who meet the following criteria:",
+      "Due to personal and professional boundaries, certain intimate waxing services are currently available only to female and gender-diverse clients who meet the following criteria:",
+
     bullets: [
       "Individuals who currently identify as women, regardless of sex assigned at birth.",
       "Individuals assigned female at birth, regardless of current gender identity.",
-      "Individuals who are transitioning in any stage of their journey.",
+      "Individuals who are transitioning at any stage of their journey.",
     ],
+
     paragraphs: [
-      "I strive to provide an inclusive, respectful, and affirming environment for all clients. If you have questions about whether a service is appropriate for you, please feel welcome to reach out.",
-      "For services I am unable to provide, I am happy to recommend other trusted waxing professionals in the area.",
+      "My goal is to provide an inclusive, respectful, and affirming environment for every client. If you have questions about whether a service is appropriate for you, please feel welcome to reach out.",
+
+      "For services I am unable to provide, I am happy to recommend trusted professionals who may better accommodate your needs.",
     ],
   },
+
+
   {
     id: "respectful-environment",
-    title: "Respectful Environment Policy",
+
+    title: "Respectful Studio Environment",
+
     paragraphs: [
-      "Just Wax By Kim is a space built on comfort, trust, and respect.",
-      "I welcome clients of all backgrounds and expect all guests to treat themselves, others, and the studio environment with kindness and respect.",
-      "Any inappropriate behavior, harassment, discrimination, or disrespectful conduct will not be tolerated. Services may be discontinued immediately, and appropriate action will be taken if necessary.",
+      "Just Wax By Kim is a space built on comfort, trust, professionalism, and respect.",
+
+      "I welcome clients of all backgrounds and expect every guest to treat themselves, others, and the studio environment with kindness and consideration.",
+
+      "Any inappropriate behavior, harassment, discrimination, or disrespectful conduct will not be tolerated. Services may be discontinued immediately, and appropriate action may be taken when necessary.",
     ],
   },
 ];

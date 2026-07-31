@@ -1,15 +1,17 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File: features/policies/Policies.tsx
  *
  * Description:
- * Standalone luxury policies presentation.
+ * Luxury editorial policies presentation.
  *
  * Updated:
- * • Matched FAQ / Contact / Gallery spacing system
- * • Navbar transition spacer
- * • Full-width, centered editorial layout
- * -----------------------------------------------------------------------------
+ * • Full-width editorial layout
+ * • Removed content width restrictions
+ * • Premium spacing system
+ * • Improved client-focused presentation
+ *
+ * ---
  */
 
 import PolicySectionCard from "./PolicySectionCard";
@@ -19,30 +21,18 @@ import { POLICIES_DATA } from "./policies.data";
 export default function Policies() {
   return (
     <section
-      id="policies"
       className="
         relative
-        w-full
-        min-h-screen
         overflow-hidden
-        bg-[#FCF8F3]
+        bg-[#FAF7F3]
       "
     >
-      {/* Ambient Background */}
-      <div
-        aria-hidden
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.30),transparent_65%)]
-        "
-      />
 
-      {/* Navbar Transition Spacer */}
+      {/* Navbar Transition */}
       <div className="h-[216px]" />
 
-      {/* CONTENT */}
+
+      {/* Content */}
       <div
         className="
           relative
@@ -50,23 +40,18 @@ export default function Policies() {
           w-full
           px-6
           pb-40
-          flex
-          flex-col
-          items-center
-          text-center
         "
       >
-        {/* HEADER */}
+
+        {/* Header */}
         <header
           className="
+            mx-auto
             w-full
-            mb-20
-            flex
-            flex-col
-            items-center
             text-center
           "
         >
+
           <p
             className="
               uppercase
@@ -78,18 +63,20 @@ export default function Policies() {
             {POLICIES_CONSTANTS.eyebrow}
           </p>
 
+
           <h1
             className="
               mt-8
               font-serif
-              text-4xl
-              md:text-6xl
+              text-5xl
+              md:text-7xl
               leading-tight
               text-[#3B2A26]
             "
           >
             {POLICIES_CONSTANTS.title}
           </h1>
+
 
           <div
             className="
@@ -101,11 +88,12 @@ export default function Policies() {
             "
           />
 
+
           <p
             className="
-              mt-10
               mx-auto
-              max-w-3xl
+              mt-10
+              max-w-5xl
               text-lg
               leading-relaxed
               text-[#8C7468]
@@ -114,11 +102,12 @@ export default function Policies() {
             {POLICIES_CONSTANTS.subtitle}
           </p>
 
+
           <p
             className="
-              mt-6
               mx-auto
-              max-w-3xl
+              mt-6
+              max-w-4xl
               text-base
               leading-relaxed
               text-[#8C7468]
@@ -126,39 +115,71 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.contactNote}
           </p>
+
         </header>
 
-        {/* POLICY SECTIONS */}
+
+
+        {/* Policies */}
         <div
           className="
-            mt-8
+            mt-24
+            grid
             w-full
-            max-w-4xl
-            flex
-            flex-col
-            gap-10
+            grid-cols-1
+            gap-16
+            lg:grid-cols-2
           "
         >
+
           {POLICIES_DATA.map((section) => (
-            <PolicySectionCard key={section.id} section={section} />
+            <PolicySectionCard
+              key={section.id}
+              section={section}
+            />
           ))}
+
         </div>
 
-        {/* CLOSING */}
+
+
+        {/* Closing */}
         <div
           className="
-            mt-20
             mx-auto
-            max-w-3xl
+            mt-32
+            w-full
             text-center
           "
         >
-          <div className="mx-auto mb-8 h-px w-24 bg-[#D8B4A0]" />
-          <p className="text-lg leading-relaxed text-[#8C7468]">
+
+          <div
+            className="
+              mx-auto
+              mb-8
+              h-px
+              w-24
+              bg-[#D8B4A0]
+            "
+          />
+
+
+          <p
+            className="
+              mx-auto
+              max-w-5xl
+              text-lg
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
             {POLICIES_CONSTANTS.closing}
           </p>
+
         </div>
+
       </div>
+
     </section>
   );
 }
