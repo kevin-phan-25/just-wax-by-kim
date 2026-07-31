@@ -1,20 +1,20 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: FAQ.tsx
  *
  * Description:
  * Luxury FAQ section.
  *
  * Changes:
+ * 
  * - Removed restrictive max width
- * - Centered FAQ content
- * - Improved luxury spacing
- * -----------------------------------------------------------------------------
+ * - Full editorial width layout
+ * - Centered luxury presentation
+ * - Improved spacing rhythm
+ *
+ * ------------------------------------------------------------------
  */
 
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Heading from "@/components/ui/Heading";
 import FAQAccordion from "./FAQAccordion";
 
 import {
@@ -26,82 +26,85 @@ import {
 } from "./faq.constants";
 
 
-export default function FAQ(){
+export default function FAQ() {
 
-
-return (
-
-<section
-  id={FAQ_CONSTANTS.sectionId}
-  className="
-    bg-[#FCF8F3]
-    px-6
-    py-24
-  "
->
-
-
-  <div
-    className="
-      mx-auto
-      w-full
-      text-center
-    "
-  >
-
-
-    <h2
+  return (
+    <section
+      id={FAQ_CONSTANTS.sectionId}
       className="
-        text-4xl
-        md:text-5xl
-        font-serif
-        text-[#3B2A26]
-      "
-    >
-      {FAQ_CONSTANTS.title}
-    </h2>
-
-
-
-    <p
-      className="
-        mx-auto
-        mt-4
-        max-w-2xl
-        text-center
-        text-[#8C7468]
-      "
-    >
-      {FAQ_CONSTANTS.subtitle}
-    </p>
-
-
-
-    <div
-      className="
-        mx-auto
-        mt-12
-        w-full
-        max-w-5xl
-        rounded-[32px]
-        bg-white
-        p-8
-        shadow-[0_20px_60px_rgba(59,42,38,0.06)]
+        section-padding
+        bg-brand-background
       "
     >
 
-      <FAQAccordion
-        items={FAQ_DATA}
-      />
+      <div
+        className="
+          container-luxury
+        "
+      >
 
-    </div>
+        {/* HEADER */}
+
+        <header
+          className="
+            text-center
+            mx-auto
+          "
+        >
+
+          <h2
+            className="
+              font-serif
+              text-4xl
+              md:text-5xl
+              text-[#3B2A26]
+            "
+          >
+            {FAQ_CONSTANTS.title}
+          </h2>
 
 
-  </div>
+          <p
+            className="
+              mt-5
+              text-center
+              text-[#8C7468]
+              leading-relaxed
+            "
+          >
+            {FAQ_CONSTANTS.subtitle}
+          </p>
+
+        </header>
 
 
-</section>
 
-);
+        {/* FAQ CONTENT */}
+
+        <div
+          className="
+            mt-16
+            w-full
+            rounded-[40px]
+            border
+            border-[#E8DDD8]
+            bg-white/80
+            p-8
+            md:p-12
+            shadow-[0_20px_60px_rgba(59,42,38,0.06)]
+          "
+        >
+
+          <FAQAccordion
+            items={FAQ_DATA}
+          />
+
+        </div>
+
+
+      </div>
+
+    </section>
+  );
 
 }
