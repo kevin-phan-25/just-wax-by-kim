@@ -27,7 +27,7 @@ export function Logo({ className = "", priority = false }: LogoProps) {
       aria-label="Just Wax by Kim — Home"
     >
       <Image
-        src="/logo/just-wax-by-kim.png"
+        src="/logo/just-wax-by-kim-logo.jpg"
         alt="Just Wax by Kim"
         width={320}
         height={220}
