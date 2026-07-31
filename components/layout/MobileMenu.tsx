@@ -5,18 +5,13 @@
  * Date: July 30, 2026
  *
  * Description:
- * Mobile-first navigation for Just Wax by Kim.
- *
- * Design goals:
- * • Large tap targets (easy on phones)
- * • No tiny hover dropdowns
- * • Sub-links expand as full-width rows
- * • Clear Book Appointment CTA
+ * Mobile-first navigation for Just Wax by Kim — luxury theme.
  *
  * Changes (July 30, 2026):
- * • Full redesign for mobile usability
- * • Expandable sections instead of small dropdowns
- * • Larger type + padding for touch
+ * • Restyled to match ivory / dusty-rose / plum brand
+ * • Softer cards, thinner borders, editorial type
+ * • Book Appointment lifted off the bottom edge (not flush)
+ * • Large tap targets kept for mobile usability
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -89,9 +84,9 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
       `}
     >
-      {/* Backdrop */}
+      {/* Soft backdrop */}
       <div
-        className="absolute inset-0 bg-[#3B2A26]/35 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#3B2A26]/25 backdrop-blur-[6px]"
         onClick={() => {
           onClose();
           setExpanded(null);
@@ -99,21 +94,33 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         aria-hidden
       />
 
-      {/* Full-width sheet under navbar */}
+      {/* Sheet */}
       <div
         className={`
           absolute left-0 right-0 top-[168px] bottom-0
           flex flex-col
           bg-[#FCF8F3]
           border-t border-[#E8DDD8]
-          shadow-[0_-8px_40px_rgba(59,42,38,0.08)]
           transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]
-          ${open ? "translate-y-0" : "translate-y-4"}
+          ${open ? "translate-y-0" : "translate-y-3"}
         `}
       >
-        {/* Scrollable links */}
-        <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-6">
-          <ul className="flex flex-col gap-2">
+        {/* Subtle top wash */}
+        <div
+          aria-hidden
+          className="
+            pointer-events-none absolute inset-x-0 top-0 h-24
+            bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.28),transparent_70%)]
+          "
+        />
+
+        {/* Links */}
+        <div className="relative flex-1 overflow-y-auto overscroll-contain px-6 py-8">
+          <p className="mb-6 text-center text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#8C5A6B]">
+            Menu
+          </p>
+
+          <ul className="flex flex-col gap-3">
             {links.map((link) => {
               const hasDropdown = Boolean(link.dropdown?.length);
               const isOpen = expanded === link.href;
@@ -122,7 +129,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                 <li key={link.href}>
                   {hasDropdown ? (
                     <>
-                      {/* Parent row — toggles sub-links */}
                       <button
                         type="button"
                         onClick={() =>
@@ -130,11 +136,12 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         }
                         className="
                           flex w-full items-center justify-between
-                          min-h-[56px] rounded-2xl px-5
+                          min-h-[56px] rounded-full px-6
                           text-left
-                          text-[0.9rem] font-semibold uppercase tracking-[0.16em]
+                          text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                           text-[#3B2A26]
-                          bg-white/70 border border-[#E8DDD8]
+                          bg-[#FFFFFF]/90 border border-[#E8DDD8]
+                          shadow-[0_8px_24px_rgba(59,42,38,0.04)]
                           active:bg-[#F6E7E1]
                           transition-colors
                         "
@@ -142,7 +149,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         <span>{link.label}</span>
                         <span
                           className={`
-                            text-[#8C5A6B] text-lg leading-none
+                            text-[#C8919B] text-base leading-none
                             transition-transform duration-300
                             ${isOpen ? "rotate-180" : ""}
                           `}
@@ -151,10 +158,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         </span>
                       </button>
 
-                      {/* Sub-links — large tap targets */}
                       {isOpen && (
-                        <ul className="mt-2 flex flex-col gap-2 pl-2">
-                          {/* Main section link */}
+                        <ul className="mt-2 flex flex-col gap-2 px-1">
                           <li>
                             <Link
                               href={resolveHref(link.href)}
@@ -169,10 +174,11 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                               }}
                               className="
                                 flex w-full items-center
-                                min-h-[52px] rounded-2xl px-5
-                                text-[0.8rem] font-semibold uppercase tracking-[0.14em]
+                                min-h-[52px] rounded-full px-6
+                                text-[0.72rem] font-semibold uppercase tracking-[0.16em]
                                 text-[#8C5A6B]
-                                bg-[#F6E7E1]/80
+                                bg-[#F6E7E1]
+                                border border-[#E8DDD8]/60
                                 active:bg-[#E8DDD8]
                                 transition-colors
                               "
@@ -196,10 +202,10 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                                 }}
                                 className="
                                   flex w-full items-center
-                                  min-h-[52px] rounded-2xl px-5
-                                  text-[0.8rem] font-medium uppercase tracking-[0.14em]
-                                  text-[#3B2A26]
-                                  bg-white/80 border border-[#E8DDD8]/80
+                                  min-h-[52px] rounded-full px-6
+                                  text-[0.72rem] font-medium uppercase tracking-[0.16em]
+                                  text-[#3B2A26]/90
+                                  bg-[#FFFFFF]/80 border border-[#E8DDD8]/70
                                   active:bg-[#F6E7E1]
                                   transition-colors
                                 "
@@ -212,7 +218,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                       )}
                     </>
                   ) : (
-                    /* Simple link — large row */
                     <Link
                       href={resolveHref(link.href)}
                       onClick={(e) => {
@@ -225,10 +230,11 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                       }}
                       className="
                         flex w-full items-center
-                        min-h-[56px] rounded-2xl px-5
-                        text-[0.9rem] font-semibold uppercase tracking-[0.16em]
+                        min-h-[56px] rounded-full px-6
+                        text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                         text-[#3B2A26]
-                        bg-white/70 border border-[#E8DDD8]
+                        bg-[#FFFFFF]/90 border border-[#E8DDD8]
+                        shadow-[0_8px_24px_rgba(59,42,38,0.04)]
                         active:bg-[#F6E7E1]
                         transition-colors
                       "
@@ -242,8 +248,20 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </ul>
         </div>
 
-        {/* Sticky bottom CTA */}
-        <div className="shrink-0 border-t border-[#E8DDD8] bg-[#FCF8F3] px-5 py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
+        {/* CTA — lifted from bottom (~½–¾ inch air) */}
+        <div
+          className="
+            relative shrink-0
+            border-t border-[#E8DDD8]/80
+            bg-[#FCF8F3]
+            px-6
+            pt-5
+            pb-10
+            mb-[max(0.5rem,env(safe-area-inset-bottom))]
+          "
+        >
+          <div className="mx-auto mb-4 h-px w-12 bg-[#D4A9B6]/80" />
+
           <Link
             href={pathname === "/" ? "#booking" : "/#booking"}
             onClick={(e) => {
@@ -257,10 +275,11 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
             className="
               flex w-full items-center justify-center
               min-h-[56px] rounded-full
-              bg-[#8C5A6B] text-white
-              text-[0.85rem] font-semibold uppercase tracking-[0.18em]
-              shadow-[0_12px_28px_rgba(140,90,107,0.28)]
-              active:bg-[#7A4A5A]
+              border-2 border-[#8C5A6B]
+              bg-transparent
+              text-[0.78rem] font-semibold uppercase tracking-[0.2em]
+              text-[#8C5A6B]
+              active:bg-[#F6E7E1]
               transition-colors
             "
           >
