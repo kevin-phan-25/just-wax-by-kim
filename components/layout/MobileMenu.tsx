@@ -6,6 +6,12 @@
  * Description:
  * Mobile navigation for Just Wax by Kim.
  *
+ * Changes:
+ * • Supports Services + Studio Exploration dropdowns
+ * • "All Services" row scrolls to #services on homepage
+ * • Supports standalone routes + /#section navigation
+ * • Book Appointment CTA pinned at bottom
+ *
  * --------------------------------------------------------------------------
  */
 
@@ -66,109 +72,178 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
 
   return (
     <div className="fixed inset-0 z-40 xl:hidden">
+      {/* Backdrop */}
       <div
         className="absolute inset-0 bg-[#3B2A26]/25 backdrop-blur"
         onClick={onClose}
       />
 
+      {/* Panel */}
       <div
         className="
           absolute top-[168px] left-0 right-0 bottom-0
-          overflow-y-auto bg-[#FCF8F3] px-6 py-8
+          flex flex-col
+          bg-[#FCF8F3]
         "
       >
-        <ul className="flex flex-col gap-3">
-          {links.map((link) => {
-            const hasDropdown = Boolean(link.dropdown?.length);
-            const isOpen = expanded === link.label;
+        {/* Scrollable links */}
+        <div className="flex-1 overflow-y-auto px-6 py-8">
+          <ul className="flex flex-col gap-3">
+            {links.map((link) => {
+              const hasDropdown = Boolean(link.dropdown?.length);
+              const isOpen = expanded === link.label;
+              const hasSectionAnchor = link.href.includes("#");
 
-            return (
-              <li key={link.label}>
-                {hasDropdown ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setExpanded(isOpen ? null : link.label)
-                      }
+              return (
+                <li key={link.label}>
+                  {hasDropdown ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setExpanded(isOpen ? null : link.label)
+                        }
+                        className="
+                          flex w-full min-h-[56px] items-center justify-center gap-2
+                          rounded-full border border-[#E8DDD8] bg-white/90
+                          uppercase tracking-[0.18em] text-xs font-semibold
+                          text-[#3B2A26]
+                        "
+                      >
+                        {link.label}
+                        <span
+                          className={`
+                            text-[10px] transition-transform duration-300
+                            ${isOpen ? "rotate-180" : ""}
+                          `}
+                        >
+                          ▾
+                        </span>
+                      </button>
+
+                      {isOpen && (
+                        <ul className="mt-2 flex flex-col gap-2">
+                          {/* Jump to section (e.g. All Services → #services) */}
+                          {hasSectionAnchor && (
+                            <li>
+                              <button
+                                type="button"
+                                onClick={() => handleAnchor(link.href)}
+                                className="
+                                  flex min-h-[52px] w-full items-center justify-center
+                                  rounded-full bg-[#F6E7E1] border border-[#E8DDD8]
+                                  uppercase tracking-[0.16em] text-xs font-semibold
+                                  text-[#8C5A6B]
+                                "
+                              >
+                                {link.label === "Services"
+                                  ? "All Services"
+                                  : `View ${link.label}`}
+                              </button>
+                            </li>
+                          )}
+
+                          {link.dropdown?.map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href}
+                                onClick={(e) => {
+                                  if (item.href.includes("#")) {
+                                    e.preventDefault();
+                                    handleAnchor(item.href);
+                                  } else {
+                                    onClose();
+                                    setExpanded(null);
+                                  }
+                                }}
+                                className="
+                                  flex min-h-[52px] flex-col items-center justify-center
+                                  rounded-2xl bg-[#F6E7E1] border border-[#E8DDD8]
+                                  px-4 py-3 text-center
+                                "
+                              >
+                                <span className="uppercase tracking-[0.16em] text-xs text-[#8C5A6B] font-semibold">
+                                  {item.label}
+                                </span>
+                                {item.description && (
+                                  <span className="mt-1 text-[11px] leading-snug text-[#8C7468] normal-case tracking-normal">
+                                    {item.description}
+                                  </span>
+                                )}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                        if (link.href.includes("#")) {
+                          e.preventDefault();
+                          handleAnchor(link.href);
+                        } else {
+                          onClose();
+                        }
+                      }}
                       className="
-                        flex w-full min-h-[56px] items-center justify-center gap-2
+                        flex w-full min-h-[56px] items-center justify-center
                         rounded-full border border-[#E8DDD8] bg-white/90
                         uppercase tracking-[0.18em] text-xs font-semibold
                         text-[#3B2A26]
                       "
                     >
                       {link.label}
-                      <span
-                        className={`
-                          text-[10px] transition-transform duration-300
-                          ${isOpen ? "rotate-180" : ""}
-                        `}
-                      >
-                        ▾
-                      </span>
-                    </button>
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-                    {isOpen && (
-                      <ul className="mt-2 flex flex-col gap-2">
-                        {link.dropdown?.map((item) => (
-                          <li key={item.href}>
-                            <Link
-                              href={item.href}
-                              onClick={(e) => {
-                                if (item.href.includes("#")) {
-                                  e.preventDefault();
-                                  handleAnchor(item.href);
-                                } else {
-                                  onClose();
-                                  setExpanded(null);
-                                }
-                              }}
-                              className="
-                                flex min-h-[52px] flex-col items-center justify-center
-                                rounded-2xl bg-[#F6E7E1] border border-[#E8DDD8]
-                                px-4 py-3 text-center
-                              "
-                            >
-                              <span className="uppercase tracking-[0.16em] text-xs text-[#8C5A6B] font-semibold">
-                                {item.label}
-                              </span>
-                              {item.description && (
-                                <span className="mt-1 text-[11px] leading-snug text-[#8C7468] normal-case tracking-normal">
-                                  {item.description}
-                                </span>
-                              )}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={(e) => {
-                      if (link.href.includes("#")) {
-                        e.preventDefault();
-                        handleAnchor(link.href);
-                      } else {
-                        onClose();
-                      }
-                    }}
-                    className="
-                      flex w-full min-h-[56px] items-center justify-center
-                      rounded-full border border-[#E8DDD8] bg-white/90
-                      uppercase tracking-[0.18em] text-xs font-semibold
-                      text-[#3B2A26]
-                    "
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </li>
-            );
-          })}
-        </ul>
+        {/* Sticky Book Appointment CTA */}
+        <div
+          className="
+            shrink-0
+            border-t border-[#E8DDD8]
+            bg-[#FCF8F3]
+            px-6
+            py-6
+          "
+        >
+          <Link
+            href="/#booking"
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                handleAnchor("/#booking");
+              } else {
+                onClose();
+              }
+            }}
+            className="
+              flex
+              min-h-[56px]
+              w-full
+              items-center
+              justify-center
+              rounded-full
+              border-2
+              border-[#8C5A6B]
+              uppercase
+              tracking-[0.2em]
+              text-sm
+              font-semibold
+              text-[#8C5A6B]
+              transition
+              hover:bg-[#F6E7E1]
+            "
+          >
+            Book Appointment
+          </Link>
+        </div>
       </div>
     </div>
   );
