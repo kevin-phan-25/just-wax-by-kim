@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * --------------------------------------------------------------------------
  * File:
  * features/gallery/Gallery.tsx
  *
@@ -10,8 +10,9 @@
  * • Removed homepage section behavior
  * • Matches Services page architecture
  * • Wider editorial layout
- * • Luxury page spacing
- * -----------------------------------------------------------------------------
+ * • Added standalone navbar spacing
+ * • Luxury page spacing rhythm
+ * --------------------------------------------------------------------------
  */
 
 import { GALLERY_CONFIG } from "./gallery.constants";
@@ -24,26 +25,36 @@ export default function Gallery() {
       className="
         relative
         overflow-hidden
-        w-full
+
+        min-h-screen
+
+        bg-[#FCF8F3]
+
+        pt-[168px]
+        pb-32
       "
     >
-      {/* Ambient background */}
+      {/* Ambient Background */}
       <div
-        aria-hidden
+        aria-hidden="true"
         className="
           pointer-events-none
           absolute
           inset-0
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_55%)]
+
+          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
         "
       />
 
+      {/* Content */}
       <div
         className="
           relative
           z-10
+
           mx-auto
           max-w-7xl
+
           px-6
         "
       >
@@ -66,36 +77,51 @@ export default function Gallery() {
             {GALLERY_CONFIG.eyebrow}
           </p>
 
+
           <h1
             className="
               mt-6
+
               font-serif
+
               text-4xl
               md:text-6xl
+
               leading-tight
+
               text-[#3B2A26]
             "
           >
             {GALLERY_CONFIG.title}
           </h1>
 
+
           <div
             className="
               mx-auto
+
               mt-8
+
               h-px
               w-24
+
               bg-[#D8B4A0]
             "
           />
 
+
           <p
             className="
               mx-auto
+
               mt-8
+
               max-w-3xl
+
               text-lg
+
               leading-9
+
               text-[#8C7468]
             "
           >
@@ -103,10 +129,16 @@ export default function Gallery() {
           </p>
         </header>
 
+
         {/* Gallery */}
-        <div className="mt-20">
+        <div
+          className="
+            mt-20
+          "
+        >
           <GalleryGrid />
         </div>
+
       </div>
     </section>
   );
