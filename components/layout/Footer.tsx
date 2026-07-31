@@ -19,6 +19,8 @@ export default function Footer() {
   return (
     <footer
       className="
+        relative
+        w-full
         bg-brand-black
         px-6
         py-12
@@ -27,8 +29,13 @@ export default function Footer() {
     >
       <div
         className="
-          mx-auto
+          relative
+          z-10
+          flex
           w-full
+          flex-col
+          items-center
+          justify-center
           text-center
         "
       >
@@ -48,10 +55,9 @@ export default function Footer() {
         {/* Divider */}
         <div
           className="
-            mx-auto
             my-8
             h-px
-            w-full
+            w-24
             bg-white/20
           "
         />
