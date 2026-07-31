@@ -3,14 +3,7 @@
  * File: features/instagram/InstagramPost.tsx
  *
  * Description:
- * Single studio image tile — soft luxury treatment.
- *
- * Updated: July 30, 2026
- *
- * Changes:
- * • Softer radius + border
- * • Quieter hover (scale + wash, not heavy lift)
- * • Consistent square crop
+ * Single studio image — square tile for 2×2 grid.
  * -----------------------------------------------------------------------------
  */
 import Image from "next/image";
@@ -28,6 +21,7 @@ export default function InstagramPost({ post }: Props) {
       rel="noopener noreferrer"
       className="
         group relative block overflow-hidden
+        aspect-square w-full
         rounded-[20px] md:rounded-[24px]
         border border-[#E8DDD8]
         bg-[#F6E7E1]
@@ -37,29 +31,26 @@ export default function InstagramPost({ post }: Props) {
         hover:shadow-[0_20px_50px_rgba(59,42,38,0.09)]
       "
     >
-      <div className="relative aspect-square overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.alt}
-          fill
-          sizes="(max-width: 768px) 50vw, 25vw"
-          className="
-            object-cover
-            transition-transform duration-700 ease-out
-            group-hover:scale-[1.04]
-          "
-        />
+      <Image
+        src={post.image}
+        alt={post.alt}
+        fill
+        sizes="(max-width: 768px) 45vw, 280px"
+        className="
+          object-cover
+          transition-transform duration-700 ease-out
+          group-hover:scale-[1.04]
+        "
+      />
 
-        {/* Soft bottom wash on hover */}
-        <div
-          className="
-            absolute inset-0
-            bg-gradient-to-t from-[#3B2A26]/25 via-transparent to-transparent
-            opacity-0 transition-opacity duration-500
-            group-hover:opacity-100
-          "
-        />
-      </div>
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-t from-[#3B2A26]/20 via-transparent to-transparent
+          opacity-0 transition-opacity duration-500
+          group-hover:opacity-100
+        "
+      />
     </a>
   );
 }
