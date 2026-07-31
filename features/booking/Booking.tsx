@@ -1,25 +1,24 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: Booking.tsx
  *
  * Description:
  * Luxury booking experience section.
  *
  * Changes:
- * - July 28, 2026
- *   - Unified background with Hero
- *   - Removed ivory override
- *   - Removed duplicate Studio Hours
- *   - Simplified booking flow
- *   - Improved spacing hierarchy
  *
- * -----------------------------------------------------------------------------
+ * - Removed restrictive width sizing
+ * - Full editorial layout
+ * - Centered typography
+ * - Expanded booking widget area
+ * - Unified luxury spacing rhythm
+ *
+ * ------------------------------------------------------------------
  */
 
 import {
-  BOOKING_CONFIG
+  BOOKING_CONFIG,
 } from "./booking.constants";
-
 
 import BookingCTA from "./BookingCTA";
 
@@ -28,61 +27,45 @@ import BookingBenefits from "./BookingBenefits";
 import BookingWidget from "./BookingWidget";
 
 
-
 export default function Booking() {
-
 
   return (
 
     <section
-
+      id="booking"
       className="
-        bg-brand-cream
+        bg-brand-background
         border-t
         border-brand-border/50
-        px-6
-        py-24
-        md:py-32
+        section-padding-lg
       "
-
     >
 
 
       <div
-
         className="
-          mx-auto
-          max-w-7xl
+          container-luxury
         "
-
       >
 
 
 
+        {/* HEADER */}
 
-        {/* Header */}
-
-        <div
-
+        <header
           className="
-            mx-auto
-            max-w-3xl
             text-center
+            mx-auto
           "
-
         >
 
-
-
           <p
-
             className="
               uppercase
               tracking-[0.35em]
               text-sm
               text-brand-dusty-pink
             "
-
           >
 
             {BOOKING_CONFIG.eyebrow}
@@ -91,18 +74,14 @@ export default function Booking() {
 
 
 
-
-
           <h2
-
             className="
-              mt-5
+              mt-6
               font-serif
               text-4xl
               md:text-5xl
               text-brand-espresso
             "
-
           >
 
             {BOOKING_CONFIG.title}
@@ -111,18 +90,13 @@ export default function Booking() {
 
 
 
-
-
           <p
-
             className="
               mx-auto
               mt-6
-              max-w-2xl
               text-brand-taupe
               leading-relaxed
             "
-
           >
 
             {BOOKING_CONFIG.description}
@@ -131,14 +105,10 @@ export default function Booking() {
 
 
 
-
-
           <div
-
             className="
               mt-10
             "
-
           >
 
             <BookingCTA />
@@ -146,26 +116,18 @@ export default function Booking() {
           </div>
 
 
-
-
-        </div>
-
+        </header>
 
 
 
 
 
-
-
-
-        {/* Benefits */}
+        {/* BENEFITS */}
 
         <div
-
           className="
-            mt-16
+            mt-20
           "
-
         >
 
           <BookingBenefits />
@@ -176,33 +138,25 @@ export default function Booking() {
 
 
 
-
-
-
-
-        {/* Booking Widget */}
+        {/* BOOKING WIDGET */}
 
         <div
-
           className="
-            mt-16
-            mx-auto
-            max-w-4xl
+            mt-20
+            w-full
           "
-
         >
 
           <div
-
             className="
-              rounded-3xl
+              rounded-[40px]
               border
               border-brand-border
-              bg-white/60
+              bg-white/80
               p-8
-              shadow-luxury
+              md:p-12
+              shadow-[0_20px_60px_rgba(59,42,38,0.06)]
             "
-
           >
 
             <BookingWidget />
@@ -214,10 +168,7 @@ export default function Booking() {
 
 
 
-
-
       </div>
-
 
 
     </section>
