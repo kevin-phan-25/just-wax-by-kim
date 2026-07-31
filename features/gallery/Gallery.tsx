@@ -6,10 +6,10 @@
  * Description:
  * Standalone luxury Gallery page.
  *
- * Updated:
- * • Added navbar clearance
- * • Matches Contact / Instagram / Testimonials architecture
- * • Maintains editorial spacing
+ * Changes:
+ * • Added navbar transition spacer
+ * • Matches Services page architecture
+ * • Preserved editorial layout
  * -----------------------------------------------------------------------------
  */
 
@@ -23,16 +23,11 @@ export default function Gallery() {
       className="
         relative
         overflow-hidden
-        min-h-screen
-
         bg-[#FCF8F3]
-
-        pt-[216px]
-        pb-32
       "
     >
 
-      {/* Ambient background */}
+      {/* Soft ambient wash */}
       <div
         aria-hidden
         className="
@@ -40,30 +35,38 @@ export default function Gallery() {
           absolute
           inset-0
 
-          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
 
 
+      {/* Navbar transition spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+
+      {/* Content */}
       <div
         className="
           relative
           z-10
 
-          mx-auto
-          max-w-7xl
+          w-full
 
-          px-6
+          text-center
         "
       >
 
 
-        {/* Header */}
+        {/* HEADER */}
         <header
           className="
             mx-auto
             max-w-4xl
-            text-center
           "
         >
 
@@ -77,6 +80,7 @@ export default function Gallery() {
           >
             {GALLERY_CONFIG.eyebrow}
           </p>
+
 
 
           <h1
@@ -96,10 +100,10 @@ export default function Gallery() {
           </h1>
 
 
+
           <div
             className="
               mx-auto
-
               mt-8
 
               h-px
@@ -110,10 +114,10 @@ export default function Gallery() {
           />
 
 
+
           <p
             className="
               mx-auto
-
               mt-8
 
               max-w-3xl
@@ -136,7 +140,12 @@ export default function Gallery() {
         {/* Gallery */}
         <div
           className="
+            mx-auto
             mt-20
+
+            max-w-7xl
+            px-6
+            pb-24
           "
         >
           <GalleryGrid />
