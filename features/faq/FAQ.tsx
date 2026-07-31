@@ -12,6 +12,7 @@
  * • Removed width restrictions
  * • Centered all FAQ content
  * • Preserved editorial typography
+ * • Removed bottom divider
  * -----------------------------------------------------------------------------
  */
 
@@ -223,25 +224,6 @@ export default function FAQ() {
 
 
       </div>
-
-
-
-
-
-
-      {/* Bottom Divider */}
-
-      <div
-        aria-hidden
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          h-px
-          bg-[#E8DDD8]
-        "
-      />
 
 
     </section>
