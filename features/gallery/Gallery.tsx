@@ -1,5 +1,5 @@
 /**
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * features/gallery/Gallery.tsx
  *
@@ -7,12 +7,10 @@
  * Standalone luxury Gallery page.
  *
  * Updated:
- * • Removed homepage section behavior
- * • Matches Services page architecture
- * • Wider editorial layout
- * • Added standalone navbar spacing
- * • Luxury page spacing rhythm
- * --------------------------------------------------------------------------
+ * • Added navbar clearance
+ * • Matches Contact / Instagram / Testimonials architecture
+ * • Maintains editorial spacing
+ * -----------------------------------------------------------------------------
  */
 
 import { GALLERY_CONFIG } from "./gallery.constants";
@@ -25,18 +23,18 @@ export default function Gallery() {
       className="
         relative
         overflow-hidden
-
         min-h-screen
 
         bg-[#FCF8F3]
 
-        pt-[168px]
+        pt-[216px]
         pb-32
       "
     >
-      {/* Ambient Background */}
+
+      {/* Ambient background */}
       <div
-        aria-hidden="true"
+        aria-hidden
         className="
           pointer-events-none
           absolute
@@ -46,7 +44,7 @@ export default function Gallery() {
         "
       />
 
-      {/* Content */}
+
       <div
         className="
           relative
@@ -58,6 +56,8 @@ export default function Gallery() {
           px-6
         "
       >
+
+
         {/* Header */}
         <header
           className="
@@ -66,6 +66,7 @@ export default function Gallery() {
             text-center
           "
         >
+
           <p
             className="
               uppercase
@@ -81,7 +82,6 @@ export default function Gallery() {
           <h1
             className="
               mt-6
-
               font-serif
 
               text-4xl
@@ -127,7 +127,10 @@ export default function Gallery() {
           >
             {GALLERY_CONFIG.description}
           </p>
+
+
         </header>
+
 
 
         {/* Gallery */}
@@ -139,7 +142,10 @@ export default function Gallery() {
           <GalleryGrid />
         </div>
 
+
       </div>
+
+
     </section>
   );
 }
