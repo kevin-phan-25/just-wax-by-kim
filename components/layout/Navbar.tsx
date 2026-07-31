@@ -10,7 +10,8 @@
  * • Main links: Home, About, Services, Book Now, Studio Exploration
  * • Studio Exploration → editorial mega panel
  * • Services → compact floating dropdown
- * • Restored large Book Appointment CTA on the right
+ * • Dropdown labels are real links (Services scrolls to #services)
+ * • Large Book Appointment CTA on the right
  * • Removed scrolled border divider
  *
  * --------------------------------------------------------------------------
@@ -108,29 +109,46 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button
-                    type="button"
-                    className="
-                      inline-flex items-center gap-1.5
-                      uppercase font-semibold tracking-[0.14em] text-xs
-                      text-[#3B2A26]/80 transition hover:text-[#8C5A6B]
-                    "
-                    onClick={() =>
-                      setOpenDropdown(isOpen ? null : link.label)
-                    }
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                  >
-                    {link.label}
-                    <span
-                      className={`
-                        text-[10px] transition-transform duration-300
-                        ${isOpen ? "rotate-180" : ""}
-                      `}
+                  <div className="inline-flex items-center gap-1.5">
+                    {/* Label → navigates / scrolls */}
+                    <Link
+                      href={link.href}
+                      onClick={(e) => {
+                        handleNavigation(e, link.href);
+                        setOpenDropdown(null);
+                      }}
+                      className="
+                        uppercase font-semibold tracking-[0.14em] text-xs
+                        text-[#3B2A26]/80 transition hover:text-[#8C5A6B]
+                      "
                     >
-                      ▾
-                    </span>
-                  </button>
+                      {link.label}
+                    </Link>
+
+                    {/* Chevron → toggles dropdown */}
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      aria-label={`${link.label} menu`}
+                      onClick={() =>
+                        setOpenDropdown(isOpen ? null : link.label)
+                      }
+                      className="
+                        text-[10px] text-[#3B2A26]/80 transition
+                        hover:text-[#8C5A6B]
+                      "
+                    >
+                      <span
+                        className={`
+                          inline-block transition-transform duration-300
+                          ${isOpen ? "rotate-180" : ""}
+                        `}
+                      >
+                        ▾
+                      </span>
+                    </button>
+                  </div>
 
                   {/* SERVICES: compact dropdown */}
                   {!isMega && (
