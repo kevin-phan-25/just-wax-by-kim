@@ -3,14 +3,13 @@
  * File: features/instagram/Instagram.tsx
  *
  * Description:
- * Luxury social / studio glimpse section.
+ * Luxury studio glimpse section — fully centered.
  *
  * Updated: July 30, 2026
  *
  * Changes:
- * • Editorial centered header with thin dividers
- * • Calmer spacing and type scale
- * • Refined grid + follow CTA composition
+ * • Centered header, grid, and CTA
+ * • No full-bleed width forcing a 4-column strip
  * -----------------------------------------------------------------------------
  */
 import { INSTAGRAM_CONFIG } from "./instagram.constants";
@@ -26,10 +25,9 @@ export default function Instagram() {
         bg-[#FCF8F3]
         px-6 py-24
         md:px-10 md:py-28
-        lg:px-16 lg:py-32
+        lg:py-32
       "
     >
-      {/* Soft ambient */}
       <div
         aria-hidden
         className="
@@ -38,9 +36,9 @@ export default function Instagram() {
         "
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto w-full max-w-3xl">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="text-center">
           <span
             className="
               inline-block
@@ -65,7 +63,7 @@ export default function Instagram() {
 
           <p
             className="
-              mx-auto mt-6 max-w-lg
+              mx-auto mt-6 max-w-md
               text-[1.05rem] leading-[1.9] text-[#6F5A50]
             "
           >
@@ -73,13 +71,13 @@ export default function Instagram() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="mt-16 md:mt-20">
+        {/* 2×2 grid */}
+        <div className="mt-14 md:mt-16">
           <InstagramGrid />
         </div>
 
-        {/* Handle + CTA */}
-        <div className="mt-14 flex flex-col items-center gap-6 md:mt-16">
+        {/* CTA */}
+        <div className="mt-12 flex flex-col items-center gap-5 md:mt-14">
           <p
             className="
               text-[0.7rem] font-semibold uppercase
