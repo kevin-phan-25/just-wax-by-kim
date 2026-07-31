@@ -3,12 +3,12 @@
  * File: features/policies/PolicySectionCard.tsx
  *
  * Description:
- * Centered luxury policy section.
+ * Luxury centered policy card.
  *
  * Updated:
- * • Center aligned typography
- * • Improved spacing
- * • Editorial presentation
+ * • Maintained editorial grid layout
+ * • Centered all content
+ * • Improved visual balance
  *
  * ---
  */
@@ -19,26 +19,22 @@ interface Props {
   section: PolicySection;
 }
 
-export default function PolicySectionCard({
-  section,
-}: Props) {
-
+export default function PolicySectionCard({ section }: Props) {
   return (
     <article
       className="
         w-full
         text-center
-        border-t
-        border-[#D8B4A0]/50
-        pt-12
         flex
         flex-col
         items-center
+        border-t
+        border-[#D8B4A0]/50
+        pt-10
       "
     >
 
-
-      {/* TITLE */}
+      {/* Title */}
       <h2
         className="
           font-serif
@@ -51,12 +47,11 @@ export default function PolicySectionCard({
       </h2>
 
 
-
       {/* Divider */}
       <div
         className="
           mx-auto
-          mt-6
+          mt-5
           h-px
           w-16
           bg-[#D8B4A0]
@@ -64,12 +59,11 @@ export default function PolicySectionCard({
       />
 
 
-
       {section.intro && (
         <p
           className="
             mt-8
-            max-w-4xl
+            max-w-xl
             text-base
             leading-8
             text-[#6F5A50]
@@ -80,13 +74,12 @@ export default function PolicySectionCard({
       )}
 
 
-
       {section.paragraphs?.map((paragraph) => (
         <p
-          key={paragraph.slice(0,32)}
+          key={paragraph.slice(0, 32)}
           className="
             mt-5
-            max-w-4xl
+            max-w-xl
             text-base
             leading-8
             text-[#6F5A50]
@@ -97,25 +90,19 @@ export default function PolicySectionCard({
       ))}
 
 
-
       {section.bullets && (
         <ul
           className="
             mt-8
-            max-w-4xl
-            flex
-            flex-col
-            items-center
-            gap-4
+            max-w-xl
+            space-y-4
           "
         >
-
           {section.bullets.map((bullet) => (
             <li
-              key={bullet.slice(0,32)}
+              key={bullet.slice(0, 32)}
               className="
                 flex
-                items-start
                 justify-center
                 gap-3
                 text-center
@@ -124,7 +111,6 @@ export default function PolicySectionCard({
                 text-[#6F5A50]
               "
             >
-
               <span
                 className="
                   mt-3
@@ -142,17 +128,15 @@ export default function PolicySectionCard({
 
             </li>
           ))}
-
         </ul>
       )}
-
 
 
       {section.note && (
         <p
           className="
             mt-8
-            max-w-4xl
+            max-w-xl
             text-base
             italic
             leading-8
@@ -162,7 +146,6 @@ export default function PolicySectionCard({
           {section.note}
         </p>
       )}
-
 
     </article>
   );
