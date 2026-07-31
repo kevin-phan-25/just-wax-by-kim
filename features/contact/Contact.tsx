@@ -7,13 +7,11 @@
   Standalone luxury contact presentation.
 
   Updates:
-  - Removed content width restrictions
-  - Centered heading and description
-  - Added 6-cell editorial grid layout
+  - Full width editorial layout
   - Reduced outer spacer cells
-  - Added small center spacer cell
-  - Left aligned contact information columns
-  - Maintained luxury editorial spacing
+  - Reduced Contact Info column width
+  - Centered header content
+  - Preserved luxury spacing
   ---
  */
 
@@ -37,6 +35,7 @@ export default function Contact() {
           pointer-events-none
           absolute
           inset-0
+
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
@@ -44,6 +43,7 @@ export default function Contact() {
 
       {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
+
 
 
       {/* CONTENT */}
@@ -78,7 +78,9 @@ export default function Contact() {
             className="
               uppercase
               tracking-[0.35em]
+
               text-sm
+
               text-[#8C5A6B]
             "
           >
@@ -92,6 +94,8 @@ export default function Contact() {
 
               w-full
 
+              text-center
+
               font-serif
 
               text-4xl
@@ -100,8 +104,6 @@ export default function Contact() {
               leading-tight
 
               text-[#3B2A26]
-
-              text-center
             "
           >
             We'd Love To Hear From You
@@ -115,6 +117,7 @@ export default function Contact() {
               mt-8
 
               h-px
+
               w-24
 
               bg-[#D8B4A0]
@@ -146,7 +149,8 @@ export default function Contact() {
 
 
 
-        {/* SIX CELL EDITORIAL GRID */}
+
+        {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
             mt-20
@@ -155,11 +159,11 @@ export default function Contact() {
 
             grid-cols-1
 
-            lg:grid-cols-[0.25fr_1fr_0.3fr_1fr_1fr_0.25fr]
+            lg:grid-cols-[0.25fr_0.75fr_1fr_1fr_0.25fr]
 
-            gap-10
+            gap-8
 
-            xl:gap-12
+            xl:gap-10
 
             items-start
 
@@ -168,8 +172,13 @@ export default function Contact() {
         >
 
 
-          {/* CELL 1 - SMALL LEFT SPACER */}
-          <div className="hidden lg:block" />
+          {/* CELL 1 - SMALL LEFT SPACE */}
+          <div
+            className="
+              hidden
+              lg:block
+            "
+          />
 
 
 
@@ -177,11 +186,13 @@ export default function Contact() {
           <div
             className="
               border-t
+
               border-[#E8DDD8]
 
               pt-10
 
               flex
+
               flex-col
 
               items-start
@@ -194,20 +205,18 @@ export default function Contact() {
 
 
 
-          {/* CELL 3 - SMALL CENTER SPACER */}
-          <div className="hidden lg:block" />
 
-
-
-          {/* CELL 4 - CONTACT FORM */}
+          {/* CELL 3 - CONTACT FORM */}
           <div
             className="
               border-t
+
               border-[#E8DDD8]
 
               pt-10
 
               flex
+
               flex-col
 
               items-center
@@ -238,8 +247,8 @@ export default function Contact() {
                 text-[#6F5A50]
               "
             >
-              We typically respond within a few hours during normal
-              business hours.
+              We typically respond within a few hours during
+              normal business hours.
             </p>
 
 
@@ -253,21 +262,22 @@ export default function Contact() {
               <ContactForm />
             </div>
 
-
           </div>
 
 
 
 
-          {/* CELL 5 - CONTACT HOURS */}
+          {/* CELL 4 - CONTACT HOURS */}
           <div
             className="
               border-t
+
               border-[#E8DDD8]
 
               pt-10
 
               flex
+
               flex-col
 
               items-start
@@ -281,14 +291,21 @@ export default function Contact() {
 
 
 
-          {/* CELL 6 - SMALL RIGHT SPACER */}
-          <div className="hidden lg:block" />
+          {/* CELL 5 - SMALL RIGHT SPACE */}
+          <div
+            className="
+              hidden
+
+              lg:block
+            "
+          />
 
 
         </div>
 
 
       </div>
+
 
 
 
@@ -309,7 +326,6 @@ export default function Contact() {
           bg-[#E8DDD8]
         "
       />
-
 
     </section>
   );
