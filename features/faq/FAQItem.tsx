@@ -1,19 +1,22 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: FAQItem.tsx
  *
  * Description:
  * Luxury FAQ accordion item.
  *
  * Changes:
- * - Centered question layout
- * - Added luxury answer bubble
- * - Improved spacing and typography
- * - Removed left-aligned restriction
- * -----------------------------------------------------------------------------
+ *
+ * - Removed answer width restriction
+ * - Full centered layout
+ * - Larger luxury answer bubble
+ * - Improved spacing
+ *
+ * ------------------------------------------------------------------
  */
 
 "use client";
+
 
 import {
   Plus,
@@ -53,7 +56,8 @@ export default function FAQItem({
         w-full
         border-b
         border-[#E8DDD8]
-        py-8
+        py-10
+        last:border-none
       "
     >
 
@@ -65,13 +69,13 @@ export default function FAQItem({
         onClick={() => setOpen(!open)}
 
         className="
+          mx-auto
           flex
           w-full
           items-center
           justify-center
           gap-6
           text-center
-          transition
         "
 
       >
@@ -80,8 +84,8 @@ export default function FAQItem({
           className="
             font-serif
             text-xl
+            md:text-2xl
             text-[#3B2A26]
-            tracking-tight
           "
         >
 
@@ -90,12 +94,12 @@ export default function FAQItem({
         </span>
 
 
-
         <span
           className="
             flex
-            h-8
-            w-8
+            h-9
+            w-9
+            shrink-0
             items-center
             justify-center
             rounded-full
@@ -107,14 +111,10 @@ export default function FAQItem({
 
           {
             open
-            ?
-            (
-              <Minus size={16}/>
-            )
-            :
-            (
-              <Plus size={16}/>
-            )
+              ?
+              <Minus size={17}/>
+              :
+              <Plus size={17}/>
           }
 
         </span>
@@ -130,21 +130,19 @@ export default function FAQItem({
         open && (
 
           <div
-
             className="
               mx-auto
-              mt-6
-              max-w-2xl
-              rounded-3xl
+              mt-8
+              w-full
+              rounded-[32px]
               border
               border-[#E8DDD8]
               bg-[#F6E7E1]
               px-8
-              py-6
+              py-7
               text-center
-              shadow-sm
+              shadow-[0_15px_40px_rgba(59,42,38,0.05)]
             "
-
           >
 
             <p
@@ -154,9 +152,7 @@ export default function FAQItem({
                 text-[#6F5A50]
               "
             >
-
               {item.answer}
-
             </p>
 
 
