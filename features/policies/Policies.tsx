@@ -7,9 +7,10 @@
  *
  * Updated:
  * • 4-column editorial grid layout
- * • Policies positioned in columns 2 and 4
- * • Added luxury whitespace balance
- * • Improved text alignment
+ * • Reduced empty spacer columns by 50%
+ * • Expanded policy content columns
+ * • Improved luxury whitespace balance
+ * • Responsive mobile layout
  *
  * ---
  */
@@ -30,6 +31,7 @@ export default function Policies() {
 
       {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
+
 
 
       {/* CONTENT */}
@@ -93,8 +95,8 @@ export default function Policies() {
 
           <p
             className="
-              mx-auto
               mt-10
+              mx-auto
               max-w-5xl
               text-lg
               leading-relaxed
@@ -107,8 +109,8 @@ export default function Policies() {
 
           <p
             className="
-              mx-auto
               mt-6
+              mx-auto
               max-w-4xl
               text-base
               leading-relaxed
@@ -126,30 +128,55 @@ export default function Policies() {
         <div
           className="
             mt-24
-            grid
+
+            hidden
             w-full
-            grid-cols-4
-            gap-x-12
+
+            grid-cols-[0.5fr_1.5fr_0.5fr_1.5fr]
+
+            gap-x-10
             gap-y-24
+
+            lg:grid
           "
         >
 
           {POLICIES_DATA.map((section, index) => (
             <div
               key={section.id}
-              className={`
-                col-span-1
-                ${
-                  index % 2 === 0
-                    ? "col-start-2"
-                    : "col-start-4"
-                }
-              `}
+              className={
+                index % 2 === 0
+                  ? "col-start-2"
+                  : "col-start-4"
+              }
             >
               <PolicySectionCard
                 section={section}
               />
             </div>
+          ))}
+
+        </div>
+
+
+
+        {/* MOBILE / TABLET */}
+        <div
+          className="
+            mt-20
+            grid
+            grid-cols-1
+            gap-20
+
+            lg:hidden
+          "
+        >
+
+          {POLICIES_DATA.map((section) => (
+            <PolicySectionCard
+              key={section.id}
+              section={section}
+            />
           ))}
 
         </div>
