@@ -1,60 +1,67 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: BookingCTA.tsx
  *
- * Created: July 27, 2026
- *
  * Description:
- * Primary booking call-to-action.
+ * Luxury booking call-to-action.
  *
  * Changes:
- * - July 27, 2026
- *   - Added booking CTA button.
  *
- * -----------------------------------------------------------------------------
+ * - Updated to luxury theme colors
+ * - Increased CTA presence
+ * - Improved spacing
+ * - Added premium hover interaction
+ *
+ * ------------------------------------------------------------------
  */
 
-
 import {
-BOOKING_CONFIG
-}
-
-from "./booking.constants";
+  BOOKING_CONFIG,
+} from "./booking.constants";
 
 
+export default function BookingCTA() {
 
-export default function BookingCTA(){
+  return (
 
+    <a
+      href={BOOKING_CONFIG.bookingUrl}
 
-return (
+      className="
+        inline-flex
+        items-center
+        justify-center
 
-<a
+        rounded-full
 
-href={BOOKING_CONFIG.bookingUrl}
+        bg-brand-dusty-pink
 
-className="
-inline-flex
-items-center
-justify-center
-rounded-full
-bg-brand-gold
-px-8
-py-4
-text-sm
-font-medium
-text-white
-transition
-hover:opacity-90
-"
+        px-12
+        py-5
 
->
+        uppercase
+        tracking-[0.22em]
 
+        text-sm
+        font-semibold
 
-Book Your Appointment
+        text-white
 
+        shadow-[0_12px_35px_rgba(59,42,38,0.12)]
 
-</a>
+        transition-all
+        duration-300
 
-);
+        hover:-translate-y-1
+        hover:bg-brand-plum
+        hover:shadow-[0_20px_45px_rgba(59,42,38,0.16)]
+      "
+    >
+
+      Book Your Appointment
+
+    </a>
+
+  );
 
 }
