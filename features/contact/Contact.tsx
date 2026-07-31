@@ -8,12 +8,11 @@
  *
  * Changes:
  * • Matches Gallery / FAQ / Testimonials spacing system
- * • Moved navbar spacing into component
+ * • Added internal navbar clearance
  * • Removed width restrictions
- * • Full-width editorial layout
- * • Centered contact information
- * • Form positioned in center column
- * • Preserved luxury styling
+ * • Centered all contact columns
+ * • Contact Form moved to center column
+ * • Preserved luxury editorial layout
  * -----------------------------------------------------------------------------
  */
 
@@ -48,6 +47,7 @@ export default function Contact() {
       />
 
 
+
       {/* CONTENT */}
       <div
         className="
@@ -58,6 +58,7 @@ export default function Contact() {
           text-center
         "
       >
+
 
 
         {/* HEADER */}
@@ -108,8 +109,6 @@ export default function Contact() {
           <p
             className="
               mt-8
-              mx-auto
-              max-w-none
               text-lg
               leading-relaxed
               text-[#8C7468]
@@ -121,6 +120,7 @@ export default function Contact() {
           </p>
 
         </header>
+
 
 
 
@@ -139,12 +139,17 @@ export default function Contact() {
 
 
 
+
           {/* CONTACT INFORMATION */}
           <div
             className="
               border-t
               border-[#E8DDD8]
               pt-10
+              flex
+              flex-col
+              items-center
+              justify-start
               text-center
             "
           >
@@ -157,12 +162,41 @@ export default function Contact() {
 
 
 
+
+
+          {/* CONTACT HOURS */}
+          <div
+            className="
+              border-t
+              border-[#E8DDD8]
+              pt-10
+              flex
+              flex-col
+              items-center
+              justify-start
+              text-center
+            "
+          >
+
+            <ContactHours />
+
+          </div>
+
+
+
+
+
+
+
           {/* CONTACT FORM */}
           <div
             className="
               border-t
               border-[#E8DDD8]
               pt-10
+              flex
+              flex-col
+              items-center
               text-center
             "
           >
@@ -206,28 +240,12 @@ export default function Contact() {
 
 
 
-
-
-          {/* HOURS */}
-          <div
-            className="
-              border-t
-              border-[#E8DDD8]
-              pt-10
-              text-center
-            "
-          >
-
-            <ContactHours />
-
-          </div>
-
-
         </div>
 
 
 
       </div>
+
 
 
 
@@ -244,7 +262,6 @@ export default function Contact() {
           bg-[#E8DDD8]
         "
       />
-
 
 
     </section>
