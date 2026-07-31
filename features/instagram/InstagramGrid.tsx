@@ -1,18 +1,17 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------
  * File:
  * features/instagram/InstagramGrid.tsx
  *
  * Description:
- * Editorial Instagram gallery grid.
+ * Luxury Instagram editorial grid.
  *
  * Changes:
- * • Converted to 4x4 luxury grid
- * • Increased gallery presence
- * • Full-width standalone layout
- * • Improved responsive behavior
- *
- * -----------------------------------------------------------------------------
+ * • Converted to 4x4 desktop layout
+ * • Removed width restrictions
+ * • Full gallery presence
+ * • Responsive mobile/tablet behavior
+ * ---------------------------------------------------------------------------
  */
 
 import {
@@ -23,10 +22,13 @@ import InstagramPost from "./InstagramPost";
 
 
 export default function InstagramGrid() {
+
   return (
 
     <div
       className="
+        w-full
+
         grid
 
         grid-cols-1
@@ -35,17 +37,15 @@ export default function InstagramGrid() {
 
         lg:grid-cols-4
 
-        gap-6
+        gap-5
 
-        md:gap-8
-
-        w-full
+        md:gap-6
       "
     >
 
       {
         instagramPosts
-          .slice(0, 16)
+          .slice(0,16)
           .map((post)=>(
 
             <InstagramPost
@@ -63,4 +63,5 @@ export default function InstagramGrid() {
     </div>
 
   );
+
 }
