@@ -133,23 +133,7 @@ export default function Contact() {
             <ContactInfo />
           </div>
 
-          {/* CONTACT HOURS */}
-          <div
-            className="
-              border-t
-              border-[#E8DDD8]
-              pt-10
-              flex
-              flex-col
-              items-center
-              justify-start
-              text-center
-            "
-          >
-            <ContactHours />
-          </div>
-
-          {/* CONTACT FORM */}
+          {/* CONTACT FORM (center) */}
           <div
             className="
               border-t
@@ -185,6 +169,22 @@ export default function Contact() {
             <div className="mt-10 w-full">
               <ContactForm />
             </div>
+          </div>
+
+          {/* CONTACT HOURS */}
+          <div
+            className="
+              border-t
+              border-[#E8DDD8]
+              pt-10
+              flex
+              flex-col
+              items-center
+              justify-start
+              text-center
+            "
+          >
+            <ContactHours />
           </div>
         </div>
       </div>
