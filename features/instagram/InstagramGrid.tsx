@@ -1,5 +1,5 @@
 /**
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * features/instagram/InstagramGrid.tsx
  *
@@ -7,29 +7,22 @@
  * Editorial Instagram gallery grid.
  *
  * Changes:
- * • Converted for standalone Instagram page
+ * • Converted to 4x4 luxury grid
  * • Increased gallery presence
- * • Added luxury editorial spacing
- * • Improved responsive layout
+ * • Full-width standalone layout
+ * • Improved responsive behavior
  *
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  */
-
 
 import {
   instagramPosts,
 } from "./instagram.data";
 
-
 import InstagramPost from "./InstagramPost";
 
 
-
-
-
 export default function InstagramGrid() {
-
-
   return (
 
     <div
@@ -40,16 +33,19 @@ export default function InstagramGrid() {
 
         sm:grid-cols-2
 
+        lg:grid-cols-4
+
         gap-6
 
         md:gap-8
+
+        w-full
       "
     >
 
-
       {
         instagramPosts
-          .slice(0, 4)
+          .slice(0, 16)
           .map((post)=>(
 
             <InstagramPost
@@ -67,6 +63,4 @@ export default function InstagramGrid() {
     </div>
 
   );
-
-
 }
