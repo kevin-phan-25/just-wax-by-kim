@@ -3,7 +3,7 @@
  * File: features/instagram/InstagramPost.tsx
  *
  * Description:
- * Single studio image — square tile for 2×2 grid.
+ * Square tile that fills its grid cell.
  * -----------------------------------------------------------------------------
  */
 import Image from "next/image";
@@ -35,7 +35,7 @@ export default function InstagramPost({ post }: Props) {
         src={post.image}
         alt={post.alt}
         fill
-        sizes="(max-width: 768px) 45vw, 280px"
+        sizes="(max-width: 768px) 50vw, 50vw"
         className="
           object-cover
           transition-transform duration-700 ease-out
