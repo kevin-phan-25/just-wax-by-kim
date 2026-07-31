@@ -7,15 +7,15 @@
  * Standalone luxury contact presentation.
  *
  * Layout:
- * • 5-column editorial grid
- * • Small balanced outer spacing cells
+ * • Centered editorial introduction
+ * • 5-column contact grid
+ * • Reduced outer spacing cells
  * • Contact information / form / hours aligned left
- * • Header remains centered
  *
  * Changes:
- * • Reduced empty edge columns by 75%
- * • Created balanced five-cell layout
- * • Shifted content columns left alignment
+ * • Centered "We'd Love To Hear From You"
+ * • Centered introductory description
+ * • Reduced edge whitespace columns
  * • Preserved luxury editorial spacing
  *
  * -----------------------------------------------------------------------------
@@ -75,7 +75,7 @@ export default function Contact() {
 
             w-full
 
-            max-w-5xl
+            max-w-4xl
 
             text-center
 
@@ -101,6 +101,10 @@ export default function Contact() {
           <h1
             className="
               mt-6
+
+              w-full
+
+              text-center
 
               font-serif
 
@@ -140,6 +144,8 @@ export default function Contact() {
 
               max-w-3xl
 
+              text-center
+
               text-lg
 
               leading-relaxed
@@ -176,11 +182,10 @@ export default function Contact() {
         >
 
 
-          {/* CELL 1 - EMPTY SPACING */}
+          {/* CELL 1 - EMPTY */}
           <div
             className="
               hidden
-
               lg:block
             "
           />
@@ -270,7 +275,7 @@ export default function Contact() {
 
 
 
-          {/* CELL 4 - HOURS */}
+          {/* CELL 4 - CONTACT HOURS */}
           <div
             className="
               border-t
@@ -293,11 +298,10 @@ export default function Contact() {
 
 
 
-          {/* CELL 5 - EMPTY SPACING */}
+          {/* CELL 5 - EMPTY */}
           <div
             className="
               hidden
-
               lg:block
             "
           />
