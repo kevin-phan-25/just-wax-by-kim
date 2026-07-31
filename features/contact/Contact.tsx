@@ -1,4 +1,4 @@
- /**
+/**
  * -----------------------------------------------------------------------------
  * File:
  * features/contact/Contact.tsx
@@ -7,25 +7,20 @@
  * Standalone luxury contact presentation.
  *
  * Changes:
- * • Matched FAQ / Gallery spacing architecture
- * • Added internal navbar transition spacer
+ * • Matches Gallery / FAQ / Testimonials spacing system
+ * • Added internal navbar clearance (spacer pattern)
  * • Removed width restrictions
- * • Full-width editorial presentation
- * • Contact Information centered
- * • Contact Form returned to center column
- * • Hours moved to right column
+ * • Centered all contact columns
+ * • Contact Form moved to center column
+ * • Preserved luxury editorial layout
  * -----------------------------------------------------------------------------
  */
-
 import ContactForm from "./ContactForm";
 import ContactHours from "./ContactHours";
 import ContactInfo from "./ContactInfo";
 
-
 export default function Contact() {
-
   return (
-
     <section
       id="contact"
       className="
@@ -34,14 +29,9 @@ export default function Contact() {
         min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
-        pt-[216px]
-        pb-32
       "
     >
-
-
       {/* Ambient Background */}
-
       <div
         aria-hidden
         className="
@@ -52,12 +42,10 @@ export default function Contact() {
         "
       />
 
-
-
-
+      {/* Navbar Transition Spacer */}
+      <div className="h-[216px]" />
 
       {/* CONTENT */}
-
       <div
         className="
           relative
@@ -65,34 +53,21 @@ export default function Contact() {
           w-full
           px-6
           text-center
+          pb-32
         "
       >
-
-
-
-
-
         {/* HEADER */}
-
-        <header
-          className="
-            w-full
-            mb-16
-          "
-        >
-
+        <header className="w-full mb-16">
           <p
             className="
               uppercase
-              tracking-[0.35em}
+              tracking-[0.35em]
               text-sm
               text-[#8C5A6B]
             "
           >
             Get In Touch
           </p>
-
-
 
           <h1
             className="
@@ -107,8 +82,6 @@ export default function Contact() {
             We'd Love To Hear From You
           </h1>
 
-
-
           <div
             className="
               mx-auto
@@ -118,8 +91,6 @@ export default function Contact() {
               bg-[#D8B4A0]
             "
           />
-
-
 
           <p
             className="
@@ -133,20 +104,9 @@ export default function Contact() {
             or simply have a question, we're here to make every
             interaction feel warm, welcoming, and beautifully personal.
           </p>
-
-
         </header>
 
-
-
-
-
-
-
-
-
         {/* CONTACT GRID */}
-
         <div
           className="
             mt-20
@@ -157,13 +117,7 @@ export default function Contact() {
             lg:gap-16
           "
         >
-
-
-
-
-
           {/* CONTACT INFORMATION */}
-
           <div
             className="
               border-t
@@ -172,24 +126,30 @@ export default function Contact() {
               flex
               flex-col
               items-center
+              justify-start
               text-center
             "
           >
-
             <ContactInfo />
-
           </div>
 
-
-
-
-
-
-
-
+          {/* CONTACT HOURS */}
+          <div
+            className="
+              border-t
+              border-[#E8DDD8]
+              pt-10
+              flex
+              flex-col
+              items-center
+              justify-start
+              text-center
+            "
+          >
+            <ContactHours />
+          </div>
 
           {/* CONTACT FORM */}
-
           <div
             className="
               border-t
@@ -201,8 +161,6 @@ export default function Contact() {
               text-center
             "
           >
-
-
             <h2
               className="
                 font-serif
@@ -212,8 +170,6 @@ export default function Contact() {
             >
               Send A Message
             </h2>
-
-
 
             <p
               className="
@@ -226,70 +182,14 @@ export default function Contact() {
               normal business hours.
             </p>
 
-
-
-
-            <div
-              className="
-                mt-10
-                w-full
-              "
-            >
-
+            <div className="mt-10 w-full">
               <ContactForm />
-
             </div>
-
-
-
           </div>
-
-
-
-
-
-
-
-
-
-          {/* HOURS */}
-
-          <div
-            className="
-              border-t
-              border-[#E8DDD8]
-              pt-10
-              flex
-              flex-col
-              items-center
-              text-center
-            "
-          >
-
-            <ContactHours />
-
-          </div>
-
-
-
-
         </div>
-
-
-
-
-
       </div>
 
-
-
-
-
-
-
-
       {/* Bottom Divider */}
-
       <div
         aria-hidden
         className="
@@ -301,10 +201,6 @@ export default function Contact() {
           bg-[#E8DDD8]
         "
       />
-
-
     </section>
-
   );
-
 }
