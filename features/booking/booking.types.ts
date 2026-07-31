@@ -1,25 +1,25 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: booking.types.ts
- *
- * Created: July 27, 2026
  *
  * Description:
  * Type definitions for booking feature.
  *
  * Changes:
- * - July 27, 2026
- *   - Initial creation.
  *
- * -----------------------------------------------------------------------------
+ * - Cleaned formatting
+ * - Added documentation consistency
+ * - Preserved reusable interfaces
+ *
+ * ------------------------------------------------------------------
  */
 
 
 export interface BookingBenefit {
 
-    title: string;
+  title: string;
 
-    description: string;
+  description: string;
 
 }
 
@@ -27,8 +27,8 @@ export interface BookingBenefit {
 
 export interface BusinessHour {
 
-    day: string;
+  day: string;
 
-    hours: string;
+  hours: string;
 
 }
