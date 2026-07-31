@@ -1,19 +1,19 @@
 /**
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * features/instagram/Instagram.tsx
  *
  * Description:
  * Standalone luxury Instagram presentation.
  *
- * Changes:
- * • Converted from homepage section
- * • Added full-page editorial layout
- * • Added luxury ambient background
- * • Improved spacing rhythm
- * • Increased gallery presence
+ * Updated:
+ * • Matched standalone page spacing system
+ * • Added navbar transition spacer
+ * • Removed width restrictions
+ * • Preserved centered editorial styling
+ * • Full-width Instagram presentation
  *
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  */
 
 import {
@@ -21,80 +21,74 @@ import {
 } from "./instagram.constants";
 
 import InstagramGrid from "./InstagramGrid";
+
 import FollowButton from "./FollowButton";
 
 
 export default function Instagram() {
-
   return (
 
     <section
       id="instagram"
       className="
         relative
-
-        overflow-hidden
-
+        w-full
         min-h-screen
-
+        overflow-hidden
         bg-[#FCF8F3]
-
-        py-32
       "
     >
 
-      {/* Ambient Background */}
 
+      {/* Ambient Background */}
       <div
         aria-hidden
         className="
           pointer-events-none
-
           absolute
-
           inset-0
-
           bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
         "
       />
 
 
 
+      {/* Navbar transition spacer */}
+      <div
+        className="
+          h-[216px]
+        "
+      />
+
+
+
+      {/* Content */}
       <div
         className="
           relative
-
           z-10
-
-          mx-auto
-
-          max-w-7xl
-
+          w-full
           px-6
+          text-center
         "
       >
 
 
-        {/* HEADER */}
 
+        {/* HEADER */}
         <header
           className="
-            mx-auto
-
-            max-w-4xl
-
-            text-center
+            w-full
+            mb-16
           "
         >
+
 
           <p
             className="
               uppercase
-
               tracking-[0.35em]
-
               text-sm
-
               text-[#8C5A6B]
             "
           >
@@ -103,32 +97,13 @@ export default function Instagram() {
 
 
 
-          <div
-            className="
-              mx-auto
-
-              my-8
-
-              h-px
-
-              w-24
-
-              bg-[#D8B4A0]
-            "
-          />
-
-
-
           <h1
             className="
+              mt-6
               font-serif
-
               text-4xl
-
               md:text-6xl
-
               leading-tight
-
               text-[#3B2A26]
             "
           >
@@ -137,18 +112,23 @@ export default function Instagram() {
 
 
 
-          <p
+          <div
             className="
               mx-auto
-
               mt-8
+              h-px
+              w-24
+              bg-[#D8B4A0]
+            "
+          />
 
-              max-w-3xl
 
+
+          <p
+            className="
+              mt-6
               text-lg
-
-              leading-9
-
+              leading-relaxed
               text-[#8C7468]
             "
           >
@@ -163,14 +143,9 @@ export default function Instagram() {
 
 
         {/* INSTAGRAM GRID */}
-
         <div
           className="
-            mx-auto
-
-            mt-20
-
-            max-w-5xl
+            w-full
           "
         >
 
@@ -183,17 +158,12 @@ export default function Instagram() {
 
 
         {/* FOLLOW CTA */}
-
         <div
           className="
             mt-16
-
             flex
-
             flex-col
-
             items-center
-
             gap-6
           "
         >
@@ -201,13 +171,9 @@ export default function Instagram() {
           <p
             className="
               uppercase
-
               tracking-[0.3em]
-
               text-xs
-
               font-semibold
-
               text-[#9A857A]
             "
           >
@@ -222,11 +188,11 @@ export default function Instagram() {
         </div>
 
 
+
       </div>
 
 
     </section>
 
   );
-
 }
