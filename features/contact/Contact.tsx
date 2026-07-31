@@ -6,13 +6,17 @@
  * Description:
  * Standalone luxury contact presentation.
  *
- * Responsive Update:
- * • Five-cell editorial layout
- * • Empty side columns for luxury spacing
- * • Responsive navbar clearance
- * • Centered contact presentation
- * • Contact form centered
- * • Preserved boutique editorial aesthetic
+ * Layout:
+ * • 5-column editorial grid
+ * • Small balanced outer spacing cells
+ * • Contact information / form / hours aligned left
+ * • Header remains centered
+ *
+ * Changes:
+ * • Reduced empty edge columns by 75%
+ * • Created balanced five-cell layout
+ * • Shifted content columns left alignment
+ * • Preserved luxury editorial spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -21,93 +25,65 @@ import ContactForm from "./ContactForm";
 import ContactHours from "./ContactHours";
 import ContactInfo from "./ContactInfo";
 
-
 export default function Contact() {
-
   return (
-
     <section
-      id="contact"
-
       className="
         relative
         overflow-hidden
-        bg-[#FCF8F3]
       "
     >
 
       {/* Ambient Background */}
-
       <div
-
         aria-hidden
-
         className="
           pointer-events-none
-
           absolute
-
           inset-0
 
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
-
       />
 
 
-
-      {/* Responsive Navbar Clearance */}
-
-      <div
-        className="
-          nav-clearance
-        "
-      />
-
-
+      {/* Navbar Transition Spacer */}
+      <div className="h-[216px]" />
 
 
       {/* CONTENT */}
-
       <div
-
         className="
           relative
-
           z-10
 
           w-full
 
-          px-5
-          md:px-8
+          px-6
+          lg:px-10
           xl:px-16
 
           pb-32
-
         "
-
       >
 
 
-
         {/* HEADER */}
-
         <header
-
           className="
             mx-auto
 
+            w-full
+
             max-w-5xl
 
-            mb-16
-
             text-center
-          "
 
+            mb-16
+          "
         >
 
           <p
-
             className="
               uppercase
 
@@ -117,18 +93,12 @@ export default function Contact() {
 
               text-[#8C5A6B]
             "
-
           >
-
             Get In Touch
-
           </p>
 
 
-
-
           <h1
-
             className="
               mt-6
 
@@ -136,26 +106,18 @@ export default function Contact() {
 
               text-4xl
 
-              sm:text-5xl
-
-              xl:text-6xl
+              md:text-6xl
 
               leading-tight
 
               text-[#3B2A26]
             "
-
           >
-
             We'd Love To Hear From You
-
           </h1>
 
 
-
-
           <div
-
             className="
               mx-auto
 
@@ -167,14 +129,10 @@ export default function Contact() {
 
               bg-[#D8B4A0]
             "
-
           />
 
 
-
-
           <p
-
             className="
               mx-auto
 
@@ -182,142 +140,96 @@ export default function Contact() {
 
               max-w-3xl
 
-              text-base
-
-              md:text-lg
+              text-lg
 
               leading-relaxed
 
               text-[#8C7468]
             "
-
           >
-
             Whether you're preparing for your first appointment
             or simply have a question, we're here to make every
             interaction feel warm, welcoming, and beautifully personal.
-
           </p>
-
 
         </header>
 
 
 
-
-
-
-
         {/* FIVE CELL CONTACT GRID */}
-
         <div
-
           className="
-
             mt-20
 
             grid
 
+            w-full
 
             grid-cols-1
 
-            lg:grid-cols-3
-
-            xl:grid-cols-5
-
+            lg:grid-cols-[0.25fr_1fr_1fr_1fr_0.25fr]
 
             gap-12
 
-            xl:gap-10
-
-
-            items-start
-
+            xl:gap-14
           "
-
         >
 
 
-
-          {/* EMPTY LEFT CELL */}
-
+          {/* CELL 1 - EMPTY SPACING */}
           <div
             className="
               hidden
-              xl:block
+
+              lg:block
             "
           />
 
 
 
-
-
-
-          {/* CONTACT INFORMATION */}
-
+          {/* CELL 2 - CONTACT INFORMATION */}
           <div
-
             className="
               border-t
 
               border-[#E8DDD8]
 
-
               pt-10
-
 
               flex
 
               flex-col
 
-              items-center
+              items-start
 
-
-              text-center
-
+              text-left
             "
-
           >
-
             <ContactInfo />
-
           </div>
 
 
 
-
-
-
-
-
-          {/* CONTACT FORM */}
-
+          {/* CELL 3 - CONTACT FORM */}
           <div
-
             className="
               border-t
 
               border-[#E8DDD8]
 
-
               pt-10
-
 
               flex
 
               flex-col
 
-              items-center
+              items-start
 
-
-              text-center
-
+              text-left
             "
-
           >
 
             <h2
-
               className="
                 font-serif
 
@@ -325,158 +237,95 @@ export default function Contact() {
 
                 text-[#3B2A26]
               "
-
             >
-
               Send A Message
-
             </h2>
 
 
-
-
             <p
-
               className="
                 mt-4
-
-                max-w-sm
 
                 leading-relaxed
 
                 text-[#6F5A50]
               "
-
             >
-
               We typically respond within a few hours during
               normal business hours.
-
             </p>
 
 
-
-
-
             <div
-
               className="
                 mt-10
 
                 w-full
-
               "
-
             >
-
               <ContactForm />
-
             </div>
-
 
           </div>
 
 
 
-
-
-
-
-
-          {/* HOURS */}
-
+          {/* CELL 4 - HOURS */}
           <div
-
             className="
               border-t
 
               border-[#E8DDD8]
 
-
               pt-10
-
 
               flex
 
               flex-col
 
-              items-center
+              items-start
 
-
-              text-center
-
+              text-left
             "
-
           >
-
             <ContactHours />
-
           </div>
 
 
 
-
-
-
-
-
-          {/* EMPTY RIGHT CELL */}
-
+          {/* CELL 5 - EMPTY SPACING */}
           <div
-
             className="
               hidden
 
-              xl:block
-
+              lg:block
             "
-
           />
 
-
-
         </div>
-
 
       </div>
 
 
 
-
-
-
-
       {/* Bottom Divider */}
-
       <div
-
         aria-hidden
-
         className="
           absolute
 
           bottom-0
 
-          left-1/2
+          left-0
 
-          -translate-x-1/2
-
-
-          w-[min(92%,1200px)]
-
+          w-full
 
           h-px
 
-
           bg-[#E8DDD8]
-
         "
-
       />
 
-
     </section>
-
   );
-
 }
