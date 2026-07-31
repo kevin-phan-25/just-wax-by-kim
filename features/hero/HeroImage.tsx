@@ -1,75 +1,108 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/hero/HeroImage.tsx
+ * File:
+ * features/hero/HeroImage.tsx
  *
  * Description:
  * Luxury hero banner image container.
  *
- * Changes:
- *
- * July 29, 2026
- *
- * - Removed decorative divider line
- * - Simplified hero presentation
- * - Maintained luxury image treatment
- *
+ * Updates:
+ * • Improved image scaling behavior
+ * • Stabilized focal point positioning
+ * • Added premium overlays
+ * • Optimized for responsive hero heights
  * -----------------------------------------------------------------------------
  */
 
 import Image from "next/image";
 
+
 export function HeroImage() {
+
   return (
+
     <div
       className="
-        relative
-        overflow-hidden
-        rounded-[2px]
-        aspect-[16/7]
-        w-full
+        absolute
+        inset-0
       "
     >
 
-      {/* Main Image */}
+      {/* Main Hero Image */}
       <Image
         src="/hero/just-wax-by-kim-banner.jpg"
-        alt="Luxury waxing studio"
+        alt="Luxury waxing studio experience at Just Wax by Kim"
         fill
         priority
+        sizes="
+          100vw
+        "
         className="
           object-cover
+
           object-center
+
+          scale-[1.02]
         "
       />
 
 
-      {/* Luxury Gradient Overlay */}
+
+      {/* Editorial darkening overlay */}
       <div
         aria-hidden
         className="
           absolute
+
           inset-0
+
           bg-gradient-to-r
-          from-[#2D211D]/25
-          via-transparent
-          to-[#2D211D]/10
+
+          from-[#2D211D]/35
+
+          via-[#2D211D]/10
+
+          to-[#2D211D]/15
         "
       />
 
 
-      {/* Soft Bottom Fade */}
+
+      {/* Bottom luxury fade */}
       <div
         aria-hidden
         className="
           absolute
+
           inset-0
+
           bg-gradient-to-t
-          from-[#3B2A26]/12
+
+          from-[#3B2A26]/25
+
           via-transparent
+
           to-transparent
         "
       />
 
+
+
+      {/* Soft warm glow */}
+      <div
+        aria-hidden
+        className="
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(circle_at_25%_40%,rgba(232,200,188,0.22),transparent_45%)]
+        "
+      />
+
+
     </div>
+
   );
+
 }

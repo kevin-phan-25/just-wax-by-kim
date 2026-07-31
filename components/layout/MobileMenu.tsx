@@ -1,18 +1,20 @@
 /**
- * --------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * components/layout/MobileMenu.tsx
  *
  * Description:
- * Mobile navigation for Just Wax by Kim.
+ * Luxury mobile navigation for Just Wax by Kim.
  *
- * Changes:
- * • Supports Services + Studio Exploration dropdowns
- * • "All Services" row scrolls to #services on homepage
- * • Supports standalone routes + /#section navigation
- * • Book Appointment CTA pinned at bottom
- *
- * --------------------------------------------------------------------------
+ * Updates:
+ * • Responsive navbar height support
+ * • Handles mobile + tablet layouts
+ * • Supports Services dropdown
+ * • Supports Studio Exploration dropdown
+ * • Supports anchor scrolling
+ * • Sticky Book Appointment CTA
+ * • Improved spacing and touch targets
+ * -----------------------------------------------------------------------------
  */
 
 "use client";
@@ -40,99 +42,225 @@ interface MobileMenuProps {
   links: readonly NavItem[];
 }
 
-const NAVBAR_HEIGHT = 168;
+const NAVBAR_HEIGHT = 140;
 
 function scrollToSection(href: string) {
   const id = href.replace("/#", "");
+
   const element = document.getElementById(id);
+
   if (!element) return;
 
   const position =
-    element.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+    element.getBoundingClientRect().top +
+    window.scrollY -
+    NAVBAR_HEIGHT;
 
-  window.scrollTo({ top: position, behavior: "smooth" });
+  window.scrollTo({
+    top: position,
+    behavior: "smooth",
+  });
 }
 
-export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
+export function MobileMenu({
+  open,
+  onClose,
+  links,
+}: MobileMenuProps) {
   const pathname = usePathname();
+
   const [expanded, setExpanded] = useState<string | null>(null);
+
 
   const handleAnchor = (href: string) => {
     onClose();
     setExpanded(null);
 
     if (pathname === "/") {
-      window.setTimeout(() => scrollToSection(href), 180);
+      window.setTimeout(() => {
+        scrollToSection(href);
+      }, 150);
     } else {
       window.location.href = href;
     }
   };
 
+
   if (!open) return null;
 
+
   return (
-    <div className="fixed inset-0 z-40 xl:hidden">
+    <>
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-[#3B2A26]/25 backdrop-blur"
+        className="
+          fixed
+          inset-0
+          z-40
+          bg-[#3B2A26]/20
+          backdrop-blur-sm
+          lg:hidden
+        "
         onClick={onClose}
       />
 
-      {/* Panel */}
+
+      {/* Mobile Panel */}
       <div
         className="
-          absolute top-[168px] left-0 right-0 bottom-0
-          flex flex-col
+          fixed
+          top-[110px]
+          md:top-[140px]
+
+          left-0
+          right-0
+          bottom-0
+
+          z-50
+
+          flex
+          flex-col
+
           bg-[#FCF8F3]
+
+          lg:hidden
         "
       >
-        {/* Scrollable links */}
-        <div className="flex-1 overflow-y-auto px-6 py-8">
-          <ul className="flex flex-col gap-3">
+
+
+        {/* Scroll Area */}
+        <div
+          className="
+            flex-1
+            overflow-y-auto
+
+            px-6
+            py-8
+          "
+        >
+
+          <ul
+            className="
+              flex
+              flex-col
+              gap-4
+            "
+          >
+
             {links.map((link) => {
-              const hasDropdown = Boolean(link.dropdown?.length);
-              const isOpen = expanded === link.label;
-              const hasSectionAnchor = link.href.includes("#");
+
+              const hasDropdown =
+                Boolean(link.dropdown?.length);
+
+              const isOpen =
+                expanded === link.label;
+
 
               return (
                 <li key={link.label}>
+
                   {hasDropdown ? (
+
                     <>
                       <button
                         type="button"
                         onClick={() =>
-                          setExpanded(isOpen ? null : link.label)
+                          setExpanded(
+                            isOpen
+                              ? null
+                              : link.label
+                          )
                         }
                         className="
-                          flex w-full min-h-[56px] items-center justify-center gap-2
-                          rounded-full border border-[#E8DDD8] bg-white/90
-                          uppercase tracking-[0.18em] text-xs font-semibold
+                          flex
+                          min-h-[58px]
+                          w-full
+
+                          items-center
+                          justify-center
+                          gap-2
+
+                          rounded-full
+
+                          border
+                          border-[#E8DDD8]
+
+                          bg-white/90
+
+                          uppercase
+                          tracking-[0.18em]
+
+                          text-xs
+                          font-semibold
+
                           text-[#3B2A26]
                         "
                       >
                         {link.label}
+
                         <span
                           className={`
-                            text-[10px] transition-transform duration-300
-                            ${isOpen ? "rotate-180" : ""}
+                            text-[10px]
+                            transition-transform
+                            duration-300
+
+                            ${
+                              isOpen
+                                ? "rotate-180"
+                                : ""
+                            }
                           `}
                         >
                           ▾
                         </span>
+
                       </button>
 
+
                       {isOpen && (
-                        <ul className="mt-2 flex flex-col gap-2">
-                          {/* Jump to section (e.g. All Services → #services) */}
-                          {hasSectionAnchor && (
+
+                        <ul
+                          className="
+                            mt-3
+
+                            flex
+                            flex-col
+                            gap-3
+                          "
+                        >
+
+                          {link.href.includes("#") && (
+
                             <li>
+
                               <button
                                 type="button"
-                                onClick={() => handleAnchor(link.href)}
+                                onClick={() =>
+                                  handleAnchor(
+                                    link.href
+                                  )
+                                }
                                 className="
-                                  flex min-h-[52px] w-full items-center justify-center
-                                  rounded-full bg-[#F6E7E1] border border-[#E8DDD8]
-                                  uppercase tracking-[0.16em] text-xs font-semibold
+                                  flex
+                                  min-h-[54px]
+                                  w-full
+
+                                  items-center
+                                  justify-center
+
+                                  rounded-full
+
+                                  bg-[#F6E7E1]
+
+                                  border
+                                  border-[#E8DDD8]
+
+                                  uppercase
+                                  tracking-[0.16em]
+
+                                  text-xs
+                                  font-semibold
+
                                   text-[#8C5A6B]
                                 "
                               >
@@ -140,111 +268,242 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                                   ? "All Services"
                                   : `View ${link.label}`}
                               </button>
+
                             </li>
+
                           )}
 
+
+
                           {link.dropdown?.map((item) => (
+
                             <li key={item.href}>
+
                               <Link
                                 href={item.href}
-                                onClick={(e) => {
-                                  if (item.href.includes("#")) {
+                                onClick={(e)=>{
+
+                                  if(
+                                    item.href.includes("#")
+                                  ){
                                     e.preventDefault();
-                                    handleAnchor(item.href);
-                                  } else {
-                                    onClose();
-                                    setExpanded(null);
+
+                                    handleAnchor(
+                                      item.href
+                                    );
                                   }
+                                  else{
+                                    onClose();
+                                  }
+
                                 }}
                                 className="
-                                  flex min-h-[52px] flex-col items-center justify-center
-                                  rounded-2xl bg-[#F6E7E1] border border-[#E8DDD8]
-                                  px-4 py-3 text-center
+                                  flex
+                                  min-h-[58px]
+
+                                  flex-col
+                                  items-center
+                                  justify-center
+
+                                  rounded-2xl
+
+                                  bg-[#F6E7E1]
+
+                                  border
+                                  border-[#E8DDD8]
+
+                                  px-4
+                                  py-3
+
+                                  text-center
                                 "
                               >
-                                <span className="uppercase tracking-[0.16em] text-xs text-[#8C5A6B] font-semibold">
+
+                                <span
+                                  className="
+                                    uppercase
+                                    tracking-[0.16em]
+
+                                    text-xs
+                                    font-semibold
+
+                                    text-[#8C5A6B]
+                                  "
+                                >
                                   {item.label}
                                 </span>
+
+
                                 {item.description && (
-                                  <span className="mt-1 text-[11px] leading-snug text-[#8C7468] normal-case tracking-normal">
+
+                                  <span
+                                    className="
+                                      mt-1
+
+                                      text-[11px]
+
+                                      leading-snug
+
+                                      text-[#8C7468]
+
+                                      normal-case
+
+                                      tracking-normal
+                                    "
+                                  >
                                     {item.description}
                                   </span>
+
                                 )}
+
                               </Link>
+
                             </li>
+
                           ))}
+
                         </ul>
+
                       )}
+
                     </>
+
                   ) : (
+
                     <Link
                       href={link.href}
-                      onClick={(e) => {
-                        if (link.href.includes("#")) {
+                      onClick={(e)=>{
+
+                        if(
+                          link.href.includes("#")
+                        ){
                           e.preventDefault();
-                          handleAnchor(link.href);
-                        } else {
+
+                          handleAnchor(
+                            link.href
+                          );
+                        }
+                        else{
                           onClose();
                         }
+
                       }}
                       className="
-                        flex w-full min-h-[56px] items-center justify-center
-                        rounded-full border border-[#E8DDD8] bg-white/90
-                        uppercase tracking-[0.18em] text-xs font-semibold
+                        flex
+                        min-h-[58px]
+                        w-full
+
+                        items-center
+                        justify-center
+
+                        rounded-full
+
+                        border
+                        border-[#E8DDD8]
+
+                        bg-white/90
+
+                        uppercase
+
+                        tracking-[0.18em]
+
+                        text-xs
+
+                        font-semibold
+
                         text-[#3B2A26]
                       "
                     >
                       {link.label}
                     </Link>
+
                   )}
+
                 </li>
               );
+
             })}
+
           </ul>
+
         </div>
 
-        {/* Sticky Book Appointment CTA */}
+
+
+        {/* Bottom CTA */}
         <div
           className="
             shrink-0
-            border-t border-[#E8DDD8]
+
+            border-t
+            border-[#E8DDD8]
+
             bg-[#FCF8F3]
+
             px-6
             py-6
           "
         >
+
           <Link
             href="/#booking"
-            onClick={(e) => {
-              if (pathname === "/") {
+            onClick={(e)=>{
+
+              if(pathname === "/"){
+
                 e.preventDefault();
-                handleAnchor("/#booking");
-              } else {
-                onClose();
+
+                handleAnchor(
+                  "/#booking"
+                );
+
               }
+              else{
+
+                onClose();
+
+              }
+
             }}
             className="
               flex
-              min-h-[56px]
+
+              min-h-[58px]
+
               w-full
+
               items-center
               justify-center
+
               rounded-full
+
               border-2
+
               border-[#8C5A6B]
+
               uppercase
+
               tracking-[0.2em]
+
               text-sm
+
               font-semibold
+
               text-[#8C5A6B]
+
               transition
+
               hover:bg-[#F6E7E1]
             "
           >
             Book Appointment
           </Link>
+
         </div>
+
+
       </div>
-    </div>
+
+    </>
   );
 }

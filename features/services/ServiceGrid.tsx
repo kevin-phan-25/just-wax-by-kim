@@ -4,14 +4,14 @@
  * features/services/ServiceGrid.tsx
  *
  * Description:
- * Luxury service grid layout.
+ * Luxury responsive service grid.
  *
- * Changes:
- *
- * - Reduced card spread
- * - Centered cards
- * - Improved mobile stacking
- * - Removed oversized columns
+ * Responsive Update:
+ * • Mobile-first layout
+ * • Improved tablet spacing
+ * • Editorial desktop layout
+ * • Centered cards
+ * • Balanced gaps
  *
  * -----------------------------------------------------------------------------
  */
@@ -29,18 +29,28 @@ export default function ServiceGrid({
   return (
     <div
       className="
-        grid
-
+        mx-auto
         w-full
+        max-w-[1500px]
+
+        grid
 
         grid-cols-1
         sm:grid-cols-2
         lg:grid-cols-3
-        xl:grid-cols-4
+        2xl:grid-cols-4
 
         justify-items-center
+        items-start
 
-        gap-10
+        gap-x-8
+        gap-y-10
+
+        lg:gap-x-10
+        lg:gap-y-12
+
+        xl:gap-x-12
+        xl:gap-y-14
       "
     >
       {services.map((service) => (

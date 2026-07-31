@@ -6,12 +6,12 @@
  * Description:
  * Luxury service pricing card.
  *
- * Changes:
- *
- * - Reduced card visual size
- * - Added centered max width
- * - Improved mobile proportions
- * - Added balanced luxury spacing
+ * Responsive Update:
+ * • Mobile optimized
+ * • Tablet balanced sizing
+ * • Desktop editorial proportions
+ * • Luxury hover treatment
+ * • Consistent spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -31,67 +31,91 @@ export default function ServiceCard({
         service-card
 
         w-full
-        max-w-[280px]
+
+        max-w-[300px]
+        xl:max-w-[320px]
 
         mx-auto
 
-        p-8
+        rounded-[28px]
+
+        border
+        border-[#E8DDD8]
+
+        bg-white
+
+        p-6
+        md:p-7
+        xl:p-8
 
         text-center
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-2
+        hover:border-[#D4A9B6]
+        hover:shadow-[0_24px_60px_rgba(59,42,38,0.10)]
       "
     >
-
-      {/* SERVICE NAME */}
+      {/* Service Name */}
       <h3
         className="
-          service-name
           font-serif
-          text-2xl
+
+          text-[1.55rem]
+          md:text-[1.7rem]
+
+          leading-tight
+
           text-[#3B2A26]
         "
       >
         {service.title}
       </h3>
 
-
-      {/* DESCRIPTION */}
+      {/* Description */}
       <p
         className="
-          service-description
           mt-4
+
           text-sm
-          leading-relaxed
+          md:text-[15px]
+
+          leading-7
+
           text-[#8C7468]
         "
       >
         {service.description}
       </p>
 
-
-      {/* PRICE */}
+      {/* Price */}
       <div
         className="
-          service-price
           mt-8
-          pt-6
+
           border-t
           border-[#E8DDD8]
-          w-full
+
+          pt-6
         "
       >
         <span
           className="
-            text-[#D4A9B6]
-            font-medium
-            tracking-wide
             text-lg
+            md:text-xl
+
+            font-medium
+
+            tracking-wide
+
+            text-[#8C5A6B]
           "
         >
           {service.price}
         </span>
       </div>
-
-
     </article>
   );
 }

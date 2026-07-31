@@ -1,41 +1,53 @@
 /**
- * ------------------------------------------------------------------
- * File: features/about/About.tsx
+ * -----------------------------------------------------------------------------
+ * File:
+ * features/about/About.tsx
  *
  * Description:
  * Luxury editorial About section.
  *
  * Layout:
  * • Left — Portrait
- * • Center — Experience highlights
- * • Right — Brand story
+ * • Center — Credentials / Experience
+ * • Right — Brand Story
  *
- * Changes:
- * • Balanced three-column spacing
- * • Portrait shifted right
- * • Equal column distribution
- * ------------------------------------------------------------------
+ * Updates:
+ * • Balanced three-column editorial layout
+ * • Better desktop spacing
+ * • Improved tablet stacking
+ * • Uses full available width
+ * • Maintains luxury magazine aesthetic
+ * -----------------------------------------------------------------------------
  */
 
 import AboutContent from "./AboutContent";
 import AboutImage from "./AboutImage";
 import Credentials from "./Credentials";
 
+
 export default function About() {
+
   return (
+
     <section
       id="about"
       className="
-        relative
-        py-28
+        section-padding-lg
+
+        w-full
       "
     >
 
       <div
         className="
           w-full
+
           px-6
-          lg:px-12
+
+          md:px-10
+
+          lg:px-14
+
           xl:px-20
         "
       >
@@ -45,55 +57,87 @@ export default function About() {
             grid
 
             grid-cols-1
+
             lg:grid-cols-3
 
             items-center
 
-            gap-x-20
-            xl:gap-x-28
-
             gap-y-16
+
+            lg:gap-x-12
+
+            xl:gap-x-20
           "
         >
 
-          {/* LEFT - PHOTO */}
+
+
+          {/* LEFT COLUMN - PORTRAIT */}
           <div
             className="
               flex
-              justify-start
 
-              lg:translate-x-[48px]
+              justify-center
+
+              lg:justify-start
+
+              lg:translate-x-8
+
+              xl:translate-x-12
             "
           >
+
             <AboutImage />
+
           </div>
 
 
-          {/* CENTER - EXPERIENCE */}
+
+
+          {/* CENTER COLUMN - CREDENTIALS */}
           <div
             className="
               w-full
+
+              max-w-md
+
+              mx-auto
             "
           >
+
             <Credentials />
+
           </div>
 
 
-          {/* RIGHT - STORY */}
+
+
+          {/* RIGHT COLUMN - STORY */}
           <div
             className="
               w-full
+
               max-w-xl
+
+              mx-auto
+
+              lg:mx-0
             "
           >
+
             <AboutContent />
+
           </div>
+
 
 
         </div>
 
       </div>
 
+
     </section>
+
   );
+
 }

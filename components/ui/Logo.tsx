@@ -1,16 +1,21 @@
 /**
  * -----------------------------------------------------------------------------
- * File: components/ui/Logo.tsx
- *
- * Date: July 29, 2026
+ * File:
+ * components/ui/Logo.tsx
  *
  * Description:
- * Brand logo for Just Wax by Kim.
+ * Responsive brand logo for Just Wax by Kim.
  *
- * Changes (July 29, 2026):
- * • Logo height set to match navbar (168px / 1.75in)
+ * Responsive Update:
+ * • Mobile optimized
+ * • Tablet scaling
+ * • Desktop editorial sizing
+ * • Smooth hover animation
+ * • Matches responsive navbar heights
+ *
  * -----------------------------------------------------------------------------
  */
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,25 +24,46 @@ interface LogoProps {
   priority?: boolean;
 }
 
-export function Logo({ className = "", priority = false }: LogoProps) {
+export function Logo({
+  className = "",
+  priority = false,
+}: LogoProps) {
   return (
     <Link
       href="/"
-      className={`inline-flex items-center group ${className}`}
       aria-label="Just Wax by Kim — Home"
+      className={`
+        inline-flex
+        items-center
+        transition-transform
+        duration-300
+        hover:scale-[1.02]
+        ${className}
+      `}
     >
       <Image
-        src="/logo/just-wax-by-kim-logo.jpg"
+        src="/logo/logo.png"
         alt="Just Wax by Kim"
-        width={320}
-        height={220}
+
+        width={420}
+        height={180}
+
         priority={priority}
+
         className="
-          h-[220px] w-auto
-          max-h-[220px]
-          object-contain object-left
-          transition-opacity duration-300
-          group-hover:opacity-80
+          h-[72px]
+          w-auto
+
+          sm:h-[82px]
+
+          md:h-[96px]
+
+          lg:h-[112px]
+
+          xl:h-[132px]
+
+          object-contain
+          select-none
         "
       />
     </Link>
