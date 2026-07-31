@@ -8,7 +8,7 @@
  *
  * Changes:
  * • Main nav: Home, About, Services, Book Now, Studio Exploration
- * • Studio Exploration → mega panel links
+ * • Studio Exploration → Gallery, Instagram, Testimonials, FAQ, Policies, Contact
  * • Preserved Services dropdown
  *
  * --------------------------------------------------------------------------
@@ -73,6 +73,11 @@ export const navigation: readonly NavigationItem[] = [
         label: "FAQ",
         href: "/faq",
         description: "Helpful answers, simply put",
+      },
+      {
+        label: "Policies",
+        href: "/policies",
+        description: "Appointment guidelines & care",
       },
       {
         label: "Contact",
