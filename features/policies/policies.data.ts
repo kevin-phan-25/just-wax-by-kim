@@ -6,9 +6,9 @@
  * Studio policy content.
  *
  * Updated:
- * • Revised timing requirements
- * • Improved professional tone
- * • Client-focused language
+ * • Removed bullet formatting
+ * • Converted policies into editorial paragraphs
+ * • Improved luxury presentation
  *
  * ---
  */
@@ -24,12 +24,11 @@ export const POLICIES_DATA: PolicySection[] = [
       "Please plan accordingly and allow additional time for travel, parking, and any unexpected delays so your appointment can begin smoothly.",
 
     paragraphs: [
-      "Each appointment includes a 5-minute grace period. Beginning at the 6-minute mark, your appointment will be considered late and the following adjustments may apply:",
-    ],
+      "Each appointment includes a 5-minute grace period. Beginning at the 6-minute mark, your appointment will be considered late and the following adjustments may apply.",
 
-    bullets: [
-      "6+ minutes late: A 25% rescheduling fee will be required to reserve a new appointment time.",
-      "10+ minutes late: The appointment may be canceled, and 75% of the scheduled service total will be charged.",
+      "Appointments arriving 6 or more minutes late will require a 25% rescheduling fee to reserve a new appointment time.",
+
+      "Appointments arriving 10 or more minutes late may be canceled, and 75% of the scheduled service total will be charged.",
     ],
 
     note:
@@ -39,14 +38,14 @@ export const POLICIES_DATA: PolicySection[] = [
 
   {
     id: "appointments",
-
     title: "Appointments & Scheduling",
 
     intro:
       "I understand that schedules can change. If you need to adjust your appointment, please provide as much notice as possible.",
 
-    bullets: [
+    paragraphs: [
       "Cancellations or rescheduling requests must be made at least 24 hours before your scheduled appointment time.",
+
       "Appointments canceled or rescheduled within the 24-hour window will be subject to a 50% charge of the scheduled service total.",
     ],
 
@@ -78,9 +77,11 @@ export const POLICIES_DATA: PolicySection[] = [
     intro:
       "Your comfort, safety, and well-being are always a priority.",
 
-    bullets: [
+    paragraphs: [
       "Masks are optional. If you prefer to wear a mask during your appointment, I am happy to do the same.",
+
       "All treatment areas and equipment are thoroughly cleaned, sanitized, and disinfected between every guest.",
+
       "All single-use supplies are properly disposed of after each service.",
     ],
 
@@ -97,13 +98,13 @@ export const POLICIES_DATA: PolicySection[] = [
     intro:
       "Due to personal and professional boundaries, certain intimate waxing services are currently available only to female and gender-diverse clients who meet the following criteria:",
 
-    bullets: [
-      "Individuals who currently identify as women, regardless of sex assigned at birth.",
-      "Individuals assigned female at birth, regardless of current gender identity.",
-      "Individuals who are transitioning at any stage of their journey.",
-    ],
-
     paragraphs: [
+      "Services are available to individuals who currently identify as women, regardless of sex assigned at birth.",
+
+      "Services are also available to individuals assigned female at birth, regardless of current gender identity.",
+
+      "Individuals who are transitioning at any stage of their journey are welcome within these guidelines.",
+
       "My goal is to provide an inclusive, respectful, and affirming environment for every client. If you have questions about whether a service is appropriate for you, please feel welcome to reach out.",
 
       "For services I am unable to provide, I am happy to recommend trusted professionals who may better accommodate your needs.",
