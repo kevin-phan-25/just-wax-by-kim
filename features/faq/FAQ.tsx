@@ -7,9 +7,9 @@
  * Standalone luxury FAQ presentation.
  *
  * Updated:
- * • Matched ServicePricingSection spacing system
- * • Added navbar transition spacer
- * • Removed page width restrictions
+ * • Matched Contact / Gallery / Testimonials spacing system
+ * • Added internal navbar clearance (spacer pattern)
+ * • Removed width restrictions
  * • Centered FAQ content properly
  * • Preserved editorial typography
  * -----------------------------------------------------------------------------
@@ -38,8 +38,6 @@ export default function FAQ() {
         min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
-        pt-[216px]
-        pb-32
       "
     >
 
@@ -57,7 +55,8 @@ export default function FAQ() {
       />
 
 
-
+      {/* Navbar Transition Spacer */}
+      <div className="h-[216px]" />
 
 
       {/* CONTENT */}
@@ -69,11 +68,9 @@ export default function FAQ() {
           w-full
           px-6
           text-center
+          pb-32
         "
       >
-
-
-
 
 
         {/* HEADER */}
@@ -127,7 +124,7 @@ export default function FAQ() {
 
           <p
             className="
-              mt-6
+              mt-8
               mx-auto
               max-w-3xl
               text-lg
