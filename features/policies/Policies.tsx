@@ -6,11 +6,10 @@
  * Luxury editorial policies presentation.
  *
  * Updated:
- * • Maintained 2-column editorial grid
- * • Centered all content
- * • Centered closing message
- * • Matched FAQ / Contact / Gallery spacing system
- * • Full-width luxury layout
+ * • 4-column editorial grid layout
+ * • Policies positioned in columns 2 and 4
+ * • Added luxury whitespace balance
+ * • Improved text alignment
  *
  * ---
  */
@@ -41,10 +40,6 @@ export default function Policies() {
           w-full
           px-6
           pb-40
-          flex
-          flex-col
-          items-center
-          text-center
         "
       >
 
@@ -52,8 +47,8 @@ export default function Policies() {
         {/* HEADER */}
         <header
           className="
-            w-full
             flex
+            w-full
             flex-col
             items-center
             text-center
@@ -88,7 +83,6 @@ export default function Policies() {
 
           <div
             className="
-              mx-auto
               mt-10
               h-px
               w-24
@@ -134,29 +128,40 @@ export default function Policies() {
             mt-24
             grid
             w-full
-            grid-cols-1
-            gap-16
-            lg:grid-cols-2
+            grid-cols-4
+            gap-x-12
+            gap-y-24
           "
         >
 
-          {POLICIES_DATA.map((section) => (
-            <PolicySectionCard
+          {POLICIES_DATA.map((section, index) => (
+            <div
               key={section.id}
-              section={section}
-            />
+              className={`
+                col-span-1
+                ${
+                  index % 2 === 0
+                    ? "col-start-2"
+                    : "col-start-4"
+                }
+              `}
+            >
+              <PolicySectionCard
+                section={section}
+              />
+            </div>
           ))}
 
         </div>
 
 
 
-        {/* CLOSING MESSAGE */}
+        {/* CLOSING */}
         <div
           className="
             mt-32
-            w-full
             flex
+            w-full
             flex-col
             items-center
             text-center
