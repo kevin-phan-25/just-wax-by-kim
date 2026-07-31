@@ -8,10 +8,9 @@
  * Mobile-first navigation for Just Wax by Kim — luxury theme.
  *
  * Changes (July 30, 2026):
- * • Restyled to match ivory / dusty-rose / plum brand
- * • Softer cards, thinner borders, editorial type
- * • Book Appointment lifted off the bottom edge (not flush)
- * • Large tap targets kept for mobile usability
+ * • Link text inset ~½ inch from the left (pl-12 / 48px)
+ * • Kept large tap targets and theme styling
+ * • Book CTA still lifted from the bottom edge
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -84,7 +83,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
       `}
     >
-      {/* Soft backdrop */}
       <div
         className="absolute inset-0 bg-[#3B2A26]/25 backdrop-blur-[6px]"
         onClick={() => {
@@ -94,7 +92,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         aria-hidden
       />
 
-      {/* Sheet */}
       <div
         className={`
           absolute left-0 right-0 top-[168px] bottom-0
@@ -105,7 +102,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           ${open ? "translate-y-0" : "translate-y-3"}
         `}
       >
-        {/* Subtle top wash */}
         <div
           aria-hidden
           className="
@@ -114,7 +110,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           "
         />
 
-        {/* Links */}
         <div className="relative flex-1 overflow-y-auto overscroll-contain px-6 py-8">
           <p className="mb-6 text-center text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[#8C5A6B]">
             Menu
@@ -136,7 +131,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                         }
                         className="
                           flex w-full items-center justify-between
-                          min-h-[56px] rounded-full px-6
+                          min-h-[56px] rounded-full
+                          pl-12 pr-6
                           text-left
                           text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                           text-[#3B2A26]
@@ -174,7 +170,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                               }}
                               className="
                                 flex w-full items-center
-                                min-h-[52px] rounded-full px-6
+                                min-h-[52px] rounded-full
+                                pl-12 pr-6
                                 text-[0.72rem] font-semibold uppercase tracking-[0.16em]
                                 text-[#8C5A6B]
                                 bg-[#F6E7E1]
@@ -202,7 +199,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                                 }}
                                 className="
                                   flex w-full items-center
-                                  min-h-[52px] rounded-full px-6
+                                  min-h-[52px] rounded-full
+                                  pl-12 pr-6
                                   text-[0.72rem] font-medium uppercase tracking-[0.16em]
                                   text-[#3B2A26]/90
                                   bg-[#FFFFFF]/80 border border-[#E8DDD8]/70
@@ -230,7 +228,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                       }}
                       className="
                         flex w-full items-center
-                        min-h-[56px] rounded-full px-6
+                        min-h-[56px] rounded-full
+                        pl-12 pr-6
                         text-[0.78rem] font-semibold uppercase tracking-[0.18em]
                         text-[#3B2A26]
                         bg-[#FFFFFF]/90 border border-[#E8DDD8]
@@ -248,7 +247,6 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </ul>
         </div>
 
-        {/* CTA — lifted from bottom (~½–¾ inch air) */}
         <div
           className="
             relative shrink-0
