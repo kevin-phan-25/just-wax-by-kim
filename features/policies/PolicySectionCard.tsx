@@ -6,9 +6,10 @@
  * Luxury editorial policy card.
  *
  * Updated:
- * • Left aligned body content
- * • Consistent text starting point
- * • Editorial magazine styling
+ * • Added heart accent markers
+ * • Removed traditional bullets
+ * • Improved boutique luxury presentation
+ * • Maintained editorial grid alignment
  *
  * ---
  */
@@ -46,6 +47,7 @@ export default function PolicySectionCard({
       </h2>
 
 
+
       {/* Divider */}
       <div
         className="
@@ -58,50 +60,100 @@ export default function PolicySectionCard({
 
 
 
-      {/* Content */}
-      <div
-        className="
-          mt-8
-          text-base
-          leading-8
-          text-[#6F5A50]
-        "
-      >
-
-        {section.intro && (
-          <p>
-            {section.intro}
-          </p>
-        )}
+      {/* Intro */}
+      {section.intro && (
+        <p
+          className="
+            mt-8
+            text-base
+            leading-8
+            text-[#6F5A50]
+          "
+        >
+          {section.intro}
+        </p>
+      )}
 
 
 
-        {section.paragraphs?.map((paragraph) => (
-          <p
-            key={paragraph.slice(0,32)}
-            className="
-              mt-5
-            "
-          >
-            {paragraph}
-          </p>
-        ))}
+      {/* Paragraphs */}
+      {section.paragraphs?.map((paragraph) => (
+        <p
+          key={paragraph.slice(0, 32)}
+          className="
+            mt-5
+            text-base
+            leading-8
+            text-[#6F5A50]
+          "
+        >
+          {paragraph}
+        </p>
+      ))}
 
 
 
-        {section.note && (
-          <p
-            className="
-              mt-8
-              italic
-              text-[#8C7468]
-            "
-          >
-            {section.note}
-          </p>
-        )}
+      {/* Heart List */}
+      {section.bullets && (
+        <ul
+          className="
+            mt-8
+            space-y-4
+          "
+        >
+          {section.bullets.map((bullet) => (
+            <li
+              key={bullet.slice(0, 32)}
+              className="
+                flex
+                items-start
+                gap-4
+                text-base
+                leading-8
+                text-[#6F5A50]
+              "
+            >
 
-      </div>
+              {/* Heart Accent */}
+              <span
+                className="
+                  mt-[0.35rem]
+                  shrink-0
+                  font-serif
+                  text-lg
+                  text-[#8C5A6B]
+                "
+              >
+                ♡
+              </span>
+
+
+              {/* Text */}
+              <span>
+                {bullet}
+              </span>
+
+            </li>
+          ))}
+        </ul>
+      )}
+
+
+
+      {/* Note */}
+      {section.note && (
+        <p
+          className="
+            mt-8
+            text-base
+            italic
+            leading-8
+            text-[#8C7468]
+          "
+        >
+          {section.note}
+        </p>
+      )}
 
     </article>
   );
