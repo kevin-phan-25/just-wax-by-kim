@@ -7,12 +7,13 @@
  * Standalone luxury contact presentation.
  *
  * Changes:
- * • Matched Gallery / FAQ / Testimonials spacing system
- * • Restored navbar transition spacing
+ * • Matches Gallery / FAQ / Testimonials spacing system
+ * • Moved navbar spacing into component
  * • Removed width restrictions
+ * • Full-width editorial layout
  * • Centered contact information
- * • Form centered in middle column
- * • Preserved luxury editorial layout
+ * • Form positioned in center column
+ * • Preserved luxury styling
  * -----------------------------------------------------------------------------
  */
 
@@ -30,6 +31,8 @@ export default function Contact() {
         min-h-screen
         overflow-hidden
         bg-[#FCF8F3]
+        pt-[216px]
+        pb-32
       "
     >
 
@@ -45,16 +48,6 @@ export default function Contact() {
       />
 
 
-
-      {/* Navbar Transition Spacer */}
-      <div
-        className="
-          h-[216px]
-        "
-      />
-
-
-
       {/* CONTENT */}
       <div
         className="
@@ -65,7 +58,6 @@ export default function Contact() {
           text-center
         "
       >
-
 
 
         {/* HEADER */}
@@ -116,6 +108,8 @@ export default function Contact() {
           <p
             className="
               mt-8
+              mx-auto
+              max-w-none
               text-lg
               leading-relaxed
               text-[#8C7468]
@@ -126,9 +120,7 @@ export default function Contact() {
             interaction feel warm, welcoming, and beautifully personal.
           </p>
 
-
         </header>
-
 
 
 
@@ -138,6 +130,7 @@ export default function Contact() {
           className="
             mt-20
             grid
+            w-full
             gap-12
             lg:grid-cols-3
             lg:gap-16
@@ -164,7 +157,7 @@ export default function Contact() {
 
 
 
-          {/* FORM */}
+          {/* CONTACT FORM */}
           <div
             className="
               border-t
@@ -200,6 +193,7 @@ export default function Contact() {
             <div
               className="
                 mt-10
+                w-full
               "
             >
 
@@ -209,7 +203,6 @@ export default function Contact() {
 
 
           </div>
-
 
 
 
@@ -230,8 +223,8 @@ export default function Contact() {
           </div>
 
 
-
         </div>
+
 
 
       </div>
@@ -251,6 +244,7 @@ export default function Contact() {
           bg-[#E8DDD8]
         "
       />
+
 
 
     </section>
