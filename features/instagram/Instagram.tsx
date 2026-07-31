@@ -3,13 +3,13 @@
  * File: features/instagram/Instagram.tsx
  *
  * Description:
- * Luxury studio glimpse section — fully centered.
+ * Luxury studio glimpse — full-width layout, centered text.
  *
  * Updated: July 30, 2026
  *
  * Changes:
- * • Centered header, grid, and CTA
- * • No full-bleed width forcing a 4-column strip
+ * • Removed max-w-3xl container so grid can span full width
+ * • Header/CTA stay centered; grid uses entire space
  * -----------------------------------------------------------------------------
  */
 import { INSTAGRAM_CONFIG } from "./instagram.constants";
@@ -25,7 +25,7 @@ export default function Instagram() {
         bg-[#FCF8F3]
         px-6 py-24
         md:px-10 md:py-28
-        lg:py-32
+        lg:px-16 lg:py-32
       "
     >
       <div
@@ -36,9 +36,9 @@ export default function Instagram() {
         "
       />
 
-      <div className="relative mx-auto w-full max-w-3xl">
-        {/* Header */}
-        <div className="text-center">
+      <div className="relative w-full">
+        {/* Header — centered */}
+        <div className="mx-auto max-w-2xl text-center">
           <span
             className="
               inline-block
@@ -71,12 +71,12 @@ export default function Instagram() {
           </p>
         </div>
 
-        {/* 2×2 grid */}
-        <div className="mt-14 md:mt-16">
+        {/* Full-width 2×2 grid */}
+        <div className="mt-14 w-full md:mt-16">
           <InstagramGrid />
         </div>
 
-        {/* CTA */}
+        {/* CTA — centered */}
         <div className="mt-12 flex flex-col items-center gap-5 md:mt-14">
           <p
             className="
