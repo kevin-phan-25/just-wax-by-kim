@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/testimonials/Testimonials.tsx
  *
@@ -7,30 +7,32 @@
  * Standalone luxury testimonials presentation.
  *
  * Updated:
- * • Converted from homepage section
- * • Added full-page editorial layout
- * • Added luxury spacing system
- * • Added responsive testimonial grid
- * -----------------------------------------------------------------------------
+ * • Matched ServicePricingSection spacing system
+ * • Added navbar transition spacing
+ * • Removed page width restrictions
+ * • Preserved centered editorial typography
+ * • Full-width testimonial presentation
+ *
+ * ---
  */
 
 import { testimonials } from "./testimonials.data";
 import TestimonialCard from "./TestimonialCard";
 
-
 export default function Testimonials() {
-
   return (
-
     <section
       id="testimonials"
       className="
         relative
+        w-full
+        min-h-screen
         overflow-hidden
-        py-20
+        bg-[#FCF8F3]
+        pt-[216px]
+        pb-32
       "
     >
-
 
       {/* Ambient background */}
       <div
@@ -44,24 +46,23 @@ export default function Testimonials() {
       />
 
 
-
+      {/* FULL WIDTH CONTENT */}
       <div
         className="
           relative
           z-10
-          mx-auto
-          max-w-7xl
+          w-full
           px-6
+          text-center
         "
       >
 
 
-        {/* Header */}
+        {/* HEADER */}
         <header
           className="
-            mx-auto
-            max-w-4xl
-            text-center
+            w-full
+            mb-16
           "
         >
 
@@ -109,9 +110,9 @@ export default function Testimonials() {
             className="
               mx-auto
               mt-8
-              max-w-3xl
+              w-full
               text-lg
-              leading-9
+              leading-relaxed
               text-[#8C7468]
             "
           >
@@ -119,14 +120,16 @@ export default function Testimonials() {
             confidence, and exceptional care.
           </p>
 
+
         </header>
 
 
 
-        {/* Testimonial Grid */}
+
+        {/* TESTIMONIAL GRID */}
         <div
           className="
-            mt-20
+            w-full
             grid
             gap-8
             md:grid-cols-2
@@ -135,13 +138,11 @@ export default function Testimonials() {
         >
 
           {
-            testimonials.map((item)=>(
-
+            testimonials.map((item) => (
               <TestimonialCard
                 key={item.id}
                 testimonial={item}
               />
-
             ))
           }
 
@@ -149,7 +150,8 @@ export default function Testimonials() {
 
 
 
-        {/* Booking CTA */}
+
+        {/* BOOKING CTA */}
         <div
           className="
             mt-20
@@ -186,8 +188,22 @@ export default function Testimonials() {
 
       </div>
 
+
+
+      {/* Bottom Divider */}
+      <div
+        aria-hidden
+        className="
+          absolute
+          bottom-0
+          left-0
+          w-full
+          h-px
+          bg-[#E8DDD8]
+        "
+      />
+
+
     </section>
-
   );
-
 }
