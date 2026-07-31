@@ -6,11 +6,10 @@
  * Luxury editorial policies presentation.
  *
  * Updated:
- * • 4-column editorial grid layout
- * • Reduced empty spacer columns by 50%
+ * • Reduced empty spacer columns
  * • Expanded policy content columns
- * • Improved luxury whitespace balance
- * • Responsive mobile layout
+ * • 4-column editorial magazine layout
+ * • Responsive mobile fallback
  *
  * ---
  */
@@ -31,7 +30,6 @@ export default function Policies() {
 
       {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
-
 
 
       {/* CONTENT */}
@@ -124,7 +122,7 @@ export default function Policies() {
 
 
 
-        {/* POLICY GRID */}
+        {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
             mt-24
@@ -132,9 +130,10 @@ export default function Policies() {
             hidden
             w-full
 
-            grid-cols-[0.5fr_1.5fr_0.5fr_1.5fr]
+            grid
+            grid-cols-[0.25fr_1.75fr_0.25fr_1.75fr]
 
-            gap-x-10
+            gap-x-8
             gap-y-24
 
             lg:grid
@@ -164,8 +163,10 @@ export default function Policies() {
         <div
           className="
             mt-20
+
             grid
             grid-cols-1
+
             gap-20
 
             lg:hidden
