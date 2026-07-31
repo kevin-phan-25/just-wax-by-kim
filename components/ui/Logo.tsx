@@ -42,7 +42,7 @@ export function Logo({
       `}
     >
       <Image
-        src="/logo/logo.png"
+        src="/hero/logo/just-by-kim-logo.jpg"
         alt="Just Wax by Kim"
 
         width={420}
