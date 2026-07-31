@@ -33,36 +33,26 @@ export function Logo({
       className={`
         inline-flex
         items-center
-
         transition-transform
         duration-300
-
         hover:scale-[1.03]
-
         ${className}
       `}
     >
       <Image
         src="/logo/just-wax-by-kim-logo.jpg"
         alt="Just Wax by Kim"
-        width={520}
-        height={220}
+        width={620}
+        height={260}
         priority={priority}
         className="
-          h-[88px]
-
-          sm:h-[105px]
-
-          md:h-[125px]
-
-          lg:h-[150px]
-
-          xl:h-[175px]
-
+          h-[105px]
+          sm:h-[125px]
+          md:h-[150px]
+          lg:h-[175px]
+          xl:h-[200px]
           w-auto
-
           object-contain
-
           select-none
         "
       />
