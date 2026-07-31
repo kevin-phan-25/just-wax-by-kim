@@ -1,28 +1,24 @@
 /**
- * --------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------
  * File:
  * features/instagram/InstagramPost.tsx
  *
  * Description:
- * Luxury Instagram gallery image card.
+ * Luxury Instagram image card.
  *
  * Changes:
- * • Added Next Image rendering
- * • Added premium hover interaction
- * • Added editorial image treatment
- * • Improved standalone Instagram presentation
- *
- * --------------------------------------------------------------------------
+ * • Optimized for 4x4 layout
+ * • Preserved square editorial styling
+ * • Full image rendering
+ * • Premium hover treatment
+ * ---------------------------------------------------------------------------
  */
 
-
 import Image from "next/image";
-
 
 import type {
   InstagramPost as Post,
 } from "./instagram.types";
-
 
 
 interface Props {
@@ -33,8 +29,6 @@ interface Props {
 
 
 
-
-
 export default function InstagramPost({
 
   post,
@@ -42,155 +36,133 @@ export default function InstagramPost({
 }: Props) {
 
 
+  return (
 
-return (
+    <a
 
-<a
+      href={
+        post.href ??
+        "https://instagram.com/justwaxbykim"
+      }
 
-  href={
-    post.href ??
-    "https://instagram.com/justwaxbykim"
-  }
+      target="_blank"
 
+      rel="noopener noreferrer"
 
-  target="_blank"
+      className="
+        group
 
+        relative
 
-  rel="noopener noreferrer"
+        block
 
+        aspect-square
 
-  className="
+        overflow-hidden
 
-    group
+        rounded-[28px]
 
-    relative
+        border
 
-    block
+        border-[#E8DDD8]
 
-    aspect-square
+        bg-[#F6E7E1]
+      "
 
-    overflow-hidden
+    >
 
-    rounded-[32px]
 
-    border
+      <Image
 
-    border-[#E8DDD8]
+        src={post.image}
 
-    bg-[#F6E7E1]
+        alt={post.alt}
 
-  "
+        fill
 
->
+        sizes="
+          (max-width:640px) 100vw,
+          (max-width:1024px) 50vw,
+          25vw
+        "
 
+        className="
+          object-cover
 
-  {/* IMAGE */}
+          transition-transform
 
-  <Image
+          duration-700
 
-    src={post.image}
+          ease-out
 
-    alt={post.alt}
+          group-hover:scale-105
+        "
 
-    fill
+      />
 
-    sizes="
 
-      (max-width:768px) 100vw,
 
-      50vw
+      {/* Luxury overlay */}
 
-    "
+      <div
 
-    className="
+        className="
+          absolute
 
-      object-cover
+          inset-0
 
-      transition-transform
+          bg-gradient-to-t
 
-      duration-700
+          from-[#3B2A26]/35
 
-      ease-out
+          via-transparent
 
-      group-hover:scale-105
+          to-transparent
 
-    "
+          opacity-0
 
-  />
+          transition-opacity
 
+          duration-500
 
+          group-hover:opacity-100
+        "
 
+      />
 
 
-  {/* Luxury Overlay */}
 
-  <div
+      {/* Border highlight */}
 
-    className="
+      <div
 
-      absolute
+        className="
+          absolute
 
-      inset-0
+          inset-0
 
-      bg-gradient-to-t
+          rounded-[28px]
 
-      from-[#3B2A26]/30
+          ring-1
 
-      via-transparent
+          ring-inset
 
-      to-transparent
+          ring-white/30
 
-      opacity-0
+          opacity-0
 
-      transition-opacity
+          transition-opacity
 
-      duration-500
+          duration-500
 
-      group-hover:opacity-100
+          group-hover:opacity-100
+        "
 
-    "
+      />
 
-  />
 
+    </a>
 
-
-
-
-  {/* Hover Accent */}
-
-  <div
-
-    className="
-
-      absolute
-
-      inset-0
-
-      rounded-[32px]
-
-      ring-1
-
-      ring-inset
-
-      ring-white/30
-
-      opacity-0
-
-      transition-opacity
-
-      duration-500
-
-      group-hover:opacity-100
-
-    "
-
-  />
-
-
-
-</a>
-
-);
-
+  );
 
 }
