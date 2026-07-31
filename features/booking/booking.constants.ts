@@ -1,43 +1,35 @@
 /**
- * -----------------------------------------------------------------------------
+ * ------------------------------------------------------------------
  * File: booking.constants.ts
  *
- * Created: July 27, 2026
- *
  * Description:
- * Booking configuration.
+ * Luxury booking configuration.
  *
  * Changes:
- * - July 27, 2026
- *   - Added booking settings.
  *
- * -----------------------------------------------------------------------------
+ * - Refined luxury brand messaging
+ * - Improved client-focused language
+ * - Matches editorial tone
+ *
+ * ------------------------------------------------------------------
  */
 
 
 export const BOOKING_CONFIG = {
 
-
-    eyebrow:
-
+  eyebrow:
     "Reserve Your Experience",
 
 
-
-    title:
-
-    "Ready For Your Luxury Wax Experience?",
+  title:
+    "Your Luxury Waxing Experience Awaits",
 
 
-
-    description:
-
-    "Schedule your appointment and experience personalized waxing designed around your comfort and confidence.",
+  description:
+    "Schedule your appointment and enjoy personalized waxing care designed around your comfort, confidence, and beautiful results.",
 
 
-
-    bookingUrl:
-
+  bookingUrl:
     "#"
 
-};
+} as const;
