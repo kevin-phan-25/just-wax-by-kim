@@ -3,14 +3,14 @@
  * File: features/instagram/InstagramGrid.tsx
  *
  * Description:
- * Editorial Instagram image composition.
+ * Editorial Instagram gallery — centered 2×2.
  *
  * Updated: July 30, 2026
  *
  * Changes:
- * • Even, refined gap system
- * • Subtle stagger only on large screens
- * • No aggressive row-spans that break rhythm
+ * • Forced 2×2 grid (no 4-across row)
+ * • Removed width restrictions / stagger offsets
+ * • Centered in the section
  * -----------------------------------------------------------------------------
  */
 import { instagramPosts } from "./instagram.data";
@@ -18,26 +18,23 @@ import InstagramPost from "./InstagramPost";
 
 export default function InstagramGrid() {
   return (
-    <div
-      className="
-        grid w-full
-        grid-cols-2 gap-3
-        sm:gap-4
-        md:grid-cols-4 md:gap-5
-      "
-    >
-      {instagramPosts.map((post, index) => (
-        <div
-          key={post.id}
-          className={
-            index === 1 || index === 2
-              ? "md:mt-8"
-              : undefined
-          }
-        >
-          <InstagramPost post={post} />
-        </div>
-      ))}
+    <div className="mx-auto flex w-full justify-center">
+      <div
+        className="
+          grid
+          grid-cols-2
+          gap-4
+          sm:gap-5
+          md:gap-6
+          w-full
+          max-w-xl
+          md:max-w-2xl
+        "
+      >
+        {instagramPosts.slice(0, 4).map((post) => (
+          <InstagramPost key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }
