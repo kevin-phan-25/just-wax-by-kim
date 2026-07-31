@@ -6,10 +6,11 @@
  * Luxury editorial policies presentation.
  *
  * Updated:
- * • Centered full-width editorial layout
- * • Removed restrictive policy grid
+ * • Maintained 2-column editorial grid
+ * • Centered all content
+ * • Centered closing message
  * • Matched FAQ / Contact / Gallery spacing system
- * • Improved luxury presentation
+ * • Full-width luxury layout
  *
  * ---
  */
@@ -43,6 +44,7 @@ export default function Policies() {
           flex
           flex-col
           items-center
+          text-center
         "
       >
 
@@ -51,10 +53,10 @@ export default function Policies() {
         <header
           className="
             w-full
-            text-center
             flex
             flex-col
             items-center
+            text-center
           "
         >
 
@@ -126,15 +128,15 @@ export default function Policies() {
 
 
 
-        {/* POLICY SECTIONS */}
+        {/* POLICY GRID */}
         <div
           className="
             mt-24
+            grid
             w-full
-            flex
-            flex-col
-            items-center
-            gap-20
+            grid-cols-1
+            gap-16
+            lg:grid-cols-2
           "
         >
 
@@ -149,18 +151,20 @@ export default function Policies() {
 
 
 
-        {/* CLOSING */}
+        {/* CLOSING MESSAGE */}
         <div
           className="
             mt-32
             w-full
+            flex
+            flex-col
+            items-center
             text-center
           "
         >
 
           <div
             className="
-              mx-auto
               mb-8
               h-px
               w-24
