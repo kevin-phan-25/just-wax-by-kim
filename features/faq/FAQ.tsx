@@ -13,6 +13,8 @@
  * • Centered all FAQ content
  * • Preserved editorial typography
  * • Removed bottom divider
+ * • Increased vertical spacing for a more open layout
+ * • Removed Book Appointment CTA
  * -----------------------------------------------------------------------------
  */
 
@@ -69,7 +71,7 @@ export default function FAQ() {
           w-full
           px-6
           text-center
-          pb-32
+          pb-40
           flex
           flex-col
           items-center
@@ -82,7 +84,7 @@ export default function FAQ() {
         <header
           className="
             w-full
-            mb-16
+            mb-20
             flex
             flex-col
             items-center
@@ -105,7 +107,7 @@ export default function FAQ() {
 
           <h1
             className="
-              mt-6
+              mt-8
               font-serif
               text-4xl
               md:text-6xl
@@ -121,7 +123,7 @@ export default function FAQ() {
           <div
             className="
               mx-auto
-              mt-8
+              mt-10
               h-px
               w-24
               bg-[#D8B4A0]
@@ -132,7 +134,7 @@ export default function FAQ() {
 
           <p
             className="
-              mt-8
+              mt-10
               mx-auto
               max-w-3xl
               text-lg
@@ -158,7 +160,7 @@ export default function FAQ() {
 
         <div
           className="
-            mt-20
+            mt-24
             w-full
             max-w-5xl
             flex
@@ -171,51 +173,6 @@ export default function FAQ() {
           <FAQAccordion
             items={FAQ_DATA}
           />
-
-        </div>
-
-
-
-
-
-
-
-
-
-        {/* CTA */}
-
-        <div
-          className="
-            mt-20
-            flex
-            justify-center
-            w-full
-          "
-        >
-
-          <a
-            href="/#booking"
-            className="
-              inline-flex
-              items-center
-              justify-center
-              rounded-full
-              border-2
-              border-[#8C5A6B]
-              px-12
-              py-5
-              uppercase
-              tracking-[0.2em]
-              text-sm
-              font-semibold
-              text-[#8C5A6B]
-              transition
-              hover:bg-[#F6E7E1]
-            "
-          >
-            Book Appointment
-          </a>
-
 
         </div>
 
