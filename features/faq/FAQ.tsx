@@ -1,22 +1,18 @@
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * features/faq/FAQ.tsx
  *
  * Description:
  * Standalone luxury FAQ presentation.
  *
- * Changes:
- * • Converted from homepage section
- * • Added full-page editorial layout
- * • Added luxury ambient background
- * • Removed dashboard-style appearance
- * • Added booking conversion CTA
- * • Improved spacing rhythm
- *
- * ---
- *
+ * Updated:
+ * • Matched ServicePricingSection spacing system
+ * • Added navbar transition spacer
+ * • Removed width restrictions
+ * • Preserved centered typography
+ * • Full-width FAQ presentation
+ * -----------------------------------------------------------------------------
  */
 
 import FAQAccordion from "./FAQAccordion";
@@ -32,159 +28,186 @@ import {
 
 export default function FAQ() {
 
-  return (
+return (
 
-    <section
-      id="faq"
+<section
+  id="faq"
+  className="
+    relative
+    w-full
+    min-h-screen
+    overflow-hidden
+    bg-[#FCF8F3]
+  "
+>
+
+
+  {/* Ambient Background */}
+
+  <div
+    aria-hidden
+    className="
+      pointer-events-none
+      absolute
+      inset-0
+      bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.28),transparent_65%)]
+    "
+  />
+
+
+
+  {/* Navbar Transition Spacer */}
+
+  <div
+    className="
+      h-[216px]
+    "
+  />
+
+
+
+  {/* Content */}
+
+  <div
+    className="
+      relative
+      z-10
+      w-full
+      px-6
+      text-center
+    "
+  >
+
+
+
+    {/* HEADER */}
+
+    <header
       className="
-        relative
-        overflow-hidden
-        py-24
+        w-full
+        mb-16
       "
     >
 
-      {/* Ambient Background */}
-      <div
-        aria-hidden
+      <p
         className="
-          pointer-events-none
-          absolute
-          inset-0
-          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.28),transparent_65%)]
+          uppercase
+          tracking-[0.35em]
+          text-sm
+          text-[#8C5A6B]
+        "
+      >
+        Helpful Information
+      </p>
+
+
+
+      <h1
+        className="
+          mt-6
+          font-serif
+          text-4xl
+          md:text-6xl
+          leading-tight
+          text-[#3B2A26]
+        "
+      >
+        {FAQ_CONSTANTS.title}
+      </h1>
+
+
+
+      <div
+        className="
+          mx-auto
+          mt-8
+          h-px
+          w-24
+          bg-[#D8B4A0]
         "
       />
 
 
-      <div
+
+      <p
         className="
-          relative
-          z-10
-          mx-auto
-          max-w-7xl
-          px-6
+          mt-6
+          text-lg
+          leading-relaxed
+          text-[#8C7468]
         "
       >
+        {FAQ_CONSTANTS.subtitle}
+      </p>
 
 
-        {/* HEADER */}
-        <header
-          className="
-            mx-auto
-            max-w-4xl
-            text-center
-          "
-        >
-
-          <p
-            className="
-              uppercase
-              tracking-[0.35em]
-              text-sm
-              text-[#8C5A6B]
-            "
-          >
-            Helpful Information
-          </p>
-
-
-          <h1
-            className="
-              mt-6
-              font-serif
-              text-4xl
-              md:text-6xl
-              leading-tight
-              text-[#3B2A26]
-            "
-          >
-            {FAQ_CONSTANTS.title}
-          </h1>
-
-
-          <div
-            className="
-              mx-auto
-              mt-8
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
-          <p
-            className="
-              mx-auto
-              mt-8
-              max-w-3xl
-              text-lg
-              leading-9
-              text-[#8C7468]
-            "
-          >
-            {FAQ_CONSTANTS.subtitle}
-          </p>
-
-        </header>
+    </header>
 
 
 
-        {/* FAQ LIST */}
-        <div
-          className="
-            mx-auto
-            mt-20
-            max-w-5xl
-          "
-        >
-
-          <FAQAccordion
-            items={FAQ_DATA}
-          />
-
-        </div>
 
 
+    {/* FAQ CONTENT */}
 
-        {/* CTA */}
-        <div
-          className="
-            mt-20
-            flex
-            justify-center
-          "
-        >
+    <div
+      className="
+        w-full
+        mt-20
+      "
+    >
 
-          <a
-            href="/#booking"
-            className="
-              inline-flex
-              items-center
-              justify-center
-              rounded-full
-              border-2
-              border-[#8C5A6B]
-              px-12
-              py-5
-              uppercase
-              tracking-[0.2em]
-              text-sm
-              font-semibold
-              text-[#8C5A6B]
-              transition
-              hover:bg-[#F6E7E1]
-            "
-          >
-            Book Appointment
-          </a>
+      <FAQAccordion
+        items={FAQ_DATA}
+      />
 
-        </div>
+    </div>
 
 
-      </div>
 
-    </section>
 
-  );
+
+    {/* CTA */}
+
+    <div
+      className="
+        mt-20
+        flex
+        justify-center
+      "
+    >
+
+      <a
+        href="/#booking"
+        className="
+          inline-flex
+          items-center
+          justify-center
+          rounded-full
+          border-2
+          border-[#8C5A6B]
+          px-12
+          py-5
+          uppercase
+          tracking-[0.2em]
+          text-sm
+          font-semibold
+          text-[#8C5A6B]
+          transition
+          hover:bg-[#F6E7E1]
+        "
+      >
+        Book Appointment
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+
+</section>
+
+);
 
 }
