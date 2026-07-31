@@ -1,17 +1,42 @@
 /**
- * -----------------------------------------------------------------------------
- * File: features/instagram/instagram.constants.ts
+ * --------------------------------------------------------------------------
+ * File:
+ * features/instagram/instagram.constants.ts
  *
  * Description:
- * Instagram section copy.
+ * Instagram page copy configuration.
  *
- * Updated: July 30, 2026
- * -----------------------------------------------------------------------------
+ * Updated:
+ * July 30, 2026
+ *
+ * Changes:
+ * • Converted from homepage section copy
+ * • Refined for standalone Instagram experience
+ *
+ * --------------------------------------------------------------------------
  */
+
+
 export const INSTAGRAM_CONFIG = {
-  handle: "@justwaxbykim",
-  eyebrow: "Behind The Experience",
-  title: "A Glimpse Into Our Studio",
+
+
+  handle:
+    "@justwaxbykim",
+
+
+
+  eyebrow:
+    "Behind The Experience",
+
+
+
+  title:
+    "A Glimpse Into Our Studio",
+
+
+
   description:
-    "Quiet details, refined care, and the atmosphere that shapes every appointment.",
+    "Explore the thoughtful details, calming atmosphere, and personalized care that make every Just Wax by Kim appointment feel beautifully unique.",
+
+
 };

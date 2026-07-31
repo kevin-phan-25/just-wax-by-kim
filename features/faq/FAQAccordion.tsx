@@ -1,75 +1,59 @@
 /**
- * ------------------------------------------------------------------
- * File: FAQAccordion.tsx
+ *
+ * ---
+ * File:
+ * features/faq/FAQAccordion.tsx
  *
  * Description:
  * Luxury FAQ accordion collection.
  *
  * Changes:
+ * • Simplified rendering structure
+ * • Preserved editorial width
+ * • Improved spacing rhythm
+ * • Removed alignment wrappers
+ * • Added refined divider system
  *
- * - Centered accordion content
- * - Removed left alignment behavior
- * - Full width editorial layout
+ * ---
  *
- * ------------------------------------------------------------------
  */
 
 import FAQItem from "./FAQItem";
 
-import {
+import type {
   FAQItemType,
 } from "./faq.types";
 
 
 interface Props {
-
   items: FAQItemType[];
-
 }
 
 
 export default function FAQAccordion({
-
   items,
-
 }: Props) {
-
 
   return (
 
     <div
       className="
-        flex
         w-full
-        flex-col
-        items-center
+        divide-y
+        divide-[#E8DDD8]
       "
     >
 
       {
-        items.map(
+        items.map((item) => (
 
-          (item) => (
+          <FAQItem
+            key={item.id}
+            item={item}
+          />
 
-            <div
-              key={item.id}
-              className="
-                w-full
-                text-center
-              "
-            >
-
-              <FAQItem
-                item={item}
-              />
-
-            </div>
-
-          )
-
-        )
+        ))
       }
-
 
     </div>
 

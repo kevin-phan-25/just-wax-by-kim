@@ -1,24 +1,14 @@
 /**
  * -----------------------------------------------------------------------------
- * File: index.ts
- *
- * Created: July 27, 2026
+ * File:
+ * features/contact/index.ts
  *
  * Description:
  * Contact module exports.
  *
- * Changes:
- * - v1.0.3
- *   - Added public contact export.
- *
  * -----------------------------------------------------------------------------
  */
 
-
 export {
-
-default
-
-}
-
-from "./Contact";
+  default,
+} from "./Contact";

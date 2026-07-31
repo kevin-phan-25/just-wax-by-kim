@@ -1,20 +1,3 @@
-/**
- * -----------------------------------------------------------------------------
- * File: features/gallery/GalleryLightbox.tsx
- *
- * Description:
- * Luxury fullscreen gallery lightbox.
- *
- * Features:
- * • Fullscreen modal
- * • Smooth fade animation
- * • Previous / Next navigation
- * • Keyboard navigation
- * • Escape to close
- * • Click backdrop to close
- * -----------------------------------------------------------------------------
- */
-
 "use client";
 
 import { useEffect } from "react";
@@ -41,28 +24,17 @@ export default function GalleryLightbox({
   useEffect(() => {
     if (!open) return;
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      switch (event.key) {
-        case "Escape":
-          onClose();
-          break;
-
-        case "ArrowLeft":
-          onPrevious();
-          break;
-
-        case "ArrowRight":
-          onNext();
-          break;
-      }
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+      if (event.key === "ArrowLeft") onPrevious();
+      if (event.key === "ArrowRight") onNext();
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-
+    window.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
   }, [open, onClose, onPrevious, onNext]);
@@ -76,71 +48,56 @@ export default function GalleryLightbox({
       className="
         fixed
         inset-0
-        z-[999]
+        z-[100]
         flex
         items-center
         justify-center
         bg-black/90
         backdrop-blur-md
-        p-6
       "
+      onClick={onClose}
     >
-      {/* Backdrop */}
       <button
-        aria-label="Close gallery"
-        onClick={onClose}
-        className="absolute inset-0"
-      />
-
-      {/* Previous */}
-      <button
-        onClick={onPrevious}
-        aria-label="Previous image"
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrevious();
+        }}
         className="
           absolute
-          left-8
-          z-20
-          h-14
-          w-14
-          rounded-full
-          bg-white/10
+          left-6
+          text-5xl
           text-white
-          text-2xl
+          hover:text-[#D8B4A0]
           transition
-          hover:bg-white/20
         "
       >
         ‹
       </button>
 
-      {/* Image */}
       <div
         className="
           relative
-          z-10
-          w-full
+          h-[82vh]
+          w-[90vw]
           max-w-6xl
-          h-[80vh]
         "
+        onClick={(e) => e.stopPropagation()}
       >
         <Image
           src={image.src}
           alt={image.alt}
           fill
           priority
-          className="
-            object-contain
-            rounded-3xl
-          "
+          className="object-contain"
         />
 
         <div
           className="
             absolute
-            bottom-8
-            left-8
+            bottom-6
+            left-6
             rounded-2xl
-            bg-black/45
+            bg-black/40
             px-6
             py-4
             backdrop-blur
@@ -148,9 +105,9 @@ export default function GalleryLightbox({
         >
           <p
             className="
-              text-xs
               uppercase
               tracking-[0.35em]
+              text-xs
               text-[#D8B4A0]
             "
           >
@@ -170,61 +127,48 @@ export default function GalleryLightbox({
         </div>
       </div>
 
-      {/* Next */}
       <button
-        onClick={onNext}
-        aria-label="Next image"
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
         className="
           absolute
-          right-8
-          z-20
-          h-14
-          w-14
-          rounded-full
-          bg-white/10
+          right-6
+          text-5xl
           text-white
-          text-2xl
+          hover:text-[#D8B4A0]
           transition
-          hover:bg-white/20
         "
       >
         ›
       </button>
 
-      {/* Close */}
       <button
         onClick={onClose}
-        aria-label="Close"
         className="
           absolute
-          top-8
-          right-8
-          z-20
-          h-14
-          w-14
-          rounded-full
-          bg-white/10
+          top-6
+          right-6
+          text-5xl
           text-white
-          text-3xl
+          hover:text-[#D8B4A0]
           transition
-          hover:bg-white/20
         "
       >
         ×
       </button>
 
-      {/* Counter */}
       <div
         className="
           absolute
-          bottom-8
-          right-8
+          bottom-6
+          right-6
           rounded-full
           bg-black/40
           px-5
           py-2
           text-sm
-          tracking-[0.25em]
           text-white
           backdrop-blur
         "

@@ -1,93 +1,118 @@
 /**
- *
- * ---
+ * --------------------------------------------------------------------------
  * File:
  * constants/navigation.ts
  *
  * Description:
- * Main website navigation anchors.
+ * Main website navigation.
  *
  * Changes:
+ * • Added standalone Gallery page
+ * • Added standalone Instagram page
+ * • Added standalone Testimonials page
+ * • Updated FAQ to standalone route
+ * • Updated Contact to standalone route
+ * • Fixed homepage anchor routing
+ * • Preserved Services dropdown
  *
- * - July 30, 2026
- *   - Added Services dropdown
- *   - Added Ladies / Gentlemen service links
- *   - Fixed Home anchor reference
- *   - Added shared navigation types
- *
- * ---
- *
+ * --------------------------------------------------------------------------
  */
 
+
 export interface NavigationItem {
-  label: string;
-  href: string;
-  dropdown?: readonly NavigationItem[];
+
+  label:string;
+
+  href:string;
+
+  dropdown?:readonly NavigationItem[];
+
 }
 
 
-export const navigation: readonly NavigationItem[] = [
+
+
+
+export const navigation:readonly NavigationItem[] = [
+
+
 
   {
-    label: "Home",
-    href: "#hero",
+    label:"Home",
+    href:"/#hero",
   },
 
 
+
   {
-    label: "About",
-    href: "#about",
+    label:"About",
+    href:"/#about",
   },
 
 
-  {
-    label: "Services",
-    href: "#services",
 
-    dropdown: [
+  {
+    label:"Services",
+    href:"/#services",
+
+    dropdown:[
 
       {
-        label: "Ladies Waxing",
-        href: "/services/ladies",
+        label:"Ladies Waxing",
+        href:"/services/ladies",
       },
 
 
       {
-        label: "Gentlemen Waxing",
-        href: "/services/gentlemen",
+        label:"Gentlemen Waxing",
+        href:"/services/gentlemen",
       },
 
     ],
+
   },
+
 
 
   {
-    label: "Gallery",
-    href: "#gallery",
+    label:"Gallery",
+    href:"/gallery",
   },
+
 
 
   {
-    label: "Reviews",
-    href: "#testimonials",
+    label:"Instagram",
+    href:"/instagram",
   },
+
 
 
   {
-    label: "FAQ",
-    href: "#faq",
+    label:"Testimonials",
+    href:"/testimonials",
   },
+
 
 
   {
-    label: "Book Now",
-    href: "#booking",
+    label:"FAQ",
+    href:"/faq",
   },
+
 
 
   {
-    label: "Contact",
-    href: "#contact",
+    label:"Book Now",
+    href:"/#booking",
   },
+
+
+
+  {
+    label:"Contact",
+    href:"/contact",
+  },
+
 
 ];

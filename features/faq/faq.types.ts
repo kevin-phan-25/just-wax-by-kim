@@ -1,26 +1,20 @@
 /**
  * -----------------------------------------------------------------------------
- * File: faq.types.ts
- *
- * Created: July 27, 2026
+ * File:
+ * features/faq/faq.types.ts
  *
  * Description:
  * FAQ type definitions.
  *
- * Changes:
- * - v1.0.2
- *   - Added reusable FAQ interfaces.
- *
  * -----------------------------------------------------------------------------
  */
 
-
 export interface FAQItemType {
 
-    id:string;
+  id: string;
 
-    question:string;
+  question: string;
 
-    answer:string;
+  answer: string;
 
 }

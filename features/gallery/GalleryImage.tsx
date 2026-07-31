@@ -1,16 +1,17 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/gallery/GalleryImage.tsx
+ * File:
+ * features/gallery/GalleryImage.tsx
  *
  * Description:
- * Luxury editorial gallery image.
+ * Luxury gallery image card.
  *
- * Changes:
- * • Editorial sizing
- * • Hover animation
- * • Luxury gradient overlay
- * • Floating title
- * • Rounded luxury cards
+ * Updated:
+ * • Removed featured / masonry layout
+ * • Uniform square cards
+ * • Elegant hover animation
+ * • Premium overlay
+ * • Optimized for standalone Gallery page
  * -----------------------------------------------------------------------------
  */
 
@@ -19,51 +20,47 @@ import type { GalleryImage as GalleryImageType } from "./gallery.types";
 
 interface Props {
   image: GalleryImageType;
-  featured?: boolean;
 }
 
-export default function GalleryImage({
-  image,
-  featured = false,
-}: Props) {
+export default function GalleryImage({ image }: Props) {
   return (
     <article
-      className={`
+      className="
         group
         relative
+        aspect-square
         overflow-hidden
-        rounded-[34px]
-        shadow-[0_18px_50px_rgba(59,42,38,.08)]
+        rounded-[32px]
         cursor-pointer
-        ${
-          featured
-            ? "row-span-2"
-            : "row-span-1"
-        }
-      `}
+        border
+        border-[#E8DDD8]
+        bg-[#FCF8F3]
+        shadow-[0_18px_50px_rgba(59,42,38,.08)]
+      "
     >
       <Image
         src={image.src}
         alt={image.alt}
         fill
-        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+        sizes="(max-width:768px) 100vw,
+               (max-width:1200px) 50vw,
+               33vw"
         className="
           object-cover
-          transition-all
+          transition-transform
           duration-700
-          ease-out
-          group-hover:scale-110
+          group-hover:scale-105
         "
       />
 
-      {/* Editorial Gradient */}
+      {/* Luxury Overlay */}
       <div
         className="
           absolute
           inset-0
           bg-gradient-to-t
           from-[#2D211D]/80
-          via-[#2D211D]/10
+          via-[#2D211D]/20
           to-transparent
           opacity-0
           transition-opacity
@@ -77,13 +74,13 @@ export default function GalleryImage({
         className="
           absolute
           inset-5
-          rounded-[28px]
+          rounded-[24px]
           border
           border-white/40
           opacity-0
+          scale-95
           transition-all
           duration-500
-          scale-95
           group-hover:scale-100
           group-hover:opacity-100
         "
@@ -95,7 +92,8 @@ export default function GalleryImage({
           absolute
           left-8
           bottom-8
-          translate-y-8
+          right-8
+          translate-y-6
           opacity-0
           transition-all
           duration-500

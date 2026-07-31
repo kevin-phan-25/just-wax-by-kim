@@ -1,80 +1,100 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ContactHours.tsx
+ * File:
+ * features/contact/ContactHours.tsx
  *
  * Description:
- * Luxury studio hours.
+ * Luxury studio hours display.
  *
  * Changes:
- * - July 30, 2026
- *   • Removed fixed sizing
- *   • Matches editorial luxury theme
- *   • Uses global typography
+ * • Standalone page optimized
+ * • Improved spacing rhythm
+ *
  * -----------------------------------------------------------------------------
  */
 
-import { CONTACT_DATA } from "./contact.data";
+import {
+  CONTACT_DATA,
+} from "./contact.data";
+
 
 export default function ContactHours() {
+
   return (
-    <section>
-      <h3
+    <div>
+
+      <h2
         className="
           font-serif
-          text-2xl
-          text-brand-espresso
+          text-3xl
+          text-center
+          lg:text-left
+          text-[#3B2A26]
         "
       >
         Studio Hours
-      </h3>
+      </h2>
+
 
       <div
         className="
-          mt-6
-          space-y-5
+          mt-10
+          space-y-6
         "
       >
-        {CONTACT_DATA.hours.map((item) => (
-          <div
-            key={item.day}
-            className="
-              flex
-              items-center
-              justify-between
-              gap-6
-            "
-          >
-            <span
-              className="
-                text-brand-taupe
-              "
-            >
-              {item.day}
-            </span>
 
-            <span
+        {
+          CONTACT_DATA.hours.map((item) => (
+
+            <div
+              key={item.day}
               className="
-                font-medium
-                text-brand-espresso
+                flex
+                items-center
+                justify-between
+                gap-6
               "
             >
-              {item.time}
-            </span>
-          </div>
-        ))}
+
+              <span
+                className="
+                  text-[#8C7468]
+                "
+              >
+                {item.day}
+              </span>
+
+
+              <span
+                className="
+                  font-medium
+                  text-[#3B2A26]
+                "
+              >
+                {item.time}
+              </span>
+
+            </div>
+
+          ))
+        }
+
       </div>
+
 
       <p
         className="
-          mt-8
+          mt-10
           leading-relaxed
-          text-brand-taupe
+          text-[#8C7468]
         "
       >
         Appointments are available by reservation only.
-        Booking in advance is recommended to secure your
-        preferred date and time.
+        Booking ahead is recommended to secure your preferred
+        date and time.
       </p>
-    </section>
+
+
+    </div>
   );
 }

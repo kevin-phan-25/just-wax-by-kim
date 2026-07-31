@@ -1,33 +1,21 @@
 /**
  * -----------------------------------------------------------------------------
- * File: testimonial.types.ts
- *
- * Created: July 27, 2026
+ * File:
+ * testimonial.types.ts
  *
  * Description:
  * Type definitions for customer testimonials.
- *
- * Changes:
- * - July 27, 2026
- *   - Initial testimonial architecture.
- *
  * -----------------------------------------------------------------------------
  */
 
-
 export interface Testimonial {
 
+  id: string;
 
-    id: string;
+  name: string;
 
+  quote: string;
 
-    name: string;
-
-
-    quote: string;
-
-
-    rating: number;
-
+  rating: number;
 
 }

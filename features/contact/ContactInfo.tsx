@@ -1,15 +1,16 @@
 /**
  * -----------------------------------------------------------------------------
- * File: ContactInfo.tsx
+ * File:
+ * features/contact/ContactInfo.tsx
  *
  * Description:
- * Luxury contact information.
+ * Luxury contact information block.
  *
  * Changes:
- * - July 30, 2026
- *   • Removed duplicate styling
- *   • Removed fixed sizing
- *   • Unified with luxury editorial theme
+ * • Optimized for standalone contact page
+ * • Improved editorial spacing
+ * • Unified luxury typography
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -20,9 +21,13 @@ import {
   Instagram,
 } from "lucide-react";
 
-import { CONTACT_DATA } from "./contact.data";
+import {
+  CONTACT_DATA,
+} from "./contact.data";
+
 
 export default function ContactInfo() {
+
   const {
     businessName,
     tagline,
@@ -32,249 +37,187 @@ export default function ContactInfo() {
     instagram,
   } = CONTACT_DATA;
 
+
   return (
-    <section>
-      {/* Business */}
+    <div>
+
+      {/* Brand */}
       <header
         className="
-          mb-10
+          text-center
+          lg:text-left
         "
       >
-        <h3
+
+        <h2
           className="
             font-serif
             text-3xl
-            text-brand-espresso
+            text-[#3B2A26]
           "
         >
           {businessName}
-        </h3>
+        </h2>
+
 
         <p
           className="
-            mt-2
+            mt-3
             uppercase
             tracking-[0.28em]
             text-sm
-            text-brand-dusty-pink
+            text-[#D4A9B6]
           "
         >
           {tagline}
         </p>
+
       </header>
+
+
 
       <div
         className="
+          mt-10
           space-y-8
         "
       >
+
         {/* Phone */}
-        <a
+        <ContactItem
+          icon={<Phone size={20} />}
+          label="Phone"
+          value={phone}
           href={`tel:${phone}`}
-          className="
-            group
-            flex
-            items-start
-            gap-4
-            transition-colors
-          "
-        >
-          <div
-            className="
-              rounded-2xl
-              border
-              border-brand-border
-              bg-brand-ivory
-              p-3
-              text-brand-dusty-pink
-              transition-colors
-              group-hover:bg-white
-            "
-          >
-            <Phone size={20} />
-          </div>
+        />
 
-          <div>
-            <p
-              className="
-                text-xs
-                uppercase
-                tracking-[0.24em]
-                text-brand-taupe
-              "
-            >
-              Phone
-            </p>
-
-            <p
-              className="
-                mt-1
-                text-brand-espresso
-                font-medium
-              "
-            >
-              {phone}
-            </p>
-          </div>
-        </a>
 
         {/* Email */}
-        <a
+        <ContactItem
+          icon={<Mail size={20} />}
+          label="Email"
+          value={email}
           href={`mailto:${email}`}
-          className="
-            group
-            flex
-            items-start
-            gap-4
-            transition-colors
-          "
-        >
-          <div
-            className="
-              rounded-2xl
-              border
-              border-brand-border
-              bg-brand-ivory
-              p-3
-              text-brand-dusty-pink
-              transition-colors
-              group-hover:bg-white
-            "
-          >
-            <Mail size={20} />
-          </div>
+        />
 
-          <div>
-            <p
-              className="
-                text-xs
-                uppercase
-                tracking-[0.24em]
-                text-brand-taupe
-              "
-            >
-              Email
-            </p>
 
-            <p
-              className="
-                mt-1
-                text-brand-espresso
-                font-medium
-              "
-            >
-              {email}
-            </p>
-          </div>
-        </a>
+        {/* Location */}
+        <ContactItem
+          icon={<MapPin size={20} />}
+          label="Studio"
+          value={address}
+        />
 
-        {/* Studio */}
-        <div
-          className="
-            flex
-            items-start
-            gap-4
-          "
-        >
-          <div
-            className="
-              rounded-2xl
-              border
-              border-brand-border
-              bg-brand-ivory
-              p-3
-              text-brand-dusty-pink
-            "
-          >
-            <MapPin size={20} />
-          </div>
-
-          <div>
-            <p
-              className="
-                text-xs
-                uppercase
-                tracking-[0.24em]
-                text-brand-taupe
-              "
-            >
-              Studio
-            </p>
-
-            <p
-              className="
-                mt-1
-                text-brand-espresso
-                font-medium
-              "
-            >
-              {address}
-            </p>
-
-            <p
-              className="
-                mt-1
-                text-sm
-                text-brand-taupe
-              "
-            >
-              Private Studio • By Appointment Only
-            </p>
-          </div>
-        </div>
 
         {/* Instagram */}
-        <a
+        <ContactItem
+          icon={<Instagram size={20} />}
+          label="Instagram"
+          value={instagram}
           href={`https://instagram.com/${instagram.replace("@", "")}`}
-          target="_blank"
-          rel="noopener noreferrer"
+        />
+
+
+      </div>
+
+    </div>
+  );
+}
+
+
+
+function ContactItem({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+
+  const content = (
+    <>
+      <div
+        className="
+          flex
+          h-12
+          w-12
+          shrink-0
+          items-center
+          justify-center
+          rounded-2xl
+          border
+          border-[#E8DDD8]
+          bg-[#FCF8F3]
+          text-[#D4A9B6]
+        "
+      >
+        {icon}
+      </div>
+
+
+      <div>
+
+        <p
           className="
-            group
-            flex
-            items-start
-            gap-4
-            transition-colors
+            text-xs
+            uppercase
+            tracking-[0.24em]
+            text-[#8C7468]
           "
         >
-          <div
-            className="
-              rounded-2xl
-              border
-              border-brand-border
-              bg-brand-ivory
-              p-3
-              text-brand-dusty-pink
-              transition-colors
-              group-hover:bg-white
-            "
-          >
-            <Instagram size={20} />
-          </div>
+          {label}
+        </p>
 
-          <div>
-            <p
-              className="
-                text-xs
-                uppercase
-                tracking-[0.24em]
-                text-brand-taupe
-              "
-            >
-              Instagram
-            </p>
 
-            <p
-              className="
-                mt-1
-                text-brand-espresso
-                font-medium
-              "
-            >
-              {instagram}
-            </p>
-          </div>
-        </a>
+        <p
+          className="
+            mt-2
+            font-medium
+            text-[#3B2A26]
+          "
+        >
+          {value}
+        </p>
+
       </div>
-    </section>
+    </>
   );
+
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target={href.includes("instagram") ? "_blank" : undefined}
+        rel="noopener noreferrer"
+        className="
+          flex
+          items-start
+          gap-4
+          transition-opacity
+          hover:opacity-70
+        "
+      >
+        {content}
+      </a>
+    );
+  }
+
+
+  return (
+    <div
+      className="
+        flex
+        items-start
+        gap-4
+      "
+    >
+      {content}
+    </div>
+  );
+
 }

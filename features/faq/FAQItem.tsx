@@ -1,22 +1,24 @@
 /**
- * ------------------------------------------------------------------
- * File: FAQItem.tsx
+ *
+ * ---
+ * File:
+ * features/faq/FAQItem.tsx
  *
  * Description:
  * Luxury FAQ accordion item.
  *
  * Changes:
+ * • Added premium interaction states
+ * • Added smoother answer transition
+ * • Improved question presentation
+ * • Refined luxury spacing
+ * • Updated editorial alignment
  *
- * - Removed answer width restriction
- * - Full centered layout
- * - Larger luxury answer bubble
- * - Improved spacing
+ * ---
  *
- * ------------------------------------------------------------------
  */
 
 "use client";
-
 
 import {
   Plus,
@@ -27,7 +29,7 @@ import {
   useState,
 } from "react";
 
-import {
+import type {
   FAQItemType,
 } from "./faq.types";
 
@@ -41,7 +43,6 @@ export default function FAQItem({
   item,
 }: Props) {
 
-
   const [
     open,
     setOpen,
@@ -53,11 +54,7 @@ export default function FAQItem({
 
     <div
       className="
-        w-full
-        border-b
-        border-[#E8DDD8]
         py-10
-        last:border-none
       "
     >
 
@@ -65,19 +62,17 @@ export default function FAQItem({
       {/* QUESTION */}
 
       <button
-
+        type="button"
         onClick={() => setOpen(!open)}
-
         className="
-          mx-auto
+          group
           flex
           w-full
           items-center
-          justify-center
-          gap-6
-          text-center
+          justify-between
+          gap-8
+          text-left
         "
-
       >
 
         <span
@@ -85,20 +80,23 @@ export default function FAQItem({
             font-serif
             text-xl
             md:text-2xl
+            leading-relaxed
             text-[#3B2A26]
+            transition-colors
+            duration-300
+            group-hover:text-[#8C5A6B]
           "
         >
-
           {item.question}
-
         </span>
+
 
 
         <span
           className="
             flex
-            h-9
-            w-9
+            h-10
+            w-10
             shrink-0
             items-center
             justify-center
@@ -106,6 +104,9 @@ export default function FAQItem({
             border
             border-[#D8B4A0]
             text-[#8C5A6B]
+            transition-all
+            duration-300
+            group-hover:bg-[#F6E7E1]
           "
         >
 
@@ -124,42 +125,44 @@ export default function FAQItem({
 
 
 
+
       {/* ANSWER */}
 
-      {
-        open && (
+      <div
+        className={`
+          grid
+          transition-all
+          duration-500
+          ease-in-out
 
-          <div
+          ${
+            open
+              ? "grid-rows-[1fr] opacity-100 mt-8"
+              : "grid-rows-[0fr] opacity-0 mt-0"
+          }
+        `}
+      >
+
+        <div
+          className="
+            overflow-hidden
+          "
+        >
+
+          <p
             className="
-              mx-auto
-              mt-8
-              w-full
-              rounded-[32px]
-              border
-              border-[#E8DDD8]
-              bg-[#F6E7E1]
-              px-8
-              py-7
-              text-center
-              shadow-[0_15px_40px_rgba(59,42,38,0.05)]
+              max-w-4xl
+              text-base
+              leading-8
+              text-[#6F5A50]
             "
           >
+            {item.answer}
+          </p>
 
-            <p
-              className="
-                text-base
-                leading-relaxed
-                text-[#6F5A50]
-              "
-            >
-              {item.answer}
-            </p>
+        </div>
 
-
-          </div>
-
-        )
-      }
+      </div>
 
 
     </div>

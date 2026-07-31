@@ -1,18 +1,16 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/gallery/Gallery.tsx
- *
- * Created: July 27, 2026
+ * File:
+ * features/gallery/Gallery.tsx
  *
  * Description:
- * Luxury editorial gallery section.
+ * Standalone luxury Gallery page.
  *
- * Changes:
- * - Increased luxury spacing
- * - Refined typography
- * - Added elegant divider
- * - Wider content layout
- * - Improved visual rhythm
+ * Updated:
+ * • Removed homepage section behavior
+ * • Matches Services page architecture
+ * • Wider editorial layout
+ * • Luxury page spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -25,36 +23,50 @@ export default function Gallery() {
       id="gallery"
       className="
         relative
-        bg-[#FCF8F3]
-        py-32
+        overflow-hidden
+        w-full
       "
     >
+      {/* Ambient background */}
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_55%)]
+        "
+      />
+
       <div
         className="
-          container-luxury
+          relative
+          z-10
+          mx-auto
+          max-w-7xl
+          px-6
         "
       >
-        {/* SECTION HEADER */}
+        {/* Header */}
         <header
           className="
             mx-auto
-            max-w-5xl
+            max-w-4xl
             text-center
           "
         >
-          <span
+          <p
             className="
               uppercase
-              tracking-[0.45em]
-              text-xs
-              font-semibold
+              tracking-[0.35em]
+              text-sm
               text-[#8C5A6B]
             "
           >
             {GALLERY_CONFIG.eyebrow}
-          </span>
+          </p>
 
-          <h2
+          <h1
             className="
               mt-6
               font-serif
@@ -65,7 +77,7 @@ export default function Gallery() {
             "
           >
             {GALLERY_CONFIG.title}
-          </h2>
+          </h1>
 
           <div
             className="
@@ -81,9 +93,8 @@ export default function Gallery() {
             className="
               mx-auto
               mt-8
-              max-w-4xl
-              text-base
-              md:text-lg
+              max-w-3xl
+              text-lg
               leading-9
               text-[#8C7468]
             "
@@ -92,12 +103,8 @@ export default function Gallery() {
           </p>
         </header>
 
-        {/* GALLERY */}
-        <div
-          className="
-            mt-20
-          "
-        >
+        {/* Gallery */}
+        <div className="mt-20">
           <GalleryGrid />
         </div>
       </div>

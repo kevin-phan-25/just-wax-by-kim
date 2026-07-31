@@ -1,141 +1,232 @@
 /**
- * -----------------------------------------------------------------------------
- * File: features/instagram/Instagram.tsx
+ * --------------------------------------------------------------------------
+ * File:
+ * features/instagram/Instagram.tsx
  *
  * Description:
- * Luxury studio glimpse — centered editorial layout.
- *
- * Updated: July 30, 2026
+ * Standalone luxury Instagram presentation.
  *
  * Changes:
- * • Restored editorial width control
- * • Centered all typography
- * • Reduced oversized gallery appearance
- * • Maintained luxury spacing
- * -----------------------------------------------------------------------------
+ * • Converted from homepage section
+ * • Added full-page editorial layout
+ * • Added luxury ambient background
+ * • Improved spacing rhythm
+ * • Increased gallery presence
+ *
+ * --------------------------------------------------------------------------
  */
 
-import { INSTAGRAM_CONFIG } from "./instagram.constants";
+import {
+  INSTAGRAM_CONFIG,
+} from "./instagram.constants";
+
 import InstagramGrid from "./InstagramGrid";
 import FollowButton from "./FollowButton";
 
+
 export default function Instagram() {
+
   return (
+
     <section
+      id="instagram"
       className="
-        px-6
-        py-24
-        md:py-32
+        relative
+
+        overflow-hidden
+
+        min-h-screen
+
+        bg-[#FCF8F3]
+
+        py-32
       "
     >
+
+      {/* Ambient Background */}
+
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
+        "
+      />
+
+
+
       <div
         className="
+          relative
+
+          z-10
+
           mx-auto
-          w-full
-          max-w-6xl
-          text-center
+
+          max-w-7xl
+
+          px-6
         "
       >
+
+
         {/* HEADER */}
-        <div
+
+        <header
           className="
             mx-auto
-            max-w-2xl
+
+            max-w-4xl
+
             text-center
           "
         >
-          <span
+
+          <p
             className="
-              inline-block
-              text-[0.68rem]
-              font-semibold
               uppercase
-              tracking-[0.32em]
+
+              tracking-[0.35em]
+
+              text-sm
+
               text-[#8C5A6B]
             "
           >
             {INSTAGRAM_CONFIG.eyebrow}
-          </span>
+          </p>
+
+
 
           <div
             className="
               mx-auto
-              my-6
+
+              my-8
+
               h-px
-              w-12
-              bg-[#D4A9B6]
+
+              w-24
+
+              bg-[#D8B4A0]
             "
           />
 
-          <h2
+
+
+          <h1
             className="
-              text-[clamp(2rem,4vw,3.25rem)]
-              font-medium
-              leading-[1.1]
-              tracking-[-0.035em]
+              font-serif
+
+              text-4xl
+
+              md:text-6xl
+
+              leading-tight
+
               text-[#3B2A26]
             "
           >
             {INSTAGRAM_CONFIG.title}
-          </h2>
+          </h1>
+
+
 
           <p
             className="
               mx-auto
-              mt-6
-              max-w-lg
-              text-center
-              text-[1.05rem]
-              leading-[1.9]
-              text-[#6F5A50]
+
+              mt-8
+
+              max-w-3xl
+
+              text-lg
+
+              leading-9
+
+              text-[#8C7468]
             "
           >
             {INSTAGRAM_CONFIG.description}
           </p>
-        </div>
 
 
-        {/* IMAGE GRID */}
+        </header>
+
+
+
+
+
+        {/* INSTAGRAM GRID */}
+
         <div
           className="
             mx-auto
-            mt-14
-            max-w-4xl
-            md:mt-16
+
+            mt-20
+
+            max-w-5xl
           "
         >
+
           <InstagramGrid />
+
         </div>
 
 
-        {/* CTA */}
+
+
+
+        {/* FOLLOW CTA */}
+
         <div
           className="
-            mt-12
+            mt-16
+
             flex
+
             flex-col
+
             items-center
-            justify-center
-            gap-5
+
+            gap-6
           "
         >
+
           <p
             className="
-              text-center
-              text-[0.7rem]
-              font-semibold
               uppercase
-              tracking-[0.28em]
+
+              tracking-[0.3em]
+
+              text-xs
+
+              font-semibold
+
               text-[#9A857A]
             "
           >
             {INSTAGRAM_CONFIG.handle}
           </p>
 
+
+
           <FollowButton />
+
+
         </div>
 
+
       </div>
+
+
     </section>
+
   );
+
 }

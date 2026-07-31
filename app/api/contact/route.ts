@@ -1,25 +1,76 @@
 /**
  * -----------------------------------------------------------------------------
- * File: app/api/contact/route.ts
+ * File:
+ * app/api/contact/route.ts
  *
  * Description:
  * Contact form email handler.
  *
  * Features:
- * - Sends new inquiry notification to Kim
- * - Sends confirmation email to customer
- * - Uses verified Resend domain
+ * • Sends inquiry notification to Kim
+ * • Sends confirmation email to customer
+ * • Uses Resend verified domain
+ * • Added validation and sanitization
  *
  * -----------------------------------------------------------------------------
  */
 
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import {
+  NextResponse,
+} from "next/server";
+
+import {
+  Resend,
+} from "resend";
 
 
-const resend = new Resend(
-  process.env.RESEND_API_KEY
-);
+
+const resend =
+  new Resend(
+    process.env.RESEND_API_KEY
+  );
+
+
+
+function escapeHtml(
+  value: string
+) {
+
+  return value
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+
+function isValidEmail(
+  email: string
+) {
+
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    .test(email);
+
+}
+
 
 
 
@@ -29,25 +80,52 @@ export async function POST(
 
   try {
 
+
+    if (!process.env.RESEND_API_KEY) {
+
+      throw new Error(
+        "Missing RESEND_API_KEY"
+      );
+
+    }
+
+
+
     const formData =
       await request.formData();
 
 
+
     const name =
-      String(formData.get("name") ?? "")
-        .trim();
+      String(
+        formData.get("name") ?? ""
+      )
+      .trim();
+
+
 
     const email =
-      String(formData.get("email") ?? "")
-        .trim();
+      String(
+        formData.get("email") ?? ""
+      )
+      .trim();
+
+
 
     const phone =
-      String(formData.get("phone") ?? "")
-        .trim();
+      String(
+        formData.get("phone") ?? ""
+      )
+      .trim();
+
+
 
     const message =
-      String(formData.get("message") ?? "")
-        .trim();
+      String(
+        formData.get("message") ?? ""
+      )
+      .trim();
+
 
 
 
@@ -59,12 +137,12 @@ export async function POST(
 
       return NextResponse.json(
         {
-          success: false,
+          success:false,
           error:
             "Please complete all required fields.",
         },
         {
-          status: 400,
+          status:400,
         }
       );
 
@@ -72,10 +150,56 @@ export async function POST(
 
 
 
+
+    if (
+      !isValidEmail(email)
+    ) {
+
+      return NextResponse.json(
+        {
+          success:false,
+          error:
+            "Please enter a valid email address.",
+        },
+        {
+          status:400,
+        }
+      );
+
+    }
+
+
+
+
+    const safeName =
+      escapeHtml(name);
+
+
+    const safeEmail =
+      escapeHtml(email);
+
+
+    const safePhone =
+      escapeHtml(
+        phone || "Not provided"
+      );
+
+
+    const safeMessage =
+      escapeHtml(message)
+        .replace(
+          /\n/g,
+          "<br />"
+        );
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Email #1
-    | Send notification to Kim
+    | Notification to Kim
     |--------------------------------------------------------------------------
     */
 
@@ -84,16 +208,21 @@ export async function POST(
       from:
         "Just Wax by Kim <justwaxbykim@justwaxbykim.com>",
 
+
       to:
         process.env.CONTACT_EMAIL!,
+
 
       replyTo:
         email,
 
+
       subject:
         `New Contact Form • ${name}`,
 
+
       html:
+
       `
       <div
         style="
@@ -107,41 +236,27 @@ export async function POST(
         "
       >
 
-        <h1
-          style="
-            margin-top:0;
-            color:#3B2A26;
-          "
-        >
+        <h1>
           New Contact Form Submission
         </h1>
 
 
-        <div
-          style="
-            margin-top:30px;
-            line-height:1.8;
-          "
-        >
-
-          <p>
-            <strong>Name:</strong>
-            ${name}
-          </p>
+        <p>
+          <strong>Name:</strong>
+          ${safeName}
+        </p>
 
 
-          <p>
-            <strong>Email:</strong>
-            ${email}
-          </p>
+        <p>
+          <strong>Email:</strong>
+          ${safeEmail}
+        </p>
 
 
-          <p>
-            <strong>Phone:</strong>
-            ${phone || "Not provided"}
-          </p>
-
-        </div>
+        <p>
+          <strong>Phone:</strong>
+          ${safePhone}
+        </p>
 
 
         <hr
@@ -158,12 +273,8 @@ export async function POST(
         </h3>
 
 
-        <p
-          style="
-            line-height:1.8;
-          "
-        >
-          ${message.replace(/\n/g, "<br />")}
+        <p>
+          ${safeMessage}
         </p>
 
 
@@ -176,10 +287,11 @@ export async function POST(
 
 
 
+
     /*
     |--------------------------------------------------------------------------
     | Email #2
-    | Confirmation email to customer
+    | Confirmation to customer
     |--------------------------------------------------------------------------
     */
 
@@ -187,6 +299,7 @@ export async function POST(
 
       from:
         "Just Wax by Kim <justwaxbykim@justwaxbykim.com>",
+
 
       to:
         email,
@@ -197,6 +310,7 @@ export async function POST(
 
 
       html:
+
       `
       <div
         style="
@@ -210,25 +324,12 @@ export async function POST(
         "
       >
 
-
-        <h1
-          style="
-            font-size:32px;
-            margin-top:0;
-            color:#3B2A26;
-          "
-        >
-          Hi ${name},
+        <h1>
+          Hi ${safeName},
         </h1>
 
 
-
-        <p
-          style="
-            font-size:16px;
-            line-height:1.8;
-          "
-        >
+        <p>
           Thank you for contacting
           <strong>
             Just Wax by Kim
@@ -236,31 +337,19 @@ export async function POST(
         </p>
 
 
-
-        <p
-          style="
-            font-size:16px;
-            line-height:1.8;
-          "
-        >
-          We've received your message and will get back to you
-          as soon as possible, usually within a few business hours.
+        <p>
+          We've received your message and will respond
+          as soon as possible, usually within a few
+          business hours.
         </p>
 
 
-
-        <p
-          style="
-            font-size:16px;
-            line-height:1.8;
-          "
-        >
+        <p>
           We look forward to helping you feel
           <strong>
             confident, comfortable, and beautifully cared.
           </strong>
         </p>
-
 
 
         <div
@@ -271,18 +360,17 @@ export async function POST(
           "
         >
 
-          <p>
-            Warmly,
-          </p>
+          Warmly,
 
+          <br />
 
-          <p>
-            <strong>
-              Kim
-            </strong>
-            <br />
-            Just Wax by Kim
-          </p>
+          <strong>
+            Kim
+          </strong>
+
+          <br />
+
+          Just Wax by Kim
 
         </div>
 
@@ -291,6 +379,8 @@ export async function POST(
       `,
 
     });
+
+
 
 
 
@@ -316,6 +406,7 @@ export async function POST(
     );
 
 
+
     return NextResponse.json(
       {
         success:false,
@@ -326,7 +417,6 @@ export async function POST(
         status:500,
       }
     );
-
 
   }
 
