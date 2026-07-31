@@ -16,7 +16,7 @@ interface Props {
 
 export default function FAQAccordion({ items }: Props) {
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-5">
+    <div className="w-full max-w-4xl mx-auto space-y-5 text-center">
       {items.map((item) => (
         <FAQItem key={item.id} item={item} />
       ))}
