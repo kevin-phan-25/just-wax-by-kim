@@ -9,9 +9,7 @@
  *
  * Changes:
  * - July 30, 2026
- *   - Fixed readonly TypeScript types for navigation
- *   - Removed fixed widths/scale on link rows
- *   - Shifted link text ~½ inch (48px) inward from the left
+ *   - Centered all menu text for testing (to verify styles apply)
  * -----------------------------------------------------------------------------
  */
 "use client";
@@ -89,17 +87,14 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           rounded-[28px] border border-[#E8DDD8]
           bg-[#FCF8F3]/98 backdrop-blur-xl
           shadow-[0_24px_60px_rgba(59,42,38,0.12)]
-          py-8
-          pl-14
-          pr-6
+          px-6 py-8
           transition-transform duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)]
           ${open ? "translate-y-0" : "-translate-y-3"}
         `}
       >
-        {/* pl-14 ≈ 56px ≈ just over ½ inch inset from panel edge */}
-        <ul className="flex flex-col gap-1">
+        <ul className="flex flex-col items-center gap-1 text-center">
           {links.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="w-full">
               <Link
                 href={
                   link.href.startsWith("#")
@@ -118,7 +113,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                 }}
                 className="
                   block w-full rounded-2xl py-4
-                  text-left
+                  text-center
                   text-[0.72rem] font-semibold uppercase tracking-[0.2em]
                   text-[#3B2A26]
                   hover:bg-[#F6E7E1] hover:text-[#8C5A6B]
@@ -134,8 +129,8 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                   href={item.href}
                   onClick={onClose}
                   className="
-                    block w-full rounded-2xl py-3 pl-4
-                    text-left
+                    block w-full rounded-2xl py-3
+                    text-center
                     text-[0.65rem] font-medium uppercase tracking-[0.18em]
                     text-[#6F5A50]
                     hover:text-[#8C5A6B] hover:bg-[#F6E7E1]/70
@@ -149,7 +144,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           ))}
         </ul>
 
-        <div className="mt-8 pt-6 border-t border-[#E8DDD8] pr-2">
+        <div className="mt-8 pt-6 border-t border-[#E8DDD8]">
           <Link
             href={pathname === "/" ? "#booking" : "/#booking"}
             onClick={(e) => {
@@ -164,6 +159,7 @@ export function MobileMenu({ open, onClose, links }: MobileMenuProps) {
               flex w-full items-center justify-center
               rounded-full border-2 border-[#8C5A6B]
               px-8 py-4
+              text-center
               text-[0.72rem] font-semibold uppercase tracking-[0.18em]
               text-[#8C5A6B] hover:bg-[#F6E7E1] transition
             "
