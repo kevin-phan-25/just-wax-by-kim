@@ -6,17 +6,13 @@
  * Description:
  * Standalone luxury contact presentation.
  *
- * Layout:
- * • Centered editorial introduction
- * • 5-column contact grid
- * • Reduced outer spacing cells
- * • Contact information / form / hours aligned left
- *
- * Changes:
- * • Centered "We'd Love To Hear From You"
- * • Centered introductory description
- * • Reduced edge whitespace columns
- * • Preserved luxury editorial spacing
+ * Updates:
+ * • Removed width restrictions
+ * • Centered Contact title + description
+ * • 5-column editorial layout
+ * • Reduced empty side cells
+ * • Left aligned center content cells
+ * • Preserved luxury spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -28,9 +24,11 @@ import ContactInfo from "./ContactInfo";
 export default function Contact() {
   return (
     <section
+      id="contact"
       className="
         relative
         overflow-hidden
+        w-full
       "
     >
 
@@ -41,13 +39,12 @@ export default function Contact() {
           pointer-events-none
           absolute
           inset-0
-
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
 
 
-      {/* Navbar Transition Spacer */}
+      {/* Navbar Clearance */}
       <div className="h-[216px]" />
 
 
@@ -56,13 +53,10 @@ export default function Contact() {
         className="
           relative
           z-10
-
           w-full
-
           px-6
-          lg:px-10
-          xl:px-16
-
+          md:px-10
+          lg:px-16
           pb-32
         "
       >
@@ -71,26 +65,22 @@ export default function Contact() {
         {/* HEADER */}
         <header
           className="
-            mx-auto
-
             w-full
-
-            max-w-4xl
-
+            flex
+            flex-col
+            items-center
+            justify-center
             text-center
-
-            mb-16
+            mx-auto
+            mb-20
           "
         >
 
           <p
             className="
               uppercase
-
               tracking-[0.35em]
-
               text-sm
-
               text-[#8C5A6B]
             "
           >
@@ -101,20 +91,13 @@ export default function Contact() {
           <h1
             className="
               mt-6
-
               w-full
-
-              text-center
-
               font-serif
-
               text-4xl
-
               md:text-6xl
-
               leading-tight
-
               text-[#3B2A26]
+              text-center
             "
           >
             We'd Love To Hear From You
@@ -124,13 +107,9 @@ export default function Contact() {
           <div
             className="
               mx-auto
-
               mt-8
-
               h-px
-
               w-24
-
               bg-[#D8B4A0]
             "
           />
@@ -138,19 +117,13 @@ export default function Contact() {
 
           <p
             className="
-              mx-auto
-
               mt-8
-
-              max-w-3xl
-
-              text-center
-
+              w-full
+              max-w-none
               text-lg
-
               leading-relaxed
-
               text-[#8C7468]
+              text-center
             "
           >
             Whether you're preparing for your first appointment
@@ -162,13 +135,10 @@ export default function Contact() {
 
 
 
-        {/* FIVE CELL CONTACT GRID */}
+        {/* 5 COLUMN EDITORIAL CONTACT GRID */}
         <div
           className="
-            mt-20
-
             grid
-
             w-full
 
             grid-cols-1
@@ -176,35 +146,28 @@ export default function Contact() {
             lg:grid-cols-[0.25fr_1fr_1fr_1fr_0.25fr]
 
             gap-12
+            lg:gap-10
 
-            xl:gap-14
+            items-start
           "
         >
 
 
-          {/* CELL 1 - EMPTY */}
-          <div
-            className="
-              hidden
-              lg:block
-            "
-          />
+          {/* EMPTY CELL 1 */}
+          <div className="hidden lg:block" />
 
 
 
-          {/* CELL 2 - CONTACT INFORMATION */}
+          {/* CELL 2 - CONTACT INFO */}
           <div
             className="
               border-t
-
               border-[#E8DDD8]
 
               pt-10
 
               flex
-
               flex-col
-
               items-start
 
               text-left
@@ -215,31 +178,27 @@ export default function Contact() {
 
 
 
-          {/* CELL 3 - CONTACT FORM */}
+
+          {/* CELL 3 - FORM */}
           <div
             className="
               border-t
-
               border-[#E8DDD8]
 
               pt-10
 
               flex
-
               flex-col
+              items-center
 
-              items-start
-
-              text-left
+              text-center
             "
           >
 
             <h2
               className="
                 font-serif
-
                 text-3xl
-
                 text-[#3B2A26]
               "
             >
@@ -250,9 +209,8 @@ export default function Contact() {
             <p
               className="
                 mt-4
-
+                text-center
                 leading-relaxed
-
                 text-[#6F5A50]
               "
             >
@@ -261,13 +219,7 @@ export default function Contact() {
             </p>
 
 
-            <div
-              className="
-                mt-10
-
-                w-full
-              "
-            >
+            <div className="mt-10 w-full">
               <ContactForm />
             </div>
 
@@ -275,19 +227,18 @@ export default function Contact() {
 
 
 
-          {/* CELL 4 - CONTACT HOURS */}
+
+
+          {/* CELL 4 - HOURS */}
           <div
             className="
               border-t
-
               border-[#E8DDD8]
 
               pt-10
 
               flex
-
               flex-col
-
               items-start
 
               text-left
@@ -298,13 +249,10 @@ export default function Contact() {
 
 
 
-          {/* CELL 5 - EMPTY */}
-          <div
-            className="
-              hidden
-              lg:block
-            "
-          />
+
+          {/* EMPTY CELL 5 */}
+          <div className="hidden lg:block" />
+
 
         </div>
 
@@ -312,20 +260,15 @@ export default function Contact() {
 
 
 
-      {/* Bottom Divider */}
+      {/* Divider */}
       <div
         aria-hidden
         className="
           absolute
-
           bottom-0
-
           left-0
-
           w-full
-
           h-px
-
           bg-[#E8DDD8]
         "
       />
