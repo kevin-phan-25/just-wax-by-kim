@@ -40,14 +40,15 @@ export default function FAQItem({ item }: Props) {
         onClick={() => setOpen(!open)}
         className="
           group
+          relative
           flex
           w-full
           items-center
-          justify-between
-          gap-6
+          justify-center
           px-8
           py-7
-          text-left
+          pr-20
+          text-center
         "
       >
         <span
@@ -67,6 +68,8 @@ export default function FAQItem({ item }: Props) {
 
         <span
           className={`
+            absolute
+            right-8
             flex
             h-11
             w-11
@@ -104,7 +107,7 @@ export default function FAQItem({ item }: Props) {
       >
         <div className="overflow-hidden">
           <div className="px-8 pb-8 pt-1">
-            <p className="text-base leading-8 text-[#6F5A50]">
+            <p className="text-base leading-8 text-[#6F5A50] text-center">
               {item.answer}
             </p>
           </div>
