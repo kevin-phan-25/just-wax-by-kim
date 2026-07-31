@@ -3,12 +3,12 @@
  * File: features/policies/PolicySectionCard.tsx
  *
  * Description:
- * Luxury centered policy card.
+ * Luxury editorial policy card.
  *
  * Updated:
- * • Centered all content
- * • Unified text starting point
- * • Balanced editorial spacing
+ * • Left aligned body content
+ * • Consistent text starting point
+ * • Editorial magazine styling
  *
  * ---
  */
@@ -19,15 +19,14 @@ interface Props {
   section: PolicySection;
 }
 
-export default function PolicySectionCard({ section }: Props) {
+export default function PolicySectionCard({
+  section,
+}: Props) {
   return (
     <article
       className="
         w-full
-        flex
-        flex-col
-        items-center
-        text-center
+        text-left
         border-t
         border-[#D8B4A0]/50
         pt-10
@@ -39,7 +38,7 @@ export default function PolicySectionCard({ section }: Props) {
         className="
           font-serif
           text-3xl
-          md:text-4xl
+          leading-tight
           text-[#3B2A26]
         "
       >
@@ -63,21 +62,14 @@ export default function PolicySectionCard({ section }: Props) {
       <div
         className="
           mt-8
-          mx-auto
-          w-full
-          max-w-xl
-          text-center
+          text-base
+          leading-8
+          text-[#6F5A50]
         "
       >
 
         {section.intro && (
-          <p
-            className="
-              text-base
-              leading-8
-              text-[#6F5A50]
-            "
-          >
+          <p>
             {section.intro}
           </p>
         )}
@@ -89,9 +81,6 @@ export default function PolicySectionCard({ section }: Props) {
             key={paragraph.slice(0,32)}
             className="
               mt-5
-              text-base
-              leading-8
-              text-[#6F5A50]
             "
           >
             {paragraph}
@@ -104,9 +93,7 @@ export default function PolicySectionCard({ section }: Props) {
           <p
             className="
               mt-8
-              text-base
               italic
-              leading-8
               text-[#8C7468]
             "
           >
