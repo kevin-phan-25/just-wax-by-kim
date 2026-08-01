@@ -16,6 +16,7 @@ export default function PrivacyPolicy() {
         w-full
       "
     >
+
       {/* Navbar clearance */}
       <div className="h-[216px]" />
 
@@ -69,6 +70,7 @@ export default function PrivacyPolicy() {
               text-lg
               leading-relaxed
               text-[#8C7468]
+              text-center
             "
           >
             Your privacy matters. Learn how Just Wax by Kim
@@ -83,7 +85,7 @@ export default function PrivacyPolicy() {
         <div
           className="
             mx-auto
-            max-w-5xl
+            max-w-3xl
           "
         >
 
@@ -93,7 +95,8 @@ export default function PrivacyPolicy() {
               <article
                 key={section.title}
                 className="
-                  mb-14
+                  mb-16
+                  text-center
                 "
               >
 
@@ -103,30 +106,40 @@ export default function PrivacyPolicy() {
                     text-2xl
                     md:text-3xl
                     text-[#3B2A26]
-                    mb-5
+                    mb-6
                   "
                 >
                   {section.title}
                 </h2>
 
 
-                {section.content.map(
-                  (paragraph) => (
+                <div
+                  className="
+                    mx-auto
+                    max-w-2xl
+                  "
+                >
 
-                    <p
-                      key={paragraph}
-                      className="
-                        mb-5
-                        text-base
-                        leading-relaxed
-                        text-[#6F5A50]
-                      "
-                    >
-                      {paragraph}
-                    </p>
+                  {section.content.map(
+                    (paragraph) => (
 
-                  )
-                )}
+                      <p
+                        key={paragraph}
+                        className="
+                          mb-6
+                          text-base
+                          md:text-lg
+                          leading-relaxed
+                          text-[#6F5A50]
+                        "
+                      >
+                        {paragraph}
+                      </p>
+
+                    )
+                  )}
+
+                </div>
 
               </article>
 
