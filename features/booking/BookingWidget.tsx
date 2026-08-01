@@ -1,97 +1,124 @@
 /**
- * ------------------------------------------------------------------
- * File: BookingWidget.tsx
+ *
+ * ---
+ * File:
+ * BookingWidget.tsx
  *
  * Description:
- * Luxury booking panel (ready for embed / integration).
+ * Luxury booking embed container.
  *
- * Changes:
- * - Soft panel, no hard border dividers
- * - Clear next-step messaging
- * - Secondary CTA for contact path
- * ------------------------------------------------------------------
+ * Updates:
+ * • Removed duplicate booking copy
+ * • Removed secondary CTA
+ * • GlossGenius-ready structure
+ * • Soft luxury presentation
+ * • Responsive spacing
+ *
+ * ---
+ *
  */
 
 import { BOOKING_CONFIG } from "./booking.constants";
-import BookingCTA from "./BookingCTA";
 
 export default function BookingWidget() {
   return (
-    <div
+    <section
       className="
         w-full
-        rounded-[32px]
-        bg-white/75
-        px-8
-        py-12
-        md:px-12
-        md:py-14
-        text-center
-        shadow-[0_16px_50px_rgba(59,42,38,0.05)]
+        flex
+        justify-center
       "
     >
-      <span
+
+      <div
         className="
-          uppercase
-          tracking-[0.35em]
-          text-[10px]
-          sm:text-xs
-          text-[#8C5A6B]
+          w-full
+          rounded-[36px]
+          bg-white/40
+          px-6
+          py-12
+          md:px-12
+          md:py-16
+          text-center
         "
       >
-        {BOOKING_CONFIG.widgetEyebrow}
-      </span>
 
-      <h3
-        className="
-          mt-4
-          font-serif
-          text-3xl
-          md:text-4xl
-          text-[#3B2A26]
-        "
-      >
-        {BOOKING_CONFIG.widgetTitle}
-      </h3>
+        {/* EYEBROW */}
+        <p
+          className="
+            uppercase
+            tracking-[0.35em]
+            text-xs
+            text-[#8C5A6B]
+          "
+        >
+          {BOOKING_CONFIG.widgetEyebrow}
+        </p>
 
-      <p
-        className="
-          mx-auto
-          mt-5
-          max-w-xl
-          text-base
-          md:text-lg
-          leading-relaxed
-          text-[#8C7468]
-        "
-      >
-        {BOOKING_CONFIG.widgetDescription}
-      </p>
 
-      <div className="mt-9 flex flex-col items-center gap-4">
-        <BookingCTA />
 
-        <p className="text-sm text-[#8C7468]">
-          Prefer to talk first?{" "}
-          <a
-            href={BOOKING_CONFIG.contactHref}
+        {/* TITLE */}
+        <h3
+          className="
+            mt-5
+            font-serif
+            text-3xl
+            md:text-4xl
+            text-[#3B2A26]
+          "
+        >
+          {BOOKING_CONFIG.widgetTitle}
+        </h3>
+
+
+
+        {/* DESCRIPTION */}
+        <p
+          className="
+            mx-auto
+            mt-5
+            max-w-3xl
+            text-base
+            md:text-lg
+            leading-relaxed
+            text-[#8C7468]
+          "
+        >
+          {BOOKING_CONFIG.widgetDescription}
+        </p>
+
+
+
+        {/* BOOKING EMBED PLACEHOLDER */}
+        <div
+          className="
+            mt-10
+            w-full
+            min-h-[320px]
+            rounded-[28px]
+            bg-[#FBF7F4]
+            flex
+            items-center
+            justify-center
+            px-6
+          "
+        >
+
+          <p
             className="
-              font-medium
-              text-[#8C5A6B]
-              underline-offset-4
-              transition
-              hover:underline
+              text-sm
+              md:text-base
+              text-[#8C7468]
             "
           >
-            {BOOKING_CONFIG.contactLabel}
-          </a>
-        </p>
+            Booking calendar will appear here.
+          </p>
+
+        </div>
+
+
       </div>
 
-      {/*
-        Replace this block later with your real booking embed, e.g.:
-        <div className="mt-10 w-full" id="booking-embed" />
-      */}
-    </div>
+    </section>
   );
 }

@@ -1,34 +1,46 @@
 /**
- * ------------------------------------------------------------------
- * File: booking.constants.ts
+ *
+ * ---
+ * File:
+ * booking.constants.ts
  *
  * Description:
  * Luxury booking configuration & conversion copy.
- * ------------------------------------------------------------------
+ *
+ * Updates:
+ * • Refined luxury brand voice
+ * • Reduced repetition
+ * • Improved conversion flow
+ * • Matches Just Wax by Kim aesthetic
+ *
+ * ---
+ *
  */
 
 export const BOOKING_CONFIG = {
   eyebrow: "Reserve Your Experience",
 
-  title: "Soft Skin Starts With One Appointment",
+  title: "Soft Skin Starts Here",
 
   description:
-    "Step into a calm, private studio where every detail is considered — from gentle technique to the way you’re welcomed. Book in minutes and leave feeling polished, confident, and cared for.",
+    "Enjoy a calm, private waxing experience designed around comfort, precision, and thoughtful care. Choose a time that works for you and leave feeling confident, refreshed, and beautifully smooth.",
 
-  reassurance: "Private studio · Thoughtful care · Easy rescheduling",
+  reassurance:
+    "Private studio · Personalized care · Simple scheduling",
 
   ctaLabel: "Book Your Appointment",
 
-  bookingUrl: "#", // replace with your live booking link
+  bookingUrl: "#", // Replace with GlossGenius booking link
 
+
+  /*
+   * Booking widget content
+   */
   widgetEyebrow: "Online Booking",
 
-  widgetTitle: "Choose Your Time",
+  widgetTitle: "Find Your Perfect Time",
 
   widgetDescription:
-    "Select a service, pick a time that fits your day, and secure your visit. You’ll receive a confirmation right away — simple, calm, and entirely on your terms.",
+    "Select your service, choose a convenient time, and receive your confirmation instantly. Your next appointment is only a few clicks away.",
 
-  contactLabel: "Message the studio",
-
-  contactHref: "/#contact", // update if your contact section/route differs
 } as const;

@@ -1,92 +1,114 @@
 /**
- * ------------------------------------------------------------------
- * File: BookingBenefits.tsx
+ *
+ * ---
+ * File:
+ * BookingBenefits.tsx
  *
  * Description:
- * Luxury booking benefit cards.
+ * Luxury booking benefit editorial section.
  *
- * Changes:
- * - Soft cards, no hard borders
- * - Centered editorial content
- * - Matches site background blend
- * ------------------------------------------------------------------
+ * Updates:
+ * • Removed card styling
+ * • Editorial three-column layout
+ * • Improved spacing hierarchy
+ * • Centered luxury presentation
+ * • Responsive mobile/tablet/desktop
+ *
+ * ---
+ *
  */
 
 import { bookingBenefits } from "./booking.data";
 
 export default function BookingBenefits() {
   return (
-    <div
+    <section
       className="
-        grid
         w-full
-        gap-6
-        md:gap-8
-        md:grid-cols-3
       "
     >
-      {bookingBenefits.map((item) => (
-        <article
-          key={item.title}
-          className="
-            flex
-            flex-col
-            items-center
-            rounded-[28px]
-            bg-white/70
-            px-7
-            py-9
-            text-center
-            shadow-[0_12px_40px_rgba(59,42,38,0.04)]
-            transition-all
-            duration-300
-            hover:-translate-y-1.5
-            hover:bg-white/90
-            hover:shadow-[0_20px_50px_rgba(59,42,38,0.08)]
-          "
-        >
-          <span
+
+      <div
+        className="
+          grid
+          grid-cols-1
+          md:grid-cols-3
+          gap-12
+          md:gap-10
+          lg:gap-16
+          items-start
+        "
+      >
+
+        {bookingBenefits.map((item) => (
+
+          <article
+            key={item.title}
             className="
-              mb-5
               flex
-              h-12
-              w-12
+              flex-col
               items-center
-              justify-center
-              rounded-full
-              bg-[#F6E7E1]
-              text-lg
-              text-[#8C5A6B]
+              text-center
+              px-4
             "
-            aria-hidden="true"
           >
-            {item.icon}
-          </span>
 
-          <h3
-            className="
-              font-serif
-              text-xl
-              md:text-2xl
-              text-[#3B2A26]
-            "
-          >
-            {item.title}
-          </h3>
+            {/* ICON */}
+            <div
+              className="
+                flex
+                items-center
+                justify-center
+                h-14
+                w-14
+                rounded-full
+                bg-[#E8C8BC]/40
+                font-serif
+                text-2xl
+                text-[#8C5A6B]
+              "
+            >
+              {item.icon}
+            </div>
 
-          <p
-            className="
-              mt-3
-              text-sm
-              md:text-base
-              leading-relaxed
-              text-[#8C7468]
-            "
-          >
-            {item.description}
-          </p>
-        </article>
-      ))}
-    </div>
+
+
+            {/* TITLE */}
+            <h3
+              className="
+                mt-6
+                font-serif
+                text-2xl
+                md:text-3xl
+                text-[#3B2A26]
+              "
+            >
+              {item.title}
+            </h3>
+
+
+
+            {/* DESCRIPTION */}
+            <p
+              className="
+                mt-4
+                max-w-sm
+                text-sm
+                md:text-base
+                leading-relaxed
+                text-[#8C7468]
+              "
+            >
+              {item.description}
+            </p>
+
+
+          </article>
+
+        ))}
+
+      </div>
+
+    </section>
   );
 }

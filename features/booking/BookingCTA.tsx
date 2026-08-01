@@ -1,15 +1,20 @@
 /**
- * ------------------------------------------------------------------
- * File: BookingCTA.tsx
+ *
+ * ---
+ * File:
+ * BookingCTA.tsx
  *
  * Description:
  * Luxury booking call-to-action.
  *
- * Changes:
- * - Stronger presence
- * - Premium hover
- * - Matches brand dusty pink
- * ------------------------------------------------------------------
+ * Updates:
+ * • Premium brand CTA styling
+ * • Matches site luxury theme
+ * • Improved hover interaction
+ * • Responsive sizing
+ *
+ * ---
+ *
  */
 
 import { BOOKING_CONFIG } from "./booking.constants";
@@ -22,24 +27,35 @@ export default function BookingCTA() {
         inline-flex
         items-center
         justify-center
-        min-h-[56px]
-        min-w-[240px]
+
         rounded-full
-        bg-[#8C5A6B]
+
         px-10
         py-4
+
+        md:px-12
+        md:py-5
+
+        bg-[#D4A9B6]
+
+        text-sm
+        md:text-base
+
+        font-medium
+
+        tracking-[0.08em]
         uppercase
-        tracking-[0.22em]
-        text-xs
-        sm:text-sm
-        font-semibold
-        text-white
-        shadow-[0_12px_35px_rgba(140,90,107,0.28)]
+
+        text-[#3B2A26]
+
         transition-all
-        duration-300
+        duration-500
+
+        hover:bg-[#C6A15B]
         hover:-translate-y-1
-        hover:bg-[#7A4A5A]
-        hover:shadow-[0_18px_45px_rgba(140,90,107,0.35)]
+
+        shadow-sm
+        hover:shadow-md
       "
     >
       {BOOKING_CONFIG.ctaLabel}
