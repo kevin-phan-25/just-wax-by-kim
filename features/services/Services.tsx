@@ -7,12 +7,12 @@
  * Luxury services introduction section.
  *
  * Updates:
- * • Removed image text overlays
- * • Removed "View Pricing" labels
- * • Expanded image container breathing room
- * • Preserved original image sizing
- * • Improved editorial card presentation
- * • Balanced desktop spacing
+ * • Removed Ladies / Gentlemen overlay text
+ * • Removed View Pricing text
+ * • Expanded image cells
+ * • Removed max-width restriction
+ * • Added editorial spacing around image cards
+ * • Centered all typography
  *
  * -----------------------------------------------------------------------------
  */
@@ -28,9 +28,15 @@ export default function Services() {
     >
 
       {/* HEADER */}
+
       <div
         className="
           w-full
+
+          flex
+          flex-col
+          items-center
+
           text-center
         "
       >
@@ -38,8 +44,11 @@ export default function Services() {
         <span
           className="
             uppercase
+
             tracking-[0.4em]
+
             text-sm
+
             text-[#8C5A6B]
           "
         >
@@ -51,7 +60,11 @@ export default function Services() {
           className="
             mt-6
 
+            w-full
+
             font-serif
+
+            text-center
 
             text-4xl
             md:text-5xl
@@ -67,9 +80,10 @@ export default function Services() {
           className="
             mt-6
 
-            mx-auto
-
+            w-full
             max-w-3xl
+
+            text-center
 
             text-base
             md:text-lg
@@ -84,36 +98,33 @@ export default function Services() {
           confident skin.
         </p>
 
-
       </div>
 
 
 
       {/* SERVICE OPTIONS */}
+
       <div
         className="
           mt-16
 
           grid
 
-          gap-12
-
-          md:grid-cols-2
-
-          justify-items-center
-
           w-full
 
-          px-6
-          md:px-10
-          lg:px-16
+          gap-12
+          md:gap-16
+
+          md:grid-cols-2
         "
       >
 
 
         {/* LADIES */}
+
         <Link
           href="/services/ladies"
+
           className="
             group
 
@@ -121,18 +132,22 @@ export default function Services() {
 
             w-full
 
-            max-w-[520px]
-
             rounded-[36px]
 
-            bg-[#FCF8F3]
+            p-6
+            md:p-8
 
-            p-3
+            bg-white
+
+            border
+            border-[#E8DDD8]
 
             transition-all
-            duration-300
+            duration-500
 
-            hover:shadow-[0_24px_60px_rgba(59,42,38,0.12)]
+            hover:border-[#D4A9B6]
+
+            hover:shadow-[0_30px_70px_rgba(59,42,38,0.12)]
           "
         >
 
@@ -140,13 +155,16 @@ export default function Services() {
             className="
               overflow-hidden
 
-              rounded-[30px]
+              rounded-[28px]
+
+              w-full
             "
           >
 
             <img
               src="/images/services/ladies-view-pricing.jpg"
-              alt="Ladies waxing services"
+
+              alt="Luxury waxing services for women"
 
               className="
                 w-full
@@ -155,26 +173,26 @@ export default function Services() {
 
                 object-cover
 
-                transition-transform
+                transition
 
-                duration-500
+                duration-700
 
                 group-hover:scale-105
               "
             />
 
           </div>
-
 
         </Link>
 
 
 
 
-
         {/* GENTLEMEN */}
+
         <Link
           href="/services/gentlemen"
+
           className="
             group
 
@@ -182,18 +200,22 @@ export default function Services() {
 
             w-full
 
-            max-w-[520px]
-
             rounded-[36px]
 
-            bg-[#FCF8F3]
+            p-6
+            md:p-8
 
-            p-3
+            bg-white
+
+            border
+            border-[#E8DDD8]
 
             transition-all
-            duration-300
+            duration-500
 
-            hover:shadow-[0_24px_60px_rgba(59,42,38,0.12)]
+            hover:border-[#D4A9B6]
+
+            hover:shadow-[0_30px_70px_rgba(59,42,38,0.12)]
           "
         >
 
@@ -201,13 +223,16 @@ export default function Services() {
             className="
               overflow-hidden
 
-              rounded-[30px]
+              rounded-[28px]
+
+              w-full
             "
           >
 
             <img
               src="/images/services/gentlement-view-pricing.jpg"
-              alt="Gentlemen waxing services"
+
+              alt="Luxury waxing services for men"
 
               className="
                 w-full
@@ -216,16 +241,15 @@ export default function Services() {
 
                 object-cover
 
-                transition-transform
+                transition
 
-                duration-500
+                duration-700
 
                 group-hover:scale-105
               "
             />
 
           </div>
-
 
         </Link>
 
