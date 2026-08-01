@@ -1,160 +1,81 @@
 /**
- *
  * ---
  * File:
- * features/services/ServiceCard.tsx
+ * features/services/ServiceGrid.tsx
  *
  * Description:
- * Luxury service pricing card.
+ * Luxury responsive service grid.
  *
  * Updates:
- * • Fixed TypeScript service prop issue
- * • Responsive luxury card sizing
- * • Improved spacing
- * • Editorial styling
- *
+ * • Restored ServiceGrid props
+ * • Supports Service[] input
+ * • Responsive editorial layout
+ * • Centered service cards
  * ---
- *
  */
 
 
-import type {
-  Service,
-} from "./services.types";
+import ServiceCard from "./ServiceCard";
+import type { Service } from "./services.types";
 
 
-interface ServiceCardProps {
+interface ServiceGridProps {
 
-  service: Service;
+  services: Service[];
 
 }
 
 
 
-export default function ServiceCard({
-  service,
-}: ServiceCardProps) {
+export default function ServiceGrid({
+
+  services,
+
+}: ServiceGridProps) {
 
 
   return (
 
-    <article
-      className="
-        service-card
+    <div
 
+      className="
         w-full
 
-        rounded-[28px]
+        grid
 
-        border
-        border-[#E8DDD8]
+        grid-cols-1
 
-        bg-white
+        sm:grid-cols-2
 
-        p-6
-        md:p-8
+        lg:grid-cols-3
 
-        text-center
+        xl:grid-cols-4
 
-        transition-all
-        duration-300
+        justify-items-center
 
-        hover:-translate-y-2
+        gap-8
 
-        hover:border-[#D4A9B6]
+        md:gap-10
 
-        hover:shadow-[0_24px_60px_rgba(59,42,38,0.10)]
+        xl:gap-12
       "
+
     >
 
+      {services.map((service) => (
+
+        <ServiceCard
+
+          key={service.id}
+
+          service={service}
+
+        />
+
+      ))}
 
 
-      {/* SERVICE NAME */}
-
-      <h3
-        className="
-          font-serif
-
-          text-[1.55rem]
-
-          md:text-[1.7rem]
-
-          leading-tight
-
-          text-[#3B2A26]
-        "
-      >
-
-        {service.title}
-
-      </h3>
-
-
-
-
-
-      {/* DESCRIPTION */}
-
-      <p
-        className="
-          mt-4
-
-          text-sm
-
-          md:text-[15px]
-
-          leading-7
-
-          text-[#8C7468]
-        "
-      >
-
-        {service.description}
-
-      </p>
-
-
-
-
-
-      {/* PRICE */}
-
-      <div
-        className="
-          mt-8
-
-          border-t
-
-          border-[#E8DDD8]
-
-          pt-6
-        "
-      >
-
-        <span
-          className="
-            text-lg
-
-            md:text-xl
-
-            font-medium
-
-            tracking-wide
-
-            text-[#8C5A6B]
-          "
-        >
-
-          {service.price}
-
-        </span>
-
-
-      </div>
-
-
-
-    </article>
+    </div>
 
   );
 
