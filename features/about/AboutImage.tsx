@@ -1,3 +1,19 @@
+/**
+ * ---
+ * File:
+ * features/about/AboutImage.tsx
+ *
+ * Description:
+ * Luxury portrait component.
+ *
+ * Updates:
+ * • Responsive sizing
+ * • Editorial portrait frame
+ * • Balanced desktop/mobile appearance
+ *
+ * ---
+ */
+
 export default function AboutImage() {
   return (
     <div
@@ -12,6 +28,7 @@ export default function AboutImage() {
         aria-hidden
         className="
           absolute
+
           -inset-6
 
           rounded-[3rem]
@@ -61,9 +78,9 @@ export default function AboutImage() {
 
             tracking-[0.45em]
 
-            text-xs
-
             leading-loose
+
+            text-xs
 
             text-[#8A776E]
           "
