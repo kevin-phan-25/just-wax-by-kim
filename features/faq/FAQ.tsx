@@ -8,11 +8,10 @@
  * Luxury FAQ presentation.
  *
  * Updates:
- * • Removed width restrictions
- * • Added 2-column luxury layout
- * • Centered FAQ sections
- * • Improved desktop spacing
- * • Responsive mobile stacking
+ * • Added 4-cell editorial grid
+ * • Added left/right breathing margins
+ * • Removed flush screen appearance
+ * • Balanced FAQ columns
  *
  * ---
  *
@@ -45,234 +44,258 @@ return (
   "
 >
 
-  {/* Background atmosphere */}
-  <div
-    aria-hidden
-    className="
-      absolute
-      inset-0
 
-      pointer-events-none
+<div
+  aria-hidden
+  className="
+    absolute
+    inset-0
 
-      bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
-    "
-  />
+    pointer-events-none
 
+    bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
+  "
+/>
 
-  {/* Navbar clearance */}
-  <div
-    className="
-      h-[216px]
-      md:h-[230px]
-    "
-  />
 
 
+<div
+  className="
+    h-[216px]
+    md:h-[230px]
+  "
+/>
 
-  <div
-    className="
-      relative
-      z-10
 
-      w-full
 
-      px-6
-      md:px-10
-      xl:px-20
+<div
+  className="
+    relative
+    z-10
 
-      pb-40
-    "
-  >
+    w-full
 
+    pb-40
+  "
+>
 
 
-    {/* HEADER */}
+<header
+  className="
+    flex
+    flex-col
+    items-center
+    text-center
 
-    <header
-      className="
-        flex
-        flex-col
-        items-center
-        text-center
+    px-6
 
-        mb-24
-      "
-    >
+    mb-24
+  "
+>
 
-      <p
-        className="
-          uppercase
-          tracking-[0.35em]
 
-          text-sm
+<p
+ className="
+  uppercase
+  tracking-[0.35em]
 
-          text-[#8C5A6B]
-        "
-      >
-        Helpful Information
-      </p>
+  text-sm
 
+  text-[#8C5A6B]
+ "
+>
+ Helpful Information
+</p>
 
-      <h1
-        className="
-          mt-8
 
-          font-serif
 
-          text-4xl
-          md:text-6xl
+<h1
+ className="
+  mt-8
 
-          text-[#3B2A26]
-        "
-      >
-        {FAQ_CONSTANTS.title}
-      </h1>
+  font-serif
 
+  text-4xl
+  md:text-6xl
 
-      <p
-        className="
-          mt-8
+  text-[#3B2A26]
+ "
+>
+ {FAQ_CONSTANTS.title}
+</h1>
 
-          w-full
 
-          text-lg
 
-          leading-relaxed
+<p
+ className="
+  mt-8
 
-          text-[#8C7468]
-        "
-      >
-        {FAQ_CONSTANTS.subtitle}
-      </p>
+  text-lg
 
+  leading-relaxed
 
-    </header>
+  text-[#8C7468]
+ "
+>
+ {FAQ_CONSTANTS.subtitle}
+</p>
 
 
+</header>
 
 
 
-    {/* FAQ TWO COLUMN GRID */}
 
-    <div
-      className="
-        grid
 
-        grid-cols-1
+{/* FOUR CELL LAYOUT */}
 
-        lg:grid-cols-2
+<div
+ className="
+  grid
 
-        gap-12
-        xl:gap-20
+  grid-cols-1
 
-        w-full
-      "
-    >
+  lg:grid-cols-[0.75in_1fr_1fr_0.75in]
 
+  gap-10
 
+  w-full
 
-      {/* BEFORE WAX */}
+  items-start
+ "
+>
 
-      <div
-        className="
-          flex
-          flex-col
-          items-center
 
-          w-full
-        "
-      >
+{/* CELL 1 */}
 
-        <h2
-          className="
-            mb-12
+<div
+ className="
+  hidden
+  lg:block
+ "
+/>
 
-            text-center
 
-            font-serif
 
-            text-3xl
-            md:text-4xl
 
-            text-[#3B2A26]
-          "
-        >
-          Before Your Wax
-        </h2>
+{/* CELL 2 */}
 
+<div
+ className="
+  px-6
 
+  flex
+  flex-col
+  items-center
+ "
+>
 
-        <div
-          className="
-            w-full
-          "
-        >
 
-          <FAQAccordion
-            items={BEFORE_WAXING_FAQ}
-          />
+<h2
+ className="
+  mb-12
 
-        </div>
+  text-center
 
+  font-serif
 
-      </div>
+  text-3xl
+  md:text-4xl
 
+  text-[#3B2A26]
+ "
+>
+ Before Your Wax
+</h2>
 
 
 
+<div
+ className="
+  w-full
+ "
+>
 
-      {/* AFTER CARE */}
+<FAQAccordion
+ items={BEFORE_WAXING_FAQ}
+/>
 
-      <div
-        className="
-          flex
-          flex-col
-          items-center
+</div>
 
-          w-full
-        "
-      >
 
-        <h2
-          className="
-            mb-12
+</div>
 
-            text-center
 
-            font-serif
 
-            text-3xl
-            md:text-4xl
 
-            text-[#3B2A26]
-          "
-        >
-          Caring For Your Skin
-        </h2>
 
+{/* CELL 3 */}
 
+<div
+ className="
+  px-6
 
-        <div
-          className="
-            w-full
-          "
-        >
+  flex
+  flex-col
+  items-center
+ "
+>
 
-          <FAQAccordion
-            items={AFTER_WAX_CARE_FAQ}
-          />
 
-        </div>
+<h2
+ className="
+  mb-12
 
+  text-center
 
-      </div>
+  font-serif
 
+  text-3xl
+  md:text-4xl
 
+  text-[#3B2A26]
+ "
+>
+ Caring For Your Skin
+</h2>
 
-    </div>
 
 
-  </div>
+<div
+ className="
+  w-full
+ "
+>
+
+<FAQAccordion
+ items={AFTER_WAX_CARE_FAQ}
+/>
+
+</div>
+
+
+</div>
+
+
+
+
+
+{/* CELL 4 */}
+
+<div
+ className="
+  hidden
+  lg:block
+ "
+/>
+
+
+
+</div>
+
+
+
+</div>
 
 
 </section>
