@@ -14,7 +14,7 @@
  * • Navbar clearance preserved
  * • Bottom spacing scales
  * • Matched background to site (#FBF7F4)
- * • Top spacer lives on AboutContent
+ * • Top spacer ½ inch (pairs with Hero bottom for 1 inch total gap)
  *
  * ---
  */
@@ -32,6 +32,16 @@ export default function About() {
         lg:pb-[72px]
       "
     >
+      {/* ½ inch top spacer — pairs with Hero pb-[0.5in] = 1 inch total */}
+      <div
+        aria-hidden="true"
+        className="
+          w-full
+          shrink-0
+          h-[0.5in]
+        "
+      />
+
       <AboutContent />
     </section>
   );
