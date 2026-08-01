@@ -7,9 +7,9 @@
  * Natural client testimonial content.
  *
  * Updates:
+ * • Added Brazilian experience testimonial
  * • More authentic client voice
- * • Less promotional wording
- * • More emotional connection
+ * • Focused on comfort and trust
  * • Matches luxury boutique brand tone
  * ---
  */
@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
   name: "Samantha",
 
   quote:
-    "Kim made my first waxing experience so comfortable. She explained everything, made me feel relaxed, and the results were amazing. I wouldn’t go anywhere else.",
+    "Kim made my first Brazilian wax experience so much easier than I expected. She explained everything, made me feel comfortable, and the results were amazing.",
 
   rating: 5,
 },
@@ -39,7 +39,7 @@ export const testimonials: Testimonial[] = [
   name: "Jessica",
 
   quote:
-    "The studio is beautiful and welcoming. Kim is professional, gentle, and really takes the time to make sure you feel comfortable throughout your appointment.",
+    "The studio is beautiful and welcoming. Kim is professional, gentle, and takes the time to make sure you feel comfortable throughout your appointment.",
 
   rating: 5,
 },
@@ -75,7 +75,19 @@ export const testimonials: Testimonial[] = [
   name: "Michael",
 
   quote:
-    "Clean studio, great service, and a very comfortable experience. Kim does an excellent job and makes every visit feel professional and welcoming.",
+    "Clean studio, great service, and a very comfortable experience. Kim provides excellent results and makes every visit feel professional and welcoming.",
+
+  rating: 5,
+},
+
+
+{
+  id: "6",
+
+  name: "Amanda",
+
+  quote:
+    "I was nervous for my first Brazilian, but Kim made the entire process feel relaxed and comfortable. She was professional, patient, and made me feel completely at ease.",
 
   rating: 5,
 },
