@@ -1,237 +1,132 @@
 /**
- *
  * ---
  * File:
- * features/services/Services.tsx
+ * features/services/ServiceCard.tsx
  *
  * Description:
- * Luxury services introduction section.
+ * Luxury service pricing card.
  *
  * Updates:
- * • Removed image text overlays
- * • Removed View Pricing labels
- * • Increased image card sizing
- * • Improved luxury editorial presentation
- * • Full image focus design
- *
+ * • Restored Service prop typing
+ * • Responsive luxury sizing
+ * • Editorial card proportions
+ * • Improved spacing
  * ---
- *
  */
 
-import Link from "next/link";
+import type { Service } from "./services.types";
 
 
-export default function Services() {
+interface ServiceCardProps {
+  service: Service;
+}
+
+
+export default function ServiceCard({
+  service,
+}: ServiceCardProps) {
 
   return (
-
-    <section
+    <article
       className="
+        service-card
+
         w-full
+
+        max-w-[300px]
+        xl:max-w-[320px]
+
+        rounded-[28px]
+
+        border
+        border-[#E8DDD8]
+
+        bg-white
+
+        p-6
+        md:p-7
+        xl:p-8
+
+        text-center
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-2
+        hover:border-[#D4A9B6]
+        hover:shadow-[0_24px_60px_rgba(59,42,38,0.10)]
       "
     >
 
+      {/* SERVICE TITLE */}
 
-      {/* HEADER */}
+      <h3
+        className="
+          font-serif
+
+          text-[1.55rem]
+          md:text-[1.7rem]
+
+          leading-tight
+
+          text-[#3B2A26]
+        "
+      >
+        {service.title}
+      </h3>
+
+
+
+      {/* DESCRIPTION */}
+
+      <p
+        className="
+          mt-4
+
+          text-sm
+          md:text-[15px]
+
+          leading-7
+
+          text-[#8C7468]
+        "
+      >
+        {service.description}
+      </p>
+
+
+
+      {/* PRICE */}
 
       <div
         className="
-          w-full
-          text-center
+          mt-8
+
+          border-t
+          border-[#E8DDD8]
+
+          pt-6
         "
       >
 
         <span
           className="
-            uppercase
-            tracking-[0.4em]
-            text-sm
+            text-lg
+            md:text-xl
+
+            font-medium
+
+            tracking-wide
+
             text-[#8C5A6B]
           "
         >
-          Our Services
+          {service.price}
         </span>
 
-
-        <h2
-          className="
-            mt-6
-
-            font-serif
-
-            text-4xl
-            md:text-5xl
-
-            text-[#3B2A26]
-          "
-        >
-          Luxury Waxing For Everyone
-        </h2>
-
-
-
-        <p
-          className="
-            mt-6
-
-            mx-auto
-
-            max-w-3xl
-
-            text-base
-            md:text-lg
-
-            leading-relaxed
-
-            text-[#8C7468]
-          "
-        >
-          Thoughtfully curated waxing experiences that blend
-          comfort, precision, and refined care for beautifully
-          confident skin.
-        </p>
-
-
       </div>
 
 
-
-
-
-
-      {/* SERVICE IMAGE OPTIONS */}
-
-
-      <div
-        className="
-          mt-16
-
-          grid
-
-          gap-12
-
-          md:grid-cols-2
-
-          justify-items-center
-        "
-      >
-
-
-
-
-
-        {/* LADIES IMAGE */}
-
-
-        <Link
-          href="/services/ladies"
-
-          className="
-            group
-
-            relative
-
-            overflow-hidden
-
-            rounded-[36px]
-
-            w-full
-
-            max-w-[560px]
-
-            aspect-[4/5]
-          "
-        >
-
-          <img
-            src="/images/services/ladies-view-pricing.jpg"
-
-            alt="Ladies waxing services"
-
-            className="
-              absolute
-
-              inset-0
-
-              h-full
-
-              w-full
-
-              object-cover
-
-              transition-all
-
-              duration-700
-
-              group-hover:scale-105
-            "
-          />
-
-        </Link>
-
-
-
-
-
-
-
-        {/* GENTLEMEN IMAGE */}
-
-
-        <Link
-          href="/services/gentlemen"
-
-          className="
-            group
-
-            relative
-
-            overflow-hidden
-
-            rounded-[36px]
-
-            w-full
-
-            max-w-[560px]
-
-            aspect-[4/5]
-          "
-        >
-
-          <img
-            src="/images/services/gentlement-view-pricing.jpg"
-
-            alt="Gentlemen waxing services"
-
-            className="
-              absolute
-
-              inset-0
-
-              h-full
-
-              w-full
-
-              object-cover
-
-              transition-all
-
-              duration-700
-
-              group-hover:scale-105
-            "
-          />
-
-        </Link>
-
-
-
-
-      </div>
-
-
-    </section>
-
+    </article>
   );
-
 }
