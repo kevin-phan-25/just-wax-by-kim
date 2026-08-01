@@ -8,10 +8,11 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Keeps navbar clearance
- * • Responsive phone / iPad / desktop spacing
- * • Bottom spacing scales to ¾ inch desktop
- * • Keeps image natural height
+ * • Keeps navbar clearance logic
+ * • Added ½ inch top spacer
+ * • Added ½ inch bottom spacer
+ * • Responsive phone / iPad / desktop
+ * • Unified background (#FBF7F4)
  *
  * ---
  *
@@ -24,12 +25,19 @@ export default function Hero() {
     <section
       className="
         w-full
-        pt-[168px]
-        pb-12
-        md:pb-16
-        lg:pb-[72px]
+        bg-[#FBF7F4]
       "
     >
+
+      {/* TOP SPACER */}
+      <div
+        className="
+          h-8
+          md:h-10
+          lg:h-[48px]
+        "
+      />
+
       <div
         className="
           container-luxury
@@ -42,6 +50,17 @@ export default function Hero() {
       >
         <HeroImage />
       </div>
+
+
+      {/* BOTTOM SPACER */}
+      <div
+        className="
+          h-8
+          md:h-10
+          lg:h-[48px]
+        "
+      />
+
     </section>
   );
 }
