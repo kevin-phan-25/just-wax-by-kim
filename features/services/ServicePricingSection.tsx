@@ -1,24 +1,25 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/services/ServicePricingSection.tsx
  *
  * Description:
  * Luxury service pricing presentation section.
  *
- * Responsive Update:
- * • Matches Hero spacing system
- * • Responsive navbar clearance
- * • Mobile/iPad optimized spacing
- * • Editorial luxury presentation
- * • Centered service grid
+ * Updates:
+ * • Full width editorial layout
+ * • Centered header content
+ * • Removed divider accents
+ * • Removed restrictive containers
+ * • Responsive phone / iPad / desktop
+ * • Matched Hero background
+ * • Preserved navbar clearance
  *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
 import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
-
 
 interface ServicePricingSectionProps {
   id: string;
@@ -27,18 +28,13 @@ interface ServicePricingSectionProps {
   services: Service[];
 }
 
-
-
 export default function ServicePricingSection({
   id,
   title,
   description,
   services,
 }: ServicePricingSectionProps) {
-
-
   return (
-
     <section
       id={id}
       className="
@@ -48,39 +44,29 @@ export default function ServicePricingSection({
       "
     >
 
-
-      {/* Soft ambient luxury wash */}
-
+      {/* Ambient Background */}
       <div
-
         aria-hidden
-
         className="
           pointer-events-none
           absolute
           inset-0
-
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
-
       />
 
 
-
-      {/* Navbar responsive clearance */}
-
+      {/* Navbar Clearance */}
       <div
         className="
-          nav-clearance
+          h-[168px]
+          md:h-[190px]
         "
       />
 
 
-
-      {/* Main Content */}
-
+      {/* CONTENT */}
       <div
-
         className="
           relative
           z-10
@@ -88,67 +74,54 @@ export default function ServicePricingSection({
           w-full
 
           px-5
-          md:px-8
-          xl:px-16
+          sm:px-8
+          md:px-10
+          lg:px-16
 
-          pb-24
+          pb-[0.5in]
         "
-
       >
 
 
-
         {/* HEADER */}
-
         <header
-
           className="
-            mx-auto
+            w-full
 
-            max-w-4xl
+            flex
+            flex-col
+            items-center
 
             text-center
 
-            mb-12
+            mb-14
             md:mb-16
             xl:mb-20
           "
-
         >
 
-
           <h1
-
             className="
               font-serif
 
               text-4xl
               sm:text-5xl
-              xl:text-6xl
+              md:text-6xl
 
               leading-tight
 
               text-[#3B2A26]
             "
-
           >
-
             {title}
-
           </h1>
 
 
-
-
           <p
-
             className="
-              mx-auto
+              mt-6
 
-              mt-5
-              md:mt-6
-
-              max-w-2xl
+              w-full
 
               text-base
               md:text-lg
@@ -157,71 +130,28 @@ export default function ServicePricingSection({
 
               text-[#8C7468]
             "
-
           >
-
             {description}
-
           </p>
-
 
         </header>
 
 
 
-
-
         {/* SERVICE GRID */}
-
         <div
-
           className="
             w-full
           "
-
         >
-
           <ServiceGrid
             services={services}
           />
-
         </div>
-
 
 
       </div>
 
-
-
-
-
-      {/* Bottom Editorial Divider */}
-
-      <div
-
-        aria-hidden
-
-        className="
-          absolute
-
-          bottom-0
-
-          left-1/2
-
-          -translate-x-1/2
-
-          w-[min(92%,1200px)]
-
-          h-px
-
-          bg-[#E8DDD8]
-        "
-
-      />
-
-
     </section>
-
   );
-
 }

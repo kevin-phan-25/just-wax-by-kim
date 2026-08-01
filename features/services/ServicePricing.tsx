@@ -1,41 +1,45 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
- * ServicePricing.tsx
+ * features/services/ServicePricing.tsx
  *
  * Description:
- * Pricing disclaimer.
- * -----------------------------------------------------------------------------
+ * Luxury service pricing disclaimer.
+ *
+ * Updates:
+ * • Refined editorial presentation
+ * • Centered typography
+ * • Improved spacing
+ * • Matches brand styling
+ *
+ * ---
  */
 
+export default function ServicePricing() {
+  return (
+    <div
+      className="
+        w-full
 
-export default function ServicePricing(){
+        mt-14
+        md:mt-16
 
+        text-center
+      "
+    >
+      <p
+        className="
+          text-sm
+          md:text-base
 
-return (
+          leading-relaxed
 
-<p
-
-className="
-  mt-12
-
-  text-center
-
-  text-sm
-
-  text-[#8C7468]
-"
-
->
-
-Pricing may vary based on customization.
-<br />
-Consultation available before your appointment.
-
-</p>
-
-
-);
-
-
+          text-[#8C7468]
+        "
+      >
+        Pricing may vary based on service customization.
+        Consultation is always available before your appointment.
+      </p>
+    </div>
+  );
 }

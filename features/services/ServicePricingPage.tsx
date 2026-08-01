@@ -1,107 +1,177 @@
+/**
+ * ---
+ * File:
+ * features/services/ServicePricingPage.tsx
+ *
+ * Description:
+ * Luxury service pricing page layout.
+ *
+ * Updates:
+ * • Full width editorial presentation
+ * • Removed restrictive containers
+ * • Centered headers
+ * • Responsive phone / iPad / desktop
+ * • Improved luxury spacing
+ * • Matches site theme
+ *
+ * ---
+ */
+
 import ServiceCard from "./ServiceCard";
 import type { Service } from "./services.types";
 
-
 interface Props {
-
-title:string;
-
-description:string;
-
-services:Service[];
-
+  title: string;
+  description: string;
+  services: Service[];
 }
-
 
 export default function ServicePricingPage({
+  title,
+  description,
+  services,
+}: Props) {
+  return (
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#FCF8F3]
+      "
+    >
 
-title,
-description,
-services,
+      {/* Ambient Background */}
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          inset-0
 
-}:Props){
-
-
-return (
-
-<section
-className="
-px-6
-py-32
-"
->
-
-<div
-className="
-mx-auto
-max-w-7xl
-"
->
-
-
-<header
-className="
-mx-auto
-max-w-3xl
-text-center
-"
->
-
-<h1
-className="
-font-serif
-text-5xl
-text-[#3B2A26]
-"
->
-{title}
-</h1>
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
+        "
+      />
 
 
-<p
-className="
-mt-6
-text-lg
-text-[#8C7468]
-"
->
-{description}
-</p>
+      {/* Navbar Clearance */}
+      <div
+        className="
+          h-[168px]
+          md:h-[190px]
+        "
+      />
 
 
-</header>
+      {/* CONTENT */}
+      <div
+        className="
+          relative
+          z-10
+
+          w-full
+
+          px-5
+          sm:px-8
+          md:px-10
+          lg:px-16
+
+          pb-[0.5in]
+        "
+      >
+
+
+        {/* HEADER */}
+        <header
+          className="
+            w-full
+
+            flex
+            flex-col
+            items-center
+
+            text-center
+
+            mb-14
+            md:mb-16
+            xl:mb-20
+          "
+        >
+
+          <h1
+            className="
+              font-serif
+
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+
+              leading-tight
+
+              text-[#3B2A26]
+            "
+          >
+            {title}
+          </h1>
+
+
+          <p
+            className="
+              mt-6
+
+              w-full
+
+              text-base
+              md:text-lg
+
+              leading-relaxed
+
+              text-[#8C7468]
+            "
+          >
+            {description}
+          </p>
+
+        </header>
 
 
 
-<div
-className="
-mt-16
-grid
-gap-8
-md:grid-cols-2
-lg:grid-cols-3
-"
->
+        {/* SERVICE CARDS */}
+        <div
+          className="
+            w-full
 
-{
-services.map(service=>(
+            grid
 
-<ServiceCard
-key={service.id}
-service={service}
-/>
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+            xl:grid-cols-4
 
-))
-}
+            justify-items-center
+
+            gap-x-8
+            gap-y-10
+
+            md:gap-x-10
+            md:gap-y-12
+
+            xl:gap-x-12
+            xl:gap-y-14
+          "
+        >
+
+          {services.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+            />
+          ))}
+
+        </div>
 
 
-</div>
+      </div>
 
-
-</div>
-
-</section>
-
-);
-
+    </section>
+  );
 }
