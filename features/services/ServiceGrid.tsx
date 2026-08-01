@@ -1,64 +1,161 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
- * features/services/ServiceGrid.tsx
+ * features/services/ServiceCard.tsx
  *
  * Description:
- * Luxury responsive service grid.
+ * Luxury service pricing card.
  *
- * Responsive Update:
- * • Mobile-first layout
- * • Improved tablet spacing
- * • Editorial desktop layout
- * • Centered cards
- * • Balanced gaps
+ * Updates:
+ * • Fixed TypeScript service prop issue
+ * • Responsive luxury card sizing
+ * • Improved spacing
+ * • Editorial styling
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
-import ServiceCard from "./ServiceCard";
-import type { Service } from "./services.types";
 
-interface ServiceGridProps {
-  services: Service[];
+import type {
+  Service,
+} from "./services.types";
+
+
+interface ServiceCardProps {
+
+  service: Service;
+
 }
 
-export default function ServiceGrid({
-  services,
-}: ServiceGridProps) {
+
+
+export default function ServiceCard({
+  service,
+}: ServiceCardProps) {
+
+
   return (
-    <div
+
+    <article
       className="
-        mx-auto
+        service-card
+
         w-full
-        max-w-[1500px]
 
-        grid
+        rounded-[28px]
 
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        2xl:grid-cols-4
+        border
+        border-[#E8DDD8]
 
-        justify-items-center
-        items-start
+        bg-white
 
-        gap-x-8
-        gap-y-10
+        p-6
+        md:p-8
 
-        lg:gap-x-10
-        lg:gap-y-12
+        text-center
 
-        xl:gap-x-12
-        xl:gap-y-14
+        transition-all
+        duration-300
+
+        hover:-translate-y-2
+
+        hover:border-[#D4A9B6]
+
+        hover:shadow-[0_24px_60px_rgba(59,42,38,0.10)]
       "
     >
-      {services.map((service) => (
-        <ServiceCard
-          key={service.id}
-          service={service}
-        />
-      ))}
-    </div>
+
+
+
+      {/* SERVICE NAME */}
+
+      <h3
+        className="
+          font-serif
+
+          text-[1.55rem]
+
+          md:text-[1.7rem]
+
+          leading-tight
+
+          text-[#3B2A26]
+        "
+      >
+
+        {service.title}
+
+      </h3>
+
+
+
+
+
+      {/* DESCRIPTION */}
+
+      <p
+        className="
+          mt-4
+
+          text-sm
+
+          md:text-[15px]
+
+          leading-7
+
+          text-[#8C7468]
+        "
+      >
+
+        {service.description}
+
+      </p>
+
+
+
+
+
+      {/* PRICE */}
+
+      <div
+        className="
+          mt-8
+
+          border-t
+
+          border-[#E8DDD8]
+
+          pt-6
+        "
+      >
+
+        <span
+          className="
+            text-lg
+
+            md:text-xl
+
+            font-medium
+
+            tracking-wide
+
+            text-[#8C5A6B]
+          "
+        >
+
+          {service.price}
+
+        </span>
+
+
+      </div>
+
+
+
+    </article>
+
   );
+
 }
