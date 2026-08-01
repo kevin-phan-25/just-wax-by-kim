@@ -12,9 +12,9 @@
  * • Responsive spacing
  * • Supports editorial grid
  * • Navbar clearance preserved
- * • Bottom spacing scales to ¾ inch
+ * • Bottom spacing scales
  * • Matched background to site (#FBF7F4)
- * • Top padding ½ inch (combines with Hero bottom padding for 1 inch total gap)
+ * • Top spacer lives on AboutContent
  *
  * ---
  */
@@ -27,7 +27,6 @@ export default function About() {
       className="
         w-full
         bg-[#FBF7F4]
-        pt-[0.5in]
         pb-12
         md:pb-16
         lg:pb-[72px]
