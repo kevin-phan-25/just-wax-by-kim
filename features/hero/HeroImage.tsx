@@ -7,10 +7,9 @@
  * Responsive luxury hero banner image.
  *
  * Updates:
- * • Removed forced height cropping
- * • Preserved complete artwork
- * • Improved desktop/mobile scaling
- * • Added luxury rounded presentation
+ * • Balanced spacing
+ * • No navbar overlap
+ * • No excessive bottom gap
  *
  * ---
  */
@@ -30,14 +29,12 @@ export function HeroImage() {
         rounded-[2.5rem]
 
         bg-[#FBF7F4]
-
-        px-4
-        md:px-6
-        lg:px-8
       "
     >
+
       <Image
         src="/hero/just-wax-by-kim-underconstruction.jpg"
+
         alt="Luxury waxing studio experience at Just Wax by Kim"
 
         width={2400}
@@ -46,13 +43,14 @@ export function HeroImage() {
         priority
 
         sizes="
-          (max-width: 768px) 100vw,
-          (max-width: 1440px) 95vw,
-          90vw
+          100vw
         "
 
         className="
+          block
+
           w-full
+
           h-auto
 
           object-contain
@@ -62,7 +60,6 @@ export function HeroImage() {
       />
 
 
-      {/* Soft luxury overlay */}
       <div
         aria-hidden
         className="
@@ -72,24 +69,7 @@ export function HeroImage() {
           rounded-[2.5rem]
 
           bg-gradient-to-r
-          from-[#2D211D]/15
-          via-transparent
-          to-transparent
-        "
-      />
-
-
-      {/* Bottom fade */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          inset-0
-
-          rounded-[2.5rem]
-
-          bg-gradient-to-t
-          from-[#3B2A26]/10
+          from-[#2D211D]/10
           via-transparent
           to-transparent
         "
