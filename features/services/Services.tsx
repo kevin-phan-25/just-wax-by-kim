@@ -16,7 +16,8 @@
  * • Uncropped images (full image visible)
  * • No white background on hover
  * • Centered all text
- * • Top spacing capped at ¾ inch
+ * • Navbar clearance: nav height + ¾ inch
+ * • No divider accents
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,7 +26,22 @@ import Link from "next/link";
 
 export default function Services() {
   return (
-    <section className="w-full bg-transparent pt-[0.75in]">
+    <section className="w-full bg-transparent border-0">
+      {/*
+        Real clearance under fixed navbar:
+        nav height + 0.75in gap
+      */}
+      <div
+        aria-hidden="true"
+        className="
+          w-full
+          shrink-0
+          h-[calc(110px+0.75in)]
+          md:h-[calc(140px+0.75in)]
+          xl:h-[calc(168px+0.75in)]
+        "
+      />
+
       {/* HEADER */}
       <div className="w-full flex flex-col items-center text-center">
         <span
@@ -100,6 +116,8 @@ export default function Services() {
             rounded-[36px]
             bg-transparent
             hover:bg-transparent
+            border-0
+            shadow-none
             transition-transform
             duration-500
           "
@@ -111,6 +129,7 @@ export default function Services() {
               w-full
               max-w-[480px]
               bg-transparent
+              border-0
             "
           >
             <img
@@ -144,6 +163,8 @@ export default function Services() {
             rounded-[36px]
             bg-transparent
             hover:bg-transparent
+            border-0
+            shadow-none
             transition-transform
             duration-500
           "
@@ -155,6 +176,7 @@ export default function Services() {
               w-full
               max-w-[480px]
               bg-transparent
+              border-0
             "
           >
             <img
