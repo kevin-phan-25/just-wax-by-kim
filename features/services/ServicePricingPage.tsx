@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/services/ServicePricingPage.tsx
@@ -8,14 +9,15 @@
  *
  * Updates:
  * • Full width editorial presentation
- * • Centered page headers
+ * • True centered headers
  * • One-line desktop titles
- * • Responsive phone/tablet/desktop
+ * • Responsive mobile handling
  * • Removed restrictive containers
  * • Removed divider accents
- * • Matches site luxury theme
+ * • Matches luxury theme
  *
  * ---
+ *
  */
 
 import ServiceCard from "./ServiceCard";
@@ -36,6 +38,7 @@ export default function ServicePricingPage({
     <section
       className="
         relative
+        w-full
         overflow-hidden
         bg-[#FCF8F3]
       "
@@ -48,7 +51,6 @@ export default function ServicePricingPage({
           pointer-events-none
           absolute
           inset-0
-
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
@@ -64,7 +66,7 @@ export default function ServicePricingPage({
 
 
 
-      {/* CONTENT */}
+      {/* MAIN CONTENT */}
       <div
         className="
           relative
@@ -90,43 +92,42 @@ export default function ServicePricingPage({
             flex
             flex-col
             items-center
+            justify-center
 
             text-center
 
-            mb-14
-            md:mb-16
-            xl:mb-20
+            mb-16
+            md:mb-20
           "
         >
 
           <h1
             className="
-              w-full
-
-              whitespace-nowrap
-
               font-serif
 
               text-4xl
               sm:text-5xl
               md:text-6xl
 
-              leading-tight
+              leading-[1.1]
+
+              text-[#3B2A26]
 
               text-center
 
-              text-[#3B2A26]
+              md:whitespace-nowrap
             "
           >
             {title}
           </h1>
 
 
+
           <p
             className="
-              w-full
-
               mt-6
+
+              w-full
 
               text-center
 
@@ -140,6 +141,7 @@ export default function ServicePricingPage({
           >
             {description}
           </p>
+
 
         </header>
 
@@ -182,6 +184,7 @@ export default function ServicePricingPage({
 
 
       </div>
+
 
     </section>
   );
