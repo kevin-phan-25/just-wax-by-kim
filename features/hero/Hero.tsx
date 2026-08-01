@@ -7,10 +7,11 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Fixed navbar overlap
- * • Removed bottom empty space
- * • Image controls hero height
- * • Improved desktop/mobile spacing
+ * • Matches Navbar height spacing
+ * • Adds 1/2 inch breathing room below navbar
+ * • Removes bottom whitespace
+ * • Lets image control hero height
+ * • Responsive mobile/tablet/desktop
  *
  * ---
  */
@@ -23,18 +24,27 @@ export default function Hero() {
       id="home"
       className="
         relative
-
         w-full
 
         bg-[#FBF7F4]
 
-        pt-[170px]
+        /*
+          Navbar spacing:
+          Mobile navbar: 110px
+          Tablet: 140px
+          Desktop: 168px
 
-        md:pt-[190px]
+          Added breathing room:
+          ~32px
+        */
 
-        lg:pt-[210px]
+        pt-[142px]
 
-        pb-8
+        md:pt-[172px]
+
+        xl:pt-[200px]
+
+        pb-10
 
         overflow-hidden
       "
@@ -47,11 +57,14 @@ export default function Hero() {
           w-full
 
           mx-auto
+
+          px-4
+          md:px-6
+          lg:px-8
         "
       >
 
         <HeroImage />
-
 
       </div>
 
