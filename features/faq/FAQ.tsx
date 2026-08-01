@@ -1,21 +1,17 @@
 /**
- * -----------------------------------------------------------------------------
  * File:
  * features/faq/FAQ.tsx
  *
  * Description:
  * Standalone luxury FAQ presentation.
  *
- * Updated:
- * • Matched Contact / Gallery / Testimonials spacing system
- * • Added internal navbar clearance (spacer pattern)
- * • Removed width restrictions
- * • Centered all FAQ content
- * • Preserved editorial typography
- * • Removed bottom divider
- * • Increased vertical spacing for a more open layout
- * • Removed Book Appointment CTA
- * -----------------------------------------------------------------------------
+ * Updates:
+ * • Matched luxury spacing system
+ * • Removed divider accents
+ * • Centered editorial layout
+ * • Improved question breathing room
+ * • Responsive phone / iPad / desktop layout
+ * • Removed unnecessary width restrictions
  */
 
 import FAQAccordion from "./FAQAccordion";
@@ -37,9 +33,13 @@ export default function FAQ() {
       id="faq"
       className="
         relative
+
         w-full
+
         min-h-screen
+
         overflow-hidden
+
         bg-[#FCF8F3]
       "
     >
@@ -51,15 +51,28 @@ export default function FAQ() {
         aria-hidden
         className="
           pointer-events-none
+
           absolute
+
           inset-0
+
           bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.30),transparent_65%)]
         "
       />
 
 
-      {/* Navbar Transition Spacer */}
-      <div className="h-[216px]" />
+
+      {/* Navbar Clearance */}
+
+      <div
+        className="
+          h-[190px]
+
+          md:h-[210px]
+        "
+      />
+
+
 
 
       {/* CONTENT */}
@@ -67,16 +80,25 @@ export default function FAQ() {
       <div
         className="
           relative
+
           z-10
+
           w-full
-          px-6
-          text-center
-          pb-40
+
+          px-5
+          md:px-8
+
+          pb-32
+          md:pb-40
+
           flex
+
           flex-col
+
           items-center
         "
       >
+
 
 
         {/* HEADER */}
@@ -84,10 +106,18 @@ export default function FAQ() {
         <header
           className="
             w-full
-            mb-20
+
+            max-w-4xl
+
+            mb-16
+            md:mb-20
+
             flex
+
             flex-col
+
             items-center
+
             text-center
           "
         >
@@ -95,8 +125,12 @@ export default function FAQ() {
           <p
             className="
               uppercase
+
               tracking-[0.35em]
-              text-sm
+
+              text-xs
+              md:text-sm
+
               text-[#8C5A6B]
             "
           >
@@ -107,11 +141,18 @@ export default function FAQ() {
 
           <h1
             className="
-              mt-8
+              mt-7
+
               font-serif
+
               text-4xl
-              md:text-6xl
+
+              md:text-5xl
+
+              lg:text-6xl
+
               leading-tight
+
               text-[#3B2A26]
             "
           >
@@ -120,25 +161,19 @@ export default function FAQ() {
 
 
 
-          <div
-            className="
-              mx-auto
-              mt-10
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
 
           <p
             className="
               mt-10
-              mx-auto
+
               max-w-3xl
-              text-lg
+
+              text-base
+
+              md:text-lg
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
@@ -152,21 +187,13 @@ export default function FAQ() {
 
 
 
-
-
-
-
         {/* FAQ CONTENT */}
 
         <div
           className="
-            mt-24
             w-full
-            max-w-5xl
-            flex
-            flex-col
-            items-center
-            text-center
+
+            max-w-4xl
           "
         >
 
@@ -175,7 +202,6 @@ export default function FAQ() {
           />
 
         </div>
-
 
 
 
