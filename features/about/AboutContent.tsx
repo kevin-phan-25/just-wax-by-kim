@@ -7,10 +7,10 @@
  * Luxury editorial About content.
  *
  * Updates:
- * • Centered typography
+ * • Removed container restrictions
+ * • Centered storytelling
  * • Improved paragraph spacing
- * • Removed restrictive layout
- * • Premium storytelling flow
+ * • Balanced luxury typography
  *
  * ---
  */
@@ -22,12 +22,18 @@ export default function AboutContent() {
   return (
     <article
       className="
+        flex
+
         w-full
 
-        mx-auto
+        flex-col
+
+        items-center
 
         px-6
+
         md:px-10
+
         lg:px-16
       "
     >
@@ -35,13 +41,16 @@ export default function AboutContent() {
       {/* Header */}
       <header
         className="
-          max-w-5xl
+          w-full
+
+          max-w-6xl
 
           mx-auto
 
           text-center
 
           mb-20
+
           md:mb-28
         "
       >
@@ -75,16 +84,15 @@ export default function AboutContent() {
 
             lg:text-7xl
 
-            leading-[1.08]
+            leading-[1.05]
 
-            tracking-[-0.04em]
+            tracking-[-0.045em]
 
             text-[#3B2A26]
           "
         >
           {aboutContent.title}
         </h2>
-
 
       </header>
 
@@ -93,11 +101,14 @@ export default function AboutContent() {
       {/* Portrait */}
       <div
         className="
+          w-full
+
           max-w-4xl
 
           mx-auto
 
           mb-24
+
           md:mb-32
         "
       >
@@ -106,11 +117,12 @@ export default function AboutContent() {
 
 
 
-
       {/* Story */}
       <div
         className="
-          max-w-3xl
+          w-full
+
+          max-w-4xl
 
           mx-auto
 
@@ -164,7 +176,6 @@ export default function AboutContent() {
           confidence, and making every
           client feel beautiful.
         </p>
-
 
       </div>
 
