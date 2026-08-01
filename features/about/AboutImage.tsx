@@ -7,10 +7,10 @@
  * Luxury portrait component.
  *
  * Updates:
- * • Removed decorative underline
- * • Removed extra visual clutter
- * • Maintained portrait sizing
- *
+ * • Larger visual presence
+ * • Luxury frame
+ * • No decorative clutter
+ * • Premium editorial aesthetic
  * -----------------------------------------------------------------------------
  */
 
@@ -19,53 +19,65 @@ export default function AboutImage() {
     <div
       className="
         relative
+        w-full
       "
     >
 
-      {/* Soft depth */}
+      {/* Soft Background Depth */}
       <div
         aria-hidden
         className="
           absolute
-          -inset-5
-          rounded-[2.5rem]
-          bg-[#E8DDD8]/40
+          -inset-8
+          rounded-[3rem]
+          bg-[#E8DDD8]/50
           blur-3xl
-          -z-10
         "
       />
 
 
-      {/* Portrait frame */}
+      {/* Portrait */}
       <div
         className="
+          relative
           aspect-[4/5]
+          w-full
           overflow-hidden
-          rounded-[2.25rem]
+          rounded-[2.5rem]
           border
           border-[#E8DDD8]
-          bg-[#F6E7E1]
-          shadow-[0_30px_80px_-20px_rgba(59,42,38,0.18)]
-          flex
-          items-center
-          justify-center
+          bg-[#F4E9E4]
+          shadow-[0_40px_100px_-30px_rgba(59,42,38,0.25)]
         "
       >
 
-        <p
+        <div
           className="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
             text-center
-            uppercase
-            tracking-[0.35em]
-            leading-loose
-            text-[#8A776E]
-            text-[0.7rem]
+            px-10
           "
         >
-          Kim&apos;s Portrait
-          <br />
-          Coming Soon
-        </p>
+
+          <p
+            className="
+              uppercase
+              tracking-[0.45em]
+              leading-loose
+              text-[#8A776E]
+              text-xs
+            "
+          >
+            Kim&apos;s Portrait
+            <br />
+            Coming Soon
+          </p>
+
+        </div>
 
       </div>
 
