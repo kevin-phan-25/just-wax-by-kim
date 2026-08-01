@@ -11,6 +11,8 @@
  * • Removed divider accents
  * • Responsive spacing
  * • Supports editorial grid
+ * • Navbar clearance: nav height + ¾ inch
+ * • Matched background to site (#FBF7F4)
  *
  * ---
  */
@@ -23,22 +25,31 @@ export default function About() {
       id="about"
       className="
         relative
-
         w-full
-
         bg-[#FBF7F4]
-
-        py-16
-
-        sm:py-20
-
-        md:py-32
-
-        lg:py-40
-
+        border-0
+        pb-16
+        sm:pb-20
+        md:pb-32
+        lg:pb-40
         overflow-hidden
       "
     >
+      {/*
+        Spacer = navbar height + 0.75in
+        Matches Hero / Services clearance under fixed nav
+      */}
+      <div
+        aria-hidden="true"
+        className="
+          w-full
+          shrink-0
+          h-[calc(110px+0.75in)]
+          md:h-[calc(140px+0.75in)]
+          xl:h-[calc(168px+0.75in)]
+        "
+      />
+
       <AboutContent />
     </section>
   );
