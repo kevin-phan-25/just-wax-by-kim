@@ -1,50 +1,88 @@
 /**
- * -----------------------------------------------------------------------------
- * File: features/about/Mission.tsx
- *
- * Date: July 29, 2026
+ * ---
+ * File:
+ * features/about/Mission.tsx
  *
  * Description:
- * Minimal editorial mission quote following the About section.
+ * Minimal editorial mission statement.
  *
- * Changes:
+ * Updates:
+ * • Centered luxury quote
+ * • Removed decorative separators
+ * • Removed divider accents
+ * • Responsive phone/tablet/desktop spacing
  *
- * July 29, 2026
- *
- * - Converted quote into single-line statement
- * - Removed decorative separators
- * - Reduced vertical spacing
- * - Reduced visual weight
- *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
 export default function Mission() {
   return (
     <section
       className="
-        bg-brand-background
-        py-6
+        relative
+
+        w-full
+
+        bg-[#FBF7F4]
+
+        py-16
+
+        sm:py-20
+
+        md:py-24
+
+        lg:py-28
       "
     >
+
       <div
         className="
-          container-luxury
+          w-full
+
           flex
+
+          items-center
+
           justify-center
-          text-center
+
+          px-5
+
+          sm:px-8
+
+          md:px-12
+
+          lg:px-20
         "
       >
+
         <p
           className="
+            max-w-5xl
+
+            text-center
+
             font-serif
-            italic
-            text-brand-espresso/80
+
+            text-2xl
+
+            sm:text-3xl
+
+            md:text-4xl
+
+            lg:text-5xl
+
+            leading-[1.35]
+
+            tracking-[-0.02em]
+
+            text-[#3B2A26]
           "
         >
           “A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.”
         </p>
+
       </div>
+
     </section>
   );
 }
