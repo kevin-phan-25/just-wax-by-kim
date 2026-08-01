@@ -11,6 +11,7 @@
  * • Left/right breathing space cells
  * • Removed width restrictions
  * • Removed divider accents
+ * • Removed redundant booking CTA
  * • Centered headers
  * • Softer luxury presentation
  * • Responsive mobile/tablet/desktop
@@ -20,6 +21,7 @@
 
 import { testimonials } from "./testimonials.data";
 import TestimonialCard from "./TestimonialCard";
+
 
 export default function Testimonials() {
   return (
@@ -39,6 +41,7 @@ export default function Testimonials() {
           md:h-[190px]
         "
       />
+
 
 
       {/* HEADER */}
@@ -97,7 +100,8 @@ export default function Testimonials() {
 
 
 
-      {/* FIVE CELL TESTIMONIAL GRID */}
+
+      {/* TESTIMONIAL GRID */}
       <div
         className="
           w-full
@@ -110,9 +114,7 @@ export default function Testimonials() {
 
           gap-8
 
-          px-0
-
-          pb-24
+          pb-12
         "
       >
 
@@ -120,7 +122,6 @@ export default function Testimonials() {
         <div className="hidden lg:block" />
 
 
-        {/* TESTIMONIALS */}
         {testimonials.slice(0,3).map((item)=>(
           <TestimonialCard
             key={item.id}
@@ -136,8 +137,11 @@ export default function Testimonials() {
 
 
 
+
+
       {/* SECOND ROW */}
       {testimonials.length > 3 && (
+
         <div
           className="
             w-full
@@ -150,70 +154,30 @@ export default function Testimonials() {
 
             gap-8
 
-            pb-24
+            pb-32
           "
         >
 
+          {/* LEFT BREATHING SPACE */}
           <div className="hidden lg:block" />
 
+
           {testimonials.slice(3).map((item)=>(
+
             <TestimonialCard
               key={item.id}
               testimonial={item}
             />
+
           ))}
 
+
+          {/* RIGHT BREATHING SPACE */}
           <div className="hidden lg:block" />
 
         </div>
+
       )}
-
-
-
-      {/* BOOK CTA */}
-      <div
-        className="
-          flex
-          justify-center
-          pb-32
-        "
-      >
-
-        <a
-          href="/#booking"
-          className="
-            inline-flex
-            items-center
-            justify-center
-
-            min-h-[68px]
-
-            rounded-full
-
-            border-2
-            border-[#8C5A6B]
-
-            px-14
-
-            uppercase
-            tracking-[0.22em]
-
-            text-sm
-            font-semibold
-
-            text-[#8C5A6B]
-
-            transition-all
-            duration-300
-
-            hover:bg-[#F6E7E1]
-            hover:scale-[1.03]
-          "
-        >
-          Book Appointment
-        </a>
-
-      </div>
 
 
     </section>
