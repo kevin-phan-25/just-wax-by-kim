@@ -4,12 +4,13 @@
  * features/about/AboutImage.tsx
  *
  * Description:
- * Luxury portrait component.
+ * Luxury responsive portrait component.
  *
  * Updates:
- * • Centered portrait presentation
- * • Removed unnecessary decoration
- * • Premium editorial frame
+ * • Mobile optimized sizing
+ * • Tablet scaling
+ * • Desktop editorial frame
+ * • Cleaner luxury presentation
  *
  * ---
  */
@@ -24,22 +25,25 @@ export default function AboutImage() {
       "
     >
 
-      {/* Soft background depth */}
+      {/* Soft luxury depth */}
       <div
         aria-hidden
         className="
           absolute
 
-          -inset-8
+          -inset-6
 
-          rounded-[3rem]
+          sm:-inset-8
+
+          rounded-[2.5rem]
+
+          sm:rounded-[3rem]
 
           bg-[#E8DDD8]/40
 
           blur-3xl
         "
       />
-
 
 
       {/* Portrait */}
@@ -53,7 +57,11 @@ export default function AboutImage() {
 
           overflow-hidden
 
-          rounded-[3rem]
+          rounded-[2rem]
+
+          sm:rounded-[2.5rem]
+
+          md:rounded-[3rem]
 
           border
 
@@ -61,7 +69,7 @@ export default function AboutImage() {
 
           bg-[#F4E9E4]
 
-          shadow-[0_40px_100px_-30px_rgba(59,42,38,0.25)]
+          shadow-[0_30px_80px_-30px_rgba(59,42,38,0.25)]
 
           flex
 
@@ -71,7 +79,9 @@ export default function AboutImage() {
 
           text-center
 
-          px-10
+          px-8
+
+          sm:px-10
         "
       >
 
@@ -79,13 +89,17 @@ export default function AboutImage() {
           className="
             uppercase
 
-            tracking-[0.45em]
+            tracking-[0.4em]
+
+            sm:tracking-[0.45em]
 
             leading-loose
 
             text-[#8A776E]
 
-            text-xs
+            text-[10px]
+
+            sm:text-xs
           "
         >
           Kim&apos;s Portrait
