@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/hero/Hero.tsx
@@ -8,13 +7,12 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Reduced hero height
+ * • Fixed hero clipping
  * • Added navbar breathing space
- * • Prevented hero image cropping
- * • Better luxury banner presentation
+ * • Allows image to control height
+ * • Better mobile/tablet scaling
  *
  * ---
- *
  */
 
 import { HeroImage } from "./HeroImage";
@@ -25,53 +23,65 @@ export default function Hero() {
       id="home"
       className="
         relative
+
         w-full
 
         bg-[#FBF7F4]
 
-        pt-16
-        md:pt-20
+        pt-24
+        md:pt-28
+        lg:pt-32
 
         overflow-hidden
       "
     >
 
-      {/* Hero Image */}
-      <HeroImage />
-
-
-      {/* Hero Content Layer */}
       <div
         className="
-          relative
-          z-10
+          container-luxury
 
-          min-h-[75vh]
-          md:min-h-[78vh]
-          lg:min-h-[82vh]
+          w-full
 
-          flex
-          items-center
+          mx-auto
         "
       >
 
+        <HeroImage />
+
+
+        {/* Future hero text/buttons */}
         <div
           className="
-            container-luxury
-            w-full
+            absolute
 
-            py-16
-            md:py-20
-            lg:py-24
+            inset-0
+
+            z-10
+
+            flex
+
+            items-center
           "
         >
 
-          {/*
-            Hero content:
-            - headline
-            - subtitle
-            - CTA buttons
-          */}
+          <div
+            className="
+              container-luxury
+
+              w-full
+
+              px-6
+              md:px-10
+            "
+          >
+
+            {/* 
+              Hero headline
+              Subtitle
+              CTA buttons
+            */}
+
+          </div>
 
         </div>
 
