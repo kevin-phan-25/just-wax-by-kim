@@ -11,6 +11,7 @@
  * • ~¾ inch gap under nav (0.75in)
  * • Responsive phone / iPad / desktop
  * • Keeps image natural height
+ * • Bottom padding ½ inch (combines with About top padding for 1 inch total gap)
  *
  * ---
  */
@@ -25,7 +26,7 @@ export default function Hero() {
         relative
         w-full
         bg-[#FBF7F4]
-        pb-10
+        pb-[0.5in]
         overflow-hidden
       "
     >
