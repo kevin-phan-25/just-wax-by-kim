@@ -7,9 +7,9 @@
  * Luxury editorial About section.
  *
  * Updates:
- * • Centered luxury composition
- * • Improved visual hierarchy
- * • Full width storytelling layout
+ * • Removed width restrictions
+ * • Full viewport composition
+ * • Centered luxury layout
  *
  * ---
  */
@@ -23,7 +23,11 @@ export default function About() {
       className="
         relative
 
-        w-full
+        w-screen
+
+        left-1/2
+
+        -translate-x-1/2
 
         bg-[#FBF7F4]
 
