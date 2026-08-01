@@ -6,12 +6,11 @@
  * Description:
  * Luxury responsive hero section.
  *
- * Responsive Update:
+ * Responsive:
  * • Responsive navbar clearance
  * • Mobile/tablet optimized spacing
  * • Editorial desktop layout
  * • Ambient luxury background
- *
  * -----------------------------------------------------------------------------
  */
 
@@ -20,28 +19,38 @@ import { HeroImage } from "./HeroImage";
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="home"
       className="
         relative
+        w-full
         overflow-hidden
-        bg-[#FCF8F3]
+        bg-[#FBF7F4]
       "
     >
+
       {/* Ambient background */}
       <div
         aria-hidden
         className="
-          pointer-events-none
           absolute
           inset-0
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
+          bg-gradient-to-b
+          from-[#F8EFEA]
+          via-[#FBF7F4]
+          to-[#FBF7F4]
         "
       />
 
-      {/* Responsive navbar clearance */}
-      <div className="nav-clearance" />
 
-      {/* Hero */}
+      {/* Responsive navbar clearance */}
+      <div
+        className="
+          nav-clearance
+        "
+      />
+
+
+      {/* Hero Content */}
       <div
         className="
           container-luxury
@@ -53,8 +62,12 @@ export default function Hero() {
           xl:pb-24
         "
       >
+
         <HeroImage />
+
       </div>
+
+
 
       {/* Bottom divider */}
       <div
@@ -71,6 +84,7 @@ export default function Hero() {
           bg-[#E8DDD8]
         "
       />
+
     </section>
   );
 }
