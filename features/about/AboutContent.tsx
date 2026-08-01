@@ -4,13 +4,13 @@
  * features/about/AboutContent.tsx
  *
  * Description:
- * Editorial text content for About section.
+ * Luxury editorial About content.
  *
  * Updates:
- * • Added image wrapping layout
- * • Luxury magazine typography
- * • Paragraph spacing preserved
- * • Portrait floats naturally with content
+ * • Removed accent divider
+ * • Added proper paragraph spacing
+ * • Improved editorial typography
+ * • Portrait integrated into story
  *
  * -----------------------------------------------------------------------------
  */
@@ -23,7 +23,7 @@ export default function AboutContent() {
     <article
       className="
         mx-auto
-        max-w-6xl
+        max-w-7xl
       "
     >
 
@@ -31,15 +31,14 @@ export default function AboutContent() {
       <header
         className="
           text-center
-          mb-12
+          mb-16
         "
       >
         <span
           className="
-            inline-block
-            text-[0.68rem]
             uppercase
             tracking-[0.35em]
+            text-xs
             text-[#8C5A6B]
           "
         >
@@ -49,72 +48,68 @@ export default function AboutContent() {
 
         <h2
           className="
-            mt-5
+            mt-6
+            mx-auto
+            max-w-4xl
             font-serif
             text-4xl
-            sm:text-5xl
-            leading-tight
-            tracking-[-0.03em]
+            md:text-5xl
+            leading-[1.15]
+            tracking-[-0.035em]
             text-[#3B2A26]
           "
         >
           {aboutContent.title}
         </h2>
 
-
-        <div
-          className="
-            mx-auto
-            mt-8
-            h-px
-            w-14
-            bg-[#D4A9B6]
-          "
-        />
       </header>
 
 
 
-      {/* Editorial Story */}
+      {/* Story */}
       <div
         className="
+          mx-auto
+          max-w-5xl
           text-[#7E6B63]
-          text-[1rem]
+          text-base
           leading-[2]
-          tracking-[0.01em]
         "
       >
 
+        {/* Image */}
         <div
           className="
             float-left
-            mr-10
-            mb-8
+            mr-12
+            mb-10
             w-full
-            sm:w-[320px]
-            lg:w-[360px]
+            sm:w-[300px]
+            lg:w-[340px]
           "
         >
           <AboutImage />
         </div>
 
 
-        {aboutContent.description.map((paragraph, index) => (
-          <p
-            key={index}
-            className="
-              mb-8
-            "
-          >
-            {paragraph}
-          </p>
-        ))}
+        {aboutContent.description.map(
+          (paragraph, index) => (
+            <p
+              key={index}
+              className="
+                mb-10
+                tracking-[0.01em]
+              "
+            >
+              {paragraph}
+            </p>
+          )
+        )}
 
 
         <div className="clear-both" />
 
       </div>
-
 
     </article>
   );
