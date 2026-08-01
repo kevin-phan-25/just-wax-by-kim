@@ -5,13 +5,7 @@
  * BookingCTA.tsx
  *
  * Description:
- * Luxury booking call-to-action.
- *
- * Updates:
- * • Larger premium CTA
- * • Removed mauve fill
- * • Cleaner luxury appearance
- * • Centered presentation
+ * Luxury GlossGenius booking button.
  *
  * ---
  *
@@ -32,10 +26,10 @@ export default function BookingCTA() {
 
         rounded-full
 
-        px-14
+        px-16
         py-5
 
-        md:px-20
+        md:px-24
         md:py-6
 
         border
@@ -43,13 +37,11 @@ export default function BookingCTA() {
 
         bg-transparent
 
+        uppercase
+        tracking-[0.12em]
+
         text-sm
         md:text-base
-
-        font-medium
-
-        tracking-[0.12em]
-        uppercase
 
         text-[#3B2A26]
 
