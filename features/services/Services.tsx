@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/services/Services.tsx
  *
@@ -13,35 +14,28 @@
  * • Preserved original image size
  * • Blended card background with section
  * • Improved editorial spacing
- * • Uncropped images (full image visible)
- * • No white background on hover
+ * • Uncropped images
  * • Centered all text
- * • Navbar clearance: nav height + ¾ inch
+ * • Responsive navbar clearance
  * • No divider accents
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
 import Link from "next/link";
 
 export default function Services() {
   return (
-    <section className="w-full bg-transparent border-0">
-      {/*
-        Real clearance under fixed navbar:
-        nav height + 0.75in gap
-      */}
-      <div
-        aria-hidden="true"
-        className="
-          w-full
-          shrink-0
-          h-[calc(110px+0.75in)]
-          md:h-[calc(140px+0.75in)]
-          xl:h-[calc(168px+0.75in)]
-        "
-      />
-
+    <section
+      className="
+        w-full
+        pt-[168px]
+        px-4
+        md:px-6
+        lg:px-8
+      "
+    >
       {/* HEADER */}
       <div className="w-full flex flex-col items-center text-center">
         <span
@@ -51,7 +45,6 @@ export default function Services() {
             tracking-[0.4em]
             text-sm
             text-[#8C5A6B]
-            text-center
           "
         >
           Our Services
@@ -64,7 +57,6 @@ export default function Services() {
             text-4xl
             md:text-5xl
             text-[#3B2A26]
-            text-center
           "
         >
           Luxury Waxing For Everyone
@@ -79,7 +71,6 @@ export default function Services() {
             md:text-lg
             leading-relaxed
             text-[#8C7468]
-            text-center
           "
         >
           Thoughtfully curated waxing experiences that blend
@@ -97,7 +88,6 @@ export default function Services() {
           gap-10
           xl:gap-16
           w-full
-          px-0
           place-items-center
         "
       >
@@ -109,15 +99,6 @@ export default function Services() {
             w-full
             flex
             justify-center
-            py-4
-            px-4
-            md:px-8
-            xl:px-10
-            rounded-[36px]
-            bg-transparent
-            hover:bg-transparent
-            border-0
-            shadow-none
             transition-transform
             duration-500
           "
@@ -128,8 +109,6 @@ export default function Services() {
               rounded-[28px]
               w-full
               max-w-[480px]
-              bg-transparent
-              border-0
             "
           >
             <img
@@ -139,7 +118,6 @@ export default function Services() {
                 w-full
                 h-auto
                 object-contain
-                bg-transparent
                 transition-transform
                 duration-700
                 group-hover:scale-[1.03]
@@ -156,15 +134,6 @@ export default function Services() {
             w-full
             flex
             justify-center
-            py-4
-            px-4
-            md:px-8
-            xl:px-10
-            rounded-[36px]
-            bg-transparent
-            hover:bg-transparent
-            border-0
-            shadow-none
             transition-transform
             duration-500
           "
@@ -175,8 +144,6 @@ export default function Services() {
               rounded-[28px]
               w-full
               max-w-[480px]
-              bg-transparent
-              border-0
             "
           >
             <img
@@ -186,7 +153,6 @@ export default function Services() {
                 w-full
                 h-auto
                 object-contain
-                bg-transparent
                 transition-transform
                 duration-700
                 group-hover:scale-[1.03]
