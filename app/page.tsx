@@ -7,14 +7,14 @@
  * Main homepage composition.
  *
  * Updates:
- * • Added Mission directly below Hero
- * • Removed unnecessary wrappers
- * • Preserved luxury conversion flow
+ * • Mission moved below About
+ * • Cleaner luxury conversion flow
+ * • Removed unnecessary section wrappers
  *
  * Sections:
  * • Hero
- * • Mission
  * • About
+ * • Mission
  * • Services
  * • Booking
  *
@@ -22,8 +22,8 @@
  */
 
 import Hero from "@/features/hero";
-import Mission from "@/features/about/Mission";
 import About from "@/features/about";
+import Mission from "@/features/about/Mission";
 import Services from "@/features/services";
 import Booking from "@/features/booking";
 
@@ -46,12 +46,12 @@ export default function Home() {
       <Hero />
 
 
-      {/* MISSION - HERO CLOSING STATEMENT */}
-      <Mission />
-
-
       {/* ABOUT */}
       <About />
+
+
+      {/* MISSION */}
+      <Mission />
 
 
       {/* SERVICES */}
@@ -60,7 +60,6 @@ export default function Home() {
 
       {/* BOOKING */}
       <Booking />
-
 
     </main>
   );
