@@ -23,6 +23,7 @@ import AboutContent from "./AboutContent";
 export default function About() {
   return (
     <section
+      id="about"
       className="
         w-full
         bg-[#FBF7F4]
