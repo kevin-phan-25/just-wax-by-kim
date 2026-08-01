@@ -84,6 +84,11 @@ export const navigation: readonly NavigationItem[] = [
         href: "/contact",
         description: "We'd love to hear from you",
       },
+      {
+        label: "Privacy Policy",
+        href: "/privacy-policy",
+        description: "How we protect your information",
+      },
     ],
   },
 ];
