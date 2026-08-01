@@ -6,11 +6,11 @@
  * Luxury Privacy Policy presentation page.
  *
  * Updates:
+ * • Responsive editorial layout
+ * • Mobile / tablet / desktop optimization
  * • Removed divider accents
- * • Added 3-column editorial layout
  * • Centered content column
  * • Left aligned policy text
- * • Improved luxury spacing
  */
 
 import { privacyPolicySections } from "./privacy-policy.constants";
@@ -51,7 +51,8 @@ export default function PrivacyPolicy() {
             mt-6
             font-serif
             text-4xl
-            md:text-6xl
+            md:text-5xl
+            xl:text-6xl
             text-[#3B2A26]
           "
         >
@@ -62,7 +63,10 @@ export default function PrivacyPolicy() {
         <p
           className="
             mt-8
-            text-lg
+            mx-auto
+            max-w-2xl
+            text-base
+            md:text-lg
             leading-relaxed
             text-[#8C7468]
           "
@@ -76,28 +80,45 @@ export default function PrivacyPolicy() {
 
 
 
-      {/* THREE COLUMN EDITORIAL LAYOUT */}
+
+      {/* RESPONSIVE EDITORIAL CONTENT */}
       <div
         className="
           grid
+
           grid-cols-1
-          lg:grid-cols-3
+
+          md:grid-cols-5
+
           px-6
+
           pb-32
         "
       >
 
-        {/* LEFT EMPTY COLUMN */}
-        <div />
+
+        {/* LEFT SPACING */}
+        <div
+          className="
+            hidden
+            md:block
+          "
+        />
 
 
 
-        {/* CENTER CONTENT COLUMN */}
+        {/* CONTENT */}
         <main
           className="
+            md:col-span-3
+
             mx-auto
+
             w-full
+
             max-w-3xl
+
+            xl:max-w-4xl
           "
         >
 
@@ -115,9 +136,12 @@ export default function PrivacyPolicy() {
                 <h2
                   className="
                     mb-6
+
                     font-serif
+
                     text-2xl
                     md:text-3xl
+
                     text-[#3B2A26]
                   "
                 >
@@ -132,9 +156,13 @@ export default function PrivacyPolicy() {
                     <p
                       key={paragraph}
                       className="
-                        mb-5
+                        mb-6
+
                         text-base
+                        md:text-[17px]
+
                         leading-[1.9]
+
                         text-[#6F5A50]
                       "
                     >
@@ -153,8 +181,14 @@ export default function PrivacyPolicy() {
 
 
 
-        {/* RIGHT EMPTY COLUMN */}
-        <div />
+        {/* RIGHT SPACING */}
+        <div
+          className="
+            hidden
+            md:block
+          "
+        />
+
 
       </div>
 
