@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File: features/policies/PolicySectionCard.tsx
  *
@@ -6,12 +7,13 @@
  * Luxury editorial policy card.
  *
  * Updated:
+ * • Removed divider accents
  * • Added heart accent markers
- * • Removed traditional bullets
- * • Improved boutique luxury presentation
  * • Maintained editorial grid alignment
+ * • Improved boutique luxury presentation
  *
  * ---
+ *
  */
 
 import type { PolicySection } from "./policies.types";
@@ -24,15 +26,7 @@ export default function PolicySectionCard({
   section,
 }: Props) {
   return (
-    <article
-      className="
-        w-full
-        text-left
-        border-t
-        border-[#D8B4A0]/50
-        pt-10
-      "
-    >
+    <article>
 
       {/* Title */}
       <h2
@@ -45,19 +39,6 @@ export default function PolicySectionCard({
       >
         {section.title}
       </h2>
-
-
-
-      {/* Divider */}
-      <div
-        className="
-          mt-5
-          h-px
-          w-16
-          bg-[#D8B4A0]
-        "
-      />
-
 
 
       {/* Intro */}
@@ -75,7 +56,6 @@ export default function PolicySectionCard({
       )}
 
 
-
       {/* Paragraphs */}
       {section.paragraphs?.map((paragraph) => (
         <p
@@ -90,7 +70,6 @@ export default function PolicySectionCard({
           {paragraph}
         </p>
       ))}
-
 
 
       {/* Heart List */}
@@ -113,7 +92,6 @@ export default function PolicySectionCard({
                 text-[#6F5A50]
               "
             >
-
               {/* Heart Accent */}
               <span
                 className="
@@ -137,7 +115,6 @@ export default function PolicySectionCard({
           ))}
         </ul>
       )}
-
 
 
       {/* Note */}
