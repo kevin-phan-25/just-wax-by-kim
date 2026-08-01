@@ -5,20 +5,20 @@
  * BookingWidget.tsx
  *
  * Description:
- * Luxury booking embed container.
+ * Luxury external booking launch.
  *
  * Updates:
- * • Removed duplicate booking copy
- * • Removed secondary CTA
- * • GlossGenius-ready structure
- * • Soft luxury presentation
- * • Responsive spacing
+ * • Removed placeholder calendar
+ * • GlossGenius compatible
+ * • Simplified presentation
+ * • Centered luxury layout
  *
  * ---
  *
  */
 
 import { BOOKING_CONFIG } from "./booking.constants";
+import BookingCTA from "./BookingCTA";
 
 export default function BookingWidget() {
   return (
@@ -33,17 +33,12 @@ export default function BookingWidget() {
       <div
         className="
           w-full
-          rounded-[36px]
-          bg-white/40
-          px-6
-          py-12
-          md:px-12
-          md:py-16
           text-center
+          py-10
+          md:py-14
         "
       >
 
-        {/* EYEBROW */}
         <p
           className="
             uppercase
@@ -56,27 +51,24 @@ export default function BookingWidget() {
         </p>
 
 
-
-        {/* TITLE */}
         <h3
           className="
             mt-5
             font-serif
             text-3xl
-            md:text-4xl
+            md:text-5xl
             text-[#3B2A26]
+            whitespace-nowrap
           "
         >
           {BOOKING_CONFIG.widgetTitle}
         </h3>
 
 
-
-        {/* DESCRIPTION */}
         <p
           className="
             mx-auto
-            mt-5
+            mt-6
             max-w-3xl
             text-base
             md:text-lg
@@ -88,32 +80,14 @@ export default function BookingWidget() {
         </p>
 
 
-
-        {/* BOOKING EMBED PLACEHOLDER */}
         <div
           className="
             mt-10
-            w-full
-            min-h-[320px]
-            rounded-[28px]
-            bg-[#FBF7F4]
             flex
-            items-center
             justify-center
-            px-6
           "
         >
-
-          <p
-            className="
-              text-sm
-              md:text-base
-              text-[#8C7468]
-            "
-          >
-            Booking calendar will appear here.
-          </p>
-
+          <BookingCTA />
         </div>
 
 
