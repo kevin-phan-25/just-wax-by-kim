@@ -8,12 +8,10 @@
  * Responsive luxury hero banner image.
  *
  * Updates:
- * • Increased navbar breathing room
- * • Moved hero image down ~1/2 inch
- * • Mobile optimized crop
- * • Tablet optimized scaling
- * • Desktop cinematic banner
- * • Better focal point control
+ * • Fixed banner cropping
+ * • Reduced image scaling
+ * • Preserved full artwork
+ * • Improved desktop presentation
  *
  * ---
  *
@@ -27,16 +25,23 @@ export function HeroImage() {
       className="
         absolute
 
-        top-20
-        md:top-24
+        top-16
+        md:top-20
 
         left-0
         right-0
-        bottom-0
+
+        h-[75vh]
+
+        md:h-[78vh]
+
+        lg:h-[82vh]
 
         overflow-hidden
 
-        rounded-t-[2.5rem]
+        rounded-[2.5rem]
+
+        bg-[#FBF7F4]
       "
     >
 
@@ -54,19 +59,11 @@ export function HeroImage() {
         "
 
         className="
-          object-cover
+          object-contain
 
-          object-[65%_center]
+          md:object-contain
 
-          sm:object-[60%_center]
-
-          md:object-center
-
-          lg:object-center
-
-          scale-110
-          sm:scale-105
-          lg:scale-[1.02]
+          lg:object-contain
         "
       />
 
@@ -80,9 +77,9 @@ export function HeroImage() {
 
           bg-gradient-to-r
 
-          from-[#2D211D]/45
+          from-[#2D211D]/20
 
-          via-[#2D211D]/15
+          via-transparent
 
           to-transparent
         "
@@ -98,14 +95,13 @@ export function HeroImage() {
 
           bg-gradient-to-t
 
-          from-[#3B2A26]/35
+          from-[#3B2A26]/15
 
           via-transparent
 
           to-transparent
         "
       />
-
 
     </div>
   );
