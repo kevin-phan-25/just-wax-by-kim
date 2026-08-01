@@ -206,7 +206,7 @@ export async function POST(
     await resend.emails.send({
 
       from:
-        "Just Wax by Kim <justwaxbykim@justwaxbykim.com>",
+        "Just Wax by Kim <justwaxbykim@gmail.com>",
 
 
       to:
@@ -298,7 +298,7 @@ export async function POST(
     await resend.emails.send({
 
       from:
-        "Just Wax by Kim <justwaxbykim@justwaxbykim.com>",
+        "Just Wax by Kim <justwaxbykim@gmail.com>",
 
 
       to:
