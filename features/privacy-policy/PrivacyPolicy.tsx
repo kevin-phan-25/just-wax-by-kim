@@ -13,20 +13,15 @@ export default function PrivacyPolicy() {
     <section
       className="
         relative
-        min-h-screen
-        overflow-hidden
-        bg-[#FCF8F3]
+        w-full
       "
     >
-
       {/* Navbar clearance */}
       <div className="h-[216px]" />
 
 
       <div
         className="
-          relative
-          z-10
           w-full
           px-6
           pb-32
@@ -66,20 +61,11 @@ export default function PrivacyPolicy() {
           </h1>
 
 
-          <div
-            className="
-              mx-auto
-              mt-8
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
           <p
             className="
               mt-8
+              mx-auto
+              max-w-2xl
               text-lg
               leading-relaxed
               text-[#8C7468]
@@ -104,63 +90,52 @@ export default function PrivacyPolicy() {
           {privacyPolicySections.map(
             (section) => (
 
-            <article
-              key={section.title}
-              className="
-                mb-14
-              "
-            >
-
-              <h2
+              <article
+                key={section.title}
                 className="
-                  font-serif
-                  text-2xl
-                  md:text-3xl
-                  text-[#3B2A26]
-                  mb-5
+                  mb-14
                 "
               >
-                {section.title}
-              </h2>
 
-
-              {section.content.map(
-                (paragraph) => (
-
-                <p
-                  key={paragraph}
+                <h2
                   className="
+                    font-serif
+                    text-2xl
+                    md:text-3xl
+                    text-[#3B2A26]
                     mb-5
-                    text-base
-                    leading-relaxed
-                    text-[#6F5A50]
                   "
                 >
-                  {paragraph}
-                </p>
+                  {section.title}
+                </h2>
 
-              ))}
 
-            </article>
+                {section.content.map(
+                  (paragraph) => (
 
-          ))}
+                    <p
+                      key={paragraph}
+                      className="
+                        mb-5
+                        text-base
+                        leading-relaxed
+                        text-[#6F5A50]
+                      "
+                    >
+                      {paragraph}
+                    </p>
+
+                  )
+                )}
+
+              </article>
+
+            )
+          )}
 
         </div>
 
       </div>
-
-
-      <div
-        aria-hidden
-        className="
-          absolute
-          bottom-0
-          left-0
-          h-px
-          w-full
-          bg-[#E8DDD8]
-        "
-      />
 
     </section>
   );
