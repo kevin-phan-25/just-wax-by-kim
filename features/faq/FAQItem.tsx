@@ -1,103 +1,212 @@
 /**
- * -----------------------------------------------------------------------------
  * File:
  * features/faq/FAQItem.tsx
  *
  * Description:
- * Luxury FAQ accordion item – soft bubble / card style.
- * -----------------------------------------------------------------------------
+ * Luxury FAQ accordion item.
+ *
+ * Updates:
+ * • Increased spacing between content
+ * • Improved typography hierarchy
+ * • Easier-to-read answers
+ * • Luxury card presentation
  */
+
 "use client";
 
-import { Plus, Minus } from "lucide-react";
-import { useState } from "react";
-import type { FAQItemType } from "./faq.types";
+import {
+  Plus,
+  Minus,
+} from "lucide-react";
+
+import {
+  useState,
+} from "react";
+
+import type {
+  FAQItemType,
+} from "./faq.types";
+
 
 interface Props {
   item: FAQItemType;
 }
 
-export default function FAQItem({ item }: Props) {
-  const [open, setOpen] = useState(false);
+
+export default function FAQItem({
+  item,
+}: Props) {
+
+
+  const [
+    open,
+    setOpen,
+  ] = useState(false);
+
+
 
   return (
+
     <div
       className={`
         rounded-3xl
+
         border
+
         transition-all
+
         duration-300
+
         ${
           open
-            ? "border-[#D8B4A0] bg-white shadow-sm"
-            : "border-[#E8DDD8] bg-[#FDF9F5] hover:border-[#D8B4A0] hover:bg-white"
+            ? `
+              border-[#D8B4A0]
+
+              bg-white
+
+              shadow-md
+            `
+            : `
+              border-[#E8DDD8]
+
+              bg-[#FDF9F5]
+
+              hover:bg-white
+
+              hover:border-[#D8B4A0]
+            `
         }
       `}
     >
+
+
+
       {/* QUESTION */}
+
       <button
         type="button"
-        onClick={() => setOpen(!open)}
+
+        onClick={() =>
+          setOpen(!open)
+        }
+
         className="
           group
-          relative
+
           flex
+
           w-full
+
           items-center
-          justify-center
-          px-8
+
+          justify-between
+
+          gap-6
+
+          px-7
+          md:px-10
+
           py-7
-          pr-20
-          text-center
+          md:py-8
+
+          text-left
         "
       >
+
+
         <span
           className="
+            pr-4
+
             font-serif
-            text-xl
-            md:text-2xl
-            leading-snug
+
+            text-lg
+
+            md:text-xl
+
+            leading-relaxed
+
+            font-medium
+
             text-[#3B2A26]
-            transition-colors
-            duration-300
-            group-hover:text-[#8C5A6B]
           "
         >
           {item.question}
         </span>
 
+
+
         <span
           className={`
-            absolute
-            right-8
             flex
+
             h-11
+
             w-11
+
             shrink-0
+
             items-center
+
             justify-center
+
             rounded-full
+
             border
+
             transition-all
+
             duration-300
+
+
             ${
               open
-                ? "border-[#8C5A6B] bg-[#8C5A6B] text-white"
-                : "border-[#D8B4A0] text-[#8C5A6B] group-hover:bg-[#F6E7E1]"
+                ? `
+                  border-[#8C5A6B]
+
+                  bg-[#8C5A6B]
+
+                  text-white
+                `
+                : `
+                  border-[#D8B4A0]
+
+                  text-[#8C5A6B]
+
+                  group-hover:bg-[#F6E7E1]
+                `
             }
           `}
         >
-          {open ? <Minus size={18} /> : <Plus size={18} />}
+
+          {
+            open
+              ? <Minus size={18}/>
+              : <Plus size={18}/>
+          }
+
         </span>
+
+
       </button>
 
+
+
+
+
+
       {/* ANSWER */}
+
       <div
         className={`
           grid
+
           transition-all
+
           duration-500
+
           ease-in-out
+
           ${
             open
               ? "grid-rows-[1fr] opacity-100"
@@ -105,14 +214,55 @@ export default function FAQItem({ item }: Props) {
           }
         `}
       >
-        <div className="overflow-hidden">
-          <div className="px-8 pb-8 pt-1">
-            <p className="text-base leading-8 text-[#6F5A50] text-center">
+
+        <div
+          className="
+            overflow-hidden
+          "
+        >
+
+          <div
+            className="
+              px-7
+              md:px-10
+
+              pb-8
+              md:pb-10
+
+              pt-1
+            "
+          >
+
+            <p
+              className="
+                text-base
+
+                md:text-lg
+
+                font-medium
+
+                leading-[1.9]
+
+                text-[#5F4A42]
+              "
+            >
               {item.answer}
             </p>
+
+
           </div>
+
+
         </div>
+
+
       </div>
+
+
+
+
     </div>
+
   );
+
 }
