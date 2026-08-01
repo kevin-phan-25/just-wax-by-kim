@@ -8,11 +8,12 @@
  *
  * Updates:
  * • Full width editorial presentation
+ * • Centered page headers
+ * • One-line desktop titles
+ * • Responsive phone/tablet/desktop
  * • Removed restrictive containers
- * • Centered headers
- * • Responsive phone / iPad / desktop
- * • Improved luxury spacing
- * • Matches site theme
+ * • Removed divider accents
+ * • Matches site luxury theme
  *
  * ---
  */
@@ -62,6 +63,7 @@ export default function ServicePricingPage({
       />
 
 
+
       {/* CONTENT */}
       <div
         className="
@@ -99,6 +101,10 @@ export default function ServicePricingPage({
 
           <h1
             className="
+              w-full
+
+              whitespace-nowrap
+
               font-serif
 
               text-4xl
@@ -106,6 +112,8 @@ export default function ServicePricingPage({
               md:text-6xl
 
               leading-tight
+
+              text-center
 
               text-[#3B2A26]
             "
@@ -116,9 +124,11 @@ export default function ServicePricingPage({
 
           <p
             className="
+              w-full
+
               mt-6
 
-              w-full
+              text-center
 
               text-base
               md:text-lg
@@ -135,7 +145,8 @@ export default function ServicePricingPage({
 
 
 
-        {/* SERVICE CARDS */}
+
+        {/* SERVICE GRID */}
         <div
           className="
             w-full
