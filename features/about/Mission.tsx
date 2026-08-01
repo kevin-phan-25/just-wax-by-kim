@@ -7,10 +7,10 @@
  * Minimal editorial mission statement following About section.
  *
  * Updates:
- * • Single-line luxury statement
- * • Reduced typography
- * • Removed divider accents
- * • Responsive sizing
+ * • True one-line desktop statement
+ * • Reduced font scale
+ * • Removed decorative elements
+ * • Responsive mobile behavior
  *
  * ---
  */
@@ -23,56 +23,54 @@ export default function Mission() {
 
         bg-[#FBF7F4]
 
-        py-12
+        py-10
 
-        sm:py-14
+        sm:py-12
 
         md:py-16
       "
     >
-
       <div
         className="
           w-full
+
+          flex
+
+          justify-center
 
           px-5
 
           sm:px-8
 
           md:px-12
-
-          flex
-
-          justify-center
         "
       >
-
         <p
           className="
-            w-full
-
             text-center
 
             font-serif
 
-            text-lg
+            text-base
 
-            sm:text-xl
+            sm:text-lg
 
-            md:text-2xl
+            md:text-xl
 
-            leading-relaxed
+            lg:text-2xl
 
-            tracking-[-0.01em]
+            leading-normal
+
+            tracking-normal
 
             text-[#3B2A26]
+
+            lg:whitespace-nowrap
           "
         >
           A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.
         </p>
-
       </div>
-
     </section>
   );
 }
