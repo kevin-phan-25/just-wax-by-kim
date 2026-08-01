@@ -1,14 +1,16 @@
 /**
  * -----------------------------------------------------------------------------
- * File: features/about/AboutImage.tsx
+ * File:
+ * features/about/AboutImage.tsx
  *
  * Description:
  * Luxury portrait centerpiece.
  *
- * Changes:
- * • Increased portrait size
- * • More elegant proportions
- * • Stronger editorial presence
+ * Updates:
+ * • Keeps original portrait size
+ * • Removed grid dependency
+ * • Optimized for editorial text wrapping
+ *
  * -----------------------------------------------------------------------------
  */
 
@@ -17,12 +19,6 @@ export default function AboutImage() {
     <div
       className="
         relative
-        w-full
-        max-w-[320px]
-        sm:max-w-[360px]
-        lg:max-w-[430px]
-        xl:max-w-[470px]
-        aspect-[4/5]
       "
     >
 
@@ -40,12 +36,11 @@ export default function AboutImage() {
       />
 
 
-      {/* Portrait frame */}
+      {/* Portrait */}
       <div
         className="
           relative
-          h-full
-          w-full
+          aspect-[4/5]
           overflow-hidden
           rounded-[2.25rem]
           border
