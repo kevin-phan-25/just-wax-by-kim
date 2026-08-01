@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/hero/HeroImage.tsx
  *
@@ -7,11 +8,15 @@
  * Responsive luxury hero banner image.
  *
  * Updates:
+ * • Increased navbar breathing room
+ * • Moved hero image down ~1/2 inch
  * • Mobile optimized crop
  * • Tablet optimized scaling
  * • Desktop cinematic banner
  * • Better focal point control
- * -----------------------------------------------------------------------------
+ *
+ * ---
+ *
  */
 
 import Image from "next/image";
@@ -22,8 +27,8 @@ export function HeroImage() {
       className="
         absolute
 
-        top-10
-        md:top-12
+        top-20
+        md:top-24
 
         left-0
         right-0
@@ -37,6 +42,7 @@ export function HeroImage() {
 
       <Image
         src="/hero/just-wax-by-kim-underconstruction.jpg"
+
         alt="Luxury waxing studio experience at Just Wax by Kim"
 
         fill
