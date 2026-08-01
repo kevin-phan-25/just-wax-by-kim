@@ -11,7 +11,7 @@
  * • Removed divider accents
  * • Responsive spacing
  * • Supports editorial grid
- * • Navbar clearance: nav height + ¾ inch
+ * • Navbar clearance: nav height + ⅜ inch (50% less gap)
  * • Matched background to site (#FBF7F4)
  *
  * ---
@@ -36,17 +36,16 @@ export default function About() {
       "
     >
       {/*
-        Spacer = navbar height + 0.75in
-        Matches Hero / Services clearance under fixed nav
+        Spacer = navbar height + 0.375in (50% of previous 0.75in gap)
       */}
       <div
         aria-hidden="true"
         className="
           w-full
           shrink-0
-          h-[calc(110px+0.75in)]
-          md:h-[calc(140px+0.75in)]
-          xl:h-[calc(168px+0.75in)]
+          h-[calc(110px+0.375in)]
+          md:h-[calc(140px+0.375in)]
+          xl:h-[calc(168px+0.375in)]
         "
       />
 
