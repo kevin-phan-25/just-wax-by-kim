@@ -9,8 +9,9 @@
  *
  * Updates:
  * • Refined luxury brand voice
- * • Reduced repetition
- * • Improved conversion flow
+ * • Removed repetitive messaging
+ * • Optimized for GlossGenius external booking
+ * • Cleaner conversion flow
  * • Matches Just Wax by Kim aesthetic
  *
  * ---
@@ -30,17 +31,18 @@ export const BOOKING_CONFIG = {
 
   ctaLabel: "Book Your Appointment",
 
-  bookingUrl: "#", // Replace with GlossGenius booking link
+  // Replace with your GlossGenius booking URL
+  bookingUrl: "#",
 
 
   /*
-   * Booking widget content
+   * External booking section
    */
   widgetEyebrow: "Online Booking",
 
-  widgetTitle: "Find Your Perfect Time",
+  widgetTitle: "Choose Your Appointment Time",
 
   widgetDescription:
-    "Select your service, choose a convenient time, and receive your confirmation instantly. Your next appointment is only a few clicks away.",
+    "Ready when you are. Use our secure online booking system to select your service and reserve your preferred appointment time.",
 
 } as const;
