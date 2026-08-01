@@ -1,19 +1,3 @@
-/**
- * ---
- * File:
- * features/about/AboutImage.tsx
- *
- * Description:
- * Luxury portrait component.
- *
- * Updates:
- * • Responsive sizing
- * • Editorial portrait frame
- * • Balanced desktop/mobile appearance
- *
- * ---
- */
-
 export default function AboutImage() {
   return (
     <div
@@ -29,9 +13,11 @@ export default function AboutImage() {
         className="
           absolute
 
-          -inset-6
+          -inset-5
 
-          rounded-[3rem]
+          sm:-inset-6
+
+          rounded-[2.5rem]
 
           bg-[#E8DDD8]/40
 
@@ -50,7 +36,9 @@ export default function AboutImage() {
 
           overflow-hidden
 
-          rounded-[2.5rem]
+          rounded-[2rem]
+
+          sm:rounded-[2.5rem]
 
           border
 
@@ -58,7 +46,7 @@ export default function AboutImage() {
 
           bg-[#F4E9E4]
 
-          shadow-[0_40px_100px_-30px_rgba(59,42,38,0.25)]
+          shadow-[0_30px_80px_-30px_rgba(59,42,38,0.25)]
 
           flex
 
@@ -68,7 +56,9 @@ export default function AboutImage() {
 
           text-center
 
-          px-8
+          px-6
+
+          sm:px-8
         "
       >
 
@@ -76,11 +66,15 @@ export default function AboutImage() {
           className="
             uppercase
 
-            tracking-[0.45em]
+            tracking-[0.4em]
+
+            sm:tracking-[0.45em]
+
+            text-[10px]
+
+            sm:text-xs
 
             leading-loose
-
-            text-xs
 
             text-[#8A776E]
           "
@@ -92,6 +86,7 @@ export default function AboutImage() {
 
 
       </div>
+
 
     </div>
   );
