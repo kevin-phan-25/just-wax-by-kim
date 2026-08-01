@@ -1,20 +1,3 @@
-/**
- * ---
- * File:
- * features/about/AboutImage.tsx
- *
- * Description:
- * Luxury responsive portrait component.
- *
- * Updates:
- * • Mobile optimized sizing
- * • Tablet scaling
- * • Desktop editorial frame
- * • Cleaner luxury presentation
- *
- * ---
- */
-
 export default function AboutImage() {
   return (
     <div
@@ -25,19 +8,13 @@ export default function AboutImage() {
       "
     >
 
-      {/* Soft luxury depth */}
       <div
         aria-hidden
         className="
           absolute
-
           -inset-6
 
-          sm:-inset-8
-
-          rounded-[2.5rem]
-
-          sm:rounded-[3rem]
+          rounded-[3rem]
 
           bg-[#E8DDD8]/40
 
@@ -46,7 +23,6 @@ export default function AboutImage() {
       />
 
 
-      {/* Portrait */}
       <div
         className="
           relative
@@ -57,11 +33,7 @@ export default function AboutImage() {
 
           overflow-hidden
 
-          rounded-[2rem]
-
-          sm:rounded-[2.5rem]
-
-          md:rounded-[3rem]
+          rounded-[2.5rem]
 
           border
 
@@ -69,7 +41,7 @@ export default function AboutImage() {
 
           bg-[#F4E9E4]
 
-          shadow-[0_30px_80px_-30px_rgba(59,42,38,0.25)]
+          shadow-[0_40px_100px_-30px_rgba(59,42,38,0.25)]
 
           flex
 
@@ -80,8 +52,6 @@ export default function AboutImage() {
           text-center
 
           px-8
-
-          sm:px-10
         "
       >
 
@@ -89,17 +59,13 @@ export default function AboutImage() {
           className="
             uppercase
 
-            tracking-[0.4em]
+            tracking-[0.45em]
 
-            sm:tracking-[0.45em]
+            text-xs
 
             leading-loose
 
             text-[#8A776E]
-
-            text-[10px]
-
-            sm:text-xs
           "
         >
           Kim&apos;s Portrait
@@ -109,7 +75,6 @@ export default function AboutImage() {
 
 
       </div>
-
 
     </div>
   );
