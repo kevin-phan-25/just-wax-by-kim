@@ -4,12 +4,12 @@
  * features/about/AboutImage.tsx
  *
  * Description:
- * Luxury portrait centerpiece.
+ * Luxury portrait component.
  *
  * Updates:
- * • Keeps original portrait size
- * • Removed grid dependency
- * • Optimized for editorial text wrapping
+ * • Removed decorative underline
+ * • Removed extra visual clutter
+ * • Maintained portrait sizing
  *
  * -----------------------------------------------------------------------------
  */
@@ -27,26 +27,25 @@ export default function AboutImage() {
         aria-hidden
         className="
           absolute
-          -inset-6
+          -inset-5
           rounded-[2.5rem]
-          bg-[#E8DDD8]/35
+          bg-[#E8DDD8]/40
           blur-3xl
           -z-10
         "
       />
 
 
-      {/* Portrait */}
+      {/* Portrait frame */}
       <div
         className="
-          relative
           aspect-[4/5]
           overflow-hidden
           rounded-[2.25rem]
           border
           border-[#E8DDD8]
           bg-[#F6E7E1]
-          shadow-[0_35px_90px_-20px_rgba(59,42,38,0.22)]
+          shadow-[0_30px_80px_-20px_rgba(59,42,38,0.18)]
           flex
           items-center
           justify-center
@@ -69,21 +68,6 @@ export default function AboutImage() {
         </p>
 
       </div>
-
-
-      {/* Accent */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          left-1/2
-          -bottom-6
-          -translate-x-1/2
-          h-px
-          w-16
-          bg-[#D4A9B6]
-        "
-      />
 
     </div>
   );
