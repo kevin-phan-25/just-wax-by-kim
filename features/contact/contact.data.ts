@@ -15,16 +15,16 @@ export const CONTACT_DATA = {
     "Just Wax by Kim",
 
   tagline:
-    "Luxury Waxing Studio",
+    "More Then Just A Wax",
 
   phone:
-    "(555) 555-5555",
+    "(571) 234-1264",
 
   email:
     "justwaxbykim@gmail.com",
 
   address:
-    "Virginia, United States",
+    "7777 Leesburg Pike Falls Church, VA 22043 Suite 306",
 
   instagram:
     "@justwaxbykim",
@@ -34,12 +34,12 @@ export const CONTACT_DATA = {
 
     {
       day: "Monday – Friday",
-      time: "9:00 AM – 6:00 PM",
+      time: "8:00 AM – 4:00 PM",
     },
 
     {
       day: "Saturday",
-      time: "9:00 AM – 3:00 PM",
+      time: "8:00 AM – 4:00 PM",
     },
 
     {
