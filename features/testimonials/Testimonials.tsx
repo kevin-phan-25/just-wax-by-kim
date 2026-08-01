@@ -5,17 +5,16 @@
  * features/testimonials/Testimonials.tsx
  *
  * Description:
- * Luxury testimonial editorial section.
+ * Luxury testimonial editorial layout.
  *
  * Updates:
- * • Full width editorial layout
- * • Centered header
- * • Five-cell desktop structure
- * • ¾ inch side breathing cells
- * • ½ inch row and column spacing
+ * • Full width presentation
+ * • Five cell editorial spacing
+ * • ¾ inch side breathing room
+ * • 1 inch review spacing
+ * • Centered typography
  * • Removed CTA
- * • Removed divider accents
- * • Luxury Just Wax by Kim theme
+ * • Removed width restrictions
  *
  * ---
  *
@@ -30,6 +29,7 @@ export default function Testimonials() {
       id="reviews"
       className="
         relative
+        w-full
         overflow-hidden
         bg-[#FCF8F3]
       "
@@ -44,15 +44,12 @@ export default function Testimonials() {
       />
 
 
-      {/* FULL WIDTH CONTENT */}
+      {/* CONTENT */}
       <div
         className="
-          relative
           w-full
-          px-5
-          sm:px-8
-          md:px-10
-          xl:px-16
+          px-0
+          text-center
         "
       >
 
@@ -64,11 +61,8 @@ export default function Testimonials() {
             flex
             flex-col
             items-center
-            justify-center
             text-center
-
-            mb-16
-            md:mb-20
+            mb-20
           "
         >
 
@@ -76,8 +70,7 @@ export default function Testimonials() {
             className="
               uppercase
               tracking-[0.35em]
-              text-xs
-              md:text-sm
+              text-sm
               text-[#8C5A6B]
             "
           >
@@ -85,163 +78,96 @@ export default function Testimonials() {
           </p>
 
 
-          <h2
+          <h1
             className="
               mt-6
-              w-full
-
               font-serif
-
               text-4xl
-              sm:text-5xl
               md:text-6xl
-
               leading-tight
-
               text-center
-
+              whitespace-nowrap
               text-[#3B2A26]
             "
           >
             Loved By Our Clients
-          </h2>
+          </h1>
 
 
           <p
             className="
               mt-6
-
-              w-full
-
-              max-w-3xl
-
+              max-w-none
               text-center
-
-              text-base
-              md:text-lg
-
+              text-lg
               leading-relaxed
-
               text-[#8C7468]
             "
           >
-            Real experiences from guests who appreciate
-            comfort, confidence, and thoughtful care.
+            Real experiences from guests who value comfort,
+            confidence, and exceptional care.
           </p>
 
         </header>
 
 
 
-        {/* FIRST ROW */}
+        {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
-            w-full
-
             grid
 
-            grid-cols-1
+            grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
 
-            md:grid-cols-[0.75fr_1fr_1fr_1fr_0.75fr]
+            gap-x-[1in]
+            gap-y-[1in]
 
-            gap-x-12
-            gap-y-12
-
-            md:gap-x-10
-            md:gap-y-10
+            w-full
+            items-start
           "
         >
 
+
           {/* LEFT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-              md:block
-            "
-          />
+          <div />
 
 
-          {testimonials
-            .slice(0, 3)
-            .map((item) => (
-              <TestimonialCard
-                key={item.id}
-                testimonial={item}
-              />
-            ))}
+
+          {/* TESTIMONIALS */}
+          {testimonials.slice(0,3).map((item)=>(
+            <TestimonialCard
+              key={item.id}
+              testimonial={item}
+            />
+          ))}
+
 
 
           {/* RIGHT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-              md:block
-            "
-          />
+          <div />
+
+
+
+          {/* SECOND ROW LEFT SPACE */}
+          <div />
+
+
+
+          {/* REMAINING TESTIMONIALS */}
+          {testimonials.slice(3).map((item)=>(
+            <TestimonialCard
+              key={item.id}
+              testimonial={item}
+            />
+          ))}
+
+
+
+          {/* EMPTY CELLS */}
+          <div />
+          <div />
 
         </div>
-
-
-
-        {/* SECOND ROW */}
-        <div
-          className="
-            mt-12
-
-            w-full
-
-            grid
-
-            grid-cols-1
-
-            md:grid-cols-[0.75fr_1fr_1fr_1fr_0.75fr]
-
-            gap-x-12
-            gap-y-12
-
-            md:gap-x-10
-            md:gap-y-10
-          "
-        >
-
-          {/* LEFT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-              md:block
-            "
-          />
-
-
-          {testimonials
-            .slice(3)
-            .map((item) => (
-              <TestimonialCard
-                key={item.id}
-                testimonial={item}
-              />
-            ))}
-
-
-          {/* EMPTY CENTER ALIGNMENT CELL */}
-          <div
-            className="
-              hidden
-              md:block
-            "
-          />
-
-
-          {/* RIGHT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-              md:block
-            "
-          />
-
-        </div>
-
 
       </div>
 
