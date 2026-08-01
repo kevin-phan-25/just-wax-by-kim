@@ -7,11 +7,11 @@
  * Luxury editorial About content.
  *
  * Updates:
- * • Removed accent divider
- * • Added proper paragraph spacing
- * • Improved editorial typography
- * • Portrait integrated into story
- *
+ * • Removed divider
+ * • Removed restrictions
+ * • Full width composition
+ * • Improved storytelling layout
+ * • Premium editorial spacing
  * -----------------------------------------------------------------------------
  */
 
@@ -22,24 +22,29 @@ export default function AboutContent() {
   return (
     <article
       className="
-        mx-auto
-        max-w-7xl
+        w-full
+        px-6
+        sm:px-10
+        lg:px-20
+        xl:px-32
       "
     >
 
       {/* Header */}
       <header
         className="
-          text-center
-          mb-16
+          max-w-none
+          mb-24
         "
       >
         <span
           className="
+            block
             uppercase
-            tracking-[0.35em]
+            tracking-[0.45em]
             text-xs
             text-[#8C5A6B]
+            mb-8
           "
         >
           {aboutContent.eyebrow}
@@ -48,14 +53,13 @@ export default function AboutContent() {
 
         <h2
           className="
-            mt-6
-            mx-auto
-            max-w-4xl
+            max-w-[1100px]
             font-serif
-            text-4xl
-            md:text-5xl
-            leading-[1.15]
-            tracking-[-0.035em]
+            text-5xl
+            md:text-6xl
+            lg:text-7xl
+            leading-[1.05]
+            tracking-[-0.045em]
             text-[#3B2A26]
           "
         >
@@ -66,48 +70,75 @@ export default function AboutContent() {
 
 
 
-      {/* Story */}
+      {/* Editorial Layout */}
       <div
         className="
-          mx-auto
-          max-w-5xl
-          text-[#7E6B63]
-          text-base
-          leading-[2]
+          grid
+          grid-cols-1
+          lg:grid-cols-[0.9fr_1.1fr]
+          gap-16
+          lg:gap-24
+          items-start
         "
       >
+
 
         {/* Image */}
         <div
           className="
-            float-left
-            mr-12
-            mb-10
-            w-full
-            sm:w-[300px]
-            lg:w-[340px]
+            lg:sticky
+            lg:top-24
           "
         >
           <AboutImage />
         </div>
 
 
-        {aboutContent.description.map(
-          (paragraph, index) => (
-            <p
-              key={index}
-              className="
-                mb-10
-                tracking-[0.01em]
-              "
-            >
-              {paragraph}
-            </p>
-          )
-        )}
+
+        {/* Story */}
+        <div
+          className="
+            text-[#75635B]
+            text-lg
+            md:text-xl
+            leading-[2]
+            max-w-none
+          "
+        >
+
+          {aboutContent.description.map(
+            (paragraph, index) => (
+              <p
+                key={index}
+                className="
+                  mb-14
+                  tracking-[0.015em]
+                "
+              >
+                {paragraph}
+              </p>
+            )
+          )}
 
 
-        <div className="clear-both" />
+          <p
+            className="
+              mt-20
+              font-serif
+              text-3xl
+              md:text-4xl
+              leading-tight
+              text-[#3B2A26]
+            "
+          >
+            A journey built on passion,
+            confidence, and making every
+            client feel beautiful.
+          </p>
+
+
+        </div>
+
 
       </div>
 
