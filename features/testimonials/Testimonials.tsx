@@ -8,13 +8,14 @@
  * Luxury testimonial editorial section.
  *
  * Updates:
- * • Full width layout
- * • True centered header
- * • Five-cell editorial spacing
- * • Added breathing room between cards
+ * • Full width editorial layout
+ * • Centered header
+ * • Five-cell desktop structure
+ * • ¾ inch side breathing cells
+ * • ½ inch row and column spacing
  * • Removed CTA
- * • Removed restrictive containers
- * • Matches Just Wax by Kim luxury theme
+ * • Removed divider accents
+ * • Luxury Just Wax by Kim theme
  *
  * ---
  *
@@ -43,14 +44,15 @@ export default function Testimonials() {
       />
 
 
-      {/* Full width editorial layout */}
+      {/* FULL WIDTH CONTENT */}
       <div
         className="
           relative
           w-full
           px-5
-          md:px-8
-          xl:px-12
+          sm:px-8
+          md:px-10
+          xl:px-16
         "
       >
 
@@ -64,6 +66,7 @@ export default function Testimonials() {
             items-center
             justify-center
             text-center
+
             mb-16
             md:mb-20
           "
@@ -86,12 +89,17 @@ export default function Testimonials() {
             className="
               mt-6
               w-full
+
               font-serif
+
               text-4xl
               sm:text-5xl
               md:text-6xl
+
               leading-tight
+
               text-center
+
               text-[#3B2A26]
             "
           >
@@ -102,12 +110,18 @@ export default function Testimonials() {
           <p
             className="
               mt-6
+
               w-full
+
               max-w-3xl
+
               text-center
+
               text-base
               md:text-lg
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
@@ -119,7 +133,7 @@ export default function Testimonials() {
 
 
 
-        {/* FIVE CELL EDITORIAL GRID */}
+        {/* FIRST ROW */}
         <div
           className="
             w-full
@@ -127,35 +141,104 @@ export default function Testimonials() {
             grid
 
             grid-cols-1
+
             md:grid-cols-[0.75fr_1fr_1fr_1fr_0.75fr]
 
-            gap-x-6
-            gap-y-8
+            gap-x-12
+            gap-y-12
 
-            md:gap-x-8
+            md:gap-x-10
             md:gap-y-10
-
-            items-start
           "
         >
 
-
           {/* LEFT BREATHING SPACE */}
-          <div className="hidden md:block" />
+          <div
+            className="
+              hidden
+              md:block
+            "
+          />
 
 
-          {/* REVIEWS */}
-          {testimonials.map((item) => (
-            <TestimonialCard
-              key={item.id}
-              testimonial={item}
-            />
-          ))}
+          {testimonials
+            .slice(0, 3)
+            .map((item) => (
+              <TestimonialCard
+                key={item.id}
+                testimonial={item}
+              />
+            ))}
 
 
           {/* RIGHT BREATHING SPACE */}
-          <div className="hidden md:block" />
+          <div
+            className="
+              hidden
+              md:block
+            "
+          />
 
+        </div>
+
+
+
+        {/* SECOND ROW */}
+        <div
+          className="
+            mt-12
+
+            w-full
+
+            grid
+
+            grid-cols-1
+
+            md:grid-cols-[0.75fr_1fr_1fr_1fr_0.75fr]
+
+            gap-x-12
+            gap-y-12
+
+            md:gap-x-10
+            md:gap-y-10
+          "
+        >
+
+          {/* LEFT BREATHING SPACE */}
+          <div
+            className="
+              hidden
+              md:block
+            "
+          />
+
+
+          {testimonials
+            .slice(3)
+            .map((item) => (
+              <TestimonialCard
+                key={item.id}
+                testimonial={item}
+              />
+            ))}
+
+
+          {/* EMPTY CENTER ALIGNMENT CELL */}
+          <div
+            className="
+              hidden
+              md:block
+            "
+          />
+
+
+          {/* RIGHT BREATHING SPACE */}
+          <div
+            className="
+              hidden
+              md:block
+            "
+          />
 
         </div>
 
