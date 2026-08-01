@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/hero/HeroImage.tsx
@@ -8,13 +7,12 @@
  * Responsive luxury hero banner image.
  *
  * Updates:
- * • Fixed banner cropping
- * • Reduced image scaling
- * • Preserved full artwork
- * • Improved desktop presentation
+ * • Removed forced height cropping
+ * • Preserved complete artwork
+ * • Improved desktop/mobile scaling
+ * • Added luxury rounded presentation
  *
  * ---
- *
  */
 
 import Image from "next/image";
@@ -23,47 +21,43 @@ export function HeroImage() {
   return (
     <div
       className="
-        absolute
+        relative
 
-        top-16
-        md:top-20
-
-        left-0
-        right-0
-
-        h-[75vh]
-
-        md:h-[78vh]
-
-        lg:h-[82vh]
+        w-full
 
         overflow-hidden
 
         rounded-[2.5rem]
 
         bg-[#FBF7F4]
+
+        px-4
+        md:px-6
+        lg:px-8
       "
     >
-
       <Image
         src="/hero/just-wax-by-kim-underconstruction.jpg"
-
         alt="Luxury waxing studio experience at Just Wax by Kim"
 
-        fill
+        width={2400}
+        height={1200}
 
         priority
 
         sizes="
-          100vw
+          (max-width: 768px) 100vw,
+          (max-width: 1440px) 95vw,
+          90vw
         "
 
         className="
+          w-full
+          h-auto
+
           object-contain
 
-          md:object-contain
-
-          lg:object-contain
+          rounded-[2.5rem]
         "
       />
 
@@ -75,12 +69,11 @@ export function HeroImage() {
           absolute
           inset-0
 
+          rounded-[2.5rem]
+
           bg-gradient-to-r
-
-          from-[#2D211D]/20
-
+          from-[#2D211D]/15
           via-transparent
-
           to-transparent
         "
       />
@@ -93,12 +86,11 @@ export function HeroImage() {
           absolute
           inset-0
 
+          rounded-[2.5rem]
+
           bg-gradient-to-t
-
-          from-[#3B2A26]/15
-
+          from-[#3B2A26]/10
           via-transparent
-
           to-transparent
         "
       />
