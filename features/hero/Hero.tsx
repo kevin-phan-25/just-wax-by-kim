@@ -23,41 +23,29 @@ export default function Hero() {
       id="home"
       className="
         relative
-
         w-full
-
         bg-[#FBF7F4]
-
-        pt-[300px]
-
-        md:pt-[330px]
-
-        xl:pt-[360px]
-
+        pt-[140px]
+        sm:pt-[160px]
+        md:pt-[190px]
+        lg:pt-[220px]
+        xl:pt-[250px]
         pb-10
-
         overflow-hidden
       "
     >
-
       <div
         className="
           container-luxury
-
           w-full
-
           mx-auto
-
           px-4
           md:px-6
           lg:px-8
         "
       >
-
         <HeroImage />
-
       </div>
-
     </section>
   );
 }
