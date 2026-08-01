@@ -12,7 +12,9 @@
  * - Centered typography
  * - Expanded booking widget area
  * - Unified luxury spacing rhythm
- * - Top spacer ½ inch (pairs with Services bottom for 1 inch total gap)
+ * - Removed divider accent (border-t)
+ * - Blended with site background
+ * - Top spacer ½ inch (pairs with Services for 1 inch total gap)
  *
  * ------------------------------------------------------------------
  */
@@ -35,9 +37,7 @@ export default function Booking() {
     <section
       id="booking"
       className="
-        bg-brand-background
-        border-t
-        border-brand-border/50
+        bg-[#FBF7F4]
         section-padding-lg
         pt-0
       "
@@ -162,8 +162,6 @@ export default function Booking() {
           <div
             className="
               rounded-[40px]
-              border
-              border-brand-border
               bg-white/80
               p-8
               md:p-12
