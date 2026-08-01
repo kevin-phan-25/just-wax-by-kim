@@ -6,11 +6,10 @@
  * Luxury Privacy Policy presentation page.
  *
  * Updates:
- * • Removed divider accents
- * • Added 3-column luxury layout
- * • Centered content area
- * • Improved paragraph spacing
- * • Responsive phone / tablet / desktop layout
+ * • Improved editorial spacing
+ * • Added paragraph separation
+ * • Removed restrictive text layout
+ * • Better readability on mobile/tablet/desktop
  */
 
 import { privacyPolicySections } from "./privacy-policy.constants";
@@ -34,7 +33,7 @@ export default function PrivacyPolicy() {
 
           grid-cols-[0.75in_1fr_0.75in]
 
-          lg:grid-cols-[0.75in_minmax(0,850px)_0.75in]
+          lg:grid-cols-[0.75in_minmax(0,900px)_0.75in]
 
           px-4
           md:px-6
@@ -42,27 +41,27 @@ export default function PrivacyPolicy() {
       >
 
 
-        {/* LEFT EMPTY CELL */}
+        {/* LEFT SPACER */}
         <div />
 
 
-        {/* CENTER CONTENT CELL */}
-        <div
+        {/* CENTER CONTENT */}
+        <main
           className="
             w-full
           "
         >
 
 
-          {/* HEADER */}
+          {/* PAGE HEADER */}
 
           <header
             className="
               text-center
 
-              mb-16
+              mb-20
 
-              md:mb-20
+              md:mb-24
             "
           >
 
@@ -100,23 +99,23 @@ export default function PrivacyPolicy() {
 
             <p
               className="
-                mt-8
-
-                max-w-2xl
+                mt-10
 
                 mx-auto
+
+                max-w-3xl
 
                 text-base
                 md:text-lg
 
-                leading-loose
+                leading-relaxed
 
                 text-[#8C7468]
               "
             >
-              Your privacy matters. Learn how Just Wax by Kim
-              collects, protects, and uses your personal
-              information.
+              Your privacy matters. This policy explains how
+              Just Wax by Kim collects, uses, and protects
+              your personal information.
             </p>
 
 
@@ -124,11 +123,16 @@ export default function PrivacyPolicy() {
 
 
 
-          {/* POLICY CONTENT */}
+
+          {/* POLICY SECTIONS */}
 
           <div
             className="
-              space-y-16
+              flex
+              flex-col
+
+              gap-20
+              md:gap-24
             "
           >
 
@@ -138,12 +142,16 @@ export default function PrivacyPolicy() {
                 <article
                   key={section.title}
                   className="
-                    space-y-6
+                    w-full
                   "
                 >
 
+                  {/* TITLE */}
+
                   <h2
                     className="
+                      mb-8
+
                       font-serif
 
                       text-2xl
@@ -156,9 +164,14 @@ export default function PrivacyPolicy() {
                   </h2>
 
 
+
+                  {/* PARAGRAPHS */}
+
                   <div
                     className="
-                      space-y-6
+                      max-w-3xl
+
+                      space-y-8
                     "
                   >
 
@@ -172,6 +185,8 @@ export default function PrivacyPolicy() {
                             md:text-lg
 
                             leading-[2]
+
+                            tracking-[0.01em]
 
                             text-[#6F5A50]
                           "
@@ -193,11 +208,10 @@ export default function PrivacyPolicy() {
           </div>
 
 
-        </div>
+        </main>
 
 
-
-        {/* RIGHT EMPTY CELL */}
+        {/* RIGHT SPACER */}
         <div />
 
 
