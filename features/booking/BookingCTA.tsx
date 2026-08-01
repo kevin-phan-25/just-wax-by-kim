@@ -8,10 +8,10 @@
  * Luxury booking call-to-action.
  *
  * Updates:
- * • Premium brand CTA styling
- * • Matches site luxury theme
- * • Improved hover interaction
- * • Responsive sizing
+ * • Larger premium CTA
+ * • Removed mauve fill
+ * • Cleaner luxury appearance
+ * • Centered presentation
  *
  * ---
  *
@@ -23,6 +23,8 @@ export default function BookingCTA() {
   return (
     <a
       href={BOOKING_CONFIG.bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className="
         inline-flex
         items-center
@@ -30,20 +32,23 @@ export default function BookingCTA() {
 
         rounded-full
 
-        px-10
-        py-4
+        px-14
+        py-5
 
-        md:px-12
-        md:py-5
+        md:px-20
+        md:py-6
 
-        bg-[#D4A9B6]
+        border
+        border-[#C6A15B]
+
+        bg-transparent
 
         text-sm
         md:text-base
 
         font-medium
 
-        tracking-[0.08em]
+        tracking-[0.12em]
         uppercase
 
         text-[#3B2A26]
@@ -52,10 +57,9 @@ export default function BookingCTA() {
         duration-500
 
         hover:bg-[#C6A15B]
-        hover:-translate-y-1
+        hover:text-white
 
-        shadow-sm
-        hover:shadow-md
+        hover:-translate-y-1
       "
     >
       {BOOKING_CONFIG.ctaLabel}
