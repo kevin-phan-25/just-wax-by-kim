@@ -7,12 +7,12 @@
  * Luxury services introduction section.
  *
  * Updates:
- * • Removed Ladies / Gentlemen overlay text
- * • Removed View Pricing text
- * • Expanded outer image cells
- * • Preserved original image sizing
- * • Prevented image scaling from filling expanded cells
+ * • Removed overlay labels
+ * • Expanded image presentation
+ * • Removed restrictive card styling
+ * • Blended image containers into page background
  * • Improved editorial spacing
+ * • Preserved image proportions
  *
  * -----------------------------------------------------------------------------
  */
@@ -32,7 +32,6 @@ export default function Services() {
       <div
         className="
           w-full
-
           text-center
         "
       >
@@ -52,7 +51,6 @@ export default function Services() {
         <h2
           className="
             mt-6
-
             font-serif
 
             text-4xl
@@ -78,6 +76,8 @@ export default function Services() {
 
             leading-relaxed
 
+            text-center
+
             text-[#8C7468]
           "
         >
@@ -87,7 +87,6 @@ export default function Services() {
         </p>
 
       </div>
-
 
 
 
@@ -101,13 +100,15 @@ export default function Services() {
 
           w-full
 
-          gap-12
-          md:gap-16
-
+          grid-cols-1
           md:grid-cols-2
+
+          gap-10
+          md:gap-14
+
+          px-0
         "
       >
-
 
 
         {/* LADIES */}
@@ -122,67 +123,41 @@ export default function Services() {
 
             w-full
 
+            overflow-hidden
+
             rounded-[36px]
 
-            p-8
-            md:p-10
-
-            bg-white
-
-            border
-            border-[#E8DDD8]
-
-            flex
-
-            items-center
-
-            justify-center
+            bg-[#FCF8F3]
 
             transition-all
             duration-500
 
-            hover:border-[#D4A9B6]
-
-            hover:shadow-[0_30px_70px_rgba(59,42,38,0.12)]
+            hover:-translate-y-1
           "
         >
 
-          <div
+          <img
+            src="/images/services/ladies-view-pricing.jpg"
+
+            alt="Luxury waxing services"
+
             className="
-              overflow-hidden
-
-              rounded-[28px]
-
               w-full
 
-              max-w-[420px]
+              aspect-[4/5]
+
+              object-cover
+
+              rounded-[36px]
+
+              transition-transform
+              duration-700
+
+              group-hover:scale-[1.03]
             "
-          >
-
-            <img
-              src="/images/services/ladies-view-pricing.jpg"
-
-              alt="Luxury waxing services for women"
-
-              className="
-                w-full
-
-                aspect-[4/5]
-
-                object-cover
-
-                transition
-
-                duration-700
-
-                group-hover:scale-105
-              "
-            />
-
-          </div>
+          />
 
         </Link>
-
 
 
 
@@ -199,67 +174,41 @@ export default function Services() {
 
             w-full
 
+            overflow-hidden
+
             rounded-[36px]
 
-            p-8
-            md:p-10
-
-            bg-white
-
-            border
-            border-[#E8DDD8]
-
-            flex
-
-            items-center
-
-            justify-center
+            bg-[#FCF8F3]
 
             transition-all
             duration-500
 
-            hover:border-[#D4A9B6]
-
-            hover:shadow-[0_30px_70px_rgba(59,42,38,0.12)]
+            hover:-translate-y-1
           "
         >
 
-          <div
+          <img
+            src="/images/services/gentlement-view-pricing.jpg"
+
+            alt="Luxury waxing services"
+
             className="
-              overflow-hidden
-
-              rounded-[28px]
-
               w-full
 
-              max-w-[420px]
+              aspect-[4/5]
+
+              object-cover
+
+              rounded-[36px]
+
+              transition-transform
+              duration-700
+
+              group-hover:scale-[1.03]
             "
-          >
-
-            <img
-              src="/images/services/gentlement-view-pricing.jpg"
-
-              alt="Luxury waxing services for men"
-
-              className="
-                w-full
-
-                aspect-[4/5]
-
-                object-cover
-
-                transition
-
-                duration-700
-
-                group-hover:scale-105
-              "
-            />
-
-          </div>
+          />
 
         </Link>
-
 
 
       </div>
