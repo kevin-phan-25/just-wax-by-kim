@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/testimonials/Testimonials.tsx
@@ -7,19 +8,20 @@
  * Luxury testimonial editorial section.
  *
  * Updates:
- * • Fixed compressed testimonial cards
- * • Added editorial breathing room
- * • Centered header alignment
- * • Five cell desktop layout
+ * • Full width layout
+ * • True centered header
+ * • Five-cell editorial spacing
+ * • Added breathing room between cards
  * • Removed CTA
- * • Responsive luxury spacing
+ * • Removed restrictive containers
+ * • Matches Just Wax by Kim luxury theme
  *
  * ---
+ *
  */
 
 import { testimonials } from "./testimonials.data";
 import TestimonialCard from "./TestimonialCard";
-
 
 export default function Testimonials() {
   return (
@@ -32,8 +34,7 @@ export default function Testimonials() {
       "
     >
 
-
-      {/* Navbar Clearance */}
+      {/* Navbar clearance */}
       <div
         className="
           h-[168px]
@@ -42,129 +43,83 @@ export default function Testimonials() {
       />
 
 
-
-      {/* HEADER */}
-      <header
-        className="
-          w-full
-          flex
-          flex-col
-          items-center
-          justify-center
-          px-6
-          text-center
-          mb-20
-        "
-      >
-
-        <p
-          className="
-            uppercase
-            tracking-[0.35em]
-            text-sm
-            text-[#8C5A6B]
-          "
-        >
-          Client Love
-        </p>
-
-
-        <h1
-          className="
-            mt-6
-            w-full
-            text-center
-            font-serif
-            text-4xl
-            sm:text-5xl
-            md:text-6xl
-            leading-tight
-            text-[#3B2A26]
-          "
-        >
-          Loved By Our Clients
-        </h1>
-
-
-        <p
-          className="
-            mt-6
-            mx-auto
-            max-w-3xl
-            text-center
-            text-base
-            md:text-lg
-            leading-relaxed
-            text-[#8C7468]
-          "
-        >
-          Real experiences from guests who appreciate
-          comfort, confidence, and thoughtful care.
-        </p>
-
-      </header>
-
-
-
-
-
-      {/* FIVE CELL EDITORIAL GRID */}
+      {/* Full width editorial layout */}
       <div
         className="
+          relative
           w-full
-
-          grid
-
-          grid-cols-1
-
-          lg:grid-cols-[0.75in_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_0.75in]
-
-          gap-x-10
-          xl:gap-x-14
-
-          gap-y-12
-
-          pb-12
+          px-5
+          md:px-8
+          xl:px-12
         "
       >
 
 
-        {/* LEFT SPACE */}
-        <div className="hidden lg:block" />
+        {/* HEADER */}
+        <header
+          className="
+            w-full
+            flex
+            flex-col
+            items-center
+            justify-center
+            text-center
+            mb-16
+            md:mb-20
+          "
+        >
 
-
-
-        {testimonials.slice(0,3).map((item)=>(
-          <div
-            key={item.id}
+          <p
             className="
-              w-full
-              flex
-              justify-center
+              uppercase
+              tracking-[0.35em]
+              text-xs
+              md:text-sm
+              text-[#8C5A6B]
             "
           >
-            <TestimonialCard
-              testimonial={item}
-            />
-          </div>
-        ))}
+            Client Love
+          </p>
+
+
+          <h2
+            className="
+              mt-6
+              w-full
+              font-serif
+              text-4xl
+              sm:text-5xl
+              md:text-6xl
+              leading-tight
+              text-center
+              text-[#3B2A26]
+            "
+          >
+            Loved By Our Clients
+          </h2>
+
+
+          <p
+            className="
+              mt-6
+              w-full
+              max-w-3xl
+              text-center
+              text-base
+              md:text-lg
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
+            Real experiences from guests who appreciate
+            comfort, confidence, and thoughtful care.
+          </p>
+
+        </header>
 
 
 
-        {/* RIGHT SPACE */}
-        <div className="hidden lg:block" />
-
-
-      </div>
-
-
-
-
-
-
-      {/* SECOND ROW */}
-      {testimonials.length > 3 && (
-
+        {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
             w-full
@@ -172,45 +127,40 @@ export default function Testimonials() {
             grid
 
             grid-cols-1
+            md:grid-cols-[0.75fr_1fr_1fr_1fr_0.75fr]
 
-            lg:grid-cols-[0.75in_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_0.75in]
+            gap-x-6
+            gap-y-8
 
-            gap-x-10
-            xl:gap-x-14
+            md:gap-x-8
+            md:gap-y-10
 
-            pb-32
+            items-start
           "
         >
 
-          <div className="hidden lg:block" />
+
+          {/* LEFT BREATHING SPACE */}
+          <div className="hidden md:block" />
 
 
-          {testimonials.slice(3).map((item)=>(
-
-            <div
+          {/* REVIEWS */}
+          {testimonials.map((item) => (
+            <TestimonialCard
               key={item.id}
-              className="
-                w-full
-                flex
-                justify-center
-              "
-            >
-
-              <TestimonialCard
-                testimonial={item}
-              />
-
-            </div>
-
+              testimonial={item}
+            />
           ))}
 
 
-          <div className="hidden lg:block" />
+          {/* RIGHT BREATHING SPACE */}
+          <div className="hidden md:block" />
+
 
         </div>
 
-      )}
 
+      </div>
 
     </section>
   );
