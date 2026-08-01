@@ -7,10 +7,10 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Fixed hero clipping
- * • Added navbar breathing space
- * • Allows image to control height
- * • Better mobile/tablet scaling
+ * • Fixed navbar overlap
+ * • Removed bottom empty space
+ * • Image controls hero height
+ * • Improved desktop/mobile spacing
  *
  * ---
  */
@@ -28,9 +28,13 @@ export default function Hero() {
 
         bg-[#FBF7F4]
 
-        pt-24
-        md:pt-28
-        lg:pt-32
+        pt-[170px]
+
+        md:pt-[190px]
+
+        lg:pt-[210px]
+
+        pb-8
 
         overflow-hidden
       "
@@ -48,42 +52,6 @@ export default function Hero() {
 
         <HeroImage />
 
-
-        {/* Future hero text/buttons */}
-        <div
-          className="
-            absolute
-
-            inset-0
-
-            z-10
-
-            flex
-
-            items-center
-          "
-        >
-
-          <div
-            className="
-              container-luxury
-
-              w-full
-
-              px-6
-              md:px-10
-            "
-          >
-
-            {/* 
-              Hero headline
-              Subtitle
-              CTA buttons
-            */}
-
-          </div>
-
-        </div>
 
       </div>
 
