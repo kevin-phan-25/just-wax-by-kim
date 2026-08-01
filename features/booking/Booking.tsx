@@ -9,11 +9,11 @@
  *
  * Updates:
  * • Full width editorial layout
- * • Removed duplicate messaging
- * • Unified site background (#FBF7F4)
- * • Stronger CTA hierarchy
- * • Preserved id="booking"
+ * • Removed duplicate booking widget
+ * • Single GlossGenius CTA
+ * • Centered typography
  * • Responsive spacing
+ * • Matches site background
  *
  * ---
  *
@@ -22,7 +22,6 @@
 import { BOOKING_CONFIG } from "./booking.constants";
 import BookingCTA from "./BookingCTA";
 import BookingBenefits from "./BookingBenefits";
-import BookingWidget from "./BookingWidget";
 
 export default function Booking() {
   return (
@@ -44,20 +43,25 @@ export default function Booking() {
       />
 
 
-      {/* HERO CONTENT */}
+      {/* FULL WIDTH CONTENT */}
       <div
         className="
           w-full
-          px-6
+          px-5
+          sm:px-8
           md:px-10
           lg:px-16
         "
       >
 
+        {/* HEADER */}
         <header
           className="
-            mx-auto
             w-full
+            flex
+            flex-col
+            items-center
+            justify-center
             text-center
           "
         >
@@ -77,13 +81,13 @@ export default function Booking() {
           <h2
             className="
               mt-6
-              mx-auto
-              max-w-5xl
+              w-full
+              text-center
               font-serif
               text-4xl
               sm:text-5xl
               md:text-6xl
-              leading-[1.08]
+              leading-tight
               tracking-[-0.03em]
               text-[#3B2A26]
             "
@@ -94,9 +98,9 @@ export default function Booking() {
 
           <p
             className="
-              mx-auto
               mt-8
-              max-w-4xl
+              w-full
+              text-center
               text-base
               md:text-lg
               leading-relaxed
@@ -107,21 +111,23 @@ export default function Booking() {
           </p>
 
 
-          {/* PRIMARY CTA */}
           <div
             className="
               mt-10
               flex
               flex-col
               items-center
+              justify-center
               gap-4
             "
           >
+
             <BookingCTA />
 
 
             <p
               className="
+                text-center
                 text-sm
                 text-[#8C7468]
               "
@@ -129,7 +135,9 @@ export default function Booking() {
               {BOOKING_CONFIG.reassurance}
             </p>
 
+
           </div>
+
 
         </header>
 
@@ -146,21 +154,7 @@ export default function Booking() {
         </div>
 
 
-
-        {/* BOOKING EMBED AREA */}
-        <div
-          className="
-            mt-20
-            md:mt-24
-            w-full
-          "
-        >
-          <BookingWidget />
-        </div>
-
-
       </div>
-
 
 
       {/* BOTTOM SPACING */}
