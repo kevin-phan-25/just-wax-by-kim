@@ -1,185 +1,43 @@
 /**
  * ---
  * File:
- * features/about/AboutContent.tsx
+ * features/about/About.tsx
  *
  * Description:
- * Luxury editorial About content.
+ * Luxury editorial About section.
  *
  * Updates:
- * • Removed container restrictions
- * • Centered storytelling
- * • Improved paragraph spacing
- * • Balanced luxury typography
+ * • Removed width restrictions
+ * • Full width luxury composition
+ * • Centered editorial layout
+ * • Premium spacing system
  *
  * ---
  */
 
-import { aboutContent } from "./about.data";
-import AboutImage from "./AboutImage";
+import AboutContent from "./AboutContent";
 
-export default function AboutContent() {
+export default function About() {
   return (
-    <article
+    <section
+      id="about"
       className="
-        flex
+        relative
 
         w-full
 
-        flex-col
+        overflow-hidden
 
-        items-center
+        bg-[#FBF7F4]
 
-        px-6
+        py-24
 
-        md:px-10
+        md:py-32
 
-        lg:px-16
+        lg:py-40
       "
     >
-
-      {/* Header */}
-      <header
-        className="
-          w-full
-
-          max-w-6xl
-
-          mx-auto
-
-          text-center
-
-          mb-20
-
-          md:mb-28
-        "
-      >
-
-        <span
-          className="
-            block
-
-            uppercase
-
-            tracking-[0.45em]
-
-            text-xs
-
-            text-[#8C5A6B]
-
-            mb-8
-          "
-        >
-          {aboutContent.eyebrow}
-        </span>
-
-
-        <h2
-          className="
-            font-serif
-
-            text-5xl
-
-            md:text-6xl
-
-            lg:text-7xl
-
-            leading-[1.05]
-
-            tracking-[-0.045em]
-
-            text-[#3B2A26]
-          "
-        >
-          {aboutContent.title}
-        </h2>
-
-      </header>
-
-
-
-      {/* Portrait */}
-      <div
-        className="
-          w-full
-
-          max-w-4xl
-
-          mx-auto
-
-          mb-24
-
-          md:mb-32
-        "
-      >
-        <AboutImage />
-      </div>
-
-
-
-      {/* Story */}
-      <div
-        className="
-          w-full
-
-          max-w-4xl
-
-          mx-auto
-
-          text-center
-
-          text-[#75635B]
-
-          text-lg
-
-          md:text-xl
-
-          leading-[2]
-        "
-      >
-
-        {aboutContent.description.map(
-          (paragraph, index) => (
-            <p
-              key={index}
-              className="
-                mb-12
-
-                md:mb-16
-
-                tracking-[0.015em]
-              "
-            >
-              {paragraph}
-            </p>
-          )
-        )}
-
-
-
-        <p
-          className="
-            mt-20
-
-            font-serif
-
-            text-3xl
-
-            md:text-5xl
-
-            leading-tight
-
-            text-[#3B2A26]
-          "
-        >
-          A journey built on passion,
-          confidence, and making every
-          client feel beautiful.
-        </p>
-
-      </div>
-
-
-    </article>
+      <AboutContent />
+    </section>
   );
 }
