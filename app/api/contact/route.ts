@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     console.log("----- CONTACT FORM -----");
 
     console.log("RESEND_API_KEY:", !!process.env.RESEND_API_KEY);
-    console.log("CONTACT_EMAIL:", process.env.CONTACT_EMAIL);
+    console.log("CONTACT_TO_EMAIL:", process.env.CONTACT_EMAIL);
 
     if (!process.env.RESEND_API_KEY) {
       throw new Error("Missing RESEND_API_KEY");
