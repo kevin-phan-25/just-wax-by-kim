@@ -10,7 +10,7 @@
  * • Matched ServicePricingSection spacing system
  * • Added navbar transition spacer
  * • Removed width restrictions
- * • Removed bottom divider
+ * • Removed divider accents
  * • Preserved centered editorial styling
  * • Full-width gallery presentation
  *
@@ -20,10 +20,8 @@
 import { GALLERY_CONFIG } from "./gallery.constants";
 import GalleryGrid from "./GalleryGrid";
 
-
 export default function Gallery() {
   return (
-
     <section
       id="gallery"
       className="
@@ -34,8 +32,6 @@ export default function Gallery() {
         bg-[#FCF8F3]
       "
     >
-
-
       {/* Ambient background */}
       <div
         aria-hidden
@@ -47,16 +43,12 @@ export default function Gallery() {
         "
       />
 
-
-
       {/* Navbar transition spacer */}
       <div
         className="
           h-[216px]
         "
       />
-
-
 
       {/* Content */}
       <div
@@ -68,9 +60,6 @@ export default function Gallery() {
           text-center
         "
       >
-
-
-
         {/* HEADER */}
         <header
           className="
@@ -78,7 +67,6 @@ export default function Gallery() {
             mb-16
           "
         >
-
           <p
             className="
               uppercase
@@ -89,8 +77,6 @@ export default function Gallery() {
           >
             {GALLERY_CONFIG.eyebrow}
           </p>
-
-
 
           <h1
             className="
@@ -105,20 +91,6 @@ export default function Gallery() {
             {GALLERY_CONFIG.title}
           </h1>
 
-
-
-          <div
-            className="
-              mx-auto
-              mt-8
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
-
           <p
             className="
               mt-6
@@ -129,13 +101,7 @@ export default function Gallery() {
           >
             {GALLERY_CONFIG.description}
           </p>
-
-
         </header>
-
-
-
-
 
         {/* GALLERY GRID */}
         <div
@@ -143,17 +109,9 @@ export default function Gallery() {
             w-full
           "
         >
-
           <GalleryGrid />
-
         </div>
-
-
-
       </div>
-
-
     </section>
-
   );
 }
