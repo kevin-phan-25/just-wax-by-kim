@@ -5,7 +5,13 @@
  * BookingCTA.tsx
  *
  * Description:
- * Luxury GlossGenius booking button.
+ * Luxury booking call-to-action.
+ *
+ * Updates:
+ * • Matches navbar Book Appointment button
+ * • Larger luxury sizing
+ * • Transparent background
+ * • GlossGenius external link
  *
  * ---
  *
@@ -21,37 +27,46 @@ export default function BookingCTA() {
       rel="noopener noreferrer"
       className="
         inline-flex
+
+        min-h-[58px]
+        md:min-h-[66px]
+        xl:min-h-[74px]
+
+        min-w-[220px]
+        md:min-w-[240px]
+        xl:min-w-[280px]
+
         items-center
         justify-center
 
         rounded-full
 
-        px-16
-        py-5
+        border-2
+        border-[#8C5A6B]
 
-        md:px-24
-        md:py-6
-
-        border
-        border-[#C6A15B]
-
-        bg-transparent
+        px-8
+        md:px-10
+        xl:px-14
 
         uppercase
-        tracking-[0.12em]
 
-        text-sm
-        md:text-base
+        tracking-[0.22em]
 
-        text-[#3B2A26]
+        text-xs
+        md:text-sm
+        xl:text-base
+
+        font-bold
+
+        whitespace-nowrap
+
+        text-[#8C5A6B]
 
         transition-all
-        duration-500
+        duration-300
 
-        hover:bg-[#C6A15B]
-        hover:text-white
-
-        hover:-translate-y-1
+        hover:bg-[#F6E7E1]
+        hover:scale-[1.03]
       "
     >
       {BOOKING_CONFIG.ctaLabel}
