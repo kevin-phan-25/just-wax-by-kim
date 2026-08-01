@@ -4,14 +4,14 @@
  * features/about/AboutContent.tsx
  *
  * Description:
- * Responsive luxury editorial layout.
+ * Luxury editorial About content.
  *
  * Updates:
- * • Three cell desktop grid
- * • Tablet adaptation
- * • Mobile stacking
- * • Centered title
- * • Proper paragraph spacing
+ * • Three-cell editorial layout
+ * • Title spans all columns
+ * • Removed closing quote
+ * • Improved paragraph spacing
+ * • Removed divider accents
  *
  * ---
  */
@@ -55,8 +55,7 @@ export default function AboutContent() {
         "
       >
 
-
-        {/* TITLE SPANS ALL CELLS */}
+        {/* TITLE - SPANS ALL CELLS */}
         <header
           className="
             col-span-1
@@ -94,8 +93,6 @@ export default function AboutContent() {
               text-[#8C5A6B]
 
               mb-5
-
-              sm:mb-7
             "
           >
             {aboutContent.eyebrow}
@@ -128,8 +125,8 @@ export default function AboutContent() {
             {aboutContent.title}
           </h2>
 
-
         </header>
+
 
 
 
@@ -137,8 +134,6 @@ export default function AboutContent() {
         <div
           className="
             w-full
-
-            md:col-span-1
 
             lg:col-span-1
           "
@@ -149,7 +144,7 @@ export default function AboutContent() {
 
 
 
-        {/* CONTENT CELLS 2 + 3 */}
+        {/* CELL 2 + CELL 3 */}
         <div
           className="
             md:col-span-1
@@ -157,12 +152,6 @@ export default function AboutContent() {
             lg:col-span-2
 
             w-full
-
-            flex
-
-            flex-col
-
-            justify-center
 
             text-center
 
@@ -208,28 +197,6 @@ export default function AboutContent() {
             )}
 
           </div>
-
-
-          <p
-            className="
-              mt-10
-
-              sm:mt-14
-
-              font-serif
-
-              text-2xl
-
-              sm:text-3xl
-
-              leading-snug
-
-              text-[#3B2A26]
-            "
-          >
-            Confidence begins with feeling beautifully cared for.
-          </p>
-
 
         </div>
 
