@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/faq/FAQItem.tsx
@@ -7,29 +8,34 @@
  * Luxury FAQ accordion item.
  *
  * Updates:
- * • Centered questions
- * • Increased card breathing room
- * • Better answer spacing
- * • Stronger answer typography
- * • Luxury soft card appearance
+ * • Refined luxury card styling
+ * • Improved mobile responsiveness
+ * • Enhanced accordion animation
+ * • Better answer readability
+ * • Added accessibility attributes
  *
  * ---
+ *
  */
 
 "use client";
+
 
 import {
   Plus,
   Minus,
 } from "lucide-react";
 
+
 import {
   useState,
 } from "react";
 
+
 import type {
   FAQItemType,
 } from "./faq.types";
+
 
 
 interface Props {
@@ -37,226 +43,302 @@ interface Props {
 }
 
 
+
 export default function FAQItem({
   item,
 }: Props) {
 
-  const [
-    open,
-    setOpen,
-  ] = useState(false);
 
+const [
+  open,
+  setOpen,
+] = useState(false);
 
 
-  return (
 
-    <div
-      className={`
-        rounded-3xl
+return (
 
-        border
+<div
+  className={`
+    overflow-hidden
 
-        transition-all
-        duration-300
+    rounded-3xl
 
-        ${
-          open
-            ? `
-              border-[#D8B4A0]
-              bg-white
-              shadow-sm
-            `
-            :
-            `
-              border-[#E8DDD8]
-              bg-[#FDF9F5]
+    border
 
-              hover:bg-white
-              hover:border-[#D8B4A0]
-            `
-        }
-      `}
-    >
+    transition-all
+    duration-500
 
+    ${
+      open
+        ?
+        `
+        border-[#D8B4A0]
 
-      {/* QUESTION */}
+        bg-white
 
-      <button
-        type="button"
+        shadow-[0_15px_40px_rgba(59,42,38,0.06)]
+        `
+        :
+        `
+        border-[#E8DDD8]
 
-        onClick={() =>
-          setOpen(!open)
-        }
+        bg-[#FDF9F5]
 
-        className="
-          group
+        hover:bg-white
 
-          relative
+        hover:border-[#D8B4A0]
+        `
+    }
+  `}
+>
 
-          flex
 
-          w-full
+{/* QUESTION */}
 
-          items-center
+<button
 
-          justify-center
+  type="button"
 
-          text-center
+  aria-expanded={open}
 
-          px-10
-          md:px-14
+  onClick={() =>
+    setOpen(!open)
+  }
 
-          py-8
+  className="
+    group
 
-          min-h-[90px]
-        "
-      >
+    relative
 
-        <span
-          className="
-            max-w-3xl
+    flex
 
-            font-serif
+    w-full
 
-            text-lg
-            md:text-xl
+    items-center
 
-            leading-relaxed
+    justify-center
 
-            text-[#3B2A26]
-          "
-        >
-          {item.question}
-        </span>
+    text-center
 
+    px-6
+    sm:px-10
+    md:px-14
 
+    py-7
+    md:py-9
 
-        <span
-          className={`
-            absolute
+    min-h-[96px]
 
-            right-6
-            md:right-10
+    transition
+  "
 
-            flex
+>
 
-            h-11
-            w-11
 
-            items-center
-            justify-center
+<span
+  className="
+    max-w-3xl
 
-            rounded-full
+    pr-12
 
-            border
+    font-serif
 
-            transition-all
+    text-lg
+    md:text-xl
 
-            ${
-              open
-                ?
-                  `
-                  border-[#8C5A6B]
-                  bg-[#8C5A6B]
-                  text-white
-                  `
-                :
-                  `
-                  border-[#D8B4A0]
-                  text-[#8C5A6B]
-                  group-hover:bg-[#F6E7E1]
-                  `
-            }
-          `}
-        >
+    leading-relaxed
 
-          {
-            open
-              ?
-              <Minus size={18}/>
-              :
-              <Plus size={18}/>
-          }
+    text-[#3B2A26]
 
-        </span>
+    transition-colors
 
+    group-hover:text-[#8C5A6B]
+  "
+>
 
-      </button>
+{item.question}
 
+</span>
 
 
 
-      {/* ANSWER */}
 
-      <div
-        className={`
-          grid
+{/* ICON */}
 
-          transition-all
+<span
 
-          duration-500
+className={`
+  absolute
 
-          ${
-            open
-              ?
-              "grid-rows-[1fr] opacity-100"
-              :
-              "grid-rows-[0fr] opacity-0"
-          }
-        `}
-      >
+  right-5
+  md:right-8
 
-        <div
-          className="
-            overflow-hidden
-          "
-        >
+  flex
 
-          <div
-            className="
-              mx-6
-              md:mx-10
+  h-10
+  w-10
+  md:h-11
+  md:w-11
 
-              mb-8
+  items-center
+  justify-center
 
-              rounded-2xl
+  rounded-full
 
-              bg-[#FCF8F3]
+  border
 
-              px-8
-              md:px-12
+  transition-all
+  duration-300
 
-              py-8
-            "
-          >
 
-            <p
-              className="
-                text-center
+  ${
+    open
 
-                text-base
-                md:text-lg
+    ?
 
-                font-medium
+    `
+    border-[#8C5A6B]
 
-                leading-8
+    bg-[#8C5A6B]
 
-                text-[#6F5A50]
-              "
-            >
-              {item.answer}
-            </p>
+    text-white
+    `
 
-          </div>
+    :
 
+    `
+    border-[#D8B4A0]
 
-        </div>
+    text-[#8C5A6B]
 
-      </div>
+    group-hover:bg-[#F6E7E1]
+    `
+  }
 
+`}
 
-    </div>
+>
 
-  );
+{
+open
+?
+<Minus size={18}/>
+:
+<Plus size={18}/>
+}
+
+</span>
+
+
+</button>
+
+
+
+
+
+{/* ANSWER */}
+
+<div
+
+className={`
+
+grid
+
+transition-all
+
+duration-500
+
+ease-in-out
+
+
+${
+  open
+
+  ?
+
+  "grid-rows-[1fr] opacity-100"
+
+  :
+
+  "grid-rows-[0fr] opacity-0"
+}
+
+`}
+
+>
+
+
+<div
+  className="
+    overflow-hidden
+  "
+>
+
+
+<div
+
+className="
+  mx-4
+  sm:mx-6
+  md:mx-10
+
+  mb-6
+  md:mb-8
+
+  rounded-2xl
+
+  bg-[#FCF8F3]
+
+  px-6
+  sm:px-8
+  md:px-12
+
+  py-7
+  md:py-8
+"
+
+>
+
+
+<p
+
+className="
+  mx-auto
+
+  max-w-4xl
+
+  text-center
+
+  text-base
+  md:text-lg
+
+  leading-8
+
+  font-medium
+
+  text-[#6F5A50]
+"
+
+>
+
+{item.answer}
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+);
 
 }
