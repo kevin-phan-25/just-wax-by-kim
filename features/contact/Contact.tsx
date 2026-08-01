@@ -1,18 +1,24 @@
- /**
-  ---
-  File:
-  features/contact/Contact.tsx
-
-  Description:
-  Standalone luxury contact presentation.
-
-  Updates:
-  - Full width editorial layout
-  - Reduced outer spacer cells
-  - Reduced Contact Info column width
-  - Centered header content
-  - Preserved luxury spacing
-  ---
+/**
+ *
+ * ---
+ *
+ * File:
+ * features/contact/Contact.tsx
+ *
+ * Description:
+ * Standalone luxury contact presentation.
+ *
+ * Updates:
+ *
+ * - Full width editorial layout
+ * - Removed divider accents
+ * - Reduced outer spacer cells
+ * - Reduced Contact Info column width
+ * - Centered header content
+ * - Preserved luxury spacing
+ *
+ * ---
+ *
  */
 
 import ContactForm from "./ContactForm";
@@ -25,6 +31,7 @@ export default function Contact() {
       className="
         relative
         overflow-hidden
+        bg-[#FBF7F4]
       "
     >
 
@@ -35,7 +42,6 @@ export default function Contact() {
           pointer-events-none
           absolute
           inset-0
-
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
@@ -45,31 +51,24 @@ export default function Contact() {
       <div className="h-[216px]" />
 
 
-
       {/* CONTENT */}
       <div
         className="
           relative
           z-10
-
           w-full
-
           px-6
           lg:px-10
           xl:px-16
-
           pb-32
         "
       >
-
 
         {/* HEADER */}
         <header
           className="
             w-full
-
             mb-20
-
             text-center
           "
         >
@@ -78,9 +77,7 @@ export default function Contact() {
             className="
               uppercase
               tracking-[0.35em]
-
               text-sm
-
               text-[#8C5A6B]
             "
           >
@@ -91,18 +88,12 @@ export default function Contact() {
           <h1
             className="
               mt-6
-
               w-full
-
               text-center
-
               font-serif
-
               text-4xl
               md:text-6xl
-
               leading-tight
-
               text-[#3B2A26]
             "
           >
@@ -110,33 +101,13 @@ export default function Contact() {
           </h1>
 
 
-          <div
-            className="
-              mx-auto
-
-              mt-8
-
-              h-px
-
-              w-24
-
-              bg-[#D8B4A0]
-            "
-          />
-
-
           <p
             className="
               mt-8
-
               w-full
-
               text-center
-
               text-lg
-
               leading-relaxed
-
               text-[#8C7468]
             "
           >
@@ -148,31 +119,21 @@ export default function Contact() {
         </header>
 
 
-
-
         {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
             mt-20
-
             grid
-
             grid-cols-1
-
             lg:grid-cols-[0.25fr_0.75fr_1fr_1fr_0.25fr]
-
             gap-8
-
             xl:gap-10
-
             items-start
-
             w-full
           "
         >
 
-
-          {/* CELL 1 - SMALL LEFT SPACE */}
+          {/* CELL 1 */}
           <div
             className="
               hidden
@@ -181,22 +142,13 @@ export default function Contact() {
           />
 
 
-
-          {/* CELL 2 - CONTACT INFORMATION */}
+          {/* CONTACT INFORMATION */}
           <div
             className="
-              border-t
-
-              border-[#E8DDD8]
-
               pt-10
-
               flex
-
               flex-col
-
               items-start
-
               text-left
             "
           >
@@ -204,23 +156,13 @@ export default function Contact() {
           </div>
 
 
-
-
-          {/* CELL 3 - CONTACT FORM */}
+          {/* CONTACT FORM */}
           <div
             className="
-              border-t
-
-              border-[#E8DDD8]
-
               pt-10
-
               flex
-
               flex-col
-
               items-center
-
               text-center
             "
           >
@@ -228,9 +170,7 @@ export default function Contact() {
             <h2
               className="
                 font-serif
-
                 text-3xl
-
                 text-[#3B2A26]
               "
             >
@@ -241,9 +181,7 @@ export default function Contact() {
             <p
               className="
                 mt-4
-
                 leading-relaxed
-
                 text-[#6F5A50]
               "
             >
@@ -255,7 +193,6 @@ export default function Contact() {
             <div
               className="
                 mt-10
-
                 w-full
               "
             >
@@ -265,23 +202,13 @@ export default function Contact() {
           </div>
 
 
-
-
-          {/* CELL 4 - CONTACT HOURS */}
+          {/* CONTACT HOURS */}
           <div
             className="
-              border-t
-
-              border-[#E8DDD8]
-
               pt-10
-
               flex
-
               flex-col
-
               items-start
-
               text-left
             "
           >
@@ -289,43 +216,17 @@ export default function Contact() {
           </div>
 
 
-
-
-          {/* CELL 5 - SMALL RIGHT SPACE */}
+          {/* CELL 5 */}
           <div
             className="
               hidden
-
               lg:block
             "
           />
 
-
         </div>
 
-
       </div>
-
-
-
-
-      {/* Bottom Divider */}
-      <div
-        aria-hidden
-        className="
-          absolute
-
-          bottom-0
-
-          left-0
-
-          w-full
-
-          h-px
-
-          bg-[#E8DDD8]
-        "
-      />
 
     </section>
   );
