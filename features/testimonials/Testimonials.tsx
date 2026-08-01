@@ -10,6 +10,7 @@
  * • Matched Gallery / Instagram standalone spacing system
  * • Added navbar transition spacer
  * • Removed width restrictions
+ * • Removed divider accents
  * • Preserved centered editorial typography
  * • Full-width testimonial presentation
  *
@@ -31,7 +32,6 @@ export default function Testimonials() {
         bg-[#FCF8F3]
       "
     >
-
       {/* Ambient background */}
       <div
         aria-hidden
@@ -43,15 +43,12 @@ export default function Testimonials() {
         "
       />
 
-
       {/* Navbar transition spacer */}
       <div
         className="
           h-[216px]
         "
       />
-
-
 
       {/* Full width content */}
       <div
@@ -63,8 +60,6 @@ export default function Testimonials() {
           text-center
         "
       >
-
-
         {/* HEADER */}
         <header
           className="
@@ -72,7 +67,6 @@ export default function Testimonials() {
             mb-16
           "
         >
-
           <p
             className="
               uppercase
@@ -83,8 +77,6 @@ export default function Testimonials() {
           >
             Client Love
           </p>
-
-
 
           <h1
             className="
@@ -99,20 +91,6 @@ export default function Testimonials() {
             Loved By Our Clients
           </h1>
 
-
-
-          <div
-            className="
-              mx-auto
-              mt-8
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
-
           <p
             className="
               mt-6
@@ -124,12 +102,7 @@ export default function Testimonials() {
             Real experiences from clients who value comfort,
             confidence, and exceptional care.
           </p>
-
-
         </header>
-
-
-
 
         {/* TESTIMONIAL GRID */}
         <div
@@ -141,23 +114,10 @@ export default function Testimonials() {
             lg:grid-cols-3
           "
         >
-
-          {
-            testimonials.map((item) => (
-
-              <TestimonialCard
-                key={item.id}
-                testimonial={item}
-              />
-
-            ))
-          }
-
+          {testimonials.map((item) => (
+            <TestimonialCard key={item.id} testimonial={item} />
+          ))}
         </div>
-
-
-
-
 
         {/* BOOKING CTA */}
         <div
@@ -167,7 +127,6 @@ export default function Testimonials() {
             justify-center
           "
         >
-
           <a
             href="/#booking"
             className="
@@ -190,31 +149,8 @@ export default function Testimonials() {
           >
             Book Appointment
           </a>
-
-
         </div>
-
-
       </div>
-
-
-
-
-      {/* Bottom divider */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          bottom-0
-          left-0
-          w-full
-          h-px
-          bg-[#E8DDD8]
-        "
-      />
-
-
-
     </section>
   );
 }
