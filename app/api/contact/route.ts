@@ -14,7 +14,10 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(
+  process.env.RESEND_API_KEY
+);
+
 
 function escapeHtml(str: string) {
   return str
@@ -25,31 +28,72 @@ function escapeHtml(str: string) {
     .replace(/'/g, "&#039;");
 }
 
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+
 export async function POST(request: Request) {
+
   try {
+
     console.log("----- CONTACT FORM -----");
 
-    console.log("RESEND_API_KEY:", !!process.env.RESEND_API_KEY);
-    console.log("CONTACT_TO_EMAIL:", process.env.CONTACT_EMAIL);
+    console.log(
+      "RESEND_API_KEY:",
+      Boolean(process.env.RESEND_API_KEY)
+    );
+
+    console.log(
+      "CONTACT_TO_EMAIL:",
+      process.env.CONTACT_TO_EMAIL
+    );
+
 
     if (!process.env.RESEND_API_KEY) {
-      throw new Error("Missing RESEND_API_KEY");
+      throw new Error(
+        "Missing RESEND_API_KEY"
+      );
     }
 
-    if (!process.env.CONTACT_EMAIL) {
-      throw new Error("Missing CONTACT_EMAIL");
+
+    if (!process.env.CONTACT_TO_EMAIL) {
+      throw new Error(
+        "Missing CONTACT_TO_EMAIL"
+      );
     }
 
-    const formData = await request.formData();
 
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const phone = String(formData.get("phone") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
+
+    const formData =
+      await request.formData();
+
+
+    const name =
+      String(
+        formData.get("name") ?? ""
+      ).trim();
+
+
+    const email =
+      String(
+        formData.get("email") ?? ""
+      ).trim();
+
+
+    const phone =
+      String(
+        formData.get("phone") ?? ""
+      ).trim();
+
+
+    const message =
+      String(
+        formData.get("message") ?? ""
+      ).trim();
+
+
 
     console.log({
       name,
@@ -58,129 +102,292 @@ export async function POST(request: Request) {
       message,
     });
 
-    if (!name || !email || !message) {
+
+
+    if (
+      !name ||
+      !email ||
+      !message
+    ) {
+
       return NextResponse.json(
         {
-          success: false,
-          error: "Please complete all required fields.",
+          success:false,
+          error:
+            "Please complete all required fields.",
         },
         {
-          status: 400,
+          status:400,
         }
       );
+
     }
+
+
 
     if (!isValidEmail(email)) {
+
       return NextResponse.json(
         {
-          success: false,
-          error: "Invalid email address.",
+          success:false,
+          error:
+            "Invalid email address.",
         },
         {
-          status: 400,
+          status:400,
         }
       );
+
     }
 
-    const safeName = escapeHtml(name);
-    const safeEmail = escapeHtml(email);
-    const safePhone = escapeHtml(phone || "Not provided");
-    const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
-    const from = "Just Wax by Kim <contact@justwaxbykim.com>";
 
-    //
-    // EMAIL TO KIM
-    //
+    const safeName =
+      escapeHtml(name);
 
-    const notify = await resend.emails.send({
-      from,
-      to: process.env.CONTACT_EMAIL,
-      replyTo: email,
-      subject: `New Contact Form • ${name}`,
-      html: `
-      <div style="font-family:Arial;padding:40px;background:#FCF8F3;">
-        <h1>New Contact Form</h1>
+    const safeEmail =
+      escapeHtml(email);
 
-        <p><strong>Name:</strong> ${safeName}</p>
+    const safePhone =
+      escapeHtml(
+        phone || "Not provided"
+      );
 
-        <p><strong>Email:</strong> ${safeEmail}</p>
+    const safeMessage =
+      escapeHtml(message)
+        .replace(
+          /\n/g,
+          "<br />"
+        );
 
-        <p><strong>Phone:</strong> ${safePhone}</p>
 
-        <hr />
 
-        <p>${safeMessage}</p>
-      </div>
-      `,
-    });
+    const from =
+      "Just Wax by Kim <contact@justwaxbykim.com>";
 
-    console.log("Notify Response:");
-    console.log(notify);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMAIL #1
+    | Notification to Kim
+    |--------------------------------------------------------------------------
+    */
+
+
+    const notify =
+      await resend.emails.send({
+
+        from,
+
+        to:
+          process.env.CONTACT_TO_EMAIL,
+
+        replyTo:
+          email,
+
+        subject:
+          `New Contact Form • ${name}`,
+
+        html:`
+
+        <div
+          style="
+            font-family:Arial;
+            padding:40px;
+            background:#FCF8F3;
+            color:#3B2A26;
+            border-radius:20px;
+          "
+        >
+
+          <h1>
+            New Contact Form
+          </h1>
+
+
+          <p>
+            <strong>Name:</strong>
+            ${safeName}
+          </p>
+
+
+          <p>
+            <strong>Email:</strong>
+            ${safeEmail}
+          </p>
+
+
+          <p>
+            <strong>Phone:</strong>
+            ${safePhone}
+          </p>
+
+
+          <hr />
+
+
+          <p>
+            ${safeMessage}
+          </p>
+
+
+        </div>
+
+        `,
+
+      });
+
+
+
+    console.log(
+      "Notify Response:",
+      notify
+    );
+
 
     if (notify.error) {
-      throw new Error(JSON.stringify(notify.error));
+
+      throw new Error(
+        JSON.stringify(
+          notify.error
+        )
+      );
+
     }
 
-    //
-    // EMAIL TO CUSTOMER
-    //
 
-    const confirm = await resend.emails.send({
-      from,
-      to: email,
-      subject: "We've received your message 💕",
-      html: `
-      <div style="font-family:Arial;padding:40px;background:#FCF8F3;">
-        <h1>Hello ${safeName},</h1>
 
-        <p>
-          Thank you for contacting
-          <strong>Just Wax by Kim.</strong>
-        </p>
 
-        <p>
-          We've received your message and will respond
-          as soon as possible.
-        </p>
+    /*
+    |--------------------------------------------------------------------------
+    | EMAIL #2
+    | Confirmation to customer
+    |--------------------------------------------------------------------------
+    */
 
-        <br/>
 
-        <p>
-          Warmly,<br/>
-          <strong>Kim</strong>
-        </p>
-      </div>
-      `,
-    });
+    const confirm =
+      await resend.emails.send({
 
-    console.log("Confirmation Response:");
-    console.log(confirm);
+        from,
+
+        to:
+          email,
+
+
+        subject:
+          "We've received your message 💕",
+
+
+        html:`
+
+        <div
+          style="
+            font-family:Arial;
+            padding:40px;
+            background:#FCF8F3;
+            color:#3B2A26;
+            border-radius:20px;
+          "
+        >
+
+          <h1>
+            Hello ${safeName},
+          </h1>
+
+
+          <p>
+            Thank you for contacting
+            <strong>
+              Just Wax by Kim.
+            </strong>
+          </p>
+
+
+          <p>
+            We've received your message
+            and will respond as soon as
+            possible.
+          </p>
+
+
+          <br/>
+
+
+          <p>
+            Warmly,
+            <br/>
+
+            <strong>
+              Kim
+            </strong>
+          </p>
+
+
+        </div>
+
+        `,
+
+      });
+
+
+
+    console.log(
+      "Confirmation Response:",
+      confirm
+    );
+
 
     if (confirm.error) {
-      throw new Error(JSON.stringify(confirm.error));
+
+      throw new Error(
+        JSON.stringify(
+          confirm.error
+        )
+      );
+
     }
 
-    return NextResponse.json({
-      success: true,
-    });
 
-  } catch (err) {
-
-    console.error("CONTACT API ERROR");
-    console.error(err);
 
     return NextResponse.json(
       {
-        success: false,
+        success:true,
+      },
+      {
+        status:200,
+      }
+    );
+
+
+
+  } catch (err) {
+
+
+    console.error(
+      "CONTACT API ERROR"
+    );
+
+
+    console.error(err);
+
+
+
+    return NextResponse.json(
+      {
+        success:false,
+
         error:
           err instanceof Error
             ? err.message
             : "Unknown server error",
       },
       {
-        status: 500,
+        status:500,
       }
     );
+
   }
+
 }
