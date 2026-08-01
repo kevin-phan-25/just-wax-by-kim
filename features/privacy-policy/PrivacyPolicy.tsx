@@ -8,12 +8,12 @@
  * Luxury Privacy Policy editorial page.
  *
  * Updates:
- * • Full width luxury layout
- * • Centered editorial presentation
+ * • Three column editorial layout
+ * • Center content placement
+ * • Left aligned text
+ * • Removed restrictive document feel
  * • Improved paragraph spacing
- * • Removed boxed card styling
- * • Better mobile/tablet/desktop rhythm
- * • Unified Just Wax by Kim theme
+ * • Responsive phone/tablet/desktop
  *
  * ---
  *
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
         <p
           className="
             uppercase
-            tracking-[0.4em]
+            tracking-[0.35em]
             text-sm
             text-[#8C5A6B]
           "
@@ -77,12 +77,11 @@ export default function PrivacyPolicy() {
 
         <p
           className="
-            mx-auto
             mt-8
-            max-w-4xl
-            text-base
-            md:text-lg
-            leading-[1.9]
+            mx-auto
+            max-w-3xl
+            text-lg
+            leading-relaxed
             text-[#8C7468]
           "
         >
@@ -95,89 +94,119 @@ export default function PrivacyPolicy() {
 
 
 
-      {/* CONTENT */}
+      {/* THREE CELL EDITORIAL GRID */}
       <div
         className="
+          grid
+
+          grid-cols-1
+
+          lg:grid-cols-[0.35fr_1.3fr_0.35fr]
+
           w-full
+
           px-6
           md:px-10
           lg:px-16
+
           pb-32
         "
       >
 
+
+        {/* LEFT SPACE */}
         <div
           className="
-            mx-auto
+            hidden
+            lg:block
+          "
+        />
+
+
+        {/* CENTER CONTENT */}
+        <main
+          className="
             w-full
-            max-w-6xl
-            flex
-            flex-col
-            gap-20
-            md:gap-24
           "
         >
 
-          {privacyPolicySections.map((section) => (
+          <div
+            className="
+              flex
+              flex-col
+              gap-20
+              md:gap-24
+            "
+          >
 
-            <article
-              key={section.title}
-              className="
-                w-full
-                text-center
-              "
-            >
+            {privacyPolicySections.map((section) => (
 
-              {/* TITLE */}
-              <h2
+              <article
+                key={section.title}
                 className="
-                  font-serif
-                  text-3xl
-                  md:text-4xl
-                  leading-tight
-                  text-[#3B2A26]
-                "
-              >
-                {section.title}
-              </h2>
-
-
-
-              {/* PARAGRAPHS */}
-              <div
-                className="
-                  mx-auto
-                  mt-10
-                  max-w-4xl
-                  space-y-8
+                  w-full
                 "
               >
 
-                {section.content.map((paragraph) => (
-
-                  <p
-                    key={paragraph}
-                    className="
-                      text-base
-                      md:text-lg
-                      leading-[2]
-                      tracking-[0.01em]
-                      text-[#6F5A50]
-                    "
-                  >
-                    {paragraph}
-                  </p>
-
-                ))}
-
-              </div>
+                <h2
+                  className="
+                    font-serif
+                    text-3xl
+                    md:text-4xl
+                    text-left
+                    leading-tight
+                    text-[#3B2A26]
+                  "
+                >
+                  {section.title}
+                </h2>
 
 
-            </article>
+                <div
+                  className="
+                    mt-8
+                    space-y-8
+                  "
+                >
 
-          ))}
+                  {section.content.map((paragraph) => (
 
-        </div>
+                    <p
+                      key={paragraph}
+                      className="
+                        text-base
+                        md:text-lg
+                        leading-[2]
+                        text-left
+                        text-[#6F5A50]
+                      "
+                    >
+                      {paragraph}
+                    </p>
+
+                  ))}
+
+                </div>
+
+
+              </article>
+
+            ))}
+
+          </div>
+
+
+        </main>
+
+
+        {/* RIGHT SPACE */}
+        <div
+          className="
+            hidden
+            lg:block
+          "
+        />
+
 
       </div>
 
