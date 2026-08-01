@@ -4,10 +4,10 @@
  * features/about/Mission.tsx
  *
  * Description:
- * Minimal editorial mission quote following About section.
+ * Minimal editorial mission statement following About section.
  *
  * Updates:
- * • Centered statement
+ * • Single-line luxury statement
  * • Reduced typography
  * • Removed divider accents
  * • Responsive sizing
@@ -23,13 +23,11 @@ export default function Mission() {
 
         bg-[#FBF7F4]
 
-        py-16
+        py-12
 
-        sm:py-20
+        sm:py-14
 
-        md:py-24
-
-        lg:py-28
+        md:py-16
       "
     >
 
@@ -37,42 +35,40 @@ export default function Mission() {
         className="
           w-full
 
-          flex
-
-          justify-center
-
           px-5
 
           sm:px-8
 
           md:px-12
+
+          flex
+
+          justify-center
         "
       >
 
         <p
           className="
-            max-w-4xl
+            w-full
 
             text-center
 
             font-serif
 
-            text-xl
+            text-lg
 
-            sm:text-2xl
+            sm:text-xl
 
-            md:text-3xl
+            md:text-2xl
 
-            lg:text-4xl
+            leading-relaxed
 
-            leading-[1.4]
-
-            tracking-[-0.015em]
+            tracking-[-0.01em]
 
             text-[#3B2A26]
           "
         >
-          “A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.”
+          A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.
         </p>
 
       </div>
