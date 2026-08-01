@@ -16,7 +16,7 @@
  * • Uncropped images (full image visible)
  * • No white background on hover
  * • Centered all text
- * • Same navbar clearance as Hero (~¾ inch under nav)
+ * • Top spacing capped at ¾ inch
  *
  * -----------------------------------------------------------------------------
  */
@@ -25,23 +25,7 @@ import Link from "next/link";
 
 export default function Services() {
   return (
-    <section className="w-full bg-transparent">
-      {/*
-        Spacer = navbar height + 0.75in
-        Matches Hero clearance under fixed nav
-        nav: 110px → md 140px → xl 168px
-      */}
-      <div
-        aria-hidden="true"
-        className="
-          w-full
-          shrink-0
-          h-[calc(110px+0.75in)]
-          md:h-[calc(140px+0.75in)]
-          xl:h-[calc(168px+0.75in)]
-        "
-      />
-
+    <section className="w-full bg-transparent pt-[0.75in]">
       {/* HEADER */}
       <div className="w-full flex flex-col items-center text-center">
         <span
