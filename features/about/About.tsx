@@ -7,10 +7,9 @@
  * Luxury editorial About section.
  *
  * Updates:
- * • Supports 3-cell editorial grid
- * • Full width layout
+ * • Full width editorial layout
  * • Responsive spacing
- * • Prevents global width restrictions
+ * • Supports 3-cell composition
  *
  * ---
  */
@@ -31,27 +30,12 @@ export default function About() {
         overflow-hidden
 
         py-20
-
         sm:py-24
-
         md:py-32
-
         lg:py-40
       "
     >
-
-      <div
-        className="
-          w-full
-
-          mx-auto
-        "
-      >
-
-        <AboutContent />
-
-      </div>
-
+      <AboutContent />
     </section>
   );
 }
