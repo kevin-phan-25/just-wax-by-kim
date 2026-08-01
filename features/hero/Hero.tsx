@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/hero/Hero.tsx
  *
@@ -9,9 +10,12 @@
  * Updates:
  * • Added navbar breathing space
  * • Premium rounded hero canvas
+ * • Shifted hero banner down for luxury spacing
  * • Responsive hero height
  * • Stabilized absolute image positioning
- * -----------------------------------------------------------------------------
+ *
+ * ---
+ *
  */
 
 import { HeroImage } from "./HeroImage";
@@ -24,10 +28,11 @@ export default function Hero() {
         relative
         w-full
         min-h-screen
+
         bg-[#FBF7F4]
 
-        pt-10
-        md:pt-12
+        pt-20
+        md:pt-24
 
         overflow-hidden
       "
@@ -42,7 +47,9 @@ export default function Hero() {
         className="
           relative
           z-10
+
           min-h-screen
+
           flex
           items-center
         "
@@ -59,7 +66,7 @@ export default function Hero() {
           "
         >
 
-          {/* 
+          {/*
             Hero content goes here:
             - headline
             - subtitle
