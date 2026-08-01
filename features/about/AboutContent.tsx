@@ -12,6 +12,7 @@
  * • Removed closing quote
  * • Improved paragraph spacing
  * • Removed divider accents
+ * • Top padding ½ inch (pairs with Hero bottom for 1 inch total gap)
  *
  * ---
  */
@@ -24,6 +25,8 @@ export default function AboutContent() {
     <article
       className="
         w-full
+
+        pt-[0.5in]
 
         px-5
 
