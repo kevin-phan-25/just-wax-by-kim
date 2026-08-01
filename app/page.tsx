@@ -7,10 +7,9 @@
  * Main homepage composition.
  *
  * Updates:
- * • Added Mission below Hero
- * • Removed duplicate section wrappers
- * • Improved luxury conversion flow
- * • Preserved responsive spacing control
+ * • Added Mission directly below Hero
+ * • Removed unnecessary wrappers
+ * • Preserved luxury conversion flow
  *
  * Sections:
  * • Hero
@@ -47,20 +46,16 @@ export default function Home() {
       <Hero />
 
 
-
-      {/* MISSION */}
+      {/* MISSION - HERO CLOSING STATEMENT */}
       <Mission />
-
 
 
       {/* ABOUT */}
       <About />
 
 
-
       {/* SERVICES */}
       <Services />
-
 
 
       {/* BOOKING */}
