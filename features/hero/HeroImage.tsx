@@ -15,7 +15,7 @@
  * ---
  */
 
-import { HeroImage } from "./HeroImage";
+import HeroImage from "./HeroImage";
 
 export default function Hero() {
   return (
