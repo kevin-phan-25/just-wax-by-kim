@@ -1,4 +1,5 @@
 /**
+ * ---
  * File:
  * features/faq/FAQItem.tsx
  *
@@ -6,10 +7,13 @@
  * Luxury FAQ accordion item.
  *
  * Updates:
- * • Increased spacing between content
- * • Improved typography hierarchy
- * • Easier-to-read answers
- * • Luxury card presentation
+ * • Centered questions
+ * • Increased card breathing room
+ * • Better answer spacing
+ * • Stronger answer typography
+ * • Luxury soft card appearance
+ *
+ * ---
  */
 
 "use client";
@@ -37,7 +41,6 @@ export default function FAQItem({
   item,
 }: Props) {
 
-
   const [
     open,
     setOpen,
@@ -54,31 +57,26 @@ export default function FAQItem({
         border
 
         transition-all
-
         duration-300
 
         ${
           open
             ? `
               border-[#D8B4A0]
-
               bg-white
-
-              shadow-md
+              shadow-sm
             `
-            : `
+            :
+            `
               border-[#E8DDD8]
-
               bg-[#FDF9F5]
 
               hover:bg-white
-
               hover:border-[#D8B4A0]
             `
         }
       `}
     >
-
 
 
       {/* QUESTION */}
@@ -93,40 +91,37 @@ export default function FAQItem({
         className="
           group
 
+          relative
+
           flex
 
           w-full
 
           items-center
 
-          justify-between
+          justify-center
 
-          gap-6
+          text-center
 
-          px-7
-          md:px-10
+          px-10
+          md:px-14
 
-          py-7
-          md:py-8
+          py-8
 
-          text-left
+          min-h-[90px]
         "
       >
 
-
         <span
           className="
-            pr-4
+            max-w-3xl
 
             font-serif
 
             text-lg
-
             md:text-xl
 
             leading-relaxed
-
-            font-medium
 
             text-[#3B2A26]
           "
@@ -138,16 +133,17 @@ export default function FAQItem({
 
         <span
           className={`
+            absolute
+
+            right-6
+            md:right-10
+
             flex
 
             h-11
-
             w-11
 
-            shrink-0
-
             items-center
-
             justify-center
 
             rounded-full
@@ -156,41 +152,36 @@ export default function FAQItem({
 
             transition-all
 
-            duration-300
-
-
             ${
               open
-                ? `
+                ?
+                  `
                   border-[#8C5A6B]
-
                   bg-[#8C5A6B]
-
                   text-white
-                `
-                : `
+                  `
+                :
+                  `
                   border-[#D8B4A0]
-
                   text-[#8C5A6B]
-
                   group-hover:bg-[#F6E7E1]
-                `
+                  `
             }
           `}
         >
 
           {
             open
-              ? <Minus size={18}/>
-              : <Plus size={18}/>
+              ?
+              <Minus size={18}/>
+              :
+              <Plus size={18}/>
           }
 
         </span>
 
 
       </button>
-
-
 
 
 
@@ -205,12 +196,12 @@ export default function FAQItem({
 
           duration-500
 
-          ease-in-out
-
           ${
             open
-              ? "grid-rows-[1fr] opacity-100"
-              : "grid-rows-[0fr] opacity-0"
+              ?
+              "grid-rows-[1fr] opacity-100"
+              :
+              "grid-rows-[0fr] opacity-0"
           }
         `}
       >
@@ -223,42 +214,45 @@ export default function FAQItem({
 
           <div
             className="
-              px-7
-              md:px-10
+              mx-6
+              md:mx-10
 
-              pb-8
-              md:pb-10
+              mb-8
 
-              pt-1
+              rounded-2xl
+
+              bg-[#FCF8F3]
+
+              px-8
+              md:px-12
+
+              py-8
             "
           >
 
             <p
               className="
-                text-base
+                text-center
 
+                text-base
                 md:text-lg
 
                 font-medium
 
-                leading-[1.9]
+                leading-8
 
-                text-[#5F4A42]
+                text-[#6F5A50]
               "
             >
               {item.answer}
             </p>
-
 
           </div>
 
 
         </div>
 
-
       </div>
-
-
 
 
     </div>
