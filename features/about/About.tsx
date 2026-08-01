@@ -11,10 +11,9 @@
  * • Removed divider accents
  * • Responsive spacing
  * • Supports editorial grid
- * • Navbar clearance preserved
- * • Bottom spacing scales
  * • Matched background to site (#FBF7F4)
- * • Top spacer ½ inch (pairs with Hero bottom for 1 inch total gap)
+ * • Top spacer ½ inch (pairs with Hero)
+ * • Bottom spacer ½ inch (pairs with Services)
  *
  * ---
  */
@@ -27,9 +26,7 @@ export default function About() {
       className="
         w-full
         bg-[#FBF7F4]
-        pb-12
-        md:pb-16
-        lg:pb-[72px]
+        pb-[0.5in]
       "
     >
       {/* ½ inch top spacer — pairs with Hero pb-[0.5in] = 1 inch total */}
