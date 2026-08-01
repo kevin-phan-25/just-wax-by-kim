@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/hero/Hero.tsx
@@ -8,15 +7,12 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Keeps fixed navbar clearance
- * • Navbar height + ¾ inch gap preserved
- * • Adds ½ inch bottom spacing
+ * • Clears fixed navbar
+ * • ~¾ inch gap under nav (0.75in)
  * • Responsive phone / iPad / desktop
  * • Keeps image natural height
- * • Unified background (#FBF7F4)
  *
  * ---
- *
  */
 
 import HeroImage from "./HeroImage";
@@ -24,14 +20,29 @@ import HeroImage from "./HeroImage";
 export default function Hero() {
   return (
     <section
+      id="home"
       className="
+        relative
         w-full
         bg-[#FBF7F4]
-        pt-[110px]
-        md:pt-[140px]
-        xl:pt-[168px]
+        pb-10
+        overflow-hidden
       "
     >
+      {/*
+        Spacer = navbar height + 0.75in
+        nav: 110px → md 140px → xl 168px
+      */}
+      <div
+        aria-hidden="true"
+        className="
+          w-full
+          shrink-0
+          h-[calc(110px+0.75in)]
+          md:h-[calc(140px+0.75in)]
+          xl:h-[calc(168px+0.75in)]
+        "
+      />
 
       <div
         className="
@@ -45,17 +56,6 @@ export default function Hero() {
       >
         <HeroImage />
       </div>
-
-
-      {/* Bottom spacing: ½ inch */}
-      <div
-        className="
-          h-8
-          md:h-10
-          lg:h-[48px]
-        "
-      />
-
     </section>
   );
 }
