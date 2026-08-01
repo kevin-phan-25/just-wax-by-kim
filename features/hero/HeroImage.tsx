@@ -1,61 +1,62 @@
 /**
  * ---
  * File:
- * features/hero/Hero.tsx
- *
- * Description:
- * Luxury responsive hero section.
- *
- * Updates:
- * • Clears fixed navbar
- * • ~¾ inch gap under nav (0.75in)
- * • Responsive phone / iPad / desktop
- * • Keeps image natural height
- *
+ * features/hero/HeroImage.tsx
  * ---
  */
 
-import HeroImage from "./HeroImage";
+import Image from "next/image";
 
-export default function Hero() {
+export default function HeroImage() {
   return (
-    <section
-      id="home"
+    <div
       className="
         relative
         w-full
-        bg-[#FBF7F4]
-        pb-10
         overflow-hidden
+        rounded-[2.5rem]
+        bg-[#FBF7F4]
       "
     >
-      {/*
-        Spacer = navbar height + 0.75in
-        nav: 110px → md 140px → xl 168px
-      */}
-      <div
-        aria-hidden="true"
+      <Image
+        src="/hero/just-wax-by-kim-underconstruction.jpg"
+        alt="Luxury waxing studio experience at Just Wax by Kim"
+        width={2400}
+        height={1200}
+        priority
+        sizes="100vw"
         className="
+          block
           w-full
-          shrink-0
-          h-[calc(110px+0.75in)]
-          md:h-[calc(140px+0.75in)]
-          xl:h-[calc(168px+0.75in)]
+          h-auto
+          object-contain
+          rounded-[2.5rem]
         "
       />
-
       <div
+        aria-hidden
         className="
-          container-luxury
-          w-full
-          mx-auto
-          px-4
-          md:px-6
-          lg:px-8
+          absolute
+          inset-0
+          rounded-[2.5rem]
+          bg-gradient-to-r
+          from-[#2D211D]/15
+          via-transparent
+          to-transparent
         "
-      >
-        <HeroImage />
-      </div>
-    </section>
+      />
+      <div
+        aria-hidden
+        className="
+          absolute
+          inset-0
+          rounded-[2.5rem]
+          bg-gradient-to-t
+          from-[#3B2A26]/10
+          via-transparent
+          to-transparent
+        "
+      />
+    </div>
   );
 }
