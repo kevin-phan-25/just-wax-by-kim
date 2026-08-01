@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/services/Services.tsx
@@ -16,9 +17,11 @@
  * • Uncropped images
  * • Centered all text
  * • No divider accents
- * • Top spacer ½ inch (pairs with About bottom for 1 inch total gap)
+ * • Top spacer ½ inch (pairs with About)
+ * • Bottom spacer ½ inch (pairs with Booking)
  *
  * ---
+ *
  */
 
 import Link from "next/link";
@@ -31,6 +34,7 @@ export default function Services() {
         px-4
         md:px-6
         lg:px-8
+        pb-[0.5in]
       "
     >
       {/* ½ inch top spacer — pairs with About pb-[0.5in] = 1 inch total */}
