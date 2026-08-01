@@ -1,92 +1,97 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/testimonials/TestimonialCard.tsx
  *
  * Description:
- * Luxury testimonial presentation card.
+ * Luxury editorial testimonial card.
  *
- * Updated:
- * • Added premium card container
- * • Improved editorial quote styling
- * • Added hover interaction
- * • Refined spacing and typography
- * -----------------------------------------------------------------------------
+ * Updates:
+ * • Removed restrictive card styling
+ * • Softer luxury presentation
+ * • Improved quote hierarchy
+ * • Better spacing
+ * • Matches Just Wax by Kim theme
+ * ---
  */
 
 import type { Testimonial } from "./testimonial.types";
-
 
 interface Props {
   testimonial: Testimonial;
 }
 
-
 export default function TestimonialCard({
   testimonial,
 }: Props) {
-
   return (
-
     <article
       className="
         group
-        relative
-        overflow-hidden
-        rounded-[32px]
-        border
-        border-[#E8DDD8]
-        bg-[#FFFFFF]/70
+
+        flex
+        flex-col
+        items-center
+
+        w-full
+
+        rounded-[36px]
+
+        bg-white/60
+
         px-8
-        py-10
-        shadow-[0_18px_50px_rgba(59,42,38,0.06)]
+        py-12
+
+        md:px-10
+        md:py-14
+
         transition-all
         duration-500
-        hover:-translate-y-2
-        hover:shadow-[0_25px_70px_rgba(59,42,38,0.12)]
+
+        hover:-translate-y-1
+
+        hover:shadow-[0_25px_70px_rgba(59,42,38,0.08)]
       "
     >
 
-
-      {/* Stars */}
+      {/* STARS */}
       <div
         className="
           flex
-          justify-center
           gap-1
-          text-[#D8B4A0]
+
+          text-[#C6A15B]
+
+          text-sm
         "
       >
-
-        {
-          Array.from({
-            length: testimonial.rating,
-          }).map((_, index)=>(
-
-            <span
-              key={index}
-              className="
-                text-lg
-              "
-            >
-              ★
-            </span>
-
-          ))
-        }
-
+        {Array.from({
+          length: testimonial.rating,
+        }).map((_, index) => (
+          <span key={index}>
+            ★
+          </span>
+        ))}
       </div>
 
 
 
-      {/* Quote */}
+      {/* QUOTE */}
       <blockquote
         className="
           mt-8
+
+          max-w-xl
+
           text-center
+
           font-serif
+
           text-xl
+          md:text-2xl
+
           leading-[1.8]
+
           text-[#6F5A50]
         "
       >
@@ -95,56 +100,48 @@ export default function TestimonialCard({
 
 
 
-      {/* Divider */}
+      {/* NAME */}
       <div
         className="
-          mx-auto
-          mt-8
-          h-px
-          w-12
-          bg-[#D8B4A0]
-        "
-      />
-
-
-
-      {/* Name */}
-      <p
-        className="
-          mt-6
+          mt-10
           text-center
-          uppercase
-          tracking-[0.28em]
-          text-xs
-          font-semibold
-          text-[#3B2A26]
         "
       >
-        {testimonial.name}
-      </p>
+
+        <div
+          className="
+            mx-auto
+
+            mb-6
+
+            h-px
+
+            w-12
+
+            bg-[#D8B4A0]
+          "
+        />
 
 
+        <p
+          className="
+            uppercase
 
-      {/* Decorative Corner */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          right-8
-          top-8
-          h-12
-          w-12
-          rounded-full
-          bg-[#F6E7E1]
-          opacity-0
-          transition-opacity
-          duration-500
-          group-hover:opacity-100
-        "
-      />
+            tracking-[0.3em]
+
+            text-xs
+
+            font-semibold
+
+            text-[#3B2A26]
+          "
+        >
+          {testimonial.name}
+        </p>
+
+      </div>
+
 
     </article>
-
   );
-
 }
