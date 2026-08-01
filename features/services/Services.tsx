@@ -14,6 +14,8 @@
  * • Blended card background with section
  * • Improved editorial spacing
  * • Uncropped images (full image visible)
+ * • No white background on hover
+ * • Centered all text
  *
  * -----------------------------------------------------------------------------
  */
@@ -22,15 +24,17 @@ import Link from "next/link";
 
 export default function Services() {
   return (
-    <section className="w-full">
+    <section className="w-full bg-transparent">
       {/* HEADER */}
-      <div className="w-full text-center">
+      <div className="w-full flex flex-col items-center text-center">
         <span
           className="
+            block
             uppercase
             tracking-[0.4em]
             text-sm
             text-[#8C5A6B]
+            text-center
           "
         >
           Our Services
@@ -43,6 +47,7 @@ export default function Services() {
             text-4xl
             md:text-5xl
             text-[#3B2A26]
+            text-center
           "
         >
           Luxury Waxing For Everyone
@@ -57,6 +62,7 @@ export default function Services() {
             md:text-lg
             leading-relaxed
             text-[#8C7468]
+            text-center
           "
         >
           Thoughtfully curated waxing experiences that blend
@@ -75,6 +81,7 @@ export default function Services() {
           xl:gap-16
           w-full
           px-0
+          place-items-center
         "
       >
         {/* LADIES */}
@@ -90,7 +97,9 @@ export default function Services() {
             md:px-8
             xl:px-10
             rounded-[36px]
-            transition-all
+            bg-transparent
+            hover:bg-transparent
+            transition-transform
             duration-500
           "
         >
@@ -100,6 +109,7 @@ export default function Services() {
               rounded-[28px]
               w-full
               max-w-[480px]
+              bg-transparent
             "
           >
             <img
@@ -109,9 +119,10 @@ export default function Services() {
                 w-full
                 h-auto
                 object-contain
-                transition
+                bg-transparent
+                transition-transform
                 duration-700
-                group-hover:scale-105
+                group-hover:scale-[1.03]
               "
             />
           </div>
@@ -130,7 +141,9 @@ export default function Services() {
             md:px-8
             xl:px-10
             rounded-[36px]
-            transition-all
+            bg-transparent
+            hover:bg-transparent
+            transition-transform
             duration-500
           "
         >
@@ -140,6 +153,7 @@ export default function Services() {
               rounded-[28px]
               w-full
               max-w-[480px]
+              bg-transparent
             "
           >
             <img
@@ -149,9 +163,10 @@ export default function Services() {
                 w-full
                 h-auto
                 object-contain
-                transition
+                bg-transparent
+                transition-transform
                 duration-700
-                group-hover:scale-105
+                group-hover:scale-[1.03]
               "
             />
           </div>
