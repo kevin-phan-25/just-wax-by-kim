@@ -8,10 +8,11 @@
  * Luxury booking call-to-action.
  *
  * Updates:
- * • Matches navbar Book Appointment button
- * • Larger luxury sizing
- * • Transparent background
- * • GlossGenius external link
+ * • Matches navbar CTA sizing
+ * • Added premium emphasis
+ * • Increased internal breathing room
+ * • Prevents text compression
+ * • GlossGenius ready
  *
  * ---
  *
@@ -28,13 +29,13 @@ export default function BookingCTA() {
       className="
         inline-flex
 
-        min-h-[58px]
-        md:min-h-[66px]
-        xl:min-h-[74px]
+        min-h-[64px]
+        md:min-h-[72px]
+        xl:min-h-[78px]
 
-        min-w-[220px]
-        md:min-w-[240px]
-        xl:min-w-[280px]
+        min-w-[260px]
+        md:min-w-[300px]
+        xl:min-w-[340px]
 
         items-center
         justify-center
@@ -44,9 +45,9 @@ export default function BookingCTA() {
         border-2
         border-[#8C5A6B]
 
-        px-8
-        md:px-10
-        xl:px-14
+        px-16
+        md:px-20
+        xl:px-24
 
         uppercase
 
@@ -62,11 +63,19 @@ export default function BookingCTA() {
 
         text-[#8C5A6B]
 
-        transition-all
-        duration-300
+        bg-transparent
 
-        hover:bg-[#F6E7E1]
-        hover:scale-[1.03]
+        shadow-sm
+
+        transition-all
+        duration-500
+
+        hover:bg-[#8C5A6B]
+        hover:text-white
+
+        hover:shadow-lg
+
+        hover:-translate-y-1
       "
     >
       {BOOKING_CONFIG.ctaLabel}
