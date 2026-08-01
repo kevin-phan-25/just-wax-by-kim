@@ -9,11 +9,11 @@
  *
  * Updates:
  * • Three column editorial layout
- * • Center content placement
- * • Left aligned text
- * • Removed restrictive document feel
- * • Improved paragraph spacing
- * • Responsive phone/tablet/desktop
+ * • Full-width centered presentation
+ * • Left aligned content
+ * • Responsive spacing
+ * • Desktop subtitle stays on one line
+ * • Mobile & tablet wrap naturally
  *
  * ---
  *
@@ -29,7 +29,6 @@ export default function PrivacyPolicy() {
         bg-[#FBF7F4]
       "
     >
-
       {/* Navbar Clearance */}
       <div
         className="
@@ -38,17 +37,17 @@ export default function PrivacyPolicy() {
         "
       />
 
-
       {/* HEADER */}
       <header
         className="
           w-full
           px-6
+          md:px-10
+          lg:px-16
           text-center
           mb-24
         "
       >
-
         <p
           className="
             uppercase
@@ -59,7 +58,6 @@ export default function PrivacyPolicy() {
         >
           Studio Exploration
         </p>
-
 
         <h1
           className="
@@ -74,62 +72,41 @@ export default function PrivacyPolicy() {
           Privacy Policy
         </h1>
 
-
         <p
           className="
             mt-8
-            mx-auto
-            max-w-3xl
-            text-lg
+            w-full
+            text-center
+            text-base
+            md:text-lg
+            lg:text-xl
             leading-relaxed
             text-[#8C7468]
+            lg:whitespace-nowrap
           "
         >
-          Your privacy matters. This policy explains how
-          Just Wax by Kim collects, uses, and protects
-          your personal information.
+          Your privacy matters. This policy explains how Just Wax by Kim collects, uses, and protects your personal information.
         </p>
-
       </header>
-
-
 
       {/* THREE CELL EDITORIAL GRID */}
       <div
         className="
           grid
-
           grid-cols-1
-
           lg:grid-cols-[0.35fr_1.3fr_0.35fr]
-
           w-full
-
           px-6
           md:px-10
           lg:px-16
-
           pb-32
         "
       >
-
-
         {/* LEFT SPACE */}
-        <div
-          className="
-            hidden
-            lg:block
-          "
-        />
-
+        <div className="hidden lg:block" />
 
         {/* CENTER CONTENT */}
-        <main
-          className="
-            w-full
-          "
-        >
-
+        <main className="w-full">
           <div
             className="
               flex
@@ -138,29 +115,23 @@ export default function PrivacyPolicy() {
               md:gap-24
             "
           >
-
             {privacyPolicySections.map((section) => (
-
               <article
                 key={section.title}
-                className="
-                  w-full
-                "
+                className="w-full"
               >
-
                 <h2
                   className="
                     font-serif
                     text-3xl
                     md:text-4xl
-                    text-left
                     leading-tight
+                    text-left
                     text-[#3B2A26]
                   "
                 >
                   {section.title}
                 </h2>
-
 
                 <div
                   className="
@@ -168,9 +139,7 @@ export default function PrivacyPolicy() {
                     space-y-8
                   "
                 >
-
                   {section.content.map((paragraph) => (
-
                     <p
                       key={paragraph}
                       className="
@@ -183,34 +152,16 @@ export default function PrivacyPolicy() {
                     >
                       {paragraph}
                     </p>
-
                   ))}
-
                 </div>
-
-
               </article>
-
             ))}
-
           </div>
-
-
         </main>
 
-
         {/* RIGHT SPACE */}
-        <div
-          className="
-            hidden
-            lg:block
-          "
-        />
-
-
+        <div className="hidden lg:block" />
       </div>
-
-
     </section>
   );
 }
