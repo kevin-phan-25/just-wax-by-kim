@@ -7,14 +7,12 @@
  * Luxury testimonial editorial section.
  *
  * Updates:
- * • Five cell editorial layout
- * • Left/right breathing space cells
- * • Removed width restrictions
- * • Removed divider accents
- * • Removed redundant booking CTA
- * • Centered headers
- * • Softer luxury presentation
- * • Responsive mobile/tablet/desktop
+ * • Fixed compressed testimonial cards
+ * • Added editorial breathing room
+ * • Centered header alignment
+ * • Five cell desktop layout
+ * • Removed CTA
+ * • Responsive luxury spacing
  *
  * ---
  */
@@ -34,7 +32,8 @@ export default function Testimonials() {
       "
     >
 
-      {/* Navbar clearance */}
+
+      {/* Navbar Clearance */}
       <div
         className="
           h-[168px]
@@ -48,9 +47,13 @@ export default function Testimonials() {
       <header
         className="
           w-full
+          flex
+          flex-col
+          items-center
+          justify-center
           px-6
           text-center
-          mb-16
+          mb-20
         "
       >
 
@@ -69,6 +72,8 @@ export default function Testimonials() {
         <h1
           className="
             mt-6
+            w-full
+            text-center
             font-serif
             text-4xl
             sm:text-5xl
@@ -83,9 +88,10 @@ export default function Testimonials() {
 
         <p
           className="
-            mx-auto
             mt-6
+            mx-auto
             max-w-3xl
+            text-center
             text-base
             md:text-lg
             leading-relaxed
@@ -101,7 +107,8 @@ export default function Testimonials() {
 
 
 
-      {/* TESTIMONIAL GRID */}
+
+      {/* FIVE CELL EDITORIAL GRID */}
       <div
         className="
           w-full
@@ -110,30 +117,46 @@ export default function Testimonials() {
 
           grid-cols-1
 
-          lg:grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
+          lg:grid-cols-[0.75in_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_0.75in]
 
-          gap-8
+          gap-x-10
+          xl:gap-x-14
+
+          gap-y-12
 
           pb-12
         "
       >
 
-        {/* LEFT BREATHING SPACE */}
+
+        {/* LEFT SPACE */}
         <div className="hidden lg:block" />
+
 
 
         {testimonials.slice(0,3).map((item)=>(
-          <TestimonialCard
+          <div
             key={item.id}
-            testimonial={item}
-          />
+            className="
+              w-full
+              flex
+              justify-center
+            "
+          >
+            <TestimonialCard
+              testimonial={item}
+            />
+          </div>
         ))}
 
 
-        {/* RIGHT BREATHING SPACE */}
+
+        {/* RIGHT SPACE */}
         <div className="hidden lg:block" />
 
+
       </div>
+
 
 
 
@@ -150,29 +173,38 @@ export default function Testimonials() {
 
             grid-cols-1
 
-            lg:grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
+            lg:grid-cols-[0.75in_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_0.75in]
 
-            gap-8
+            gap-x-10
+            xl:gap-x-14
 
             pb-32
           "
         >
 
-          {/* LEFT BREATHING SPACE */}
           <div className="hidden lg:block" />
 
 
           {testimonials.slice(3).map((item)=>(
 
-            <TestimonialCard
+            <div
               key={item.id}
-              testimonial={item}
-            />
+              className="
+                w-full
+                flex
+                justify-center
+              "
+            >
+
+              <TestimonialCard
+                testimonial={item}
+              />
+
+            </div>
 
           ))}
 
 
-          {/* RIGHT BREATHING SPACE */}
           <div className="hidden lg:block" />
 
         </div>
