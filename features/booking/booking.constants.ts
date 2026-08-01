@@ -3,33 +3,32 @@
  * File: booking.constants.ts
  *
  * Description:
- * Luxury booking configuration.
- *
- * Changes:
- *
- * - Refined luxury brand messaging
- * - Improved client-focused language
- * - Matches editorial tone
- *
+ * Luxury booking configuration & conversion copy.
  * ------------------------------------------------------------------
  */
 
-
 export const BOOKING_CONFIG = {
+  eyebrow: "Reserve Your Experience",
 
-  eyebrow:
-    "Reserve Your Experience",
-
-
-  title:
-    "Your Luxury Waxing Experience Awaits",
-
+  title: "Soft Skin Starts With One Appointment",
 
   description:
-    "Schedule your appointment and enjoy personalized waxing care designed around your comfort, confidence, and beautiful results.",
+    "Step into a calm, private studio where every detail is considered — from gentle technique to the way you’re welcomed. Book in minutes and leave feeling polished, confident, and cared for.",
 
+  reassurance: "Private studio · Thoughtful care · Easy rescheduling",
 
-  bookingUrl:
-    "#"
+  ctaLabel: "Book Your Appointment",
 
+  bookingUrl: "#", // replace with your live booking link
+
+  widgetEyebrow: "Online Booking",
+
+  widgetTitle: "Choose Your Time",
+
+  widgetDescription:
+    "Select a service, pick a time that fits your day, and secure your visit. You’ll receive a confirmation right away — simple, calm, and entirely on your terms.",
+
+  contactLabel: "Message the studio",
+
+  contactHref: "/#contact", // update if your contact section/route differs
 } as const;

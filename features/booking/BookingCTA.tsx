@@ -6,62 +6,43 @@
  * Luxury booking call-to-action.
  *
  * Changes:
- *
- * - Updated to luxury theme colors
- * - Increased CTA presence
- * - Improved spacing
- * - Added premium hover interaction
- *
+ * - Stronger presence
+ * - Premium hover
+ * - Matches brand dusty pink
  * ------------------------------------------------------------------
  */
 
-import {
-  BOOKING_CONFIG,
-} from "./booking.constants";
-
+import { BOOKING_CONFIG } from "./booking.constants";
 
 export default function BookingCTA() {
-
   return (
-
     <a
       href={BOOKING_CONFIG.bookingUrl}
-
       className="
         inline-flex
         items-center
         justify-center
-
+        min-h-[56px]
+        min-w-[240px]
         rounded-full
-
-        bg-brand-dusty-pink
-
-        px-12
-        py-5
-
+        bg-[#8C5A6B]
+        px-10
+        py-4
         uppercase
         tracking-[0.22em]
-
-        text-sm
+        text-xs
+        sm:text-sm
         font-semibold
-
         text-white
-
-        shadow-[0_12px_35px_rgba(59,42,38,0.12)]
-
+        shadow-[0_12px_35px_rgba(140,90,107,0.28)]
         transition-all
         duration-300
-
         hover:-translate-y-1
-        hover:bg-brand-plum
-        hover:shadow-[0_20px_45px_rgba(59,42,38,0.16)]
+        hover:bg-[#7A4A5A]
+        hover:shadow-[0_18px_45px_rgba(140,90,107,0.35)]
       "
     >
-
-      Book Your Appointment
-
+      {BOOKING_CONFIG.ctaLabel}
     </a>
-
   );
-
 }

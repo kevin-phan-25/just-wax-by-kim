@@ -3,88 +3,47 @@
  * File: booking.data.ts
  *
  * Description:
- * Luxury booking information data.
- *
- * Changes:
- *
- * - Refined benefit messaging
- * - Added premium client-focused language
- * - Matches luxury studio positioning
- *
+ * Luxury booking benefits & studio info.
  * ------------------------------------------------------------------
  */
 
-import type {
-  BookingBenefit,
-  BusinessHour,
-} from "./booking.types";
-
-
+import type { BookingBenefit, BusinessHour } from "./booking.types";
 
 export const bookingBenefits: BookingBenefit[] = [
-
   {
-    title:
-      "Private Experience",
-
+    icon: "✦",
+    title: "Private & Calm",
     description:
-      "Relax in a comfortable boutique studio environment designed around your privacy, confidence, and personal care."
+      "A boutique setting designed for comfort and confidence — no rush, no crowd, just space to relax.",
   },
-
-
   {
-    title:
-      "Professional Products",
-
+    icon: "♡",
+    title: "Gentle Precision",
     description:
-      "Experience carefully selected professional products chosen to provide gentle care and beautiful lasting results."
+      "Professional products and careful technique focused on smooth results with as little irritation as possible.",
   },
-
-
   {
-    title:
-      "Easy Scheduling",
-
+    icon: "◎",
+    title: "Book in Minutes",
     description:
-      "Reserve your appointment with a simple booking process designed to fit seamlessly into your schedule."
-  }
-
+      "Choose your service and time online. Confirmations are clear, and changes are easy when life shifts.",
+  },
 ];
-
-
-
 
 export const businessHours: BusinessHour[] = [
-
   {
-    day:
-      "Monday - Friday",
-
-    hours:
-      "9:00 AM - 6:00 PM"
+    day: "Monday – Friday",
+    hours: "9:00 AM – 6:00 PM",
   },
-
-
   {
-    day:
-      "Saturday",
-
-    hours:
-      "9:00 AM - 3:00 PM"
+    day: "Saturday",
+    hours: "9:00 AM – 3:00 PM",
   },
-
-
   {
-    day:
-      "Sunday",
-
-    hours:
-      "Closed"
-  }
-
+    day: "Sunday",
+    hours: "Closed",
+  },
 ];
 
-
-
 export const cancellationPolicy =
-  "Please provide 24 hours notice for appointment changes or cancellations.";
+  "Please provide 24 hours’ notice for changes or cancellations so we can offer your time to another guest.";
