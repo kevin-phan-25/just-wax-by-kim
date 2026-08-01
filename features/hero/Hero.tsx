@@ -7,15 +7,15 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Clears fixed navbar + oversized logo
- * • ~¾ inch gap under nav (≈72px)
+ * • Clears fixed navbar
+ * • ~¾ inch gap under nav (0.75in)
  * • Responsive phone / iPad / desktop
  * • Keeps image natural height
  *
  * ---
  */
 
-import { HeroImage } from "./HeroImage";
+import HeroImage from "./HeroImage";
 
 export default function Hero() {
   return (
@@ -30,23 +30,17 @@ export default function Hero() {
       "
     >
       {/*
-        Spacer = navbar height (or logo if taller) + ~¾″ (72px)
-        Mobile nav 110 / logo 105 → 110 + 72 = 182
-        sm logo 125 → 125 + 72 = 197
-        md nav 140 / logo 150 → 150 + 72 = 222
-        lg logo 175 → 175 + 72 = 247
-        xl nav 168 / logo 200 → 200 + 72 = 272
+        Spacer = navbar height + 0.75in
+        nav: 110px → md 140px → xl 168px
       */}
       <div
         aria-hidden="true"
         className="
           w-full
           shrink-0
-          h-[182px]
-          sm:h-[197px]
-          md:h-[222px]
-          lg:h-[247px]
-          xl:h-[272px]
+          h-[calc(110px+0.75in)]
+          md:h-[calc(140px+0.75in)]
+          xl:h-[calc(168px+0.75in)]
         "
       />
 
