@@ -11,7 +11,7 @@
  * • ~¾ inch gap under nav (0.75in)
  * • Responsive phone / iPad / desktop
  * • Keeps image natural height
- * • Bottom padding ½ inch (combines with About top padding for 1 inch total gap)
+ * • Bottom padding ½ inch (pairs with About for 1 inch total gap)
  *
  * ---
  */
