@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/services/data/ladies.data.ts
@@ -8,14 +7,13 @@
  * Ladies waxing service catalog.
  *
  * Updates:
+ * • Brazilian moved to Signature Waxing section
+ * • Removed Sr/Jr waxer pricing
  * • Updated complete pricing catalog
- * • Renamed Signature Waxing to Brazilian
- * • Removed waxer tier pricing
- * • Added complete body services
+ * • Added complete face and body services
  * • Maintained reusable service structure
  *
  * ---
- *
  */
 
 import type { Service } from "../services.types";
@@ -26,7 +24,6 @@ import type { Service } from "../services.types";
  * Ladies landing page configuration
  */
 export const ladiesServicePage = {
-
   image:
     "/images/services/ladies-view-pricing.jpg",
 
@@ -35,7 +32,6 @@ export const ladiesServicePage = {
 
   description:
     "Premium waxing services created with precision, comfort, and confidence.",
-
 };
 
 
@@ -48,23 +44,92 @@ export const ladiesServices: Service[] = [
 
 
 // ---------------------------------------------------------------------------
-// FACE & BEAUTY
+// SIGNATURE WAXING
 // ---------------------------------------------------------------------------
 
 {
-  id: "ladies-face",
+  id: "ladies-new-client-brazilian",
 
   title:
-    "Face",
+    "New Client Brazilian",
 
   category:
-    "Face & Beauty",
+    "Signature Waxing",
 
   description:
-    "A gentle facial waxing service designed for smooth, refreshed, beautifully cared-for skin.",
+    "A first-time Brazilian experience focused on comfort, confidence, and beautifully smooth results.",
 
   price:
-    "$25",
+    "$75",
+
+  duration:
+    "30 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-repeat-brazilian",
+
+  title:
+    "Repeat Brazilian",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "A maintenance Brazilian wax designed for returning guests seeking consistent smooth results.",
+
+  price:
+    "$70",
+
+  duration:
+    "20 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-extended-brazilian",
+
+  title:
+    "Extended Brazilian",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "A more detailed Brazilian service customized for guests wanting additional coverage.",
+
+  price:
+    "$65",
+
+  duration:
+    "20 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-standard-brazilian",
+
+  title:
+    "Standard Brazilian",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "A classic Brazilian wax focused on clean lines and smooth, comfortable results.",
+
+  price:
+    "$55",
 
   duration:
     "15 minutes",
@@ -73,6 +138,81 @@ export const ladiesServices: Service[] = [
     "ladies",
 },
 
+
+{
+  id: "ladies-butt-strip",
+
+  title:
+    "Butt Strip (Stand-Alone Service)",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "A quick stand-alone waxing service for a smooth, polished finish.",
+
+  price:
+    "$30",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-inner-buttocks",
+
+  title:
+    "Inner Buttocks (Add-On Only)",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "An additional service available with qualifying waxing appointments.",
+
+  price:
+    "$15",
+
+  duration:
+    "5 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-buttocks",
+
+  title:
+    "Buttocks",
+
+  category:
+    "Signature Waxing",
+
+  description:
+    "Complete buttocks waxing service for smooth, confident results.",
+
+  price:
+    "$40",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+
+
+// ---------------------------------------------------------------------------
+// FACE & BEAUTY
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-brow-clean-up",
@@ -87,7 +227,7 @@ export const ladiesServices: Service[] = [
     "A precise brow cleanup to maintain a polished and natural shape.",
 
   price:
-    "$10",
+    "$25",
 
   duration:
     "10 minutes",
@@ -98,19 +238,42 @@ export const ladiesServices: Service[] = [
 
 
 {
-  id: "ladies-brow-shaping",
+  id: "ladies-full-face-brows",
 
   title:
-    "Brow Shaping",
+    "Full Face w/ Brows",
 
   category:
     "Face & Beauty",
 
   description:
-    "Custom brow shaping designed to enhance your natural features.",
+    "Complete facial waxing service including brows for a refreshed appearance.",
 
   price:
-    "$20",
+    "$80",
+
+  duration:
+    "30 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-full-face",
+
+  title:
+    "Full Face w/o Brows",
+
+  category:
+    "Face & Beauty",
+
+  description:
+    "Full facial waxing service designed for smooth, refreshed skin.",
+
+  price:
+    "$65",
 
   duration:
     "20 minutes",
@@ -130,7 +293,7 @@ export const ladiesServices: Service[] = [
     "Face & Beauty",
 
   description:
-    "Quick and gentle upper lip waxing for smooth, clean results.",
+    "Quick and gentle upper lip waxing for smooth results.",
 
   price:
     "$15",
@@ -143,28 +306,23 @@ export const ladiesServices: Service[] = [
 },
 
 
-
-// ---------------------------------------------------------------------------
-// BRAZILIAN
-// ---------------------------------------------------------------------------
-
 {
-  id: "ladies-new-client-brazilian",
+  id: "ladies-chin",
 
   title:
-    "New Client Brazilian",
+    "Chin",
 
   category:
-    "Brazilian",
+    "Face & Beauty",
 
   description:
-    "A luxury first-time Brazilian experience focused on comfort, confidence, and smooth results.",
+    "Precision chin waxing for a clean, polished appearance.",
 
   price:
-    "$70",
+    "$20",
 
   duration:
-    "30 minutes",
+    "10 minutes",
 
   gender:
     "ladies",
@@ -172,26 +330,119 @@ export const ladiesServices: Service[] = [
 
 
 {
-  id: "ladies-repeat-brazilian",
+  id: "ladies-jawline",
 
   title:
-    "Repeat Brazilian",
+    "Jawlines",
 
   category:
-    "Brazilian",
+    "Face & Beauty",
 
   description:
-    "A smooth maintenance Brazilian wax for returning guests.",
+    "Defined jawline waxing for smooth, refined results.",
 
   price:
-    "$65",
+    "$20",
 
   duration:
-    "20 minutes",
+    "10 minutes",
 
   gender:
     "ladies",
 },
+
+
+{
+  id: "ladies-neck",
+
+  title:
+    "Neck",
+
+  category:
+    "Face & Beauty",
+
+  description:
+    "Neck waxing service for a clean, smooth finish.",
+
+  price:
+    "$25",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-sideburns",
+
+  title:
+    "Sideburns",
+
+  category:
+    "Face & Beauty",
+
+  description:
+    "Gentle sideburn waxing for a polished look.",
+
+  price:
+    "$20",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-forehead",
+
+  title:
+    "Forehead",
+
+  category:
+    "Face & Beauty",
+
+  description:
+    "Smooth forehead waxing for a refreshed appearance.",
+
+  price:
+    "$20",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-nose",
+
+  title:
+    "Nose",
+
+  category:
+    "Face & Beauty",
+
+  description:
+    "Quick and comfortable nose waxing service.",
+
+  price:
+    "$25",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
 
 
 
@@ -209,10 +460,102 @@ export const ladiesServices: Service[] = [
     "Body Care",
 
   description:
-    "Smooth underarm waxing designed for lasting comfort and confidence.",
+    "Smooth underarm waxing designed for lasting comfort.",
 
   price:
-    "$35",
+    "$25",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-stomach",
+
+  title:
+    "Stomach",
+
+  category:
+    "Body Care",
+
+  description:
+    "Professional stomach waxing for smooth, confident skin.",
+
+  price:
+    "$40",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-chest",
+
+  title:
+    "Chest",
+
+  category:
+    "Body Care",
+
+  description:
+    "Chest waxing service for smooth, refined results.",
+
+  price:
+    "$40",
+
+  duration:
+    "10 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-full-back",
+
+  title:
+    "Full Back",
+
+  category:
+    "Body Care",
+
+  description:
+    "Complete back waxing service for smooth lasting results.",
+
+  price:
+    "$70",
+
+  duration:
+    "20 minutes",
+
+  gender:
+    "ladies",
+},
+
+
+{
+  id: "ladies-half-back",
+
+  title:
+    "Half Back",
+
+  category:
+    "Body Care",
+
+  description:
+    "Partial back waxing service designed for comfort and confidence.",
+
+  price:
+    "$40",
 
   duration:
     "10 minutes",
@@ -235,10 +578,10 @@ export const ladiesServices: Service[] = [
     "Complete leg waxing service for beautifully smooth results.",
 
   price:
-    "$180",
+    "$110",
 
   duration:
-    "1 hour",
+    "40 minutes",
 
   gender:
     "ladies",
@@ -255,7 +598,7 @@ export const ladiesServices: Service[] = [
     "Body Care",
 
   description:
-    "Lower leg waxing service for smooth, polished skin.",
+    "Lower leg waxing service for smooth polished skin.",
 
   price:
     "$55",
@@ -278,7 +621,7 @@ export const ladiesServices: Service[] = [
     "Body Care",
 
   description:
-    "Upper leg waxing service designed for comfortable, smooth results.",
+    "Upper leg waxing service designed for comfortable results.",
 
   price:
     "$70",
@@ -404,6 +747,5 @@ export const ladiesServices: Service[] = [
   gender:
     "ladies",
 },
-
 
 ];
