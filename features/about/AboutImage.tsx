@@ -7,9 +7,9 @@
  * Luxury portrait component.
  *
  * Updates:
- * • Centered presentation
+ * • Centered portrait presentation
  * • Removed unnecessary decoration
- * • Improved luxury framing
+ * • Premium editorial frame
  *
  * ---
  */
@@ -19,10 +19,12 @@ export default function AboutImage() {
     <div
       className="
         relative
+
+        w-full
       "
     >
 
-      {/* Soft luxury depth */}
+      {/* Soft background depth */}
       <div
         aria-hidden
         className="
@@ -39,7 +41,8 @@ export default function AboutImage() {
       />
 
 
-      {/* Portrait Frame */}
+
+      {/* Portrait */}
       <div
         className="
           relative
