@@ -1,107 +1,61 @@
 /**
  * ---
  * File:
- * features/hero/HeroImage.tsx
+ * features/hero/Hero.tsx
  *
  * Description:
- * Responsive luxury hero banner image.
+ * Luxury responsive hero section.
  *
  * Updates:
- * • Matches luxury navbar spacing layout
- * • Prevents top/bottom cropping
- * • Preserves full artwork
- * • Removes excess whitespace
- * • Responsive desktop/tablet/mobile scaling
+ * • Clears fixed navbar
+ * • ~¾ inch gap under nav (0.75in)
+ * • Responsive phone / iPad / desktop
+ * • Keeps image natural height
  *
  * ---
  */
 
-import Image from "next/image";
+import { HeroImage } from "./HeroImage";
 
-export function HeroImage() {
+export default function Hero() {
   return (
-    <div
+    <section
+      id="home"
       className="
         relative
-
         w-full
-
-        overflow-hidden
-
-        rounded-[2.5rem]
-
         bg-[#FBF7F4]
+        pb-10
+        overflow-hidden
       "
     >
-      <Image
-        src="/hero/just-wax-by-kim-underconstruction.jpg"
-
-        alt="Luxury waxing studio experience at Just Wax by Kim"
-
-        width={2400}
-        height={1200}
-
-        priority
-
-        sizes="
-          100vw
-        "
-
+      {/*
+        Spacer = navbar height + 0.75in
+        nav: 110px → md 140px → xl 168px
+      */}
+      <div
+        aria-hidden="true"
         className="
-          block
-
           w-full
-
-          h-auto
-
-          object-contain
-
-          rounded-[2.5rem]
+          shrink-0
+          h-[calc(110px+0.75in)]
+          md:h-[calc(140px+0.75in)]
+          xl:h-[calc(168px+0.75in)]
         "
       />
 
-
-      {/* Luxury left depth overlay */}
       <div
-        aria-hidden
         className="
-          absolute
-
-          inset-0
-
-          rounded-[2.5rem]
-
-          bg-gradient-to-r
-
-          from-[#2D211D]/15
-
-          via-transparent
-
-          to-transparent
+          container-luxury
+          w-full
+          mx-auto
+          px-4
+          md:px-6
+          lg:px-8
         "
-      />
-
-
-      {/* Subtle bottom luxury fade */}
-      <div
-        aria-hidden
-        className="
-          absolute
-
-          inset-0
-
-          rounded-[2.5rem]
-
-          bg-gradient-to-t
-
-          from-[#3B2A26]/10
-
-          via-transparent
-
-          to-transparent
-        "
-      />
-
-    </div>
+      >
+        <HeroImage />
+      </div>
+    </section>
   );
 }
