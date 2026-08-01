@@ -5,14 +5,14 @@
  * features/privacy-policy/PrivacyPolicy.tsx
  *
  * Description:
- * Luxury Privacy Policy presentation page.
+ * Luxury Privacy Policy editorial page.
  *
  * Updates:
- * • Centered editorial layout
- * • Removed restrictive grid columns
- * • Added luxury section cards
- * • Improved readability
- * • Responsive mobile/tablet/desktop spacing
+ * • Full width luxury layout
+ * • Centered editorial presentation
+ * • Improved paragraph spacing
+ * • Removed boxed card styling
+ * • Better mobile/tablet/desktop rhythm
  * • Unified Just Wax by Kim theme
  *
  * ---
@@ -39,82 +39,82 @@ export default function PrivacyPolicy() {
       />
 
 
-      {/* PAGE CONTAINER */}
-      <main
+      {/* HEADER */}
+      <header
         className="
-          mx-auto
           w-full
-          max-w-5xl
           px-6
-          md:px-10
-          pb-24
+          text-center
+          mb-24
         "
       >
 
-
-        {/* HEADER */}
-        <header
+        <p
           className="
-            mx-auto
-            max-w-3xl
-            text-center
-            mb-20
-            md:mb-28
+            uppercase
+            tracking-[0.4em]
+            text-sm
+            text-[#8C5A6B]
           "
         >
-
-          <p
-            className="
-              uppercase
-              tracking-[0.4em]
-              text-sm
-              text-[#8C5A6B]
-            "
-          >
-            Studio Exploration
-          </p>
+          Studio Exploration
+        </p>
 
 
-          <h1
-            className="
-              mt-6
-              font-serif
-              text-4xl
-              md:text-5xl
-              lg:text-6xl
-              leading-tight
-              text-[#3B2A26]
-            "
-          >
-            Privacy Policy
-          </h1>
+        <h1
+          className="
+            mt-6
+            font-serif
+            text-4xl
+            md:text-5xl
+            lg:text-6xl
+            text-[#3B2A26]
+          "
+        >
+          Privacy Policy
+        </h1>
 
 
-          <p
-            className="
-              mt-8
-              text-base
-              md:text-lg
-              leading-relaxed
-              text-[#8C7468]
-            "
-          >
-            Your privacy matters. This policy explains how
-            Just Wax by Kim collects, uses, and protects
-            your personal information.
-          </p>
+        <p
+          className="
+            mx-auto
+            mt-8
+            max-w-4xl
+            text-base
+            md:text-lg
+            leading-[1.9]
+            text-[#8C7468]
+          "
+        >
+          Your privacy matters. This policy explains how
+          Just Wax by Kim collects, uses, and protects
+          your personal information.
+        </p>
 
-        </header>
+      </header>
 
 
 
-        {/* POLICY CONTENT */}
+      {/* CONTENT */}
+      <div
+        className="
+          w-full
+          px-6
+          md:px-10
+          lg:px-16
+          pb-32
+        "
+      >
+
         <div
           className="
+            mx-auto
+            w-full
+            max-w-6xl
             flex
             flex-col
-            gap-8
-            md:gap-10
+            gap-20
+            md:gap-24
           "
         >
 
@@ -123,24 +123,18 @@ export default function PrivacyPolicy() {
             <article
               key={section.title}
               className="
-                rounded-[32px]
-                bg-white/40
-                px-6
-                py-8
-                md:px-10
-                md:py-10
-                shadow-[0_10px_40px_rgba(59,42,38,0.04)]
+                w-full
+                text-center
               "
             >
-
 
               {/* TITLE */}
               <h2
                 className="
-                  text-center
                   font-serif
-                  text-2xl
-                  md:text-3xl
+                  text-3xl
+                  md:text-4xl
+                  leading-tight
                   text-[#3B2A26]
                 "
               >
@@ -149,13 +143,13 @@ export default function PrivacyPolicy() {
 
 
 
-              {/* CONTENT */}
+              {/* PARAGRAPHS */}
               <div
                 className="
                   mx-auto
-                  mt-8
-                  max-w-3xl
-                  space-y-6
+                  mt-10
+                  max-w-4xl
+                  space-y-8
                 "
               >
 
@@ -166,8 +160,8 @@ export default function PrivacyPolicy() {
                     className="
                       text-base
                       md:text-lg
-                      leading-[1.9]
-                      text-center
+                      leading-[2]
+                      tracking-[0.01em]
                       text-[#6F5A50]
                     "
                   >
@@ -185,8 +179,7 @@ export default function PrivacyPolicy() {
 
         </div>
 
-
-      </main>
+      </div>
 
 
     </section>
