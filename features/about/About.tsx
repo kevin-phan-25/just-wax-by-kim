@@ -6,17 +6,11 @@
  * Description:
  * Luxury editorial About section.
  *
- * Layout:
- * • Editorial two-column composition
- * • Portrait + brand story
- * • Full width luxury spacing
- *
- * Updates:
- * • Removed credentials column
- * • Removed restrictive layout
- * • Improved whitespace
- * • Balanced image and text placement
- *
+ * Design:
+ * • Full width luxury composition
+ * • Editorial asymmetrical layout
+ * • Spacious premium beauty branding
+ * • Portrait + story experience
  * -----------------------------------------------------------------------------
  */
 
@@ -25,23 +19,16 @@ import AboutContent from "./AboutContent";
 export default function About() {
   return (
     <section
-      id="about"
       className="
-        section-padding-lg
+        relative
         w-full
+        overflow-hidden
+        bg-[#FBF7F4]
+        py-32
+        md:py-40
       "
     >
-      <div
-        className="
-          w-full
-          px-6
-          md:px-10
-          lg:px-16
-          xl:px-24
-        "
-      >
-        <AboutContent />
-      </div>
+      <AboutContent />
     </section>
   );
 }
