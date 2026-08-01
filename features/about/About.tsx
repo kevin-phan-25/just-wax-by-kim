@@ -4,11 +4,11 @@
  * features/about/About.tsx
  *
  * Description:
- * Luxury editorial About section.
+ * Luxury responsive About section.
  *
  * Updates:
- * • Removed width restrictions
- * • Full width luxury composition
+ * • Mobile / tablet / desktop optimization
+ * • Full width composition
  * • Centered editorial layout
  * • Premium spacing system
  *
@@ -26,15 +26,17 @@ export default function About() {
 
         w-full
 
-        overflow-hidden
-
         bg-[#FBF7F4]
 
-        py-24
+        py-16
 
-        md:py-32
+        sm:py-20
+
+        md:py-28
 
         lg:py-40
+
+        overflow-hidden
       "
     >
       <AboutContent />
