@@ -8,11 +8,10 @@
  * Luxury responsive hero section.
  *
  * Updates:
+ * • Reduced hero height
  * • Added navbar breathing space
- * • Premium rounded hero canvas
- * • Shifted hero banner down for luxury spacing
- * • Responsive hero height
- * • Stabilized absolute image positioning
+ * • Prevented hero image cropping
+ * • Better luxury banner presentation
  *
  * ---
  *
@@ -27,12 +26,11 @@ export default function Hero() {
       className="
         relative
         w-full
-        min-h-screen
 
         bg-[#FBF7F4]
 
-        pt-20
-        md:pt-24
+        pt-16
+        md:pt-20
 
         overflow-hidden
       "
@@ -48,7 +46,9 @@ export default function Hero() {
           relative
           z-10
 
-          min-h-screen
+          min-h-[75vh]
+          md:min-h-[78vh]
+          lg:min-h-[82vh]
 
           flex
           items-center
@@ -60,14 +60,14 @@ export default function Hero() {
             container-luxury
             w-full
 
-            py-24
-            md:py-32
-            xl:py-40
+            py-16
+            md:py-20
+            lg:py-24
           "
         >
 
           {/*
-            Hero content goes here:
+            Hero content:
             - headline
             - subtitle
             - CTA buttons
@@ -76,7 +76,6 @@ export default function Hero() {
         </div>
 
       </div>
-
 
     </section>
   );
