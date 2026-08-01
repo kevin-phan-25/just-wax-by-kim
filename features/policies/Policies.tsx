@@ -11,6 +11,7 @@
  * • Reduced center spacing
  * • Improved desktop balance
  * • Responsive tablet/mobile layouts
+ * • Removed divider accents
  *
  * ---
  */
@@ -28,10 +29,8 @@ export default function Policies() {
         bg-[#FAF7F3]
       "
     >
-
       {/* Navbar Transition Spacer */}
       <div className="h-[216px]" />
-
 
       {/* CONTENT */}
       <div
@@ -45,8 +44,6 @@ export default function Policies() {
           pb-40
         "
       >
-
-
         {/* HEADER */}
         <header
           className="
@@ -57,7 +54,6 @@ export default function Policies() {
             text-center
           "
         >
-
           <p
             className="
               uppercase
@@ -68,7 +64,6 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.eyebrow}
           </p>
-
 
           <h1
             className="
@@ -84,17 +79,6 @@ export default function Policies() {
             {POLICIES_CONSTANTS.title}
           </h1>
 
-
-          <div
-            className="
-              mt-10
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
           <p
             className="
               mt-10
@@ -108,7 +92,6 @@ export default function Policies() {
             {POLICIES_CONSTANTS.subtitle}
           </p>
 
-
           <p
             className="
               mt-6
@@ -121,30 +104,21 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.contactNote}
           </p>
-
         </header>
-
-
 
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
             mt-24
-
             hidden
             w-full
-
             grid
-
             grid-cols-[0.25fr_1.75fr_0.15fr_1.75fr_0.25fr]
-
             gap-x-6
             gap-y-24
-
             xl:grid
           "
         >
-
           {POLICIES_DATA.map((section, index) => (
             <div
               key={section.id}
@@ -154,43 +128,30 @@ export default function Policies() {
                   : "col-start-4"
               }
             >
-              <PolicySectionCard
-                section={section}
-              />
+              <PolicySectionCard section={section} />
             </div>
           ))}
-
         </div>
-
-
 
         {/* TABLET + MOBILE GRID */}
         <div
           className="
             mt-20
-
             grid
             grid-cols-1
-
             md:grid-cols-2
-
             gap-x-12
             gap-y-20
-
             xl:hidden
           "
         >
-
           {POLICIES_DATA.map((section) => (
             <PolicySectionCard
               key={section.id}
               section={section}
             />
           ))}
-
         </div>
-
-
 
         {/* CLOSING */}
         <div
@@ -203,17 +164,6 @@ export default function Policies() {
             text-center
           "
         >
-
-          <div
-            className="
-              mb-8
-              h-px
-              w-24
-              bg-[#D8B4A0]
-            "
-          />
-
-
           <p
             className="
               mx-auto
@@ -225,12 +175,8 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.closing}
           </p>
-
         </div>
-
-
       </div>
-
     </section>
   );
 }
