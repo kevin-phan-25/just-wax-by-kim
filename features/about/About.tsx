@@ -8,8 +8,9 @@
  *
  * Updates:
  * • Removed width restrictions
- * • Full viewport composition
- * • Centered luxury layout
+ * • Full width luxury composition
+ * • Centered editorial layout
+ * • Premium spacing system
  *
  * ---
  */
@@ -23,16 +24,16 @@ export default function About() {
       className="
         relative
 
-        w-screen
+        w-full
 
-        left-1/2
-
-        -translate-x-1/2
+        overflow-hidden
 
         bg-[#FBF7F4]
 
         py-24
+
         md:py-32
+
         lg:py-40
       "
     >
