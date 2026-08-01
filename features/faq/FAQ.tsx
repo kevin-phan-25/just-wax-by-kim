@@ -8,10 +8,11 @@
  * Luxury FAQ presentation.
  *
  * Updates:
- * • Removed max width restriction
- * • Added 3-column editorial layout
- * • Added centered section titles spanning columns
- * • Improved luxury spacing
+ * • Removed width restrictions
+ * • Added 2-column luxury layout
+ * • Centered FAQ sections
+ * • Improved desktop spacing
+ * • Responsive mobile stacking
  *
  * ---
  *
@@ -44,19 +45,21 @@ return (
   "
 >
 
-  {/* Background */}
+  {/* Background atmosphere */}
   <div
     aria-hidden
     className="
       absolute
       inset-0
+
       pointer-events-none
+
       bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
     "
   />
 
 
-  {/* Navbar spacing */}
+  {/* Navbar clearance */}
   <div
     className="
       h-[216px]
@@ -75,7 +78,7 @@ return (
 
       px-6
       md:px-10
-      xl:px-16
+      xl:px-20
 
       pb-40
     "
@@ -130,7 +133,7 @@ return (
         className="
           mt-8
 
-          max-w-4xl
+          w-full
 
           text-lg
 
@@ -149,36 +152,40 @@ return (
 
 
 
-    {/* ============================
-        BEFORE WAXING
-    ============================ */}
-
+    {/* FAQ TWO COLUMN GRID */}
 
     <div
       className="
-        mb-28
+        grid
+
+        grid-cols-1
+
+        lg:grid-cols-2
+
+        gap-12
+        xl:gap-20
+
+        w-full
       "
     >
 
+
+
+      {/* BEFORE WAX */}
+
       <div
         className="
-          grid
-
-          grid-cols-1
-          md:grid-cols-3
-
+          flex
+          flex-col
           items-center
 
-          mb-14
+          w-full
         "
       >
 
-        <div />
-
         <h2
           className="
-            col-span-1
-            md:col-span-2
+            mb-12
 
             text-center
 
@@ -194,26 +201,12 @@ return (
         </h2>
 
 
-      </div>
 
-
-
-      <div
-        className="
-          grid
-
-          grid-cols-1
-          md:grid-cols-3
-
-          gap-8
-
-          w-full
-        "
-      >
-
-        <div />
-
-        <div>
+        <div
+          className="
+            w-full
+          "
+        >
 
           <FAQAccordion
             items={BEFORE_WAXING_FAQ}
@@ -222,48 +215,27 @@ return (
         </div>
 
 
-        <div />
-
-
       </div>
 
 
-    </div>
 
 
 
-
-
-
-
-    {/* ============================
-        AFTER CARE
-    ============================ */}
-
-
-    <div>
-
+      {/* AFTER CARE */}
 
       <div
         className="
-          grid
-
-          grid-cols-1
-          md:grid-cols-3
-
+          flex
+          flex-col
           items-center
 
-          mb-14
+          w-full
         "
       >
 
-        <div />
-
-
         <h2
           className="
-            col-span-1
-            md:col-span-2
+            mb-12
 
             text-center
 
@@ -279,28 +251,12 @@ return (
         </h2>
 
 
-      </div>
 
-
-
-
-      <div
-        className="
-          grid
-
-          grid-cols-1
-          md:grid-cols-3
-
-          gap-8
-
-          w-full
-        "
-      >
-
-        <div />
-
-
-        <div>
+        <div
+          className="
+            w-full
+          "
+        >
 
           <FAQAccordion
             items={AFTER_WAX_CARE_FAQ}
@@ -309,14 +265,11 @@ return (
         </div>
 
 
-        <div />
-
-
       </div>
 
 
-    </div>
 
+    </div>
 
 
   </div>
