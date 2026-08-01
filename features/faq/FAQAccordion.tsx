@@ -1,13 +1,16 @@
 /**
+ *
  * ---
  * File:
  * features/faq/FAQAccordion.tsx
  *
  * Description:
- * Luxury FAQ accordion collection.
+ * FAQ accordion collection.
  *
  * ---
+ *
  */
+
 
 import FAQItem from "./FAQItem";
 
@@ -17,38 +20,45 @@ import type {
 
 
 interface Props {
-  items: FAQItemType[];
+
+items: FAQItemType[];
+
 }
 
 
 export default function FAQAccordion({
-  items,
+items,
 }: Props) {
 
-  return (
 
-    <div
-      className="
-        flex
-        flex-col
+return (
 
-        gap-8
+<div
+  className="
+    flex
+    flex-col
 
-        md:gap-10
-      "
-    >
+    gap-8
 
-      {items.map((item) => (
+    md:gap-10
+  "
+>
 
-        <FAQItem
-          key={item.question}
-          item={item}
-        />
 
-      ))}
+{
+items.map((item)=>(
 
-    </div>
+<FAQItem
+  key={item.id}
+  item={item}
+/>
 
-  );
+))
+}
+
+
+</div>
+
+);
 
 }
