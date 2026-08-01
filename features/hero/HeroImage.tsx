@@ -4,13 +4,13 @@
  * features/hero/HeroImage.tsx
  *
  * Description:
- * Luxury hero banner image container.
+ * Responsive luxury hero banner image.
  *
  * Updates:
- * • Added navbar spacing
- * • Added premium rounded frame
- * • Improved image containment
- * • Maintained responsive scaling
+ * • Mobile optimized crop
+ * • Tablet optimized scaling
+ * • Desktop cinematic banner
+ * • Better focal point control
  * -----------------------------------------------------------------------------
  */
 
@@ -29,13 +29,12 @@ export function HeroImage() {
         right-0
         bottom-0
 
-        rounded-t-[2.5rem]
-
         overflow-hidden
+
+        rounded-t-[2.5rem]
       "
     >
 
-      {/* Main Hero Image */}
       <Image
         src="/hero/just-wax-by-kim-banner.jpg"
         alt="Luxury waxing studio experience at Just Wax by Kim"
@@ -44,17 +43,29 @@ export function HeroImage() {
 
         priority
 
-        sizes="100vw"
+        sizes="
+          100vw
+        "
 
         className="
           object-cover
-          object-center
-          scale-[1.02]
+
+          object-[65%_center]
+
+          sm:object-[60%_center]
+
+          md:object-center
+
+          lg:object-center
+
+          scale-110
+          sm:scale-105
+          lg:scale-[1.02]
         "
       />
 
 
-      {/* Editorial Dark Overlay */}
+      {/* Soft luxury overlay */}
       <div
         aria-hidden
         className="
@@ -63,14 +74,16 @@ export function HeroImage() {
 
           bg-gradient-to-r
 
-          from-[#2D211D]/35
-          via-[#2D211D]/10
-          to-[#2D211D]/15
+          from-[#2D211D]/45
+
+          via-[#2D211D]/15
+
+          to-transparent
         "
       />
 
 
-      {/* Bottom Luxury Fade */}
+      {/* Bottom fade */}
       <div
         aria-hidden
         className="
@@ -79,21 +92,11 @@ export function HeroImage() {
 
           bg-gradient-to-t
 
-          from-[#3B2A26]/30
+          from-[#3B2A26]/35
+
           via-transparent
+
           to-transparent
-        "
-      />
-
-
-      {/* Soft Warm Glow */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          inset-0
-
-          bg-[radial-gradient(circle_at_25%_40%,rgba(232,200,188,0.22),transparent_45%)]
         "
       />
 
