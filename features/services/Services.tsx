@@ -9,10 +9,10 @@
  * Updates:
  * • Removed Ladies / Gentlemen overlay text
  * • Removed View Pricing text
- * • Expanded image cells
- * • Removed max-width restriction
- * • Added editorial spacing around image cards
- * • Centered all typography
+ * • Expanded outer image cells
+ * • Preserved original image sizing
+ * • Prevented image scaling from filling expanded cells
+ * • Improved editorial spacing
  *
  * -----------------------------------------------------------------------------
  */
@@ -33,10 +33,6 @@ export default function Services() {
         className="
           w-full
 
-          flex
-          flex-col
-          items-center
-
           text-center
         "
       >
@@ -44,11 +40,8 @@ export default function Services() {
         <span
           className="
             uppercase
-
             tracking-[0.4em]
-
             text-sm
-
             text-[#8C5A6B]
           "
         >
@@ -60,11 +53,7 @@ export default function Services() {
           className="
             mt-6
 
-            w-full
-
             font-serif
-
-            text-center
 
             text-4xl
             md:text-5xl
@@ -80,10 +69,9 @@ export default function Services() {
           className="
             mt-6
 
-            w-full
-            max-w-3xl
+            mx-auto
 
-            text-center
+            max-w-3xl
 
             text-base
             md:text-lg
@@ -99,6 +87,7 @@ export default function Services() {
         </p>
 
       </div>
+
 
 
 
@@ -120,6 +109,7 @@ export default function Services() {
       >
 
 
+
         {/* LADIES */}
 
         <Link
@@ -134,13 +124,19 @@ export default function Services() {
 
             rounded-[36px]
 
-            p-6
-            md:p-8
+            p-8
+            md:p-10
 
             bg-white
 
             border
             border-[#E8DDD8]
+
+            flex
+
+            items-center
+
+            justify-center
 
             transition-all
             duration-500
@@ -158,6 +154,8 @@ export default function Services() {
               rounded-[28px]
 
               w-full
+
+              max-w-[420px]
             "
           >
 
@@ -188,6 +186,7 @@ export default function Services() {
 
 
 
+
         {/* GENTLEMEN */}
 
         <Link
@@ -202,13 +201,19 @@ export default function Services() {
 
             rounded-[36px]
 
-            p-6
-            md:p-8
+            p-8
+            md:p-10
 
             bg-white
 
             border
             border-[#E8DDD8]
+
+            flex
+
+            items-center
+
+            justify-center
 
             transition-all
             duration-500
@@ -226,6 +231,8 @@ export default function Services() {
               rounded-[28px]
 
               w-full
+
+              max-w-[420px]
             "
           >
 
@@ -252,6 +259,7 @@ export default function Services() {
           </div>
 
         </Link>
+
 
 
       </div>
