@@ -7,10 +7,10 @@
  * Luxury editorial About content.
  *
  * Updates:
- * • Removed container restrictions
+ * • Responsive typography
  * • Centered storytelling
  * • Improved paragraph spacing
- * • Balanced luxury typography
+ * • Removed layout restrictions
  *
  * ---
  */
@@ -30,11 +30,15 @@ export default function AboutContent() {
 
         items-center
 
-        px-6
+        px-5
 
-        md:px-10
+        sm:px-8
 
-        lg:px-16
+        md:px-12
+
+        lg:px-20
+
+        xl:px-28
       "
     >
 
@@ -49,7 +53,9 @@ export default function AboutContent() {
 
           text-center
 
-          mb-20
+          mb-16
+
+          sm:mb-20
 
           md:mb-28
         "
@@ -63,11 +69,15 @@ export default function AboutContent() {
 
             tracking-[0.45em]
 
-            text-xs
+            text-[10px]
+
+            sm:text-xs
 
             text-[#8C5A6B]
 
-            mb-8
+            mb-6
+
+            sm:mb-8
           "
         >
           {aboutContent.eyebrow}
@@ -76,15 +86,23 @@ export default function AboutContent() {
 
         <h2
           className="
+            max-w-5xl
+
+            mx-auto
+
             font-serif
 
-            text-5xl
+            text-center
+
+            text-4xl
+
+            sm:text-5xl
 
             md:text-6xl
 
             lg:text-7xl
 
-            leading-[1.05]
+            leading-[1.08]
 
             tracking-[-0.045em]
 
@@ -103,11 +121,19 @@ export default function AboutContent() {
         className="
           w-full
 
-          max-w-4xl
+          max-w-md
+
+          sm:max-w-lg
+
+          md:max-w-2xl
+
+          lg:max-w-3xl
 
           mx-auto
 
-          mb-24
+          mb-16
+
+          sm:mb-24
 
           md:mb-32
         "
@@ -117,12 +143,13 @@ export default function AboutContent() {
 
 
 
+
       {/* Story */}
       <div
         className="
           w-full
 
-          max-w-4xl
+          max-w-3xl
 
           mx-auto
 
@@ -130,11 +157,13 @@ export default function AboutContent() {
 
           text-[#75635B]
 
-          text-lg
+          text-base
+
+          sm:text-lg
 
           md:text-xl
 
-          leading-[2]
+          leading-[1.9]
         "
       >
 
@@ -143,9 +172,11 @@ export default function AboutContent() {
             <p
               key={index}
               className="
-                mb-12
+                mb-8
 
-                md:mb-16
+                sm:mb-10
+
+                md:mb-14
 
                 tracking-[0.015em]
               "
@@ -159,11 +190,15 @@ export default function AboutContent() {
 
         <p
           className="
-            mt-20
+            mt-16
+
+            sm:mt-20
 
             font-serif
 
             text-3xl
+
+            sm:text-4xl
 
             md:text-5xl
 
@@ -176,6 +211,7 @@ export default function AboutContent() {
           confidence, and making every
           client feel beautiful.
         </p>
+
 
       </div>
 
