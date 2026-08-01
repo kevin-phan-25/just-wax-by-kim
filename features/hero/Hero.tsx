@@ -5,6 +5,12 @@
  *
  * Description:
  * Luxury responsive hero section.
+ *
+ * Updates:
+ * • Added navbar breathing space
+ * • Premium rounded hero canvas
+ * • Responsive hero height
+ * • Stabilized absolute image positioning
  * -----------------------------------------------------------------------------
  */
 
@@ -16,10 +22,14 @@ export default function Hero() {
       id="home"
       className="
         relative
-        min-h-screen
         w-full
-        overflow-hidden
+        min-h-screen
         bg-[#FBF7F4]
+
+        pt-10
+        md:pt-12
+
+        overflow-hidden
       "
     >
 
@@ -27,7 +37,7 @@ export default function Hero() {
       <HeroImage />
 
 
-      {/* Overlay Content Layer */}
+      {/* Hero Content Layer */}
       <div
         className="
           relative
@@ -42,13 +52,19 @@ export default function Hero() {
           className="
             container-luxury
             w-full
-            py-32
-            md:py-40
-            xl:py-48
+
+            py-24
+            md:py-32
+            xl:py-40
           "
         >
 
-          {/* Your hero text/content goes here */}
+          {/* 
+            Hero content goes here:
+            - headline
+            - subtitle
+            - CTA buttons
+          */}
 
         </div>
 
