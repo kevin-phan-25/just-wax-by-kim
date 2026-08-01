@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/services/Services.tsx
@@ -16,11 +15,10 @@
  * • Improved editorial spacing
  * • Uncropped images
  * • Centered all text
- * • Responsive navbar clearance
  * • No divider accents
+ * • Top spacer ½ inch (pairs with About bottom for 1 inch total gap)
  *
  * ---
- *
  */
 
 import Link from "next/link";
@@ -30,12 +28,21 @@ export default function Services() {
     <section
       className="
         w-full
-        pt-[168px]
         px-4
         md:px-6
         lg:px-8
       "
     >
+      {/* ½ inch top spacer — pairs with About pb-[0.5in] = 1 inch total */}
+      <div
+        aria-hidden="true"
+        className="
+          w-full
+          shrink-0
+          h-[0.5in]
+        "
+      />
+
       {/* HEADER */}
       <div className="w-full flex flex-col items-center text-center">
         <span
