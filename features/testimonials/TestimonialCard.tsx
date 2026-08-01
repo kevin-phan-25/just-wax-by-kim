@@ -7,10 +7,11 @@
  * Luxury editorial testimonial card.
  *
  * Updates:
- * • Removed restrictive card styling
+ * • Removed divider accents
+ * • Removed decorative elements
  * • Softer luxury presentation
  * • Improved quote hierarchy
- * • Better spacing
+ * • Better spacing and typography
  * • Matches Just Wax by Kim theme
  * ---
  */
@@ -24,6 +25,7 @@ interface Props {
 export default function TestimonialCard({
   testimonial,
 }: Props) {
+
   return (
     <article
       className="
@@ -58,6 +60,9 @@ export default function TestimonialCard({
       <div
         className="
           flex
+          items-center
+          justify-center
+
           gap-1
 
           text-[#C6A15B]
@@ -68,7 +73,9 @@ export default function TestimonialCard({
         {Array.from({
           length: testimonial.rating,
         }).map((_, index) => (
-          <span key={index}>
+          <span
+            key={index}
+          >
             ★
           </span>
         ))}
@@ -81,13 +88,14 @@ export default function TestimonialCard({
         className="
           mt-8
 
-          max-w-xl
+          w-full
 
           text-center
 
           font-serif
 
           text-xl
+
           md:text-2xl
 
           leading-[1.8]
@@ -100,28 +108,14 @@ export default function TestimonialCard({
 
 
 
-      {/* NAME */}
+      {/* CLIENT NAME */}
       <div
         className="
-          mt-10
+          mt-8
+
           text-center
         "
       >
-
-        <div
-          className="
-            mx-auto
-
-            mb-6
-
-            h-px
-
-            w-12
-
-            bg-[#D8B4A0]
-          "
-        />
-
 
         <p
           className="
