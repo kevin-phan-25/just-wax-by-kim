@@ -8,11 +8,10 @@
  * Luxury FAQ presentation.
  *
  * Updates:
- * • Split FAQ into two premium sections
- * • Before Waxing + After Care layout
- * • Balanced two-column design
- * • Responsive mobile stacking
- * • Centered luxury editorial presentation
+ * • Removed max width restriction
+ * • Added 3-column editorial layout
+ * • Added centered section titles spanning columns
+ * • Improved luxury spacing
  *
  * ---
  *
@@ -45,14 +44,14 @@ return (
   "
 >
 
-  {/* Background atmosphere */}
+  {/* Background */}
   <div
     aria-hidden
     className="
-      pointer-events-none
       absolute
       inset-0
-      bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.30),transparent_65%)]
+      pointer-events-none
+      bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
     "
   />
 
@@ -76,11 +75,12 @@ return (
 
       px-6
       md:px-10
-      lg:px-16
+      xl:px-16
 
       pb-40
     "
   >
+
 
 
     {/* HEADER */}
@@ -92,7 +92,7 @@ return (
         items-center
         text-center
 
-        mb-20
+        mb-24
       "
     >
 
@@ -130,7 +130,7 @@ return (
         className="
           mt-8
 
-          max-w-3xl
+          max-w-4xl
 
           text-lg
 
@@ -149,208 +149,174 @@ return (
 
 
 
-    {/* TWO FAQ CARDS */}
+    {/* ============================
+        BEFORE WAXING
+    ============================ */}
+
 
     <div
       className="
-        mx-auto
-
-        grid
-
-        w-full
-
-        max-w-7xl
-
-        grid-cols-1
-
-        lg:grid-cols-2
-
-        gap-10
-        lg:gap-14
+        mb-28
       "
     >
 
-
-
-      {/* BEFORE WAXING */}
-
       <div
         className="
-          rounded-[40px]
+          grid
 
-          border
-          border-[#E8DDD8]
+          grid-cols-1
+          md:grid-cols-3
 
-          bg-[#FDF9F5]
+          items-center
 
-          p-8
-          md:p-12
-
-          shadow-sm
+          mb-14
         "
       >
 
-        <div
-          className="
-            mb-12
+        <div />
 
-            flex
-            flex-col
-            items-center
+        <h2
+          className="
+            col-span-1
+            md:col-span-2
 
             text-center
+
+            font-serif
+
+            text-3xl
+            md:text-4xl
+
+            text-[#3B2A26]
           "
         >
+          Before Your Wax
+        </h2>
 
-          <span
-            className="
-              uppercase
-
-              tracking-[0.35em]
-
-              text-xs
-
-              text-[#8C5A6B]
-            "
-          >
-            Preparation
-          </span>
-
-
-          <h2
-            className="
-              mt-5
-
-              font-serif
-
-              text-3xl
-              md:text-4xl
-
-              text-[#3B2A26]
-            "
-          >
-            Before Your Wax
-          </h2>
-
-
-          <p
-            className="
-              mt-5
-
-              max-w-md
-
-              leading-relaxed
-
-              text-[#8C7468]
-            "
-          >
-            Everything you need to know before your appointment
-            to ensure beautiful results and a comfortable experience.
-          </p>
-
-        </div>
-
-
-        <FAQAccordion
-          items={BEFORE_WAXING_FAQ}
-        />
 
       </div>
 
 
 
-
-
-      {/* AFTER CARE */}
-
       <div
         className="
-          rounded-[40px]
+          grid
 
-          border
-          border-[#E8DDD8]
+          grid-cols-1
+          md:grid-cols-3
 
-          bg-[#FDF9F5]
+          gap-8
 
-          p-8
-          md:p-12
-
-          shadow-sm
+          w-full
         "
       >
 
-        <div
-          className="
-            mb-12
+        <div />
 
-            flex
-            flex-col
-            items-center
+        <div>
 
-            text-center
-          "
-        >
-
-          <span
-            className="
-              uppercase
-
-              tracking-[0.35em]
-
-              text-xs
-
-              text-[#8C5A6B]
-            "
-          >
-            Aftercare
-          </span>
-
-
-          <h2
-            className="
-              mt-5
-
-              font-serif
-
-              text-3xl
-              md:text-4xl
-
-              text-[#3B2A26]
-            "
-          >
-            Caring For Your Skin
-          </h2>
-
-
-          <p
-            className="
-              mt-5
-
-              max-w-md
-
-              leading-relaxed
-
-              text-[#8C7468]
-            "
-          >
-            Simple aftercare steps that help maintain
-            smooth, healthy, radiant skin.
-          </p>
-
+          <FAQAccordion
+            items={BEFORE_WAXING_FAQ}
+          />
 
         </div>
 
 
-        <FAQAccordion
-          items={AFTER_WAX_CARE_FAQ}
-        />
+        <div />
 
 
       </div>
-
 
 
     </div>
+
+
+
+
+
+
+
+    {/* ============================
+        AFTER CARE
+    ============================ */}
+
+
+    <div>
+
+
+      <div
+        className="
+          grid
+
+          grid-cols-1
+          md:grid-cols-3
+
+          items-center
+
+          mb-14
+        "
+      >
+
+        <div />
+
+
+        <h2
+          className="
+            col-span-1
+            md:col-span-2
+
+            text-center
+
+            font-serif
+
+            text-3xl
+            md:text-4xl
+
+            text-[#3B2A26]
+          "
+        >
+          Caring For Your Skin
+        </h2>
+
+
+      </div>
+
+
+
+
+      <div
+        className="
+          grid
+
+          grid-cols-1
+          md:grid-cols-3
+
+          gap-8
+
+          w-full
+        "
+      >
+
+        <div />
+
+
+        <div>
+
+          <FAQAccordion
+            items={AFTER_WAX_CARE_FAQ}
+          />
+
+        </div>
+
+
+        <div />
+
+
+      </div>
+
+
+    </div>
+
 
 
   </div>
