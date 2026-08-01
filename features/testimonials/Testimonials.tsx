@@ -4,256 +4,218 @@
  * features/testimonials/Testimonials.tsx
  *
  * Description:
- * Luxury client testimonial section.
+ * Luxury testimonial editorial section.
  *
  * Updates:
- * • Full width editorial layout
- * • Centered typography
+ * • Five cell editorial layout
+ * • Left/right breathing space cells
  * • Removed width restrictions
- * • Premium spacing system
- * • Matches brand theme
+ * • Removed divider accents
+ * • Centered headers
+ * • Softer luxury presentation
+ * • Responsive mobile/tablet/desktop
+ *
  * ---
  */
 
 import { testimonials } from "./testimonials.data";
 import TestimonialCard from "./TestimonialCard";
 
-
 export default function Testimonials() {
-
-return (
-
-<section
-  id="reviews"
-  className="
-    relative
-
-    overflow-hidden
-
-    bg-[#FCF8F3]
-  "
->
-
-
-  {/* NAVBAR CLEARANCE */}
-  <div
-    className="
-      h-[190px]
-      md:h-[216px]
-    "
-  />
-
-
-
-  {/* SOFT BACKGROUND */}
-  <div
-    aria-hidden
-    className="
-      pointer-events-none
-
-      absolute
-      inset-0
-
-      bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.25),transparent_55%)]
-    "
-  />
-
-
-
-  {/* CONTENT */}
-  <div
-    className="
-      relative
-      z-10
-
-      w-full
-
-      px-5
-      sm:px-8
-      md:px-10
-      lg:px-16
-
-      pb-32
-    "
-  >
-
-
-
-    {/* HEADER */}
-
-    <header
+  return (
+    <section
+      id="reviews"
       className="
-        w-full
-
-        flex
-        flex-col
-        items-center
-
-        text-center
-
-        mb-16
-        md:mb-20
+        relative
+        overflow-hidden
+        bg-[#FCF8F3]
       "
     >
 
-      <p
+      {/* Navbar clearance */}
+      <div
         className="
-          uppercase
+          h-[168px]
+          md:h-[190px]
+        "
+      />
 
-          tracking-[0.35em]
 
-          text-xs
-          md:text-sm
-
-          text-[#8C5A6B]
+      {/* HEADER */}
+      <header
+        className="
+          w-full
+          px-6
+          text-center
+          mb-16
         "
       >
-        Client Love
-      </p>
+
+        <p
+          className="
+            uppercase
+            tracking-[0.35em]
+            text-sm
+            text-[#8C5A6B]
+          "
+        >
+          Client Love
+        </p>
 
 
-      <h1
+        <h1
+          className="
+            mt-6
+            font-serif
+            text-4xl
+            sm:text-5xl
+            md:text-6xl
+            leading-tight
+            text-[#3B2A26]
+          "
+        >
+          Loved By Our Clients
+        </h1>
+
+
+        <p
+          className="
+            mx-auto
+            mt-6
+            max-w-3xl
+            text-base
+            md:text-lg
+            leading-relaxed
+            text-[#8C7468]
+          "
+        >
+          Real experiences from guests who appreciate
+          comfort, confidence, and thoughtful care.
+        </p>
+
+      </header>
+
+
+
+      {/* FIVE CELL TESTIMONIAL GRID */}
+      <div
         className="
-          mt-6
+          w-full
 
-          font-serif
+          grid
 
-          text-4xl
-          sm:text-5xl
-          md:text-6xl
+          grid-cols-1
 
-          leading-tight
+          lg:grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
 
-          text-[#3B2A26]
+          gap-8
+
+          px-0
+
+          pb-24
         "
       >
-        Loved By Our Clients
-      </h1>
+
+        {/* LEFT BREATHING SPACE */}
+        <div className="hidden lg:block" />
+
+
+        {/* TESTIMONIALS */}
+        {testimonials.slice(0,3).map((item)=>(
+          <TestimonialCard
+            key={item.id}
+            testimonial={item}
+          />
+        ))}
+
+
+        {/* RIGHT BREATHING SPACE */}
+        <div className="hidden lg:block" />
+
+      </div>
 
 
 
-      <p
+      {/* SECOND ROW */}
+      {testimonials.length > 3 && (
+        <div
+          className="
+            w-full
+
+            grid
+
+            grid-cols-1
+
+            lg:grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
+
+            gap-8
+
+            pb-24
+          "
+        >
+
+          <div className="hidden lg:block" />
+
+          {testimonials.slice(3).map((item)=>(
+            <TestimonialCard
+              key={item.id}
+              testimonial={item}
+            />
+          ))}
+
+          <div className="hidden lg:block" />
+
+        </div>
+      )}
+
+
+
+      {/* BOOK CTA */}
+      <div
         className="
-          mt-6
-
-          mx-auto
-
-          max-w-3xl
-
-          text-base
-          md:text-lg
-
-          leading-relaxed
-
-          text-[#8C7468]
-        "
-      >
-        Real experiences from clients who value comfort,
-        confidence, and exceptional care.
-      </p>
-
-
-    </header>
-
-
-
-
-    {/* TESTIMONIAL GRID */}
-
-    <div
-      className="
-        w-full
-
-        grid
-
-        grid-cols-1
-
-        md:grid-cols-2
-
-        xl:grid-cols-3
-
-        gap-8
-        md:gap-10
-
-        justify-items-center
-      "
-    >
-
-      {testimonials.map((item)=>(
-        <TestimonialCard
-          key={item.id}
-          testimonial={item}
-        />
-      ))}
-
-    </div>
-
-
-
-
-    {/* CTA */}
-
-    <div
-      className="
-        mt-20
-
-        flex
-
-        justify-center
-      "
-    >
-
-      <a
-        href="/#booking"
-
-        className="
-          inline-flex
-
-          items-center
-
+          flex
           justify-center
-
-          min-h-[66px]
-
-          px-14
-
-          rounded-full
-
-          border-2
-
-          border-[#8C5A6B]
-
-          uppercase
-
-          tracking-[0.22em]
-
-          text-sm
-
-          font-semibold
-
-          text-[#8C5A6B]
-
-          transition-all
-
-          duration-300
-
-          hover:bg-[#F6E7E1]
-
-          hover:scale-[1.03]
+          pb-32
         "
       >
-        Book Appointment
-      </a>
 
-    </div>
+        <a
+          href="/#booking"
+          className="
+            inline-flex
+            items-center
+            justify-center
+
+            min-h-[68px]
+
+            rounded-full
+
+            border-2
+            border-[#8C5A6B]
+
+            px-14
+
+            uppercase
+            tracking-[0.22em]
+
+            text-sm
+            font-semibold
+
+            text-[#8C5A6B]
+
+            transition-all
+            duration-300
+
+            hover:bg-[#F6E7E1]
+            hover:scale-[1.03]
+          "
+        >
+          Book Appointment
+        </a>
+
+      </div>
 
 
-
-  </div>
-
-
-</section>
-
-);
-
+    </section>
+  );
 }
