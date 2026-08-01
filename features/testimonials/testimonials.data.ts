@@ -1,16 +1,17 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/testimonials/testimonials.data.ts
  *
  * Description:
- * Customer testimonial data.
+ * Natural client testimonial content.
  *
- * Changes:
- * • Expanded luxury testimonial content
- * • Added more authentic client experiences
- * • Maintained editorial brand voice
- * -----------------------------------------------------------------------------
+ * Updates:
+ * • More authentic client voice
+ * • Less promotional wording
+ * • More emotional connection
+ * • Matches luxury boutique brand tone
+ * ---
  */
 
 import type {
@@ -20,63 +21,63 @@ import type {
 
 export const testimonials: Testimonial[] = [
 
-  {
-    id: "1",
+{
+  id: "1",
 
-    name: "Samantha",
+  name: "Samantha",
 
-    quote:
-      "Kim made my first waxing experience feel completely comfortable and stress-free. Her attention to detail, professionalism, and kindness made all the difference.",
+  quote:
+    "Kim made my first waxing experience so comfortable. She explained everything, made me feel relaxed, and the results were amazing. I wouldn’t go anywhere else.",
 
-    rating: 5,
-  },
-
-
-  {
-    id: "2",
-
-    name: "Jessica",
-
-    quote:
-      "The studio is beautiful, calming, and welcoming. Kim creates an experience that feels personal while delivering amazing results every time.",
-
-    rating: 5,
-  },
+  rating: 5,
+},
 
 
-  {
-    id: "3",
+{
+  id: "2",
 
-    name: "Emily",
+  name: "Jessica",
 
-    quote:
-      "Professional, gentle, and incredibly knowledgeable. I always leave feeling confident and cared for.",
+  quote:
+    "The studio is beautiful and welcoming. Kim is professional, gentle, and really takes the time to make sure you feel comfortable throughout your appointment.",
 
-    rating: 5,
-  },
-
-
-  {
-    id: "4",
-
-    name: "Lauren",
-
-    quote:
-      "Kim takes the time to understand your comfort level and makes every appointment feel relaxed and easy. I highly recommend her services.",
-
-    rating: 5,
-  },
+  rating: 5,
+},
 
 
-  {
-    id: "5",
+{
+  id: "3",
 
-    name: "Michael",
+  name: "Emily",
 
-    quote:
-      "A clean, professional, and welcoming environment. Kim provides excellent service with attention to comfort and quality.",
+  quote:
+    "I always leave feeling confident and cared for. Kim’s attention to detail and calming personality make every appointment such a great experience.",
 
-    rating: 5,
-  },
+  rating: 5,
+},
+
+
+{
+  id: "4",
+
+  name: "Lauren",
+
+  quote:
+    "Kim is amazing at what she does. She makes waxing feel easy and comfortable, and I always appreciate how thoughtful and professional she is.",
+
+  rating: 5,
+},
+
+
+{
+  id: "5",
+
+  name: "Michael",
+
+  quote:
+    "Clean studio, great service, and a very comfortable experience. Kim does an excellent job and makes every visit feel professional and welcoming.",
+
+  rating: 5,
+},
 
 ];
