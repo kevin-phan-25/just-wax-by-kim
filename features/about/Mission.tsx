@@ -4,13 +4,13 @@
  * features/about/Mission.tsx
  *
  * Description:
- * Minimal editorial mission statement.
+ * Minimal editorial mission quote following About section.
  *
  * Updates:
- * • Centered luxury quote
- * • Removed decorative separators
+ * • Centered statement
+ * • Reduced typography
  * • Removed divider accents
- * • Responsive phone/tablet/desktop spacing
+ * • Responsive sizing
  *
  * ---
  */
@@ -19,8 +19,6 @@ export default function Mission() {
   return (
     <section
       className="
-        relative
-
         w-full
 
         bg-[#FBF7F4]
@@ -41,8 +39,6 @@ export default function Mission() {
 
           flex
 
-          items-center
-
           justify-center
 
           px-5
@@ -50,30 +46,28 @@ export default function Mission() {
           sm:px-8
 
           md:px-12
-
-          lg:px-20
         "
       >
 
         <p
           className="
-            max-w-5xl
+            max-w-4xl
 
             text-center
 
             font-serif
 
-            text-2xl
+            text-xl
 
-            sm:text-3xl
+            sm:text-2xl
 
-            md:text-4xl
+            md:text-3xl
 
-            lg:text-5xl
+            lg:text-4xl
 
-            leading-[1.35]
+            leading-[1.4]
 
-            tracking-[-0.02em]
+            tracking-[-0.015em]
 
             text-[#3B2A26]
           "
