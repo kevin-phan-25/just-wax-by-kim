@@ -106,7 +106,7 @@ export default function Services() {
         >
 
           <img
-            src="/images/services/ladies-waxing.jpg"
+            src="/images/services/ladies-view-pricing.jpg"
             alt="Ladies waxing"
             className="
               w-full
@@ -182,7 +182,7 @@ export default function Services() {
         >
 
           <img
-            src="/images/services/gentlemen-waxing.jpg"
+            src="/images/services/gentlement-view-pricing.jpg"
             alt="Gentlemen waxing"
             className="
               w-full

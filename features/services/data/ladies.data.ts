@@ -26,7 +26,7 @@ import type {
 export const ladiesServicePage = {
 
   image:
-    "/images/services/ladies-waxing.jpg",
+    "/images/services/ladies-view-pricing.jpg",
 
   title:
     "Ladies Waxing",
