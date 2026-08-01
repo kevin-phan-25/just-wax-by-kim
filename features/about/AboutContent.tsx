@@ -7,11 +7,10 @@
  * Luxury editorial About content.
  *
  * Updates:
- * • Three cell editorial grid
- * • Image anchored left
- * • Content spans center + right
- * • Responsive phone/tablet/desktop
+ * • Three column editorial grid
+ * • Centered title spanning full width
  * • Improved paragraph spacing
+ * • Responsive mobile/tablet/desktop
  *
  * ---
  */
@@ -33,14 +32,12 @@ export default function AboutContent() {
       "
     >
 
-      {/* Header */}
+      {/* TITLE - SPANS ALL CELLS */}
       <header
         className="
+          w-full
+
           text-center
-
-          max-w-5xl
-
-          mx-auto
 
           mb-16
           md:mb-24
@@ -55,7 +52,8 @@ export default function AboutContent() {
 
             tracking-[0.45em]
 
-            text-xs
+            text-[10px]
+            sm:text-xs
 
             text-[#8C5A6B]
 
@@ -68,6 +66,10 @@ export default function AboutContent() {
 
         <h2
           className="
+            mx-auto
+
+            max-w-7xl
+
             font-serif
 
             text-4xl
@@ -75,9 +77,11 @@ export default function AboutContent() {
             md:text-6xl
             lg:text-7xl
 
-            leading-[1.08]
+            leading-[1.05]
 
             tracking-[-0.04em]
+
+            whitespace-normal
 
             text-[#3B2A26]
           "
@@ -89,8 +93,7 @@ export default function AboutContent() {
 
 
 
-
-      {/* 3 CELL EDITORIAL GRID */}
+      {/* 3 CELL GRID */}
       <div
         className="
           grid
@@ -99,33 +102,26 @@ export default function AboutContent() {
 
           lg:grid-cols-3
 
-          gap-12
-
-          lg:gap-16
+          gap-10
+          lg:gap-14
 
           items-start
         "
       >
 
 
-        {/* CELL 1 - IMAGE */}
+        {/* CELL 1 */}
         <div
           className="
-            lg:col-span-1
-
             w-full
           "
         >
-
           <AboutImage />
-
         </div>
 
 
 
-
-
-        {/* CELL 2 + CELL 3 - CONTENT */}
+        {/* CELL 2 + CELL 3 */}
         <div
           className="
             lg:col-span-2
@@ -133,15 +129,12 @@ export default function AboutContent() {
             w-full
 
             text-center
-
             lg:text-left
 
             text-[#75635B]
 
             text-base
-
             sm:text-lg
-
             md:text-xl
 
             leading-[1.9]
@@ -154,7 +147,7 @@ export default function AboutContent() {
                 key={index}
                 className="
                   mb-8
-
+                  sm:mb-10
                   md:mb-12
 
                   tracking-[0.015em]
@@ -167,28 +160,24 @@ export default function AboutContent() {
 
 
 
+          {/* Closing statement */}
           <p
             className="
               mt-12
-
-              md:mt-20
+              md:mt-16
 
               font-serif
 
-              text-3xl
-
+              text-2xl
+              sm:text-3xl
               md:text-4xl
 
-              lg:text-5xl
-
-              leading-tight
+              leading-snug
 
               text-[#3B2A26]
             "
           >
-            A journey built on passion,
-            confidence, and making every
-            client feel beautiful.
+            Confidence begins with feeling beautifully cared for.
           </p>
 
 
