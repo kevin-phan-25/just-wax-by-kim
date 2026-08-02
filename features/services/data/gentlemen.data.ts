@@ -8,9 +8,9 @@
  * Gentlemen waxing service catalog.
  *
  * Updates:
- * • Updated complete pricing catalog
- * • Renamed Bikini category to Male Brazilian
- * • Removed waxer tier pricing
+ * • Reordered by service category
+ * • Brazilian services prioritized
+ * • Alphabetical ordering within categories
  * • Removed individual service descriptions
  * • Simplified single-provider pricing
  * • Maintained reusable service structure
@@ -62,16 +62,61 @@ export const gentlemenServices: Service[] = [
     gender: "gentlemen",
   },
 
+
+  // ---------------------------------------------------------------------------
+  // FACE
+  // ---------------------------------------------------------------------------
+
   {
-    id: "gentlemen-butt-strip",
-    title: "Butt Strip (Stand-Alone Service)",
-    category: "Body",
-    price: "$40",
+    id: "gentlemen-brows",
+    title: "Brows (Clean Up)",
+    category: "Face",
+    price: "$35",
     duration: "10 minutes",
     gender: "gentlemen",
   },
 
   {
+    id: "gentlemen-cheeks",
+    title: "Cheeks",
+    category: "Face",
+    price: "$20",
+    duration: "5 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-ears",
+    title: "Ears",
+    category: "Face",
+    price: "$30",
+    duration: "10 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-neck",
+    title: "Neck (Front or Back)",
+    category: "Face",
+    price: "$30",
+    duration: "10 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-nose",
+    title: "Nose",
+    category: "Face",
+    price: "$30",
+    duration: "10 minutes",
+    gender: "gentlemen",
+  },
+
+
+  // ---------------------------------------------------------------------------
+  // BODY
+  // ---------------------------------------------------------------------------
+    {
     id: "gentlemen-buttocks",
     title: "Buttocks",
     category: "Body",
@@ -89,75 +134,48 @@ export const gentlemenServices: Service[] = [
     gender: "gentlemen",
   },
 
-
-  // ---------------------------------------------------------------------------
-  // FACE
-  // ---------------------------------------------------------------------------
-
   {
-    id: "gentlemen-brows",
-    title: "Brows (Clean Up)",
-    category: "Face",
-    price: "$35",
+    id: "gentlemen-butt-strip",
+    title: "Butt Strip (Stand-Alone Service)",
+    category: "Body",
+    price: "$40",
     duration: "10 minutes",
     gender: "gentlemen",
   },
 
   {
-    id: "gentlemen-nose",
-    title: "Nose",
-    category: "Face",
-    price: "$30",
-    duration: "10 minutes",
+    id: "gentlemen-chest-only",
+    title: "Chest (Only)",
+    category: "Body",
+    price: "$50",
+    duration: "15 minutes",
     gender: "gentlemen",
   },
 
   {
-    id: "gentlemen-ears",
-    title: "Ears",
-    category: "Face",
-    price: "$30",
-    duration: "10 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-cheeks",
-    title: "Cheeks",
-    category: "Face",
-    price: "$20",
+    id: "gentlemen-feet-toes",
+    title: "Feet & Toes",
+    category: "Body",
+    price: "$15",
     duration: "5 minutes",
     gender: "gentlemen",
   },
 
   {
-    id: "gentlemen-neck",
-    title: "Neck (Front or Back)",
-    category: "Face",
-    price: "$30",
-    duration: "10 minutes",
-    gender: "gentlemen",
-  },
-
-
-  // ---------------------------------------------------------------------------
-  // BODY
-  // ---------------------------------------------------------------------------
-    {
-    id: "gentlemen-underarms",
-    title: "Underarms",
+    id: "gentlemen-full-arms",
+    title: "Full Arms",
     category: "Body",
-    price: "$35",
-    duration: "10 minutes",
+    price: "$120",
+    duration: "40 minutes",
     gender: "gentlemen",
   },
 
   {
-    id: "gentlemen-full-chest-stomach",
-    title: "Full Chest (Chest & Stomach)",
+    id: "gentlemen-full-back",
+    title: "Full Back",
     category: "Body",
-    price: "$100",
-    duration: "30 minutes",
+    price: "$85",
+    duration: "20 minutes",
     gender: "gentlemen",
   },
 
@@ -171,10 +189,37 @@ export const gentlemenServices: Service[] = [
   },
 
   {
-    id: "gentlemen-full-back",
-    title: "Full Back",
+    id: "gentlemen-full-body",
+    title: "Full Body",
     category: "Body",
-    price: "$85",
+    price: "$590",
+    duration: "4 hours",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-full-chest-stomach",
+    title: "Full Chest (Chest & Stomach)",
+    category: "Body",
+    price: "$100",
+    duration: "30 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-full-legs",
+    title: "Full Legs",
+    category: "Body",
+    price: "$180",
+    duration: "1 hour",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-half-arms",
+    title: "Half Arms",
+    category: "Body",
+    price: "$65",
     duration: "20 minutes",
     gender: "gentlemen",
   },
@@ -189,74 +234,11 @@ export const gentlemenServices: Service[] = [
   },
 
   {
-    id: "gentlemen-stomach",
-    title: "Stomach",
-    category: "Body",
-    price: "$50",
-    duration: "15 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-chest-only",
-    title: "Chest (Only)",
-    category: "Body",
-    price: "$50",
-    duration: "15 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-full-legs",
-    title: "Full Legs",
-    category: "Body",
-    price: "$180",
-    duration: "1 hour",
-    gender: "gentlemen",
-  },
-
-  {
     id: "gentlemen-half-legs",
     title: "Half Legs",
     category: "Body",
     price: "$95",
     duration: "30 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-full-arms",
-    title: "Full Arms",
-    category: "Body",
-    price: "$120",
-    duration: "40 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-half-arms",
-    title: "Half Arms",
-    category: "Body",
-    price: "$65",
-    duration: "20 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-shoulders",
-    title: "Shoulders",
-    category: "Body",
-    price: "$30",
-    duration: "10 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-feet-toes",
-    title: "Feet & Toes",
-    category: "Body",
-    price: "$15",
-    duration: "5 minutes",
     gender: "gentlemen",
   },
 
@@ -270,11 +252,29 @@ export const gentlemenServices: Service[] = [
   },
 
   {
-    id: "gentlemen-full-body",
-    title: "Full Body",
+    id: "gentlemen-shoulders",
+    title: "Shoulders",
     category: "Body",
-    price: "$590",
-    duration: "4 hours",
+    price: "$30",
+    duration: "10 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-stomach",
+    title: "Stomach",
+    category: "Body",
+    price: "$50",
+    duration: "15 minutes",
+    gender: "gentlemen",
+  },
+
+  {
+    id: "gentlemen-underarms",
+    title: "Underarms",
+    category: "Body",
+    price: "$35",
+    duration: "10 minutes",
     gender: "gentlemen",
   },
 
