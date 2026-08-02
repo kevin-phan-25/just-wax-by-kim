@@ -7,9 +7,9 @@
  * Standalone luxury contact presentation.
  *
  * Updates:
- * • Full width editorial layout
+ * • Matches FAQ / Gallery spacing system
+ * • Removed navbar spacer block
  * • Responsive navbar clearance
- * • Reduced outer spacer cells
  * • Centered header content
  * • Balanced contact columns
  * • Phone / iPad / desktop support
@@ -22,11 +22,8 @@ import ContactForm from "./ContactForm";
 import ContactHours from "./ContactHours";
 import ContactInfo from "./ContactInfo";
 
-
 export default function Contact() {
-
   return (
-
     <section
       className="
         relative
@@ -36,6 +33,16 @@ export default function Contact() {
         overflow-hidden
 
         bg-[#FBF7F4]
+
+        pt-[168px]
+
+        md:pt-[190px]
+
+        pb-20
+
+        sm:pb-24
+
+        md:pb-32
       "
     >
 
@@ -56,20 +63,6 @@ export default function Contact() {
 
 
 
-      {/* NAVBAR CLEARANCE */}
-      <div
-        className="
-          h-[150px]
-
-          md:h-[180px]
-
-          xl:h-[216px]
-        "
-      />
-
-
-
-
       {/* CONTENT */}
       <div
         className="
@@ -87,9 +80,7 @@ export default function Contact() {
 
           lg:px-16
 
-          pb-24
-
-          md:pb-32
+          xl:px-24
         "
       >
 
@@ -100,8 +91,6 @@ export default function Contact() {
           className="
             flex
 
-            w-full
-
             flex-col
 
             items-center
@@ -110,7 +99,7 @@ export default function Contact() {
 
             mb-16
 
-            md:mb-20
+            md:mb-24
           "
         >
 
@@ -122,7 +111,7 @@ export default function Contact() {
 
               text-xs
 
-              md:text-sm
+              sm:text-sm
 
               text-[#8C5A6B]
             "
@@ -146,9 +135,9 @@ export default function Contact() {
 
               md:text-6xl
 
-              leading-tight
+              leading-[1.1]
 
-              tracking-[-0.03em]
+              tracking-[-0.035em]
 
               text-[#3B2A26]
             "
@@ -160,7 +149,7 @@ export default function Contact() {
 
           <p
             className="
-              mt-8
+              mt-6
 
               max-w-3xl
 
@@ -205,7 +194,6 @@ export default function Contact() {
         >
 
 
-
           {/* LEFT BREATHING CELL */}
           <div
             className="
@@ -214,7 +202,6 @@ export default function Contact() {
               lg:block
             "
           />
-
 
 
 
@@ -239,8 +226,6 @@ export default function Contact() {
             <ContactInfo />
 
           </div>
-
-
 
 
 
@@ -314,8 +299,6 @@ export default function Contact() {
 
 
 
-
-
           {/* HOURS */}
           <div
             className="
@@ -341,8 +324,6 @@ export default function Contact() {
 
 
 
-
-
           {/* RIGHT BREATHING CELL */}
           <div
             className="
@@ -360,6 +341,5 @@ export default function Contact() {
 
 
     </section>
-
   );
 }
