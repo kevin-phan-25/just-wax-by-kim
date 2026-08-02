@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/privacy-policy/PrivacyPolicy.tsx
@@ -7,147 +8,180 @@
  * Luxury Privacy Policy editorial page.
  *
  * Updates:
- * • Mobile-first editorial layout
- * • Reduced excessive whitespace
- * • Improved phone readability
- * • Responsive typography scaling
- * • Balanced section spacing
- * • Preserved desktop luxury presentation
+ * • Matched FAQ luxury spacing system
+ * • Responsive navbar clearance
+ * • Unified header typography
+ * • Improved phone / iPad / desktop readability
+ * • Reduced content width for editorial reading
+ * • Removed excessive whitespace
+ * • Removed divider accents
+ * • Matches global layout system
  *
  * ---
+ *
  */
 
 import { privacyPolicySections } from "./privacy-policy.constants";
 
-
 export default function PrivacyPolicy() {
-
   return (
-
     <section
       className="
+        relative
+
         w-full
+
+        overflow-hidden
+
         bg-[#FBF7F4]
+
+        pt-[168px]
+
+        md:pt-[190px]
+
+        pb-20
+
+        sm:pb-24
+
+        md:pb-32
       "
     >
 
-
-      {/* HEADER */}
-      <header
+      {/* Ambient Background */}
+      <div
+        aria-hidden
         className="
-          w-full
+          pointer-events-none
 
-          px-5
-          sm:px-8
-          md:px-10
-          lg:px-16
+          absolute
 
-          pt-10
-          md:pt-16
+          inset-0
 
-          text-center
-
-          mb-14
-          md:mb-20
-          lg:mb-24
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
-      >
-
-
-        <p
-          className="
-            uppercase
-
-            tracking-[0.35em]
-
-            text-xs
-            sm:text-sm
-
-            text-[#8C5A6B]
-          "
-        >
-          Studio Exploration
-        </p>
-
-
-
-        <h1
-          className="
-            mt-5
-
-            font-serif
-
-            text-4xl
-            sm:text-5xl
-            lg:text-6xl
-
-            leading-tight
-
-            tracking-[-0.03em]
-
-            text-[#3B2A26]
-          "
-        >
-          Privacy Policy
-        </h1>
-
-
-
-        <p
-          className="
-            mt-6
-
-            mx-auto
-
-            max-w-4xl
-
-            text-sm
-            sm:text-base
-            md:text-lg
-
-            leading-7
-            md:leading-relaxed
-
-            text-[#8C7468]
-          "
-        >
-          Your privacy matters. This policy explains how Just Wax by Kim collects, uses, and protects your personal information.
-        </p>
-
-
-      </header>
-
-
-
+      />
 
 
 
       {/* CONTENT */}
       <div
         className="
+          relative
+
+          z-10
+
           w-full
 
           px-5
+
           sm:px-8
+
           md:px-10
+
           lg:px-16
 
-          pb-24
-          md:pb-32
+          xl:px-24
         "
       >
 
 
+
+        {/* HEADER */}
+        <header
+          className="
+            flex
+
+            flex-col
+
+            items-center
+
+            text-center
+
+            mb-16
+
+            md:mb-24
+          "
+        >
+
+          <p
+            className="
+              uppercase
+
+              tracking-[0.35em]
+
+              text-xs
+
+              sm:text-sm
+
+              text-[#8C5A6B]
+            "
+          >
+            Legal Information
+          </p>
+
+
+
+          <h1
+            className="
+              mt-6
+
+              max-w-5xl
+
+              font-serif
+
+              text-4xl
+
+              sm:text-5xl
+
+              md:text-6xl
+
+              leading-[1.1]
+
+              tracking-[-0.035em]
+
+              text-[#3B2A26]
+            "
+          >
+            Privacy Policy
+          </h1>
+
+
+
+          <p
+            className="
+              mt-6
+
+              max-w-3xl
+
+              text-base
+
+              sm:text-lg
+
+              leading-relaxed
+
+              text-[#8C7468]
+            "
+          >
+            Your privacy matters. This policy explains how Just Wax by Kim collects, uses, and protects your personal information.
+          </p>
+
+
+        </header>
+
+
+
+
+
+        {/* POLICY CONTENT */}
         <main
           className="
             mx-auto
 
             w-full
 
-            max-w-5xl
+            max-w-4xl
           "
         >
-
 
           <div
             className="
@@ -155,15 +189,15 @@ export default function PrivacyPolicy() {
 
               flex-col
 
-              gap-12
+              gap-14
+
               sm:gap-16
+
               md:gap-20
             "
           >
 
-
-            {privacyPolicySections.map((section)=>(
-
+            {privacyPolicySections.map((section) => (
 
               <article
                 key={section.title}
@@ -174,20 +208,19 @@ export default function PrivacyPolicy() {
               >
 
 
-
                 <h2
                   className="
                     font-serif
 
                     text-2xl
+
                     sm:text-3xl
+
                     md:text-4xl
 
                     leading-tight
 
                     tracking-[-0.02em]
-
-                    text-left
 
                     text-[#3B2A26]
                   "
@@ -201,29 +234,29 @@ export default function PrivacyPolicy() {
 
                 <div
                   className="
-                    mt-5
-                    sm:mt-7
+                    mt-6
+
+                    sm:mt-8
 
                     space-y-5
+
                     sm:space-y-7
                   "
                 >
 
-                  {section.content.map((paragraph)=>(
-
+                  {section.content.map((paragraph) => (
 
                     <p
                       key={paragraph}
 
                       className="
                         text-sm
+
                         sm:text-base
-                        md:text-lg
 
-                        leading-7
-                        md:leading-[1.8]
+                        lg:text-lg
 
-                        text-left
+                        leading-relaxed
 
                         text-[#6F5A50]
                       "
@@ -231,16 +264,13 @@ export default function PrivacyPolicy() {
                       {paragraph}
                     </p>
 
-
                   ))}
 
 
                 </div>
 
 
-
               </article>
-
 
             ))}
 
@@ -255,7 +285,5 @@ export default function PrivacyPolicy() {
 
 
     </section>
-
   );
-
 }
