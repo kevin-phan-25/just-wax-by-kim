@@ -8,13 +8,13 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Matched FAQ / Privacy Policy spacing system
+ * • Matched FAQ luxury spacing system
  * • Responsive navbar clearance
+ * • Improved phone readability
  * • Unified header typography
- * • Improved phone / iPad / desktop layout
- * • Preserved desktop editorial grid
- * • Removed excessive whitespace
- * • Matches global luxury theme
+ * • Preserved desktop editorial layout
+ * • Balanced tablet/mobile stacking
+ * • Removed divider accents
  *
  * ---
  *
@@ -63,7 +63,6 @@ export default function Policies() {
       />
 
 
-
       {/* CONTENT */}
       <div
         className="
@@ -84,7 +83,6 @@ export default function Policies() {
           xl:px-24
         "
       >
-
 
 
         {/* HEADER */}
@@ -112,9 +110,9 @@ export default function Policies() {
 
               tracking-[0.35em]
 
-              text-xs
+              text-[11px]
 
-              sm:text-sm
+              sm:text-xs
 
               text-[#8C5A6B]
             "
@@ -174,6 +172,8 @@ export default function Policies() {
             className="
               mt-4
 
+              sm:mt-6
+
               max-w-2xl
 
               text-sm
@@ -195,42 +195,38 @@ export default function Policies() {
 
 
 
-
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
+            mt-16
+
+            md:mt-20
+
+            xl:mt-24
+
             hidden
 
             xl:grid
 
-            mt-20
-
-            xl:mt-24
-
             w-full
 
-            grid-cols-[0.75in_1fr_1fr_0.75in]
+            grid-cols-[0.3fr_1.7fr_0.15fr_1.7fr_0.3fr]
 
-            gap-x-10
+            gap-x-8
 
             gap-y-24
-
-            items-start
           "
         >
 
-          <div />
-
-
           {POLICIES_DATA.map(
-            (section,index)=>(
+            (section, index) => (
 
               <div
                 key={section.id}
                 className={
                   index % 2 === 0
                     ? "col-start-2"
-                    : "col-start-3"
+                    : "col-start-4"
                 }
               >
 
@@ -243,12 +239,7 @@ export default function Policies() {
             )
           )}
 
-
-          <div />
-
-
         </div>
-
 
 
 
@@ -271,16 +262,14 @@ export default function Policies() {
 
             gap-8
 
-            sm:gap-10
-
-            md:gap-12
+            sm:gap-12
 
             xl:hidden
           "
         >
 
           {POLICIES_DATA.map(
-            (section)=>(
+            (section) => (
 
               <PolicySectionCard
                 key={section.id}
@@ -296,15 +285,14 @@ export default function Policies() {
 
 
 
-
         {/* CLOSING */}
         <div
           className="
             mt-16
 
-            sm:mt-20
+            sm:mt-24
 
-            md:mt-24
+            md:mt-32
 
             flex
 
@@ -331,7 +319,6 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.closing}
           </p>
-
 
         </div>
 
