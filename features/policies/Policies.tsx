@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/policies/Policies.tsx
@@ -8,16 +7,14 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Matched FAQ luxury spacing system
- * • Responsive navbar clearance
- * • Unified editorial header layout
- * • Improved phone / iPad / desktop spacing
- * • Preserved desktop 5-column presentation
- * • Removed inconsistent spacer layout
+ * • Matched FAQ spacing system
+ * • Removed manual navbar spacer
+ * • Unified section padding
+ * • Responsive phone / iPad / desktop spacing
+ * • Preserved editorial desktop grid
  * • Removed divider accents
  *
  * ---
- *
  */
 
 import PolicySectionCard from "./PolicySectionCard";
@@ -86,13 +83,10 @@ export default function Policies() {
       >
 
 
-
         {/* HEADER */}
         <header
           className="
             flex
-
-            w-full
 
             flex-col
 
@@ -174,8 +168,6 @@ export default function Policies() {
             className="
               mt-4
 
-              sm:mt-6
-
               max-w-2xl
 
               text-sm
@@ -200,11 +192,7 @@ export default function Policies() {
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
-            mt-16
-
-            md:mt-20
-
-            xl:mt-24
+            mt-0
 
             hidden
 
@@ -217,17 +205,13 @@ export default function Policies() {
             gap-x-8
 
             gap-y-24
-
-            items-start
           "
         >
 
           {POLICIES_DATA.map(
-            (section, index) => (
-
+            (section,index)=>(
               <div
                 key={section.id}
-
                 className={
                   index % 2 === 0
                     ? "col-start-2"
@@ -240,7 +224,6 @@ export default function Policies() {
                 />
 
               </div>
-
             )
           )}
 
@@ -253,11 +236,7 @@ export default function Policies() {
         {/* TABLET + MOBILE */}
         <div
           className="
-            mt-14
-
-            sm:mt-16
-
-            md:mt-20
+            mt-0
 
             grid
 
@@ -274,14 +253,11 @@ export default function Policies() {
         >
 
           {POLICIES_DATA.map(
-            (section) => (
-
+            (section)=>(
               <PolicySectionCard
                 key={section.id}
-
                 section={section}
               />
-
             )
           )}
 
