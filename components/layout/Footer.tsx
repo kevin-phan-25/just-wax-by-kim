@@ -9,13 +9,11 @@
  * Changes:
  *
  * • Uses official brand logo
- * • Matched global page background
- * • Removed dark footer treatment
- * • Removed divider accents
- * • Removed duplicate navigation links
- * • Added studio location
- * • Added Instagram icon link
- * • Maintained luxury editorial styling
+ * • Removed tagline
+ * • Reduced overall footer height
+ * • Reduced logo scale
+ * • Tightened luxury spacing
+ * • Maintained editorial styling
  *
  * ---
  *
@@ -30,174 +28,151 @@ import {
 
 export default function Footer() {
 
-return (
+  return (
 
-<footer
-  className="
-    w-full
-
-    bg-[#FCF8F3]
-
-    px-6
-
-    sm:px-8
-
-    md:px-12
-
-    xl:px-24
-
-    py-16
-
-    md:py-20
-  "
->
-
-  <div
-    className="
-      flex
-
-      flex-col
-
-      items-center
-
-      text-center
-    "
-  >
-
-
-
-    {/* BRAND LOGO */}
-
-    <div
+    <footer
       className="
-        flex
+        w-full
 
-        justify-center
+        bg-[#FCF8F3]
 
-        scale-[1.15]
+        px-6
 
-        md:scale-[1.25]
+        sm:px-8
+
+        md:px-12
+
+        xl:px-24
+
+        py-10
+
+        md:py-12
       "
     >
 
-      <Logo />
+      <div
+        className="
+          flex
 
-    </div>
+          flex-col
 
+          items-center
 
-
-
-
-    {/* TAGLINE */}
-
-    <p
-      className="
-        mt-6
-
-        text-sm
-
-        uppercase
-
-        tracking-[0.18em]
-
-        text-[#8C7468]
-      "
-    >
-      More than just a wax
-    </p>
+          text-center
+        "
+      >
 
 
 
+        {/* BRAND LOGO */}
 
+        <div
+          className="
+            flex
 
-    {/* LOCATION */}
+            justify-center
+          "
+        >
 
-    <p
-      className="
-        mt-6
+          <Logo />
 
-        text-sm
-
-        text-[#8C7468]
-      "
-    >
-      Tysons Corner, Virginia
-    </p>
+        </div>
 
 
 
 
 
-    {/* INSTAGRAM */}
+        {/* LOCATION */}
 
-    <a
-      href="https://instagram.com/justwaxbykim"
+        <p
+          className="
+            mt-3
 
-      target="_blank"
+            text-xs
 
-      rel="noopener noreferrer"
+            md:text-sm
 
-      aria-label="Follow Just Wax by Kim on Instagram"
-
-      className="
-        mt-6
-
-        inline-flex
-
-        items-center
-
-        gap-2
-
-        text-sm
-
-        uppercase
-
-        tracking-[0.18em]
-
-        text-[#8C5A6B]
-
-        transition-colors
-
-        duration-300
-
-        hover:text-[#3B2A26]
-      "
-    >
-
-      <Instagram
-        size={16}
-        strokeWidth={1.8}
-      />
-
-      Instagram
-
-    </a>
+            text-[#8C7468]
+          "
+        >
+          Tysons Corner, Virginia
+        </p>
 
 
 
 
 
-    {/* COPYRIGHT */}
+        {/* INSTAGRAM */}
 
-    <p
-      className="
-        mt-10
+        <a
+          href="https://instagram.com/justwaxbykim"
 
-        text-sm
+          target="_blank"
 
-        text-[#8C7468]
-      "
-    >
-      © 2026 Just Wax by Kim. All rights reserved.
-    </p>
+          rel="noopener noreferrer"
+
+          aria-label="Follow Just Wax by Kim on Instagram"
+
+          className="
+            mt-4
+
+            inline-flex
+
+            items-center
+
+            gap-2
+
+            text-xs
+
+            md:text-sm
+
+            uppercase
+
+            tracking-[0.18em]
+
+            text-[#8C5A6B]
+
+            transition-colors
+
+            duration-300
+
+            hover:text-[#3B2A26]
+          "
+        >
+
+          <Instagram
+            size={15}
+            strokeWidth={1.8}
+          />
+
+          Instagram
+
+        </a>
 
 
 
-  </div>
 
 
-</footer>
+        {/* COPYRIGHT */}
 
-);
+        <p
+          className="
+            mt-6
+
+            text-xs
+
+            text-[#8C7468]
+          "
+        >
+          © 2026 Just Wax by Kim. All rights reserved.
+        </p>
+
+
+
+      </div>
+
+    </footer>
+
+  );
 
 }
