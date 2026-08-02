@@ -19,6 +19,7 @@
  * ---
  *
  */
+
 import { Instagram } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
@@ -26,9 +27,11 @@ export default function Footer() {
   return (
     <footer
       className="
+        w-full
         bg-[#FCF8F3]
-        pt-8
-        pb-6
+        px-6
+        py-10
+        md:py-12
       "
     >
       <div
@@ -39,10 +42,10 @@ export default function Footer() {
           text-center
         "
       >
-        {/* BRAND LOGO — footer scale */}
+        {/* BRAND LOGO */}
         <div
           className="
-            mb-1
+            mb-2
             scale-110
           "
         >
@@ -52,7 +55,7 @@ export default function Footer() {
         {/* LOCATION */}
         <p
           className="
-            -mt-8
+            mt-1
             text-xs
             md:text-sm
             text-[#8C7468]
@@ -62,7 +65,7 @@ export default function Footer() {
         </p>
 
         {/* INSTAGRAM */}
-        
+        <a
           href="https://instagram.com/justwaxbykim"
           target="_blank"
           rel="noopener noreferrer"
