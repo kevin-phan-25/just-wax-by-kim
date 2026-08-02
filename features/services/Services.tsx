@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/services/Services.tsx
@@ -7,6 +8,8 @@
  * Luxury services introduction section.
  *
  * Updates:
+ * • Removed repetitive "thoughtfully curated" language
+ * • Updated service messaging to focus on expertise and results
  * • Full width editorial layout
  * • Responsive section spacing
  * • Protected ambient background
@@ -14,7 +17,9 @@
  * • Mobile / iPad / desktop optimized
  * • Luxury conversion flow
  *
+ *
  * ---
+ *
  */
 
 import Link from "next/link";
@@ -155,9 +160,9 @@ export default function Services() {
               text-[#8C7468]
             "
           >
-            Thoughtfully curated waxing experiences that blend
-            comfort, precision, and refined care for beautifully
-            confident skin.
+            Professional waxing services tailored to your needs,
+            with a focus on precision, comfort, and lasting
+            confidence.
           </p>
 
         </header>
