@@ -71,7 +71,7 @@ export const gentlemenServices: Service[] = [
   title: "Buttocks",
   category: "Male Brazilian",
   price: "$50",
-  duration: "10 minutes",
+  duration: "15 minutes",
   gender: "gentlemen",
 },
 
@@ -215,7 +215,7 @@ export const gentlemenServices: Service[] = [
 
 {
   id: "gentlemen-chest-only",
-  title: "Chest (Only)",
+  title: "Chest (Excludes Stomach)",
   category: "Body",
   price: "$50",
   duration: "15 minutes",
