@@ -11,39 +11,32 @@
  * • Added GlossGenius widget URL support
  * • Centralized booking configuration
  * • Easy future URL replacement
+ * • Optimized luxury one-line messaging
  *
  * ---
  *
  */
 
-
 export const BOOKING_CONFIG = {
-
 
   eyebrow:
     "Reserve Your Experience",
-
 
 
   title:
     "Soft Skin Starts Here",
 
 
-
   description:
-    "Private waxing services crafted with precision, comfort, and care for a confident, refreshed experience.",
-
+    "Private waxing services crafted with precision, comfort, and care for a confident experience.",
 
 
   reassurance:
     "Exceptional care · Precision results · Confidence that lasts",
 
 
-
   ctaLabel:
     "Book Your Appointment",
-
-
 
 
   /*
@@ -57,9 +50,9 @@ export const BOOKING_CONFIG = {
    *
    */
 
+
   bookingUrl:
     "https://YOUR-GLOSSGENIUS-BOOKING-URL-HERE",
-
 
 
 } as const;
