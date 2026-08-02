@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/services/ServiceCard.tsx
@@ -12,9 +13,11 @@
  * • Softer card elevation
  * • Improved pricing hierarchy
  * • Balanced typography spacing
+ * • Equal height card layout
  * • Works with ServiceGrid sizing
  *
  * ---
+ *
  */
 
 import type { Service } from "./services.types";
@@ -32,6 +35,12 @@ export default function ServiceCard({
         service-card
 
         w-full
+
+        h-full
+
+        flex
+
+        flex-col
 
         rounded-[32px]
 
@@ -59,6 +68,8 @@ export default function ServiceCard({
       "
     >
 
+
+
       {/* SERVICE TITLE */}
       <h3
         className="
@@ -77,6 +88,8 @@ export default function ServiceCard({
       >
         {service.title}
       </h3>
+
+
 
 
 
@@ -101,6 +114,9 @@ export default function ServiceCard({
 
 
 
+
+
+
       {/* DESCRIPTION */}
       <p
         className="
@@ -117,6 +133,9 @@ export default function ServiceCard({
       >
         {service.description}
       </p>
+
+
+
 
 
 
@@ -145,16 +164,19 @@ export default function ServiceCard({
 
 
 
+
+
+
       {/* PRICE */}
       <div
         className="
-          mt-8
+          mt-auto
+
+          pt-8
 
           border-t
 
           border-[#E8DDD8]
-
-          pt-6
         "
       >
 
@@ -175,6 +197,7 @@ export default function ServiceCard({
         </span>
 
       </div>
+
 
 
     </article>

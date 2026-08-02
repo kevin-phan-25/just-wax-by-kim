@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/gallery/Gallery.tsx
@@ -7,14 +8,15 @@
  * Standalone luxury Gallery page.
  *
  * Updates:
+ * • Navbar clearance handled by app/(studio)/layout.tsx
  * • Unified luxury spacing system
- * • Responsive navbar clearance
  * • Mobile / iPad / desktop optimization
  * • Full-width editorial gallery
  * • Centered typography
  * • Matches Services page styling
  *
  * ---
+ *
  */
 
 import { GALLERY_CONFIG } from "./gallery.constants";
@@ -31,10 +33,6 @@ export default function Gallery() {
         overflow-hidden
 
         bg-[#FBF7F4]
-
-        pt-[168px]
-
-        md:pt-[190px]
 
         pb-16
 

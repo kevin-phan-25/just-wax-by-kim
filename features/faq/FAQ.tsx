@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/faq/FAQ.tsx
@@ -7,8 +8,9 @@
  * Luxury FAQ presentation.
  *
  * Updates:
+ * • Removed navbar clearance responsibility
+ * • Navbar spacing handled by studio layout
  * • Unified luxury spacing system
- * • Responsive navbar clearance
  * • Added 4-cell editorial grid
  * • Mobile / iPad / desktop optimization
  * • Balanced FAQ columns
@@ -16,6 +18,7 @@
  * • Matches brand layout system
  *
  * ---
+ *
  */
 
 import FAQAccordion from "./FAQAccordion";
@@ -41,10 +44,6 @@ export default function FAQ() {
         overflow-hidden
 
         bg-[#FBF7F4]
-
-        pt-[168px]
-
-        md:pt-[190px]
 
         pb-20
 
@@ -176,6 +175,8 @@ export default function FAQ() {
 
 
 
+
+
         {/* FOUR CELL EDITORIAL GRID */}
         <div
           className="
@@ -197,7 +198,14 @@ export default function FAQ() {
 
 
           {/* LEFT BREATHING SPACE */}
-          <div className="hidden lg:block" />
+          <div
+            className="
+              hidden
+
+              lg:block
+            "
+          />
+
 
 
 
@@ -239,6 +247,7 @@ export default function FAQ() {
             </h2>
 
 
+
             <div
               className="
                 w-full
@@ -253,6 +262,8 @@ export default function FAQ() {
 
 
           </div>
+
+
 
 
 
@@ -295,6 +306,7 @@ export default function FAQ() {
             </h2>
 
 
+
             <div
               className="
                 w-full
@@ -313,8 +325,15 @@ export default function FAQ() {
 
 
 
+
           {/* RIGHT BREATHING SPACE */}
-          <div className="hidden lg:block" />
+          <div
+            className="
+              hidden
+
+              lg:block
+            "
+          />
 
 
         </div>

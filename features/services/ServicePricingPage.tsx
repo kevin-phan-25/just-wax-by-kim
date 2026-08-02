@@ -8,7 +8,8 @@
  * Luxury service pricing page layout.
  *
  * Updated:
- * • Added optional section id support
+ * • Removed navbar clearance responsibility
+ * • Matches FAQ / Gallery / Contact architecture
  * • Full width editorial presentation
  * • Mobile-first responsive spacing
  * • True centered headers
@@ -32,7 +33,6 @@ interface Props {
   services: Service[];
 }
 
-
 export default function ServicePricingPage({
   id,
   title,
@@ -44,14 +44,15 @@ export default function ServicePricingPage({
       id={id}
       className="
         relative
+
         w-full
+
         overflow-hidden
+
         bg-[#FBF7F4]
 
-        pt-[168px]
-        md:pt-[190px]
-
         pb-20
+
         md:pb-28
       "
     >
@@ -61,7 +62,9 @@ export default function ServicePricingPage({
         aria-hidden
         className="
           pointer-events-none
+
           absolute
+
           inset-0
 
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
@@ -69,21 +72,28 @@ export default function ServicePricingPage({
       />
 
 
+
       {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
 
           w-full
 
           px-5
+
           sm:px-8
+
           md:px-10
+
           lg:px-16
+
           xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
@@ -92,16 +102,21 @@ export default function ServicePricingPage({
             mx-auto
 
             flex
+
             max-w-6xl
 
             flex-col
+
             items-center
+
             justify-center
 
             text-center
 
             mb-14
+
             sm:mb-16
+
             md:mb-20
           "
         >
@@ -111,7 +126,9 @@ export default function ServicePricingPage({
               font-serif
 
               text-4xl
+
               sm:text-5xl
+
               md:text-6xl
 
               leading-[1.1]
@@ -127,6 +144,7 @@ export default function ServicePricingPage({
           </h1>
 
 
+
           <p
             className="
               mt-6
@@ -134,6 +152,7 @@ export default function ServicePricingPage({
               max-w-3xl
 
               text-base
+
               sm:text-lg
 
               leading-relaxed
@@ -149,15 +168,19 @@ export default function ServicePricingPage({
 
 
 
+
+
         {/* SERVICE GRID */}
         <div
           className="
             w-full
           "
         >
+
           <ServiceGrid
             services={services}
           />
+
         </div>
 
 

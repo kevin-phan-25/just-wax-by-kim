@@ -8,8 +8,9 @@
  * Luxury responsive testimonials presentation.
  *
  * Updated:
+ * • Removed navbar clearance responsibility
+ * • Matches FAQ / Gallery / Contact architecture
  * • Mobile-first spacing system
- * • Responsive navbar clearance
  * • Improved phone readability
  * • Balanced tablet / desktop layout
  * • Preserved luxury editorial styling
@@ -25,53 +26,76 @@ export default function Testimonials() {
   return (
     <section
       className="
+        relative
+
         w-full
+
         overflow-hidden
-        bg-[#FBF7F4]
+
+        bg-[#FCF8F3]
+
+        pb-20
+
+        sm:pb-24
+
+        md:pb-32
       "
     >
 
-      {/* Navbar clearance */}
+      {/* Ambient Background */}
       <div
+        aria-hidden
         className="
-          h-[120px]
-          sm:h-[150px]
-          md:h-[190px]
-          lg:h-[216px]
+          pointer-events-none
+
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
+
 
 
       {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
 
           w-full
 
           px-5
+
           sm:px-8
+
           md:px-10
+
           lg:px-16
 
-          pb-32
-          md:pb-40
+          xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
         <header
           className="
             mx-auto
+
             w-full
+
             max-w-5xl
 
             text-center
 
             mb-12
+
             sm:mb-16
+
             md:mb-20
           "
         >
@@ -79,9 +103,11 @@ export default function Testimonials() {
           <p
             className="
               uppercase
+
               tracking-[0.35em]
 
               text-xs
+
               sm:text-sm
 
               text-[#8C5A6B]
@@ -99,7 +125,9 @@ export default function Testimonials() {
               font-serif
 
               text-4xl
+
               sm:text-5xl
+
               md:text-6xl
 
               leading-tight
@@ -123,10 +151,13 @@ export default function Testimonials() {
               max-w-3xl
 
               text-sm
+
               sm:text-base
+
               md:text-lg
 
               leading-7
+
               md:leading-relaxed
 
               text-[#8C7468]
@@ -136,7 +167,10 @@ export default function Testimonials() {
             confidence, and exceptional care.
           </p>
 
+
         </header>
+
+
 
 
 
@@ -148,11 +182,15 @@ export default function Testimonials() {
             w-full
 
             grid-cols-1
+
             sm:grid-cols-2
+
             lg:grid-cols-3
 
             gap-6
+
             sm:gap-8
+
             lg:gap-10
           "
         >
@@ -170,14 +208,19 @@ export default function Testimonials() {
 
 
 
+
+
         {/* BOOKING CTA */}
         <div
           className="
             mt-14
+
             sm:mt-16
+
             md:mt-20
 
             flex
+
             justify-center
           "
         >
@@ -188,17 +231,21 @@ export default function Testimonials() {
               inline-flex
 
               items-center
+
               justify-center
 
               rounded-full
 
               border-2
+
               border-[#8C5A6B]
 
               px-8
+
               sm:px-12
 
               py-4
+
               sm:py-5
 
               uppercase
@@ -206,6 +253,7 @@ export default function Testimonials() {
               tracking-[0.18em]
 
               text-xs
+
               sm:text-sm
 
               font-semibold
@@ -213,6 +261,7 @@ export default function Testimonials() {
               text-[#8C5A6B]
 
               transition-all
+
               duration-300
 
               hover:bg-[#F6E7E1]
@@ -225,6 +274,7 @@ export default function Testimonials() {
 
 
       </div>
+
 
     </section>
   );

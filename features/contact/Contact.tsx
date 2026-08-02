@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/contact/Contact.tsx
@@ -7,15 +8,16 @@
  * Standalone luxury contact presentation.
  *
  * Updates:
- * • Matches FAQ / Gallery spacing system
- * • Removed navbar spacer block
- * • Responsive navbar clearance
+ * • Navbar clearance moved to app/(studio)/layout.tsx
+ * • Feature now controls only its own layout
+ * • Matches FAQ / Gallery architecture
  * • Centered header content
  * • Balanced contact columns
  * • Phone / iPad / desktop support
  * • Preserved luxury spacing
  *
  * ---
+ *
  */
 
 import ContactForm from "./ContactForm";
@@ -34,10 +36,6 @@ export default function Contact() {
 
         bg-[#FBF7F4]
 
-        pt-[168px]
-
-        md:pt-[190px]
-
         pb-20
 
         sm:pb-24
@@ -45,7 +43,6 @@ export default function Contact() {
         md:pb-32
       "
     >
-
 
       {/* AMBIENT BACKGROUND */}
       <div
@@ -83,7 +80,6 @@ export default function Contact() {
           xl:px-24
         "
       >
-
 
 
         {/* HEADER */}

@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/about/AboutContent.tsx
@@ -7,6 +8,8 @@
  * Luxury editorial About content.
  *
  * Updates:
+ * • Preserved homepage editorial spacing
+ * • Removed unnecessary page-level assumptions
  * • Three-cell editorial layout
  * • Responsive title scaling
  * • Balanced image/text composition
@@ -14,6 +17,7 @@
  * • Removed unnecessary decorative elements
  *
  * ---
+ *
  */
 
 import { aboutContent } from "./about.data";
@@ -63,6 +67,8 @@ export default function AboutContent() {
         "
       >
 
+
+
         {/* HEADER */}
         <header
           className="
@@ -105,9 +111,12 @@ export default function AboutContent() {
           </span>
 
 
+
           <h2
             className="
               w-full
+
+              max-w-6xl
 
               font-serif
 
@@ -129,7 +138,11 @@ export default function AboutContent() {
             {aboutContent.title}
           </h2>
 
+
         </header>
+
+
+
 
 
 
@@ -141,12 +154,18 @@ export default function AboutContent() {
             lg:col-span-1
           "
         >
+
           <AboutImage />
+
         </div>
 
 
 
-        {/* TEXT CELLS */}
+
+
+
+
+        {/* TEXT CONTENT */}
         <div
           className="
             md:col-span-1
@@ -200,9 +219,12 @@ export default function AboutContent() {
 
           </div>
 
+
         </div>
 
+
       </div>
+
 
     </article>
   );

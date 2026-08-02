@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/instagram/Instagram.tsx
@@ -7,7 +8,7 @@
  * Standalone luxury Instagram presentation.
  *
  * Updates:
- * • Responsive navbar transition spacing
+ * • Navbar clearance handled by app/(studio)/layout.tsx
  * • Phone / iPad / desktop optimization
  * • Full-width editorial layout
  * • Centered luxury typography
@@ -15,6 +16,7 @@
  * • Preserved conversion CTA
  *
  * ---
+ *
  */
 
 import {
@@ -22,15 +24,10 @@ import {
 } from "./instagram.constants";
 
 import InstagramGrid from "./InstagramGrid";
-
 import FollowButton from "./FollowButton";
 
-
-
 export default function Instagram() {
-
   return (
-
     <section
       className="
         relative
@@ -42,8 +39,6 @@ export default function Instagram() {
         bg-[#FBF7F4]
       "
     >
-
-
 
       {/* AMBIENT BACKGROUND */}
       <div
@@ -58,25 +53,6 @@ export default function Instagram() {
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
-
-
-
-
-
-
-      {/* NAVBAR TRANSITION SPACER */}
-      <div
-        className="
-          h-[140px]
-
-          sm:h-[170px]
-
-          lg:h-[216px]
-        "
-      />
-
-
-
 
 
 
@@ -97,14 +73,13 @@ export default function Instagram() {
 
           lg:px-16
 
+          xl:px-24
+
           pb-24
 
           md:pb-32
         "
       >
-
-
-
 
 
         {/* HEADER */}
@@ -126,7 +101,6 @@ export default function Instagram() {
           "
         >
 
-
           <p
             className="
               uppercase
@@ -142,8 +116,6 @@ export default function Instagram() {
           >
             {INSTAGRAM_CONFIG.eyebrow}
           </p>
-
-
 
 
 
@@ -173,8 +145,6 @@ export default function Instagram() {
 
 
 
-
-
           <p
             className="
               mt-6
@@ -193,30 +163,16 @@ export default function Instagram() {
             {INSTAGRAM_CONFIG.description}
           </p>
 
-
         </header>
 
 
 
 
 
-
-
-
-
         {/* INSTAGRAM GRID */}
-        <div
-          className="
-            w-full
-          "
-        >
-
+        <div className="w-full">
           <InstagramGrid />
-
         </div>
-
-
-
 
 
 
@@ -241,8 +197,6 @@ export default function Instagram() {
           "
         >
 
-
-
           <p
             className="
               uppercase
@@ -259,23 +213,12 @@ export default function Instagram() {
             {INSTAGRAM_CONFIG.handle}
           </p>
 
-
-
-
-
           <FollowButton />
-
 
         </div>
 
-
-
-
       </div>
 
-
     </section>
-
   );
-
 }

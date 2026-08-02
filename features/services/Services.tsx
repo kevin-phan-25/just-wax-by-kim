@@ -8,13 +8,14 @@
  * Luxury services introduction section.
  *
  * Updates:
+ * • Removed navbar responsibility
+ * • Matches Gallery / FAQ / Contact architecture
+ * • Preserved luxury section rhythm
  * • Full width editorial layout
  * • Responsive section spacing
  * • Protected ambient background
  * • Balanced service imagery
  * • Mobile / iPad / desktop optimized
- * • Luxury conversion flow
- * • Updated professional one-line description
  *
  * ---
  *
@@ -35,13 +36,13 @@ export default function Services() {
 
         bg-[#FCF8F3]
 
-        pt-14
+        pt-12
 
-        sm:pt-16
+        sm:pt-14
 
-        md:pt-20
+        md:pt-16
 
-        xl:pt-24
+        xl:pt-20
 
         pb-16
 
@@ -66,6 +67,7 @@ export default function Services() {
       />
 
 
+
       {/* CONTENT */}
       <div
         className="
@@ -86,6 +88,7 @@ export default function Services() {
           xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
@@ -118,6 +121,7 @@ export default function Services() {
           </span>
 
 
+
           <h2
             className="
               mt-6
@@ -143,13 +147,12 @@ export default function Services() {
           </h2>
 
 
+
           <p
             className="
               mt-6
 
-              w-full
-
-              max-w-none
+              max-w-3xl
 
               text-center
 
@@ -160,18 +163,14 @@ export default function Services() {
               leading-relaxed
 
               text-[#8C7468]
-
-              whitespace-nowrap
-
-              sm:whitespace-normal
-
-              xl:whitespace-nowrap
             "
           >
             Professional waxing services tailored to your needs, with a focus on precision, comfort, and lasting confidence.
           </p>
 
         </header>
+
+
 
 
 
@@ -199,6 +198,7 @@ export default function Services() {
             justify-items-center
           "
         >
+
 
 
           {/* LADIES */}
@@ -254,6 +254,7 @@ export default function Services() {
 
 
 
+
           {/* GENTLEMEN */}
           <Link
             href="/services/gentlemen"
@@ -305,10 +306,12 @@ export default function Services() {
           </Link>
 
 
+
         </div>
 
 
       </div>
+
 
     </section>
   );

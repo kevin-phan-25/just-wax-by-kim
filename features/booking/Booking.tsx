@@ -8,13 +8,13 @@
  * Luxury booking experience section.
  *
  * Updates:
+ * • Preserved homepage section spacing
+ * • Removed possible text overflow issue
  * • Full width editorial layout
  * • Responsive phone / iPad / desktop spacing
  * • Premium conversion focused layout
  * • Single GlossGenius CTA
  * • Centered typography
- * • One-line desktop booking description
- * • Protected section structure
  * • Matches luxury theme system
  *
  * ---
@@ -54,6 +54,7 @@ export default function Booking() {
       "
     >
 
+
       {/* CONTENT */}
       <div
         className="
@@ -72,6 +73,7 @@ export default function Booking() {
       >
 
 
+
         {/* HEADER */}
         <header
           className="
@@ -86,6 +88,7 @@ export default function Booking() {
             text-center
           "
         >
+
 
           <p
             className="
@@ -102,6 +105,7 @@ export default function Booking() {
           >
             {BOOKING_CONFIG.eyebrow}
           </p>
+
 
 
 
@@ -131,14 +135,16 @@ export default function Booking() {
 
 
 
-          {/* ONE LINE DESCRIPTION */}
+
+
+          {/* DESCRIPTION */}
           <p
             className="
               mt-8
 
               w-full
 
-              max-w-none
+              max-w-4xl
 
               text-center
 
@@ -149,16 +155,12 @@ export default function Booking() {
               leading-relaxed
 
               text-[#8C7468]
-
-              whitespace-nowrap
-
-              sm:whitespace-normal
-
-              xl:whitespace-nowrap
             "
           >
             {BOOKING_CONFIG.description}
           </p>
+
+
 
 
 
@@ -210,6 +212,7 @@ export default function Booking() {
 
 
 
+
         {/* BENEFITS */}
         <div
           className="
@@ -220,7 +223,9 @@ export default function Booking() {
             md:mt-28
           "
         >
+
           <BookingBenefits />
+
         </div>
 
 

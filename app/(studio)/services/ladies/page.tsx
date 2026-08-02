@@ -1,11 +1,14 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
- * app/services/ladies/page.tsx
+ * app/(studio)/services/ladies/page.tsx
  *
  * Description:
  * Ladies waxing pricing page.
- * -----------------------------------------------------------------------------
+ *
+ * ---
+ *
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
@@ -16,42 +19,28 @@ import {
 
 
 export default function LadiesServicesPage() {
+  return (
+    <section
+      className="
+        w-full
 
+        px-6
 
-return (
+        pb-24
+      "
+    >
+      <ServicePricingPage
+        id="ladies-pricing"
 
-<main
+        title="Ladies Waxing"
 
-className="
-  w-full
-  px-6
-  pt-[168px]
-  pb-24
-"
+        description="
+          Luxury waxing services designed around comfort,
+          confidence, and beautifully cared skin.
+        "
 
->
-
-
-<ServicePricingPage
-
-id="ladies-pricing"
-  
-title="Ladies Waxing"
-
-description="
-Luxury waxing services designed around comfort,
-confidence, and beautifully cared skin.
-"
-
-services={ladiesServices}
-
-/>
-
-
-</main>
-
-
-);
-
-
+        services={ladiesServices}
+      />
+    </section>
+  );
 }

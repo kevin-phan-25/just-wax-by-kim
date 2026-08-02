@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/policies/Policies.tsx
@@ -7,14 +8,14 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Matches FAQ / Gallery navbar spacing
+ * • Removed navbar clearance responsibility
+ * • Matches FAQ / Gallery feature architecture
  * • Responsive mobile / iPad / desktop layout
- * • Removed duplicate spacing logic
  * • Preserved editorial desktop grid
- * • Removed divider accents
  * • Unified luxury background system
  *
  * ---
+ *
  */
 
 import PolicySectionCard from "./PolicySectionCard";
@@ -33,10 +34,6 @@ export default function Policies() {
 
         bg-[#FBF7F4]
 
-        pt-[168px]
-
-        md:pt-[190px]
-
         pb-20
 
         sm:pb-24
@@ -44,7 +41,6 @@ export default function Policies() {
         md:pb-32
       "
     >
-
 
       {/* Ambient Background */}
       <div
@@ -209,10 +205,8 @@ export default function Policies() {
         >
 
           {POLICIES_DATA.map((section, index) => (
-
             <div
               key={section.id}
-
               className={
                 index % 2 === 0
                   ? "col-start-2"
@@ -225,7 +219,6 @@ export default function Policies() {
               />
 
             </div>
-
           ))}
 
         </div>
@@ -258,12 +251,10 @@ export default function Policies() {
         >
 
           {POLICIES_DATA.map((section) => (
-
             <PolicySectionCard
               key={section.id}
               section={section}
             />
-
           ))}
 
         </div>

@@ -8,13 +8,12 @@
  * Luxury Privacy Policy editorial page.
  *
  * Updates:
- * • Matched FAQ luxury spacing system
- * • Responsive navbar clearance
+ * • Removed navbar clearance responsibility
+ * • Matches FAQ / Gallery / Policies architecture
  * • Unified header typography
- * • Improved phone / iPad / desktop readability
+ * • Responsive phone / iPad / desktop readability
  * • Reduced content width for editorial reading
  * • Removed excessive whitespace
- * • Removed divider accents
  * • Matches global layout system
  *
  * ---
@@ -34,10 +33,6 @@ export default function PrivacyPolicy() {
         overflow-hidden
 
         bg-[#FBF7F4]
-
-        pt-[168px]
-
-        md:pt-[190px]
 
         pb-20
 
