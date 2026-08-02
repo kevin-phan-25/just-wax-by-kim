@@ -7,6 +7,7 @@
  * Description:
  * Luxury booking configuration.
  *
+ *
  * ---
  *
  */
@@ -17,7 +18,7 @@ export const BOOKING_CONFIG = {
   title: "Soft Skin Starts Here",
 
   description:
-    "Enjoy a calm, private waxing experience designed around comfort, precision, and thoughtful care. Choose a time that works for you and leave feeling confident, refreshed, and beautifully smooth.",
+    "Reserve your private waxing experience with expert care, precision, and comfort tailored to leave you feeling confident and refreshed.",
 
   reassurance:
     "Private studio · Personalized care · Simple scheduling",
