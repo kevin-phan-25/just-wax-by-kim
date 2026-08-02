@@ -8,10 +8,10 @@
  *
  * Changes:
  *
- * • Uses official brand logo
- * • Hardcoded top spacing (inline styles)
- * • Logo position forced with margin
- * • Tight location / social / copyright stack
+ * • Force-clipped logo (cuts image top/bottom whitespace)
+ * • Minimal top padding
+ * • Logo pulled tight to “Tysons Corner, Virginia”
+ * • Natural brand mark, tighter stack
  *
  * ---
  *
@@ -26,8 +26,8 @@ export default function Footer() {
       style={{
         width: "100%",
         backgroundColor: "#FCF8F3",
-        paddingTop: "8px",
-        paddingBottom: "32px",
+        paddingTop: "0px",
+        paddingBottom: "28px",
         paddingLeft: "24px",
         paddingRight: "24px",
       }}
@@ -40,22 +40,41 @@ export default function Footer() {
           textAlign: "center",
         }}
       >
-        {/* LOGO */}
+        {/*
+          Force-cut logo whitespace:
+          fixed viewport height + overflow hidden + negative pull
+        */}
         <div
           style={{
-            marginTop: "48px", // 0.5in down
-            marginBottom: "4px",
+            width: "100%",
+            maxWidth: "320px",
+            height: "90px",
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "0px",
+            marginBottom: "0px",
             lineHeight: 0,
           }}
         >
-          <Logo />
+          <div
+            style={{
+              transform: "scale(0.55)",
+              transformOrigin: "center center",
+              marginTop: "-12px",
+              marginBottom: "-12px",
+            }}
+          >
+            <Logo />
+          </div>
         </div>
 
-        {/* LOCATION */}
+        {/* LOCATION — tight under logo */}
         <p
           style={{
-            marginTop: "4px",
-            marginBottom: 0,
+            marginTop: "2px",
+            marginBottom: "0px",
             fontSize: "12px",
             color: "#8C7468",
           }}
@@ -88,8 +107,8 @@ export default function Footer() {
         {/* COPYRIGHT */}
         <p
           style={{
-            marginTop: "16px",
-            marginBottom: 0,
+            marginTop: "14px",
+            marginBottom: "0px",
             fontSize: "12px",
             color: "#8C7468",
           }}
