@@ -16,6 +16,7 @@
  * • Protected ambient background
  * • Balanced service imagery
  * • Mobile / iPad / desktop optimized
+ * • Services description remains one line on desktop
  *
  * ---
  *
@@ -152,6 +153,37 @@ export default function Services() {
             className="
               mt-6
 
+              w-full
+
+              max-w-none
+
+              whitespace-nowrap
+
+              text-center
+
+              text-base
+
+              md:text-lg
+
+              leading-relaxed
+
+              text-[#8C7468]
+
+              hidden
+
+              lg:block
+            "
+          >
+            Professional waxing services tailored to your needs, with a focus on precision, comfort, and lasting confidence.
+          </p>
+
+
+
+          {/* MOBILE / TABLET VERSION */}
+          <p
+            className="
+              mt-6
+
               max-w-3xl
 
               text-center
@@ -163,6 +195,8 @@ export default function Services() {
               leading-relaxed
 
               text-[#8C7468]
+
+              lg:hidden
             "
           >
             Professional waxing services tailored to your needs, with a focus on precision, comfort, and lasting confidence.
