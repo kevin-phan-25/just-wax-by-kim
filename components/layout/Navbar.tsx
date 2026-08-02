@@ -8,10 +8,11 @@
  * Luxury responsive navigation for Just Wax by Kim.
  *
  * Updates:
- * • Balanced logo / navigation / CTA layout
- * • Preserved oversized booking CTA
- * • Unified luxury typography
- * • Improved dropdown stability
+ * • Fixed homepage section scrolling
+ * • Added responsive navbar offset calculation
+ * • Improved anchor navigation reliability
+ * • Preserved luxury typography
+ * • Preserved dropdown behavior
  * • Responsive desktop/tablet/mobile spacing
  *
  * ---
@@ -44,73 +45,121 @@ import {
 } from "@/constants/navigation";
 
 
-const NAVBAR_HEIGHT = 168;
+
+function getNavbarHeight() {
+
+  if (
+    typeof window === "undefined"
+  ) {
+    return 168;
+  }
+
+
+  if (
+    window.innerWidth >= 1280
+  ) {
+    return 168;
+  }
+
+
+  if (
+    window.innerWidth >= 768
+  ) {
+    return 140;
+  }
+
+
+  return 110;
+
+}
+
+
 
 
 function scrollToSection(
-  href:string
-){
+  href: string
+) {
 
   const id =
     href.split("#")[1];
+
+
+  if (!id) {
+    return;
+  }
 
 
   const element =
     document.getElementById(id);
 
 
-  if(!element)
+  if (!element) {
+
+    console.warn(
+      `Unable to find section #${id}`
+    );
+
     return;
+
+  }
 
 
   const position =
     element.getBoundingClientRect().top +
     window.scrollY -
-    NAVBAR_HEIGHT;
+    getNavbarHeight();
 
 
   window.scrollTo({
-    top:position,
-    behavior:"smooth",
+
+    top: position,
+
+    behavior: "smooth",
+
   });
 
 }
 
 
 
-export default function Navbar(){
+
+export default function Navbar() {
+
 
   const pathname =
     usePathname();
 
 
+
   const [
     scrolled,
-    setScrolled
+    setScrolled,
   ] =
-  useState(false);
+    useState(false);
 
 
 
   const [
     mobileOpen,
-    setMobileOpen
+    setMobileOpen,
   ] =
-  useState(false);
+    useState(false);
 
 
 
   const [
     openDropdown,
-    setOpenDropdown
+    setOpenDropdown,
   ] =
-  useState<string|null>(null);
+    useState<string | null>(null);
 
 
 
-  useEffect(()=>{
 
-    const handleScroll = ()=>{
+  useEffect(() => {
+
+
+    const handleScroll = () => {
 
       setScrolled(
         window.scrollY > 20
@@ -126,12 +175,12 @@ export default function Navbar(){
       "scroll",
       handleScroll,
       {
-        passive:true
+        passive:true,
       }
     );
 
 
-    return()=>{
+    return () => {
 
       window.removeEventListener(
         "scroll",
@@ -141,12 +190,13 @@ export default function Navbar(){
     };
 
 
-  },[]);
+  }, []);
 
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
+
 
     document.body.style.overflow =
       mobileOpen
@@ -154,7 +204,7 @@ export default function Navbar(){
       : "";
 
 
-    return()=>{
+    return () => {
 
       document.body.style.overflow =
         "";
@@ -169,18 +219,24 @@ export default function Navbar(){
 
 
 
+
   const handleNavigation = (
-    e:React.MouseEvent,
-    href:string
-  )=>{
+    e: React.MouseEvent,
+    href: string
+  ) => {
 
 
-    if(!href.includes("#"))
+    if (
+      !href.includes("#")
+    ) {
       return;
+    }
 
 
 
-    if(pathname === "/"){
+    if (
+      pathname === "/"
+    ) {
 
       e.preventDefault();
 
@@ -194,7 +250,6 @@ export default function Navbar(){
 
     }
 
-
   };
 
 
@@ -204,9 +259,11 @@ export default function Navbar(){
 
     <>
 
+
       <nav
 
         className={`
+
           fixed
 
           top-0
@@ -232,10 +289,15 @@ export default function Navbar(){
 
           ${
             scrolled
+
             ?
+
             "bg-[#FCF8F3]/95 backdrop-blur-xl"
+
             :
+
             "bg-[#FCF8F3]/90 backdrop-blur-md"
+
           }
 
         `}
@@ -244,11 +306,13 @@ export default function Navbar(){
 
 
 
+
         {/* LOGO */}
 
         <div
 
           className="
+
             absolute
 
             left-6
@@ -280,11 +344,13 @@ export default function Navbar(){
 
 
 
+
         {/* DESKTOP NAV */}
 
         <div
 
           className="
+
             hidden
 
             lg:flex
@@ -316,7 +382,6 @@ export default function Navbar(){
 
         >
 
-
           {
             navigation.map((link)=>{
 
@@ -342,253 +407,183 @@ export default function Navbar(){
 
                     className="relative"
 
-                    onMouseEnter={()=>
+                    onMouseEnter={() =>
                       setOpenDropdown(
                         link.label
                       )
                     }
 
-                    onMouseLeave={()=>
-                      setOpenDropdown(null)
+                    onMouseLeave={() =>
+                      setOpenDropdown(
+                        null
+                      )
                     }
 
                   >
 
 
-                    <div
+                    <Link
+
+                      href={link.href}
+
+                      onClick={(e)=>
+                        handleNavigation(
+                          e,
+                          link.href
+                        )
+                      }
 
                       className="
-                        flex
-                        items-center
-                        gap-2
+
+                        uppercase
+
+                        tracking-[0.18em]
+
+                        text-xs
+
+                        font-semibold
+
+                        text-[#3B2A26]/80
+
+                        hover:text-[#8C5A6B]
+
+                        transition
+
                       "
 
                     >
 
-                      <Link
+                      {link.label}
 
-                        href={link.href}
-
-                        onClick={(e)=>
-                          handleNavigation(
-                            e,
-                            link.href
-                          )
-                        }
-
-                        className="
-                          uppercase
-
-                          tracking-[0.18em]
-
-                          text-xs
-
-                          font-semibold
-
-                          text-[#3B2A26]/80
-
-                          hover:text-[#8C5A6B]
-
-                          transition
-
-                        "
-
-                      >
-
-                        {link.label}
-
-                      </Link>
+                    </Link>
 
 
 
-                      <span
-                        className="
-                          text-[10px]
-                        "
-                      >
-                        ▾
-                      </span>
-
-
-                    </div>
-
-
-
-
-
-                    <div
-
-                      className={`
-                        absolute
-
-                        left-1/2
-
-                        top-full
-
-                        pt-6
-
-
-                        -translate-x-1/2
-
-
-                        transition-all
-
-
-                        ${
-                          isOpen
-
-                          ?
-
-                          "opacity-100 pointer-events-auto"
-
-                          :
-
-                          "opacity-0 pointer-events-none"
-
-                        }
-
-                      `}
-
-                    >
-
-
-                      <div
-
-                        className="
-                          min-w-[270px]
-
-                          rounded-3xl
-
-                          border
-
-                          border-[#E8DDD8]
-
-                          bg-[#FCF8F3]
-
-                          p-4
-
-                          shadow-xl
-
-                        "
-
-                      >
+                    {
+                      isOpen && (
 
                         <div
+
                           className="
-                            flex
-                            flex-col
-                            gap-2
+
+                            absolute
+
+                            left-1/2
+
+                            top-full
+
+                            pt-6
+
+                            -translate-x-1/2
+
                           "
+
                         >
 
-                        {
-                          (link.dropdown ?? [])
-                          .map(item=>(
+                          <div
 
-                            <Link
+                            className="
 
-                              key={item.href}
+                              min-w-[270px]
 
-                              href={item.href}
+                              rounded-3xl
 
-                              onClick={(e)=>{
+                              border
 
-                                handleNavigation(
-                                  e,
-                                  item.href
-                                );
+                              border-[#E8DDD8]
 
-                                setOpenDropdown(null);
+                              bg-[#FCF8F3]
 
-                              }}
+                              p-4
 
-                              className="
-                                rounded-2xl
+                              shadow-xl
 
-                                px-5
+                            "
 
-                                py-4
+                          >
 
-                                text-center
+                            {
+                              link.dropdown?.map(
+                                item => (
 
-                                hover:bg-[#F6E7E1]
+                                  <Link
 
-                                transition
+                                    key={
+                                      item.href
+                                    }
 
-                              "
+                                    href={
+                                      item.href
+                                    }
 
-                            >
+                                    onClick={(e)=>{
 
-                              <span
+                                      handleNavigation(
+                                        e,
+                                        item.href
+                                      );
 
-                                className="
-                                  block
+                                      setOpenDropdown(
+                                        null
+                                      );
 
-                                  uppercase
-
-                                  tracking-[0.15em]
-
-                                  text-xs
-
-                                  font-semibold
-
-                                  text-[#3B2A26]
-
-                                "
-
-                              >
-
-                                {item.label}
-
-                              </span>
-
-
-
-                              {
-                                item.description &&
-                                (
-
-                                  <span
+                                    }}
 
                                     className="
-                                      mt-2
 
                                       block
 
-                                      text-xs
+                                      rounded-2xl
 
-                                      text-[#8C7468]
+                                      px-5
+
+                                      py-4
+
+                                      text-center
+
+                                      hover:bg-[#F6E7E1]
 
                                     "
 
                                   >
 
-                                    {item.description}
+                                    <span
 
-                                  </span>
+                                      className="
+
+                                        uppercase
+
+                                        tracking-[0.15em]
+
+                                        text-xs
+
+                                        font-semibold
+
+                                        text-[#3B2A26]
+
+                                      "
+
+                                    >
+
+                                      {item.label}
+
+                                    </span>
+
+                                  </Link>
 
                                 )
-                              }
+                              )
+                            }
 
-
-                            </Link>
-
-                          ))
-                        }
-
+                          </div>
 
                         </div>
 
-
-                      </div>
-
-
-                    </div>
-
+                      )
+                    }
 
 
                   </div>
-
 
                 );
 
@@ -613,6 +608,7 @@ export default function Navbar(){
                   }
 
                   className="
+
                     uppercase
 
                     tracking-[0.18em]
@@ -635,7 +631,6 @@ export default function Navbar(){
 
                 </Link>
 
-
               );
 
 
@@ -650,11 +645,13 @@ export default function Navbar(){
 
 
 
-        {/* RIGHT SIDE CTA */}
+
+        {/* CTA */}
 
         <div
 
           className="
+
             absolute
 
             right-6
@@ -673,12 +670,9 @@ export default function Navbar(){
 
             items-center
 
-            gap-4
-
           "
 
         >
-
 
           <Link
 
@@ -686,9 +680,12 @@ export default function Navbar(){
 
             onClick={(e)=>{
 
-              if(pathname === "/"){
+              if(
+                pathname === "/"
+              ){
 
                 e.preventDefault();
+
 
                 scrollToSection(
                   "/#booking"
@@ -699,6 +696,7 @@ export default function Navbar(){
             }}
 
             className="
+
               hidden
 
               sm:inline-flex
@@ -740,8 +738,6 @@ export default function Navbar(){
 
               text-sm
 
-              xl:text-base
-
 
               font-semibold
 
@@ -766,18 +762,21 @@ export default function Navbar(){
 
 
 
-
-
           <button
 
             type="button"
 
-            onClick={()=>
-              setMobileOpen(!mobileOpen)
+            onClick={() =>
+              setMobileOpen(
+                !mobileOpen
+              )
             }
 
             className="
+
               lg:hidden
+
+              ml-4
 
               flex
 
@@ -801,6 +800,7 @@ export default function Navbar(){
 
               bg-white
 
+
               text-[#3B2A26]
 
             "
@@ -809,9 +809,7 @@ export default function Navbar(){
 
             ☰
 
-
           </button>
-
 
 
         </div>
@@ -827,7 +825,7 @@ export default function Navbar(){
 
         open={mobileOpen}
 
-        onClose={()=>
+        onClose={() =>
           setMobileOpen(false)
         }
 
