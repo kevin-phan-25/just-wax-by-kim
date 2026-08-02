@@ -10,9 +10,10 @@
  *
  * • Matched global page background
  * • Removed dark footer treatment
+ * • Removed divider accents
  * • Restored visible brand typography
  * • Improved luxury spacing
- * • Unified color palette
+ * • Unified editorial styling
  *
  * ---
  *
@@ -58,8 +59,8 @@ export default function Footer() {
           className="
             mt-4
             text-sm
-            tracking-[0.18em]
             uppercase
+            tracking-[0.18em]
             text-[#8C7468]
           "
         >
@@ -67,20 +68,10 @@ export default function Footer() {
         </p>
 
 
-        {/* Divider */}
-        <div
-          className="
-            my-8
-            h-px
-            w-16
-            bg-[#D8B4A0]
-          "
-        />
-
-
         {/* Copyright */}
         <p
           className="
+            mt-10
             text-sm
             text-[#8C7468]
           "
