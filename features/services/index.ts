@@ -8,6 +8,6 @@ default as ServiceCard
 } from "./ServiceCard";
 
 
-export {
-default as ServicePricingSection
-} from "./ServicePricingSection";
+export { 
+default as ServicePricingPage 
+} from "./ServicePricingPage";
