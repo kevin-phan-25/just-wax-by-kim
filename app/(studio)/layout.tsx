@@ -8,8 +8,8 @@
  * Shared luxury studio page layout.
  *
  * Controls:
- * • Standalone page breathing room
- * • Navbar remains fixed
+ * • Standalone page breathing room under fixed navbar
+ * • Navbar remains fixed (unaffected)
  * • Editorial page rhythm
  *
  * ---
@@ -25,14 +25,10 @@ export default function StudioLayout({
     <div
       className="
         relative
-
         w-full
-
-        pt-[120px]
-
-        md:pt-[150px]
-
-        xl:pt-[190px]
+        pt-[180px]
+        md:pt-[200px]
+        xl:pt-[220px]
       "
     >
       {children}
