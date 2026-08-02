@@ -32,21 +32,26 @@ import {
   usePathname,
 } from "next/navigation";
 
+
 import {
   Logo,
 } from "@/components/ui/Logo";
+
 
 import {
   MobileMenu,
 } from "@/components/layout/MobileMenu";
 
+
 import {
   navigation,
 } from "@/constants/navigation";
 
+
 import {
   BookingWidget,
 } from "@/features/booking";
+
 
 
 
@@ -79,6 +84,8 @@ function getNavbarHeight() {
 
 
 
+
+
 function scrollToSection(
   href:string
 ) {
@@ -107,19 +114,27 @@ function scrollToSection(
     getNavbarHeight();
 
 
+
   window.scrollTo({
+
     top:position,
+
     behavior:"smooth",
+
   });
 
 }
 
 
 
+
+
 export default function Navbar(){
+
 
 const pathname =
 usePathname();
+
 
 
 
@@ -131,11 +146,22 @@ useState(false);
 
 
 
+
 const [
 mobileOpen,
 setMobileOpen,
 ] =
 useState(false);
+
+
+
+
+const [
+bookingOpen,
+setBookingOpen,
+] =
+useState(false);
+
 
 
 
@@ -147,11 +173,7 @@ useState<string|null>(null);
 
 
 
-const [
-bookingOpen,
-setBookingOpen,
-] =
-useState(false);
+
 
 
 
@@ -197,12 +219,17 @@ handleScroll
 
 
 
+
+
+
 useEffect(()=>{
+
 
 document.body.style.overflow =
 mobileOpen || bookingOpen
 ? "hidden"
 : "";
+
 
 
 return ()=>{
@@ -216,6 +243,8 @@ document.body.style.overflow =
 mobileOpen,
 bookingOpen,
 ]);
+
+
 
 
 
@@ -257,9 +286,15 @@ setOpenDropdown(null);
 
 
 
+
+
+
 return (
 
 <>
+
+
+
 
 
 <nav
@@ -307,6 +342,10 @@ scrolled
 >
 
 
+
+
+
+
 {/* LOGO */}
 
 <div
@@ -326,6 +365,7 @@ top-1/2
 
 -translate-y-1/2
 
+
 z-10
 
 "
@@ -335,6 +375,10 @@ z-10
 <Logo priority />
 
 </div>
+
+
+
+
 
 
 
@@ -365,9 +409,11 @@ top-1/2
 
 items-center
 
+
 gap-7
 
 xl:gap-10
+
 
 whitespace-nowrap
 
@@ -377,6 +423,7 @@ whitespace-nowrap
 
 
 {
+
 navigation.map((link)=>{
 
 
@@ -391,7 +438,10 @@ openDropdown === link.label;
 
 
 
+
+
 if(hasDropdown){
+
 
 return (
 
@@ -401,9 +451,17 @@ key={link.label}
 
 className="relative"
 
-onMouseEnter={()=>setOpenDropdown(link.label)}
 
-onMouseLeave={()=>setOpenDropdown(null)}
+onMouseEnter={()=>
+setOpenDropdown(
+link.label
+)
+}
+
+
+onMouseLeave={()=>
+setOpenDropdown(null)
+}
 
 >
 
@@ -445,8 +503,11 @@ transition
 
 
 
+
+
 {
 isOpen && (
+
 
 <div
 
@@ -465,6 +526,7 @@ pt-6
 "
 
 >
+
 
 <div
 
@@ -488,8 +550,10 @@ shadow-xl
 
 >
 
+
 {
 link.dropdown?.map(item=>(
+
 
 <Link
 
@@ -497,16 +561,21 @@ key={item.href}
 
 href={item.href}
 
+
 onClick={(e)=>{
+
 
 handleNavigation(
 e,
 item.href
 );
 
+
 setOpenDropdown(null);
 
+
 }}
+
 
 className="
 
@@ -525,6 +594,7 @@ hover:bg-[#F6E7E1]
 "
 
 >
+
 
 <span
 
@@ -548,25 +618,37 @@ text-[#3B2A26]
 
 </span>
 
+
 </Link>
 
+
 ))
+
 }
 
-</div>
+
 
 </div>
+
+
+</div>
+
 
 )
+
 }
+
 
 
 </div>
 
 );
 
-
 }
+
+
+
+
 
 
 
@@ -578,12 +660,14 @@ key={link.href}
 
 href={link.href}
 
+
 onClick={(e)=>
 handleNavigation(
 e,
 link.href
 )
 }
+
 
 className="
 
@@ -613,11 +697,14 @@ transition
 
 
 })
+
 }
 
 
 
 </div>
+
+
 
 
 
@@ -652,6 +739,7 @@ items-center
 "
 
 >
+
 
 
 <button
@@ -691,6 +779,7 @@ rounded-full
 
 border-2
 
+
 border-[#8C5A6B]
 
 
@@ -728,25 +817,36 @@ Book Appointment
 
 
 
+
 <button
 
 type="button"
 
-onClick={()=>setMobileOpen(!mobileOpen)}
+onClick={()=>
+setMobileOpen(
+!mobileOpen
+)
+}
 
 className="
 
 lg:hidden
 
+
 ml-4
+
 
 flex
 
+
 h-12
+
 
 w-12
 
+
 items-center
+
 
 justify-center
 
@@ -755,6 +855,7 @@ rounded-full
 
 
 border
+
 
 border-[#E8DDD8]
 
@@ -773,7 +874,12 @@ text-[#3B2A26]
 </button>
 
 
+
+
 </div>
+
+
+
 
 
 
@@ -783,11 +889,21 @@ text-[#3B2A26]
 
 
 
+
+
+
+
 <MobileMenu
 
 open={mobileOpen}
 
-onClose={()=>setMobileOpen(false)}
+onClose={()=>
+setMobileOpen(false)
+}
+
+onBookingOpen={()=>
+setBookingOpen(true)
+}
 
 links={navigation}
 
@@ -797,7 +913,8 @@ links={navigation}
 
 
 
-{/* BOOKING WIDGET */}
+
+
 
 <BookingWidget
 
@@ -808,6 +925,11 @@ setBookingOpen(false)
 }
 
 />
+
+
+
+
+
 
 
 </>
