@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/policies/Policies.tsx
@@ -7,14 +8,14 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Matched FAQ spacing system
- * • Removed manual navbar spacer
- * • Unified section padding
- * • Responsive phone / iPad / desktop spacing
+ * • Matched FAQ / Gallery spacing system
+ * • Same navbar clearance approach
+ * • Responsive phone / iPad / desktop layout
  * • Preserved editorial desktop grid
  * • Removed divider accents
  *
  * ---
+ *
  */
 
 import PolicySectionCard from "./PolicySectionCard";
@@ -58,7 +59,6 @@ export default function Policies() {
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
-
 
 
       {/* CONTENT */}
@@ -188,11 +188,14 @@ export default function Policies() {
 
 
 
-
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
-            mt-0
+            mt-14
+
+            md:mt-16
+
+            xl:mt-20
 
             hidden
 
@@ -210,6 +213,7 @@ export default function Policies() {
 
           {POLICIES_DATA.map(
             (section,index)=>(
+              
               <div
                 key={section.id}
                 className={
@@ -224,6 +228,7 @@ export default function Policies() {
                 />
 
               </div>
+
             )
           )}
 
@@ -232,11 +237,14 @@ export default function Policies() {
 
 
 
-
         {/* TABLET + MOBILE */}
         <div
           className="
-            mt-0
+            mt-14
+
+            sm:mt-16
+
+            md:mt-20
 
             grid
 
@@ -254,15 +262,16 @@ export default function Policies() {
 
           {POLICIES_DATA.map(
             (section)=>(
+              
               <PolicySectionCard
                 key={section.id}
                 section={section}
               />
+
             )
           )}
 
         </div>
-
 
 
 
@@ -301,6 +310,7 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.closing}
           </p>
+
 
         </div>
 
