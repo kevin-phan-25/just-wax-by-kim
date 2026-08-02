@@ -8,10 +8,10 @@
  * Luxury responsive navigation for Just Wax by Kim.
  *
  * Updates:
- * • Fixed homepage section scrolling
+ * • Fixed homepage scrolling
  * • Navbar remains fixed
- * • Booking CTA links to booking section
- * • Removed BookingTrigger dependency
+ * • Booking CTA opens luxury booking widget
+ * • Removed external booking redirect
  * • Preserved dropdown behavior
  * • Responsive desktop/tablet/mobile spacing
  *
@@ -21,35 +21,32 @@
 
 "use client";
 
-
 import {
   useEffect,
   useState,
 } from "react";
 
-import BookingTrigger from "@/features/booking/BookingTrigger";
 import Link from "next/link";
-
 
 import {
   usePathname,
 } from "next/navigation";
 
-
 import {
   Logo,
 } from "@/components/ui/Logo";
-
 
 import {
   MobileMenu,
 } from "@/components/layout/MobileMenu";
 
-
 import {
   navigation,
 } from "@/constants/navigation";
 
+import {
+  BookingWidget,
+} from "@/features/booking";
 
 
 
@@ -82,39 +79,26 @@ function getNavbarHeight() {
 
 
 
-
-
 function scrollToSection(
-  href: string
+  href:string
 ) {
-
 
   const id =
     href.split("#")[1];
 
 
-  if (!id) {
+  if(!id){
     return;
   }
-
 
 
   const element =
     document.getElementById(id);
 
 
-
-  if (!element) {
-
-    console.warn(
-      `Unable to find section #${id}`
-    );
-
+  if(!element){
     return;
-
   }
-
-
 
 
   const position =
@@ -123,792 +107,711 @@ function scrollToSection(
     getNavbarHeight();
 
 
-
   window.scrollTo({
-
-    top: position,
-
-    behavior: "smooth",
-
+    top:position,
+    behavior:"smooth",
   });
+
+}
+
+
+
+export default function Navbar(){
+
+const pathname =
+usePathname();
+
+
+
+const [
+scrolled,
+setScrolled,
+] =
+useState(false);
+
+
+
+const [
+mobileOpen,
+setMobileOpen,
+] =
+useState(false);
+
+
+
+const [
+openDropdown,
+setOpenDropdown,
+] =
+useState<string|null>(null);
+
+
+
+const [
+bookingOpen,
+setBookingOpen,
+] =
+useState(false);
+
+
+
+useEffect(()=>{
+
+
+const handleScroll = ()=>{
+
+setScrolled(
+window.scrollY > 20
+);
+
+};
+
+
+
+handleScroll();
+
+
+
+window.addEventListener(
+"scroll",
+handleScroll,
+{
+passive:true,
+}
+);
+
+
+
+return ()=>{
+
+window.removeEventListener(
+"scroll",
+handleScroll
+);
+
+};
+
+
+},[]);
+
+
+
+
+useEffect(()=>{
+
+document.body.style.overflow =
+mobileOpen || bookingOpen
+? "hidden"
+: "";
+
+
+return ()=>{
+
+document.body.style.overflow =
+"";
+
+};
+
+},[
+mobileOpen,
+bookingOpen,
+]);
+
+
+
+
+
+const handleNavigation = (
+e:React.MouseEvent,
+href:string
+)=>{
+
+
+if(
+!href.includes("#")
+){
+return;
+}
+
+
+
+if(
+pathname === "/"
+){
+
+e.preventDefault();
+
+
+scrollToSection(
+href
+);
+
+
+setOpenDropdown(null);
+
+}
+
+
+};
+
+
+
+
+return (
+
+<>
+
+
+<nav
+
+className={`
+
+fixed
+
+top-0
+
+left-0
+
+right-0
+
+z-50
+
+
+h-[110px]
+
+md:h-[140px]
+
+xl:h-[168px]
+
+
+transition-all
+
+duration-500
+
+
+${
+scrolled
+
+?
+
+"bg-[#FCF8F3]/95 backdrop-blur-xl"
+
+:
+
+"bg-[#FCF8F3]/90 backdrop-blur-md"
+
+}
+
+`}
+
+>
+
+
+{/* LOGO */}
+
+<div
+
+className="
+
+absolute
+
+left-6
+
+md:left-10
+
+xl:left-14
+
+
+top-1/2
+
+-translate-y-1/2
+
+z-10
+
+"
+
+>
+
+<Logo priority />
+
+</div>
+
+
+
+
+
+{/* DESKTOP NAV */}
+
+<div
+
+className="
+
+hidden
+
+lg:flex
+
+
+absolute
+
+left-1/2
+
+top-1/2
+
+
+-translate-x-1/2
+
+-translate-y-1/2
+
+
+items-center
+
+gap-7
+
+xl:gap-10
+
+whitespace-nowrap
+
+"
+
+>
+
+
+{
+navigation.map((link)=>{
+
+
+const hasDropdown =
+Boolean(
+link.dropdown?.length
+);
+
+
+const isOpen =
+openDropdown === link.label;
+
+
+
+if(hasDropdown){
+
+return (
+
+<div
+
+key={link.label}
+
+className="relative"
+
+onMouseEnter={()=>setOpenDropdown(link.label)}
+
+onMouseLeave={()=>setOpenDropdown(null)}
+
+>
+
+
+<Link
+
+href={link.href}
+
+onClick={(e)=>
+handleNavigation(
+e,
+link.href
+)
+}
+
+className="
+
+uppercase
+
+tracking-[0.18em]
+
+text-xs
+
+font-semibold
+
+text-[#3B2A26]/80
+
+hover:text-[#8C5A6B]
+
+transition
+
+"
+
+>
+
+{link.label}
+
+</Link>
+
+
+
+{
+isOpen && (
+
+<div
+
+className="
+
+absolute
+
+left-1/2
+
+top-full
+
+pt-6
+
+-translate-x-1/2
+
+"
+
+>
+
+<div
+
+className="
+
+min-w-[270px]
+
+rounded-3xl
+
+border
+
+border-[#E8DDD8]
+
+bg-[#FCF8F3]
+
+p-4
+
+shadow-xl
+
+"
+
+>
+
+{
+link.dropdown?.map(item=>(
+
+<Link
+
+key={item.href}
+
+href={item.href}
+
+onClick={(e)=>{
+
+handleNavigation(
+e,
+item.href
+);
+
+setOpenDropdown(null);
+
+}}
+
+className="
+
+block
+
+rounded-2xl
+
+px-5
+
+py-4
+
+text-center
+
+hover:bg-[#F6E7E1]
+
+"
+
+>
+
+<span
+
+className="
+
+uppercase
+
+tracking-[0.15em]
+
+text-xs
+
+font-semibold
+
+text-[#3B2A26]
+
+"
+
+>
+
+{item.label}
+
+</span>
+
+</Link>
+
+))
+}
+
+</div>
+
+</div>
+
+)
+}
+
+
+</div>
+
+);
 
 
 }
 
 
 
+return (
 
+<Link
 
+key={link.href}
 
+href={link.href}
 
-export default function Navbar() {
+onClick={(e)=>
+handleNavigation(
+e,
+link.href
+)
+}
 
+className="
 
-  const pathname =
-    usePathname();
+uppercase
 
+tracking-[0.18em]
 
+text-xs
 
+font-semibold
 
-  const [
-    scrolled,
-    setScrolled,
-  ] =
-    useState(false);
+text-[#3B2A26]/80
 
+hover:text-[#8C5A6B]
 
+transition
 
+"
 
-  const [
-    mobileOpen,
-    setMobileOpen,
-  ] =
-    useState(false);
+>
 
+{link.label}
 
+</Link>
 
+);
 
-  const [
-    openDropdown,
-    setOpenDropdown,
-  ] =
-    useState<string | null>(null);
 
+})
+}
 
 
 
+</div>
 
 
 
-  useEffect(() => {
 
 
-    const handleScroll = () => {
 
-      setScrolled(
-        window.scrollY > 20
-      );
 
-    };
+{/* BOOKING CTA */}
 
+<div
 
+className="
 
-    handleScroll();
+absolute
 
+right-6
 
+md:right-10
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive:true,
-      }
-    );
+xl:right-14
 
 
+top-1/2
 
-    return () => {
+-translate-y-1/2
 
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
 
-    };
+flex
 
+items-center
 
-  }, []);
+"
 
+>
 
 
+<button
 
+type="button"
 
+onClick={()=>setBookingOpen(true)}
 
+className="
 
-  useEffect(() => {
+hidden
 
+sm:inline-flex
 
-    document.body.style.overflow =
-      mobileOpen
-      ? "hidden"
-      : "";
 
+min-h-[64px]
 
+md:min-h-[70px]
 
-    return () => {
+xl:min-h-[78px]
 
-      document.body.style.overflow =
-        "";
 
-    };
+min-w-[220px]
 
+md:min-w-[260px]
 
-  },[
-    mobileOpen
-  ]);
+xl:min-w-[300px]
 
 
+items-center
 
+justify-center
 
 
+rounded-full
 
 
+border-2
 
-  const handleNavigation = (
-    e: React.MouseEvent,
-    href:string
-  ) => {
+border-[#8C5A6B]
 
 
-    if(
-      !href.includes("#")
-    ) {
-      return;
-    }
+uppercase
 
 
+tracking-[0.24em]
 
-    if(
-      pathname === "/"
-    ) {
 
+text-sm
 
-      e.preventDefault();
 
+font-semibold
 
 
-      scrollToSection(
-        href
-      );
+text-[#8C5A6B]
 
 
+transition-all
 
-      setOpenDropdown(null);
 
+hover:bg-[#F6E7E1]
 
-    }
+hover:scale-[1.03]
 
+"
 
-  };
+>
 
+Book Appointment
 
+</button>
 
 
 
 
 
+<button
 
+type="button"
 
-  return (
+onClick={()=>setMobileOpen(!mobileOpen)}
 
-    <>
+className="
 
+lg:hidden
 
-      <nav
+ml-4
 
-        className={`
+flex
 
-          fixed
+h-12
 
-          top-0
+w-12
 
-          left-0
+items-center
 
-          right-0
+justify-center
 
-          z-50
 
+rounded-full
 
-          h-[110px]
 
-          md:h-[140px]
+border
 
-          xl:h-[168px]
+border-[#E8DDD8]
 
 
-          transition-all
+bg-white
 
-          duration-500
 
+text-[#3B2A26]
 
-          ${
-            scrolled
+"
 
-            ?
+>
 
-            "bg-[#FCF8F3]/95 backdrop-blur-xl"
+☰
 
-            :
+</button>
 
-            "bg-[#FCF8F3]/90 backdrop-blur-md"
 
-          }
+</div>
 
-        `}
 
-      >
 
+</nav>
 
 
 
 
-        {/* LOGO */}
 
-        <div
+<MobileMenu
 
-          className="
-            absolute
+open={mobileOpen}
 
-            left-6
+onClose={()=>setMobileOpen(false)}
 
-            md:left-10
+links={navigation}
 
-            xl:left-14
+/>
 
 
-            top-1/2
 
-            -translate-y-1/2
 
 
-            z-10
-          "
+{/* BOOKING WIDGET */}
 
-        >
+<BookingWidget
 
-          <Logo
-            priority
-          />
+open={bookingOpen}
 
-        </div>
+onClose={()=>
+setBookingOpen(false)
+}
 
+/>
 
 
+</>
 
-
-
-
-
-
-        {/* DESKTOP NAV */}
-
-        <div
-
-          className="
-            hidden
-
-            lg:flex
-
-
-            absolute
-
-            left-1/2
-
-            top-1/2
-
-
-            -translate-x-1/2
-
-            -translate-y-1/2
-
-
-            items-center
-
-
-            gap-7
-
-            xl:gap-10
-
-
-            whitespace-nowrap
-          "
-
-        >
-
-
-          {
-            navigation.map((link)=>{
-
-
-              const hasDropdown =
-                Boolean(
-                  link.dropdown?.length
-                );
-
-
-
-              const isOpen =
-                openDropdown === link.label;
-
-
-
-
-
-              if(hasDropdown){
-
-
-                return (
-
-                  <div
-
-                    key={link.label}
-
-                    className="relative"
-
-                    onMouseEnter={() =>
-                      setOpenDropdown(
-                        link.label
-                      )
-                    }
-
-                    onMouseLeave={() =>
-                      setOpenDropdown(
-                        null
-                      )
-                    }
-
-                  >
-
-
-
-                    <Link
-
-                      href={link.href}
-
-                      onClick={(e)=>
-                        handleNavigation(
-                          e,
-                          link.href
-                        )
-                      }
-
-                      className="
-                        uppercase
-
-                        tracking-[0.18em]
-
-                        text-xs
-
-                        font-semibold
-
-                        text-[#3B2A26]/80
-
-                        hover:text-[#8C5A6B]
-
-                        transition
-                      "
-
-                    >
-
-                      {link.label}
-
-                    </Link>
-
-
-
-
-
-                    {
-                      isOpen && (
-
-                        <div
-
-                          className="
-                            absolute
-
-                            left-1/2
-
-                            top-full
-
-                            pt-6
-
-                            -translate-x-1/2
-                          "
-
-                        >
-
-
-                          <div
-
-                            className="
-                              min-w-[270px]
-
-                              rounded-3xl
-
-                              border
-
-                              border-[#E8DDD8]
-
-                              bg-[#FCF8F3]
-
-                              p-4
-
-                              shadow-xl
-                            "
-
-                          >
-
-
-                            {
-                              link.dropdown?.map(
-                                item => (
-
-                                  <Link
-
-                                    key={
-                                      item.href
-                                    }
-
-                                    href={
-                                      item.href
-                                    }
-
-                                    onClick={(e)=>{
-
-
-                                      handleNavigation(
-                                        e,
-                                        item.href
-                                      );
-
-
-                                      setOpenDropdown(
-                                        null
-                                      );
-
-
-                                    }}
-
-
-                                    className="
-                                      block
-
-                                      rounded-2xl
-
-                                      px-5
-
-                                      py-4
-
-                                      text-center
-
-                                      hover:bg-[#F6E7E1]
-                                    "
-
-                                  >
-
-                                    <span
-
-                                      className="
-                                        uppercase
-
-                                        tracking-[0.15em]
-
-                                        text-xs
-
-                                        font-semibold
-
-                                        text-[#3B2A26]
-                                      "
-
-                                    >
-
-                                      {item.label}
-
-                                    </span>
-
-
-                                  </Link>
-
-                                )
-                              )
-                            }
-
-
-                          </div>
-
-
-                        </div>
-
-                      )
-                    }
-
-
-
-                  </div>
-
-
-                );
-
-
-              }
-
-
-
-
-
-
-
-              return (
-
-                <Link
-
-                  key={link.href}
-
-                  href={link.href}
-
-                  onClick={(e)=>
-                    handleNavigation(
-                      e,
-                      link.href
-                    )
-                  }
-
-
-                  className="
-                    uppercase
-
-                    tracking-[0.18em]
-
-                    text-xs
-
-                    font-semibold
-
-                    text-[#3B2A26]/80
-
-                    hover:text-[#8C5A6B]
-
-                    transition
-                  "
-
-                >
-
-                  {link.label}
-
-                </Link>
-
-              );
-
-
-            })
-          }
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-        {/* BOOKING CTA */}
-
-        <div
-
-          className="
-            absolute
-
-            right-6
-
-            md:right-10
-
-            xl:right-14
-
-
-            top-1/2
-
-            -translate-y-1/2
-
-
-            flex
-
-            items-center
-          "
-
-        >
-
-
-
-          <Link
-
-            href="/#booking"
-
-
-            onClick={(e)=>{
-
-
-              if(
-                pathname === "/"
-              ){
-
-                e.preventDefault();
-
-
-                scrollToSection(
-                  "/#booking"
-                );
-
-              }
-
-
-            }}
-
-
-
-            className="
-              hidden
-
-              sm:inline-flex
-
-
-              min-h-[64px]
-
-              md:min-h-[70px]
-
-              xl:min-h-[78px]
-
-
-              min-w-[220px]
-
-              md:min-w-[260px]
-
-              xl:min-w-[300px]
-
-
-              items-center
-
-              justify-center
-
-
-              rounded-full
-
-
-              border-2
-
-              border-[#8C5A6B]
-
-
-              uppercase
-
-
-              tracking-[0.24em]
-
-
-              text-sm
-
-
-              font-semibold
-
-
-              text-[#8C5A6B]
-
-
-              transition-all
-
-
-              hover:bg-[#F6E7E1]
-
-              hover:scale-[1.03]
-            "
-
-          >
-
-            Book Appointment
-
-          </Link>
-
-
-
-
-
-
-          <button
-
-            type="button"
-
-            onClick={() =>
-              setMobileOpen(
-                !mobileOpen
-              )
-            }
-
-
-            className="
-              lg:hidden
-
-              ml-4
-
-              flex
-
-              h-12
-
-              w-12
-
-
-              items-center
-
-              justify-center
-
-
-              rounded-full
-
-
-              border
-
-              border-[#E8DDD8]
-
-
-              bg-white
-
-
-              text-[#3B2A26]
-            "
-
-          >
-
-            ☰
-
-          </button>
-
-
-
-        </div>
-
-
-
-
-
-
-      </nav>
-
-
-
-
-
-
-      <MobileMenu
-
-        open={
-          mobileOpen
-        }
-
-        onClose={() =>
-          setMobileOpen(false)
-        }
-
-        links={
-          navigation
-        }
-
-      />
-
-
-
-    </>
-
-  );
+);
 
 }
