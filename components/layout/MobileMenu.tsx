@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * components/layout/MobileMenu.tsx
  *
@@ -7,14 +8,18 @@
  * Luxury mobile navigation for Just Wax by Kim.
  *
  * Updates:
- * • Responsive navbar height support
- * • Handles mobile + tablet layouts
- * • Supports Services dropdown
- * • Supports Studio Exploration dropdown
+ * • Sticky booking CTA preserved
+ * • Unified luxury typography system
+ * • Improved mobile / tablet spacing
+ * • Removed divider accents
+ * • Increased breathing room between menu items
+ * • Matched global color system
+ * • Improved touch targets
+ * • Supports dropdown navigation
  * • Supports anchor scrolling
- * • Sticky Book Appointment CTA
- * • Improved spacing and touch targets
- * -----------------------------------------------------------------------------
+ *
+ * ---
+ *
  */
 
 "use client";
@@ -42,78 +47,92 @@ interface MobileMenuProps {
   links: readonly NavItem[];
 }
 
+
 const NAVBAR_HEIGHT = 140;
 
+
 function scrollToSection(href: string) {
+
   const id = href.replace("/#", "");
 
   const element = document.getElementById(id);
 
   if (!element) return;
 
+
   const position =
     element.getBoundingClientRect().top +
     window.scrollY -
     NAVBAR_HEIGHT;
 
+
   window.scrollTo({
     top: position,
     behavior: "smooth",
   });
+
 }
+
+
 
 export function MobileMenu({
   open,
   onClose,
   links,
 }: MobileMenuProps) {
+
+
   const pathname = usePathname();
 
-  const [expanded, setExpanded] = useState<string | null>(null);
+  const [expanded, setExpanded] =
+    useState<string | null>(null);
+
 
 
   const handleAnchor = (href: string) => {
+
     onClose();
+
     setExpanded(null);
 
+
     if (pathname === "/") {
+
       window.setTimeout(() => {
+
         scrollToSection(href);
-      }, 150);
-    } else {
+
+      },150);
+
+    } 
+    else {
+
       window.location.href = href;
+
     }
+
   };
+
 
 
   if (!open) return null;
 
 
+
   return (
+
     <>
-      {/* Backdrop */}
+
+      {/* MOBILE MENU PANEL */}
+
       <div
         className="
           fixed
-          inset-0
-          z-40
-          bg-[#3B2A26]/20
-          backdrop-blur-sm
-          lg:hidden
-        "
-        onClick={onClose}
-      />
 
-
-      {/* Mobile Panel */}
-      <div
-        className="
-          fixed
           top-[110px]
           md:top-[140px]
 
-          left-0
-          right-0
+          inset-x-0
           bottom-0
 
           z-50
@@ -128,40 +147,59 @@ export function MobileMenu({
       >
 
 
-        {/* Scroll Area */}
+        {/* SCROLL CONTENT */}
+
         <div
           className="
             flex-1
+
             overflow-y-auto
 
             px-6
-            py-8
+            sm:px-8
+
+            pt-8
+            pb-10
           "
         >
+
 
           <ul
             className="
               flex
               flex-col
-              gap-4
+
+              gap-6
             "
           >
 
-            {links.map((link) => {
+
+            {links.map((link)=>{
+
 
               const hasDropdown =
                 Boolean(link.dropdown?.length);
+
 
               const isOpen =
                 expanded === link.label;
 
 
+
               return (
-                <li key={link.label}>
+
+                <li
+                  key={link.label}
+                >
+
 
                   {hasDropdown ? (
 
                     <>
+
+
+                      {/* DROPDOWN BUTTON */}
+
                       <button
                         type="button"
                         onClick={() =>
@@ -173,35 +211,48 @@ export function MobileMenu({
                         }
                         className="
                           flex
-                          min-h-[58px]
+
+                          min-h-[64px]
+
                           w-full
 
                           items-center
                           justify-center
-                          gap-2
+
+                          gap-3
 
                           rounded-full
 
                           border
                           border-[#E8DDD8]
 
-                          bg-white/90
+                          bg-white/80
 
                           uppercase
-                          tracking-[0.18em]
+
+                          tracking-[0.2em]
 
                           text-xs
+
                           font-semibold
 
                           text-[#3B2A26]
+
+                          transition
+
+                          hover:bg-[#F6E7E1]
                         "
                       >
+
                         {link.label}
+
 
                         <span
                           className={`
                             text-[10px]
+
                             transition-transform
+
                             duration-300
 
                             ${
@@ -214,20 +265,27 @@ export function MobileMenu({
                           ▾
                         </span>
 
+
                       </button>
+
+
 
 
                       {isOpen && (
 
                         <ul
                           className="
-                            mt-3
+                            mt-5
 
                             flex
                             flex-col
-                            gap-3
+
+                            gap-4
+
                           "
                         >
+
+
 
                           {link.href.includes("#") && (
 
@@ -242,7 +300,9 @@ export function MobileMenu({
                                 }
                                 className="
                                   flex
-                                  min-h-[54px]
+
+                                  min-h-[60px]
+
                                   w-full
 
                                   items-center
@@ -256,17 +316,21 @@ export function MobileMenu({
                                   border-[#E8DDD8]
 
                                   uppercase
-                                  tracking-[0.16em]
+
+                                  tracking-[0.18em]
 
                                   text-xs
+
                                   font-semibold
 
                                   text-[#8C5A6B]
                                 "
                               >
+
                                 {link.label === "Services"
                                   ? "All Services"
                                   : `View ${link.label}`}
+
                               </button>
 
                             </li>
@@ -275,9 +339,12 @@ export function MobileMenu({
 
 
 
-                          {link.dropdown?.map((item) => (
 
-                            <li key={item.href}>
+                          {link.dropdown?.map((item)=>(
+
+                            <li
+                              key={item.href}
+                            >
 
                               <Link
                                 href={item.href}
@@ -286,63 +353,79 @@ export function MobileMenu({
                                   if(
                                     item.href.includes("#")
                                   ){
+
                                     e.preventDefault();
 
                                     handleAnchor(
                                       item.href
                                     );
+
                                   }
                                   else{
+
                                     onClose();
+
                                   }
 
                                 }}
+
                                 className="
                                   flex
-                                  min-h-[58px]
+
+                                  min-h-[70px]
 
                                   flex-col
+
                                   items-center
+
                                   justify-center
 
-                                  rounded-2xl
-
-                                  bg-[#F6E7E1]
+                                  rounded-3xl
 
                                   border
                                   border-[#E8DDD8]
 
-                                  px-4
-                                  py-3
+                                  bg-white
+
+                                  px-5
+
+                                  py-4
 
                                   text-center
                                 "
                               >
 
+
                                 <span
                                   className="
                                     uppercase
+
                                     tracking-[0.16em]
 
                                     text-xs
+
                                     font-semibold
 
                                     text-[#8C5A6B]
                                   "
                                 >
+
                                   {item.label}
+
                                 </span>
+
+
 
 
                                 {item.description && (
 
                                   <span
                                     className="
-                                      mt-1
+                                      mt-2
 
                                       text-[11px]
 
-                                      leading-snug
+                                      leading-relaxed
 
                                       text-[#8C7468]
 
@@ -351,46 +434,64 @@ export function MobileMenu({
                                       tracking-normal
                                     "
                                   >
+
                                     {item.description}
+
                                   </span>
 
                                 )}
 
+
                               </Link>
+
 
                             </li>
 
                           ))}
 
+
                         </ul>
 
                       )}
 
+
                     </>
+
 
                   ) : (
 
+
                     <Link
                       href={link.href}
+
                       onClick={(e)=>{
+
 
                         if(
                           link.href.includes("#")
                         ){
+
                           e.preventDefault();
 
                           handleAnchor(
                             link.href
                           );
+
                         }
                         else{
+
                           onClose();
+
                         }
 
+
                       }}
+
                       className="
                         flex
-                        min-h-[58px]
+
+                        min-h-[64px]
+
                         w-full
 
                         items-center
@@ -401,53 +502,70 @@ export function MobileMenu({
                         border
                         border-[#E8DDD8]
 
-                        bg-white/90
+                        bg-white/80
 
                         uppercase
 
-                        tracking-[0.18em]
+                        tracking-[0.2em]
 
                         text-xs
 
                         font-semibold
 
                         text-[#3B2A26]
+
+                        transition
+
+                        hover:bg-[#F6E7E1]
                       "
                     >
+
                       {link.label}
+
                     </Link>
+
 
                   )}
 
+
                 </li>
+
               );
+
 
             })}
 
+
           </ul>
+
 
         </div>
 
 
 
-        {/* Bottom CTA */}
+
+
+        {/* STICKY BOOK APPOINTMENT CTA */}
+
         <div
           className="
             shrink-0
 
-            border-t
-            border-[#E8DDD8]
-
             bg-[#FCF8F3]
 
             px-6
+            sm:px-8
+
             py-6
           "
         >
 
+
           <Link
             href="/#booking"
+
             onClick={(e)=>{
+
 
               if(pathname === "/"){
 
@@ -464,11 +582,13 @@ export function MobileMenu({
 
               }
 
+
             }}
+
             className="
               flex
 
-              min-h-[58px]
+              min-h-[64px]
 
               w-full
 
@@ -483,7 +603,7 @@ export function MobileMenu({
 
               uppercase
 
-              tracking-[0.2em]
+              tracking-[0.22em]
 
               text-sm
 
@@ -491,19 +611,29 @@ export function MobileMenu({
 
               text-[#8C5A6B]
 
-              transition
+              transition-all
+
+              duration-300
 
               hover:bg-[#F6E7E1]
+
+              hover:scale-[1.02]
             "
           >
+
             Book Appointment
+
           </Link>
+
 
         </div>
 
 
       </div>
 
+
     </>
+
   );
+
 }

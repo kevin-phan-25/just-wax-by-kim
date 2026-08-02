@@ -1,17 +1,20 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/instagram/InstagramGrid.tsx
  *
  * Description:
  * Editorial Instagram gallery grid.
  *
- * Changes:
- * • Full width layout
- * • Desktop 4 column presentation
+ * Updates:
+ * • Full width responsive layout
+ * • Phone / iPad / desktop optimization
+ * • Desktop four-column presentation
+ * • Improved luxury spacing rhythm
  * • Removed restrictive sizing
+ * • Matches Gallery grid system
  *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
 import {
@@ -24,39 +27,38 @@ import InstagramPost from "./InstagramPost";
 export default function InstagramGrid() {
 
   return (
-
     <div
-
       className="
         grid
-        w-full
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-4
-        gap-6
-        md:gap-8
-      "
 
+        w-full
+
+        grid-cols-1
+
+        sm:grid-cols-2
+
+        lg:grid-cols-4
+
+        gap-6
+
+        sm:gap-8
+
+        lg:gap-10
+
+        xl:gap-12
+      "
     >
 
-      {
-        instagramPosts.map(
-          (post)=>(
-
-            <InstagramPost
-
-              key={post.id}
-
-              post={post}
-
-            />
-
-          )
+      {instagramPosts.map(
+        (post) => (
+          <InstagramPost
+            key={post.id}
+            post={post}
+          />
         )
-      }
+      )}
 
     </div>
-
   );
 
 }

@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/faq/FAQ.tsx
@@ -8,14 +7,15 @@
  * Luxury FAQ presentation.
  *
  * Updates:
+ * • Unified luxury spacing system
+ * • Responsive navbar clearance
  * • Added 4-cell editorial grid
- * • Added left/right breathing margins
- * • Removed flush screen appearance
+ * • Mobile / iPad / desktop optimization
  * • Balanced FAQ columns
- * • No divider accents
+ * • Removed divider accents
+ * • Matches brand layout system
  *
  * ---
- *
  */
 
 import FAQAccordion from "./FAQAccordion";
@@ -29,160 +29,300 @@ import {
   FAQ_CONSTANTS,
 } from "./faq.constants";
 
+
 export default function FAQ() {
   return (
     <section
-      id="faq"
       className="
         relative
+
         w-full
-        min-h-screen
+
         overflow-hidden
-        bg-[#FCF8F3]
+
+        bg-[#FBF7F4]
+
+        pt-[168px]
+
+        md:pt-[190px]
+
+        pb-20
+
+        sm:pb-24
+
+        md:pb-32
       "
     >
+
+      {/* Ambient Background */}
       <div
         aria-hidden
         className="
-          absolute
-          inset-0
           pointer-events-none
-          bg-[radial-gradient(ellipse_at_50%_0%,rgba(232,200,188,0.35),transparent_65%)]
+
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
 
-      <div
-        className="
-          h-[216px]
-          md:h-[230px]
-        "
-      />
 
+
+      {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
+
           w-full
-          pb-40
+
+          px-5
+
+          sm:px-8
+
+          md:px-10
+
+          lg:px-16
+
+          xl:px-24
         "
       >
+
+
+        {/* HEADER */}
         <header
           className="
             flex
+
             flex-col
+
             items-center
+
             text-center
-            px-6
-            mb-24
+
+            mb-16
+
+            md:mb-24
           "
         >
+
           <p
             className="
               uppercase
+
               tracking-[0.35em]
-              text-sm
+
+              text-xs
+
+              sm:text-sm
+
               text-[#8C5A6B]
             "
           >
             Helpful Information
           </p>
 
+
+
           <h1
             className="
-              mt-8
+              mt-6
+
+              max-w-5xl
+
               font-serif
+
               text-4xl
+
+              sm:text-5xl
+
               md:text-6xl
+
+              leading-[1.1]
+
+              tracking-[-0.035em]
+
               text-[#3B2A26]
             "
           >
             {FAQ_CONSTANTS.title}
           </h1>
 
+
+
           <p
             className="
-              mt-8
-              text-lg
+              mt-6
+
+              max-w-3xl
+
+              text-base
+
+              sm:text-lg
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
             {FAQ_CONSTANTS.subtitle}
           </p>
+
+
         </header>
 
-        {/* FOUR CELL LAYOUT */}
+
+
+        {/* FOUR CELL EDITORIAL GRID */}
         <div
           className="
             grid
+
             grid-cols-1
+
             lg:grid-cols-[0.75in_1fr_1fr_0.75in]
-            gap-10
+
+            gap-y-14
+
+            lg:gap-x-10
+
             w-full
+
             items-start
           "
         >
-          {/* CELL 1 */}
+
+
+          {/* LEFT BREATHING SPACE */}
           <div className="hidden lg:block" />
 
-          {/* CELL 2 */}
+
+
+          {/* BEFORE WAX */}
           <div
             className="
-              px-6
+              w-full
+
               flex
+
               flex-col
+
               items-center
+
+              px-2
+
+              sm:px-6
             "
           >
+
             <h2
               className="
-                mb-12
+                mb-10
+
                 text-center
+
                 font-serif
+
                 text-3xl
+
                 md:text-4xl
+
+                leading-tight
+
                 text-[#3B2A26]
               "
             >
               Before Your Wax
             </h2>
 
-            <div className="w-full">
-              <FAQAccordion items={BEFORE_WAXING_FAQ} />
+
+            <div
+              className="
+                w-full
+
+                max-w-xl
+              "
+            >
+              <FAQAccordion
+                items={BEFORE_WAXING_FAQ}
+              />
             </div>
+
+
           </div>
 
-          {/* CELL 3 */}
+
+
+
+          {/* AFTER WAX CARE */}
           <div
             className="
-              px-6
+              w-full
+
               flex
+
               flex-col
+
               items-center
+
+              px-2
+
+              sm:px-6
             "
           >
+
             <h2
               className="
-                mb-12
+                mb-10
+
                 text-center
+
                 font-serif
+
                 text-3xl
+
                 md:text-4xl
+
+                leading-tight
+
                 text-[#3B2A26]
               "
             >
               Caring For Your Skin
             </h2>
 
-            <div className="w-full">
-              <FAQAccordion items={AFTER_WAX_CARE_FAQ} />
+
+            <div
+              className="
+                w-full
+
+                max-w-xl
+              "
+            >
+              <FAQAccordion
+                items={AFTER_WAX_CARE_FAQ}
+              />
             </div>
+
+
           </div>
 
-          {/* CELL 4 */}
+
+
+
+          {/* RIGHT BREATHING SPACE */}
           <div className="hidden lg:block" />
+
+
         </div>
+
+
       </div>
+
+
     </section>
   );
 }

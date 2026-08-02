@@ -8,12 +8,11 @@
  *
  * Updates:
  * • Full width editorial layout
- * • Removed width restrictions
- * • Centered typography
- * • Responsive phone / iPad / desktop
- * • Removed divider accents
- * • Matched Hero spacing system
- * • Balanced image sizing
+ * • Responsive section spacing
+ * • Protected ambient background
+ * • Balanced service imagery
+ * • Mobile / iPad / desktop optimized
+ * • Luxury conversion flow
  *
  * ---
  */
@@ -23,12 +22,28 @@ import Link from "next/link";
 export default function Services() {
   return (
     <section
-      id="services"
       className="
         relative
+
+        w-full
+
         overflow-hidden
+
         bg-[#FCF8F3]
-        py-[0.5in]
+
+        pt-14
+
+        sm:pt-16
+
+        md:pt-20
+
+        xl:pt-24
+
+        pb-16
+
+        sm:pb-20
+
+        md:pb-24
       "
     >
 
@@ -37,7 +52,9 @@ export default function Services() {
         aria-hidden
         className="
           pointer-events-none
+
           absolute
+
           inset-0
 
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
@@ -45,31 +62,35 @@ export default function Services() {
       />
 
 
-
       {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
 
           w-full
 
           px-5
+
           sm:px-8
+
           md:px-10
+
           lg:px-16
+
+          xl:px-24
         "
       >
-
 
 
         {/* HEADER */}
         <header
           className="
-            w-full
-
             flex
+
             flex-col
+
             items-center
 
             text-center
@@ -79,9 +100,11 @@ export default function Services() {
           <span
             className="
               uppercase
+
               tracking-[0.4em]
 
               text-xs
+
               md:text-sm
 
               text-[#8C5A6B]
@@ -95,13 +118,19 @@ export default function Services() {
             className="
               mt-6
 
+              max-w-5xl
+
               font-serif
 
               text-4xl
+
               sm:text-5xl
+
               md:text-6xl
 
-              leading-tight
+              leading-[1.1]
+
+              tracking-[-0.03em]
 
               text-[#3B2A26]
             "
@@ -114,9 +143,10 @@ export default function Services() {
             className="
               mt-6
 
-              w-full
+              max-w-4xl
 
               text-base
+
               md:text-lg
 
               leading-relaxed
@@ -129,9 +159,7 @@ export default function Services() {
             confident skin.
           </p>
 
-
         </header>
-
 
 
 
@@ -139,20 +167,24 @@ export default function Services() {
         <div
           className="
             mt-14
+
             md:mt-16
+
             xl:mt-20
 
             grid
 
             grid-cols-1
+
             md:grid-cols-2
 
             gap-10
+
             xl:gap-16
 
-            w-full
+            items-start
 
-            place-items-center
+            justify-items-center
           "
         >
 
@@ -165,11 +197,13 @@ export default function Services() {
 
               w-full
 
-              flex
-              justify-center
+              max-w-[650px]
 
               transition-transform
+
               duration-500
+
+              hover:-translate-y-1
             "
           >
 
@@ -178,8 +212,6 @@ export default function Services() {
                 overflow-hidden
 
                 rounded-[28px]
-
-                w-full
               "
             >
 
@@ -187,6 +219,8 @@ export default function Services() {
                 src="/images/services/ladies-view-pricing.jpg"
                 alt="Ladies luxury waxing services"
                 className="
+                  block
+
                   w-full
 
                   h-auto
@@ -194,6 +228,7 @@ export default function Services() {
                   object-contain
 
                   transition-transform
+
                   duration-700
 
                   group-hover:scale-[1.03]
@@ -207,7 +242,6 @@ export default function Services() {
 
 
 
-
           {/* GENTLEMEN */}
           <Link
             href="/services/gentlemen"
@@ -216,11 +250,13 @@ export default function Services() {
 
               w-full
 
-              flex
-              justify-center
+              max-w-[650px]
 
               transition-transform
+
               duration-500
+
+              hover:-translate-y-1
             "
           >
 
@@ -229,8 +265,6 @@ export default function Services() {
                 overflow-hidden
 
                 rounded-[28px]
-
-                w-full
               "
             >
 
@@ -238,6 +272,8 @@ export default function Services() {
                 src="/images/services/gentlement-view-pricing.jpg"
                 alt="Gentlemen luxury waxing services"
                 className="
+                  block
+
                   w-full
 
                   h-auto
@@ -245,6 +281,7 @@ export default function Services() {
                   object-contain
 
                   transition-transform
+
                   duration-700
 
                   group-hover:scale-[1.03]

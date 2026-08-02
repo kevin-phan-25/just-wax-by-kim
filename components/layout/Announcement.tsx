@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File: Announcement.tsx
  *
  * Created: July 27, 2026
@@ -11,42 +12,49 @@
  * Changes:
  *
  * - July 27, 2026
- *   - Added v1.1.0 luxury layout foundation.
- *   - Added reusable announcement component.
+ * • Added v1.1.0 luxury layout foundation.
+ * • Added responsive spacing.
+ * • Matched luxury brand typography.
+ * • Improved mobile readability.
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
+export default function Announcement() {
+  return (
+    <div
+      className="
+        flex
+        w-full
+        items-center
+        justify-center
 
-export default function Announcement(){
+        bg-[#3B2A26]
 
+        px-5
+        py-3
+        sm:py-4
 
-return (
+        text-center
+      "
+    >
+      <p
+        className="
+          uppercase
 
-<div
-className="
-w-full
-bg-brand-dark
-text-brand-gold
-text-sm
-tracking-wide
-text-center
-py-3
-px-4
-"
->
+          tracking-[0.25em]
 
+          text-[10px]
+          sm:text-xs
 
-<p>
+          font-medium
 
-Now Booking Luxury Wax Appointments
-
-</p>
-
-
-</div>
-
-);
-
-
+          text-[#F6E7E1]
+        "
+      >
+        Now Booking Luxury Wax Appointments
+      </p>
+    </div>
+  );
 }

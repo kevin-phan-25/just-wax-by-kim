@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * app/layout.tsx
  *
@@ -14,11 +14,11 @@
  * • Site footer
  * • Global providers
  *
- * Updates:
- * • Responsive navbar spacing support
- * • Cleaner page structure
- * • Preserves luxury editorial layout
- * -----------------------------------------------------------------------------
+ * Typography:
+ * • Playfair Display → luxury editorial headings
+ * • Montserrat → body, navigation, buttons
+ *
+ * ---
  */
 
 import type { Metadata } from "next";
@@ -34,25 +34,20 @@ import {
   createMetadata,
 } from "@/lib/metadata";
 
-
 import {
   businessSchema,
 } from "@/lib/seo";
-
 
 import {
   headingFont,
   bodyFont,
 } from "@/config/fonts";
 
-
 import "./globals.css";
-
 
 
 export const metadata: Metadata =
   createMetadata();
-
 
 
 
@@ -62,29 +57,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-
   return (
 
     <html
       lang="en"
-      className={headingFont.className}
+      className={`
+        ${headingFont.variable}
+        ${bodyFont.variable}
+      `}
     >
 
 
       <body
-        className={`
-          ${bodyFont.className}
-
+        className="
           min-h-screen
 
           flex
-
           flex-col
 
           bg-[#FCF8F3]
 
           text-[#3B2A26]
-        `}
+
+          antialiased
+        "
       >
 
 
@@ -121,6 +117,8 @@ export default function RootLayout({
               flex-1
 
               w-full
+
+              overflow-x-hidden
             "
           >
 
@@ -134,7 +132,7 @@ export default function RootLayout({
 
 
 
-        {/* FOOTER */}
+        {/* GLOBAL FOOTER */}
 
         <Footer />
 
@@ -145,5 +143,4 @@ export default function RootLayout({
     </html>
 
   );
-
 }

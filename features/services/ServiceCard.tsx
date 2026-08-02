@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/services/ServiceCard.tsx
@@ -8,15 +7,14 @@
  * Luxury service pricing card.
  *
  * Updates:
- * • Removed width restrictions
- * • Full editorial width support
- * • Improved luxury spacing
- * • Centered content hierarchy
- * • Softer card presentation
+ * • Editorial luxury presentation
  * • Responsive phone/tablet/desktop
+ * • Softer card elevation
+ * • Improved pricing hierarchy
+ * • Balanced typography spacing
+ * • Works with ServiceGrid sizing
  *
  * ---
- *
  */
 
 import type { Service } from "./services.types";
@@ -28,7 +26,6 @@ interface ServiceCardProps {
 export default function ServiceCard({
   service,
 }: ServiceCardProps) {
-
   return (
     <article
       className="
@@ -38,32 +35,42 @@ export default function ServiceCard({
 
         rounded-[32px]
 
-        bg-white
+        border
+
+        border-[#E8DDD8]
+
+        bg-white/90
 
         p-7
+
         sm:p-8
+
         md:p-10
 
         text-center
 
         transition-all
+
         duration-500
 
-        hover:-translate-y-2
-        hover:shadow-[0_24px_70px_rgba(59,42,38,0.10)]
+        hover:-translate-y-1
+
+        hover:shadow-[0_20px_60px_rgba(59,42,38,0.08)]
       "
     >
 
       {/* SERVICE TITLE */}
-
       <h3
         className="
           font-serif
 
           text-2xl
+
           sm:text-3xl
 
-          leading-tight
+          leading-[1.15]
+
+          tracking-[-0.02em]
 
           text-[#3B2A26]
         "
@@ -73,17 +80,17 @@ export default function ServiceCard({
 
 
 
-      {/* SERVICE CATEGORY */}
-
+      {/* CATEGORY */}
       <p
         className="
-          mt-3
+          mt-4
 
           uppercase
 
-          tracking-[0.25em]
+          tracking-[0.28em]
 
           text-[10px]
+
           sm:text-xs
 
           text-[#8C5A6B]
@@ -95,12 +102,12 @@ export default function ServiceCard({
 
 
       {/* DESCRIPTION */}
-
       <p
         className="
           mt-6
 
           text-sm
+
           sm:text-base
 
           leading-8
@@ -113,8 +120,7 @@ export default function ServiceCard({
 
 
 
-      {/* SERVICE DETAILS */}
-
+      {/* DETAILS */}
       <div
         className="
           mt-8
@@ -132,20 +138,21 @@ export default function ServiceCard({
           text-[#8C7468]
         "
       >
-
         <span>
           {service.duration}
         </span>
-
       </div>
 
 
 
       {/* PRICE */}
-
       <div
         className="
           mt-8
+
+          border-t
+
+          border-[#E8DDD8]
 
           pt-6
         "
@@ -156,7 +163,10 @@ export default function ServiceCard({
             font-serif
 
             text-2xl
+
             sm:text-3xl
+
+            tracking-[-0.02em]
 
             text-[#8C5A6B]
           "

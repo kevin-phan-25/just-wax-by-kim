@@ -7,10 +7,11 @@
  * Minimal editorial mission statement following About section.
  *
  * Updates:
- * • True one-line desktop statement
- * • Reduced font scale
- * • Removed decorative elements
- * • Responsive mobile behavior
+ * • Responsive editorial spacing
+ * • Desktop one-line statement
+ * • iPad wrapping correction
+ * • Mobile typography refinement
+ * • Matches global luxury background
  *
  * ---
  */
@@ -21,15 +22,18 @@ export default function Mission() {
       className="
         w-full
 
-        bg-[#FBF7F4]
+        bg-[#FCF8F3]
 
         py-10
 
         sm:py-12
 
         md:py-16
+
+        lg:py-20
       "
     >
+
       <div
         className="
           w-full
@@ -43,34 +47,41 @@ export default function Mission() {
           sm:px-8
 
           md:px-12
+
+          lg:px-16
         "
       >
+
         <p
           className="
+            max-w-[1200px]
+
             text-center
 
             font-serif
 
-            text-base
+            text-lg
 
-            sm:text-lg
+            sm:text-xl
 
-            md:text-xl
+            md:text-2xl
 
-            lg:text-2xl
+            lg:text-3xl
 
-            leading-normal
+            xl:whitespace-nowrap
 
-            tracking-normal
+            leading-relaxed
+
+            tracking-[-0.02em]
 
             text-[#3B2A26]
-
-            lg:whitespace-nowrap
           "
         >
           A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.
         </p>
+
       </div>
+
     </section>
   );
 }

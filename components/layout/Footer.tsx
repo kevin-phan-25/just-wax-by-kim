@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File: Footer.tsx
  *
@@ -8,35 +9,39 @@
  * Changes:
  *
  * - July 31, 2026
- * • Removed width restrictions
  * • Full-width luxury presentation
- * • Maintained centered alignment
+ * • Removed width restrictions
+ * • Matched editorial spacing system
+ * • Centered brand presentation
+ * • Refined luxury typography
  *
  * ---
+ *
  */
 
 export default function Footer() {
   return (
     <footer
       className="
-        relative
         w-full
-        bg-brand-black
-        px-6
-        py-12
-        text-white
+        bg-[#3B2A26]
+        text-center
+        px-5
+        sm:px-8
+        md:px-10
+        lg:px-16
+        py-16
+        md:py-20
       "
     >
+
+      {/* CONTENT */}
       <div
         className="
-          relative
-          z-10
-          flex
           w-full
+          flex
           flex-col
           items-center
-          justify-center
-          text-center
         "
       >
 
@@ -45,11 +50,27 @@ export default function Footer() {
           className="
             font-serif
             text-2xl
+            md:text-3xl
             tracking-wide
+            text-white
           "
         >
           Just Wax by Kim
         </h2>
+
+
+        {/* Tagline */}
+        <p
+          className="
+            mt-4
+            uppercase
+            tracking-[0.3em]
+            text-xs
+            text-[#D8B4A0]
+          "
+        >
+          More than just a wax
+        </p>
 
 
         {/* Divider */}
@@ -73,8 +94,8 @@ export default function Footer() {
           © 2026 Just Wax by Kim. All rights reserved.
         </p>
 
-
       </div>
+
     </footer>
   );
 }

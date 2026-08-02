@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/faq/FAQAccordion.tsx
@@ -7,10 +6,14 @@
  * Description:
  * FAQ accordion collection.
  *
- * ---
+ * Updates:
+ * • Responsive spacing
+ * • Luxury vertical rhythm
+ * • Full width support
+ * • Matches FAQ editorial layout
  *
+ * ---
  */
-
 
 import FAQItem from "./FAQItem";
 
@@ -20,45 +23,38 @@ import type {
 
 
 interface Props {
-
-items: FAQItemType[];
-
+  items: FAQItemType[];
 }
 
 
 export default function FAQAccordion({
-items,
+  items,
 }: Props) {
 
+  return (
+    <div
+      className="
+        flex
 
-return (
+        w-full
 
-<div
-  className="
-    flex
-    flex-col
+        flex-col
 
-    gap-8
+        gap-6
 
-    md:gap-10
-  "
->
+        sm:gap-8
 
+        md:gap-10
+      "
+    >
 
-{
-items.map((item)=>(
+      {items.map((item, index) => (
+        <FAQItem
+          key={`${item.question}-${index}`}
+          item={item}
+        />
+      ))}
 
-<FAQItem
-  key={item.id}
-  item={item}
-/>
-
-))
-}
-
-
-</div>
-
-);
-
+    </div>
+  );
 }

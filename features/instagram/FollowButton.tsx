@@ -1,35 +1,29 @@
 /**
- * --------------------------------------------------------------------------
+ * ---
  * File:
  * features/instagram/FollowButton.tsx
  *
  * Description:
  * Luxury Instagram follow CTA.
  *
- * Updated:
- * July 30, 2026
+ * Updates:
+ * • Responsive luxury pill button
+ * • Matches site CTA styling
+ * • Improved mobile spacing
+ * • Added refined hover interaction
+ * • Preserved editorial branding
  *
- * Changes:
- * • Outline pill matching site Book buttons
- * • Added Instagram link
- * • Lighter hover interaction
- * • Maintained luxury editorial styling
- *
- * --------------------------------------------------------------------------
+ * ---
  */
-
 
 import {
   Instagram,
 } from "lucide-react";
 
 
-
 export default function FollowButton() {
 
-
   return (
-
     <a
       href="https://instagram.com/justwaxbykim"
 
@@ -42,6 +36,8 @@ export default function FollowButton() {
 
         inline-flex
 
+        w-fit
+
         items-center
 
         justify-center
@@ -50,11 +46,13 @@ export default function FollowButton() {
 
         rounded-full
 
-        border-2
+        border
 
         border-[#8C5A6B]
 
-        px-10
+        px-8
+
+        sm:px-10
 
         py-4
 
@@ -62,17 +60,27 @@ export default function FollowButton() {
 
         tracking-[0.18em]
 
-        text-sm
+        text-xs
 
-        font-semibold
+        sm:text-sm
+
+        font-medium
+
+        whitespace-nowrap
 
         text-[#8C5A6B]
 
         transition-all
 
-        duration-300
+        duration-500
 
-        hover:bg-[#F6E7E1]
+        hover:-translate-y-0.5
+
+        hover:bg-[#8C5A6B]
+
+        hover:text-white
+
+        hover:shadow-[0_15px_40px_rgba(59,42,38,0.12)]
       "
     >
 
@@ -80,7 +88,7 @@ export default function FollowButton() {
         size={18}
         className="
           transition-transform
-          duration-300
+          duration-500
           group-hover:scale-110
         "
       />
@@ -90,7 +98,6 @@ export default function FollowButton() {
 
 
     </a>
-
   );
 
 }

@@ -1,18 +1,20 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/contact/ContactForm.tsx
  *
  * Description:
- * Luxury contact form.
+ * Luxury responsive contact form.
  *
- * Changes:
+ * Updates:
  * • Optimized for standalone contact page
- * • Added stronger TypeScript typing
- * • Improved responsive spacing
- * • Preserved luxury editorial styling
+ * • Strong TypeScript typing
+ * • Responsive phone / iPad / desktop spacing
+ * • Improved accessibility
+ * • Luxury editorial styling
+ * • Conversion-focused CTA
  *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
 "use client";
@@ -49,6 +51,7 @@ export default function ContactForm() {
   ] = useState(false);
 
 
+
   const [
     status,
     setStatus,
@@ -56,20 +59,24 @@ export default function ContactForm() {
 
 
 
+
+
   async function handleSubmit(
-    e: FormEvent<HTMLFormElement>
+    event: FormEvent<HTMLFormElement>
   ) {
 
-    e.preventDefault();
+    event.preventDefault();
 
 
     setIsSubmitting(true);
+
     setStatus(null);
 
 
 
     const form =
-      e.currentTarget;
+      event.currentTarget;
+
 
 
     const formData =
@@ -79,6 +86,7 @@ export default function ContactForm() {
 
     try {
 
+
       const response =
         await fetch(
           "/api/contact",
@@ -87,6 +95,7 @@ export default function ContactForm() {
             body: formData,
           }
         );
+
 
 
       const result =
@@ -103,24 +112,34 @@ export default function ContactForm() {
         result.success
       ) {
 
+
         setStatus({
+
           type: "success",
+
           message:
             "Thank you! Your message has been sent successfully.",
+
         });
 
 
         form.reset();
 
 
+
       } else {
 
+
         setStatus({
+
           type: "error",
+
           message:
             result.error ??
             "Unable to send your message. Please try again.",
+
         });
+
 
       }
 
@@ -128,16 +147,23 @@ export default function ContactForm() {
 
     } catch {
 
+
       setStatus({
+
         type: "error",
+
         message:
           "Something went wrong. Please try again later.",
+
       });
+
 
 
     } finally {
 
+
       setIsSubmitting(false);
+
 
     }
 
@@ -145,24 +171,47 @@ export default function ContactForm() {
 
 
 
+
+
   const inputStyle = `
+
     w-full
+
     rounded-2xl
+
     border
+
     border-[#E8DDD8]
+
     bg-[#FCF8F3]
-    px-6
+
+    px-5
+
+    sm:px-6
+
     py-4
+
+    text-base
+
     text-[#3B2A26]
-    placeholder:text-[#8C7468]/70
+
+    placeholder:text-[#8C7468]/60
+
     outline-none
+
     transition-all
+
     duration-300
 
+
     focus:border-[#D4A9B6]
+
     focus:bg-white
+
     focus:ring-4
+
     focus:ring-[#D4A9B6]/20
+
   `;
 
 
@@ -171,22 +220,30 @@ export default function ContactForm() {
 
     <form
       onSubmit={handleSubmit}
+
       className="
+        w-full
+
         space-y-6
       "
     >
 
 
-      {/* Name */}
+
+      {/* NAME */}
       <div>
 
         <label
           htmlFor="name"
           className="
             mb-2
+
             block
+
             text-sm
+
             font-medium
+
             text-[#3B2A26]
           "
         >
@@ -195,30 +252,45 @@ export default function ContactForm() {
 
 
         <input
+
           id="name"
+
           name="name"
+
           type="text"
+
           required
+
           autoComplete="name"
+
           placeholder="Your full name"
+
           className={inputStyle}
+
         />
+
 
       </div>
 
 
 
 
-      {/* Email */}
+
+
+      {/* EMAIL */}
       <div>
 
         <label
           htmlFor="email"
           className="
             mb-2
+
             block
+
             text-sm
+
             font-medium
+
             text-[#3B2A26]
           "
         >
@@ -227,30 +299,45 @@ export default function ContactForm() {
 
 
         <input
+
           id="email"
+
           name="email"
+
           type="email"
+
           required
+
           autoComplete="email"
+
           placeholder="you@example.com"
+
           className={inputStyle}
+
         />
+
 
       </div>
 
 
 
 
-      {/* Phone */}
+
+
+      {/* PHONE */}
       <div>
 
         <label
           htmlFor="phone"
           className="
             mb-2
+
             block
+
             text-sm
+
             font-medium
+
             text-[#3B2A26]
           "
         >
@@ -259,29 +346,45 @@ export default function ContactForm() {
 
 
         <input
+
           id="phone"
+
           name="phone"
+
           type="tel"
+
           autoComplete="tel"
+
           placeholder="(555) 555-5555"
+
           className={inputStyle}
+
         />
+
 
       </div>
 
 
 
 
-      {/* Message */}
+
+
+
+      {/* MESSAGE */}
       <div>
+
 
         <label
           htmlFor="message"
           className="
             mb-2
+
             block
+
             text-sm
+
             font-medium
+
             text-[#3B2A26]
           "
         >
@@ -289,15 +392,26 @@ export default function ContactForm() {
         </label>
 
 
+
         <textarea
+
           id="message"
+
           name="message"
+
           required
+
           rows={6}
-          placeholder="
-Tell us about the service you're interested in or ask any questions...
-          "
-          className={`${inputStyle} resize-none`}
+
+          placeholder="Tell us about the service you're interested in or ask any questions..."
+
+          className={`
+            ${inputStyle}
+
+            resize-none
+
+          `}
+
         />
 
       </div>
@@ -305,58 +419,101 @@ Tell us about the service you're interested in or ask any questions...
 
 
 
-      {/* Submit */}
+
+
+
+      {/* SUBMIT BUTTON */}
       <button
+
         type="submit"
+
         disabled={isSubmitting}
+
         className="
           group
+
           flex
+
+          min-h-[60px]
+
           w-full
+
           items-center
+
           justify-center
+
           gap-3
+
           rounded-full
+
           bg-[#D4A9B6]
+
           px-8
+
           py-4
-          font-medium
+
           uppercase
+
           tracking-[0.18em]
+
+          text-sm
+
+          font-semibold
+
           text-white
+
           transition-all
+
           duration-300
-          hover:-translate-y-0.5
+
+          hover:-translate-y-1
+
           hover:bg-[#8C5A6B]
+
+          hover:shadow-[0_15px_40px_rgba(140,90,107,0.25)]
+
           disabled:cursor-not-allowed
+
           disabled:opacity-60
         "
+
       >
+
 
         {
           isSubmitting ? (
 
             <>
+
               <LoaderCircle
                 size={18}
                 className="animate-spin"
               />
 
               Sending...
+
             </>
+
 
           ) : (
 
             <>
+
               Send Message
 
+
               <ArrowRight
+
                 size={18}
+
                 className="
                   transition-transform
+
                   duration-300
+
                   group-hover:translate-x-1
                 "
+
               />
 
             </>
@@ -364,31 +521,48 @@ Tell us about the service you're interested in or ask any questions...
           )
         }
 
+
       </button>
 
 
 
 
-      {/* Status */}
+
+
+
+      {/* STATUS MESSAGE */}
       {
         status && (
 
           <div
+            role="status"
+
             className={`
               rounded-2xl
+
               border
+
               px-6
+
               py-4
+
               text-center
+
               text-sm
 
               ${
                 status.type === "success"
-                  ? 
-                  "border-green-200 bg-green-50 text-green-700"
-                  :
-                  "border-red-200 bg-red-50 text-red-700"
+
+                ?
+
+                "border-green-200 bg-green-50 text-green-700"
+
+                :
+
+                "border-red-200 bg-red-50 text-red-700"
+
               }
+
             `}
           >
 
@@ -398,6 +572,7 @@ Tell us about the service you're interested in or ask any questions...
 
         )
       }
+
 
 
     </form>

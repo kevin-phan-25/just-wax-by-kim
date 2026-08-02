@@ -1,29 +1,57 @@
 /**
+ *
  * ---
  * File:
- * Heading.tsx
+ * components/ui/Heading.tsx
  *
  * Description:
  * Luxury typography system.
+ *
+ * Updates:
+ *
+ * • Added editorial spacing
+ * • Improved responsive typography
+ * • Added brand color system
+ * • Supports centered luxury presentation
+ *
  * ---
+ *
  */
+
+interface Props {
+  children: React.ReactNode;
+  subtitle?: string;
+  align?: "left" | "center";
+}
 
 export default function Heading({
   children,
   subtitle,
-}: {
-  children: React.ReactNode;
-  subtitle?: string;
-}) {
+  align = "center",
+}: Props) {
   return (
-    <div>
+    <header
+      className={`
+        w-full
+
+        ${
+          align === "center"
+            ? "text-center"
+            : "text-left"
+        }
+      `}
+    >
       {subtitle && (
         <p
           className="
             uppercase
-            tracking-[0.4em]
-            text-sm
-            text-[#C9A227]
+
+            tracking-[0.35em]
+
+            text-xs
+            sm:text-sm
+
+            text-[#8C5A6B]
           "
         >
           {subtitle}
@@ -32,14 +60,21 @@ export default function Heading({
 
       <h1
         className="
-          mt-4
+          mt-6
+
           font-serif
+
           text-4xl
-          md:text-5xl
+          sm:text-5xl
+          md:text-6xl
+
+          leading-tight
+
+          text-[#3B2A26]
         "
       >
         {children}
       </h1>
-    </div>
+    </header>
   );
 }

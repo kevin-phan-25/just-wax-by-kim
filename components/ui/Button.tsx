@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File: Button.tsx
  *
  * Created: July 27, 2026
@@ -7,77 +8,105 @@
  * Description:
  * Reusable luxury button component.
  *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
- * - July 27, 2026
- *   - Migrated colors to design tokens.
+ * Updates:
  *
- * -----------------------------------------------------------------------------
+ * - July 27, 2026
+ * • Migrated to luxury editorial styling.
+ * • Removed outdated color tokens.
+ * • Added responsive sizing.
+ * • Matched Just Wax by Kim CTA system.
+ *
+ * ---
+ *
  */
 
-
-import {
-  cn,
-} from "@/lib/cn";
-
+import { cn } from "@/lib/cn";
 
 interface ButtonProps {
+  children: React.ReactNode;
 
-children:
-React.ReactNode;
+  variant?: 
+    | "primary"
+    | "secondary";
 
-variant?:
-"primary" | "secondary";
+  className?: string;
 
-className?:
-string;
-
-type?:
-"button" | "submit";
-
+  type?:
+    | "button"
+    | "submit";
 }
 
-
 export default function Button({
-
-children,
-
-variant = "primary",
-
-className,
-
-type = "button",
-
+  children,
+  variant = "primary",
+  className,
+  type = "button",
 }: ButtonProps) {
 
+  return (
+    <button
+      type={type}
+      className={cn(
+        `
+        inline-flex
 
-return (
+        items-center
+        justify-center
 
-<button
+        rounded-full
 
-type={type}
+        px-8
+        sm:px-10
 
-className={cn(
+        py-4
 
-"rounded-full px-8 py-3 text-sm font-semibold transition duration-300",
+        uppercase
 
-variant === "primary" &&
-"bg-brand-gold text-white hover:opacity-90",
+        tracking-[0.18em]
 
-variant === "secondary" &&
-"border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white",
+        text-sm
 
-className
+        font-semibold
 
-)}
+        transition-all
 
->
+        duration-300
 
-{children}
+        hover:-translate-y-0.5
 
-</button>
+        disabled:cursor-not-allowed
 
-);
+        disabled:opacity-60
+        `,
 
+        variant === "primary" &&
+          `
+          bg-[#8C5A6B]
+
+          text-white
+
+          hover:bg-[#3B2A26]
+
+          hover:shadow-[0_15px_40px_rgba(59,42,38,0.15)]
+          `,
+
+
+        variant === "secondary" &&
+          `
+          border-2
+
+          border-[#8C5A6B]
+
+          text-[#8C5A6B]
+
+          hover:bg-[#F6E7E1]
+          `,
+
+
+        className
+      )}
+    >
+      {children}
+    </button>
+  );
 }

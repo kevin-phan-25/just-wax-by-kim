@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * app/page.tsx
@@ -7,9 +8,11 @@
  * Main homepage composition.
  *
  * Updates:
- * • Mission moved below About
- * • Cleaner luxury conversion flow
- * • Removed unnecessary section wrappers
+ * • Responsive luxury editorial flow
+ * • Mission remains below About
+ * • Unified global background system
+ * • Preserves section-level spacing
+ * • Mobile / iPad / desktop optimized
  *
  * Sections:
  * • Hero
@@ -19,6 +22,7 @@
  * • Booking
  *
  * ---
+ *
  */
 
 import Hero from "@/features/hero";
@@ -26,7 +30,6 @@ import About from "@/features/about";
 import Mission from "@/features/about/Mission";
 import Services from "@/features/services";
 import Booking from "@/features/booking";
-
 
 export default function Home() {
   return (
@@ -38,29 +41,23 @@ export default function Home() {
 
         overflow-visible
 
-        bg-[#FBF7F4]
+        bg-[#FCF8F3]
       "
     >
-
       {/* HERO */}
       <Hero />
-
 
       {/* ABOUT */}
       <About />
 
-
       {/* MISSION */}
       <Mission />
-
 
       {/* SERVICES */}
       <Services />
 
-
       {/* BOOKING */}
       <Booking />
-
     </main>
   );
 }

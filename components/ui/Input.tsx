@@ -1,32 +1,72 @@
 /**
- * -----------------------------------------------------------------------------
- * File: Divider.tsx
  *
- * Created: July 27, 2026
+ * ---
+ * File: Input.tsx
  *
  * Description:
- * Decorative luxury divider.
+ * Luxury text input component.
  *
- * Changes:
- * - July 27, 2026
- *   - Initial creation.
+ * Updates:
  *
- * -----------------------------------------------------------------------------
+ * - Refined luxury styling
+ * - Matched ContactForm input system
+ * - Added responsive spacing
+ * - Added reusable className support
+ * - Improved focus accessibility
+ *
+ * ---
+ *
  */
 
+import { cn } from "@/lib/cn";
 
-export default function Divider() {
+interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  className?: string;
+}
 
+export default function Input({
+  className,
+  ...props
+}: InputProps) {
+  return (
+    <input
+      className={cn(
+        `
+        w-full
 
-return (
+        rounded-2xl
 
-<div className="
-mx-auto
-h-px
-w-24
-bg-brand-champagne
-"/>
+        border
+        border-[#E8DDD8]
 
-);
+        bg-[#FCF8F3]
 
+        px-6
+
+        py-4
+
+        text-[#3B2A26]
+
+        placeholder:text-[#8C7468]/70
+
+        outline-none
+
+        transition-all
+
+        duration-300
+
+        focus:border-[#D4A9B6]
+
+        focus:bg-white
+
+        focus:ring-4
+
+        focus:ring-[#D4A9B6]/20
+        `,
+        className
+      )}
+      {...props}
+    />
+  );
 }

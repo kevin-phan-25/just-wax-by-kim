@@ -5,16 +5,14 @@
  * features/testimonials/Testimonials.tsx
  *
  * Description:
- * Luxury testimonial editorial layout.
+ * Luxury responsive testimonials presentation.
  *
- * Updates:
- * • Full width presentation
- * • Five cell editorial spacing
- * • ¾ inch side breathing room
- * • 1 inch review spacing
- * • Centered typography
- * • Removed CTA
- * • Removed width restrictions
+ * Updated:
+ * • Mobile-first spacing system
+ * • Responsive navbar clearance
+ * • Improved phone readability
+ * • Balanced tablet / desktop layout
+ * • Preserved luxury editorial styling
  *
  * ---
  *
@@ -26,20 +24,20 @@ import TestimonialCard from "./TestimonialCard";
 export default function Testimonials() {
   return (
     <section
-      id="reviews"
       className="
-        relative
         w-full
         overflow-hidden
-        bg-[#FCF8F3]
+        bg-[#FBF7F4]
       "
     >
 
       {/* Navbar clearance */}
       <div
         className="
-          h-[168px]
+          h-[120px]
+          sm:h-[150px]
           md:h-[190px]
+          lg:h-[216px]
         "
       />
 
@@ -47,9 +45,18 @@ export default function Testimonials() {
       {/* CONTENT */}
       <div
         className="
+          relative
+          z-10
+
           w-full
-          px-0
-          text-center
+
+          px-5
+          sm:px-8
+          md:px-10
+          lg:px-16
+
+          pb-32
+          md:pb-40
         "
       >
 
@@ -57,12 +64,15 @@ export default function Testimonials() {
         {/* HEADER */}
         <header
           className="
+            mx-auto
             w-full
-            flex
-            flex-col
-            items-center
+            max-w-5xl
+
             text-center
-            mb-20
+
+            mb-12
+            sm:mb-16
+            md:mb-20
           "
         >
 
@@ -70,7 +80,10 @@ export default function Testimonials() {
             className="
               uppercase
               tracking-[0.35em]
-              text-sm
+
+              text-xs
+              sm:text-sm
+
               text-[#8C5A6B]
             "
           >
@@ -78,15 +91,21 @@ export default function Testimonials() {
           </p>
 
 
+
           <h1
             className="
-              mt-6
+              mt-5
+
               font-serif
+
               text-4xl
+              sm:text-5xl
               md:text-6xl
+
               leading-tight
-              text-center
-              whitespace-nowrap
+
+              tracking-[-0.03em]
+
               text-[#3B2A26]
             "
           >
@@ -94,13 +113,22 @@ export default function Testimonials() {
           </h1>
 
 
+
           <p
             className="
               mt-6
-              max-w-none
-              text-center
-              text-lg
-              leading-relaxed
+
+              mx-auto
+
+              max-w-3xl
+
+              text-sm
+              sm:text-base
+              md:text-lg
+
+              leading-7
+              md:leading-relaxed
+
               text-[#8C7468]
             "
           >
@@ -112,62 +140,89 @@ export default function Testimonials() {
 
 
 
-        {/* FIVE CELL EDITORIAL GRID */}
+        {/* TESTIMONIAL GRID */}
         <div
           className="
             grid
 
-            grid-cols-[0.75in_1fr_1fr_1fr_0.75in]
-
-            gap-x-[1in]
-            gap-y-[1in]
-
             w-full
-            items-start
+
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+
+            gap-6
+            sm:gap-8
+            lg:gap-10
           "
         >
 
+          {testimonials.map((item) => (
 
-          {/* LEFT BREATHING SPACE */}
-          <div />
-
-
-
-          {/* TESTIMONIALS */}
-          {testimonials.slice(0,3).map((item)=>(
             <TestimonialCard
               key={item.id}
               testimonial={item}
             />
+
           ))}
-
-
-
-          {/* RIGHT BREATHING SPACE */}
-          <div />
-
-
-
-          {/* SECOND ROW LEFT SPACE */}
-          <div />
-
-
-
-          {/* REMAINING TESTIMONIALS */}
-          {testimonials.slice(3).map((item)=>(
-            <TestimonialCard
-              key={item.id}
-              testimonial={item}
-            />
-          ))}
-
-
-
-          {/* EMPTY CELLS */}
-          <div />
-          <div />
 
         </div>
+
+
+
+        {/* BOOKING CTA */}
+        <div
+          className="
+            mt-14
+            sm:mt-16
+            md:mt-20
+
+            flex
+            justify-center
+          "
+        >
+
+          <a
+            href="/#booking"
+            className="
+              inline-flex
+
+              items-center
+              justify-center
+
+              rounded-full
+
+              border-2
+              border-[#8C5A6B]
+
+              px-8
+              sm:px-12
+
+              py-4
+              sm:py-5
+
+              uppercase
+
+              tracking-[0.18em]
+
+              text-xs
+              sm:text-sm
+
+              font-semibold
+
+              text-[#8C5A6B]
+
+              transition-all
+              duration-300
+
+              hover:bg-[#F6E7E1]
+            "
+          >
+            Book Appointment
+          </a>
+
+        </div>
+
 
       </div>
 

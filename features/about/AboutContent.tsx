@@ -8,11 +8,10 @@
  *
  * Updates:
  * • Three-cell editorial layout
- * • Title spans all columns
- * • Removed closing quote
+ * • Responsive title scaling
+ * • Balanced image/text composition
  * • Improved paragraph spacing
- * • Removed divider accents
- * • Top padding ½ inch (pairs with Hero bottom for 1 inch total gap)
+ * • Removed unnecessary decorative elements
  *
  * ---
  */
@@ -26,7 +25,13 @@ export default function AboutContent() {
       className="
         w-full
 
-        pt-[0.5in]
+        pt-10
+
+        sm:pt-12
+
+        md:pt-16
+
+        xl:pt-20
 
         px-5
 
@@ -58,7 +63,7 @@ export default function AboutContent() {
         "
       >
 
-        {/* TITLE - SPANS ALL CELLS */}
+        {/* HEADER */}
         <header
           className="
             col-span-1
@@ -72,8 +77,6 @@ export default function AboutContent() {
             flex-col
 
             items-center
-
-            justify-center
 
             text-center
 
@@ -106,8 +109,6 @@ export default function AboutContent() {
             className="
               w-full
 
-              text-center
-
               font-serif
 
               text-4xl
@@ -132,8 +133,7 @@ export default function AboutContent() {
 
 
 
-
-        {/* CELL 1 */}
+        {/* IMAGE CELL */}
         <div
           className="
             w-full
@@ -146,8 +146,7 @@ export default function AboutContent() {
 
 
 
-
-        {/* CELL 2 + CELL 3 */}
+        {/* TEXT CELLS */}
         <div
           className="
             md:col-span-1
@@ -203,9 +202,7 @@ export default function AboutContent() {
 
         </div>
 
-
       </div>
-
 
     </article>
   );

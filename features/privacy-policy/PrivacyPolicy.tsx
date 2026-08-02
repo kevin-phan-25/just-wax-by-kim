@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/privacy-policy/PrivacyPolicy.tsx
@@ -8,160 +7,255 @@
  * Luxury Privacy Policy editorial page.
  *
  * Updates:
- * • Three column editorial layout
- * • Full-width centered presentation
- * • Left aligned content
- * • Responsive spacing
- * • Desktop subtitle stays on one line
- * • Mobile & tablet wrap naturally
+ * • Mobile-first editorial layout
+ * • Reduced excessive whitespace
+ * • Improved phone readability
+ * • Responsive typography scaling
+ * • Balanced section spacing
+ * • Preserved desktop luxury presentation
  *
  * ---
- *
  */
 
 import { privacyPolicySections } from "./privacy-policy.constants";
 
+
 export default function PrivacyPolicy() {
+
   return (
+
     <section
       className="
         w-full
         bg-[#FBF7F4]
       "
     >
-      {/* Navbar Clearance */}
-      <div
-        className="
-          h-[168px]
-          md:h-[190px]
-        "
-      />
+
 
       {/* HEADER */}
       <header
         className="
           w-full
-          px-6
+
+          px-5
+          sm:px-8
           md:px-10
           lg:px-16
+
+          pt-10
+          md:pt-16
+
           text-center
-          mb-24
+
+          mb-14
+          md:mb-20
+          lg:mb-24
         "
       >
+
+
         <p
           className="
             uppercase
+
             tracking-[0.35em]
-            text-sm
+
+            text-xs
+            sm:text-sm
+
             text-[#8C5A6B]
           "
         >
           Studio Exploration
         </p>
 
+
+
         <h1
           className="
-            mt-6
+            mt-5
+
             font-serif
+
             text-4xl
-            md:text-5xl
+            sm:text-5xl
             lg:text-6xl
+
+            leading-tight
+
+            tracking-[-0.03em]
+
             text-[#3B2A26]
           "
         >
           Privacy Policy
         </h1>
 
+
+
         <p
           className="
-            mt-8
-            w-full
-            text-center
-            text-base
+            mt-6
+
+            mx-auto
+
+            max-w-4xl
+
+            text-sm
+            sm:text-base
             md:text-lg
-            lg:text-xl
-            leading-relaxed
+
+            leading-7
+            md:leading-relaxed
+
             text-[#8C7468]
-            lg:whitespace-nowrap
           "
         >
           Your privacy matters. This policy explains how Just Wax by Kim collects, uses, and protects your personal information.
         </p>
+
+
       </header>
 
-      {/* THREE CELL EDITORIAL GRID */}
+
+
+
+
+
+      {/* CONTENT */}
       <div
         className="
-          grid
-          grid-cols-1
-          lg:grid-cols-[0.35fr_1.3fr_0.35fr]
           w-full
-          px-6
+
+          px-5
+          sm:px-8
           md:px-10
           lg:px-16
-          pb-32
+
+          pb-24
+          md:pb-32
         "
       >
-        {/* LEFT SPACE */}
-        <div className="hidden lg:block" />
 
-        {/* CENTER CONTENT */}
-        <main className="w-full">
+
+        <main
+          className="
+            mx-auto
+
+            w-full
+
+            max-w-5xl
+          "
+        >
+
+
           <div
             className="
               flex
+
               flex-col
-              gap-20
-              md:gap-24
+
+              gap-12
+              sm:gap-16
+              md:gap-20
             "
           >
-            {privacyPolicySections.map((section) => (
+
+
+            {privacyPolicySections.map((section)=>(
+
+
               <article
                 key={section.title}
-                className="w-full"
+
+                className="
+                  w-full
+                "
               >
+
+
+
                 <h2
                   className="
                     font-serif
-                    text-3xl
+
+                    text-2xl
+                    sm:text-3xl
                     md:text-4xl
+
                     leading-tight
+
+                    tracking-[-0.02em]
+
                     text-left
+
                     text-[#3B2A26]
                   "
                 >
                   {section.title}
                 </h2>
 
+
+
+
+
                 <div
                   className="
-                    mt-8
-                    space-y-8
+                    mt-5
+                    sm:mt-7
+
+                    space-y-5
+                    sm:space-y-7
                   "
                 >
-                  {section.content.map((paragraph) => (
+
+                  {section.content.map((paragraph)=>(
+
+
                     <p
                       key={paragraph}
+
                       className="
-                        text-base
+                        text-sm
+                        sm:text-base
                         md:text-lg
-                        leading-[2]
+
+                        leading-7
+                        md:leading-[1.8]
+
                         text-left
+
                         text-[#6F5A50]
                       "
                     >
                       {paragraph}
                     </p>
+
+
                   ))}
+
+
                 </div>
+
+
+
               </article>
+
+
             ))}
+
+
           </div>
+
+
         </main>
 
-        {/* RIGHT SPACE */}
-        <div className="hidden lg:block" />
+
       </div>
+
+
     </section>
+
   );
+
 }

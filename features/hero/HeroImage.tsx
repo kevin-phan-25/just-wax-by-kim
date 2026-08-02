@@ -2,6 +2,17 @@
  * ---
  * File:
  * features/hero/HeroImage.tsx
+ *
+ * Description:
+ * Luxury responsive hero image.
+ *
+ * Updates:
+ * • Full image visibility preserved
+ * • No forced cropping
+ * • Responsive phone / iPad / desktop scaling
+ * • Editorial rounded canvas
+ * • Balanced luxury shadow
+ *
  * ---
  */
 
@@ -12,49 +23,41 @@ export default function HeroImage() {
     <div
       className="
         relative
+
         w-full
+
         overflow-hidden
-        rounded-[2.5rem]
-        bg-[#FBF7F4]
+
+        rounded-[1.75rem]
+
+        sm:rounded-[2.25rem]
+
+        md:rounded-[3rem]
+
+        shadow-[0_30px_80px_rgba(59,42,38,0.12)]
       "
     >
       <Image
         src="/hero/just-wax-by-kim-underconstruction.jpg"
-        alt="Luxury waxing studio experience at Just Wax by Kim"
+        alt="Just Wax by Kim luxury waxing studio"
         width={2400}
-        height={1200}
+        height={1100}
         priority
-        sizes="100vw"
+        quality={95}
+        sizes="
+          100vw
+          (max-width:640px) 100vw,
+          (max-width:1024px) 95vw,
+          1600px
+        "
         className="
           block
+
           w-full
+
           h-auto
+
           object-contain
-          rounded-[2.5rem]
-        "
-      />
-      <div
-        aria-hidden
-        className="
-          absolute
-          inset-0
-          rounded-[2.5rem]
-          bg-gradient-to-r
-          from-[#2D211D]/15
-          via-transparent
-          to-transparent
-        "
-      />
-      <div
-        aria-hidden
-        className="
-          absolute
-          inset-0
-          rounded-[2.5rem]
-          bg-gradient-to-t
-          from-[#3B2A26]/10
-          via-transparent
-          to-transparent
         "
       />
     </div>

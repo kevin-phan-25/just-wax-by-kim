@@ -10,8 +10,9 @@
  * • Full width editorial layout
  * • Centered service cards
  * • Responsive phone / iPad / desktop
- * • Removed restrictive sizing
+ * • Balanced card sizing
  * • Improved luxury spacing
+ * • Prevents desktop compression
  *
  * ---
  */
@@ -34,28 +35,46 @@ export default function ServiceGrid({
         grid
 
         grid-cols-1
+
         sm:grid-cols-2
+
         lg:grid-cols-3
+
         xl:grid-cols-4
 
         justify-items-center
 
         gap-x-8
+
         gap-y-10
 
         md:gap-x-10
+
         md:gap-y-12
 
         xl:gap-x-12
+
         xl:gap-y-14
       "
     >
+
       {services.map((service) => (
-        <ServiceCard
+        <div
           key={service.id}
-          service={service}
-        />
+          className="
+            w-full
+
+            max-w-[360px]
+
+            lg:max-w-[380px]
+          "
+        >
+          <ServiceCard
+            service={service}
+          />
+        </div>
       ))}
+
     </div>
   );
 }

@@ -8,12 +8,10 @@
  *
  * Updates:
  * • Full width layout
- * • Removed divider accents
- * • Responsive spacing
+ * • Responsive editorial spacing
+ * • Removed duplicated hero spacing
  * • Supports editorial grid
- * • Matched background to site (#FBF7F4)
- * • Top spacer ½ inch (pairs with Hero)
- * • Bottom spacer ½ inch (pairs with Services)
+ * • Matched luxury background system
  *
  * ---
  */
@@ -23,23 +21,18 @@ import AboutContent from "./AboutContent";
 export default function About() {
   return (
     <section
-      id="about"
       className="
         w-full
-        bg-[#FBF7F4]
-        pb-[0.5in]
+
+        bg-[#FCF8F3]
+
+        pb-12
+
+        md:pb-16
+
+        xl:pb-20
       "
     >
-      {/* ½ inch top spacer — pairs with Hero pb-[0.5in] = 1 inch total */}
-      <div
-        aria-hidden="true"
-        className="
-          w-full
-          shrink-0
-          h-[0.5in]
-        "
-      />
-
       <AboutContent />
     </section>
   );

@@ -7,11 +7,12 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Clears fixed navbar
- * • ~¾ inch gap under nav (0.75in)
- * • Responsive phone / iPad / desktop
- * • Keeps image natural height
- * • Bottom padding ½ inch (pairs with About for 1 inch total gap)
+ * • Responsive navbar clearance
+ * • Mobile / iPad / desktop spacing
+ * • Preserves full hero image visibility
+ * • Natural image scaling
+ * • Editorial luxury spacing
+ * • Balanced transition into About section
  *
  * ---
  */
@@ -21,42 +22,47 @@ import HeroImage from "./HeroImage";
 export default function Hero() {
   return (
     <section
-      id="home"
       className="
-        relative
         w-full
-        bg-[#FBF7F4]
-        pb-[0.5in]
-        overflow-hidden
+
+        pt-[calc(var(--nav-mobile)+3rem)]
+
+        md:pt-[calc(var(--nav-tablet)+4rem)]
+
+        xl:pt-[calc(var(--nav-desktop)+5rem)]
+
+        pb-12
+
+        md:pb-16
+
+        xl:pb-20
       "
     >
-      {/*
-        Spacer = navbar height + 0.75in
-        nav: 110px → md 140px → xl 168px
-      */}
-      <div
-        aria-hidden="true"
-        className="
-          w-full
-          shrink-0
-          h-[calc(110px+0.75in)]
-          md:h-[calc(140px+0.75in)]
-          xl:h-[calc(168px+0.75in)]
-        "
-      />
 
       <div
         className="
           container-luxury
+
           w-full
+
           mx-auto
-          px-4
-          md:px-6
-          lg:px-8
+
+          px-5
+
+          sm:px-6
+
+          md:px-8
+
+          lg:px-12
+
+          xl:px-16
         "
       >
+
         <HeroImage />
+
       </div>
+
     </section>
   );
 }

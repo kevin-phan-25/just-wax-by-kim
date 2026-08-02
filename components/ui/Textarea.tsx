@@ -1,48 +1,77 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File: Textarea.tsx
  *
  * Created: July 27, 2026
  *
  * Description:
- * Luxury textarea input.
+ * Luxury textarea input component.
  *
- * Changes:
+ * Updates:
+ *
  * - July 27, 2026
- *   - Initial creation.
+ * • Added reusable luxury styling.
+ * • Matched ContactForm input system.
+ * • Improved responsive spacing.
+ * • Added focus states.
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
+import { cn } from "@/lib/cn";
 
-export default function Textarea(
+interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  className?: string;
+}
 
-props:
-React.TextareaHTMLAttributes<HTMLTextAreaElement>
+export default function Textarea({
+  className,
+  ...props
+}: TextareaProps) {
+  return (
+    <textarea
+      className={cn(
+        `
+        w-full
 
-) {
+        min-h-[160px]
 
+        resize-none
 
-return (
+        rounded-2xl
 
-<textarea
+        border
+        border-[#E8DDD8]
 
-{...props}
+        bg-[#FCF8F3]
 
-className="
-w-full
-rounded-xl
-border
-border-brand-border
-bg-brand-white
-px-4
-py-3
-outline-none
-focus:border-brand-champagne
-"
+        px-6
+        py-4
 
-/>
+        text-[#3B2A26]
 
-);
+        placeholder:text-[#8C7468]/70
 
+        outline-none
+
+        transition-all
+
+        duration-300
+
+        focus:border-[#D4A9B6]
+
+        focus:bg-white
+
+        focus:ring-4
+
+        focus:ring-[#D4A9B6]/20
+        `,
+        className
+      )}
+      {...props}
+    />
+  );
 }

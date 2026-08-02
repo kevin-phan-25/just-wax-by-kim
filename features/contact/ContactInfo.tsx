@@ -1,17 +1,19 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * features/contact/ContactInfo.tsx
  *
  * Description:
  * Luxury contact information block.
  *
- * Changes:
+ * Updates:
  * • Optimized for standalone contact page
+ * • Responsive phone / iPad / desktop
  * • Improved editorial spacing
  * • Unified luxury typography
+ * • Enhanced contact touch targets
  *
- * -----------------------------------------------------------------------------
+ * ---
  */
 
 import {
@@ -28,6 +30,7 @@ import {
 
 export default function ContactInfo() {
 
+
   const {
     businessName,
     tagline,
@@ -38,13 +41,22 @@ export default function ContactInfo() {
   } = CONTACT_DATA;
 
 
-  return (
-    <div>
 
-      {/* Brand */}
+  return (
+
+    <section
+      className="
+        w-full
+      "
+    >
+
+
+
+      {/* BRAND HEADER */}
       <header
         className="
           text-center
+
           lg:text-left
         "
       >
@@ -52,7 +64,13 @@ export default function ContactInfo() {
         <h2
           className="
             font-serif
+
             text-3xl
+
+            md:text-4xl
+
+            leading-tight
+
             text-[#3B2A26]
           "
         >
@@ -60,30 +78,53 @@ export default function ContactInfo() {
         </h2>
 
 
+
         <p
           className="
-            mt-3
+            mt-4
+
             uppercase
+
             tracking-[0.28em]
-            text-sm
+
+            text-xs
+
+            md:text-sm
+
             text-[#D4A9B6]
           "
         >
           {tagline}
         </p>
 
+
       </header>
 
 
 
+
+
+
+
+      {/* CONTACT DETAILS */}
       <div
         className="
           mt-10
-          space-y-8
+
+          space-y-7
+
+          w-full
+
+          max-w-md
+
+          mx-auto
+
+          lg:mx-0
         "
       >
 
-        {/* Phone */}
+
+
         <ContactItem
           icon={<Phone size={20} />}
           label="Phone"
@@ -92,7 +133,7 @@ export default function ContactInfo() {
         />
 
 
-        {/* Email */}
+
         <ContactItem
           icon={<Mail size={20} />}
           label="Email"
@@ -101,7 +142,7 @@ export default function ContactInfo() {
         />
 
 
-        {/* Location */}
+
         <ContactItem
           icon={<MapPin size={20} />}
           label="Studio"
@@ -109,63 +150,106 @@ export default function ContactInfo() {
         />
 
 
-        {/* Instagram */}
+
         <ContactItem
           icon={<Instagram size={20} />}
           label="Instagram"
           value={instagram}
-          href={`https://instagram.com/${instagram.replace("@", "")}`}
+          href={`https://instagram.com/${instagram.replace(
+            "@",
+            ""
+          )}`}
         />
+
 
 
       </div>
 
-    </div>
+
+    </section>
+
   );
+
 }
 
 
 
+
+
+
+
 function ContactItem({
+
   icon,
+
   label,
+
   value,
+
   href,
+
 }: {
+
   icon: React.ReactNode;
+
   label: string;
+
   value: string;
+
   href?: string;
+
 }) {
 
+
+
   const content = (
+
     <>
-      <div
+
+      {/* ICON */}
+      <span
         className="
           flex
-          h-12
-          w-12
+
+          h-11
+
+          w-11
+
           shrink-0
+
           items-center
+
           justify-center
-          rounded-2xl
-          border
-          border-[#E8DDD8]
-          bg-[#FCF8F3]
-          text-[#D4A9B6]
+
+          rounded-full
+
+          bg-[#F6E7E1]
+
+          text-[#8C5A6B]
         "
       >
         {icon}
-      </div>
+      </span>
 
 
-      <div>
+
+
+
+      {/* TEXT */}
+      <div
+        className="
+          text-left
+        "
+      >
 
         <p
           className="
-            text-xs
+            text-[11px]
+
             uppercase
+
             tracking-[0.24em]
+
             text-[#8C7468]
           "
         >
@@ -173,51 +257,105 @@ function ContactItem({
         </p>
 
 
+
         <p
           className="
             mt-2
+
+            text-sm
+
+            sm:text-base
+
             font-medium
+
+            leading-relaxed
+
             text-[#3B2A26]
           "
         >
           {value}
         </p>
 
+
       </div>
+
+
     </>
+
   );
 
 
+
+
   if (href) {
+
+
     return (
+
       <a
         href={href}
-        target={href.includes("instagram") ? "_blank" : undefined}
+
+        target={
+          href.includes("instagram")
+            ? "_blank"
+            : undefined
+        }
+
         rel="noopener noreferrer"
+
         className="
+          group
+
           flex
+
           items-start
+
+          justify-center
+
           gap-4
+
           transition-opacity
+
+          duration-300
+
           hover:opacity-70
+
+          lg:justify-start
         "
       >
+
         {content}
+
       </a>
+
     );
+
+
   }
 
 
+
+
   return (
+
     <div
       className="
         flex
+
         items-start
+
+        justify-center
+
         gap-4
+
+        lg:justify-start
       "
     >
+
       {content}
+
     </div>
+
   );
 
 }

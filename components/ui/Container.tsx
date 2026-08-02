@@ -1,28 +1,21 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * components/ui/Container.tsx
  *
  * Description:
  * Global responsive luxury content wrapper.
  *
- * Responsive strategy:
+ * Updates:
  *
- * Mobile:
- * - Comfortable edge spacing
- * - Prevents content touching viewport
+ * • Full-width editorial support
+ * • Refined luxury spacing system
+ * • Improved large screen balance
+ * • Prevents mobile edge crowding
  *
- * Tablet / iPad:
- * - Adds breathing room
- * - Prevents desktop layouts feeling compressed
+ * ---
  *
- * Desktop:
- * - Expands content width for editorial layouts
- *
- * Large screens:
- * - Allows premium full-width presentation
- *
- * -----------------------------------------------------------------------------
  */
 
 import { cn } from "@/lib/cn";
@@ -46,11 +39,10 @@ export default function Container({
         px-5
         sm:px-6
         md:px-10
-        lg:px-14
-        xl:px-20
-        2xl:px-24
+        lg:px-12
+        xl:px-16
 
-        max-w-[1600px]
+        max-w-[1800px]
         `,
         className
       )}

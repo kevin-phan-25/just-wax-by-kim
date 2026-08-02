@@ -7,20 +7,21 @@
  * Description:
  * Luxury service pricing page layout.
  *
- * Updates:
+ * Updated:
  * • Full width editorial presentation
+ * • Mobile-first responsive spacing
  * • True centered headers
- * • One-line desktop titles
- * • Responsive mobile handling
+ * • Responsive phone / iPad / desktop handling
+ * • Uses shared ServiceGrid component
  * • Removed restrictive containers
  * • Removed divider accents
- * • Matches luxury theme
+ * • Unified luxury spacing system
  *
  * ---
  *
  */
 
-import ServiceCard from "./ServiceCard";
+import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
 
 interface Props {
@@ -40,7 +41,13 @@ export default function ServicePricingPage({
         relative
         w-full
         overflow-hidden
-        bg-[#FCF8F3]
+        bg-[#FBF7F4]
+
+        pt-[168px]
+        md:pt-[190px]
+
+        pb-20
+        md:pb-28
       "
     >
 
@@ -56,17 +63,7 @@ export default function ServicePricingPage({
       />
 
 
-      {/* Navbar Clearance */}
-      <div
-        className="
-          h-[168px]
-          md:h-[190px]
-        "
-      />
-
-
-
-      {/* MAIN CONTENT */}
+      {/* CONTENT */}
       <div
         className="
           relative
@@ -78,25 +75,26 @@ export default function ServicePricingPage({
           sm:px-8
           md:px-10
           lg:px-16
-
-          pb-[0.5in]
+          xl:px-24
         "
       >
-
 
         {/* HEADER */}
         <header
           className="
-            w-full
+            mx-auto
 
             flex
+            max-w-6xl
+
             flex-col
             items-center
             justify-center
 
             text-center
 
-            mb-16
+            mb-14
+            sm:mb-16
             md:mb-20
           "
         >
@@ -111,9 +109,9 @@ export default function ServicePricingPage({
 
               leading-[1.1]
 
-              text-[#3B2A26]
+              tracking-[-0.035em]
 
-              text-center
+              text-[#3B2A26]
 
               md:whitespace-nowrap
             "
@@ -122,17 +120,14 @@ export default function ServicePricingPage({
           </h1>
 
 
-
           <p
             className="
               mt-6
 
-              w-full
-
-              text-center
+              max-w-3xl
 
               text-base
-              md:text-lg
+              sm:text-lg
 
               leading-relaxed
 
@@ -142,9 +137,7 @@ export default function ServicePricingPage({
             {description}
           </p>
 
-
         </header>
-
 
 
 
@@ -152,39 +145,15 @@ export default function ServicePricingPage({
         <div
           className="
             w-full
-
-            grid
-
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            xl:grid-cols-4
-
-            justify-items-center
-
-            gap-x-8
-            gap-y-10
-
-            md:gap-x-10
-            md:gap-y-12
-
-            xl:gap-x-12
-            xl:gap-y-14
           "
         >
-
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-            />
-          ))}
-
+          <ServiceGrid
+            services={services}
+          />
         </div>
 
 
       </div>
-
 
     </section>
   );

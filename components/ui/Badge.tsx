@@ -1,49 +1,80 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File: Badge.tsx
  *
  * Created: July 27, 2026
  *
  * Description:
- * Small luxury label component.
+ * Small luxury editorial label component.
  *
- * Changes:
+ * Updates:
+ *
  * - July 27, 2026
- *   - Initial creation.
+ * • Added luxury typography styling.
+ * • Matched brand color system.
+ * • Improved responsive presentation.
+ * • Added reusable className support.
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
+import { cn } from "@/lib/cn";
+
+interface BadgeProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
 export default function Badge({
+  children,
+  className,
+}: BadgeProps) {
+  return (
+    <span
+      className={cn(
+        `
+        inline-flex
 
-children,
+        items-center
 
-}: {
+        justify-center
 
-children:
-React.ReactNode;
+        rounded-full
 
-}) {
+        border
 
+        border-[#D8B4A0]
 
-return (
+        bg-[#FCF8F3]
 
-<span className="
-rounded-full
-bg-brand-rose/20
-px-4
-py-2
-text-xs
-uppercase
-tracking-[0.25em]
-text-brand-champagne
-">
+        px-5
 
-{children}
+        py-2
 
-</span>
+        uppercase
 
-);
+        tracking-[0.28em]
 
+        text-[10px]
+
+        sm:text-xs
+
+        font-medium
+
+        text-[#8C5A6B]
+
+        transition-all
+
+        duration-300
+
+        hover:bg-[#F6E7E1]
+        `,
+        className
+      )}
+    >
+      {children}
+    </span>
+  );
 }

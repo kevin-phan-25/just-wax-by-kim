@@ -1,7 +1,5 @@
 /**
- *
  * ---
- *
  * File:
  * features/contact/Contact.tsx
  *
@@ -9,75 +7,123 @@
  * Standalone luxury contact presentation.
  *
  * Updates:
- *
- * - Full width editorial layout
- * - Removed divider accents
- * - Reduced outer spacer cells
- * - Reduced Contact Info column width
- * - Centered header content
- * - Preserved luxury spacing
+ * • Full width editorial layout
+ * • Responsive navbar clearance
+ * • Reduced outer spacer cells
+ * • Centered header content
+ * • Balanced contact columns
+ * • Phone / iPad / desktop support
+ * • Preserved luxury spacing
  *
  * ---
- *
  */
 
 import ContactForm from "./ContactForm";
 import ContactHours from "./ContactHours";
 import ContactInfo from "./ContactInfo";
 
+
 export default function Contact() {
+
   return (
+
     <section
       className="
         relative
+
+        w-full
+
         overflow-hidden
+
         bg-[#FBF7F4]
       "
     >
 
-      {/* Ambient Background */}
+
+      {/* AMBIENT BACKGROUND */}
       <div
         aria-hidden
         className="
           pointer-events-none
+
           absolute
+
           inset-0
+
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
 
 
-      {/* Navbar Transition Spacer */}
-      <div className="h-[216px]" />
+
+      {/* NAVBAR CLEARANCE */}
+      <div
+        className="
+          h-[150px]
+
+          md:h-[180px]
+
+          xl:h-[216px]
+        "
+      />
+
+
 
 
       {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
+
           w-full
-          px-6
-          lg:px-10
-          xl:px-16
-          pb-32
+
+          px-5
+
+          sm:px-8
+
+          md:px-10
+
+          lg:px-16
+
+          pb-24
+
+          md:pb-32
         "
       >
+
+
 
         {/* HEADER */}
         <header
           className="
+            flex
+
             w-full
-            mb-20
+
+            flex-col
+
+            items-center
+
             text-center
+
+            mb-16
+
+            md:mb-20
           "
         >
 
           <p
             className="
               uppercase
+
               tracking-[0.35em]
-              text-sm
+
+              text-xs
+
+              md:text-sm
+
               text-[#8C5A6B]
             "
           >
@@ -85,15 +131,25 @@ export default function Contact() {
           </p>
 
 
+
           <h1
             className="
               mt-6
-              w-full
-              text-center
+
+              max-w-5xl
+
               font-serif
+
               text-4xl
+
+              sm:text-5xl
+
               md:text-6xl
+
               leading-tight
+
+              tracking-[-0.03em]
+
               text-[#3B2A26]
             "
           >
@@ -101,13 +157,19 @@ export default function Contact() {
           </h1>
 
 
+
           <p
             className="
               mt-8
-              w-full
-              text-center
-              text-lg
+
+              max-w-3xl
+
+              text-base
+
+              sm:text-lg
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
@@ -116,61 +178,97 @@ export default function Contact() {
             interaction feel warm, welcoming, and beautifully personal.
           </p>
 
+
         </header>
+
+
+
 
 
         {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
-            mt-20
             grid
-            grid-cols-1
-            lg:grid-cols-[0.25fr_0.75fr_1fr_1fr_0.25fr]
-            gap-8
-            xl:gap-10
-            items-start
+
             w-full
+
+            grid-cols-1
+
+            lg:grid-cols-[0.2fr_0.8fr_1.2fr_0.8fr_0.2fr]
+
+            gap-10
+
+            xl:gap-14
+
+            items-start
           "
         >
 
-          {/* CELL 1 */}
+
+
+          {/* LEFT BREATHING CELL */}
           <div
             className="
               hidden
+
               lg:block
             "
           />
 
 
-          {/* CONTACT INFORMATION */}
+
+
+
+          {/* CONTACT INFO */}
           <div
             className="
-              pt-10
               flex
+
               flex-col
-              items-start
-              text-left
+
+              items-center
+
+              text-center
+
+              lg:items-start
+
+              lg:text-left
             "
           >
+
             <ContactInfo />
+
           </div>
+
+
+
+
+
 
 
           {/* CONTACT FORM */}
           <div
             className="
-              pt-10
               flex
+
               flex-col
+
               items-center
+
               text-center
+
+              w-full
             "
           >
 
             <h2
               className="
                 font-serif
+
                 text-3xl
+
+                md:text-4xl
+
                 text-[#3B2A26]
               "
             >
@@ -178,10 +276,15 @@ export default function Contact() {
             </h2>
 
 
+
             <p
               className="
                 mt-4
+
+                max-w-md
+
                 leading-relaxed
+
                 text-[#6F5A50]
               "
             >
@@ -190,44 +293,73 @@ export default function Contact() {
             </p>
 
 
+
+
             <div
               className="
                 mt-10
+
                 w-full
               "
             >
+
               <ContactForm />
+
             </div>
 
+
           </div>
 
 
-          {/* CONTACT HOURS */}
+
+
+
+
+
+          {/* HOURS */}
           <div
             className="
-              pt-10
               flex
+
               flex-col
-              items-start
-              text-left
+
+              items-center
+
+              text-center
+
+              lg:items-start
+
+              lg:text-left
             "
           >
+
             <ContactHours />
+
           </div>
 
 
-          {/* CELL 5 */}
+
+
+
+
+
+          {/* RIGHT BREATHING CELL */}
           <div
             className="
               hidden
+
               lg:block
             "
           />
 
+
         </div>
+
 
       </div>
 
+
     </section>
+
   );
 }

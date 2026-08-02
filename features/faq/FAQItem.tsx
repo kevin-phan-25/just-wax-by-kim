@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/faq/FAQItem.tsx
@@ -15,27 +14,22 @@
  * • Added accessibility attributes
  *
  * ---
- *
  */
 
 "use client";
-
 
 import {
   Plus,
   Minus,
 } from "lucide-react";
 
-
 import {
   useState,
 } from "react";
 
-
 import type {
   FAQItemType,
 } from "./faq.types";
-
 
 
 interface Props {
@@ -43,302 +37,270 @@ interface Props {
 }
 
 
-
 export default function FAQItem({
   item,
 }: Props) {
 
+  const [
+    open,
+    setOpen,
+  ] = useState(false);
 
-const [
-  open,
-  setOpen,
-] = useState(false);
 
+  return (
+    <article
+      className={`
+        overflow-hidden
 
+        rounded-3xl
 
-return (
+        border
 
-<div
-  className={`
-    overflow-hidden
+        transition-all
 
-    rounded-3xl
+        duration-500
 
-    border
+        ${
+          open
+            ? `
+              border-[#D8B4A0]
 
-    transition-all
-    duration-500
+              bg-white
 
-    ${
-      open
-        ?
-        `
-        border-[#D8B4A0]
+              shadow-[0_15px_40px_rgba(59,42,38,0.06)]
+            `
+            : `
+              border-[#E8DDD8]
 
-        bg-white
+              bg-[#FDF9F5]
 
-        shadow-[0_15px_40px_rgba(59,42,38,0.06)]
-        `
-        :
-        `
-        border-[#E8DDD8]
+              hover:bg-white
 
-        bg-[#FDF9F5]
+              hover:border-[#D8B4A0]
+            `
+        }
+      `}
+    >
 
-        hover:bg-white
 
-        hover:border-[#D8B4A0]
-        `
-    }
-  `}
->
+      {/* QUESTION */}
+      <button
+        type="button"
 
+        aria-expanded={open}
 
-{/* QUESTION */}
+        onClick={() => setOpen(!open)}
 
-<button
+        className="
+          group
 
-  type="button"
+          relative
 
-  aria-expanded={open}
+          flex
 
-  onClick={() =>
-    setOpen(!open)
-  }
+          min-h-[96px]
 
-  className="
-    group
+          w-full
 
-    relative
+          items-center
 
-    flex
+          justify-center
 
-    w-full
+          px-6
 
-    items-center
+          sm:px-8
 
-    justify-center
+          md:px-12
 
-    text-center
+          py-7
 
-    px-6
-    sm:px-10
-    md:px-14
+          md:py-9
 
-    py-7
-    md:py-9
+          text-center
 
-    min-h-[96px]
+          transition
+        "
+      >
 
-    transition
-  "
+        <span
+          className="
+            max-w-3xl
 
->
+            pr-12
 
+            font-serif
 
-<span
-  className="
-    max-w-3xl
+            text-lg
 
-    pr-12
+            sm:text-xl
 
-    font-serif
+            leading-relaxed
 
-    text-lg
-    md:text-xl
+            text-[#3B2A26]
 
-    leading-relaxed
+            transition-colors
 
-    text-[#3B2A26]
+            group-hover:text-[#8C5A6B]
+          "
+        >
+          {item.question}
+        </span>
 
-    transition-colors
 
-    group-hover:text-[#8C5A6B]
-  "
->
 
-{item.question}
+        {/* ICON */}
+        <span
+          className={`
+            absolute
 
-</span>
+            right-5
 
+            md:right-8
 
+            flex
 
+            h-10
 
-{/* ICON */}
+            w-10
 
-<span
+            md:h-11
 
-className={`
-  absolute
+            md:w-11
 
-  right-5
-  md:right-8
+            items-center
 
-  flex
+            justify-center
 
-  h-10
-  w-10
-  md:h-11
-  md:w-11
+            rounded-full
 
-  items-center
-  justify-center
+            border
 
-  rounded-full
+            transition-all
 
-  border
+            duration-300
 
-  transition-all
-  duration-300
+            ${
+              open
+                ? `
+                  border-[#8C5A6B]
 
+                  bg-[#8C5A6B]
 
-  ${
-    open
+                  text-white
+                `
+                : `
+                  border-[#D8B4A0]
 
-    ?
+                  text-[#8C5A6B]
 
-    `
-    border-[#8C5A6B]
+                  group-hover:bg-[#F6E7E1]
+                `
+            }
+          `}
+        >
 
-    bg-[#8C5A6B]
+          {open ? (
+            <Minus
+              size={18}
+              strokeWidth={1.8}
+            />
+          ) : (
+            <Plus
+              size={18}
+              strokeWidth={1.8}
+            />
+          )}
 
-    text-white
-    `
+        </span>
 
-    :
 
-    `
-    border-[#D8B4A0]
+      </button>
 
-    text-[#8C5A6B]
 
-    group-hover:bg-[#F6E7E1]
-    `
-  }
 
-`}
 
->
+      {/* ANSWER */}
+      <div
+        className={`
+          grid
 
-{
-open
-?
-<Minus size={18}/>
-:
-<Plus size={18}/>
-}
+          transition-all
 
-</span>
+          duration-500
 
+          ease-in-out
 
-</button>
+          ${
+            open
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
+          }
+        `}
+      >
 
+        <div
+          className="
+            overflow-hidden
+          "
+        >
 
+          <div
+            className="
+              mx-4
 
+              sm:mx-6
 
+              md:mx-10
 
-{/* ANSWER */}
+              mb-6
 
-<div
+              md:mb-8
 
-className={`
+              rounded-2xl
 
-grid
+              bg-[#FCF8F3]
 
-transition-all
+              px-6
 
-duration-500
+              sm:px-8
 
-ease-in-out
+              md:px-12
 
+              py-7
 
-${
-  open
+              md:py-8
+            "
+          >
 
-  ?
+            <p
+              className="
+                mx-auto
 
-  "grid-rows-[1fr] opacity-100"
+                max-w-4xl
 
-  :
+                text-center
 
-  "grid-rows-[0fr] opacity-0"
-}
+                text-base
 
-`}
+                md:text-lg
 
->
+                leading-8
 
+                font-medium
 
-<div
-  className="
-    overflow-hidden
-  "
->
+                text-[#6F5A50]
+              "
+            >
+              {item.answer}
+            </p>
 
+          </div>
 
-<div
+        </div>
 
-className="
-  mx-4
-  sm:mx-6
-  md:mx-10
+      </div>
 
-  mb-6
-  md:mb-8
 
-  rounded-2xl
-
-  bg-[#FCF8F3]
-
-  px-6
-  sm:px-8
-  md:px-12
-
-  py-7
-  md:py-8
-"
-
->
-
-
-<p
-
-className="
-  mx-auto
-
-  max-w-4xl
-
-  text-center
-
-  text-base
-  md:text-lg
-
-  leading-8
-
-  font-medium
-
-  text-[#6F5A50]
-"
-
->
-
-{item.answer}
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-);
-
+    </article>
+  );
 }
