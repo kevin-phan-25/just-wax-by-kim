@@ -8,12 +8,11 @@
  *
  * Changes:
  *
- * - July 31, 2026
- * • Full-width luxury presentation
- * • Removed width restrictions
- * • Matched editorial spacing system
- * • Centered brand presentation
- * • Refined luxury typography
+ * • Matched global page background
+ * • Removed dark footer treatment
+ * • Restored visible brand typography
+ * • Improved luxury spacing
+ * • Unified color palette
  *
  * ---
  *
@@ -24,21 +23,16 @@ export default function Footer() {
     <footer
       className="
         w-full
-        bg-[#3B2A26]
-        text-center
-        px-5
-        sm:px-8
-        md:px-10
-        lg:px-16
+        bg-[#FBF7F4]
+        px-6
         py-16
         md:py-20
+        text-center
       "
     >
-
-      {/* CONTENT */}
       <div
         className="
-          w-full
+          mx-auto
           flex
           flex-col
           items-center
@@ -52,7 +46,7 @@ export default function Footer() {
             text-2xl
             md:text-3xl
             tracking-wide
-            text-white
+            text-[#3B2A26]
           "
         >
           Just Wax by Kim
@@ -63,10 +57,10 @@ export default function Footer() {
         <p
           className="
             mt-4
+            text-sm
+            tracking-[0.18em]
             uppercase
-            tracking-[0.3em]
-            text-xs
-            text-[#D8B4A0]
+            text-[#8C7468]
           "
         >
           More than just a wax
@@ -78,8 +72,8 @@ export default function Footer() {
           className="
             my-8
             h-px
-            w-24
-            bg-white/20
+            w-16
+            bg-[#D8B4A0]
           "
         />
 
@@ -88,14 +82,13 @@ export default function Footer() {
         <p
           className="
             text-sm
-            text-white/60
+            text-[#8C7468]
           "
         >
           © 2026 Just Wax by Kim. All rights reserved.
         </p>
 
       </div>
-
     </footer>
   );
 }
