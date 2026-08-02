@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/booking/Booking.tsx
@@ -12,10 +13,12 @@
  * • Premium conversion focused layout
  * • Single GlossGenius CTA
  * • Centered typography
+ * • One-line desktop booking description
  * • Protected section structure
  * • Matches luxury theme system
  *
  * ---
+ *
  */
 
 import { BOOKING_CONFIG } from "./booking.constants";
@@ -128,11 +131,14 @@ export default function Booking() {
 
 
 
+          {/* ONE LINE DESCRIPTION */}
           <p
             className="
               mt-8
 
-              max-w-3xl
+              w-full
+
+              max-w-none
 
               text-center
 
@@ -143,6 +149,12 @@ export default function Booking() {
               leading-relaxed
 
               text-[#8C7468]
+
+              whitespace-nowrap
+
+              sm:whitespace-normal
+
+              xl:whitespace-nowrap
             "
           >
             {BOOKING_CONFIG.description}
