@@ -11,9 +11,9 @@
  * • Uses official brand logo
  * • Removed tagline
  * • Reduced top spacing
- * • Reduced footer height
+ * • Increased footer logo slightly
+ * • Added breathing room above logo
  * • Tightened logo → location gap
- * • Smaller footer logo (not navbar size)
  * • Maintained editorial styling
  *
  * ---
@@ -27,16 +27,9 @@ export default function Footer() {
   return (
     <footer
       className="
-        w-full
         bg-[#FCF8F3]
-        px-6
-        sm:px-8
-        md:px-12
-        xl:px-24
-        pt-2
-        md:pt-3
+        pt-8
         pb-6
-        md:pb-8
       "
     >
       <div
@@ -47,15 +40,11 @@ export default function Footer() {
           text-center
         "
       >
-        {/* BRAND LOGO — scaled down for footer */}
+        {/* BRAND LOGO — footer scale */}
         <div
           className="
-            flex
-            justify-center
-            [&_img]:!h-12
-            sm:[&_img]:!h-14
-            md:[&_img]:!h-16
-            [&_img]:!w-auto
+            mb-1
+            scale-110
           "
         >
           <Logo />
