@@ -35,7 +35,7 @@ export const aboutContent: AboutSection = {
   description: [
     `Hi, I’m Kim! 🙋🏻‍♀️ Welcome to Just Wax by Kim.`,
 
-    `I graduated from Aveda and have been a licensed esthetician since 2017. I have an eye for detail and specialize in full body waxing, always striving to make your experience as comfortable as possible. My 12-year background in pharmacy has given me a strong understanding of medications, contraindications, and proper aftercare, allowing me to provide safe, personalized services while helping clients feel comfortable, confident, and well cared for.`,
+    `I graduated from Aveda Institute and have been a licensed esthetician since 2017. I have an eye for detail and specialize in full body waxing, always striving to make your experience as comfortable as possible. My 12-year background in pharmacy has given me a strong understanding of medications, contraindications, and proper aftercare, allowing me to provide safe, personalized services while helping clients feel comfortable, confident, and well cared for.`,
 
     `At Just Wax by Kim, I believe every client is unique. That’s why I take the time to understand your skin, your concerns, and your goals so every service is tailored to your individual needs. I strive to create a welcoming, judgment-free environment where you can feel completely at ease. I proudly provide a safe, respectful, and inclusive space where people of all genders, body types, skin tones, and backgrounds can feel completely at ease. Whether it’s your first wax or you’re a seasoned pro, I want every appointment to leave you feeling comfortable, cared for, and confident.`,
 
