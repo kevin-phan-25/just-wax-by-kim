@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * app/(studio)/layout.tsx
@@ -10,7 +11,9 @@
  * • Navbar clearance
  * • Editorial page rhythm
  * • Studio spacing consistency
+ *
  * ---
+ *
  */
 
 export default function StudioLayout({
@@ -25,11 +28,11 @@ export default function StudioLayout({
 
         w-full
 
-        pt-[168px]
+        pt-[280px]
 
-        md:pt-[190px]
+        md:pt-[320px]
 
-        xl:pt-[216px]
+        xl:pt-[360px]
       "
     >
       {children}
