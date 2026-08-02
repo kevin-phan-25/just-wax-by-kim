@@ -1,23 +1,16 @@
 /**
- *
- * ---
+ * ---------------------------------------------------
  * File:
  * features/services/ServiceCard.tsx
  *
- * Description:
- * Luxury service pricing card.
+ * Luxury Editorial Service Card
  *
- * Updates:
- * • Editorial luxury presentation
- * • Responsive phone/tablet/desktop
- * • Softer card elevation
- * • Improved pricing hierarchy
- * • Balanced typography spacing
- * • Equal height card layout
- * • Works with ServiceGrid sizing
- *
- * ---
- *
+ * • No description
+ * • Elegant pricing
+ * • Editorial spa styling
+ * • Equal-height cards
+ * • Responsive
+ * ---------------------------------------------------
  */
 
 import type { Service } from "./services.types";
@@ -32,56 +25,50 @@ export default function ServiceCard({
   return (
     <article
       className="
-        service-card
-
-        w-full
-
-        h-full
-
         flex
-
+        h-full
         flex-col
 
-        rounded-[32px]
+        rounded-[30px]
 
         border
-
         border-[#E8DDD8]
 
-        bg-white/90
+        bg-white
 
-        p-7
-
-        sm:p-8
-
-        md:p-10
-
-        text-center
+        px-8
+        py-9
 
         transition-all
-
-        duration-500
+        duration-300
 
         hover:-translate-y-1
-
-        hover:shadow-[0_20px_60px_rgba(59,42,38,0.08)]
+        hover:shadow-[0_18px_40px_rgba(59,42,38,0.06)]
       "
     >
+      {/* CATEGORY */}
+      <p
+        className="
+          uppercase
+          tracking-[0.28em]
+          text-[10px]
+          text-[#8C5A6B]
+        "
+      >
+        {service.category}
+      </p>
 
-
-
-      {/* SERVICE TITLE */}
+      {/* TITLE */}
       <h3
         className="
+          mt-3
+
           font-serif
 
           text-2xl
+          sm:text-[30px]
 
-          sm:text-3xl
-
-          leading-[1.15]
-
-          tracking-[-0.02em]
+          leading-tight
 
           text-[#3B2A26]
         "
@@ -89,117 +76,69 @@ export default function ServiceCard({
         {service.title}
       </h3>
 
-
-
-
-
-      {/* CATEGORY */}
+      {/* DURATION */}
       <p
         className="
-          mt-4
-
-          uppercase
-
-          tracking-[0.28em]
-
-          text-[10px]
-
-          sm:text-xs
-
-          text-[#8C5A6B]
-        "
-      >
-        {service.category}
-      </p>
-
-
-
-
-
-
-      {/* DESCRIPTION */}
-      <p
-        className="
-          mt-6
+          mt-5
 
           text-sm
 
-          sm:text-base
-
-          leading-8
+          tracking-[0.05em]
 
           text-[#8C7468]
         "
       >
-        {service.description}
+        {service.duration}
       </p>
 
-
-
-
-
-
-      {/* DETAILS */}
-      <div
-        className="
-          mt-8
-
-          flex
-
-          flex-col
-
-          items-center
-
-          gap-2
-
-          text-sm
-
-          text-[#8C7468]
-        "
-      >
-        <span>
-          {service.duration}
-        </span>
-      </div>
-
-
-
-
-
-
-      {/* PRICE */}
+      {/* Divider */}
       <div
         className="
           mt-auto
-
           pt-8
-
-          border-t
-
-          border-[#E8DDD8]
         "
       >
+        <div className="border-t border-[#E8DDD8]" />
 
-        <span
+        <div
           className="
-            font-serif
+            mt-6
 
-            text-2xl
-
-            sm:text-3xl
-
-            tracking-[-0.02em]
-
-            text-[#8C5A6B]
+            flex
+            items-center
+            justify-between
           "
         >
-          {service.price}
-        </span>
+          <span
+            className="
+              uppercase
 
+              tracking-[0.25em]
+
+              text-[10px]
+
+              text-[#8C7468]
+            "
+          >
+            Starting at
+          </span>
+
+          <span
+            className="
+              font-serif
+
+              text-[34px]
+              sm:text-[38px]
+
+              leading-none
+
+              text-[#3B2A26]
+            "
+          >
+            {service.price}
+          </span>
+        </div>
       </div>
-
-
-
     </article>
   );
 }
