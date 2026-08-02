@@ -8,6 +8,7 @@
  * Luxury service pricing page layout.
  *
  * Updated:
+ * • Added optional section id support
  * • Full width editorial presentation
  * • Mobile-first responsive spacing
  * • True centered headers
@@ -25,18 +26,22 @@ import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
 
 interface Props {
+  id?: string;
   title: string;
   description: string;
   services: Service[];
 }
 
+
 export default function ServicePricingPage({
+  id,
   title,
   description,
   services,
 }: Props) {
   return (
     <section
+      id={id}
       className="
         relative
         w-full
@@ -58,6 +63,7 @@ export default function ServicePricingPage({
           pointer-events-none
           absolute
           inset-0
+
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
@@ -78,6 +84,7 @@ export default function ServicePricingPage({
           xl:px-24
         "
       >
+
 
         {/* HEADER */}
         <header
@@ -137,6 +144,7 @@ export default function ServicePricingPage({
             {description}
           </p>
 
+
         </header>
 
 
@@ -154,6 +162,7 @@ export default function ServicePricingPage({
 
 
       </div>
+
 
     </section>
   );
