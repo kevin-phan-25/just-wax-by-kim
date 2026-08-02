@@ -205,6 +205,15 @@ export const gentlemenServices: Service[] = [
 // CHEST
 
 {
+  id: "gentlemen-full-chest-shoulders",
+  title: "Full Chest + Shoulders",
+  category: "Body",
+  price: "$120",
+  duration: "30 minutes",
+  gender: "gentlemen",
+},
+
+{
   id: "gentlemen-full-chest-stomach",
   title: "Full Chest (Chest & Stomach)",
   category: "Body",
