@@ -8,11 +8,10 @@
  *
  * Changes:
  *
- * • Uses official brand logo
+ * • Uses official brand logo (natural size)
  * • Removed tagline
- * • Reduced top spacing
- * • Increased footer logo slightly
- * • Added breathing room above logo
+ * • Top padding reduced ~¾ inch
+ * • Logo shifted down ½ inch
  * • Tightened logo → location gap
  * • Maintained editorial styling
  *
@@ -30,8 +29,10 @@ export default function Footer() {
         w-full
         bg-[#FCF8F3]
         px-6
-        py-10
-        md:py-12
+        pt-1
+        md:pt-2
+        pb-8
+        md:pb-10
       "
     >
       <div
@@ -42,11 +43,13 @@ export default function Footer() {
           text-center
         "
       >
-        {/* BRAND LOGO */}
+        {/* BRAND LOGO — natural size, shifted down ½ inch */}
         <div
           className="
-            mb-2
-            scale-110
+            mt-[0.5in]
+            mb-1
+            flex
+            justify-center
           "
         >
           <Logo />
