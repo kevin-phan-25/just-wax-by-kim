@@ -10,15 +10,15 @@
  * Updates:
  * • Reordered by service category
  * • Brazilian services prioritized
- * • Strict alphabetical ordering within categories
+ * • Alphabetical ordering within categories
  * • Removed individual service descriptions
- * • Simplified single-provider pricing
  * • Maintained reusable service structure
  *
  * ---
  */
 
 import type { Service } from "../services.types";
+
 
 /**
  * Gentlemen landing page configuration
@@ -216,6 +216,15 @@ export const gentlemenServices: Service[] = [
   },
 
   {
+    id: "gentlemen-hands-fingers",
+    title: "Hands & Fingers",
+    category: "Body",
+    price: "$15",
+    duration: "5 minutes",
+    gender: "gentlemen",
+  },
+
+  {
     id: "gentlemen-half-arms",
     title: "Half Arms",
     category: "Body",
@@ -239,15 +248,6 @@ export const gentlemenServices: Service[] = [
     category: "Body",
     price: "$95",
     duration: "30 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-hands-fingers",
-    title: "Hands & Fingers",
-    category: "Body",
-    price: "$15",
-    duration: "5 minutes",
     gender: "gentlemen",
   },
 
