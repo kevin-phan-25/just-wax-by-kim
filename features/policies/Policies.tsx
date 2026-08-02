@@ -7,12 +7,12 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Matches FAQ / Gallery spacing system
- * • Removed internal navbar spacer
- * • Responsive navbar clearance
- * • Mobile / iPad / desktop optimization
- * • Preserved editorial desktop layout
+ * • Removed internal navbar spacing
+ * • Matches FAQ / Gallery section rhythm
+ * • Responsive mobile / iPad / desktop layout
+ * • Preserved desktop editorial grid
  * • Removed divider accents
+ * • Unified luxury background system
  *
  * ---
  */
@@ -33,10 +33,6 @@ export default function Policies() {
 
         bg-[#FBF7F4]
 
-        pt-[168px]
-
-        md:pt-[190px]
-
         pb-20
 
         sm:pb-24
@@ -44,6 +40,7 @@ export default function Policies() {
         md:pb-32
       "
     >
+
 
       {/* Ambient Background */}
       <div
@@ -58,6 +55,7 @@ export default function Policies() {
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
+
 
 
       {/* CONTENT */}
@@ -80,6 +78,7 @@ export default function Policies() {
           xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
@@ -116,6 +115,7 @@ export default function Policies() {
           </p>
 
 
+
           <h1
             className="
               mt-6
@@ -141,6 +141,7 @@ export default function Policies() {
           </h1>
 
 
+
           <p
             className="
               mt-6
@@ -158,6 +159,7 @@ export default function Policies() {
           >
             {POLICIES_CONSTANTS.subtitle}
           </p>
+
 
 
           <p
@@ -184,15 +186,10 @@ export default function Policies() {
 
 
 
+
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
-            mt-14
-
-            md:mt-16
-
-            xl:mt-20
-
             hidden
 
             xl:grid
@@ -211,6 +208,7 @@ export default function Policies() {
 
             <div
               key={section.id}
+
               className={
                 index % 2 === 0
                   ? "col-start-2"
