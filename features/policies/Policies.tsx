@@ -7,10 +7,10 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Removed internal navbar spacing
- * • Matches FAQ / Gallery section rhythm
+ * • Matches FAQ / Gallery navbar spacing
  * • Responsive mobile / iPad / desktop layout
- * • Preserved desktop editorial grid
+ * • Removed duplicate spacing logic
+ * • Preserved editorial desktop grid
  * • Removed divider accents
  * • Unified luxury background system
  *
@@ -32,6 +32,10 @@ export default function Policies() {
         overflow-hidden
 
         bg-[#FBF7F4]
+
+        pt-[168px]
+
+        md:pt-[190px]
 
         pb-20
 
