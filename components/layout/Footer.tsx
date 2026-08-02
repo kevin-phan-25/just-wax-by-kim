@@ -10,8 +10,8 @@
  *
  * • Uses official brand logo
  * • Removed tagline
- * • Reduced overall footer height
- * • Reduced logo scale
+ * • Reduced top spacing
+ * • Reduced footer height
  * • Tightened luxury spacing
  * • Maintained editorial styling
  *
@@ -44,9 +44,13 @@ export default function Footer() {
 
         xl:px-24
 
-        py-10
+        pt-4
 
-        md:py-12
+        md:pt-6
+
+        pb-8
+
+        md:pb-10
       "
     >
 
@@ -86,7 +90,7 @@ export default function Footer() {
 
         <p
           className="
-            mt-3
+            mt-2
 
             text-xs
 
@@ -114,7 +118,7 @@ export default function Footer() {
           aria-label="Follow Just Wax by Kim on Instagram"
 
           className="
-            mt-4
+            mt-3
 
             inline-flex
 
@@ -157,7 +161,7 @@ export default function Footer() {
 
         <p
           className="
-            mt-6
+            mt-5
 
             text-xs
 
