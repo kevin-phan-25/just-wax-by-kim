@@ -78,19 +78,19 @@ export const ladiesServices: Service[] = [
   },
 
   {
-    id: "ladies-butt-strip",
-    title: "Butt Strip (Stand-Alone Service)",
+    id: "ladies-buttocks",
+    title: "Buttocks",
     category: "Brazilian Waxing",
-    price: "$30",
+    price: "$40",
     duration: "10 minutes",
     gender: "ladies",
   },
 
   {
-    id: "ladies-buttocks",
-    title: "Buttocks",
+    id: "ladies-butt-strip",
+    title: "Butt Strip (Stand-Alone Service)",
     category: "Brazilian Waxing",
-    price: "$40",
+    price: "$30",
     duration: "10 minutes",
     gender: "ladies",
   },
@@ -203,7 +203,8 @@ export const ladiesServices: Service[] = [
   // ---------------------------------------------------------------------------
   // BODY
   // ---------------------------------------------------------------------------
-    {
+
+  {
     id: "ladies-chest",
     title: "Chest",
     category: "Body",
@@ -258,6 +259,15 @@ export const ladiesServices: Service[] = [
   },
 
   {
+    id: "ladies-hands-fingers",
+    title: "Hands & Fingers (Stand-Alone Service)",
+    category: "Body",
+    price: "$15",
+    duration: "5 minutes",
+    gender: "ladies",
+  },
+
+  {
     id: "ladies-half-arms",
     title: "Half Arms",
     category: "Body",
@@ -290,15 +300,6 @@ export const ladiesServices: Service[] = [
     category: "Body",
     price: "$70",
     duration: "30 minutes",
-    gender: "ladies",
-  },
-
-  {
-    id: "ladies-hands-fingers",
-    title: "Hands & Fingers (Stand-Alone Service)",
-    category: "Body",
-    price: "$15",
-    duration: "5 minutes",
     gender: "ladies",
   },
 
