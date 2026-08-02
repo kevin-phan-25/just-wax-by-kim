@@ -1,9 +1,7 @@
 /**
- * ---
- * File:
- * app/policies/page.tsx
- *
- * ---
+ * -----------------------------------------------------------------------------
+ * File: app/policies/page.tsx
+ * -----------------------------------------------------------------------------
  */
 
 import type { Metadata } from "next";
@@ -16,5 +14,16 @@ export const metadata: Metadata = {
 };
 
 export default function PoliciesPage() {
-  return <Policies />;
+  return (
+    <div
+      className="
+        w-full
+        pt-[168px]
+        md:pt-[190px]
+        pb-24
+      "
+    >
+      <Policies />
+    </div>
+  );
 }
