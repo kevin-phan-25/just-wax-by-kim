@@ -1,46 +1,41 @@
 /**
+ *
  * ---
  * File:
- * features/about/About.tsx
+ * config/fonts.ts
  *
  * Description:
- * Luxury editorial About section.
- *
- * Updates:
- * • Full width layout
- * • Removed divider accents
- * • Responsive spacing
- * • Supports editorial grid
- * • Matched background to site (#FBF7F4)
- * • Top spacer ½ inch (pairs with Hero)
- * • Bottom spacer ½ inch (pairs with Services)
+ * Global luxury typography configuration.
  *
  * ---
+ *
  */
 
-import AboutContent from "./AboutContent";
+import {
+  Playfair_Display,
+  Montserrat,
+} from "next/font/google";
 
-export default function About() {
-  return (
-    <section
-      id="about"
-      className="
-        w-full
-        bg-[#FBF7F4]
-        pb-[0.5in]
-      "
-    >
-      {/* ½ inch top spacer — pairs with Hero pb-[0.5in] = 1 inch total */}
-      <div
-        aria-hidden="true"
-        className="
-          w-full
-          shrink-0
-          h-[0.5in]
-        "
-      />
 
-      <AboutContent />
-    </section>
-  );
-}
+export const headingFont =
+  Playfair_Display({
+    subsets: [
+      "latin",
+    ],
+    variable:
+      "--font-heading",
+    display:
+      "swap",
+  });
+
+
+export const bodyFont =
+  Montserrat({
+    subsets: [
+      "latin",
+    ],
+    variable:
+      "--font-body",
+    display:
+      "swap",
+  });
