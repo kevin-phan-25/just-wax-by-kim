@@ -8,12 +8,10 @@
  *
  * Changes:
  *
- * • Uses official brand logo (natural size)
- * • Removed tagline
- * • Top padding reduced ~¾ inch
- * • Logo shifted down ½ inch
- * • Tightened logo → location gap
- * • Maintained editorial styling
+ * • Uses official brand logo
+ * • Hardcoded top spacing (inline styles)
+ * • Logo position forced with margin
+ * • Tight location / social / copyright stack
  *
  * ---
  *
@@ -25,44 +23,42 @@ import { Logo } from "@/components/ui/Logo";
 export default function Footer() {
   return (
     <footer
-      className="
-        w-full
-        bg-[#FCF8F3]
-        px-6
-        pt-1
-        md:pt-2
-        pb-8
-        md:pb-10
-      "
+      style={{
+        width: "100%",
+        backgroundColor: "#FCF8F3",
+        paddingTop: "8px",
+        paddingBottom: "32px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
+      }}
     >
       <div
-        className="
-          flex
-          flex-col
-          items-center
-          text-center
-        "
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+        }}
       >
-        {/* BRAND LOGO — natural size, shifted down ½ inch */}
+        {/* LOGO */}
         <div
-          className="
-            mt-[0.5in]
-            mb-1
-            flex
-            justify-center
-          "
+          style={{
+            marginTop: "48px", // 0.5in down
+            marginBottom: "4px",
+            lineHeight: 0,
+          }}
         >
           <Logo />
         </div>
 
         {/* LOCATION */}
         <p
-          className="
-            mt-1
-            text-xs
-            md:text-sm
-            text-[#8C7468]
-          "
+          style={{
+            marginTop: "4px",
+            marginBottom: 0,
+            fontSize: "12px",
+            color: "#8C7468",
+          }}
         >
           Tysons Corner, Virginia
         </p>
@@ -73,20 +69,17 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Follow Just Wax by Kim on Instagram"
-          className="
-            mt-2
-            inline-flex
-            items-center
-            gap-2
-            text-xs
-            md:text-sm
-            uppercase
-            tracking-[0.18em]
-            text-[#8C5A6B]
-            transition-colors
-            duration-300
-            hover:text-[#3B2A26]
-          "
+          style={{
+            marginTop: "8px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "12px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#8C5A6B",
+            textDecoration: "none",
+          }}
         >
           <Instagram size={15} strokeWidth={1.8} />
           Instagram
@@ -94,11 +87,12 @@ export default function Footer() {
 
         {/* COPYRIGHT */}
         <p
-          className="
-            mt-4
-            text-xs
-            text-[#8C7468]
-          "
+          style={{
+            marginTop: "16px",
+            marginBottom: 0,
+            fontSize: "12px",
+            color: "#8C7468",
+          }}
         >
           © 2026 Just Wax by Kim. All rights reserved.
         </p>
