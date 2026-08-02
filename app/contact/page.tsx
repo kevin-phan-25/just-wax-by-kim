@@ -1,5 +1,5 @@
 /**
- * -----------------------------------------------------------------------------
+ * ---
  * File:
  * app/contact/page.tsx
  *
@@ -9,9 +9,11 @@
  * Changes:
  * • Moved Contact away from homepage
  * • Added dedicated route
- * • Matches Gallery / Testimonials / FAQ architecture
- * • Removed page-level spacing
- * -----------------------------------------------------------------------------
+ * • Added navbar clearance spacing
+ * • Matches Gallery / FAQ architecture
+ * • Preserves feature component layout
+ *
+ * ---
  */
 
 import Contact from "@/features/contact";
@@ -20,8 +22,9 @@ export default function ContactPage() {
   return (
     <main
       className="
-        relative
-        overflow-hidden
+        pt-[168px]
+
+        md:pt-[190px]
       "
     >
       <Contact />
