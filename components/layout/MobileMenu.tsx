@@ -17,6 +17,7 @@
  * • Improved touch targets
  * • Supports dropdown navigation
  * • Supports anchor scrolling
+ * • Fixed responsive navbar offset calculation
  *
  * ---
  *
@@ -28,11 +29,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+
 type NavLink = {
   readonly label: string;
   readonly href: string;
   readonly description?: string;
 };
+
 
 type NavItem = {
   readonly label: string;
@@ -41,6 +44,7 @@ type NavItem = {
   readonly dropdown?: readonly NavLink[];
 };
 
+
 interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
@@ -48,22 +52,51 @@ interface MobileMenuProps {
 }
 
 
-const NAVBAR_HEIGHT = 140;
+
+function getNavbarHeight() {
+
+  if (typeof window === "undefined") {
+    return 140;
+  }
 
 
-function scrollToSection(href: string) {
+  if (window.innerWidth >= 1280) {
+    return 168;
+  }
 
-  const id = href.replace("/#", "");
 
-  const element = document.getElementById(id);
+  if (window.innerWidth >= 768) {
+    return 140;
+  }
 
-  if (!element) return;
+
+  return 110;
+
+}
+
+
+
+function scrollToSection(
+  href: string
+) {
+
+  const id =
+    href.replace("/#", "");
+
+
+  const element =
+    document.getElementById(id);
+
+
+  if (!element) {
+    return;
+  }
 
 
   const position =
     element.getBoundingClientRect().top +
     window.scrollY -
-    NAVBAR_HEIGHT;
+    getNavbarHeight();
 
 
   window.scrollTo({
@@ -82,14 +115,21 @@ export function MobileMenu({
 }: MobileMenuProps) {
 
 
-  const pathname = usePathname();
-
-  const [expanded, setExpanded] =
-    useState<string | null>(null);
+  const pathname =
+    usePathname();
 
 
+  const [
+    expanded,
+    setExpanded,
+  ] =
+  useState<string | null>(null);
 
-  const handleAnchor = (href: string) => {
+
+
+  const handleAnchor = (
+    href: string
+  ) => {
 
     onClose();
 
@@ -102,9 +142,9 @@ export function MobileMenu({
 
         scrollToSection(href);
 
-      },150);
+      }, 150);
 
-    } 
+    }
     else {
 
       window.location.href = href;
@@ -115,7 +155,9 @@ export function MobileMenu({
 
 
 
-  if (!open) return null;
+  if (!open) {
+    return null;
+  }
 
 
 
@@ -156,9 +198,11 @@ export function MobileMenu({
             overflow-y-auto
 
             px-6
+
             sm:px-8
 
             pt-8
+
             pb-10
           "
         >
@@ -174,11 +218,13 @@ export function MobileMenu({
           >
 
 
-            {links.map((link)=>{
+            {links.map((link) => {
 
 
               const hasDropdown =
-                Boolean(link.dropdown?.length);
+                Boolean(
+                  link.dropdown?.length
+                );
 
 
               const isOpen =
@@ -196,9 +242,6 @@ export function MobileMenu({
                   {hasDropdown ? (
 
                     <>
-
-
-                      {/* DROPDOWN BUTTON */}
 
                       <button
                         type="button"
@@ -237,10 +280,6 @@ export function MobileMenu({
                           font-semibold
 
                           text-[#3B2A26]
-
-                          transition
-
-                          hover:bg-[#F6E7E1]
                         "
                       >
 
@@ -257,8 +296,8 @@ export function MobileMenu({
 
                             ${
                               isOpen
-                                ? "rotate-180"
-                                : ""
+                              ? "rotate-180"
+                              : ""
                             }
                           `}
                         >
@@ -281,179 +320,120 @@ export function MobileMenu({
                             flex-col
 
                             gap-4
-
                           "
                         >
 
 
+                          {link.dropdown?.map(
+                            (item) => (
 
-                          {link.href.includes("#") && (
-
-                            <li>
-
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  handleAnchor(
-                                    link.href
-                                  )
-                                }
-                                className="
-                                  flex
-
-                                  min-h-[60px]
-
-                                  w-full
-
-                                  items-center
-                                  justify-center
-
-                                  rounded-full
-
-                                  bg-[#F6E7E1]
-
-                                  border
-                                  border-[#E8DDD8]
-
-                                  uppercase
-
-                                  tracking-[0.18em]
-
-                                  text-xs
-
-                                  font-semibold
-
-                                  text-[#8C5A6B]
-                                "
+                              <li
+                                key={item.href}
                               >
 
-                                {link.label === "Services"
-                                  ? "All Services"
-                                  : `View ${link.label}`}
+                                <Link
+                                  href={item.href}
 
-                              </button>
+                                  onClick={(e)=>{
 
-                            </li>
+                                    if(
+                                      item.href.includes("#")
+                                    ){
 
-                          )}
+                                      e.preventDefault();
 
+                                      handleAnchor(
+                                        item.href
+                                      );
 
+                                    }
+                                    else {
 
+                                      onClose();
 
-                          {link.dropdown?.map((item)=>(
+                                    }
 
-                            <li
-                              key={item.href}
-                            >
+                                  }}
 
-                              <Link
-                                href={item.href}
-                                onClick={(e)=>{
-
-                                  if(
-                                    item.href.includes("#")
-                                  ){
-
-                                    e.preventDefault();
-
-                                    handleAnchor(
-                                      item.href
-                                    );
-
-                                  }
-                                  else{
-
-                                    onClose();
-
-                                  }
-
-                                }}
-
-                                className="
-                                  flex
-
-                                  min-h-[70px]
-
-                                  flex-col
-
-                                  items-center
-
-                                  justify-center
-
-                                  rounded-3xl
-
-                                  border
-                                  border-[#E8DDD8]
-
-                                  bg-white
-
-                                  px-5
-
-                                  py-4
-
-                                  text-center
-                                "
-                              >
-
-
-                                <span
                                   className="
-                                    uppercase
+                                    flex
 
-                                    tracking-[0.16em]
+                                    min-h-[70px]
 
-                                    text-xs
+                                    flex-col
 
-                                    font-semibold
+                                    items-center
 
-                                    text-[#8C5A6B]
+                                    justify-center
+
+                                    rounded-3xl
+
+                                    border
+                                    border-[#E8DDD8]
+
+                                    bg-white
+
+                                    px-5
+
+                                    py-4
+
+                                    text-center
                                   "
                                 >
 
-                                  {item.label}
-
-                                </span>
-
-
-
-
-                                {item.description && (
-
                                   <span
                                     className="
-                                      mt-2
+                                      uppercase
 
-                                      text-[11px]
+                                      tracking-[0.16em]
 
-                                      leading-relaxed
+                                      text-xs
 
-                                      text-[#8C7468]
+                                      font-semibold
 
-                                      normal-case
-
-                                      tracking-normal
+                                      text-[#8C5A6B]
                                     "
                                   >
 
-                                    {item.description}
+                                    {item.label}
 
                                   </span>
 
-                                )}
 
+                                  {item.description && (
 
-                              </Link>
+                                    <span
+                                      className="
+                                        mt-2
 
+                                        text-[11px]
 
-                            </li>
+                                        leading-relaxed
 
-                          ))}
+                                        text-[#8C7468]
 
+                                        normal-case
+
+                                        tracking-normal
+                                      "
+                                    >
+
+                                      {item.description}
+
+                                    </span>
+
+                                  )}
+
+                                </Link>
+
+                              </li>
+
+                            )
+                          )}
 
                         </ul>
 
                       )}
-
 
                     </>
 
@@ -462,6 +442,7 @@ export function MobileMenu({
 
 
                     <Link
+
                       href={link.href}
 
                       onClick={(e)=>{
@@ -478,7 +459,7 @@ export function MobileMenu({
                           );
 
                         }
-                        else{
+                        else {
 
                           onClose();
 
@@ -495,11 +476,13 @@ export function MobileMenu({
                         w-full
 
                         items-center
+
                         justify-center
 
                         rounded-full
 
                         border
+
                         border-[#E8DDD8]
 
                         bg-white/80
@@ -513,11 +496,8 @@ export function MobileMenu({
                         font-semibold
 
                         text-[#3B2A26]
-
-                        transition
-
-                        hover:bg-[#F6E7E1]
                       "
+
                     >
 
                       {link.label}
@@ -554,12 +534,12 @@ export function MobileMenu({
             bg-[#FCF8F3]
 
             px-6
+
             sm:px-8
 
             py-6
           "
         >
-
 
           <Link
             href="/#booking"
@@ -576,7 +556,7 @@ export function MobileMenu({
                 );
 
               }
-              else{
+              else {
 
                 onClose();
 
@@ -593,6 +573,7 @@ export function MobileMenu({
               w-full
 
               items-center
+
               justify-center
 
               rounded-full
