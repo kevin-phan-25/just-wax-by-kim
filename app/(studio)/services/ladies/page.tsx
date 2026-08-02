@@ -8,7 +8,6 @@
  * Ladies waxing pricing page.
  *
  * ---
- *
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
@@ -20,27 +19,17 @@ import {
 
 export default function LadiesServicesPage() {
   return (
-    <section
-      className="
-        w-full
+    <ServicePricingPage
+      id="ladies-pricing"
 
-        px-6
+      title="Ladies Waxing"
 
-        pb-24
+      description="
+        Luxury waxing services designed around comfort,
+        confidence, and beautifully cared skin.
       "
-    >
-      <ServicePricingPage
-        id="ladies-pricing"
 
-        title="Ladies Waxing"
-
-        description="
-          Luxury waxing services designed around comfort,
-          confidence, and beautifully cared skin.
-        "
-
-        services={ladiesServices}
-      />
-    </section>
+      services={ladiesServices}
+    />
   );
 }
