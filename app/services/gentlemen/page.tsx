@@ -8,7 +8,7 @@
  * -----------------------------------------------------------------------------
  */
 
-import ServicePricingSection from "@/features/services/ServicePricingSection";
+import ServicePricingPage from "@/features/services/ServicePricingPage";
 
 import {
   gentlemenServices,
@@ -32,7 +32,7 @@ className="
 >
 
 
-<ServicePricingSection
+<ServicePricingPage
 
 id="gentlemen-pricing"
 
