@@ -8,7 +8,6 @@
  * Gentlemen waxing pricing page.
  *
  * ---
- *
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
@@ -20,27 +19,17 @@ import {
 
 export default function GentlemenServicesPage() {
   return (
-    <section
-      className="
-        w-full
+    <ServicePricingPage
+      id="gentlemen-pricing"
 
-        px-6
+      title="Gentlemen Waxing"
 
-        pb-24
+      description="
+        Professional waxing services designed for men
+        who value confidence, comfort, and care.
       "
-    >
-      <ServicePricingPage
-        id="gentlemen-pricing"
 
-        title="Gentlemen Waxing"
-
-        description="
-          Professional waxing services designed for men
-          who value confidence, comfort, and care.
-        "
-
-        services={gentlemenServices}
-      />
-    </section>
+      services={gentlemenServices}
+    />
   );
 }
