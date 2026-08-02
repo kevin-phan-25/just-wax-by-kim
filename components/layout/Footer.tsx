@@ -11,13 +11,16 @@
  * • Matched global page background
  * • Removed dark footer treatment
  * • Removed divider accents
- * • Restored visible brand typography
- * • Improved luxury spacing
- * • Unified editorial styling
+ * • Removed duplicate navigation links
+ * • Added studio location
+ * • Added Instagram icon link
+ * • Maintained luxury editorial styling
  *
  * ---
  *
  */
+
+import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -66,6 +69,47 @@ export default function Footer() {
         >
           More than just a wax
         </p>
+
+
+        {/* Location */}
+        <p
+          className="
+            mt-6
+            text-sm
+            text-[#8C7468]
+          "
+        >
+          Tysons Corner, Virginia
+        </p>
+
+
+        {/* Instagram */}
+        <a
+          href="https://instagram.com/justwaxbykim"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow Just Wax by Kim on Instagram"
+          className="
+            mt-6
+            inline-flex
+            items-center
+            gap-2
+            text-sm
+            uppercase
+            tracking-[0.18em]
+            text-[#8C5A6B]
+            transition-colors
+            duration-300
+            hover:text-[#3B2A26]
+          "
+        >
+          <Instagram
+            size={16}
+            strokeWidth={1.8}
+          />
+
+          Instagram
+        </a>
 
 
         {/* Copyright */}
