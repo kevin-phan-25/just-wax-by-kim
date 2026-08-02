@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/about/Mission.tsx
@@ -7,13 +8,16 @@
  * Minimal editorial mission statement following About section.
  *
  * Updates:
+ * • Added elegant quotation marks
  * • Responsive editorial spacing
  * • Desktop one-line statement
  * • iPad wrapping correction
  * • Mobile typography refinement
  * • Matches global luxury background
  *
+ *
  * ---
+ *
  */
 
 export default function Mission() {
@@ -77,7 +81,7 @@ export default function Mission() {
             text-[#3B2A26]
           "
         >
-          A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.
+          “A thoughtful beauty experience designed to help you feel confident, cared for, and beautifully yourself.”
         </p>
 
       </div>
