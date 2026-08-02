@@ -17,11 +17,11 @@ export const BOOKING_CONFIG = {
 
   title: "Soft Skin Starts Here",
 
-  description:
-    "Reserve your private waxing experience with expert care, precision, and comfort tailored to leave you feeling confident and refreshed.",
+ description:
+    "Private waxing services crafted with precision, comfort, and care for a confident, refreshed experience.",
 
   reassurance:
-    "Private studio · Personalized care · Simple scheduling",
+    "Exceptional care · Precision results · Confidence that lasts",
 
   ctaLabel: "Book Your Appointment",
 
