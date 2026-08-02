@@ -8,13 +8,13 @@
  * Luxury booking experience section.
  *
  * Updates:
- * • Added BookingWidget modal integration
+ * • Added luxury booking widget modal
+ * • Same-page appointment experience
+ * • Removed external tab behavior
  * • Preserved homepage section spacing
- * • Removed possible text overflow issue
  * • Full width editorial layout
  * • Responsive phone / iPad / desktop spacing
  * • Premium conversion focused layout
- * • Single GlossGenius CTA
  * • Centered typography
  * • Matches luxury theme system
  *
@@ -45,13 +45,16 @@ import BookingWidget from "./BookingWidget";
 
 
 
+
+
 export default function Booking() {
 
 
   const [
-    openWidget,
-    setOpenWidget,
-  ] = useState(false);
+    widgetOpen,
+    setWidgetOpen,
+  ] =
+  useState(false);
 
 
 
@@ -59,6 +62,7 @@ export default function Booking() {
   return (
 
     <section
+
       id="booking"
 
       className="
@@ -86,36 +90,18 @@ export default function Booking() {
 
         md:pb-24
       "
+
     >
-
-
-
-      {/* AMBIENT BACKGROUND */}
-      <div
-        aria-hidden
-
-        className="
-          pointer-events-none
-
-          absolute
-
-          inset-0
-
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
-        "
-      />
 
 
 
 
 
       {/* CONTENT */}
+
       <div
+
         className="
-          relative
-
-          z-10
-
           w-full
 
 
@@ -129,6 +115,7 @@ export default function Booking() {
 
           xl:px-24
         "
+
       >
 
 
@@ -136,7 +123,9 @@ export default function Booking() {
 
 
         {/* HEADER */}
+
         <header
+
           className="
             flex
 
@@ -148,25 +137,35 @@ export default function Booking() {
 
             text-center
           "
+
         >
 
 
 
-          {/* EYEBROW */}
+
+
           <p
+
             className="
               uppercase
 
+
               tracking-[0.35em]
+
 
               text-xs
 
+
               md:text-sm
+
 
               text-[#8C5A6B]
             "
+
           >
+
             {BOOKING_CONFIG.eyebrow}
+
           </p>
 
 
@@ -174,29 +173,41 @@ export default function Booking() {
 
 
 
-          {/* TITLE */}
+
           <h2
+
             className="
               mt-6
 
+
               max-w-5xl
+
 
               font-serif
 
+
               text-4xl
+
 
               sm:text-5xl
 
+
               md:text-6xl
+
 
               leading-[1.1]
 
+
               tracking-[-0.035em]
+
 
               text-[#3B2A26]
             "
+
           >
+
             {BOOKING_CONFIG.title}
+
           </h2>
 
 
@@ -204,28 +215,43 @@ export default function Booking() {
 
 
 
+
+
           {/* DESCRIPTION */}
+
           <p
+
             className="
               mt-8
 
+
               w-full
+
 
               max-w-4xl
 
+
               text-center
+
 
               text-base
 
+
               sm:text-lg
+
 
               leading-relaxed
 
+
               text-[#8C7468]
             "
+
           >
+
             {BOOKING_CONFIG.description}
+
           </p>
+
 
 
 
@@ -234,53 +260,76 @@ export default function Booking() {
 
 
           {/* CTA AREA */}
+
           <div
+
             className="
               mt-12
 
+
               flex
+
 
               flex-col
 
+
               items-center
+
 
               justify-center
 
+
               gap-5
             "
+
           >
 
 
 
             <BookingCTA
+
               onClick={() =>
-                setOpenWidget(true)
+                setWidgetOpen(true)
               }
+
             />
 
 
 
 
 
+
+
             <p
+
               className="
                 max-w-xl
 
+
                 text-center
+
 
                 text-sm
 
+
                 leading-relaxed
+
 
                 text-[#8C7468]
               "
+
             >
+
               {BOOKING_CONFIG.reassurance}
+
             </p>
 
 
 
+
           </div>
+
+
 
 
 
@@ -295,19 +344,25 @@ export default function Booking() {
 
 
         {/* BENEFITS */}
+
         <div
+
           className="
             mt-20
 
+
             sm:mt-24
+
 
             md:mt-28
           "
+
         >
 
           <BookingBenefits />
 
         </div>
+
 
 
 
@@ -320,14 +375,24 @@ export default function Booking() {
 
 
 
-      {/* BOOKING MODAL */}
+
+
+
+      {/* BOOKING WIDGET MODAL */}
+
       <BookingWidget
-        open={openWidget}
+
+        open={
+          widgetOpen
+        }
+
 
         onClose={() =>
-          setOpenWidget(false)
+          setWidgetOpen(false)
         }
+
       />
+
 
 
 

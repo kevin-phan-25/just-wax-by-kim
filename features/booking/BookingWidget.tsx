@@ -2,16 +2,18 @@
  *
  * ---
  * File:
- * BookingWidget.tsx
+ * features/booking/BookingWidget.tsx
  *
  * Description:
- * Luxury booking modal container.
+ * Luxury embedded booking experience.
  *
  * Updates:
- * • Luxury themed modal
- * • GlossGenius ready
- * • Responsive mobile/tablet/desktop
- * • Preserves brand styling
+ * • Same-page booking modal
+ * • GlossGenius iframe support
+ * • Luxury editorial styling
+ * • Responsive mobile/tablet/desktop layout
+ * • Background scroll protection
+ * • Premium close interaction
  *
  * ---
  *
@@ -20,7 +22,16 @@
 "use client";
 
 
-import { X } from "lucide-react";
+import {
+  useEffect,
+} from "react";
+
+
+import {
+  BOOKING_CONFIG,
+} from "./booking.constants";
+
+
 
 
 interface BookingWidgetProps {
@@ -33,133 +44,260 @@ interface BookingWidgetProps {
 
 
 
+
+
 export default function BookingWidget({
+
   open,
+
   onClose,
+
 }: BookingWidgetProps) {
 
 
-  if (!open) {
+
+
+
+  useEffect(()=>{
+
+
+    if(!open){
+
+      document.body.style.overflow = "";
+
+      return;
+
+    }
+
+
+
+    document.body.style.overflow = "hidden";
+
+
+
+
+    return()=>{
+
+      document.body.style.overflow = "";
+
+    };
+
+
+  },[
+    open
+  ]);
+
+
+
+
+
+
+
+  if(!open){
+
     return null;
+
   }
+
+
+
 
 
 
   return (
 
-    <>
+    <div
+
+      className="
+        fixed
+
+        inset-0
+
+        z-[100]
 
 
-      {/* BACKDROP */}
-      <div
-        className="
-          fixed
+        flex
 
-          inset-0
+        items-center
 
-          z-[100]
+        justify-center
 
-          bg-[#3B2A26]/40
 
-          backdrop-blur-sm
-        "
 
-        onClick={onClose}
-      />
+        bg-[#3B2A26]/40
+
+
+
+        backdrop-blur-sm
+
+
+
+        px-4
+
+        sm:px-6
+      "
+
+      onClick={onClose}
+
+    >
+
 
 
 
 
       {/* MODAL */}
+
       <div
+
         className="
-          fixed
+          relative
 
-          left-1/2
 
-          top-1/2
+          w-full
 
-          z-[110]
 
-          w-[92%]
+          max-w-3xl
 
-          max-w-4xl
 
-          -translate-x-1/2
 
-          -translate-y-1/2
+          h-[85vh]
+
 
           overflow-hidden
 
+
+
           rounded-[36px]
+
+
 
           border
 
+
+
           border-[#E8DDD8]
+
+
 
           bg-[#FCF8F3]
 
-          shadow-[0_40px_120px_rgba(59,42,38,0.25)]
+
+
+          shadow-[0_30px_100px_rgba(59,42,38,0.25)]
+
+
+
+          animate-in
+
+          fade-in
+
+          zoom-in-95
+
+          duration-300
         "
+
+        onClick={(e)=>
+          e.stopPropagation()
+        }
+
       >
 
 
 
+
+
+
         {/* HEADER */}
+
         <div
+
           className="
+            absolute
+
+
+            left-0
+
+            right-0
+
+
+            top-0
+
+
+            z-10
+
+
+
             flex
+
+            justify-between
 
             items-center
 
-            justify-between
+
+
+            px-6
+
+            py-5
+
+
+
+            bg-[#FCF8F3]/90
+
+
+
+            backdrop-blur-md
+
+
 
             border-b
 
             border-[#E8DDD8]
-
-            px-6
-
-            py-6
-
-            sm:px-10
           "
+
         >
+
+
 
 
           <div>
 
+
             <p
+
               className="
                 uppercase
 
                 tracking-[0.35em]
 
-                text-xs
+                text-[10px]
 
                 text-[#8C5A6B]
               "
+
             >
+
               Reserve Your Experience
+
             </p>
 
 
+            <h3
 
-            <h2
               className="
-                mt-3
+                mt-1
 
                 font-serif
 
-                text-2xl
-
-                sm:text-3xl
+                text-xl
 
                 text-[#3B2A26]
               "
+
             >
+
               Book Your Appointment
-            </h2>
+
+            </h3>
 
 
           </div>
@@ -167,7 +305,11 @@ export default function BookingWidget({
 
 
 
+
+
+
           <button
+
             type="button"
 
             onClick={onClose}
@@ -175,140 +317,112 @@ export default function BookingWidget({
             className="
               flex
 
+
               h-10
 
               w-10
+
+
 
               items-center
 
               justify-center
 
+
+
               rounded-full
+
+
 
               border
 
+
+
               border-[#E8DDD8]
+
+
 
               bg-white
 
+
+
+              text-lg
+
+
+
               text-[#3B2A26]
+
+
 
               transition
 
+
+
               hover:bg-[#F6E7E1]
             "
+
+            aria-label="Close booking"
+
           >
 
-            <X size={18}/>
+            ×
+
 
           </button>
 
 
 
+
         </div>
 
 
 
 
 
-        {/* GLOSSGENIUS AREA */}
-        <div
+
+
+
+
+        {/* GLOSSGENIUS */}
+
+        <iframe
+
+          src={
+            BOOKING_CONFIG.bookingUrl
+          }
+
+
+          title="Book appointment"
+
+
           className="
-            min-h-[600px]
+            h-full
 
-            bg-white/40
+            w-full
 
-            p-6
 
-            sm:p-10
+            pt-[82px]
           "
-        >
 
 
-          {/* 
-            FUTURE GLOSSGENIUS EMBED
-
-            Replace this area with:
-
-            <iframe
-              src={BOOKING_CONFIG.bookingUrl}
-            />
-
-            once GlossGenius provides embed support.
-          */}
+          frameBorder="0"
 
 
-          <div
-            className="
-              flex
+          loading="lazy"
 
-              h-full
-
-              min-h-[500px]
-
-              items-center
-
-              justify-center
-
-              rounded-[28px]
-
-              border
-
-              border-[#E8DDD8]
-
-              bg-[#FCF8F3]
-
-              text-center
-
-              px-6
-            "
-          >
+        />
 
 
-            <div>
-
-              <h3
-                className="
-                  font-serif
-
-                  text-3xl
-
-                  text-[#3B2A26]
-                "
-              >
-                Your Booking Experience
-              </h3>
-
-
-              <p
-                className="
-                  mt-5
-
-                  max-w-md
-
-                  text-[#8C7468]
-
-                  leading-relaxed
-                "
-              >
-                Your GlossGenius scheduling experience will appear here once your booking link is connected.
-              </p>
-
-
-            </div>
-
-
-          </div>
-
-
-        </div>
 
 
 
       </div>
 
 
-    </>
+
+
+
+    </div>
 
   );
 
