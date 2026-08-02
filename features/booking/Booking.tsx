@@ -25,6 +25,7 @@ import BookingBenefits from "./BookingBenefits";
 export default function Booking() {
   return (
     <section
+      id="booking"
       className="
         relative
 
