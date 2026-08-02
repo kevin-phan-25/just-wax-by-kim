@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/policies/Policies.tsx
@@ -7,80 +8,113 @@
  * Luxury editorial policies presentation.
  *
  * Updates:
- * • Mobile-first editorial layout
- * • Improved phone readability
- * • Reduced excessive spacing
- * • Responsive typography scaling
- * • Preserved desktop 5-column editorial layout
- * • Balanced tablet/mobile stacking
+ * • Matched FAQ / Privacy Policy spacing system
+ * • Responsive navbar clearance
+ * • Unified header typography
+ * • Improved phone / iPad / desktop layout
+ * • Preserved desktop editorial grid
+ * • Removed excessive whitespace
+ * • Matches global luxury theme
  *
  * ---
+ *
  */
 
 import PolicySectionCard from "./PolicySectionCard";
 import { POLICIES_CONSTANTS } from "./policies.constants";
 import { POLICIES_DATA } from "./policies.data";
 
-
 export default function Policies() {
-
   return (
-
     <section
       className="
+        relative
+
         w-full
+
+        overflow-hidden
+
         bg-[#FBF7F4]
+
+        pt-[168px]
+
+        md:pt-[190px]
+
+        pb-20
+
+        sm:pb-24
+
+        md:pb-32
       "
     >
 
-      {/* Navbar Transition Spacer */}
+      {/* Ambient Background */}
       <div
+        aria-hidden
         className="
-          h-[140px]
-          sm:h-[170px]
-          md:h-[216px]
+          pointer-events-none
+
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
+
 
 
       {/* CONTENT */}
       <div
         className="
           relative
+
           z-10
 
           w-full
 
           px-5
-          sm:px-8
-          md:px-10
-          xl:px-16
 
-          pb-20
-          sm:pb-28
-          md:pb-40
+          sm:px-8
+
+          md:px-10
+
+          lg:px-16
+
+          xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
         <header
           className="
             flex
+
             w-full
+
             flex-col
+
             items-center
+
             text-center
+
+            mb-16
+
+            md:mb-24
           "
         >
 
           <p
             className="
               uppercase
+
               tracking-[0.35em]
 
-              text-[11px]
-              sm:text-xs
+              text-xs
+
+              sm:text-sm
 
               text-[#8C5A6B]
             "
@@ -89,20 +123,24 @@ export default function Policies() {
           </p>
 
 
+
           <h1
             className="
               mt-6
 
+              max-w-5xl
+
               font-serif
 
-              text-3xl
-              sm:text-4xl
+              text-4xl
+
+              sm:text-5xl
+
               md:text-6xl
-              xl:text-7xl
 
               leading-[1.1]
 
-              tracking-[-0.03em]
+              tracking-[-0.035em]
 
               text-[#3B2A26]
             "
@@ -111,14 +149,15 @@ export default function Policies() {
           </h1>
 
 
+
           <p
             className="
               mt-6
-              sm:mt-8
 
               max-w-3xl
 
               text-base
+
               sm:text-lg
 
               leading-relaxed
@@ -130,14 +169,15 @@ export default function Policies() {
           </p>
 
 
+
           <p
             className="
               mt-4
-              sm:mt-6
 
               max-w-2xl
 
               text-sm
+
               sm:text-base
 
               leading-relaxed
@@ -154,34 +194,43 @@ export default function Policies() {
 
 
 
+
+
         {/* DESKTOP EDITORIAL GRID */}
         <div
           className="
-            mt-20
-            xl:mt-24
-
             hidden
 
             xl:grid
 
+            mt-20
+
+            xl:mt-24
+
             w-full
 
-            grid-cols-[0.3fr_1.7fr_0.15fr_1.7fr_0.3fr]
+            grid-cols-[0.75in_1fr_1fr_0.75in]
 
-            gap-x-8
+            gap-x-10
+
             gap-y-24
+
+            items-start
           "
         >
 
+          <div />
+
+
           {POLICIES_DATA.map(
             (section,index)=>(
-              
+
               <div
                 key={section.id}
                 className={
                   index % 2 === 0
                     ? "col-start-2"
-                    : "col-start-4"
+                    : "col-start-3"
                 }
               >
 
@@ -194,7 +243,12 @@ export default function Policies() {
             )
           )}
 
+
+          <div />
+
+
         </div>
+
 
 
 
@@ -204,7 +258,10 @@ export default function Policies() {
         <div
           className="
             mt-14
-            sm:mt-20
+
+            sm:mt-16
+
+            md:mt-20
 
             grid
 
@@ -213,7 +270,10 @@ export default function Policies() {
             md:grid-cols-2
 
             gap-8
-            sm:gap-12
+
+            sm:gap-10
+
+            md:gap-12
 
             xl:hidden
           "
@@ -221,7 +281,7 @@ export default function Policies() {
 
           {POLICIES_DATA.map(
             (section)=>(
-              
+
               <PolicySectionCard
                 key={section.id}
                 section={section}
@@ -236,12 +296,15 @@ export default function Policies() {
 
 
 
+
         {/* CLOSING */}
         <div
           className="
             mt-16
-            sm:mt-24
-            md:mt-32
+
+            sm:mt-20
+
+            md:mt-24
 
             flex
 
@@ -258,6 +321,7 @@ export default function Policies() {
               max-w-3xl
 
               text-base
+
               sm:text-lg
 
               leading-relaxed
@@ -268,13 +332,13 @@ export default function Policies() {
             {POLICIES_CONSTANTS.closing}
           </p>
 
+
         </div>
 
 
       </div>
 
+
     </section>
-
   );
-
 }
