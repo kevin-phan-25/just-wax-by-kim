@@ -22,6 +22,7 @@ import HeroImage from "./HeroImage";
 export default function Hero() {
   return (
     <section
+      id="hero"
       className="
         w-full
 
