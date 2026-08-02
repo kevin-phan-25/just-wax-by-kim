@@ -19,7 +19,6 @@
  * ---
  *
  */
-
 import { Instagram } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 
@@ -53,7 +52,7 @@ export default function Footer() {
         {/* LOCATION */}
         <p
           className="
-            mt-1
+            -mt-8
             text-xs
             md:text-sm
             text-[#8C7468]
@@ -63,7 +62,7 @@ export default function Footer() {
         </p>
 
         {/* INSTAGRAM */}
-        <a
+        
           href="https://instagram.com/justwaxbykim"
           target="_blank"
           rel="noopener noreferrer"
