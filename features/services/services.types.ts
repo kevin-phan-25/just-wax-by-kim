@@ -23,8 +23,6 @@ export interface Service {
 
   category: string;
 
-  description: string;
-
   price: string;
 
   duration: string;
