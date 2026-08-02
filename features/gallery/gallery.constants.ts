@@ -15,5 +15,5 @@ export const GALLERY_CONFIG = {
   title: "Luxury in Every Detail",
 
   description:
-    "Step inside a thoughtfully curated studio where comfort, precision, and exceptional care come together to create an elevated waxing experience.",
+    "Explore a calming studio environment where every detail is designed to create a comfortable and welcoming experience.",
 };
