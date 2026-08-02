@@ -10,10 +10,10 @@
  * Updates:
  * • Matched FAQ luxury spacing system
  * • Responsive navbar clearance
- * • Improved phone readability
- * • Unified header typography
- * • Preserved desktop editorial layout
- * • Balanced tablet/mobile stacking
+ * • Unified editorial header layout
+ * • Improved phone / iPad / desktop spacing
+ * • Preserved desktop 5-column presentation
+ * • Removed inconsistent spacer layout
  * • Removed divider accents
  *
  * ---
@@ -63,6 +63,7 @@ export default function Policies() {
       />
 
 
+
       {/* CONTENT */}
       <div
         className="
@@ -83,6 +84,7 @@ export default function Policies() {
           xl:px-24
         "
       >
+
 
 
         {/* HEADER */}
@@ -110,9 +112,9 @@ export default function Policies() {
 
               tracking-[0.35em]
 
-              text-[11px]
+              text-xs
 
-              sm:text-xs
+              sm:text-sm
 
               text-[#8C5A6B]
             "
@@ -215,6 +217,8 @@ export default function Policies() {
             gap-x-8
 
             gap-y-24
+
+            items-start
           "
         >
 
@@ -223,6 +227,7 @@ export default function Policies() {
 
               <div
                 key={section.id}
+
                 className={
                   index % 2 === 0
                     ? "col-start-2"
@@ -273,6 +278,7 @@ export default function Policies() {
 
               <PolicySectionCard
                 key={section.id}
+
                 section={section}
               />
 
