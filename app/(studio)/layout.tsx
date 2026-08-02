@@ -7,6 +7,11 @@
  * Description:
  * Shared luxury studio page layout.
  *
+ * Controls:
+ * • Standalone page breathing room
+ * • Navbar remains fixed
+ * • Editorial page rhythm
+ *
  * ---
  *
  */
@@ -23,11 +28,11 @@ export default function StudioLayout({
 
         w-full
 
-        pt-[220px]
+        pt-[120px]
 
-        md:pt-[260px]
+        md:pt-[150px]
 
-        xl:pt-[300px]
+        xl:pt-[190px]
       "
     >
       {children}
