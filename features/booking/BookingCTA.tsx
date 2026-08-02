@@ -5,80 +5,115 @@
  * BookingCTA.tsx
  *
  * Description:
- * Luxury booking call-to-action.
- *
- * Updates:
- * • Matches navbar CTA sizing
- * • Added premium emphasis
- * • Increased internal breathing room
- * • Prevents text compression
- * • GlossGenius ready
+ * Luxury booking CTA button.
  *
  * ---
  *
  */
 
-import { BOOKING_CONFIG } from "./booking.constants";
 
-export default function BookingCTA() {
-  return (
-    <a
-      href={BOOKING_CONFIG.bookingUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="
-        inline-flex
+interface BookingCTAProps {
 
-        min-h-[64px]
-        md:min-h-[72px]
-        xl:min-h-[78px]
+  onClick?: () => void;
 
-        min-w-[260px]
-        md:min-w-[300px]
-        xl:min-w-[340px]
+}
 
-        items-center
-        justify-center
 
-        rounded-full
 
-        border-2
-        border-[#8C5A6B]
+export default function BookingCTA({
+  onClick,
+}: BookingCTAProps) {
 
-        px-16
-        md:px-20
-        xl:px-24
 
-        uppercase
+return (
 
-        tracking-[0.22em]
+<button
 
-        text-xs
-        md:text-sm
-        xl:text-base
+  type="button"
 
-        font-bold
+  onClick={onClick}
 
-        whitespace-nowrap
+  className="
+    inline-flex
 
-        text-[#8C5A6B]
+    min-h-[64px]
 
-        bg-transparent
+    md:min-h-[72px]
 
-        shadow-sm
+    xl:min-h-[78px]
 
-        transition-all
-        duration-500
 
-        hover:bg-[#8C5A6B]
-        hover:text-white
+    min-w-[260px]
 
-        hover:shadow-lg
+    md:min-w-[300px]
 
-        hover:-translate-y-1
-      "
-    >
-      {BOOKING_CONFIG.ctaLabel}
-    </a>
-  );
+    xl:min-w-[340px]
+
+
+    items-center
+
+    justify-center
+
+
+    rounded-full
+
+
+    border-2
+
+    border-[#8C5A6B]
+
+
+    px-16
+
+
+    uppercase
+
+
+    tracking-[0.22em]
+
+
+    text-xs
+
+    md:text-sm
+
+
+    font-bold
+
+
+    whitespace-nowrap
+
+
+    text-[#8C5A6B]
+
+
+    bg-transparent
+
+
+    shadow-sm
+
+
+    transition-all
+
+    duration-500
+
+
+    hover:bg-[#8C5A6B]
+
+    hover:text-white
+
+
+    hover:shadow-lg
+
+
+    hover:-translate-y-1
+  "
+
+>
+
+  Book Your Appointment
+
+</button>
+
+);
+
 }

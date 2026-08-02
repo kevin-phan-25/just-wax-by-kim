@@ -9,9 +9,9 @@
  *
  * Updates:
  * • Fixed homepage section scrolling
- * • Added responsive navbar offset calculation
- * • Improved anchor navigation reliability
- * • Preserved luxury typography
+ * • Navbar remains fixed
+ * • Booking CTA links to booking section
+ * • Removed BookingTrigger dependency
  * • Preserved dropdown behavior
  * • Responsive desktop/tablet/mobile spacing
  *
@@ -21,28 +21,35 @@
 
 "use client";
 
+
 import {
   useEffect,
   useState,
 } from "react";
 
+
 import Link from "next/link";
+
 
 import {
   usePathname,
 } from "next/navigation";
 
+
 import {
   Logo,
 } from "@/components/ui/Logo";
+
 
 import {
   MobileMenu,
 } from "@/components/layout/MobileMenu";
 
+
 import {
   navigation,
 } from "@/constants/navigation";
+
 
 
 
@@ -76,9 +83,11 @@ function getNavbarHeight() {
 
 
 
+
 function scrollToSection(
   href: string
 ) {
+
 
   const id =
     href.split("#")[1];
@@ -89,8 +98,10 @@ function scrollToSection(
   }
 
 
+
   const element =
     document.getElementById(id);
+
 
 
   if (!element) {
@@ -104,10 +115,13 @@ function scrollToSection(
   }
 
 
+
+
   const position =
     element.getBoundingClientRect().top +
     window.scrollY -
     getNavbarHeight();
+
 
 
   window.scrollTo({
@@ -118,7 +132,11 @@ function scrollToSection(
 
   });
 
+
 }
+
+
+
 
 
 
@@ -131,11 +149,13 @@ export default function Navbar() {
 
 
 
+
   const [
     scrolled,
     setScrolled,
   ] =
     useState(false);
+
 
 
 
@@ -147,11 +167,15 @@ export default function Navbar() {
 
 
 
+
   const [
     openDropdown,
     setOpenDropdown,
   ] =
     useState<string | null>(null);
+
+
+
 
 
 
@@ -168,7 +192,9 @@ export default function Navbar() {
     };
 
 
+
     handleScroll();
+
 
 
     window.addEventListener(
@@ -178,6 +204,7 @@ export default function Navbar() {
         passive:true,
       }
     );
+
 
 
     return () => {
@@ -195,6 +222,9 @@ export default function Navbar() {
 
 
 
+
+
+
   useEffect(() => {
 
 
@@ -202,6 +232,7 @@ export default function Navbar() {
       mobileOpen
       ? "hidden"
       : "";
+
 
 
     return () => {
@@ -220,13 +251,16 @@ export default function Navbar() {
 
 
 
+
+
+
   const handleNavigation = (
     e: React.MouseEvent,
-    href: string
+    href:string
   ) => {
 
 
-    if (
+    if(
       !href.includes("#")
     ) {
       return;
@@ -234,11 +268,13 @@ export default function Navbar() {
 
 
 
-    if (
+    if(
       pathname === "/"
     ) {
 
+
       e.preventDefault();
+
 
 
       scrollToSection(
@@ -246,11 +282,19 @@ export default function Navbar() {
       );
 
 
+
       setOpenDropdown(null);
+
 
     }
 
+
   };
+
+
+
+
+
 
 
 
@@ -307,12 +351,12 @@ export default function Navbar() {
 
 
 
+
         {/* LOGO */}
 
         <div
 
           className="
-
             absolute
 
             left-6
@@ -328,7 +372,6 @@ export default function Navbar() {
 
 
             z-10
-
           "
 
         >
@@ -345,12 +388,13 @@ export default function Navbar() {
 
 
 
+
+
         {/* DESKTOP NAV */}
 
         <div
 
           className="
-
             hidden
 
             lg:flex
@@ -377,10 +421,10 @@ export default function Navbar() {
 
 
             whitespace-nowrap
-
           "
 
         >
+
 
           {
             navigation.map((link)=>{
@@ -392,12 +436,16 @@ export default function Navbar() {
                 );
 
 
+
               const isOpen =
                 openDropdown === link.label;
 
 
 
+
+
               if(hasDropdown){
+
 
                 return (
 
@@ -422,6 +470,7 @@ export default function Navbar() {
                   >
 
 
+
                     <Link
 
                       href={link.href}
@@ -434,7 +483,6 @@ export default function Navbar() {
                       }
 
                       className="
-
                         uppercase
 
                         tracking-[0.18em]
@@ -448,7 +496,6 @@ export default function Navbar() {
                         hover:text-[#8C5A6B]
 
                         transition
-
                       "
 
                     >
@@ -459,13 +506,14 @@ export default function Navbar() {
 
 
 
+
+
                     {
                       isOpen && (
 
                         <div
 
                           className="
-
                             absolute
 
                             left-1/2
@@ -475,15 +523,14 @@ export default function Navbar() {
                             pt-6
 
                             -translate-x-1/2
-
                           "
 
                         >
 
+
                           <div
 
                             className="
-
                               min-w-[270px]
 
                               rounded-3xl
@@ -497,10 +544,10 @@ export default function Navbar() {
                               p-4
 
                               shadow-xl
-
                             "
 
                           >
+
 
                             {
                               link.dropdown?.map(
@@ -518,19 +565,22 @@ export default function Navbar() {
 
                                     onClick={(e)=>{
 
+
                                       handleNavigation(
                                         e,
                                         item.href
                                       );
 
+
                                       setOpenDropdown(
                                         null
                                       );
 
+
                                     }}
 
-                                    className="
 
+                                    className="
                                       block
 
                                       rounded-2xl
@@ -542,7 +592,6 @@ export default function Navbar() {
                                       text-center
 
                                       hover:bg-[#F6E7E1]
-
                                     "
 
                                   >
@@ -550,7 +599,6 @@ export default function Navbar() {
                                     <span
 
                                       className="
-
                                         uppercase
 
                                         tracking-[0.15em]
@@ -560,7 +608,6 @@ export default function Navbar() {
                                         font-semibold
 
                                         text-[#3B2A26]
-
                                       "
 
                                     >
@@ -569,13 +616,16 @@ export default function Navbar() {
 
                                     </span>
 
+
                                   </Link>
 
                                 )
                               )
                             }
 
+
                           </div>
+
 
                         </div>
 
@@ -583,11 +633,17 @@ export default function Navbar() {
                     }
 
 
+
                   </div>
+
 
                 );
 
+
               }
+
+
+
 
 
 
@@ -607,8 +663,8 @@ export default function Navbar() {
                     )
                   }
 
-                  className="
 
+                  className="
                     uppercase
 
                     tracking-[0.18em]
@@ -622,7 +678,6 @@ export default function Navbar() {
                     hover:text-[#8C5A6B]
 
                     transition
-
                   "
 
                 >
@@ -638,6 +693,7 @@ export default function Navbar() {
           }
 
 
+
         </div>
 
 
@@ -646,12 +702,13 @@ export default function Navbar() {
 
 
 
-        {/* CTA */}
+
+
+        {/* BOOKING CTA */}
 
         <div
 
           className="
-
             absolute
 
             right-6
@@ -669,16 +726,19 @@ export default function Navbar() {
             flex
 
             items-center
-
           "
 
         >
+
+
 
           <Link
 
             href="/#booking"
 
+
             onClick={(e)=>{
+
 
               if(
                 pathname === "/"
@@ -693,10 +753,12 @@ export default function Navbar() {
 
               }
 
+
             }}
 
-            className="
 
+
+            className="
               hidden
 
               sm:inline-flex
@@ -726,7 +788,6 @@ export default function Navbar() {
 
               border-2
 
-
               border-[#8C5A6B]
 
 
@@ -751,7 +812,6 @@ export default function Navbar() {
               hover:bg-[#F6E7E1]
 
               hover:scale-[1.03]
-
             "
 
           >
@@ -759,6 +819,9 @@ export default function Navbar() {
             Book Appointment
 
           </Link>
+
+
+
 
 
 
@@ -772,8 +835,8 @@ export default function Navbar() {
               )
             }
 
-            className="
 
+            className="
               lg:hidden
 
               ml-4
@@ -802,7 +865,6 @@ export default function Navbar() {
 
 
               text-[#3B2A26]
-
             "
 
           >
@@ -812,7 +874,12 @@ export default function Navbar() {
           </button>
 
 
+
         </div>
+
+
+
+
 
 
       </nav>
@@ -821,17 +888,23 @@ export default function Navbar() {
 
 
 
+
       <MobileMenu
 
-        open={mobileOpen}
+        open={
+          mobileOpen
+        }
 
         onClose={() =>
           setMobileOpen(false)
         }
 
-        links={navigation}
+        links={
+          navigation
+        }
 
       />
+
 
 
     </>

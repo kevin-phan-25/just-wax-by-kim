@@ -8,6 +8,7 @@
  * Luxury booking experience section.
  *
  * Updates:
+ * • Added BookingWidget modal integration
  * • Preserved homepage section spacing
  * • Removed possible text overflow issue
  * • Full width editorial layout
@@ -21,14 +22,45 @@
  *
  */
 
-import { BOOKING_CONFIG } from "./booking.constants";
+"use client";
+
+
+import {
+  useState,
+} from "react";
+
+
+import {
+  BOOKING_CONFIG,
+} from "./booking.constants";
+
+
 import BookingCTA from "./BookingCTA";
+
+
 import BookingBenefits from "./BookingBenefits";
 
+
+import BookingWidget from "./BookingWidget";
+
+
+
 export default function Booking() {
+
+
+  const [
+    openWidget,
+    setOpenWidget,
+  ] = useState(false);
+
+
+
+
   return (
+
     <section
       id="booking"
+
       className="
         relative
 
@@ -38,6 +70,7 @@ export default function Booking() {
 
         bg-[#FBF7F4]
 
+
         pt-16
 
         sm:pt-20
@@ -45,6 +78,7 @@ export default function Booking() {
         md:pt-24
 
         xl:pt-28
+
 
         pb-16
 
@@ -55,10 +89,35 @@ export default function Booking() {
     >
 
 
+
+      {/* AMBIENT BACKGROUND */}
+      <div
+        aria-hidden
+
+        className="
+          pointer-events-none
+
+          absolute
+
+          inset-0
+
+          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
+        "
+      />
+
+
+
+
+
       {/* CONTENT */}
       <div
         className="
+          relative
+
+          z-10
+
           w-full
+
 
           px-5
 
@@ -71,6 +130,8 @@ export default function Booking() {
           xl:px-24
         "
       >
+
+
 
 
 
@@ -90,6 +151,8 @@ export default function Booking() {
         >
 
 
+
+          {/* EYEBROW */}
           <p
             className="
               uppercase
@@ -109,6 +172,9 @@ export default function Booking() {
 
 
 
+
+
+          {/* TITLE */}
           <h2
             className="
               mt-6
@@ -132,6 +198,7 @@ export default function Booking() {
           >
             {BOOKING_CONFIG.title}
           </h2>
+
 
 
 
@@ -165,6 +232,7 @@ export default function Booking() {
 
 
 
+
           {/* CTA AREA */}
           <div
             className="
@@ -182,7 +250,15 @@ export default function Booking() {
             "
           >
 
-            <BookingCTA />
+
+
+            <BookingCTA
+              onClick={() =>
+                setOpenWidget(true)
+              }
+            />
+
+
 
 
 
@@ -203,10 +279,15 @@ export default function Booking() {
             </p>
 
 
+
           </div>
 
 
+
         </header>
+
+
+
 
 
 
@@ -229,9 +310,30 @@ export default function Booking() {
         </div>
 
 
+
+
+
       </div>
 
 
+
+
+
+
+      {/* BOOKING MODAL */}
+      <BookingWidget
+        open={openWidget}
+
+        onClose={() =>
+          setOpenWidget(false)
+        }
+      />
+
+
+
+
     </section>
+
   );
+
 }

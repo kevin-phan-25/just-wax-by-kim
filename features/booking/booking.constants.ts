@@ -7,7 +7,6 @@
  * Description:
  * Luxury booking configuration.
  *
- *
  * ---
  *
  */
@@ -17,16 +16,23 @@ export const BOOKING_CONFIG = {
 
   title: "Soft Skin Starts Here",
 
- description:
+  description:
     "Private waxing services crafted with precision, comfort, and care for a confident, refreshed experience.",
 
   reassurance:
     "Exceptional care · Precision results · Confidence that lasts",
 
-  ctaLabel: "Book Your Appointment",
+  ctaLabel:
+    "Book Your Appointment",
 
-  // Replace with your GlossGenius booking URL
+
+  /*
+    Replace this when GlossGenius provides your booking URL.
+
+    Example:
+    https://glossgenius.com/your-business-name
+  */
   bookingUrl:
-    "#",
+    "https://YOUR-GLOSSGENIUS-BOOKING-URL.com",
 
 } as const;
