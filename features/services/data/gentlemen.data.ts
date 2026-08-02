@@ -10,7 +10,7 @@
  * Updates:
  * • Reordered by service category
  * • Brazilian services prioritized
- * • Alphabetical ordering within categories
+ * • Strict alphabetical ordering within categories
  * • Removed individual service descriptions
  * • Simplified single-provider pricing
  * • Maintained reusable service structure
@@ -69,7 +69,7 @@ export const gentlemenServices: Service[] = [
 
   {
     id: "gentlemen-brows",
-    title: "Brows (Clean Up)",
+    title: "Brows",
     category: "Face",
     price: "$35",
     duration: "10 minutes",
@@ -117,6 +117,15 @@ export const gentlemenServices: Service[] = [
   // BODY
   // ---------------------------------------------------------------------------
     {
+    id: "gentlemen-butt-strip",
+    title: "Butt Strip (Stand-Alone Service)",
+    category: "Body",
+    price: "$40",
+    duration: "10 minutes",
+    gender: "gentlemen",
+  },
+
+  {
     id: "gentlemen-buttocks",
     title: "Buttocks",
     category: "Body",
@@ -131,15 +140,6 @@ export const gentlemenServices: Service[] = [
     category: "Body",
     price: "$80",
     duration: "20 minutes",
-    gender: "gentlemen",
-  },
-
-  {
-    id: "gentlemen-butt-strip",
-    title: "Butt Strip (Stand-Alone Service)",
-    category: "Body",
-    price: "$40",
-    duration: "10 minutes",
     gender: "gentlemen",
   },
 
