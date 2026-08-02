@@ -1,151 +1,77 @@
-/**
- *
- * ---
- * File:
- * features/booking/BookingCTA.tsx
- *
- * Description:
- * Luxury booking call-to-action button.
- *
- * Updates:
- * • Converted from external link to widget trigger
- * • Removed new tab behavior
- * • Opens same-page booking modal
- * • Preserved luxury CTA styling
- * • Matches navbar booking button
- *
- * ---
- *
- */
+"use client";
 
 
-interface BookingCTAProps {
+import {
+  BOOKING_CONFIG,
+} from "./booking.constants";
 
-  onClick: () => void;
 
-}
+import BookingTrigger from "./BookingTrigger";
 
 
 
+export default function BookingCTA() {
 
-export default function BookingCTA({
-  onClick,
-}: BookingCTAProps) {
 
+return (
 
-  return (
+<BookingTrigger
 
-    <button
+className="
+inline-flex
 
-      type="button"
+min-h-[64px]
+md:min-h-[72px]
+xl:min-h-[78px]
 
-      onClick={onClick}
+min-w-[260px]
+md:min-w-[300px]
+xl:min-w-[340px]
 
-      className="
-        inline-flex
+items-center
+justify-center
 
+rounded-full
 
-        min-h-[64px]
+border-2
+border-[#8C5A6B]
 
-        md:min-h-[72px]
+px-16
+md:px-20
+xl:px-24
 
-        xl:min-h-[78px]
+uppercase
 
+tracking-[0.22em]
 
+text-xs
+md:text-sm
+xl:text-base
 
-        min-w-[260px]
+font-bold
 
-        md:min-w-[300px]
+whitespace-nowrap
 
-        xl:min-w-[340px]
+text-[#8C5A6B]
 
+transition-all
+duration-500
 
+hover:bg-[#8C5A6B]
 
-        items-center
+hover:text-white
 
-        justify-center
+hover:shadow-lg
 
+hover:-translate-y-1
+"
 
+>
 
-        rounded-full
+{BOOKING_CONFIG.ctaLabel}
 
+</BookingTrigger>
 
-
-        border-2
-
-        border-[#8C5A6B]
-
-
-
-        px-16
-
-        md:px-20
-
-        xl:px-24
-
-
-
-        uppercase
-
-
-
-        tracking-[0.22em]
-
-
-
-        text-xs
-
-        md:text-sm
-
-        xl:text-base
-
-
-
-        font-bold
-
-
-
-        whitespace-nowrap
-
-
-
-        text-[#8C5A6B]
-
-
-
-        bg-transparent
-
-
-
-        shadow-sm
-
-
-
-        transition-all
-
-        duration-500
-
-
-
-        hover:bg-[#8C5A6B]
-
-        hover:text-white
-
-
-
-        hover:shadow-lg
-
-
-
-        hover:-translate-y-1
-      "
-
-    >
-
-      Book Your Appointment
-
-    </button>
-
-  );
+);
 
 }

@@ -1,24 +1,38 @@
 /**
- * -----------------------------------------------------------------------------
- * File: index.ts
  *
- * Created: July 27, 2026
+ * ---
+ * File: index.ts
  *
  * Description:
  * Booking feature exports.
  *
- * Changes:
- * - July 27, 2026
- *   - Added Booking export.
+ * Updates:
+ * • Added Booking section export
+ * • Added BookingWidget export
+ * • Added BookingCTA export
+ * • Added BookingBenefits export
+ * • Centralized booking feature imports
  *
- * -----------------------------------------------------------------------------
+ * ---
+ *
  */
 
 
 export {
+  default as Booking,
+} from "./Booking";
 
-default
 
-}
+export {
+  default as BookingWidget,
+} from "./BookingWidget";
 
-from "./Booking";
+
+export {
+  default as BookingCTA,
+} from "./BookingCTA";
+
+
+export {
+  default as BookingBenefits,
+} from "./BookingBenefits";

@@ -27,7 +27,7 @@ import {
   useState,
 } from "react";
 
-
+import BookingTrigger from "@/features/booking/BookingTrigger";
 import Link from "next/link";
 
 
