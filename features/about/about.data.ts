@@ -10,8 +10,8 @@
  * • Updated About copy with Kim's approved wording
  * • Removed credentials section
  * • Preserved paragraph separation
- * • Fixed template literal syntax issue
- * • Added bold formatting support for slogan
+ * • Fixed syntax errors
+ * • Added slogan text support
  *
  * ---
  */
@@ -37,9 +37,6 @@ export const aboutContent: AboutSection = {
     `I truly appreciate every client who trusts me with their care, and I can’t wait to welcome you to my studio!`,
   ],
 
-  slogan: (
-    <>
-      <strong>More than just a wax</strong> — every service is tailored just for you.
-    </>
-  ),
+  slogan:
+    "More than just a wax — every service is tailored just for you.",
 };
