@@ -1,59 +1,62 @@
 /**
- *
- * ---
- * File: Announcement.tsx
- *
- * Created: July 27, 2026
+ * -----------------------------------------------------------------------------
+ * File: components/layout/Announcement.tsx
  *
  * Description:
- * Top announcement banner for promotions, booking notices,
- * and important customer messaging.
+ * Top brand slogan bar for Just Wax by Kim.
+ * "WHERE EVERY SERVICE IS tailored just for you ♥"
  *
- * Changes:
- *
- * - July 27, 2026
- * • Added v1.1.0 luxury layout foundation.
- * • Added responsive spacing.
- * • Matched luxury brand typography.
- * • Improved mobile readability.
- *
- * ---
- *
+ * Updated: August 2, 2026
+ * -----------------------------------------------------------------------------
  */
-
 export default function Announcement() {
   return (
     <div
       className="
-        flex
+        relative z-[60]
         w-full
-        items-center
-        justify-center
-
-        bg-[#3B2A26]
-
-        px-5
-        py-3
-        sm:py-4
-
+        bg-[#C9A0A8]
         text-center
+        px-4
+        py-2.5
+        md:py-3
       "
+      role="note"
     >
       <p
         className="
-          uppercase
-
-          tracking-[0.25em]
-
-          text-[10px]
-          sm:text-xs
-
+          m-0
+          text-[0.62rem]
+          sm:text-[0.68rem]
+          md:text-[0.72rem]
           font-medium
-
-          text-[#F6E7E1]
+          uppercase
+          tracking-[0.26em]
+          text-white/95
         "
       >
-        Now Booking Luxury Wax Appointments
+        Where every service is{" "}
+        <span
+          className="
+            normal-case
+            tracking-normal
+            italic
+            font-normal
+            text-[0.8rem]
+            sm:text-[0.88rem]
+            md:text-[0.95rem]
+            opacity-95
+          "
+          style={{
+            fontFamily:
+              "var(--font-script), 'Cormorant Garamond', Georgia, serif",
+          }}
+        >
+          tailored just for you
+        </span>
+        <span className="ml-1.5 inline-block opacity-90" aria-hidden>
+          ♥
+        </span>
       </p>
     </div>
   );
