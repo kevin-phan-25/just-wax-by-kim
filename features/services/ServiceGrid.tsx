@@ -1,20 +1,18 @@
 /**
- * ---
+ * ---------------------------------------------------
  * File:
  * features/services/ServiceGrid.tsx
  *
  * Description:
- * Luxury responsive service grid.
+ * Luxury editorial service menu layout.
  *
  * Updates:
- * • Full width editorial layout
- * • Centered service cards
- * • Responsive phone / iPad / desktop
- * • Balanced card sizing
- * • Improved luxury spacing
- * • Prevents desktop compression
- *
- * ---
+ * • Removed card grid
+ * • Removed boxed layout
+ * • Elegant spa menu presentation
+ * • Responsive phone / tablet / desktop
+ * • Improved scanning experience
+ * ---------------------------------------------------
  */
 
 import ServiceCard from "./ServiceCard";
@@ -30,51 +28,23 @@ export default function ServiceGrid({
   return (
     <div
       className="
+        mx-auto
+
         w-full
 
-        grid
+        max-w-5xl
 
-        grid-cols-1
+        divide-y
 
-        sm:grid-cols-2
-
-        lg:grid-cols-3
-
-        xl:grid-cols-4
-
-        justify-items-center
-
-        gap-x-8
-
-        gap-y-10
-
-        md:gap-x-10
-
-        md:gap-y-12
-
-        xl:gap-x-12
-
-        xl:gap-y-14
+        divide-[#E8DDD8]
       "
     >
-
       {services.map((service) => (
-        <div
+        <ServiceCard
           key={service.id}
-          className="
-            w-full
-
-            max-w-[360px]
-
-            lg:max-w-[380px]
-          "
-        >
-          <ServiceCard
-            service={service}
-          />
-        </div>
+          service={service}
+        />
       ))}
-
     </div>
   );
 }
