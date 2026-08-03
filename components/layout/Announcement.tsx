@@ -1,18 +1,19 @@
-/**
- * ---
- * File:
- * components/layout/Announcement.tsx
- *
- * Description:
- * Floating homepage slogan banner.
- *
- * Updates:
- * • Uses slogan_banner.jpg
- * • Does not affect page layout
- * • Floats between navbar and hero
- * • Crops unwanted image background
- * • Homepage-only display handled by layout
- * ---
+ /**
+  ---
+  File:
+  components/layout/Announcement.tsx
+
+  Description:
+  Floating homepage slogan banner.
+
+  Updates:
+  • Uses slogan_banner.jpg
+  • Does not affect page layout
+  • Floats between navbar and hero
+  • Expanded image visibility
+  • Reduced aggressive crop
+  • Homepage-only display handled by layout
+  ---
  */
 
 "use client";
@@ -42,7 +43,6 @@ export default function Announcement() {
         flex
 
         justify-center
-
       "
     >
       <div
@@ -59,16 +59,15 @@ export default function Announcement() {
 
           xl:w-[55%]
 
-          h-[55px]
+          h-[65px]
 
-          sm:h-[65px]
+          sm:h-[75px]
 
-          md:h-[75px]
+          md:h-[85px]
 
           overflow-hidden
 
           rounded-full
-
         "
       >
         <img
@@ -87,8 +86,7 @@ export default function Announcement() {
 
             object-center
 
-            scale-[1.35]
-
+            scale-[1.05]
           "
         />
       </div>
