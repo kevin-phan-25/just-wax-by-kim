@@ -3,8 +3,8 @@
  * File: components/layout/Announcement.tsx
  *
  * Description:
- * Top brand slogan bar for Just Wax by Kim.
- * "WHERE EVERY SERVICE IS tailored just for you ♥"
+ * Top slogan bar matching brand graphic:
+ * WHERE EVERY SERVICE IS tailored just for you ♥
  *
  * Updated: August 2, 2026
  * -----------------------------------------------------------------------------
@@ -14,47 +14,81 @@ export default function Announcement() {
     <div
       className="
         relative z-[60]
-        w-full
+        flex w-full items-center justify-center
         bg-[#C9A0A8]
-        text-center
-        px-4
-        py-2.5
-        md:py-3
+        px-3
+        py-[0.65rem]
+        sm:px-4
+        sm:py-3
+        md:py-3.5
       "
       role="note"
     >
       <p
         className="
           m-0
-          text-[0.62rem]
-          sm:text-[0.68rem]
-          md:text-[0.72rem]
-          font-medium
-          uppercase
-          tracking-[0.26em]
-          text-white/95
+          flex
+          flex-wrap
+          items-baseline
+          justify-center
+          gap-x-1.5
+          sm:gap-x-2
+          text-center
         "
       >
-        Where every service is{" "}
+        {/* Uppercase line — matches the graphic */}
         <span
           className="
-            normal-case
-            tracking-normal
-            italic
+            text-[0.58rem]
+            sm:text-[0.65rem]
+            md:text-[0.72rem]
+            lg:text-[0.78rem]
             font-normal
-            text-[0.8rem]
-            sm:text-[0.88rem]
-            md:text-[0.95rem]
-            opacity-95
+            uppercase
+            tracking-[0.28em]
+            sm:tracking-[0.32em]
+            md:tracking-[0.36em]
+            text-[#F7EDE8]
           "
           style={{
             fontFamily:
-              "var(--font-script), 'Cormorant Garamond', Georgia, serif",
+              "var(--font-inter), 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          }}
+        >
+          Where every service is
+        </span>
+
+        {/* Cursive phrase — same role as the script in the graphic */}
+        <span
+          className="
+            text-[0.95rem]
+            sm:text-[1.05rem]
+            md:text-[1.2rem]
+            lg:text-[1.35rem]
+            font-normal
+            leading-none
+            text-[#F7EDE8]
+          "
+          style={{
+            fontFamily:
+              "var(--font-script), 'Great Vibes', 'Allura', cursive",
           }}
         >
           tailored just for you
         </span>
-        <span className="ml-1.5 inline-block opacity-90" aria-hidden>
+
+        {/* Heart */}
+        <span
+          className="
+            text-[0.7rem]
+            sm:text-[0.8rem]
+            md:text-[0.9rem]
+            leading-none
+            text-[#F7EDE8]
+            opacity-95
+          "
+          aria-hidden
+        >
           ♥
         </span>
       </p>
