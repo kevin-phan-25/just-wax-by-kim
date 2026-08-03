@@ -9,11 +9,12 @@
  *
  * Updates:
  * • Navbar clearance handled by app/(studio)/layout.tsx
- * • Unified luxury spacing system
+ * • Refined luxury editorial spacing
+ * • Improved visual hierarchy
  * • Mobile / iPad / desktop optimization
- * • Full-width editorial gallery
- * • Centered typography
- * • Matches Services page styling
+ * • Full-width studio presentation
+ * • Matches brand storytelling direction
+ *
  *
  * ---
  *
@@ -34,11 +35,11 @@ export default function Gallery() {
 
         bg-[#FBF7F4]
 
-        pb-16
+        pb-20
 
-        sm:pb-20
+        sm:pb-24
 
-        md:pb-24
+        md:pb-32
       "
     >
 
@@ -55,6 +56,7 @@ export default function Gallery() {
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
+
 
 
       {/* CONTENT */}
@@ -79,10 +81,15 @@ export default function Gallery() {
       >
 
 
+
         {/* HEADER */}
         <header
           className="
+            mx-auto
+
             flex
+
+            max-w-5xl
 
             flex-col
 
@@ -90,23 +97,26 @@ export default function Gallery() {
 
             text-center
 
-            mb-14
+            mb-16
 
-            md:mb-16
+            md:mb-20
 
-            xl:mb-20
+            xl:mb-24
           "
         >
 
+
+
+          {/* EYEBROW */}
           <p
             className="
               uppercase
 
-              tracking-[0.35em]
+              tracking-[0.4em]
 
-              text-xs
+              text-[11px]
 
-              sm:text-sm
+              sm:text-xs
 
               text-[#8C5A6B]
             "
@@ -115,6 +125,10 @@ export default function Gallery() {
           </p>
 
 
+
+
+
+          {/* TITLE */}
           <h1
             className="
               mt-6
@@ -129,7 +143,7 @@ export default function Gallery() {
 
               md:text-6xl
 
-              leading-[1.1]
+              leading-[1.08]
 
               tracking-[-0.035em]
 
@@ -140,15 +154,21 @@ export default function Gallery() {
           </h1>
 
 
+
+
+
+          {/* DESCRIPTION */}
           <p
             className="
               mt-6
 
-              max-w-3xl
+              max-w-2xl
 
-              text-base
+              text-sm
 
-              sm:text-lg
+              sm:text-base
+
+              md:text-lg
 
               leading-relaxed
 
@@ -163,8 +183,17 @@ export default function Gallery() {
 
 
 
+
+
         {/* GALLERY GRID */}
-        <GalleryGrid />
+        <div
+          className="
+            w-full
+          "
+        >
+          <GalleryGrid />
+        </div>
+
 
 
       </div>
