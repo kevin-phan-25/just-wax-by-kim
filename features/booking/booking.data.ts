@@ -20,7 +20,7 @@ export const bookingBenefits: BookingBenefit[] = [
     icon: "♡",
     title: "Gentle Precision",
     description:
-      "Professional products and careful technique focused on smooth results with as little irritation as possible.",
+      "Professional products and expert technique, thoughtfully tailored to your skin and comfort.",
   },
   {
     icon: "◎",
