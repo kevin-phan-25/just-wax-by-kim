@@ -1,20 +1,20 @@
 /**
+ *
  * ---
  * File:
  * features/instagram/InstagramGrid.tsx
  *
  * Description:
- * Editorial Instagram gallery grid.
+ * Luxury editorial Instagram journey collage.
  *
  * Updates:
- * • Full width responsive layout
- * • Phone / iPad / desktop optimization
- * • Desktop four-column presentation
- * • Improved luxury spacing rhythm
- * • Removed restrictive sizing
- * • Matches Gallery grid system
+ * • Converted gallery grid into story collage
+ * • Added editorial photo positioning
+ * • Responsive mobile / iPad / desktop layout
+ * • Creates memorable journey feeling
  *
  * ---
+ *
  */
 
 import {
@@ -29,36 +29,85 @@ export default function InstagramGrid() {
   return (
     <div
       className="
-        grid
+        relative
+
+        mx-auto
 
         w-full
 
-        grid-cols-1
+        max-w-6xl
 
-        sm:grid-cols-2
+        h-auto
 
-        lg:grid-cols-4
-
-        gap-6
-
-        sm:gap-8
-
-        lg:gap-10
-
-        xl:gap-12
+        lg:h-[700px]
       "
     >
 
       {instagramPosts.map(
-        (post) => (
-          <InstagramPost
+        (post, index) => (
+
+          <div
             key={post.id}
-            post={post}
-          />
+            className={`
+              relative
+
+              mb-8
+
+              lg:absolute
+
+              ${
+                index === 0
+                  ? `
+                    lg:left-0
+                    lg:top-10
+                    lg:w-[38%]
+                  `
+                  : ""
+              }
+
+              ${
+                index === 1
+                  ? `
+                    lg:right-0
+                    lg:top-0
+                    lg:w-[32%]
+                  `
+                  : ""
+              }
+
+              ${
+                index === 2
+                  ? `
+                    lg:left-[32%]
+                    lg:top-[220px]
+                    lg:w-[35%]
+                    lg:z-20
+                  `
+                  : ""
+              }
+
+              ${
+                index === 3
+                  ? `
+                    lg:right-[18%]
+                    lg:bottom-0
+                    lg:w-[30%]
+                  `
+                  : ""
+              }
+            `}
+          >
+
+            <InstagramPost
+              post={post}
+              index={index}
+            />
+
+          </div>
+
         )
       )}
 
     </div>
   );
-
 }
