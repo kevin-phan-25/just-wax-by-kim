@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/instagram/FollowButton.tsx
@@ -7,13 +8,13 @@
  * Luxury Instagram follow CTA.
  *
  * Updates:
- * • Responsive luxury pill button
- * • Matches site CTA styling
- * • Improved mobile spacing
- * • Added refined hover interaction
- * • Preserved editorial branding
+ * • Refined editorial CTA styling
+ * • Softer luxury interaction
+ * • Matches global button system
+ * • Improved mobile responsiveness
  *
  * ---
+ *
  */
 
 import {
@@ -56,6 +57,8 @@ export default function FollowButton() {
 
         py-4
 
+        sm:py-4.5
+
         uppercase
 
         tracking-[0.18em]
@@ -76,19 +79,22 @@ export default function FollowButton() {
 
         hover:-translate-y-0.5
 
-        hover:bg-[#8C5A6B]
+        hover:bg-[#F6E7E1]
 
-        hover:text-white
-
-        hover:shadow-[0_15px_40px_rgba(59,42,38,0.12)]
+        hover:shadow-[0_15px_40px_rgba(59,42,38,0.08)]
       "
     >
 
       <Instagram
-        size={18}
+        size={17}
+
+        strokeWidth={1.7}
+
         className="
           transition-transform
+
           duration-500
+
           group-hover:scale-110
         "
       />
@@ -99,5 +105,4 @@ export default function FollowButton() {
 
     </a>
   );
-
 }
