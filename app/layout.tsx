@@ -26,7 +26,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Great_Vibes } from "next/font/google";
-import Announcement from "@/components/layout/Announcement";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Providers from "./providers";
@@ -78,9 +78,6 @@ export default function RootLayout({
         />
 
         <Providers>
-          {/* BRAND SLOGAN BAR */}
-          <Announcement />
-
           {/* GLOBAL NAVIGATION */}
           <Navbar />
 
