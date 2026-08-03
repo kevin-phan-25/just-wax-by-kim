@@ -1,13 +1,14 @@
-export {
-default
-} from "./Services";
+export interface Service {
+  id: string;
+  title: string;
+  category: string;
+  price: string;
+  duration: string;
+  gender: "ladies" | "gentlemen";
 
-
-export {
-default as ServiceCard
-} from "./ServiceCard";
-
-
-export { 
-default as ServicePricingPage 
-} from "./ServicePricingPage";
+  options?: {
+    label: string;
+    price: string;
+    duration?: string;
+  }[];
+}
