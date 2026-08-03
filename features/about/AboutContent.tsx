@@ -14,10 +14,9 @@
  * • Responsive title scaling
  * • Balanced image/text composition
  * • Improved paragraph spacing
- * • Removed unnecessary decorative elements
+ * • Added final luxury slogan statement
  *
  * ---
- *
  */
 
 import { aboutContent } from "./about.data";
@@ -48,7 +47,6 @@ export default function AboutContent() {
         xl:px-24
       "
     >
-
       <div
         className="
           grid
@@ -66,8 +64,6 @@ export default function AboutContent() {
           lg:gap-16
         "
       >
-
-
 
         {/* HEADER */}
         <header
@@ -91,7 +87,6 @@ export default function AboutContent() {
             md:mb-12
           "
         >
-
           <span
             className="
               uppercase
@@ -109,8 +104,6 @@ export default function AboutContent() {
           >
             {aboutContent.eyebrow}
           </span>
-
-
 
           <h2
             className="
@@ -137,13 +130,7 @@ export default function AboutContent() {
           >
             {aboutContent.title}
           </h2>
-
-
         </header>
-
-
-
-
 
 
         {/* IMAGE CELL */}
@@ -154,15 +141,8 @@ export default function AboutContent() {
             lg:col-span-1
           "
         >
-
           <AboutImage />
-
         </div>
-
-
-
-
-
 
 
         {/* TEXT CONTENT */}
@@ -189,7 +169,6 @@ export default function AboutContent() {
             leading-[1.9]
           "
         >
-
           <div
             className="
               flex
@@ -217,15 +196,28 @@ export default function AboutContent() {
               )
             )}
 
+
+            {/* FINAL SLOGAN */}
+            {aboutContent.slogan && (
+              <p
+                className="
+                  pt-4
+
+                  text-[#3B2A26]
+
+                  font-semibold
+
+                  tracking-[0.025em]
+                "
+              >
+                {aboutContent.slogan}
+              </p>
+            )}
+
           </div>
-
-
         </div>
 
-
       </div>
-
-
     </article>
   );
 }
