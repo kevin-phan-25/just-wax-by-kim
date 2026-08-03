@@ -1,6 +1,5 @@
 /**
- *
- * ---
+ * -------------------------------------------------------------------
  * File:
  * features/services/ServicePricingPage.tsx
  *
@@ -9,18 +8,16 @@
  *
  * Updates:
  * • Compact editorial pricing layout
- * • Reduced scrolling
- * • Mobile optimized
- * • Brazilian prioritized
- * • Body category organization
- * • Removed anatomy notes
- * • Added inclusive booking footer
- * • Responsive phone / iPad / desktop
- *
- * ---
- *
+ * • Bikini prioritized
+ * • Face + Body organization
+ * • Supports service option dropdowns
+ * • Mobile / iPad / desktop responsive
+ * -------------------------------------------------------------------
  */
 
+"use client";
+
+import { useState } from "react";
 import type { Service } from "./services.types";
 
 
@@ -34,19 +31,9 @@ interface Props {
 
 
 const categoryTitles: Record<string, string> = {
-
-  Brazilian:
-    "Brazilian",
-
-  "Brazilian Waxing":
-    "Brazilian",
-
-  Face:
-    "Face",
-
-  Body:
-    "Body",
-
+  Bikini: "Bikini",
+  Face: "Face",
+  Body: "Body",
 };
 
 
@@ -59,35 +46,34 @@ export default function ServicePricingPage({
 }: Props) {
 
 
+  const [openOptions, setOpenOptions] = useState<string | null>(null);
+
+
+
   const groupedServices = services.reduce<
     Record<string, Service[]>
-  >((groups, service) => {
+  >(
+    (groups, service) => {
 
-    if (!groups[service.category]) {
-      groups[service.category] = [];
-    }
+      if (!groups[service.category]) {
+        groups[service.category] = [];
+      }
 
-    groups[service.category].push(service);
+      groups[service.category].push(service);
 
-    return groups;
+      return groups;
 
-  }, {});
-
+    },
+    {}
+  );
 
 
 
   const categoryOrder = [
-
-    "Brazilian",
-
-    "Brazilian Waxing",
-
+    "Bikini",
     "Face",
-
     "Body",
-
   ];
-
 
 
 
@@ -97,6 +83,17 @@ export default function ServicePricingPage({
         groupedServices[category]
     );
 
+
+
+  const toggleOptions = (id: string) => {
+
+    setOpenOptions(
+      openOptions === id
+        ? null
+        : id
+    );
+
+  };
 
 
 
@@ -126,7 +123,6 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
-
 
 
 
@@ -171,7 +167,6 @@ export default function ServicePricingPage({
           </h1>
 
 
-
           <p
             className="
               mt-3
@@ -186,8 +181,6 @@ export default function ServicePricingPage({
 
 
         </header>
-
-
 
 
 
@@ -212,7 +205,6 @@ export default function ServicePricingPage({
               >
 
 
-
                 <h2
                   className="
                     mb-3
@@ -230,8 +222,6 @@ export default function ServicePricingPage({
 
 
 
-
-
                 <div
                   className="
                     grid
@@ -241,51 +231,81 @@ export default function ServicePricingPage({
                     gap-y-1
                   "
                 >
-
-
-                  {groupedServices[category]
-                    .map((service) => (
+                                 {groupedServices[category].map(
+                    (service) => (
 
                       <div
                         key={service.id}
                         className="
-                          flex
-                          items-center
-                          justify-between
-                          gap-3
                           border-b
                           border-[#F2EAE5]
                           py-2
                         "
                       >
 
-
                         <div
                           className="
-                            min-w-0
+                            flex
+                            items-center
+                            justify-between
+                            gap-3
                           "
                         >
 
-                          <h3
-                            className="
-                              truncate
-                              text-sm
-                              font-medium
-                              text-[#3B2A26]
-                            "
+                          <button
+                            type="button"
+                            onClick={() =>
+                              service.options &&
+                              toggleOptions(service.id)
+                            }
+                            className={`
+                              min-w-0
+                              text-left
+                              ${
+                                service.options
+                                  ? "cursor-pointer"
+                                  : "cursor-default"
+                              }
+                            `}
                           >
-                            {service.title}
-                          </h3>
+
+                            <h3
+                              className="
+                                truncate
+                                text-sm
+                                font-medium
+                                text-[#3B2A26]
+                              "
+                            >
+                              {service.title}
+                            </h3>
 
 
-                          <p
+                            <p
+                              className="
+                                text-[11px]
+                                text-[#8C7468]
+                              "
+                            >
+                              {service.duration}
+                            </p>
+
+
+                          </button>
+
+
+
+
+                          <span
                             className="
-                              text-[11px]
-                              text-[#8C7468]
+                              whitespace-nowrap
+                              font-serif
+                              text-base
+                              text-[#8C5A6B]
                             "
                           >
-                            {service.duration}
-                          </p>
+                            {service.price}
+                          </span>
 
 
                         </div>
@@ -293,23 +313,84 @@ export default function ServicePricingPage({
 
 
 
-                        <span
-                          className="
-                            whitespace-nowrap
-                            font-serif
-                            text-base
-                            text-[#8C5A6B]
-                          "
-                        >
-                          {service.price}
-                        </span>
+
+                        {/* EXPANDABLE OPTIONS */}
+
+                        {service.options &&
+                          openOptions === service.id && (
+
+                            <div
+                              className="
+                                mt-3
+                                ml-2
+                                border-l
+                                border-[#E8DDD8]
+                                pl-4
+                                space-y-2
+                              "
+                            >
+
+                              {service.options.map(
+                                (option) => (
+
+                                  <div
+                                    key={option.label}
+                                    className="
+                                      flex
+                                      items-center
+                                      justify-between
+                                      text-sm
+                                    "
+                                  >
+
+                                    <div>
+
+                                      <p
+                                        className="
+                                          text-[#3B2A26]
+                                        "
+                                      >
+                                        {option.label}
+                                      </p>
 
 
+                                      {option.duration && (
+                                        <p
+                                          className="
+                                            text-[11px]
+                                            text-[#8C7468]
+                                          "
+                                        >
+                                          {option.duration}
+                                        </p>
+                                      )}
+
+                                    </div>
+
+
+                                    <span
+                                      className="
+                                        font-serif
+                                        text-[#8C5A6B]
+                                      "
+                                    >
+                                      {option.price}
+                                    </span>
+
+
+                                  </div>
+
+                                )
+                              )}
+
+                            </div>
+
+                          )}
 
                       </div>
 
-                    ))}
-
+                    )
+                  )}
 
                 </div>
 
@@ -326,8 +407,7 @@ export default function ServicePricingPage({
 
 
 
-
-        {/* INCLUSIVE BOOKING NOTE */}
+        {/* BOOKING NOTE */}
 
         <div
           className="
@@ -349,18 +429,16 @@ export default function ServicePricingPage({
               text-[#8C7468]
             "
           >
-            At Just Wax by Kim, everyone is welcome. 
-            Services are booked based on the anatomy 
-            being waxed to ensure the appropriate 
-            appointment time and pricing. 
-            If you have any questions or aren’t 
-            sure which service to book, 
-            please reach out—I’d love to help.
+            At Just Wax by Kim, everyone is welcome.
+            Services are selected based on the area
+            being waxed to ensure the correct
+            appointment time and pricing.
+            If you are unsure which service to book,
+            please reach out — I’d love to help.
           </p>
 
 
         </div>
-
 
 
 
@@ -371,4 +449,4 @@ export default function ServicePricingPage({
 
   );
 
-}
+} 
