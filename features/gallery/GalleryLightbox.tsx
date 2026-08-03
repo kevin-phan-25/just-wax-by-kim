@@ -1,20 +1,23 @@
 /**
+ *
  * ---
  * File:
  * features/gallery/GalleryLightbox.tsx
  *
  * Description:
- * Luxury gallery lightbox viewer.
+ * Luxury editorial gallery lightbox viewer.
  *
- * Updated:
- * • Full-screen editorial presentation
- * • Responsive phone / iPad / desktop
- * • Keyboard navigation support
- * • Improved mobile sizing
- * • Premium controls
- * • Preserved image quality
+ * Updates:
+ * • Refined editorial presentation
+ * • Softer luxury overlay
+ * • Simplified controls
+ * • Removed unnecessary UI elements
+ * • Improved mobile / iPad / desktop balance
+ * • Preserved accessibility and navigation
+ *
  *
  * ---
+ *
  */
 
 "use client";
@@ -84,7 +87,8 @@ export default function GalleryLightbox({
       document.body.style.overflow;
 
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+      "hidden";
 
 
     return () => {
@@ -135,16 +139,18 @@ export default function GalleryLightbox({
 
         justify-center
 
-        bg-[#2D211D]/90
+        bg-[#2D211D]/80
 
-        backdrop-blur-md
+        backdrop-blur-sm
 
         px-4
 
         sm:px-8
       "
+
       onClick={onClose}
     >
+
 
 
       {/* PREVIOUS */}
@@ -168,9 +174,9 @@ export default function GalleryLightbox({
 
           flex
 
-          h-12
+          h-11
 
-          w-12
+          w-11
 
           items-center
 
@@ -178,18 +184,19 @@ export default function GalleryLightbox({
 
           rounded-full
 
-          bg-white/10
+          bg-white/5
 
-          text-4xl
+          text-3xl
 
           text-white
 
           transition
 
-          hover:bg-white/20
+          hover:bg-white/15
 
           hover:text-[#D8B4A0]
         "
+
         aria-label="Previous image"
       >
         ‹
@@ -198,23 +205,26 @@ export default function GalleryLightbox({
 
 
 
-      {/* IMAGE CONTAINER */}
+
+      {/* IMAGE */}
       <div
         className="
           relative
 
-          h-[75vh]
+          h-[78vh]
 
-          sm:h-[82vh]
+          sm:h-[84vh]
 
           w-[92vw]
 
           max-w-6xl
         "
+
         onClick={(event)=>
           event.stopPropagation()
         }
       >
+
 
         <Image
           src={image.src}
@@ -228,9 +238,7 @@ export default function GalleryLightbox({
 
           priority
 
-          sizes="
-            92vw
-          "
+          sizes="92vw"
 
           className="
             object-contain
@@ -239,30 +247,20 @@ export default function GalleryLightbox({
 
 
 
-        {/* CAPTION */}
+
+
+        {/* EDITORIAL CAPTION */}
         <div
           className="
             absolute
 
-            bottom-5
+            bottom-6
 
-            left-5
+            left-6
 
-            sm:bottom-8
+            sm:bottom-10
 
-            sm:left-8
-
-            rounded-2xl
-
-            bg-black/40
-
-            px-5
-
-            py-4
-
-            sm:px-6
-
-            backdrop-blur-md
+            sm:left-10
           "
         >
 
@@ -309,6 +307,7 @@ export default function GalleryLightbox({
 
 
 
+
       {/* NEXT */}
       <button
         type="button"
@@ -330,9 +329,9 @@ export default function GalleryLightbox({
 
           flex
 
-          h-12
+          h-11
 
-          w-12
+          w-11
 
           items-center
 
@@ -340,22 +339,25 @@ export default function GalleryLightbox({
 
           rounded-full
 
-          bg-white/10
+          bg-white/5
 
-          text-4xl
+          text-3xl
 
           text-white
 
           transition
 
-          hover:bg-white/20
+          hover:bg-white/15
 
           hover:text-[#D8B4A0]
         "
+
         aria-label="Next image"
       >
         ›
       </button>
+
+
 
 
 
@@ -378,30 +380,15 @@ export default function GalleryLightbox({
 
           sm:right-8
 
-          flex
-
-          h-12
-
-          w-12
-
-          items-center
-
-          justify-center
-
-          rounded-full
-
-          bg-white/10
-
           text-3xl
 
           text-white
 
           transition
 
-          hover:bg-white/20
-
           hover:text-[#D8B4A0]
         "
+
         aria-label="Close gallery"
       >
         ×
@@ -409,41 +396,8 @@ export default function GalleryLightbox({
 
 
 
-
-
-      {/* COUNTER */}
-      <div
-        className="
-          absolute
-
-          bottom-5
-
-          right-5
-
-          sm:bottom-8
-
-          sm:right-8
-
-          rounded-full
-
-          bg-black/40
-
-          px-5
-
-          py-2
-
-          text-sm
-
-          text-white
-
-          backdrop-blur-md
-        "
-      >
-        {currentIndex + 1} / {images.length}
-      </div>
-
-
     </div>
 
   );
+
 }
