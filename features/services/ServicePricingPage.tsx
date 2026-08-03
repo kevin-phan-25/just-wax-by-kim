@@ -13,11 +13,10 @@
  * • Body category organization
  * • Dropdown service options supported
  * • Full row dropdown interaction
- * • Removed InclusiveBooking section
+ * • Replaced Select labels with Price Options
  * • Mobile optimized
  *
  * ---
- *
  */
 
 "use client";
@@ -54,12 +53,10 @@ export default function ServicePricingPage({
     );
   };
 
-
   const groupedServices = services.reduce<
     Record<string, Service[]>
   >(
     (groups, service) => {
-
       if (!groups[service.category]) {
         groups[service.category] = [];
       }
@@ -67,11 +64,9 @@ export default function ServicePricingPage({
       groups[service.category].push(service);
 
       return groups;
-
     },
     {}
   );
-
 
   const categoryOrder = [
     "Bikini",
@@ -81,13 +76,10 @@ export default function ServicePricingPage({
     "Body",
   ];
 
-
-  const orderedCategories =
-    categoryOrder.filter(
-      (category) =>
-        groupedServices[category]
-    );
-
+  const orderedCategories = categoryOrder.filter(
+    (category) =>
+      groupedServices[category]
+  );
 
   return (
     <section
@@ -95,15 +87,10 @@ export default function ServicePricingPage({
       className="
         relative
         w-full
-        overflow-hidden
-        py-12
-        sm:py-16
-        md:py-20
       "
     >
 
       {/* Background */}
-
       <div
         aria-hidden
         className="
@@ -129,9 +116,7 @@ export default function ServicePricingPage({
         "
       >
 
-
         {/* HEADER */}
-
         <header
           className="
             mx-auto
@@ -172,7 +157,6 @@ export default function ServicePricingPage({
 
 
         {/* SERVICE SECTIONS */}
-
         <div
           className="
             flex
@@ -269,7 +253,7 @@ export default function ServicePricingPage({
                               "
                             >
                               {service.options
-                                ? "Select Option"
+                                ? "Price Options"
                                 : service.duration}
                             </p>
 
@@ -285,13 +269,15 @@ export default function ServicePricingPage({
                             "
                           >
                             {service.options
-                              ? "Select"
+                              ? "View"
                               : service.price}
                           </span>
 
                         </button>
-                                                {/* DROPDOWN OPTIONS */}
 
+
+
+                        {/* DROPDOWN OPTIONS */}
                         {service.options &&
                           openOptions === service.id && (
 
@@ -386,7 +372,5 @@ export default function ServicePricingPage({
       </div>
 
     </section>
-
   );
-
 }
