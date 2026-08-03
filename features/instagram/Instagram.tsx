@@ -5,14 +5,14 @@
  * features/instagram/Instagram.tsx
  *
  * Description:
- * Standalone luxury Instagram presentation.
+ * Luxury Instagram journey presentation.
  *
  * Updates:
- * • Refined editorial spacing
- * • Simplified luxury presentation
- * • Improved visual hierarchy
- * • Matches About / FAQ / Policies architecture
- * • Mobile / iPad / desktop optimized
+ * • Shifted from gallery showcase to brand story
+ * • Added editorial storytelling spacing
+ * • Optimized collage presentation
+ * • Mobile / iPad / desktop responsive
+ * • Preserved luxury brand system
  *
  * ---
  *
@@ -22,237 +22,255 @@ import {
   INSTAGRAM_CONFIG,
 } from "./instagram.constants";
 
+
 import InstagramGrid from "./InstagramGrid";
+
 
 import FollowButton from "./FollowButton";
 
 
 export default function Instagram() {
 
-  return (
-    <section
+return (
+
+<section
+  className="
+    relative
+
+    w-full
+
+    overflow-hidden
+
+    bg-[#FBF7F4]
+  "
+>
+
+
+  {/* AMBIENT BACKGROUND */}
+  <div
+    aria-hidden
+    className="
+      pointer-events-none
+
+      absolute
+
+      inset-0
+
+      bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.22),transparent_60%)]
+    "
+  />
+
+
+
+
+  {/* CONTENT */}
+  <div
+    className="
+      relative
+
+      z-10
+
+      w-full
+
+      px-5
+
+      sm:px-8
+
+      md:px-10
+
+      lg:px-16
+
+      xl:px-24
+
+      pb-24
+
+      sm:pb-28
+
+      md:pb-36
+    "
+  >
+
+
+
+
+
+    {/* HEADER */}
+    <header
       className="
-        relative
+        mx-auto
 
-        w-full
+        flex
 
-        overflow-hidden
+        max-w-4xl
 
-        bg-[#FBF7F4]
+        flex-col
+
+        items-center
+
+        text-center
+
+        mb-14
+
+        sm:mb-16
+
+        md:mb-20
       "
     >
 
 
-      {/* AMBIENT BACKGROUND */}
-      <div
-        aria-hidden
+      <p
         className="
-          pointer-events-none
+          uppercase
 
-          absolute
+          tracking-[0.45em]
 
-          inset-0
+          text-[11px]
 
-          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
-        "
-      />
+          sm:text-xs
 
-
-
-
-
-      {/* CONTENT */}
-      <div
-        className="
-          relative
-
-          z-10
-
-          w-full
-
-          px-5
-
-          sm:px-8
-
-          md:px-10
-
-          lg:px-16
-
-          xl:px-24
-
-          pb-20
-
-          sm:pb-24
-
-          md:pb-32
+          text-[#8C5A6B]
         "
       >
+        {INSTAGRAM_CONFIG.eyebrow}
+      </p>
 
 
 
 
-        {/* HEADER */}
-        <header
-          className="
-            mx-auto
 
-            flex
+      <h1
+        className="
+          mt-6
 
-            max-w-5xl
+          font-serif
 
-            flex-col
+          text-4xl
 
-            items-center
+          sm:text-5xl
 
-            text-center
+          md:text-6xl
 
-            mb-12
+          leading-[1.05]
 
-            md:mb-14
-          "
-        >
+          tracking-[-0.04em]
 
-          <p
-            className="
-              uppercase
+          text-[#3B2A26]
+        "
+      >
+        {INSTAGRAM_CONFIG.title}
+      </h1>
 
-              tracking-[0.4em]
 
-              text-[11px]
 
-              sm:text-xs
 
-              text-[#8C5A6B]
-            "
-          >
-            {INSTAGRAM_CONFIG.eyebrow}
-          </p>
 
+      <p
+        className="
+          mt-6
 
+          max-w-3xl
 
+          text-base
 
-          <h1
-            className="
-              mt-5
+          sm:text-lg
 
-              max-w-5xl
+          leading-relaxed
 
-              font-serif
+          text-[#8C7468]
+        "
+      >
+        {INSTAGRAM_CONFIG.description}
+      </p>
 
-              text-4xl
 
-              sm:text-5xl
+    </header>
 
-              md:text-6xl
 
-              leading-[1.08]
 
-              tracking-[-0.035em]
 
-              text-[#3B2A26]
-            "
-          >
-            {INSTAGRAM_CONFIG.title}
-          </h1>
 
 
 
 
+    {/* JOURNEY COLLAGE */}
+    <div
+      className="
+        mx-auto
 
-          <p
-            className="
-              mt-5
+        w-full
 
-              max-w-3xl
+        max-w-6xl
+      "
+    >
 
-              text-sm
+      <InstagramGrid />
 
-              sm:text-base
+    </div>
 
-              md:text-lg
 
-              leading-relaxed
 
-              text-[#8C7468]
-            "
-          >
-            {INSTAGRAM_CONFIG.description}
-          </p>
 
 
-        </header>
 
 
 
 
+    {/* FOLLOW CTA */}
+    <div
+      className="
+        mt-16
 
+        sm:mt-20
 
+        md:mt-24
 
-        {/* INSTAGRAM GRID */}
-        <div
-          className="
-            w-full
-          "
-        >
-          <InstagramGrid />
-        </div>
+        flex
 
+        flex-col
 
+        items-center
 
+        gap-6
+      "
+    >
 
 
 
+      <p
+        className="
+          uppercase
 
-        {/* FOLLOW CTA */}
-        <div
-          className="
-            mt-12
+          tracking-[0.4em]
 
-            sm:mt-14
+          text-[11px]
 
-            md:mt-16
+          sm:text-xs
 
-            flex
+          font-medium
 
-            flex-col
+          text-[#9A857A]
+        "
+      >
+        Stay connected with our latest moments
+      </p>
 
-            items-center
 
-            gap-5
-          "
-        >
 
 
-          <p
-            className="
-              uppercase
 
-              tracking-[0.35em]
+      <FollowButton />
 
-              text-[11px]
 
-              sm:text-xs
 
-              font-medium
+    </div>
 
-              text-[#9A857A]
-            "
-          >
-            {INSTAGRAM_CONFIG.handle}
-          </p>
 
 
+  </div>
 
-          <FollowButton />
 
+</section>
 
-        </div>
+);
 
-
-
-      </div>
-
-
-    </section>
-  );
 }
