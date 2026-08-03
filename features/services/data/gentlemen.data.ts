@@ -1,6 +1,6 @@
 /**
  *
- * ---
+ * ---------------------------------------------------------------------------
  * File:
  * features/services/data/gentlemen.data.ts
  *
@@ -12,9 +12,11 @@
  * • Brazilian prioritized
  * • Removed gender-specific Brazilian category
  * • Organized by body area
+ * • Added Inner Thigh options
+ * • Updated Full Body pricing
  * • Prepared for compact editorial pricing layout
  *
- * ---
+ * ---------------------------------------------------------------------------
  *
  */
 
@@ -153,7 +155,6 @@ export const gentlemenServices: Service[] = [
 // BODY
 // ---------------------------------------------------------------------------
 
-
 // ARMS
 
 {
@@ -245,13 +246,13 @@ export const gentlemenServices: Service[] = [
   gender: "gentlemen",
 },
 
-
-
-// HANDS & FEET
+// ---------------------------------------------------------------------------
+// HANDS + FEET
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-feet-toes",
-  title: "Feet & Toes",
+  title: "Feet + Toes",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
@@ -260,7 +261,7 @@ export const gentlemenServices: Service[] = [
 
 {
   id: "gentlemen-hands-fingers",
-  title: "Hands & Fingers",
+  title: "Hands + Fingers",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
@@ -269,7 +270,9 @@ export const gentlemenServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // LEGS
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-full-legs",
@@ -291,7 +294,38 @@ export const gentlemenServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
+// INNER THIGH
+// ---------------------------------------------------------------------------
+
+{
+  id: "gentlemen-inner-thigh",
+  title: "Inner Thigh",
+  category: "Body",
+  price: "Select Option",
+  duration: "",
+  gender: "gentlemen",
+
+  options: [
+    {
+      label: "Partial Inner Thigh",
+      price: "$30",
+      duration: "10 minutes",
+    },
+
+    {
+      label: "Full Inner Thigh",
+      price: "$40",
+      duration: "15 minutes",
+    },
+  ],
+},
+
+
+
+// ---------------------------------------------------------------------------
 // SHOULDERS
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-shoulders",
@@ -304,7 +338,9 @@ export const gentlemenServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // STOMACH
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-stomach",
@@ -326,7 +362,9 @@ export const gentlemenServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // UNDERARMS
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-underarms",
@@ -339,13 +377,15 @@ export const gentlemenServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // FULL BODY LAST
+// ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-full-body",
   title: "Full Body",
   category: "Body",
-  price: "$600",
+  price: "$595",
   duration: "4 hours",
   gender: "gentlemen",
 },
