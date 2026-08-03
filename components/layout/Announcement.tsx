@@ -1,4 +1,4 @@
- /**
+/**
   ---
   File:
   components/layout/Announcement.tsx
@@ -10,11 +10,11 @@
   • Uses slogan_banner.jpg
   • Does not affect page layout
   • Floats between navbar and hero
-  • Expanded image visibility
-  • Reduced aggressive crop
+  • Increased image zoom to 1.50
+  • Preserves floating luxury pill style
   • Homepage-only display handled by layout
   ---
- */
+*/
 
 "use client";
 
@@ -59,11 +59,11 @@ export default function Announcement() {
 
           xl:w-[55%]
 
-          h-[65px]
+          h-[55px]
 
-          sm:h-[75px]
+          sm:h-[65px]
 
-          md:h-[85px]
+          md:h-[75px]
 
           overflow-hidden
 
@@ -86,7 +86,7 @@ export default function Announcement() {
 
             object-center
 
-            scale-[1.05]
+            scale-[1.50]
           "
         />
       </div>
