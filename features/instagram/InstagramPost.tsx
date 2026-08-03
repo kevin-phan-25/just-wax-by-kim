@@ -5,15 +5,13 @@
  * features/instagram/InstagramPost.tsx
  *
  * Description:
- * Luxury editorial Instagram image.
+ * Editorial Instagram journey photo card.
  *
  * Updates:
- * • Simplified luxury presentation
- * • Removed excessive hover effects
- * • Removed decorative frame
- * • Added subtle editorial image treatment
- * • Matched Gallery / About styling
- * • Responsive mobile / iPad / desktop
+ * • Added scrapbook inspired styling
+ * • Removed gallery feeling
+ * • Added personality and warmth
+ * • Responsive luxury presentation
  *
  * ---
  *
@@ -28,60 +26,79 @@ import type {
 
 interface Props {
   post: Post;
+  index: number;
 }
 
 
 export default function InstagramPost({
   post,
+  index,
 }: Props) {
 
-  return (
-    <a
-      href={
-        post.href ??
-        "https://instagram.com/justwaxbykim"
+
+return (
+
+  <a
+    href={
+      post.href ??
+      "https://instagram.com/justwaxbykim"
+    }
+
+    target="_blank"
+
+    rel="noopener noreferrer"
+
+    className={`
+      group
+
+      block
+
+      overflow-hidden
+
+      rounded-[2rem]
+
+      border
+
+      border-[#E8DDD8]
+
+      bg-white
+
+      p-3
+
+      shadow-[0_25px_60px_rgba(59,42,38,0.10)]
+
+      transition-all
+
+      duration-500
+
+      hover:-translate-y-2
+
+      ${
+        index % 2 === 0
+          ? "rotate-[-2deg]"
+          : "rotate-[2deg]"
       }
 
-      target="_blank"
+      hover:rotate-0
+    `}
+  >
 
-      rel="noopener noreferrer"
-
-      aria-label={`View ${post.alt} on Instagram`}
-
+    <div
       className="
-        group
-
         relative
-
-        block
 
         aspect-square
 
-        w-full
-
         overflow-hidden
 
-        rounded-[2rem]
-
-        border
-
-        border-[#E8DDD8]
+        rounded-[1.5rem]
 
         bg-[#FCF8F3]
-
-        transition-all
-
-        duration-500
-
-        hover:-translate-y-0.5
-
-        hover:shadow-[0_20px_50px_rgba(59,42,38,0.10)]
       "
     >
 
-
-      {/* IMAGE */}
       <Image
+
         src={post.image}
 
         alt={post.alt}
@@ -91,7 +108,7 @@ export default function InstagramPost({
         sizes="
           (max-width:640px) 100vw,
           (max-width:1024px) 50vw,
-          25vw
+          35vw
         "
 
         className="
@@ -101,23 +118,25 @@ export default function InstagramPost({
 
           duration-700
 
-          ease-out
-
-          group-hover:scale-[1.04]
+          group-hover:scale-105
         "
       />
 
 
 
-      {/* SOFT EDITORIAL OVERLAY */}
       <div
-        aria-hidden
         className="
           absolute
 
           inset-0
 
-          bg-[#3B2A26]/10
+          bg-gradient-to-t
+
+          from-[#3B2A26]/25
+
+          via-transparent
+
+          to-transparent
 
           opacity-0
 
@@ -129,48 +148,31 @@ export default function InstagramPost({
         "
       />
 
+    </div>
 
 
-      {/* BRAND LABEL */}
-      <div
-        className="
-          absolute
 
-          bottom-5
+    <p
+      className="
+        mt-4
 
-          left-5
+        text-center
 
-          opacity-0
+        font-serif
 
-          translate-y-2
+        text-sm
 
-          transition-all
+        tracking-wide
 
-          duration-500
-
-          group-hover:translate-y-0
-
-          group-hover:opacity-100
-        "
-      >
-
-        <p
-          className="
-            uppercase
-
-            tracking-[0.3em]
-
-            text-[10px]
-
-            text-white
-          "
-        >
-          Just Wax by Kim
-        </p>
-
-      </div>
+        text-[#8C5A6B]
+      "
+    >
+      Just Wax by Kim
+    </p>
 
 
-    </a>
-  );
+  </a>
+
+);
+
 }
