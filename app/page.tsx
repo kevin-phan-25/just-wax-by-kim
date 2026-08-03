@@ -27,8 +27,6 @@ import Hero from "@/features/hero";
 import About from "@/features/about";
 
 import { ServicePricingPage } from "@/features/services";
-import { ladiesServices } from "@/features/services/data/ladies.data";
-
 import { Booking } from "@/features/booking";
 
 
