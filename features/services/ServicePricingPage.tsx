@@ -13,8 +13,7 @@
  * • Body category organization
  * • Dropdown service options supported
  * • Full row dropdown interaction
- * • InclusiveBooking component added
- * • Removed duplicate footer text
+ * • Removed InclusiveBooking section
  * • Mobile optimized
  *
  * ---
@@ -25,7 +24,6 @@
 
 import { useState } from "react";
 import type { Service } from "./services.types";
-import InclusiveBooking from "./InclusiveBooking";
 
 interface Props {
   id?: string;
@@ -48,34 +46,31 @@ export default function ServicePricingPage({
   description,
   services,
 }: Props) {
-  const [openOptions, setOpenOptions] =
-    useState<string | null>(null);
-
+  const [openOptions, setOpenOptions] = useState<string | null>(null);
 
   const toggleOptions = (serviceId: string) => {
     setOpenOptions(
-      openOptions === serviceId
-        ? null
-        : serviceId
+      openOptions === serviceId ? null : serviceId
     );
   };
 
 
-  const groupedServices =
-    services.reduce<Record<string, Service[]>>(
-      (groups, service) => {
+  const groupedServices = services.reduce<
+    Record<string, Service[]>
+  >(
+    (groups, service) => {
 
-        if (!groups[service.category]) {
-          groups[service.category] = [];
-        }
+      if (!groups[service.category]) {
+        groups[service.category] = [];
+      }
 
-        groups[service.category].push(service);
+      groups[service.category].push(service);
 
-        return groups;
+      return groups;
 
-      },
-      {}
-    );
+    },
+    {}
+  );
 
 
   const categoryOrder = [
@@ -108,6 +103,7 @@ export default function ServicePricingPage({
     >
 
       {/* Background */}
+
       <div
         aria-hidden
         className="
@@ -175,8 +171,7 @@ export default function ServicePricingPage({
 
 
 
-
-        {/* SERVICES */}
+        {/* SERVICE SECTIONS */}
 
         <div
           className="
@@ -221,8 +216,8 @@ export default function ServicePricingPage({
                   "
                 >
 
-                  {groupedServices[category]
-                    .map((service) => (
+                  {groupedServices[category].map(
+                    (service) => (
 
                       <div
                         key={service.id}
@@ -232,7 +227,6 @@ export default function ServicePricingPage({
                           py-2
                         "
                       >
-
 
                         <button
                           type="button"
@@ -279,9 +273,7 @@ export default function ServicePricingPage({
                                 : service.duration}
                             </p>
 
-
                           </div>
-
 
 
                           <span
@@ -297,13 +289,8 @@ export default function ServicePricingPage({
                               : service.price}
                           </span>
 
-
                         </button>
-
-
-
-
-                        {/* OPTIONS */}
+                                                {/* DROPDOWN OPTIONS */}
 
                         {service.options &&
                           openOptions === service.id && (
@@ -344,6 +331,7 @@ export default function ServicePricingPage({
 
 
                                       {option.duration && (
+
                                         <p
                                           className="
                                             text-[11px]
@@ -352,6 +340,7 @@ export default function ServicePricingPage({
                                         >
                                           {option.duration}
                                         </p>
+
                                       )}
 
                                     </div>
@@ -376,11 +365,11 @@ export default function ServicePricingPage({
 
                           )}
 
-
                       </div>
 
-                    ))}
+                    )
 
+                  )}
 
                 </div>
 
@@ -388,12 +377,16 @@ export default function ServicePricingPage({
               </section>
 
             )
+
           )}
 
         </div>
 
+
       </div>
 
     </section>
+
   );
+
 }
