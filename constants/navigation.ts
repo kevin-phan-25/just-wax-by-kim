@@ -11,7 +11,8 @@
  * • Main nav: Home, About, Services, Book Now, Studio Exploration
  * • Studio Exploration dropdown pages
  * • Preserved Services dropdown
- * • Added consistent homepage anchors
+ * • Inclusive service descriptions
+ * • Luxury editorial wording
  *
  * ---
  *
@@ -50,24 +51,26 @@ export const navigation: readonly NavigationItem[] = [
       {
         label: "Ladies Waxing",
         href: "/services/ladies",
-        description: "Refined care for her",
+        description: "Personalized waxing with comfort and care",
       },
 
 
       {
         label: "Gentlemen Waxing",
         href: "/services/gentlemen",
-        description: "Tailored care for him",
+        description: "Professional waxing designed around you",
       },
 
     ],
   },
 
 
+
   {
     label: "Book Now",
     href: "/#booking",
   },
+
 
 
   {
@@ -86,35 +89,35 @@ export const navigation: readonly NavigationItem[] = [
       {
         label: "Instagram",
         href: "/instagram",
-        description: "Daily moments & inspiration",
+        description: "Studio moments and inspiration",
       },
 
 
       {
         label: "Testimonials",
         href: "/testimonials",
-        description: "Words from our clients",
+        description: "Experiences from our clients",
       },
 
 
       {
         label: "FAQ",
         href: "/faq",
-        description: "Helpful answers, simply put",
+        description: "Helpful answers before your visit",
       },
 
 
       {
         label: "Policies",
         href: "/policies",
-        description: "Appointment guidelines & care",
+        description: "Appointment guidelines and care",
       },
 
 
       {
         label: "Contact",
         href: "/contact",
-        description: "We'd love to hear from you",
+        description: "We would love to hear from you",
       },
 
 
@@ -123,7 +126,6 @@ export const navigation: readonly NavigationItem[] = [
         href: "/privacy-policy",
         description: "How we protect your information",
       },
-
 
     ],
   },
