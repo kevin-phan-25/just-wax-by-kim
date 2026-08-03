@@ -1,14 +1,15 @@
-export interface Service {
-  id: string;
-  title: string;
-  category: string;
-  price: string;
-  duration: string;
-  gender: "ladies" | "gentlemen";
+/**
+ * -------------------------------------------------------------------
+ * File:
+ * features/services/index.ts
+ *
+ * Description:
+ * Public exports for services feature.
+ * -------------------------------------------------------------------
+ */
 
-  options?: {
-    label: string;
-    price: string;
-    duration?: string;
-  }[];
-}
+
+export { default as ServicePricingPage } from "./ServicePricingPage";
+
+
+export type { Service } from "./services.types";
