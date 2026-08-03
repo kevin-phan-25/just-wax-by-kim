@@ -1,21 +1,22 @@
 /**
+ *
  * ---
  * File:
  * features/instagram/InstagramPost.tsx
  *
  * Description:
- * Luxury Instagram gallery image card.
+ * Luxury editorial Instagram image.
  *
  * Updates:
- * • Responsive Instagram presentation
- * • Premium editorial image treatment
- * • Preserved square aspect ratio
- * • Improved hover interaction
- * • Optimized Next Image rendering
- * • Matches Gallery styling system
- * • Phone / iPad / desktop ready
+ * • Simplified luxury presentation
+ * • Removed excessive hover effects
+ * • Removed decorative frame
+ * • Added subtle editorial image treatment
+ * • Matched Gallery / About styling
+ * • Responsive mobile / iPad / desktop
  *
  * ---
+ *
  */
 
 import Image from "next/image";
@@ -45,12 +46,11 @@ export default function InstagramPost({
 
       rel="noopener noreferrer"
 
-      aria-label={
-        `View ${post.alt} on Instagram`
-      }
+      aria-label={`View ${post.alt} on Instagram`}
 
       className="
         group
+
         relative
 
         block
@@ -61,22 +61,24 @@ export default function InstagramPost({
 
         overflow-hidden
 
-        rounded-[28px]
-        md:rounded-[32px]
+        rounded-[2rem]
 
         border
+
         border-[#E8DDD8]
 
         bg-[#FCF8F3]
 
         transition-all
+
         duration-500
 
-        hover:-translate-y-1
+        hover:-translate-y-0.5
 
-        hover:shadow-[0_24px_60px_rgba(59,42,38,0.12)]
+        hover:shadow-[0_20px_50px_rgba(59,42,38,0.10)]
       "
     >
+
 
       {/* IMAGE */}
       <Image
@@ -96,30 +98,31 @@ export default function InstagramPost({
           object-cover
 
           transition-transform
+
           duration-700
+
           ease-out
 
-          group-hover:scale-[1.05]
+          group-hover:scale-[1.04]
         "
       />
 
 
 
-      {/* SOFT LUXURY OVERLAY */}
+      {/* SOFT EDITORIAL OVERLAY */}
       <div
         aria-hidden
         className="
           absolute
+
           inset-0
 
-          bg-gradient-to-t
-          from-[#3B2A26]/35
-          via-transparent
-          to-transparent
+          bg-[#3B2A26]/10
 
           opacity-0
 
           transition-opacity
+
           duration-500
 
           group-hover:opacity-100
@@ -128,47 +131,21 @@ export default function InstagramPost({
 
 
 
-      {/* INNER FRAME */}
-      <div
-        aria-hidden
-        className="
-          absolute
-          inset-4
-
-          rounded-[22px]
-
-          border
-          border-white/40
-
-          opacity-0
-
-          scale-95
-
-          transition-all
-          duration-500
-
-          group-hover:scale-100
-
-          group-hover:opacity-100
-        "
-      />
-
-
-
-      {/* INSTAGRAM LABEL */}
+      {/* BRAND LABEL */}
       <div
         className="
           absolute
 
-          bottom-6
-          left-6
-          right-6
+          bottom-5
 
-          translate-y-4
+          left-5
 
           opacity-0
 
+          translate-y-2
+
           transition-all
+
           duration-500
 
           group-hover:translate-y-0
@@ -185,7 +162,7 @@ export default function InstagramPost({
 
             text-[10px]
 
-            text-[#D8B4A0]
+            text-white
           "
         >
           Just Wax by Kim
