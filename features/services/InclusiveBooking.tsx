@@ -9,6 +9,7 @@
  *
  * Updates:
  * • Removed heading title
+ * • Removed divider accent
  * • Luxury editorial style
  * • Reusable across pricing pages
  * • Preserved approved booking language
@@ -34,10 +35,8 @@ export default function InclusiveBooking() {
         className="
           mx-auto
           max-w-3xl
-          border-t
-          border-[#E8DDD8]
-          pt-10
-          sm:pt-12
+          pt-6
+          sm:pt-8
         "
       >
 
@@ -57,7 +56,6 @@ export default function InclusiveBooking() {
           <br />
           appointment time and pricing.
         </p>
-
 
       </div>
 
