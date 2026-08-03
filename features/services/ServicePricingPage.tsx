@@ -5,277 +5,278 @@
  * features/services/ServicePricingPage.tsx
  *
  * Description:
- * Luxury compact service pricing menu.
+ * Luxury service pricing page.
  *
  * Updates:
- * • Restored section id support
- * • Removed oversized cards
- * • Removed collection styling
- * • More prices visible per screen
- * • Responsive phone / iPad / desktop
- * • Category based organization
+ * • Added id support
+ * • Compact luxury menu layout
+ * • Reduced mobile scrolling
+ * • Category separation
+ * • Removed pricing disclaimer
  *
  * ---
  *
  */
+
 
 import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
 
 
 interface Props {
+
   id?: string;
-  title: string;
-  description: string;
-  services: Service[];
+
+  title:string;
+
+  description:string;
+
+  services:Service[];
+
 }
 
 
 
-const categoryTitles: Record<string, string> = {
+const categoryTitles: Record<string,string> = {
 
   "Brazilian Waxing":
     "Brazilian & Bikini",
 
   "Male Brazilian":
-    "Men's Brazilian",
-
-  Body:
-    "Body",
+    "Male Brazilian",
 
   Face:
     "Face",
+
+  Body:
+    "Body",
 
 };
 
 
 
 export default function ServicePricingPage({
+
   id,
+
   title,
+
   description,
+
   services,
-}: Props) {
 
+}:Props){
 
-  const groupedServices =
-    services.reduce<Record<string, Service[]>>(
-      (groups, service) => {
 
-        if (!groups[service.category]) {
-          groups[service.category] = [];
-        }
+const groupedServices =
+services.reduce<Record<string,Service[]>>(
+(groups,service)=>{
 
-        groups[service.category].push(service);
 
-        return groups;
+if(!groups[service.category]){
+  groups[service.category]=[];
+}
 
-      },
-      {}
-    );
 
+groups[service.category].push(service);
 
 
-  /*
-   * Controls category display order.
-   * Service data sorting will be handled later.
-   */
+return groups;
 
-  const categoryOrder = [
-    "Brazilian Waxing",
-    "Male Brazilian",
-    "Body",
-    "Face",
-  ];
 
+},{});
 
 
-  const orderedCategories =
-    categoryOrder.filter(
-      (category) =>
-        groupedServices[category]
-    );
 
+const categoryOrder = [
 
+"Brazilian Waxing",
 
-  return (
+"Male Brazilian",
 
-    <div
-      id={id}
-      className="
-        relative
+"Face",
 
-        z-10
+"Body",
 
-        w-full
+];
 
-        px-5
 
-        sm:px-8
 
-        md:px-12
+const orderedCategories =
+categoryOrder.filter(
+(category)=>groupedServices[category]
+);
 
-        lg:px-20
 
-        xl:px-28
-      "
-    >
 
+return (
 
-      {/* PAGE HEADER */}
+<section
+id={id}
 
-      <header
-        className="
-          mx-auto
+className="
+relative
 
-          max-w-4xl
+w-full
 
-          text-center
+px-5
 
-          mb-10
+sm:px-8
 
-          sm:mb-12
+md:px-12
 
-          md:mb-14
-        "
-      >
+lg:px-20
 
-        <h1
-          className="
-            font-serif
+py-16
 
-            text-3xl
+sm:py-20
+"
+>
 
-            sm:text-4xl
 
-            md:text-5xl
+{/* BACKGROUND */}
 
-            leading-tight
+<div
+aria-hidden
+className="
+absolute
+inset-0
 
-            tracking-[-0.03em]
+bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
+"
+/>
 
-            text-[#3B2A26]
-          "
-        >
-          {title}
-        </h1>
 
 
+<div
+className="
+relative
+z-10
+"
+>
 
-        <p
-          className="
-            mt-3
 
-            mx-auto
+<header
+className="
+mx-auto
 
-            max-w-2xl
+max-w-4xl
 
-            text-sm
+text-center
 
-            sm:text-base
+mb-10
 
-            leading-relaxed
+sm:mb-14
+"
+>
 
-            text-[#8C7468]
-          "
-        >
-          {description}
-        </p>
 
+<h1
+className="
+font-serif
 
-      </header>
+text-3xl
 
+sm:text-4xl
 
+md:text-5xl
 
+leading-tight
 
+text-[#3B2A26]
+"
+>
+{title}
+</h1>
 
-      {/* SERVICE CATEGORIES */}
 
-      <div
-        className="
-          flex
+<p
+className="
+mt-3
 
-          flex-col
+text-sm
 
-          gap-10
+sm:text-base
 
-          sm:gap-12
+leading-relaxed
 
-          md:gap-14
-        "
-      >
+text-[#8C7468]
+"
+>
+{description}
+</p>
 
-        {orderedCategories.map(
-          (category) => (
 
-            <section
-              key={category}
-              className="
-                w-full
-              "
-            >
+</header>
 
 
-              {/* CATEGORY HEADER */}
 
-              <header
-                className="
-                  mb-4
+<div
+className="
+flex
 
-                  sm:mb-6
+flex-col
 
-                  text-center
-                "
-              >
+gap-10
 
-                <h2
-                  className="
-                    font-serif
+sm:gap-14
+"
+>
 
-                    text-2xl
 
-                    sm:text-3xl
+{orderedCategories.map((category)=>(
 
-                    md:text-4xl
 
-                    tracking-[-0.03em]
+<section
+key={category}
+>
 
-                    text-[#3B2A26]
-                  "
-                >
-                  {
-                    categoryTitles[category]
-                    ?? category
-                  }
-                </h2>
 
+<h2
+className="
+mb-4
 
-              </header>
+font-serif
 
+text-xl
 
+sm:text-2xl
 
+text-[#3B2A26]
 
+border-b
 
-              {/* PRICE LIST */}
+border-[#D8B4A0]
 
-              <ServiceGrid
-                services={
-                  groupedServices[category]
-                }
-              />
+pb-2
+"
+>
+{categoryTitles[category] ?? category}
+</h2>
 
 
-            </section>
 
-          )
-        )}
+<ServiceGrid
+services={groupedServices[category]}
+/>
 
 
-      </div>
 
+</section>
 
-    </div>
 
-  );
+))}
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+);
 
 }
