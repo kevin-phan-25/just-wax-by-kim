@@ -8,14 +8,14 @@
  * Luxury editorial policy section.
  *
  * Updates:
- * • Removed playful heart styling
- * • Added refined luxury accents
- * • Improved editorial spacing
- * • Enhanced typography hierarchy
- * • Improved mobile readability
+ * • Unified brand typography
+ * • Matched About / FAQ / Privacy styling
+ * • Removed mixed font appearance
+ * • Refined spacing rhythm
  * • Preserved responsive behavior
  *
  * ---
+ *
  */
 
 import type { PolicySection } from "./policies.types";
@@ -34,15 +34,14 @@ export default function PolicySectionCard({
       "
     >
 
+
       {/* TITLE */}
       <h2
         className="
           font-serif
 
           text-2xl
-
           sm:text-3xl
-
           md:text-4xl
 
           leading-tight
@@ -57,28 +56,34 @@ export default function PolicySectionCard({
 
 
 
+
+
       {/* INTRO */}
       {section.intro && (
+
         <p
           className="
             mt-5
+            sm:mt-6
 
-            sm:mt-7
+            font-sans
 
             text-sm
-
             sm:text-base
+            md:text-lg
 
-            leading-7
+            leading-[1.85]
 
-            sm:leading-8
+            tracking-[0.01em]
 
             text-[#6F5A50]
           "
         >
           {section.intro}
         </p>
+
       )}
+
 
 
 
@@ -86,26 +91,29 @@ export default function PolicySectionCard({
 
       {/* PARAGRAPHS */}
       {section.paragraphs?.map((paragraph) => (
+
         <p
-          key={paragraph.slice(0, 32)}
+          key={paragraph.slice(0,32)}
+
           className="
             mt-5
 
-            sm:mt-6
+            font-sans
 
             text-sm
-
             sm:text-base
+            md:text-lg
 
-            leading-7
+            leading-[1.85]
 
-            sm:leading-8
+            tracking-[0.01em]
 
             text-[#6F5A50]
           "
         >
           {paragraph}
         </p>
+
       ))}
 
 
@@ -113,22 +121,23 @@ export default function PolicySectionCard({
 
 
 
-      {/* EDITORIAL LIST */}
+
+      {/* BULLET LIST */}
       {section.bullets && (
+
         <ul
           className="
             mt-7
 
-            sm:mt-8
-
             space-y-4
-
-            sm:space-y-5
           "
         >
-          {section.bullets.map((bullet) => (
+
+          {section.bullets.map((bullet)=>(
+
             <li
-              key={bullet.slice(0, 32)}
+              key={bullet.slice(0,32)}
+
               className="
                 flex
 
@@ -136,51 +145,52 @@ export default function PolicySectionCard({
 
                 gap-3
 
-                sm:gap-4
+                font-sans
 
                 text-sm
-
                 sm:text-base
+                md:text-lg
 
-                leading-7
+                leading-[1.8]
 
-                sm:leading-8
+                tracking-[0.01em]
 
                 text-[#6F5A50]
               "
             >
 
-              {/* LUXURY ACCENT */}
+
+              {/* SUBTLE ACCENT */}
               <span
                 className="
-                  mt-[0.45rem]
+                  mt-1
 
                   shrink-0
 
-                  text-[10px]
+                  font-serif
 
-                  sm:text-xs
+                  text-base
 
                   text-[#8C5A6B]
                 "
               >
-                ✦
+                ♡
               </span>
 
 
 
-              {/* TEXT */}
-              <span
-                className="
-                  flex-1
-                "
-              >
+
+              <span>
                 {bullet}
               </span>
 
+
             </li>
+
           ))}
+
         </ul>
+
       )}
 
 
@@ -190,28 +200,31 @@ export default function PolicySectionCard({
 
       {/* NOTE */}
       {section.note && (
+
         <p
           className="
             mt-7
 
-            sm:mt-9
+            font-sans
 
             text-sm
-
             sm:text-base
 
             italic
 
-            leading-7
+            leading-[1.85]
 
-            sm:leading-8
+            tracking-[0.01em]
 
             text-[#8C7468]
           "
         >
           {section.note}
         </p>
+
       )}
+
+
 
     </article>
   );
