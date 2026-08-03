@@ -3,13 +3,15 @@
  * File:
  * features/services/ServiceCard.tsx
  *
- * Luxury Editorial Service Card
+ * Description:
+ * Luxury editorial service row.
  *
- * • No description
- * • Elegant pricing
- * • Editorial spa styling
- * • Equal-height cards
- * • Responsive
+ * Updates:
+ * • Removed bubble card design
+ * • Removed descriptions
+ * • Spa menu inspired layout
+ * • Elegant pricing hierarchy
+ * • Mobile friendly
  * ---------------------------------------------------
  */
 
@@ -26,119 +28,92 @@ export default function ServiceCard({
     <article
       className="
         flex
-        h-full
+
         flex-col
 
-        rounded-[30px]
+        gap-4
 
-        border
-        border-[#E8DDD8]
+        py-8
 
-        bg-white
-
-        px-8
-        py-9
+        sm:py-10
 
         transition-all
+
         duration-300
 
-        hover:-translate-y-1
-        hover:shadow-[0_18px_40px_rgba(59,42,38,0.06)]
+        sm:flex-row
+
+        sm:items-center
+
+        sm:justify-between
       "
     >
-      {/* CATEGORY */}
-      <p
-        className="
-          uppercase
-          tracking-[0.28em]
-          text-[10px]
-          text-[#8C5A6B]
-        "
-      >
-        {service.category}
-      </p>
 
-      {/* TITLE */}
-      <h3
-        className="
-          mt-3
+      {/* LEFT SIDE */}
+      <div>
 
-          font-serif
-
-          text-2xl
-          sm:text-[30px]
-
-          leading-tight
-
-          text-[#3B2A26]
-        "
-      >
-        {service.title}
-      </h3>
-
-      {/* DURATION */}
-      <p
-        className="
-          mt-5
-
-          text-sm
-
-          tracking-[0.05em]
-
-          text-[#8C7468]
-        "
-      >
-        {service.duration}
-      </p>
-
-      {/* Divider */}
-      <div
-        className="
-          mt-auto
-          pt-8
-        "
-      >
-        <div className="border-t border-[#E8DDD8]" />
-
-        <div
+        <h3
           className="
-            mt-6
+            font-serif
 
-            flex
-            items-center
-            justify-between
+            text-2xl
+
+            sm:text-3xl
+
+            leading-tight
+
+            tracking-[-0.02em]
+
+            text-[#3B2A26]
           "
         >
-          <span
-            className="
-              uppercase
+          {service.title}
+        </h3>
 
-              tracking-[0.25em]
 
-              text-[10px]
+        <p
+          className="
+            mt-3
 
-              text-[#8C7468]
-            "
-          >
-            Starting at
-          </span>
+            text-sm
 
-          <span
-            className="
-              font-serif
+            tracking-[0.08em]
 
-              text-[34px]
-              sm:text-[38px]
+            text-[#8C7468]
+          "
+        >
+          {service.duration}
+        </p>
 
-              leading-none
-
-              text-[#3B2A26]
-            "
-          >
-            {service.price}
-          </span>
-        </div>
       </div>
+
+
+
+      {/* PRICE */}
+      <div
+        className="
+          sm:text-right
+        "
+      >
+
+        <span
+          className="
+            font-serif
+
+            text-3xl
+
+            sm:text-4xl
+
+            tracking-[-0.02em]
+
+            text-[#8C5A6B]
+          "
+        >
+          {service.price}
+        </span>
+
+      </div>
+
     </article>
   );
 }
