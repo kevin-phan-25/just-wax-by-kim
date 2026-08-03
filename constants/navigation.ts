@@ -51,14 +51,14 @@ export const navigation: readonly NavigationItem[] = [
       {
         label: "Ladies Waxing",
         href: "/services/ladies",
-        description: "Personalized waxing with comfort and care",
+        description: "Professional waxing services, tailored to you",
       },
 
 
       {
         label: "Gentlemen Waxing",
         href: "/services/gentlemen",
-        description: "Professional waxing designed around you",
+        description: "Professional waxing services, tailored to you",
       },
 
     ],
