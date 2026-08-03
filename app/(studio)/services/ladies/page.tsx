@@ -30,12 +30,6 @@ export default function LadiesServicesPage() {
         comfort, and personalized care.
       "
 
-      anatomyNote="
-        For clients with vulva anatomy. Services are booked
-        based on the anatomy being waxed. If you’re unsure
-        which appointment to select, please contact me.
-      "
-
       services={ladiesServices}
     />
   );
