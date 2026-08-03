@@ -30,13 +30,6 @@ export default function GentlemenServicesPage() {
         confidence, and personalized care.
       "
 
-      anatomyNote="
-        For clients with penis & scrotum anatomy. Services
-        are booked based on the anatomy being waxed. If
-        you’re unsure which appointment to select, please
-        contact me.
-      "
-
       services={gentlemenServices}
     />
   );
