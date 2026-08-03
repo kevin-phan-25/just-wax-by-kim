@@ -8,10 +8,10 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Added luxury floating effect
- * • Added soft ambient shadow
- * • Added subtle image movement
- * • Added premium light reflection
+ * • Removed distracting shine animation
+ * • Added subtle luxury depth
+ * • Added soft ambient glow
+ * • Added gentle image movement
  * • Preserved floating layout
  *
  * ---
@@ -44,8 +44,6 @@ export default function Announcement() {
         flex
 
         justify-center
-
-        animate-[pulse_6s_ease-in-out_infinite]
       "
     >
       <div
@@ -72,11 +70,13 @@ export default function Announcement() {
 
           rounded-full
 
-          shadow-[0_25px_70px_-25px_rgba(140,90,107,0.45)]
+          shadow-[0_25px_80px_-25px_rgba(140,90,107,0.45)]
 
           ring-1
 
           ring-[#E8C8BC]/70
+
+          animate-[float_7s_ease-in-out_infinite]
         "
       >
 
@@ -98,39 +98,36 @@ export default function Announcement() {
 
             scale-105
 
-            transition-transform
-
-            duration-[12000ms]
-
-            ease-in-out
-
-            hover:scale-110
-          "
-        />
-
-
-        {/* Soft Luxury Shine */}
-        <div
-          className="
-            absolute
-
-            inset-0
-
-            bg-gradient-to-r
-
-            from-transparent
-
-            via-white/30
-
-            to-transparent
-
-            -translate-x-full
-
-            animate-[shine_8s_ease-in-out_infinite]
+            animate-[luxuryZoom_14s_ease-in-out_infinite]
           "
         />
 
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-4px);
+          }
+        }
+
+        @keyframes luxuryZoom {
+          0%,
+          100% {
+            transform: scale(1.05);
+          }
+
+          50% {
+            transform: scale(1.08);
+          }
+        }
+      `}</style>
+
     </div>
   );
 }
