@@ -8,15 +8,14 @@
  * Ladies waxing service catalog.
  *
  * Updates:
- * • Reordered by service category
- * • Brazilian services prioritized
- * • Grouped comparable body services together
- * • Added Nipples and Stomach Strip services
- * • Updated pricing catalog
- * • Removed individual service descriptions
- * • Maintained reusable service structure
+ * • Inclusive service language
+ * • Brazilian prioritized
+ * • Removed unnecessary service labels
+ * • Organized by body area
+ * • Prepared for compact editorial pricing layout
  *
  * ---
+ *
  */
 
 import type { Service } from "../services.types";
@@ -25,13 +24,18 @@ import type { Service } from "../services.types";
 /**
  * Ladies landing page configuration
  */
-export const ladiesServicePage = {
-  image: "/images/services/ladies-view-pricing.jpg",
 
-  title: "Ladies Waxing",
+export const ladiesServicePage = {
+
+  image:
+    "/images/services/ladies-view-pricing.jpg",
+
+  title:
+    "Ladies Waxing",
 
   description:
-    "Premium waxing services created with precision, comfort, and confidence.",
+    "Professional waxing services designed for comfort, confidence, and exceptional care.",
+
 };
 
 
@@ -43,14 +47,15 @@ export const ladiesServicePage = {
 export const ladiesServices: Service[] = [
 
 
+
 // ---------------------------------------------------------------------------
-// BRAZILIAN WAXING
+// BRAZILIAN
 // ---------------------------------------------------------------------------
 
 {
   id: "ladies-new-client-brazilian",
   title: "New Client Brazilian",
-  category: "Brazilian Waxing",
+  category: "Brazilian",
   price: "$80",
   duration: "30 minutes",
   gender: "ladies",
@@ -59,7 +64,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-repeat-brazilian",
   title: "Repeat Brazilian",
-  category: "Brazilian Waxing",
+  category: "Brazilian",
   price: "$75",
   duration: "20 minutes",
   gender: "ladies",
@@ -68,7 +73,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-extended-brazilian",
   title: "Extended Brazilian",
-  category: "Brazilian Waxing",
+  category: "Brazilian",
   price: "$68",
   duration: "20 minutes",
   gender: "ladies",
@@ -77,7 +82,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-standard-brazilian",
   title: "Standard Brazilian",
-  category: "Brazilian Waxing",
+  category: "Brazilian",
   price: "$53",
   duration: "15 minutes",
   gender: "ladies",
@@ -86,7 +91,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-buttocks",
   title: "Buttocks",
-  category: "Brazilian Waxing",
+  category: "Brazilian",
   price: "$40",
   duration: "10 minutes",
   gender: "ladies",
@@ -94,8 +99,8 @@ export const ladiesServices: Service[] = [
 
 {
   id: "ladies-butt-strip",
-  title: "Butt Strip (Stand-Alone Service)",
-  category: "Brazilian Waxing",
+  title: "Butt Strip",
+  category: "Brazilian",
   price: "$30",
   duration: "10 minutes",
   gender: "ladies",
@@ -103,8 +108,8 @@ export const ladiesServices: Service[] = [
 
 {
   id: "ladies-inner-buttocks",
-  title: "Inner Buttocks (Add-On Only)",
-  category: "Brazilian Waxing",
+  title: "Inner Buttocks",
+  category: "Brazilian",
   price: "$15",
   duration: "5 minutes",
   gender: "ladies",
@@ -163,7 +168,7 @@ export const ladiesServices: Service[] = [
 
 {
   id: "ladies-jawline",
-  title: "Jawlines",
+  title: "Jawline",
   category: "Face",
   price: "$20",
   duration: "10 minutes",
@@ -212,6 +217,7 @@ export const ladiesServices: Service[] = [
 // BODY
 // ---------------------------------------------------------------------------
 
+
 // ARMS
 
 {
@@ -231,6 +237,7 @@ export const ladiesServices: Service[] = [
   duration: "20 minutes",
   gender: "ladies",
 },
+
 
 
 // BACK
@@ -254,6 +261,7 @@ export const ladiesServices: Service[] = [
 },
 
 
+
 // CHEST
 
 {
@@ -274,16 +282,13 @@ export const ladiesServices: Service[] = [
   gender: "ladies",
 },
 
-// ---------------------------------------------------------------------------
-// BODY (CONTINUED)
-// ---------------------------------------------------------------------------
 
 
-// FEET & HANDS
+// HANDS & FEET
 
 {
   id: "ladies-feet-toes",
-  title: "Feet & Toes (Stand-Alone Service)",
+  title: "Feet & Toes",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
@@ -292,12 +297,13 @@ export const ladiesServices: Service[] = [
 
 {
   id: "ladies-hands-fingers",
-  title: "Hands & Fingers (Stand-Alone Service)",
+  title: "Hands & Fingers",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
   gender: "ladies",
 },
+
 
 
 // LEGS
@@ -330,6 +336,7 @@ export const ladiesServices: Service[] = [
 },
 
 
+
 // STOMACH
 
 {
@@ -351,6 +358,7 @@ export const ladiesServices: Service[] = [
 },
 
 
+
 // UNDERARMS
 
 {
@@ -363,7 +371,8 @@ export const ladiesServices: Service[] = [
 },
 
 
-// FULL BODY MUST REMAIN LAST
+
+// FULL BODY LAST
 
 {
   id: "ladies-full-body",
@@ -373,6 +382,5 @@ export const ladiesServices: Service[] = [
   duration: "3 hours",
   gender: "ladies",
 },
-
 
 ];
