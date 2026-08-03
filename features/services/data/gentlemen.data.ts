@@ -8,11 +8,11 @@
  * Gentlemen waxing service catalog.
  *
  * Updates:
+ * • Inclusive service language
  * • Brazilian prioritized
- * • Removed Male Brazilian category
+ * • Removed gender-specific Brazilian category
  * • Organized by body area
- * • Cleaner pricing menu structure
- * • Prepared for compact editorial layout
+ * • Prepared for compact editorial pricing layout
  *
  * ---
  *
@@ -34,11 +34,9 @@ export const gentlemenServicePage = {
     "Gentlemen Waxing",
 
   description:
-    "Professional waxing services designed for men who value confidence, comfort, and exceptional care.",
+    "Professional waxing services designed for comfort, confidence, and exceptional care.",
 
 };
-
-
 
 
 /**
@@ -100,8 +98,6 @@ export const gentlemenServices: Service[] = [
 
 
 
-
-
 // ---------------------------------------------------------------------------
 // FACE
 // ---------------------------------------------------------------------------
@@ -150,8 +146,6 @@ export const gentlemenServices: Service[] = [
   duration: "10 minutes",
   gender: "gentlemen",
 },
-
-
 
 
 
@@ -226,7 +220,7 @@ export const gentlemenServices: Service[] = [
 
 {
   id: "gentlemen-full-chest-stomach",
-  title: "Full Chest (Chest & Stomach)",
+  title: "Chest + Stomach",
   category: "Body",
   price: "$100",
   duration: "30 minutes",
@@ -253,17 +247,7 @@ export const gentlemenServices: Service[] = [
 
 
 
-
 // HANDS & FEET
-
-{
-  id: "gentlemen-hands-fingers",
-  title: "Hands & Fingers",
-  category: "Body",
-  price: "$15",
-  duration: "5 minutes",
-  gender: "gentlemen",
-},
 
 {
   id: "gentlemen-feet-toes",
@@ -274,6 +258,14 @@ export const gentlemenServices: Service[] = [
   gender: "gentlemen",
 },
 
+{
+  id: "gentlemen-hands-fingers",
+  title: "Hands & Fingers",
+  category: "Body",
+  price: "$15",
+  duration: "5 minutes",
+  gender: "gentlemen",
+},
 
 
 
@@ -299,7 +291,6 @@ export const gentlemenServices: Service[] = [
 
 
 
-
 // SHOULDERS
 
 {
@@ -310,7 +301,6 @@ export const gentlemenServices: Service[] = [
   duration: "10 minutes",
   gender: "gentlemen",
 },
-
 
 
 
@@ -336,7 +326,6 @@ export const gentlemenServices: Service[] = [
 
 
 
-
 // UNDERARMS
 
 {
@@ -350,9 +339,7 @@ export const gentlemenServices: Service[] = [
 
 
 
-
-
-// FULL BODY ALWAYS LAST
+// FULL BODY LAST
 
 {
   id: "gentlemen-full-body",
@@ -362,6 +349,5 @@ export const gentlemenServices: Service[] = [
   duration: "4 hours",
   gender: "gentlemen",
 },
-
 
 ];
