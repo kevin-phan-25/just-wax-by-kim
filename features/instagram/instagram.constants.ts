@@ -1,5 +1,6 @@
 /**
- * --------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/instagram/instagram.constants.ts
  *
@@ -7,36 +8,27 @@
  * Instagram page copy configuration.
  *
  * Updated:
- * July 30, 2026
+ * August 3, 2026
  *
  * Changes:
- * • Converted from homepage section copy
- * • Refined for standalone Instagram experience
+ * • Shifted Instagram from gallery-style messaging
+ * • Added brand journey storytelling
+ * • Differentiated from Gallery section
  *
- * --------------------------------------------------------------------------
+ * ---
+ *
  */
 
-
 export const INSTAGRAM_CONFIG = {
-
-
   handle:
     "@justwaxbykim",
 
-
-
   eyebrow:
-    "Behind The Experience",
-
-
+    "Follow Along",
 
   title:
-    "A Glimpse Into Our Studio",
-
-
+    "Follow The Journey",
 
   description:
-    "Explore the thoughtful details, calming atmosphere, and personalized care that make every Just Wax by Kim appointment feel beautifully unique.",
-
-
+    "Step behind the scenes of Just Wax by Kim — from studio moments and beauty rituals to the care, confidence, and little details that make every experience special.",
 };
