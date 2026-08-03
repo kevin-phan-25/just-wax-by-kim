@@ -15,9 +15,9 @@
  * • Updated typography styling
  * • Improved bottom overlay placement
  * • Responsive phone / iPad / desktop optimized
+ * • Enhanced luxury text contrast
  *
  * ---
- *
  */
 
 import Link from "next/link";
@@ -69,7 +69,6 @@ export default function Services() {
           xl:px-24
         "
       >
-
 
         {/* HEADER */}
         <header
@@ -140,7 +139,6 @@ export default function Services() {
 
 
 
-
         {/* SERVICE OPTIONS */}
         <div
           className="
@@ -167,7 +165,6 @@ export default function Services() {
         >
 
 
-
           {/* LADIES */}
           <Link
             href="/services/ladies"
@@ -188,6 +185,7 @@ export default function Services() {
               rounded-[28px]
 
               transition-transform
+
               duration-500
 
               hover:-translate-y-1
@@ -230,7 +228,6 @@ export default function Services() {
               />
 
 
-              {/* Overlay */}
               <div
                 className="
                   absolute
@@ -271,7 +268,7 @@ export default function Services() {
 
                     text-white
 
-                    drop-shadow-lg
+                    drop-shadow-[0_4px_18px_rgba(59,42,38,0.45)]
                   "
                 >
                   Ladies
@@ -279,13 +276,9 @@ export default function Services() {
 
               </div>
 
-
             </div>
 
           </Link>
-
-
-
 
 
 
@@ -353,8 +346,6 @@ export default function Services() {
               />
 
 
-
-              {/* Overlay */}
               <div
                 className="
                   absolute
@@ -395,14 +386,13 @@ export default function Services() {
 
                     text-white
 
-                    drop-shadow-lg
+                    drop-shadow-[0_4px_18px_rgba(59,42,38,0.45)]
                   "
                 >
                   Gentlemen
                 </span>
 
               </div>
-
 
             </div>
 
