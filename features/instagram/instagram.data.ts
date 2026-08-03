@@ -10,7 +10,8 @@
  * Changes:
  * • Shifted from gallery duplication
  * • Added behind-the-scenes storytelling
- * • Prepared for real Instagram feed expansion
+ * • Prepared for future Instagram feed expansion
+ * • Supports Follow The Journey collage layout
  *
  * ---
  *
@@ -27,10 +28,10 @@ export const instagramPosts: InstagramPost[] = [
     id: "1",
 
     image:
-      "/instagram/studio-moment.webp",
+      "/instagram/kim-preparing.webp",
 
     alt:
-      "Behind the scenes moment at Just Wax by Kim",
+      "Kim preparing her luxury waxing studio experience",
 
     href:
       "https://instagram.com/justwaxbykim",
@@ -41,10 +42,10 @@ export const instagramPosts: InstagramPost[] = [
     id: "2",
 
     image:
-      "/instagram/treatment-details.webp",
+      "/instagram/studio-details.webp",
 
     alt:
-      "Luxury waxing tools and personalized treatment details",
+      "Beautiful studio details and thoughtful touches at Just Wax by Kim",
 
     href:
       "https://instagram.com/justwaxbykim",
@@ -58,7 +59,7 @@ export const instagramPosts: InstagramPost[] = [
       "/instagram/self-care-moment.webp",
 
     alt:
-      "A relaxing self-care experience at Just Wax by Kim",
+      "A relaxing self-care moment created through personalized waxing services",
 
     href:
       "https://instagram.com/justwaxbykim",
@@ -69,10 +70,10 @@ export const instagramPosts: InstagramPost[] = [
     id: "4",
 
     image:
-      "/instagram/kim-studio.webp",
+      "/instagram/business-journey.webp",
 
     alt:
-      "Kim preparing the studio experience for guests",
+      "Behind the scenes moments from building Just Wax by Kim",
 
     href:
       "https://instagram.com/justwaxbykim",
