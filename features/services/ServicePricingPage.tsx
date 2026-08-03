@@ -20,6 +20,7 @@
  * ---
  *
  */
+
 "use client";
 
 import { useState } from "react";
@@ -47,22 +48,35 @@ export default function ServicePricingPage({
   description,
   services,
 }: Props) {
-  const [openOptions, setOpenOptions] = useState<string | null>(null);
+  const [openOptions, setOpenOptions] =
+    useState<string | null>(null);
+
 
   const toggleOptions = (serviceId: string) => {
-    setOpenOptions(openOptions === serviceId ? null : serviceId);
+    setOpenOptions(
+      openOptions === serviceId
+        ? null
+        : serviceId
+    );
   };
 
-  const groupedServices = services.reduce<Record<string, Service[]>>(
-    (groups, service) => {
-      if (!groups[service.category]) {
-        groups[service.category] = [];
-      }
-      groups[service.category].push(service);
-      return groups;
-    },
-    {}
-  );
+
+  const groupedServices =
+    services.reduce<Record<string, Service[]>>(
+      (groups, service) => {
+
+        if (!groups[service.category]) {
+          groups[service.category] = [];
+        }
+
+        groups[service.category].push(service);
+
+        return groups;
+
+      },
+      {}
+    );
+
 
   const categoryOrder = [
     "Bikini",
@@ -72,9 +86,13 @@ export default function ServicePricingPage({
     "Body",
   ];
 
-  const orderedCategories = categoryOrder.filter(
-    (category) => groupedServices[category]
-  );
+
+  const orderedCategories =
+    categoryOrder.filter(
+      (category) =>
+        groupedServices[category]
+    );
+
 
   return (
     <section
@@ -88,6 +106,7 @@ export default function ServicePricingPage({
         md:py-20
       "
     >
+
       {/* Background */}
       <div
         aria-hidden
@@ -98,6 +117,7 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
+
 
       <div
         className="
@@ -112,7 +132,10 @@ export default function ServicePricingPage({
           lg:px-12
         "
       >
+
+
         {/* HEADER */}
+
         <header
           className="
             mx-auto
@@ -121,6 +144,7 @@ export default function ServicePricingPage({
             text-center
           "
         >
+
           <h1
             className="
               font-serif
@@ -133,6 +157,8 @@ export default function ServicePricingPage({
           >
             {title}
           </h1>
+
+
           <p
             className="
               mt-3
@@ -144,9 +170,14 @@ export default function ServicePricingPage({
           >
             {description}
           </p>
+
         </header>
 
-        {/* SERVICE SECTIONS */}
+
+
+
+        {/* SERVICES */}
+
         <div
           className="
             flex
@@ -155,148 +186,222 @@ export default function ServicePricingPage({
             sm:gap-12
           "
         >
-          {orderedCategories.map((category) => (
-            <section key={category}>
-              <h2
-                className="
-                  mb-3
-                  border-b
-                  border-[#E8DDD8]
-                  pb-2
-                  font-serif
-                  text-xl
-                  sm:text-2xl
-                  text-[#3B2A26]
-                "
+
+          {orderedCategories.map(
+            (category) => (
+
+              <section
+                key={category}
               >
-                {categoryTitles[category]}
-              </h2>
 
-              <div
-                className="
-                  grid
-                  grid-cols-1
-                  sm:grid-cols-2
-                  gap-x-10
-                  gap-y-1
-                "
-              >
-                {groupedServices[category].map((service) => (
-                  <div
-                    key={service.id}
-                    className="
-                      border-b
-                      border-[#F2EAE5]
-                      py-2
-                    "
-                  >
-                    {/* CLICKABLE SERVICE ROW */}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        service.options && toggleOptions(service.id)
-                      }
-                      className="
-                        w-full
-                        flex
-                        items-center
-                        justify-between
-                        gap-3
-                        text-left
-                      "
-                    >
-                      <div className="min-w-0">
-                        <h3
-                          className="
-                            truncate
-                            text-sm
-                            font-medium
-                            text-[#3B2A26]
-                          "
-                        >
-                          {service.title}
-                        </h3>
-                        <p
-                          className="
-                            text-[11px]
-                            text-[#8C7468]
-                          "
-                        >
-                          {service.options
-                            ? "Select Option"
-                            : service.duration}
-                        </p>
-                      </div>
+                <h2
+                  className="
+                    mb-3
+                    border-b
+                    border-[#E8DDD8]
+                    pb-2
+                    font-serif
+                    text-xl
+                    sm:text-2xl
+                    text-[#3B2A26]
+                  "
+                >
+                  {categoryTitles[category]}
+                </h2>
 
-                      <span
-                        className="
-                          whitespace-nowrap
-                          font-serif
-                          text-base
-                          text-[#8C5A6B]
-                        "
-                      >
-                        {service.options ? "Select" : service.price}
-                      </span>
-                    </button>
 
-                    {/* DROPDOWN OPTIONS */}
-                    {service.options && openOptions === service.id && (
+
+                <div
+                  className="
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    gap-x-10
+                    gap-y-1
+                  "
+                >
+
+                  {groupedServices[category]
+                    .map((service) => (
+
                       <div
+                        key={service.id}
                         className="
-                          mt-3
-                          ml-2
-                          border-l
-                          border-[#E8DDD8]
-                          pl-4
-                          space-y-2
+                          border-b
+                          border-[#F2EAE5]
+                          py-2
                         "
                       >
-                        {service.options.map((option) => (
+
+
+                        <button
+                          type="button"
+                          onClick={() =>
+                            service.options &&
+                            toggleOptions(service.id)
+                          }
+                          className="
+                            w-full
+                            flex
+                            items-center
+                            justify-between
+                            gap-3
+                            text-left
+                          "
+                        >
+
                           <div
-                            key={option.label}
                             className="
-                              flex
-                              items-center
-                              justify-between
-                              text-sm
+                              min-w-0
                             "
                           >
-                            <div>
-                              <p className="text-[#3B2A26]">{option.label}</p>
-                              {option.duration && (
-                                <p
-                                  className="
-                                    text-[11px]
-                                    text-[#8C7468]
-                                  "
-                                >
-                                  {option.duration}
-                                </p>
-                              )}
-                            </div>
-                            <span
+
+                            <h3
                               className="
-                                font-serif
-                                text-[#8C5A6B]
+                                truncate
+                                text-sm
+                                font-medium
+                                text-[#3B2A26]
                               "
                             >
-                              {option.price}
-                            </span>
+                              {service.title}
+                            </h3>
+
+
+                            <p
+                              className="
+                                text-[11px]
+                                text-[#8C7468]
+                              "
+                            >
+                              {service.options
+                                ? "Select Option"
+                                : service.duration}
+                            </p>
+
+
                           </div>
-                        ))}
+
+
+
+                          <span
+                            className="
+                              whitespace-nowrap
+                              font-serif
+                              text-base
+                              text-[#8C5A6B]
+                            "
+                          >
+                            {service.options
+                              ? "Select"
+                              : service.price}
+                          </span>
+
+
+                        </button>
+
+
+
+
+                        {/* OPTIONS */}
+
+                        {service.options &&
+                          openOptions === service.id && (
+
+                            <div
+                              className="
+                                mt-3
+                                ml-2
+                                border-l
+                                border-[#E8DDD8]
+                                pl-4
+                                space-y-2
+                              "
+                            >
+
+                              {service.options.map(
+                                (option) => (
+
+                                  <div
+                                    key={option.label}
+                                    className="
+                                      flex
+                                      items-center
+                                      justify-between
+                                      text-sm
+                                    "
+                                  >
+
+                                    <div>
+
+                                      <p
+                                        className="
+                                          text-[#3B2A26]
+                                        "
+                                      >
+                                        {option.label}
+                                      </p>
+
+
+                                      {option.duration && (
+                                        <p
+                                          className="
+                                            text-[11px]
+                                            text-[#8C7468]
+                                          "
+                                        >
+                                          {option.duration}
+                                        </p>
+                                      )}
+
+                                    </div>
+
+
+                                    <span
+                                      className="
+                                        font-serif
+                                        text-[#8C5A6B]
+                                      "
+                                    >
+                                      {option.price}
+                                    </span>
+
+
+                                  </div>
+
+                                )
+                              )}
+
+                            </div>
+
+                          )}
+
+
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-          ))}
+
+                    ))}
+
+
+                </div>
+
+
+              </section>
+
+            )
+          )}
+
         </div>
 
-        {/* INCLUSIVE BOOKING */}
+
+
+
+        {/* SINGLE INCLUSIVE BOOKING COMPONENT */}
+
         <InclusiveBooking />
+
+
       </div>
+
     </section>
   );
 }
