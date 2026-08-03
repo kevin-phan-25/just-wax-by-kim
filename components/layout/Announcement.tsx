@@ -13,6 +13,7 @@
  * • Added soft premium shadow
  * • Added gentle hover movement
  * • Blended banner dots into website background
+ * • Removed image zoom/cropping behavior
  * • Preserved floating layout
  *
  * ---
@@ -101,8 +102,6 @@ export default function Announcement() {
 
             object-center
 
-            scale-105
-
             brightness-105
 
             saturate-[85%]
@@ -114,8 +113,6 @@ export default function Announcement() {
             duration-[12000ms]
 
             ease-in-out
-
-            hover:scale-110
           "
         />
 
