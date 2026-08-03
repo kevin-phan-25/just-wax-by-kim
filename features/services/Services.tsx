@@ -8,15 +8,11 @@
  * Luxury services introduction section.
  *
  * Updates:
- * • Removed navbar responsibility
- * • Matches Gallery / FAQ / Contact architecture
- * • Preserved luxury section rhythm
- * • Full width editorial layout
- * • Responsive section spacing
- * • Protected ambient background
- * • Balanced service imagery
- * • Mobile / iPad / desktop optimized
- * • Services description remains one line on desktop
+ * • Reduced mobile image sizing
+ * • Added bottom image text overlays
+ * • Added Ladies / Gentlemen labels
+ * • Preserved luxury editorial layout
+ * • Responsive phone / iPad / desktop optimized
  *
  * ---
  *
@@ -91,7 +87,6 @@ export default function Services() {
       >
 
 
-
         {/* HEADER */}
         <header
           className="
@@ -153,37 +148,6 @@ export default function Services() {
             className="
               mt-6
 
-              w-full
-
-              max-w-none
-
-              whitespace-nowrap
-
-              text-center
-
-              text-base
-
-              md:text-lg
-
-              leading-relaxed
-
-              text-[#8C7468]
-
-              hidden
-
-              lg:block
-            "
-          >
-            Professional waxing services tailored to your needs, with a focus on precision, comfort, and lasting confidence.
-          </p>
-
-
-
-          {/* MOBILE / TABLET VERSION */}
-          <p
-            className="
-              mt-6
-
               max-w-3xl
 
               text-center
@@ -195,11 +159,10 @@ export default function Services() {
               leading-relaxed
 
               text-[#8C7468]
-
-              lg:hidden
             "
           >
-            Professional waxing services tailored to your needs, with a focus on precision, comfort, and lasting confidence.
+            Professional waxing services tailored to your needs, with a focus on
+            precision, comfort, and lasting confidence.
           </p>
 
         </header>
@@ -241,9 +204,19 @@ export default function Services() {
             className="
               group
 
-              w-full
+              relative
+
+              w-[60%]
+
+              sm:w-[75%]
+
+              md:w-full
 
               max-w-[650px]
+
+              overflow-hidden
+
+              rounded-[28px]
 
               transition-transform
 
@@ -253,37 +226,76 @@ export default function Services() {
             "
           >
 
+            <img
+              src="/images/services/ladies-view-pricing.jpg"
+              alt="Ladies luxury waxing services"
+              className="
+                block
+
+                w-full
+
+                h-auto
+
+                object-contain
+
+                transition-transform
+
+                duration-700
+
+                group-hover:scale-[1.03]
+              "
+            />
+
+
+            {/* Overlay */}
             <div
               className="
-                overflow-hidden
+                absolute
 
-                rounded-[28px]
+                inset-x-0
+
+                bottom-0
+
+                bg-gradient-to-t
+
+                from-black/50
+
+                via-black/10
+
+                to-transparent
+
+                px-6
+
+                pb-5
+
+                pt-16
+
+                text-center
               "
             >
 
-              <img
-                src="/images/services/ladies-view-pricing.jpg"
-                alt="Ladies luxury waxing services"
+              <span
                 className="
-                  block
+                  font-serif
 
-                  w-full
+                  text-3xl
 
-                  h-auto
+                  sm:text-4xl
 
-                  object-contain
+                  tracking-wide
 
-                  transition-transform
-
-                  duration-700
-
-                  group-hover:scale-[1.03]
+                  text-white
                 "
-              />
+              >
+                Ladies
+              </span>
 
             </div>
 
+
           </Link>
+
+
 
 
 
@@ -295,9 +307,19 @@ export default function Services() {
             className="
               group
 
-              w-full
+              relative
+
+              w-[60%]
+
+              sm:w-[75%]
+
+              md:w-full
 
               max-w-[650px]
+
+              overflow-hidden
+
+              rounded-[28px]
 
               transition-transform
 
@@ -307,35 +329,73 @@ export default function Services() {
             "
           >
 
+            <img
+              src="/images/services/gentlement-view-pricing.jpg"
+              alt="Gentlemen luxury waxing services"
+              className="
+                block
+
+                w-full
+
+                h-auto
+
+                object-contain
+
+                transition-transform
+
+                duration-700
+
+                group-hover:scale-[1.03]
+              "
+            />
+
+
+
+            {/* Overlay */}
             <div
               className="
-                overflow-hidden
+                absolute
 
-                rounded-[28px]
+                inset-x-0
+
+                bottom-0
+
+                bg-gradient-to-t
+
+                from-black/50
+
+                via-black/10
+
+                to-transparent
+
+                px-6
+
+                pb-5
+
+                pt-16
+
+                text-center
               "
             >
 
-              <img
-                src="/images/services/gentlement-view-pricing.jpg"
-                alt="Gentlemen luxury waxing services"
+              <span
                 className="
-                  block
+                  font-serif
 
-                  w-full
+                  text-3xl
 
-                  h-auto
+                  sm:text-4xl
 
-                  object-contain
+                  tracking-wide
 
-                  transition-transform
-
-                  duration-700
-
-                  group-hover:scale-[1.03]
+                  text-white
                 "
-              />
+              >
+                Gentlemen
+              </span>
 
             </div>
+
 
           </Link>
 
