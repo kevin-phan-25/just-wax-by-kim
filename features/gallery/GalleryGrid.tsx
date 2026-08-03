@@ -1,32 +1,28 @@
 /**
+ *
  * ---
  * File:
  * features/gallery/GalleryGrid.tsx
  *
  * Description:
- * Luxury responsive gallery grid.
+ * Luxury editorial gallery layout.
  *
- * Updated:
- * • Removed width restrictions
- * • Full-width editorial gallery layout
- * • Uniform luxury grid
- * • Responsive columns
- * • Improved hover interaction
- * • Better mobile / iPad / desktop balance
- * • Ready for lightbox integration
+ * Updates:
+ * • Removed social media card styling
+ * • Added editorial spacing
+ * • Softer luxury presentation
+ * • Responsive mobile / iPad / desktop
+ * • Preserved lightbox functionality
  *
  * ---
+ *
  */
 
 "use client";
 
-import {
-  useState,
-} from "react";
+import { useState } from "react";
 
-import {
-  galleryImages,
-} from "./gallery.data";
+import { galleryImages } from "./gallery.data";
 
 import GalleryImage from "./GalleryImage";
 
@@ -35,33 +31,21 @@ import GalleryLightbox from "./GalleryLightbox";
 
 export default function GalleryGrid() {
 
-  const [
-    currentIndex,
-    setCurrentIndex,
-  ] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-
-  const [
-    open,
-    setOpen,
-  ] = useState(false);
+  const [open, setOpen] = useState(false);
 
 
 
-  const openImage = (
-    index:number
-  ) => {
-
+  const openImage = (index:number) => {
     setCurrentIndex(index);
-
     setOpen(true);
-
   };
 
 
 
   const previous = () =>
-    setCurrentIndex((prev)=>
+    setCurrentIndex((prev) =>
       prev === 0
         ? galleryImages.length - 1
         : prev - 1
@@ -70,7 +54,7 @@ export default function GalleryGrid() {
 
 
   const next = () =>
-    setCurrentIndex((prev)=>
+    setCurrentIndex((prev) =>
       prev === galleryImages.length - 1
         ? 0
         : prev + 1
@@ -81,12 +65,9 @@ export default function GalleryGrid() {
   return (
     <>
 
-      {/* GALLERY GRID */}
       <div
         className="
           grid
-
-          w-full
 
           grid-cols-1
 
@@ -94,21 +75,16 @@ export default function GalleryGrid() {
 
           lg:grid-cols-3
 
-          xl:grid-cols-4
-
           gap-6
 
-          md:gap-8
+          sm:gap-8
 
-          xl:gap-10
+          lg:gap-10
         "
       >
 
         {galleryImages.map(
-          (
-            image,
-            index
-          ) => (
+          (image,index)=>(
 
             <button
               key={image.id}
@@ -122,19 +98,9 @@ export default function GalleryGrid() {
               className="
                 group
 
-                w-full
-
                 overflow-hidden
 
-                rounded-[28px]
-
                 text-left
-
-                transition-transform
-
-                duration-500
-
-                hover:-translate-y-1
 
                 focus:outline-none
 
@@ -160,7 +126,6 @@ export default function GalleryGrid() {
 
 
 
-      {/* LIGHTBOX */}
       <GalleryLightbox
         images={galleryImages}
 
