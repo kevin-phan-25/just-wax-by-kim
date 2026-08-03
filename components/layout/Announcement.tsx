@@ -12,9 +12,11 @@
  * • Added subtle luxury depth
  * • Added soft premium shadow
  * • Added gentle hover movement
+ * • Blended banner dots into website background
  * • Preserved floating layout
  *
  * ---
+ *
  */
 
 "use client";
@@ -46,7 +48,6 @@ export default function Announcement() {
         justify-center
       "
     >
-
       <div
         className="
           relative
@@ -84,7 +85,6 @@ export default function Announcement() {
           hover:-translate-y-1
         "
       >
-
         <img
           src="/hero/slogan_banner.jpg"
           alt="Where every service is tailored just for you"
@@ -103,6 +103,12 @@ export default function Announcement() {
 
             scale-105
 
+            brightness-105
+
+            saturate-[85%]
+
+            opacity-90
+
             transition-transform
 
             duration-[12000ms]
@@ -113,7 +119,20 @@ export default function Announcement() {
           "
         />
 
-        {/* Soft luxury overlay */}
+        {/* Background blend to soften dots */}
+        <div
+          className="
+            absolute
+
+            inset-0
+
+            bg-[#FCF8F3]/25
+
+            mix-blend-soft-light
+          "
+        />
+
+        {/* Luxury fade into website background */}
         <div
           className="
             absolute
@@ -122,14 +141,14 @@ export default function Announcement() {
 
             bg-gradient-to-b
 
-            from-white/10
+            from-[#FCF8F3]/20
 
-            to-transparent
+            via-transparent
+
+            to-[#FCF8F3]/35
           "
         />
-
       </div>
-
     </div>
   );
 }
