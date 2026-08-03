@@ -5,22 +5,19 @@
  * features/services/ServicePricingPage.tsx
  *
  * Description:
- * Luxury service pricing menu.
+ * Luxury compact service pricing menu.
  *
  * Updates:
- * • Compact editorial pricing layout
  * • Reduced scrolling
- * • Mobile optimized
- * • Brazilian prioritized
- * • Body category organization
- * • Removed card bubbles
- * • Added inclusive booking note
+ * • Mobile optimized pricing layout
+ * • Inclusive booking language
+ * • Editorial menu styling
+ * • Responsive phone / iPad / desktop
  *
  * ---
  *
  */
 
-import ServiceGrid from "./ServiceGrid";
 import type { Service } from "./services.types";
 
 interface Props {
@@ -32,16 +29,9 @@ interface Props {
 
 
 const categoryTitles: Record<string, string> = {
-
-  Brazilian:
-    "Brazilian",
-
-  Face:
-    "Face",
-
-  Body:
-    "Body",
-
+  Brazilian: "Brazilian",
+  Face: "Face",
+  Body: "Body",
 };
 
 
@@ -71,13 +61,10 @@ export default function ServicePricingPage({
 
 
   const categoryOrder = [
-
     "Brazilian",
-
+    "Brazilian Waxing",
     "Face",
-
     "Body",
-
   ];
 
 
@@ -98,9 +85,9 @@ export default function ServicePricingPage({
         relative
         w-full
         overflow-hidden
-        py-16
-        sm:py-20
-        md:py-24
+        py-12
+        sm:py-16
+        md:py-20
       "
     >
 
@@ -113,7 +100,7 @@ export default function ServicePricingPage({
           pointer-events-none
           absolute
           inset-0
-          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.22),transparent_60%)]
+          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
 
@@ -125,11 +112,11 @@ export default function ServicePricingPage({
           z-10
           mx-auto
           w-full
-          max-w-7xl
+          max-w-6xl
           px-5
           sm:px-8
-          md:px-12
-          lg:px-16
+          md:px-10
+          lg:px-12
         "
       >
 
@@ -140,9 +127,10 @@ export default function ServicePricingPage({
         <header
           className="
             mx-auto
-            mb-12
+            mb-8
             max-w-3xl
             text-center
+            sm:mb-10
           "
         >
 
@@ -156,24 +144,21 @@ export default function ServicePricingPage({
               text-[#3B2A26]
             "
           >
-
             {title}
-
           </h1>
+
 
 
           <p
             className="
-              mt-4
+              mt-3
               text-sm
               sm:text-base
               leading-relaxed
               text-[#8C7468]
             "
           >
-
             {description}
-
           </p>
 
 
@@ -183,15 +168,14 @@ export default function ServicePricingPage({
 
 
 
-        {/* PRICE SECTIONS */}
-
+        {/* SERVICE LIST */}
 
         <div
           className="
             flex
             flex-col
-            gap-14
-            md:gap-16
+            gap-10
+            sm:gap-12
           "
         >
 
@@ -204,108 +188,101 @@ export default function ServicePricingPage({
               >
 
 
-                {/* CATEGORY TITLE */}
-
                 <h2
                   className="
-                    mb-6
+                    mb-4
                     border-b
                     border-[#E8DDD8]
-                    pb-3
+                    pb-2
                     font-serif
-                    text-2xl
-                    sm:text-3xl
+                    text-xl
+                    sm:text-2xl
                     text-[#3B2A26]
                   "
                 >
-
                   {categoryTitles[category]}
-
                 </h2>
 
 
 
-
-
-                {/* PRICE LIST */}
 
                 <div
                   className="
                     grid
                     grid-cols-1
                     sm:grid-cols-2
-                    gap-x-12
-                    gap-y-4
+                    gap-x-10
+                    gap-y-2
                   "
                 >
 
+
                   {groupedServices[category]
-                    .map((service)=>(
+                    .map((service) => (
 
-                    <div
-                      key={service.id}
-                      className="
-                        flex
-                        items-baseline
-                        justify-between
-                        gap-4
-                        border-b
-                        border-[#F0E8E3]
-                        pb-3
-                      "
-                    >
 
-                      <div>
+                      <div
+                        key={service.id}
+                        className="
+                          flex
+                          items-center
+                          justify-between
+                          gap-3
+                          border-b
+                          border-[#F2EAE5]
+                          py-2
+                        "
+                      >
 
-                        <h3
+
+                        <div
                           className="
-                            text-sm
-                            sm:text-base
-                            font-medium
-                            text-[#3B2A26]
+                            min-w-0
                           "
                         >
 
-                          {service.title}
+                          <h3
+                            className="
+                              truncate
+                              text-sm
+                              font-medium
+                              text-[#3B2A26]
+                            "
+                          >
+                            {service.title}
+                          </h3>
 
-                        </h3>
+
+                          <p
+                            className="
+                              text-[11px]
+                              text-[#8C7468]
+                            "
+                          >
+                            {service.duration}
+                          </p>
 
 
-                        <p
+                        </div>
+
+
+
+                        <span
                           className="
-                            mt-1
-                            text-xs
-                            text-[#8C7468]
+                            whitespace-nowrap
+                            font-serif
+                            text-base
+                            text-[#8C5A6B]
                           "
                         >
+                          {service.price}
+                        </span>
 
-                          {service.duration}
-
-                        </p>
 
                       </div>
 
 
-
-
-
-                      <span
-                        className="
-                          whitespace-nowrap
-                          font-serif
-                          text-lg
-                          text-[#8C5A6B]
-                        "
-                      >
-
-                        {service.price}
-
-                      </span>
-
-
-                    </div>
-
-                  ))}
+                    ))}
 
 
                 </div>
@@ -323,14 +300,15 @@ export default function ServicePricingPage({
 
 
 
+
         {/* INCLUSIVE BOOKING NOTE */}
 
         <div
           className="
-            mt-16
+            mt-10
             border-t
             border-[#E8DDD8]
-            pt-8
+            pt-6
             text-center
           "
         >
@@ -338,20 +316,19 @@ export default function ServicePricingPage({
           <p
             className="
               mx-auto
-              max-w-3xl
-              text-sm
+              max-w-2xl
+              text-xs
+              sm:text-sm
               leading-relaxed
               text-[#8C7468]
             "
           >
-
             At Just Wax by Kim, everyone is welcome.
             Services are booked based on the anatomy
             being waxed to ensure the appropriate
             appointment time and pricing.
             If you are unsure which service to select,
             please reach out — I’d love to help.
-
           </p>
 
 
