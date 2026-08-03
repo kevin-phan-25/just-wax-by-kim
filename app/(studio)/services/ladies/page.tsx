@@ -12,6 +12,7 @@
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
+import InclusiveBooking from "@/features/services/InclusiveBooking";
 
 import {
   ladiesServices,
@@ -19,18 +20,24 @@ import {
 
 
 export default function LadiesServicesPage() {
+
   return (
-    <ServicePricingPage
-      id="ladies-pricing"
+    <>
+      <ServicePricingPage
+        id="ladies-pricing"
 
-      title="Ladies Waxing"
+        title="Ladies Waxing"
 
-      description="
-        Professional waxing services created with precision,
-        comfort, and personalized care.
-      "
+        description="
+          Professional waxing services created with precision,
+          comfort, and personalized care.
+        "
 
-      services={ladiesServices}
-    />
+        services={ladiesServices}
+      />
+
+      <InclusiveBooking />
+    </>
   );
+
 }
