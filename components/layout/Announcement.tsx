@@ -10,8 +10,8 @@
   • Uses slogan_banner.jpg
   • Does not affect page layout
   • Floats between navbar and hero
-  • Increased image zoom to 1.50
-  • Preserves floating luxury pill style
+  • Expanded pill boundaries
+  • Improved image visibility
   • Homepage-only display handled by layout
   ---
 */
@@ -49,21 +49,21 @@ export default function Announcement() {
         className="
           relative
 
-          w-[92%]
+          w-[96%]
 
-          sm:w-[80%]
+          sm:w-[85%]
 
-          md:w-[70%]
+          md:w-[75%]
 
-          lg:w-[60%]
+          lg:w-[65%]
 
-          xl:w-[55%]
+          xl:w-[60%]
 
-          h-[55px]
+          h-[70px]
 
-          sm:h-[65px]
+          sm:h-[80px]
 
-          md:h-[75px]
+          md:h-[90px]
 
           overflow-hidden
 
@@ -85,8 +85,6 @@ export default function Announcement() {
             object-cover
 
             object-center
-
-            scale-[1.50]
           "
         />
       </div>
