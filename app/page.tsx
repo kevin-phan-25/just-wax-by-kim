@@ -28,7 +28,7 @@
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
-import Services from "@/features/services";
+import { Services } from "@/features/services";
 import { Booking } from "@/features/booking";
 
 export default function Home() {
