@@ -1,92 +1,81 @@
 /**
- * --------------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/instagram/instagram.data.ts
  *
  * Description:
- * Instagram gallery content data.
+ * Instagram journey content data.
  *
  * Changes:
- * • Updated for standalone Instagram page
- * • Added luxury editorial descriptions
- * • Added social links
- * • Prepared for future Instagram feed expansion
+ * • Shifted from gallery duplication
+ * • Added behind-the-scenes storytelling
+ * • Prepared for real Instagram feed expansion
  *
- * --------------------------------------------------------------------------
+ * ---
+ *
  */
-
 
 import type {
   InstagramPost,
 } from "./instagram.types";
 
 
-
-
-
 export const instagramPosts: InstagramPost[] = [
-
 
   {
     id: "1",
 
     image:
-      "/gallery/studio-1.webp",
+      "/instagram/studio-moment.webp",
 
     alt:
-      "Elegant waxing studio interior with a calm luxury atmosphere",
+      "Behind the scenes moment at Just Wax by Kim",
 
     href:
       "https://instagram.com/justwaxbykim",
   },
-
-
 
 
   {
     id: "2",
 
     image:
-      "/gallery/studio-2.webp",
+      "/instagram/treatment-details.webp",
 
     alt:
-      "Private treatment space designed for comfort and relaxation",
+      "Luxury waxing tools and personalized treatment details",
 
     href:
       "https://instagram.com/justwaxbykim",
   },
-
-
 
 
   {
     id: "3",
 
     image:
-      "/gallery/studio-3.webp",
+      "/instagram/self-care-moment.webp",
 
     alt:
-      "Luxury waxing details and professional studio environment",
+      "A relaxing self-care experience at Just Wax by Kim",
 
     href:
       "https://instagram.com/justwaxbykim",
   },
-
-
 
 
   {
     id: "4",
 
     image:
-      "/gallery/luxury-detail.webp",
+      "/instagram/kim-studio.webp",
 
     alt:
-      "Premium skincare products and waxing essentials",
+      "Kim preparing the studio experience for guests",
 
     href:
       "https://instagram.com/justwaxbykim",
   },
-
 
 ];
