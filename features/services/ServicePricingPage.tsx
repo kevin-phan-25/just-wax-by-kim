@@ -1,5 +1,6 @@
 /**
- * -------------------------------------------------------------------
+ *
+ * ---
  * File:
  * features/services/ServicePricingPage.tsx
  *
@@ -9,15 +10,20 @@
  * Updates:
  * • Compact editorial pricing layout
  * • Bikini prioritized
- * • Face + Body organization
- * • Supports service option dropdowns
- * • Mobile / iPad / desktop responsive
- * -------------------------------------------------------------------
+ * • Body category organization
+ * • Dropdown service options supported
+ * • Mobile optimized
+ * • Removed anatomy notes
+ * • Responsive phone / iPad / desktop
+ *
+ * ---
+ *
  */
 
 "use client";
 
 import { useState } from "react";
+
 import type { Service } from "./services.types";
 
 
@@ -31,10 +37,24 @@ interface Props {
 
 
 const categoryTitles: Record<string, string> = {
-  Bikini: "Bikini",
-  Face: "Face",
-  Body: "Body",
+
+  Bikini:
+    "Bikini",
+
+  Brazilian:
+    "Brazilian",
+
+  "Brazilian Waxing":
+    "Brazilian",
+
+  Face:
+    "Face",
+
+  Body:
+    "Body",
+
 };
+
 
 
 
@@ -46,42 +66,8 @@ export default function ServicePricingPage({
 }: Props) {
 
 
-  const [openOptions, setOpenOptions] = useState<string | null>(null);
-
-
-
-  const groupedServices = services.reduce<
-    Record<string, Service[]>
-  >(
-    (groups, service) => {
-
-      if (!groups[service.category]) {
-        groups[service.category] = [];
-      }
-
-      groups[service.category].push(service);
-
-      return groups;
-
-    },
-    {}
-  );
-
-
-
-  const categoryOrder = [
-    "Bikini",
-    "Face",
-    "Body",
-  ];
-
-
-
-  const orderedCategories =
-    categoryOrder.filter(
-      (category) =>
-        groupedServices[category]
-    );
+  const [openOptions, setOpenOptions] =
+    useState<string | null>(null);
 
 
 
@@ -94,6 +80,56 @@ export default function ServicePricingPage({
     );
 
   };
+
+
+
+
+  const groupedServices =
+    services.reduce<Record<string, Service[]>>(
+      (groups, service) => {
+
+        if (!groups[service.category]) {
+          groups[service.category] = [];
+        }
+
+
+        groups[service.category].push(service);
+
+
+        return groups;
+
+      },
+      {}
+    );
+
+
+
+
+
+  const categoryOrder = [
+
+    "Bikini",
+
+    "Brazilian",
+
+    "Brazilian Waxing",
+
+    "Face",
+
+    "Body",
+
+  ];
+
+
+
+
+  const orderedCategories =
+    categoryOrder.filter(
+      (category) =>
+        groupedServices[category]
+    );
+
+
 
 
 
@@ -123,6 +159,7 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
+
 
 
 
@@ -163,8 +200,11 @@ export default function ServicePricingPage({
               text-[#3B2A26]
             "
           >
+
             {title}
+
           </h1>
+
 
 
           <p
@@ -176,7 +216,9 @@ export default function ServicePricingPage({
               text-[#8C7468]
             "
           >
+
             {description}
+
           </p>
 
 
@@ -185,7 +227,10 @@ export default function ServicePricingPage({
 
 
 
+
+
         {/* SERVICE SECTIONS */}
+
 
         <div
           className="
@@ -205,6 +250,7 @@ export default function ServicePricingPage({
               >
 
 
+
                 <h2
                   className="
                     mb-3
@@ -217,8 +263,12 @@ export default function ServicePricingPage({
                     text-[#3B2A26]
                   "
                 >
+
                   {categoryTitles[category]}
+
                 </h2>
+
+
 
 
 
@@ -231,166 +281,190 @@ export default function ServicePricingPage({
                     gap-y-1
                   "
                 >
-                                 {groupedServices[category].map(
-                    (service) => (
 
-                      <div
-                        key={service.id}
-                        className="
-                          border-b
-                          border-[#F2EAE5]
-                          py-2
-                        "
-                      >
+
+
+                  {groupedServices[category]
+                    .map(
+                      (service) => (
 
                         <div
+                          key={service.id}
                           className="
-                            flex
-                            items-center
-                            justify-between
-                            gap-3
+                            border-b
+                            border-[#F2EAE5]
+                            py-2
                           "
                         >
 
-                          <button
-                            type="button"
-                            onClick={() =>
-                              service.options &&
-                              toggleOptions(service.id)
-                            }
-                            className={`
-                              min-w-0
-                              text-left
-                              ${
-                                service.options
-                                  ? "cursor-pointer"
-                                  : "cursor-default"
-                              }
-                            `}
-                          >
 
-                            <h3
-                              className="
-                                truncate
-                                text-sm
-                                font-medium
-                                text-[#3B2A26]
-                              "
-                            >
-                              {service.title}
-                            </h3>
-
-
-                            <p
-                              className="
-                                text-[11px]
-                                text-[#8C7468]
-                              "
-                            >
-                              {service.duration}
-                            </p>
-
-
-                          </button>
-
-
-
-
-                          <span
+                          <div
                             className="
-                              whitespace-nowrap
-                              font-serif
-                              text-base
-                              text-[#8C5A6B]
+                              flex
+                              items-center
+                              justify-between
+                              gap-3
                             "
                           >
-                            {service.price}
-                          </span>
+
+
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                service.options &&
+                                toggleOptions(service.id)
+                              }
+                              className="
+                                min-w-0
+                                text-left
+                              "
+                            >
+
+                              <h3
+                                className="
+                                  truncate
+                                  text-sm
+                                  font-medium
+                                  text-[#3B2A26]
+                                "
+                              >
+
+                                {service.title}
+
+                              </h3>
+
+
+
+                              <p
+                                className="
+                                  text-[11px]
+                                  text-[#8C7468]
+                                "
+                              >
+
+                                {service.duration}
+
+                              </p>
+
+
+                            </button>
+
+
+
+
+                            <span
+                              className="
+                                whitespace-nowrap
+                                font-serif
+                                text-base
+                                text-[#8C5A6B]
+                              "
+                            >
+
+                              {service.price}
+
+                            </span>
+
+
+
+                          </div>
+
+
+
+
+
+
+                          {/* DROPDOWN OPTIONS */}
+
+                          {service.options &&
+                            openOptions === service.id && (
+
+                              <div
+                                className="
+                                  mt-3
+                                  ml-2
+                                  border-l
+                                  border-[#E8DDD8]
+                                  pl-4
+                                  space-y-2
+                                "
+                              >
+
+                                {service.options.map(
+                                  (option) => (
+
+                                    <div
+                                      key={option.label}
+                                      className="
+                                        flex
+                                        items-center
+                                        justify-between
+                                        text-sm
+                                      "
+                                    >
+
+                                      <div>
+
+                                        <p
+                                          className="
+                                            text-[#3B2A26]
+                                          "
+                                        >
+
+                                          {option.label}
+
+                                        </p>
+
+
+                                        {option.duration && (
+
+                                          <p
+                                            className="
+                                              text-[11px]
+                                              text-[#8C7468]
+                                            "
+                                          >
+
+                                            {option.duration}
+
+                                          </p>
+
+                                        )}
+
+                                      </div>
+
+
+
+                                      <span
+                                        className="
+                                          font-serif
+                                          text-[#8C5A6B]
+                                        "
+                                      >
+
+                                        {option.price}
+
+                                      </span>
+
+
+                                    </div>
+
+                                  )
+                                )}
+
+                              </div>
+
+                            )}
+
 
 
                         </div>
 
+                      )
+                    )}
 
 
-
-
-                        {/* EXPANDABLE OPTIONS */}
-
-                        {service.options &&
-                          openOptions === service.id && (
-
-                            <div
-                              className="
-                                mt-3
-                                ml-2
-                                border-l
-                                border-[#E8DDD8]
-                                pl-4
-                                space-y-2
-                              "
-                            >
-
-                              {service.options.map(
-                                (option) => (
-
-                                  <div
-                                    key={option.label}
-                                    className="
-                                      flex
-                                      items-center
-                                      justify-between
-                                      text-sm
-                                    "
-                                  >
-
-                                    <div>
-
-                                      <p
-                                        className="
-                                          text-[#3B2A26]
-                                        "
-                                      >
-                                        {option.label}
-                                      </p>
-
-
-                                      {option.duration && (
-                                        <p
-                                          className="
-                                            text-[11px]
-                                            text-[#8C7468]
-                                          "
-                                        >
-                                          {option.duration}
-                                        </p>
-                                      )}
-
-                                    </div>
-
-
-                                    <span
-                                      className="
-                                        font-serif
-                                        text-[#8C5A6B]
-                                      "
-                                    >
-                                      {option.price}
-                                    </span>
-
-
-                                  </div>
-
-                                )
-                              )}
-
-                            </div>
-
-                          )}
-
-                      </div>
-
-                    )
-                  )}
 
                 </div>
 
@@ -407,7 +481,10 @@ export default function ServicePricingPage({
 
 
 
-        {/* BOOKING NOTE */}
+
+
+        {/* FOOTER NOTE */}
+
 
         <div
           className="
@@ -429,16 +506,19 @@ export default function ServicePricingPage({
               text-[#8C7468]
             "
           >
+
             At Just Wax by Kim, everyone is welcome.
             Services are selected based on the area
-            being waxed to ensure the correct
+            being waxed to ensure the appropriate
             appointment time and pricing.
             If you are unsure which service to book,
             please reach out — I’d love to help.
+
           </p>
 
 
         </div>
+
 
 
 
@@ -449,4 +529,4 @@ export default function ServicePricingPage({
 
   );
 
-} 
+}
