@@ -8,10 +8,10 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed distracting shine animation
+ * • Removed distracting fade effects
  * • Added subtle luxury depth
- * • Added soft ambient glow
- * • Added gentle image movement
+ * • Added soft premium shadow
+ * • Added gentle hover movement
  * • Preserved floating layout
  *
  * ---
@@ -46,6 +46,7 @@ export default function Announcement() {
         justify-center
       "
     >
+
       <div
         className="
           relative
@@ -76,7 +77,11 @@ export default function Announcement() {
 
           ring-[#E8C8BC]/70
 
-          animate-[float_7s_ease-in-out_infinite]
+          transition-transform
+
+          duration-700
+
+          hover:-translate-y-1
         "
       >
 
@@ -98,35 +103,32 @@ export default function Announcement() {
 
             scale-105
 
-            animate-[luxuryZoom_14s_ease-in-out_infinite]
+            transition-transform
+
+            duration-[12000ms]
+
+            ease-in-out
+
+            hover:scale-110
+          "
+        />
+
+        {/* Soft luxury overlay */}
+        <div
+          className="
+            absolute
+
+            inset-0
+
+            bg-gradient-to-b
+
+            from-white/10
+
+            to-transparent
           "
         />
 
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-
-          50% {
-            transform: translateY(-4px);
-          }
-        }
-
-        @keyframes luxuryZoom {
-          0%,
-          100% {
-            transform: scale(1.05);
-          }
-
-          50% {
-            transform: scale(1.08);
-          }
-        }
-      `}</style>
 
     </div>
   );
