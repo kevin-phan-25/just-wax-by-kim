@@ -1,5 +1,6 @@
 /**
- * --------------------------------------------------------------------------
+ *
+ * ---
  * File: features/about/about.types.ts
  *
  * Description:
@@ -7,8 +8,12 @@
  *
  * Changes:
  * • Updated description to support editorial paragraphs
- * --------------------------------------------------------------------------
+ * • Added slogan support with rich text formatting
+ *
+ * ---
  */
+
+import type { ReactNode } from "react";
 
 export interface AboutSection {
   eyebrow: string;
@@ -16,4 +21,6 @@ export interface AboutSection {
   title: string;
 
   description: string[];
+
+  slogan?: ReactNode;
 }
