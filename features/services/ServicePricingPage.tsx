@@ -392,14 +392,6 @@ export default function ServicePricingPage({
 
         </div>
 
-
-
-
-        {/* SINGLE INCLUSIVE BOOKING COMPONENT */}
-
-        <InclusiveBooking />
-
-
       </div>
 
     </section>
