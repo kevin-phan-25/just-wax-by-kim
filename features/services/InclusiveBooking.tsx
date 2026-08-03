@@ -55,6 +55,10 @@ export default function InclusiveBooking() {
           being waxed to ensure the appropriate
           <br />
           appointment time and pricing.
+          <br />
+          If you have any questions or aren’t sure which service to book, 
+          <br />
+          please reach out—I’d love to help.
         </p>
 
       </div>
