@@ -11,8 +11,10 @@
  * • Compact editorial pricing layout
  * • Reduced scrolling
  * • Mobile optimized
- * • Brazilian anatomy note added
- * • Inclusive booking footer added
+ * • Brazilian prioritized
+ * • Body category organization
+ * • Removed anatomy notes
+ * • Added inclusive booking footer
  * • Responsive phone / iPad / desktop
  *
  * ---
@@ -21,20 +23,30 @@
 
 import type { Service } from "./services.types";
 
+
 interface Props {
   id?: string;
   title: string;
   description: string;
   services: Service[];
-  anatomyNote?: string;
 }
 
 
+
 const categoryTitles: Record<string, string> = {
-  Brazilian: "Brazilian",
-  "Brazilian Waxing": "Brazilian",
-  Face: "Face",
-  Body: "Body",
+
+  Brazilian:
+    "Brazilian",
+
+  "Brazilian Waxing":
+    "Brazilian",
+
+  Face:
+    "Face",
+
+  Body:
+    "Body",
+
 };
 
 
@@ -44,7 +56,6 @@ export default function ServicePricingPage({
   title,
   description,
   services,
-  anatomyNote,
 }: Props) {
 
 
@@ -64,12 +75,19 @@ export default function ServicePricingPage({
 
 
 
+
   const categoryOrder = [
+
     "Brazilian",
+
     "Brazilian Waxing",
+
     "Face",
+
     "Body",
+
   ];
+
 
 
 
@@ -78,6 +96,7 @@ export default function ServicePricingPage({
       (category) =>
         groupedServices[category]
     );
+
 
 
 
@@ -96,6 +115,8 @@ export default function ServicePricingPage({
     >
 
 
+      {/* Background */}
+
       <div
         aria-hidden
         className="
@@ -105,6 +126,7 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
+
 
 
 
@@ -162,13 +184,15 @@ export default function ServicePricingPage({
             {description}
           </p>
 
+
         </header>
 
 
 
 
 
-        {/* SERVICE CATEGORIES */}
+
+        {/* SERVICE SECTIONS */}
 
         <div
           className="
@@ -207,29 +231,6 @@ export default function ServicePricingPage({
 
 
 
-                {/* BRAZILIAN ANATOMY NOTE */}
-
-                {(category === "Brazilian" ||
-                  category === "Brazilian Waxing") &&
-                  anatomyNote && (
-
-                  <p
-                    className="
-                      mb-4
-                      max-w-xl
-                      text-xs
-                      sm:text-sm
-                      leading-relaxed
-                      text-[#8C7468]
-                    "
-                  >
-                    {anatomyNote}
-                  </p>
-
-                )}
-
-
-
 
                 <div
                   className="
@@ -237,9 +238,10 @@ export default function ServicePricingPage({
                     grid-cols-1
                     sm:grid-cols-2
                     gap-x-10
-                    gap-y-2
+                    gap-y-1
                   "
                 >
+
 
                   {groupedServices[category]
                     .map((service) => (
@@ -257,10 +259,16 @@ export default function ServicePricingPage({
                         "
                       >
 
-                        <div>
+
+                        <div
+                          className="
+                            min-w-0
+                          "
+                        >
 
                           <h3
                             className="
+                              truncate
                               text-sm
                               font-medium
                               text-[#3B2A26]
@@ -279,7 +287,9 @@ export default function ServicePricingPage({
                             {service.duration}
                           </p>
 
+
                         </div>
+
 
 
 
@@ -295,6 +305,7 @@ export default function ServicePricingPage({
                         </span>
 
 
+
                       </div>
 
                     ))}
@@ -308,6 +319,7 @@ export default function ServicePricingPage({
             )
           )}
 
+
         </div>
 
 
@@ -315,7 +327,7 @@ export default function ServicePricingPage({
 
 
 
-        {/* INCLUSIVE FOOTER NOTE */}
+        {/* INCLUSIVE BOOKING NOTE */}
 
         <div
           className="
@@ -338,14 +350,16 @@ export default function ServicePricingPage({
             "
           >
             At Just Wax by Kim, everyone is welcome.
-            Services are booked based on the anatomy being
-            waxed to ensure the appropriate appointment time
-            and pricing. If you are unsure which service to
-            select, please reach out — I’d love to help.
+            Services are booked based on the service selected
+            to ensure the appropriate appointment time and
+            pricing. If you are unsure which service to choose,
+            please reach out — I’d love to help.
           </p>
 
 
         </div>
+
+
 
 
       </div>
