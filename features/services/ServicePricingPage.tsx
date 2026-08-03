@@ -9,10 +9,10 @@
  *
  * Updates:
  * • Added id support
- * • Compact luxury menu layout
+ * • Compact pricing layout
  * • Reduced mobile scrolling
- * • Category separation
  * • Removed pricing disclaimer
+ * • Added Inclusive Booking footer
  *
  * ---
  *
@@ -20,6 +20,8 @@
 
 
 import ServiceGrid from "./ServiceGrid";
+import InclusiveBooking from "./InclusiveBooking";
+
 import type { Service } from "./services.types";
 
 
@@ -27,11 +29,11 @@ interface Props {
 
   id?: string;
 
-  title:string;
+  title: string;
 
-  description:string;
+  description: string;
 
-  services:Service[];
+  services: Service[];
 
 }
 
@@ -40,10 +42,7 @@ interface Props {
 const categoryTitles: Record<string,string> = {
 
   "Brazilian Waxing":
-    "Brazilian & Bikini",
-
-  "Male Brazilian":
-    "Male Brazilian",
+    "Brazilian",
 
   Face:
     "Face",
@@ -65,7 +64,8 @@ export default function ServicePricingPage({
 
   services,
 
-}:Props){
+}: Props) {
+
 
 
 const groupedServices =
@@ -73,8 +73,10 @@ services.reduce<Record<string,Service[]>>(
 (groups,service)=>{
 
 
-if(!groups[service.category]){
-  groups[service.category]=[];
+if(!groups[service.category]) {
+
+  groups[service.category] = [];
+
 }
 
 
@@ -88,17 +90,28 @@ return groups;
 
 
 
+
+/*
+|--------------------------------------------------------------------------
+| Category Order
+|--------------------------------------------------------------------------
+|
+| Brazilian stays first.
+| Everything else follows body categories.
+|
+*/
+
+
 const categoryOrder = [
 
-"Brazilian Waxing",
+  "Brazilian Waxing",
 
-"Male Brazilian",
+  "Face",
 
-"Face",
-
-"Body",
+  "Body",
 
 ];
+
 
 
 
@@ -109,9 +122,11 @@ categoryOrder.filter(
 
 
 
+
 return (
 
 <section
+
 id={id}
 
 className="
@@ -127,36 +142,50 @@ md:px-12
 
 lg:px-20
 
-py-16
+py-14
 
-sm:py-20
+sm:py-16
+
+md:py-20
 "
+
 >
 
 
 {/* BACKGROUND */}
 
 <div
+
 aria-hidden
+
 className="
+pointer-events-none
+
 absolute
+
 inset-0
 
 bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
 "
+
 />
 
 
 
 <div
+
 className="
 relative
+
 z-10
+
 "
+
 >
 
 
 <header
+
 className="
 mx-auto
 
@@ -164,14 +193,17 @@ max-w-4xl
 
 text-center
 
-mb-10
+mb-8
 
-sm:mb-14
+sm:mb-10
+
 "
+
 >
 
 
 <h1
+
 className="
 font-serif
 
@@ -183,16 +215,27 @@ md:text-5xl
 
 leading-tight
 
+tracking-[-0.03em]
+
 text-[#3B2A26]
 "
+
 >
+
 {title}
+
 </h1>
 
 
+
 <p
+
 className="
 mt-3
+
+max-w-2xl
+
+mx-auto
 
 text-sm
 
@@ -202,8 +245,11 @@ leading-relaxed
 
 text-[#8C7468]
 "
+
 >
+
 {description}
+
 </p>
 
 
@@ -211,16 +257,21 @@ text-[#8C7468]
 
 
 
+
+
 <div
+
 className="
 flex
 
 flex-col
 
-gap-10
+gap-8
 
-sm:gap-14
+sm:gap-10
+
 "
+
 >
 
 
@@ -228,13 +279,16 @@ sm:gap-14
 
 
 <section
+
 key={category}
+
 >
 
 
 <h2
+
 className="
-mb-4
+mb-3
 
 font-serif
 
@@ -250,14 +304,20 @@ border-[#D8B4A0]
 
 pb-2
 "
+
 >
+
 {categoryTitles[category] ?? category}
+
 </h2>
 
 
 
+
 <ServiceGrid
+
 services={groupedServices[category]}
+
 />
 
 
@@ -270,6 +330,14 @@ services={groupedServices[category]}
 
 
 </div>
+
+
+
+
+{/* BOOKING NOTE */}
+
+<InclusiveBooking />
+
 
 
 </div>
