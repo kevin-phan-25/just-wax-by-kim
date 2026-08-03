@@ -13,8 +13,9 @@
  *   - Feature components own their section ids
  *
  * - August 2, 2026
- *   - Fixed Services import
- *   - Added consistent section spacing
+ *   - Fixed Services import (exported as Service)
+ *   - Removed Experience section
+ *   - Maintained ~½ inch (gap-12 / 48px) separation between sections
  *
  * ---
  *
@@ -24,7 +25,6 @@ import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
 import { Service as Services } from "@/features/services";
-import Experience from "@/features/experience";
 import Gallery from "@/features/gallery";
 import Testimonials from "@/features/testimonials";
 import Instagram from "@/features/instagram";
@@ -34,15 +34,7 @@ import Contact from "@/features/contact";
 
 export default function Home() {
   return (
-    <main
-      className="
-        flex
-        w-full
-        flex-col
-        gap-12
-        overflow-hidden
-      "
-    >
+    <main className="flex flex-col gap-12">
       <Hero />
 
       <About />
@@ -50,8 +42,6 @@ export default function Home() {
       <Mission />
 
       <Services />
-
-      <Experience />
 
       <Gallery />
 
