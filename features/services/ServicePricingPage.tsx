@@ -8,7 +8,7 @@
  * Luxury compact service pricing menu.
  *
  * Updates:
- * • Editorial pricing layout
+ * • Restored section id support
  * • Removed oversized cards
  * • Removed collection styling
  * • More prices visible per screen
@@ -24,6 +24,7 @@ import type { Service } from "./services.types";
 
 
 interface Props {
+  id?: string;
   title: string;
   description: string;
   services: Service[];
@@ -50,6 +51,7 @@ const categoryTitles: Record<string, string> = {
 
 
 export default function ServicePricingPage({
+  id,
   title,
   description,
   services,
@@ -75,10 +77,8 @@ export default function ServicePricingPage({
 
 
   /*
-   * Category order
-   *
-   * Data sorting can be refined later.
-   * This controls the menu layout only.
+   * Controls category display order.
+   * Service data sorting will be handled later.
    */
 
   const categoryOrder = [
@@ -101,6 +101,7 @@ export default function ServicePricingPage({
   return (
 
     <div
+      id={id}
       className="
         relative
 
@@ -121,7 +122,7 @@ export default function ServicePricingPage({
     >
 
 
-      {/* HEADER */}
+      {/* PAGE HEADER */}
 
       <header
         className="
@@ -165,9 +166,9 @@ export default function ServicePricingPage({
           className="
             mt-3
 
-            max-w-2xl
-
             mx-auto
+
+            max-w-2xl
 
             text-sm
 
@@ -204,7 +205,6 @@ export default function ServicePricingPage({
         "
       >
 
-
         {orderedCategories.map(
           (category) => (
 
@@ -216,7 +216,7 @@ export default function ServicePricingPage({
             >
 
 
-              {/* CATEGORY TITLE */}
+              {/* CATEGORY HEADER */}
 
               <header
                 className="
