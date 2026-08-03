@@ -11,13 +11,10 @@
  * • Matched Ladies/Gentlemen image sizing
  * • Added consistent aspect ratio cards
  * • Reduced mobile footprint
- * • Enlarged luxury text overlays
- * • Updated typography styling
- * • Improved bottom overlay placement
+ * • Updated luxury text overlays
+ * • Matched Playfair Display typography
+ * • Improved mobile overlay balance
  * • Responsive phone / iPad / desktop optimized
- * • Enhanced luxury text contrast
- * • Matched Playfair Display brand typography
- * • Reduced mobile overlay text sizing
  *
  * ---
  *
@@ -127,8 +124,8 @@ export default function Services() {
               text-[#8C7468]
             "
           >
-            Professional waxing services tailored to your needs, with a focus
-            on precision, comfort, and lasting confidence.
+            Professional waxing services tailored to your needs, with a focus on
+            precision, comfort, and lasting confidence.
           </p>
         </header>
 
@@ -244,13 +241,13 @@ export default function Services() {
                   className="
                     font-[var(--font-playfair)]
 
-                    text-4xl
+                    text-3xl
 
-                    sm:text-5xl
+                    sm:text-4xl
 
-                    md:text-6xl
+                    md:text-5xl
 
-                    lg:text-7xl
+                    lg:text-6xl
 
                     tracking-wide
 
@@ -353,13 +350,13 @@ export default function Services() {
                   className="
                     font-[var(--font-playfair)]
 
-                    text-4xl
+                    text-3xl
 
-                    sm:text-5xl
+                    sm:text-4xl
 
-                    md:text-6xl
+                    md:text-5xl
 
-                    lg:text-7xl
+                    lg:text-6xl
 
                     tracking-wide
 
