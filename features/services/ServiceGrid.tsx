@@ -1,18 +1,20 @@
 /**
- * ---------------------------------------------------
+ *
+ * ---
  * File:
  * features/services/ServiceGrid.tsx
  *
  * Description:
- * Luxury editorial service menu layout.
+ * Luxury compact pricing list.
  *
  * Updates:
  * • Removed card grid
- * • Removed boxed layout
- * • Elegant spa menu presentation
- * • Responsive phone / tablet / desktop
- * • Improved scanning experience
- * ---------------------------------------------------
+ * • Single elegant menu column
+ * • Better phone scrolling
+ * • More services visible
+ *
+ * ---
+ *
  */
 
 import ServiceCard from "./ServiceCard";
@@ -22,29 +24,32 @@ interface ServiceGridProps {
   services: Service[];
 }
 
+
 export default function ServiceGrid({
   services,
 }: ServiceGridProps) {
+
   return (
     <div
       className="
-        mx-auto
-
         w-full
 
-        max-w-5xl
+        max-w-4xl
 
-        divide-y
-
-        divide-[#E8DDD8]
+        mx-auto
       "
     >
+
       {services.map((service) => (
+
         <ServiceCard
           key={service.id}
           service={service}
         />
+
       ))}
+
+
     </div>
   );
 }
