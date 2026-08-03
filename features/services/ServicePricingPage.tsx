@@ -349,11 +349,13 @@ export default function ServicePricingPage({
               text-[#8C7468]
             "
           >
-            At Just Wax by Kim, everyone is welcome.
-            Services are booked based on the service selected
-            to ensure the appropriate appointment time and
-            pricing. If you are unsure which service to choose,
-            please reach out — I’d love to help.
+            At Just Wax by Kim, everyone is welcome. 
+            Services are booked based on the anatomy 
+            being waxed to ensure the appropriate 
+            appointment time and pricing. 
+            If you have any questions or aren’t 
+            sure which service to book, 
+            please reach out—I’d love to help.
           </p>
 
 
