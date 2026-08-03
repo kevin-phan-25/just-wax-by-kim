@@ -8,6 +8,7 @@
  * Ladies waxing pricing page.
  *
  * ---
+ *
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
@@ -25,8 +26,14 @@ export default function LadiesServicesPage() {
       title="Ladies Waxing"
 
       description="
-        Luxury waxing services designed around comfort,
-        confidence, and beautifully cared skin.
+        Professional waxing services created with precision,
+        comfort, and personalized care.
+      "
+
+      anatomyNote="
+        For clients with vulva anatomy. Services are booked
+        based on the anatomy being waxed. If you’re unsure
+        which appointment to select, please contact me.
       "
 
       services={ladiesServices}
