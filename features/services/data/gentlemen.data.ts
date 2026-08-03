@@ -1,4 +1,3 @@
-
 /**
  *
  * ---
@@ -9,14 +8,14 @@
  * Gentlemen waxing service catalog.
  *
  * Updates:
- * • Reordered by service category
- * • Brazilian services prioritized
- * • Grouped comparable body services together
- * • Added Nipples and Stomach Strip services
- * • Updated pricing catalog
- * • Maintained reusable service structure
+ * • Brazilian prioritized
+ * • Removed Male Brazilian category
+ * • Organized by body area
+ * • Cleaner pricing menu structure
+ * • Prepared for compact editorial layout
  *
  * ---
+ *
  */
 
 import type { Service } from "../services.types";
@@ -27,13 +26,18 @@ import type { Service } from "../services.types";
  */
 
 export const gentlemenServicePage = {
-  image: "/images/services/gentlement-view-pricing.jpg",
 
-  title: "Gentlemen Waxing",
+  image:
+    "/images/services/gentlement-view-pricing.jpg",
+
+  title:
+    "Gentlemen Waxing",
 
   description:
     "Professional waxing services designed for men who value confidence, comfort, and exceptional care.",
+
 };
+
 
 
 
@@ -44,14 +48,15 @@ export const gentlemenServicePage = {
 export const gentlemenServices: Service[] = [
 
 
+
 // ---------------------------------------------------------------------------
-// MALE BRAZILIAN
+// BRAZILIAN
 // ---------------------------------------------------------------------------
 
 {
   id: "gentlemen-new-client-brazilian",
   title: "New Client Brazilian",
-  category: "Male Brazilian",
+  category: "Brazilian",
   price: "$120",
   duration: "30 minutes",
   gender: "gentlemen",
@@ -60,16 +65,25 @@ export const gentlemenServices: Service[] = [
 {
   id: "gentlemen-repeat-brazilian",
   title: "Repeat Brazilian",
-  category: "Male Brazilian",
+  category: "Brazilian",
   price: "$100",
   duration: "30 minutes",
   gender: "gentlemen",
 },
 
 {
+  id: "gentlemen-buttocks-butt-strip",
+  title: "Buttocks + Butt Strip",
+  category: "Brazilian",
+  price: "$80",
+  duration: "20 minutes",
+  gender: "gentlemen",
+},
+
+{
   id: "gentlemen-buttocks",
   title: "Buttocks",
-  category: "Male Brazilian",
+  category: "Brazilian",
   price: "$50",
   duration: "15 minutes",
   gender: "gentlemen",
@@ -77,21 +91,14 @@ export const gentlemenServices: Service[] = [
 
 {
   id: "gentlemen-butt-strip",
-  title: "Butt Strip (Stand-Alone Service)",
-  category: "Male Brazilian",
+  title: "Butt Strip",
+  category: "Brazilian",
   price: "$40",
   duration: "10 minutes",
   gender: "gentlemen",
 },
 
-{
-  id: "gentlemen-buttocks-butt-strip",
-  title: "Buttocks + Butt Strip",
-  category: "Male Brazilian",
-  price: "$80",
-  duration: "20 minutes",
-  gender: "gentlemen",
-},
+
 
 
 
@@ -146,6 +153,8 @@ export const gentlemenServices: Service[] = [
 
 
 
+
+
 // ---------------------------------------------------------------------------
 // BODY
 // ---------------------------------------------------------------------------
@@ -170,6 +179,7 @@ export const gentlemenServices: Service[] = [
   duration: "20 minutes",
   gender: "gentlemen",
 },
+
 
 
 // BACK
@@ -202,6 +212,7 @@ export const gentlemenServices: Service[] = [
 },
 
 
+
 // CHEST
 
 {
@@ -224,7 +235,7 @@ export const gentlemenServices: Service[] = [
 
 {
   id: "gentlemen-chest-only",
-  title: "Chest (Excludes Stomach)",
+  title: "Chest",
   category: "Body",
   price: "$50",
   duration: "15 minutes",
@@ -240,12 +251,19 @@ export const gentlemenServices: Service[] = [
   gender: "gentlemen",
 },
 
-// ---------------------------------------------------------------------------
-// BODY (CONTINUED)
-// ---------------------------------------------------------------------------
 
 
-// FEET & HANDS
+
+// HANDS & FEET
+
+{
+  id: "gentlemen-hands-fingers",
+  title: "Hands & Fingers",
+  category: "Body",
+  price: "$15",
+  duration: "5 minutes",
+  gender: "gentlemen",
+},
 
 {
   id: "gentlemen-feet-toes",
@@ -256,14 +274,7 @@ export const gentlemenServices: Service[] = [
   gender: "gentlemen",
 },
 
-{
-  id: "gentlemen-hands-fingers",
-  title: "Hands & Fingers",
-  category: "Body",
-  price: "$15",
-  duration: "5 minutes",
-  gender: "gentlemen",
-},
+
 
 
 // LEGS
@@ -287,6 +298,8 @@ export const gentlemenServices: Service[] = [
 },
 
 
+
+
 // SHOULDERS
 
 {
@@ -297,6 +310,8 @@ export const gentlemenServices: Service[] = [
   duration: "10 minutes",
   gender: "gentlemen",
 },
+
+
 
 
 // STOMACH
@@ -320,6 +335,8 @@ export const gentlemenServices: Service[] = [
 },
 
 
+
+
 // UNDERARMS
 
 {
@@ -332,7 +349,10 @@ export const gentlemenServices: Service[] = [
 },
 
 
-// FULL BODY MUST REMAIN LAST
+
+
+
+// FULL BODY ALWAYS LAST
 
 {
   id: "gentlemen-full-body",
