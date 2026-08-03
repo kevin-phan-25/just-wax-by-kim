@@ -5,20 +5,18 @@
  * features/faq/FAQ.tsx
  *
  * Description:
- * Luxury FAQ presentation.
+ * Luxury editorial FAQ presentation.
  *
  * Updates:
- * • Removed navbar clearance responsibility
- * • Navbar spacing handled by studio layout
- * • Unified luxury spacing system
- * • Added 4-cell editorial grid
- * • Mobile / iPad / desktop optimization
+ * • Removed card-based layout feeling
+ * • Editorial divider FAQ system
+ * • Simplified luxury spacing
+ * • Responsive mobile / iPad / desktop layout
+ * • Improved readability
  * • Balanced FAQ columns
- * • Removed divider accents
- * • Matches brand layout system
+ * • Matches brand design system
  *
  * ---
- *
  */
 
 import FAQAccordion from "./FAQAccordion";
@@ -31,7 +29,6 @@ import {
 import {
   FAQ_CONSTANTS,
 } from "./faq.constants";
-
 
 export default function FAQ() {
   return (
@@ -68,7 +65,6 @@ export default function FAQ() {
       />
 
 
-
       {/* CONTENT */}
       <div
         className="
@@ -94,17 +90,17 @@ export default function FAQ() {
         {/* HEADER */}
         <header
           className="
-            flex
+            mx-auto
 
-            flex-col
-
-            items-center
+            max-w-5xl
 
             text-center
 
-            mb-16
+            mb-14
 
-            md:mb-24
+            sm:mb-16
+
+            md:mb-20
           "
         >
 
@@ -125,12 +121,9 @@ export default function FAQ() {
           </p>
 
 
-
           <h1
             className="
               mt-6
-
-              max-w-5xl
 
               font-serif
 
@@ -151,10 +144,11 @@ export default function FAQ() {
           </h1>
 
 
-
           <p
             className="
               mt-6
+
+              mx-auto
 
               max-w-3xl
 
@@ -170,65 +164,45 @@ export default function FAQ() {
             {FAQ_CONSTANTS.subtitle}
           </p>
 
-
         </header>
 
 
 
 
-
-        {/* FOUR CELL EDITORIAL GRID */}
+        {/* FAQ CONTENT */}
         <div
           className="
             grid
 
             grid-cols-1
 
-            lg:grid-cols-[0.75in_1fr_1fr_0.75in]
+            lg:grid-cols-2
 
-            gap-y-14
+            gap-12
 
-            lg:gap-x-10
+            lg:gap-20
 
-            w-full
+            xl:gap-24
 
-            items-start
+            mx-auto
+
+            max-w-7xl
           "
         >
 
 
-          {/* LEFT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-
-              lg:block
-            "
-          />
-
-
-
-
           {/* BEFORE WAX */}
-          <div
+          <section
             className="
               w-full
-
-              flex
-
-              flex-col
-
-              items-center
-
-              px-2
-
-              sm:px-6
             "
           >
 
             <h2
               className="
-                mb-10
+                mb-8
+
+                sm:mb-10
 
                 text-center
 
@@ -247,47 +221,28 @@ export default function FAQ() {
             </h2>
 
 
+            <FAQAccordion
+              items={BEFORE_WAXING_FAQ}
+            />
 
-            <div
-              className="
-                w-full
-
-                max-w-xl
-              "
-            >
-              <FAQAccordion
-                items={BEFORE_WAXING_FAQ}
-              />
-            </div>
-
-
-          </div>
-
+          </section>
 
 
 
 
 
           {/* AFTER WAX CARE */}
-          <div
+          <section
             className="
               w-full
-
-              flex
-
-              flex-col
-
-              items-center
-
-              px-2
-
-              sm:px-6
             "
           >
 
             <h2
               className="
-                mb-10
+                mb-8
+
+                sm:mb-10
 
                 text-center
 
@@ -306,34 +261,11 @@ export default function FAQ() {
             </h2>
 
 
+            <FAQAccordion
+              items={AFTER_WAX_CARE_FAQ}
+            />
 
-            <div
-              className="
-                w-full
-
-                max-w-xl
-              "
-            >
-              <FAQAccordion
-                items={AFTER_WAX_CARE_FAQ}
-              />
-            </div>
-
-
-          </div>
-
-
-
-
-
-          {/* RIGHT BREATHING SPACE */}
-          <div
-            className="
-              hidden
-
-              lg:block
-            "
-          />
+          </section>
 
 
         </div>
