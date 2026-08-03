@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * features/hero/Hero.tsx
@@ -7,6 +8,7 @@
  * Luxury responsive hero section.
  *
  * Updates:
+ * • Increased spacing below announcement pill
  * • Responsive navbar clearance
  * • Mobile / iPad / desktop spacing
  * • Preserves full hero image visibility
@@ -26,11 +28,11 @@ export default function Hero() {
       className="
         w-full
 
-        pt-[calc(var(--nav-mobile)+3rem)]
+        pt-[calc(var(--nav-mobile)+5rem)]
 
-        md:pt-[calc(var(--nav-tablet)+4rem)]
+        md:pt-[calc(var(--nav-tablet)+6rem)]
 
-        xl:pt-[calc(var(--nav-desktop)+5rem)]
+        xl:pt-[calc(var(--nav-desktop)+7rem)]
 
         pb-12
 
@@ -39,7 +41,6 @@ export default function Hero() {
         xl:pb-20
       "
     >
-
       <div
         className="
           container-luxury
@@ -59,11 +60,8 @@ export default function Hero() {
           xl:px-16
         "
       >
-
         <HeroImage />
-
       </div>
-
     </section>
   );
 }
