@@ -1,20 +1,21 @@
 /**
+ *
  * ---
  * File:
  * features/gallery/GalleryImage.tsx
  *
  * Description:
- * Luxury gallery image card.
+ * Luxury editorial gallery image.
  *
- * Updated:
- * • Removed featured / masonry layout
- * • Uniform square cards
- * • Elegant hover animation
- * • Premium overlay
- * • Optimized for standalone Gallery page
- * • Responsive phone / iPad / desktop
+ * Updates:
+ * • Removed Instagram-style card effects
+ * • Softer image movement
+ * • Simplified overlay
+ * • Improved luxury typography
+ * • Responsive presentation
  *
  * ---
+ *
  */
 
 import Image from "next/image";
@@ -29,171 +30,159 @@ interface Props {
 }
 
 
+
 export default function GalleryImage({
   image,
 }: Props) {
 
-  return (
-    <article
+return (
+
+  <article
+    className="
+      relative
+
+      aspect-[4/5]
+
+      w-full
+
+      overflow-hidden
+
+      bg-[#F6E7E1]
+    "
+  >
+
+
+    {/* IMAGE */}
+    <Image
+
+      src={image.src}
+
+      alt={image.alt ?? image.title}
+
+      fill
+
+      quality={95}
+
+      sizes="
+        (max-width:640px) 100vw,
+        (max-width:1024px) 50vw,
+        33vw
+      "
+
       className="
-        relative
+        object-cover
 
-        aspect-square
+        transition-transform
 
-        w-full
+        duration-700
 
-        overflow-hidden
+        ease-out
 
-        rounded-[28px]
+        group-hover:scale-[1.03]
+      "
 
-        bg-[#F6E7E1]
+    />
+
+
+
+
+
+    {/* SOFT EDITORIAL OVERLAY */}
+    <div
+      aria-hidden
+      className="
+        absolute
+
+        inset-0
+
+        bg-gradient-to-t
+
+        from-[#2D211D]/55
+
+        via-transparent
+
+        to-transparent
+
+        opacity-0
+
+        transition-opacity
+
+        duration-500
+
+        group-hover:opacity-100
+      "
+    />
+
+
+
+
+
+
+    {/* CAPTION */}
+    <div
+      className="
+        absolute
+
+        left-6
+
+        right-6
+
+        bottom-6
+
+        translate-y-4
+
+        opacity-0
+
+        transition-all
+
+        duration-500
+
+        group-hover:translate-y-0
+
+        group-hover:opacity-100
       "
     >
 
-      {/* IMAGE */}
-      <Image
-        src={image.src}
-        alt={image.alt ?? image.title}
-        fill
-        quality={95}
-        sizes="
-          (max-width:640px) 100vw,
-          (max-width:1024px) 50vw,
-          33vw
-        "
+      <p
         className="
-          object-cover
+          uppercase
 
-          transition-transform
+          tracking-[0.35em]
 
-          duration-700
+          text-[10px]
 
-          group-hover:scale-105
-        "
-      />
-
-
-
-      {/* LUXURY OVERLAY */}
-      <div
-        className="
-          absolute
-
-          inset-0
-
-          bg-gradient-to-t
-
-          from-[#2D211D]/80
-
-          via-[#2D211D]/20
-
-          to-transparent
-
-          opacity-0
-
-          transition-opacity
-
-          duration-500
-
-          group-hover:opacity-100
-        "
-      />
-
-
-
-      {/* FLOATING BORDER */}
-      <div
-        className="
-          absolute
-
-          inset-5
-
-          rounded-[24px]
-
-          border
-
-          border-white/40
-
-          opacity-0
-
-          scale-95
-
-          transition-all
-
-          duration-500
-
-          group-hover:scale-100
-
-          group-hover:opacity-100
-        "
-      />
-
-
-
-      {/* CAPTION */}
-      <div
-        className="
-          absolute
-
-          left-8
-
-          right-8
-
-          bottom-8
-
-          translate-y-6
-
-          opacity-0
-
-          transition-all
-
-          duration-500
-
-          group-hover:translate-y-0
-
-          group-hover:opacity-100
+          text-[#D8B4A0]
         "
       >
-
-        <p
-          className="
-            uppercase
-
-            tracking-[0.35em]
-
-            text-[10px]
-
-            sm:text-[11px]
-
-            text-[#D8B4A0]
-          "
-        >
-          Just Wax by Kim
-        </p>
+        Just Wax by Kim
+      </p>
 
 
-        <h3
-          className="
-            mt-2
 
-            font-serif
+      <h3
+        className="
+          mt-2
 
-            text-xl
+          font-serif
 
-            sm:text-2xl
+          text-xl
 
-            leading-tight
+          sm:text-2xl
 
-            text-white
-          "
-        >
-          {image.title}
-        </h3>
+          leading-tight
 
-
-      </div>
+          text-white
+        "
+      >
+        {image.title}
+      </h3>
 
 
-    </article>
-  );
+    </div>
+
+
+  </article>
+
+);
+
 }
