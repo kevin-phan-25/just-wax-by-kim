@@ -14,6 +14,7 @@
  * • Dropdown service options supported
  * • Mobile optimized
  * • Removed anatomy notes
+ * • Removed inclusive booking footer
  * • Responsive phone / iPad / desktop
  *
  * ---
@@ -57,7 +58,6 @@ const categoryTitles: Record<string, string> = {
 
 
 
-
 export default function ServicePricingPage({
   id,
   title,
@@ -83,10 +83,10 @@ export default function ServicePricingPage({
 
 
 
-
   const groupedServices =
     services.reduce<Record<string, Service[]>>(
       (groups, service) => {
+
 
         if (!groups[service.category]) {
           groups[service.category] = [];
@@ -98,11 +98,10 @@ export default function ServicePricingPage({
 
         return groups;
 
+
       },
       {}
     );
-
-
 
 
 
@@ -122,14 +121,11 @@ export default function ServicePricingPage({
 
 
 
-
   const orderedCategories =
     categoryOrder.filter(
       (category) =>
         groupedServices[category]
     );
-
-
 
 
 
@@ -159,7 +155,6 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
-
 
 
 
@@ -231,7 +226,6 @@ export default function ServicePricingPage({
 
         {/* SERVICE SECTIONS */}
 
-
         <div
           className="
             flex
@@ -298,6 +292,7 @@ export default function ServicePricingPage({
                         >
 
 
+
                           <div
                             className="
                               flex
@@ -353,6 +348,7 @@ export default function ServicePricingPage({
 
 
 
+
                             <span
                               className="
                                 whitespace-nowrap
@@ -369,6 +365,7 @@ export default function ServicePricingPage({
 
 
                           </div>
+
 
 
 
@@ -417,6 +414,7 @@ export default function ServicePricingPage({
                                         </p>
 
 
+
                                         {option.duration && (
 
                                           <p
@@ -433,6 +431,8 @@ export default function ServicePricingPage({
                                         )}
 
                                       </div>
+
+
 
 
 
@@ -476,50 +476,6 @@ export default function ServicePricingPage({
 
 
         </div>
-
-
-
-
-
-
-
-        {/* FOOTER NOTE */}
-
-
-        <div
-          className="
-            mt-10
-            border-t
-            border-[#E8DDD8]
-            pt-6
-            text-center
-          "
-        >
-
-          <p
-            className="
-              mx-auto
-              max-w-2xl
-              text-xs
-              sm:text-sm
-              leading-relaxed
-              text-[#8C7468]
-            "
-          >
-
-            At Just Wax by Kim, everyone is welcome.
-            Services are selected based on the area
-            being waxed to ensure the appropriate
-            appointment time and pricing.
-            If you are unsure which service to book,
-            please reach out — I’d love to help.
-
-          </p>
-
-
-        </div>
-
-
 
 
       </div>
