@@ -1,92 +1,74 @@
 /**
-  ---
-  File:
-  components/layout/Announcement.tsx
+ *
+ * ---
+ * File:
+ * features/services/InclusiveBooking.tsx
+ *
+ * Description:
+ * Inclusive booking clarification footer.
+ *
+ * Updates:
+ * • Removed heading title
+ * • Removed divider accent
+ * • Luxury editorial style
+ * • Reusable across pricing pages
+ * • Preserved approved booking language
+ * • Improved paragraph spacing and readability
+ *
+ * ---
+ */
 
-  Description:
-  Floating homepage slogan banner.
-
-  Updates:
-  • Uses slogan_banner.jpg
-  • Does not affect page layout
-  • Floats between navbar and hero
-  • Expanded pill boundaries
-  • Improved image visibility
-  • Homepage-only display handled by layout
-  ---
-*/
-
-"use client";
-
-export default function Announcement() {
+export default function InclusiveBooking() {
   return (
     <div
       className="
-        pointer-events-none
+        mx-auto
 
-        absolute
+        max-w-3xl
 
-        top-[110px]
+        pt-6
 
-        md:top-[140px]
-
-        xl:top-[168px]
-
-        left-1/2
-
-        -translate-x-1/2
-
-        z-40
-
-        w-full
-
-        flex
-
-        justify-center
+        sm:pt-8
       "
     >
       <div
         className="
-          relative
-
-          w-[96%]
-
-          sm:w-[85%]
-
-          md:w-[75%]
-
-          lg:w-[65%]
-
-          xl:w-[60%]
-
-          h-[70px]
-
-          sm:h-[80px]
-
-          md:h-[90px]
-
-          overflow-hidden
-
-          rounded-full
+          space-y-5
         "
       >
-        <img
-          src="/hero/slogan_banner.jpg"
-          alt="Where every service is tailored just for you"
+
+        <p
           className="
-            absolute
+            text-sm
 
-            inset-0
+            sm:text-base
 
-            w-full
+            leading-relaxed
 
-            h-full
-
-            object-cover
-
-            object-center
+            text-[#8C7468]
           "
-        />
+        >
+          At Just Wax by Kim, everyone is welcome. Services are booked based
+          on the anatomy being waxed to ensure the appropriate appointment time
+          and pricing.
+        </p>
+
+
+        <p
+          className="
+            text-sm
+
+            sm:text-base
+
+            leading-relaxed
+
+            text-[#8C7468]
+          "
+        >
+          If you have any questions or aren’t sure which service to book,
+          please reach out—I’d love to help.
+        </p>
+
       </div>
     </div>
   );
