@@ -1,132 +1,81 @@
 /**
+ *
  * ---
  * File:
  * features/faq/FAQItem.tsx
  *
  * Description:
- * Luxury FAQ accordion item.
+ * Luxury editorial FAQ accordion item.
  *
  * Updates:
- * • Refined luxury card styling
- * • Improved mobile responsiveness
- * • Enhanced accordion animation
- * • Better answer readability
- * • Added accessibility attributes
+ * • Removed heavy card styling
+ * • Editorial luxury appearance
+ * • Thin divider aesthetic
+ * • Left-aligned answers for readability
+ * • Improved responsive spacing
+ * • Elegant icon treatment
+ * • Smooth accordion animation
+ * • Mobile / iPad / Desktop optimized
  *
  * ---
  */
 
 "use client";
 
-import {
-  Plus,
-  Minus,
-} from "lucide-react";
+import { Plus, Minus } from "lucide-react";
+import { useState } from "react";
 
-import {
-  useState,
-} from "react";
-
-import type {
-  FAQItemType,
-} from "./faq.types";
-
+import type { FAQItemType } from "./faq.types";
 
 interface Props {
   item: FAQItemType;
 }
 
-
-export default function FAQItem({
-  item,
-}: Props) {
-
-  const [
-    open,
-    setOpen,
-  ] = useState(false);
-
+export default function FAQItem({ item }: Props) {
+  const [open, setOpen] = useState(false);
 
   return (
     <article
-      className={`
-        overflow-hidden
-
-        rounded-3xl
-
-        border
-
-        transition-all
-
-        duration-500
-
-        ${
-          open
-            ? `
-              border-[#D8B4A0]
-
-              bg-white
-
-              shadow-[0_15px_40px_rgba(59,42,38,0.06)]
-            `
-            : `
-              border-[#E8DDD8]
-
-              bg-[#FDF9F5]
-
-              hover:bg-white
-
-              hover:border-[#D8B4A0]
-            `
-        }
-      `}
+      className="
+        border-b
+        border-[#E8DDD8]
+        last:border-b-0
+      "
     >
-
-
       {/* QUESTION */}
       <button
         type="button"
-
         aria-expanded={open}
-
         onClick={() => setOpen(!open)}
-
         className="
           group
 
-          relative
-
           flex
-
-          min-h-[96px]
 
           w-full
 
           items-center
 
-          justify-center
+          justify-between
 
-          px-6
+          gap-6
 
-          sm:px-8
+          py-6
 
-          md:px-12
+          sm:py-7
 
-          py-7
+          md:py-8
 
-          md:py-9
+          text-left
 
-          text-center
+          transition-colors
 
-          transition
+          duration-300
         "
       >
-
         <span
           className="
-            max-w-3xl
-
-            pr-12
+            flex-1
 
             font-serif
 
@@ -134,11 +83,17 @@ export default function FAQItem({
 
             sm:text-xl
 
+            md:text-2xl
+
             leading-relaxed
+
+            tracking-[-0.015em]
 
             text-[#3B2A26]
 
             transition-colors
+
+            duration-300
 
             group-hover:text-[#8C5A6B]
           "
@@ -146,78 +101,38 @@ export default function FAQItem({
           {item.question}
         </span>
 
-
-
-        {/* ICON */}
         <span
-          className={`
-            absolute
-
-            right-5
-
-            md:right-8
-
+          className="
             flex
 
-            h-10
+            h-8
 
-            w-10
+            w-8
 
-            md:h-11
+            sm:h-9
 
-            md:w-11
+            sm:w-9
+
+            shrink-0
 
             items-center
 
             justify-center
 
-            rounded-full
+            text-[#8C5A6B]
 
-            border
-
-            transition-all
+            transition-transform
 
             duration-300
-
-            ${
-              open
-                ? `
-                  border-[#8C5A6B]
-
-                  bg-[#8C5A6B]
-
-                  text-white
-                `
-                : `
-                  border-[#D8B4A0]
-
-                  text-[#8C5A6B]
-
-                  group-hover:bg-[#F6E7E1]
-                `
-            }
-          `}
+          "
         >
-
           {open ? (
-            <Minus
-              size={18}
-              strokeWidth={1.8}
-            />
+            <Minus size={22} strokeWidth={1.7} />
           ) : (
-            <Plus
-              size={18}
-              strokeWidth={1.8}
-            />
+            <Plus size={22} strokeWidth={1.7} />
           )}
-
         </span>
-
-
       </button>
-
-
-
 
       {/* ANSWER */}
       <div
@@ -237,70 +152,44 @@ export default function FAQItem({
           }
         `}
       >
-
-        <div
-          className="
-            overflow-hidden
-          "
-        >
-
+        <div className="overflow-hidden">
           <div
             className="
-              mx-4
+              pb-7
 
-              sm:mx-6
+              sm:pb-8
 
-              md:mx-10
+              md:pb-10
 
-              mb-6
+              pr-2
 
-              md:mb-8
+              sm:pr-10
 
-              rounded-2xl
-
-              bg-[#FCF8F3]
-
-              px-6
-
-              sm:px-8
-
-              md:px-12
-
-              py-7
-
-              md:py-8
+              md:pr-16
             "
           >
-
             <p
               className="
-                mx-auto
+                max-w-3xl
 
-                max-w-4xl
+                text-left
 
-                text-center
+                text-[15px]
 
-                text-base
+                sm:text-base
 
                 md:text-lg
 
                 leading-8
-
-                font-medium
 
                 text-[#6F5A50]
               "
             >
               {item.answer}
             </p>
-
           </div>
-
         </div>
-
       </div>
-
-
     </article>
   );
 }
