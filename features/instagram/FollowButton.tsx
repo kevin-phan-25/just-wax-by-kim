@@ -5,12 +5,12 @@
  * features/instagram/FollowButton.tsx
  *
  * Description:
- * Luxury Instagram follow CTA.
+ * Luxury Instagram journey CTA.
  *
  * Updates:
- * • Refined editorial CTA styling
+ * • Shifted from button style to invitation style
  * • Softer luxury interaction
- * • Matches global button system
+ * • Matches Follow The Journey section
  * • Improved mobile responsiveness
  *
  * ---
@@ -24,85 +24,94 @@ import {
 
 export default function FollowButton() {
 
-  return (
-    <a
-      href="https://instagram.com/justwaxbykim"
+return (
 
-      target="_blank"
+<a
+  href="https://instagram.com/justwaxbykim"
 
-      rel="noopener noreferrer"
+  target="_blank"
 
-      className="
-        group
+  rel="noopener noreferrer"
 
-        inline-flex
+  className="
+    group
 
-        w-fit
+    inline-flex
 
-        items-center
+    items-center
 
-        justify-center
+    justify-center
 
-        gap-3
+    gap-3
 
-        rounded-full
+    rounded-full
 
-        border
+    border
 
-        border-[#8C5A6B]
+    border-[#D8B4A0]
 
-        px-8
+    bg-transparent
 
-        sm:px-10
+    px-8
 
-        py-4
+    sm:px-10
 
-        sm:py-4.5
+    py-4
 
-        uppercase
+    sm:py-5
 
-        tracking-[0.18em]
+    uppercase
 
-        text-xs
+    tracking-[0.22em]
 
-        sm:text-sm
+    text-[11px]
 
-        font-medium
+    sm:text-xs
 
-        whitespace-nowrap
+    font-medium
 
-        text-[#8C5A6B]
+    whitespace-nowrap
 
-        transition-all
+    text-[#8C5A6B]
 
-        duration-500
+    transition-all
 
-        hover:-translate-y-0.5
+    duration-500
 
-        hover:bg-[#F6E7E1]
+    hover:-translate-y-1
 
-        hover:shadow-[0_15px_40px_rgba(59,42,38,0.08)]
-      "
-    >
+    hover:border-[#8C5A6B]
 
-      <Instagram
-        size={17}
+    hover:bg-[#F6E7E1]
 
-        strokeWidth={1.7}
-
-        className="
-          transition-transform
-
-          duration-500
-
-          group-hover:scale-110
-        "
-      />
+    hover:shadow-[0_18px_45px_rgba(59,42,38,0.10)]
+  "
+>
 
 
-      Follow @justwaxbykim
+  <Instagram
+    size={17}
+
+    strokeWidth={1.6}
+
+    className="
+      transition-transform
+
+      duration-500
+
+      group-hover:-translate-y-0.5
+
+      group-hover:scale-110
+    "
+  />
 
 
-    </a>
-  );
+
+  Follow Our Journey
+
+
+</a>
+
+);
+
 }
