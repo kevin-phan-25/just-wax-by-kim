@@ -2,74 +2,164 @@
  *
  * ---
  * File:
- * features/services/InclusiveBooking.tsx
+ * components/layout/Announcement.tsx
  *
  * Description:
- * Inclusive booking clarification footer.
+ * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed heading title
- * • Removed divider accent
- * • Luxury editorial style
- * • Reusable across pricing pages
- * • Preserved approved booking language
- * • Improved paragraph spacing and readability
+ * • Added luxury floating animation
+ * • Added soft ambient glow
+ * • Added elegant light sweep effect
+ * • Added subtle image movement
+ * • Preserved floating layout
  *
  * ---
  */
 
-export default function InclusiveBooking() {
+"use client";
+
+export default function Announcement() {
   return (
     <div
       className="
-        mx-auto
+        pointer-events-none
 
-        max-w-3xl
+        absolute
 
-        pt-6
+        top-[110px]
 
-        sm:pt-8
+        md:top-[140px]
+
+        xl:top-[168px]
+
+        z-40
+
+        w-full
+
+        flex
+
+        justify-center
+
+        animate-[float_6s_ease-in-out_infinite]
       "
     >
+
       <div
         className="
-          space-y-5
+          relative
+
+          w-[96%]
+
+          sm:w-[85%]
+
+          md:w-[75%]
+
+          lg:w-[65%]
+
+          xl:w-[60%]
+
+          h-[70px]
+
+          sm:h-[80px]
+
+          md:h-[90px]
+
+          overflow-hidden
+
+          rounded-full
+
+          shadow-[0_20px_60px_-20px_rgba(140,90,107,0.35)]
+
+          ring-1
+
+          ring-[#E8C8BC]/60
         "
       >
 
-        <p
+        {/* IMAGE */}
+        <img
+          src="/hero/slogan_banner.jpg"
+          alt="Where every service is tailored just for you"
           className="
-            text-sm
+            absolute
 
-            sm:text-base
+            inset-0
 
-            leading-relaxed
+            w-full
 
-            text-[#8C7468]
+            h-full
+
+            object-cover
+
+            object-center
+
+            scale-105
+
+            animate-[slowZoom_12s_ease-in-out_infinite]
           "
-        >
-          At Just Wax by Kim, everyone is welcome. Services are booked based
-          on the anatomy being waxed to ensure the appropriate appointment time
-          and pricing.
-        </p>
+        />
 
 
-        <p
+        {/* LUXURY LIGHT REFLECTION */}
+        <div
           className="
-            text-sm
+            absolute
 
-            sm:text-base
+            inset-0
 
-            leading-relaxed
+            bg-gradient-to-r
 
-            text-[#8C7468]
+            from-transparent
+
+            via-white/25
+
+            to-transparent
+
+            -translate-x-full
+
+            animate-[shine_7s_ease-in-out_infinite]
           "
-        >
-          If you have any questions or aren’t sure which service to book,
-          please reach out—I’d love to help.
-        </p>
+        />
 
       </div>
+
+
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+
+        @keyframes slowZoom {
+          0%,
+          100% {
+            transform: scale(1.05);
+          }
+
+          50% {
+            transform: scale(1.1);
+          }
+        }
+
+        @keyframes shine {
+          0% {
+            transform: translateX(-100%);
+          }
+
+          40%,
+          100% {
+            transform: translateX(100%);
+          }
+        }
+      `}</style>
+
     </div>
   );
 }
