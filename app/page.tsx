@@ -7,17 +7,11 @@
  * Description:
  * Main homepage composition for Just Wax by Kim.
  *
- * Changes:
- *
- * • Homepage contains only core sections
- * • Added luxury Services introduction section
- * • Removed pricing catalog from homepage
- * • Removed Mission section
- * • Removed Gallery section
- * • Removed Testimonials section
- * • Removed Instagram section
- * • Removed FAQ section
- * • Removed Contact section
+ * Updates:
+ * • Homepage-only slogan banner
+ * • Banner placed below fixed navbar
+ * • Uses hero slogan image
+ * • Preserved luxury homepage flow
  *
  * ---
  *
@@ -27,11 +21,28 @@ import Hero from "@/features/hero";
 import About from "@/features/about";
 import Services from "@/features/services/Services";
 import { Booking } from "@/features/booking";
+import Announcement from "@/components/layout/Announcement";
 
 
 export default function Home() {
   return (
-    <main>
+    <>
+
+      {/* HERO ANNOUNCEMENT BANNER */}
+      <div
+        className="
+          pt-[110px]
+
+          md:pt-[140px]
+
+          xl:pt-[168px]
+
+          bg-[#FCF8F3]
+        "
+      >
+        <Announcement />
+      </div>
+
 
       {/* HERO */}
       <Hero />
@@ -48,7 +59,6 @@ export default function Home() {
       {/* BOOKING */}
       <Booking />
 
-
-    </main>
+    </>
   );
 }
