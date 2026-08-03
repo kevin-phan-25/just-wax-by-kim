@@ -17,10 +17,3 @@ export interface AboutSection {
 
   description: string[];
 }
-
-
-export interface Credential {
-  title: string;
-
-  description: string;
-}
