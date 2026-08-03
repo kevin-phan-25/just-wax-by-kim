@@ -1,18 +1,21 @@
 /**
- * ---------------------------------------------------
+ *
+ * ---
  * File:
  * features/services/ServiceCard.tsx
  *
  * Description:
- * Luxury editorial service row.
+ * Luxury editorial service price row.
  *
  * Updates:
- * • Removed bubble card design
- * • Removed descriptions
- * • Spa menu inspired layout
- * • Elegant pricing hierarchy
- * • Mobile friendly
- * ---------------------------------------------------
+ * • Removed card bubbles
+ * • Compact luxury menu layout
+ * • Mobile optimized
+ * • Increased price visibility
+ * • Designed for fast scanning
+ *
+ * ---
+ *
  */
 
 import type { Service } from "./services.types";
@@ -27,92 +30,102 @@ export default function ServiceCard({
   return (
     <article
       className="
-        flex
+        w-full
 
-        flex-col
+        border-b
+        border-[#E8DDD8]
 
-        gap-4
+        py-4
 
-        py-8
-
-        sm:py-10
+        sm:py-5
 
         transition-all
-
-        duration-300
-
-        sm:flex-row
-
-        sm:items-center
-
-        sm:justify-between
       "
     >
 
-      {/* LEFT SIDE */}
-      <div>
-
-        <h3
-          className="
-            font-serif
-
-            text-2xl
-
-            sm:text-3xl
-
-            leading-tight
-
-            tracking-[-0.02em]
-
-            text-[#3B2A26]
-          "
-        >
-          {service.title}
-        </h3>
-
-
-        <p
-          className="
-            mt-3
-
-            text-sm
-
-            tracking-[0.08em]
-
-            text-[#8C7468]
-          "
-        >
-          {service.duration}
-        </p>
-
-      </div>
-
-
-
-      {/* PRICE */}
       <div
         className="
-          sm:text-right
+          flex
+          items-start
+          justify-between
+          gap-4
         "
       >
 
-        <span
+        {/* LEFT */}
+        <div
           className="
-            font-serif
-
-            text-3xl
-
-            sm:text-4xl
-
-            tracking-[-0.02em]
-
-            text-[#8C5A6B]
+            flex-1
+            text-left
           "
         >
-          {service.price}
-        </span>
+
+          <h3
+            className="
+              font-serif
+
+              text-base
+
+              sm:text-lg
+
+              leading-tight
+
+              text-[#3B2A26]
+            "
+          >
+            {service.title}
+          </h3>
+
+
+          <p
+            className="
+              mt-1
+
+              text-[11px]
+
+              sm:text-xs
+
+              tracking-wide
+
+              text-[#8C7468]
+            "
+          >
+            {service.duration}
+          </p>
+
+
+        </div>
+
+
+
+        {/* PRICE */}
+        <div
+          className="
+            shrink-0
+
+            text-right
+          "
+        >
+
+          <span
+            className="
+              font-serif
+
+              text-lg
+
+              sm:text-xl
+
+              text-[#8C5A6B]
+            "
+          >
+            {service.price}
+          </span>
+
+        </div>
+
 
       </div>
+
 
     </article>
   );
