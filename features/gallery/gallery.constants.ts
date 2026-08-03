@@ -5,22 +5,28 @@
  * features/gallery/gallery.constants.ts
  *
  * Description:
- * Luxury gallery page copy configuration.
+ * Luxury gallery page configuration.
  *
  * Updates:
- * • Shifted gallery from social style to studio editorial
- * • Focused on comfort and personalization
- * • Separated from Instagram journey messaging
+ * • Refined emotional brand messaging
+ * • Shifted from image showcase to studio experience
+ * • Matches luxury editorial direction
  *
  * ---
  *
  */
 
 export const GALLERY_CONFIG = {
-  eyebrow: "The Studio",
 
-  title: "A Space Designed With You In Mind",
+  eyebrow:
+    "Our Studio",
+
+
+  title:
+    "A Space Designed For You In Mind",
+
 
   description:
-    "Every detail of Just Wax by Kim was thoughtfully created to provide a calm, welcoming environment where every guest feels comfortable, cared for, and confident.",
+    "A calming environment thoughtfully created to make every guest feel comfortable, confident, and cared for from the moment they arrive.",
+
 };
