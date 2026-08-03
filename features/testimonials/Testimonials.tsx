@@ -14,9 +14,9 @@
  * • Improved phone readability
  * • Balanced tablet / desktop layout
  * • Preserved luxury editorial styling
+ * • Removed redundant booking CTA
  *
  * ---
- *
  */
 
 import { testimonials } from "./testimonials.data";
@@ -57,7 +57,6 @@ export default function Testimonials() {
       />
 
 
-
       {/* CONTENT */}
       <div
         className="
@@ -78,8 +77,6 @@ export default function Testimonials() {
           xl:px-24
         "
       >
-
-
 
         {/* HEADER */}
         <header
@@ -116,8 +113,6 @@ export default function Testimonials() {
             Client Love
           </p>
 
-
-
           <h1
             className="
               mt-5
@@ -139,8 +134,6 @@ export default function Testimonials() {
           >
             Loved By Our Clients
           </h1>
-
-
 
           <p
             className="
@@ -167,11 +160,7 @@ export default function Testimonials() {
             confidence, and exceptional care.
           </p>
 
-
         </header>
-
-
-
 
 
         {/* TESTIMONIAL GRID */}
@@ -196,85 +185,15 @@ export default function Testimonials() {
         >
 
           {testimonials.map((item) => (
-
             <TestimonialCard
               key={item.id}
               testimonial={item}
             />
-
           ))}
 
         </div>
 
-
-
-
-
-        {/* BOOKING CTA */}
-        <div
-          className="
-            mt-14
-
-            sm:mt-16
-
-            md:mt-20
-
-            flex
-
-            justify-center
-          "
-        >
-
-          <a
-            href="/#booking"
-            className="
-              inline-flex
-
-              items-center
-
-              justify-center
-
-              rounded-full
-
-              border-2
-
-              border-[#8C5A6B]
-
-              px-8
-
-              sm:px-12
-
-              py-4
-
-              sm:py-5
-
-              uppercase
-
-              tracking-[0.18em]
-
-              text-xs
-
-              sm:text-sm
-
-              font-semibold
-
-              text-[#8C5A6B]
-
-              transition-all
-
-              duration-300
-
-              hover:bg-[#F6E7E1]
-            "
-          >
-            Book Appointment
-          </a>
-
-        </div>
-
-
       </div>
-
 
     </section>
   );
