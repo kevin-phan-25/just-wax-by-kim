@@ -20,7 +20,10 @@
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
-import Services from "@/features/services";
+
+import { ServicePricingPage } from "@/features/services";
+import { ladiesServices } from "@/features/services/data/ladies.data";
+
 import Gallery from "@/features/gallery";
 import Testimonials from "@/features/testimonials";
 import Instagram from "@/features/instagram";
@@ -30,14 +33,20 @@ import Contact from "@/features/contact";
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-12">
+    <main>
+
       <Hero />
 
       <About />
 
       <Mission />
 
-      <Services />
+      <ServicePricingPage
+        id="services"
+        title="Ladies Waxing"
+        description="Professional waxing services designed for comfort, confidence, and exceptional care."
+        services={ladiesServices}
+      />
 
       <Gallery />
 
@@ -50,6 +59,7 @@ export default function Home() {
       <Booking />
 
       <Contact />
+
     </main>
   );
 }
