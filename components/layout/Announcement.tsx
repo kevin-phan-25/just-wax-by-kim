@@ -8,10 +8,10 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Added luxury floating animation
- * • Added soft ambient glow
- * • Added elegant light sweep effect
+ * • Added luxury floating effect
+ * • Added soft ambient shadow
  * • Added subtle image movement
+ * • Added premium light reflection
  * • Preserved floating layout
  *
  * ---
@@ -33,6 +33,10 @@ export default function Announcement() {
 
         xl:top-[168px]
 
+        left-1/2
+
+        -translate-x-1/2
+
         z-40
 
         w-full
@@ -41,10 +45,9 @@ export default function Announcement() {
 
         justify-center
 
-        animate-[float_6s_ease-in-out_infinite]
+        animate-[pulse_6s_ease-in-out_infinite]
       "
     >
-
       <div
         className="
           relative
@@ -69,15 +72,14 @@ export default function Announcement() {
 
           rounded-full
 
-          shadow-[0_20px_60px_-20px_rgba(140,90,107,0.35)]
+          shadow-[0_25px_70px_-25px_rgba(140,90,107,0.45)]
 
           ring-1
 
-          ring-[#E8C8BC]/60
+          ring-[#E8C8BC]/70
         "
       >
 
-        {/* IMAGE */}
         <img
           src="/hero/slogan_banner.jpg"
           alt="Where every service is tailored just for you"
@@ -96,12 +98,18 @@ export default function Announcement() {
 
             scale-105
 
-            animate-[slowZoom_12s_ease-in-out_infinite]
+            transition-transform
+
+            duration-[12000ms]
+
+            ease-in-out
+
+            hover:scale-110
           "
         />
 
 
-        {/* LUXURY LIGHT REFLECTION */}
+        {/* Soft Luxury Shine */}
         <div
           className="
             absolute
@@ -112,54 +120,17 @@ export default function Announcement() {
 
             from-transparent
 
-            via-white/25
+            via-white/30
 
             to-transparent
 
             -translate-x-full
 
-            animate-[shine_7s_ease-in-out_infinite]
+            animate-[shine_8s_ease-in-out_infinite]
           "
         />
 
       </div>
-
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-
-          50% {
-            transform: translateY(-6px);
-          }
-        }
-
-        @keyframes slowZoom {
-          0%,
-          100% {
-            transform: scale(1.05);
-          }
-
-          50% {
-            transform: scale(1.1);
-          }
-        }
-
-        @keyframes shine {
-          0% {
-            transform: translateX(-100%);
-          }
-
-          40%,
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
-
     </div>
   );
 }
