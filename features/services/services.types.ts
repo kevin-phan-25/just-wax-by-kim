@@ -1,5 +1,6 @@
 /**
- * ---
+ *
+ * -------------------------------------------------------------------
  * File:
  * features/services/services.types.ts
  *
@@ -7,27 +8,23 @@
  * Service domain models.
  *
  * Updates:
- * • Simplified service architecture
- * • Removed unused category model
- * • Supports Ladies/Gentlemen pricing
- * • Supports reusable luxury service cards
- *
- * ---
+ * • Supports Ladies & Gentlemen pricing
+ * • Supports expandable pricing options
+ * • Simplified reusable service model
+ * -------------------------------------------------------------------
  */
-
 
 export interface Service {
   id: string;
-
   title: string;
-
   category: string;
-
-  description?: string;
-
   price: string;
-
   duration: string;
-
   gender: "ladies" | "gentlemen";
+
+  options?: {
+    label: string;
+    price: string;
+    duration?: string;
+  }[];
 }
