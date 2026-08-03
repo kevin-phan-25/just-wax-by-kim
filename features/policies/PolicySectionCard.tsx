@@ -1,42 +1,38 @@
 /**
+ *
  * ---
  * File:
  * features/policies/PolicySectionCard.tsx
  *
  * Description:
- * Luxury editorial policy card.
+ * Luxury editorial policy section.
  *
  * Updates:
- * • Mobile-first typography
- * • Improved phone readability
- * • Reduced vertical spacing
- * • Responsive title scaling
- * • Refined heart bullet layout
- * • Preserved luxury editorial style
+ * • Removed playful heart styling
+ * • Added refined luxury accents
+ * • Improved editorial spacing
+ * • Enhanced typography hierarchy
+ * • Improved mobile readability
+ * • Preserved responsive behavior
  *
  * ---
  */
 
 import type { PolicySection } from "./policies.types";
 
-
 interface Props {
   section: PolicySection;
 }
 
-
 export default function PolicySectionCard({
   section,
 }: Props) {
-
   return (
-
     <article
       className="
         w-full
       "
     >
-
 
       {/* TITLE */}
       <h2
@@ -44,11 +40,14 @@ export default function PolicySectionCard({
           font-serif
 
           text-2xl
+
           sm:text-3xl
+
+          md:text-4xl
 
           leading-tight
 
-          tracking-[-0.02em]
+          tracking-[-0.025em]
 
           text-[#3B2A26]
         "
@@ -58,20 +57,20 @@ export default function PolicySectionCard({
 
 
 
-
-
       {/* INTRO */}
       {section.intro && (
-
         <p
           className="
             mt-5
+
             sm:mt-7
 
             text-sm
+
             sm:text-base
 
             leading-7
+
             sm:leading-8
 
             text-[#6F5A50]
@@ -79,9 +78,7 @@ export default function PolicySectionCard({
         >
           {section.intro}
         </p>
-
       )}
-
 
 
 
@@ -89,27 +86,26 @@ export default function PolicySectionCard({
 
       {/* PARAGRAPHS */}
       {section.paragraphs?.map((paragraph) => (
-
         <p
-          key={paragraph.slice(0,32)}
-
+          key={paragraph.slice(0, 32)}
           className="
-            mt-4
-            sm:mt-5
+            mt-5
+
+            sm:mt-6
 
             text-sm
+
             sm:text-base
 
             leading-7
+
             sm:leading-8
 
             text-[#6F5A50]
           "
         >
           {paragraph}
-
         </p>
-
       ))}
 
 
@@ -117,59 +113,58 @@ export default function PolicySectionCard({
 
 
 
-      {/* HEART LIST */}
+      {/* EDITORIAL LIST */}
       {section.bullets && (
-
         <ul
           className="
-            mt-6
+            mt-7
+
             sm:mt-8
 
-            space-y-3
-            sm:space-y-4
+            space-y-4
+
+            sm:space-y-5
           "
         >
-
-          {section.bullets.map((bullet)=>(
-
+          {section.bullets.map((bullet) => (
             <li
-              key={bullet.slice(0,32)}
-
+              key={bullet.slice(0, 32)}
               className="
                 flex
 
                 items-start
 
                 gap-3
+
                 sm:gap-4
 
                 text-sm
+
                 sm:text-base
 
                 leading-7
+
                 sm:leading-8
 
                 text-[#6F5A50]
               "
             >
 
-
-              {/* HEART ACCENT */}
+              {/* LUXURY ACCENT */}
               <span
                 className="
-                  mt-[0.2rem]
+                  mt-[0.45rem]
 
                   shrink-0
 
-                  font-serif
+                  text-[10px]
 
-                  text-base
-                  sm:text-lg
+                  sm:text-xs
 
                   text-[#8C5A6B]
                 "
               >
-                ♡
+                ✦
               </span>
 
 
@@ -183,14 +178,9 @@ export default function PolicySectionCard({
                 {bullet}
               </span>
 
-
             </li>
-
           ))}
-
-
         </ul>
-
       )}
 
 
@@ -200,33 +190,29 @@ export default function PolicySectionCard({
 
       {/* NOTE */}
       {section.note && (
-
         <p
           className="
-            mt-6
-            sm:mt-8
+            mt-7
+
+            sm:mt-9
 
             text-sm
+
             sm:text-base
 
             italic
 
             leading-7
+
             sm:leading-8
 
             text-[#8C7468]
           "
         >
           {section.note}
-
         </p>
-
       )}
 
-
-
     </article>
-
   );
-
 }
