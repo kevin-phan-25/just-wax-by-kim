@@ -8,6 +8,7 @@
  * Gentlemen waxing pricing page.
  *
  * ---
+ *
  */
 
 import ServicePricingPage from "@/features/services/ServicePricingPage";
@@ -25,8 +26,15 @@ export default function GentlemenServicesPage() {
       title="Gentlemen Waxing"
 
       description="
-        Professional waxing services designed for men
-        who value confidence, comfort, and care.
+        Professional waxing services focused on comfort,
+        confidence, and personalized care.
+      "
+
+      anatomyNote="
+        For clients with penis & scrotum anatomy. Services
+        are booked based on the anatomy being waxed. If
+        you’re unsure which appointment to select, please
+        contact me.
       "
 
       services={gentlemenServices}
