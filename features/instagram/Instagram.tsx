@@ -8,12 +8,11 @@
  * Standalone luxury Instagram presentation.
  *
  * Updates:
- * • Navbar clearance handled by app/(studio)/layout.tsx
- * • Phone / iPad / desktop optimization
- * • Full-width editorial layout
- * • Centered luxury typography
- * • Removed restrictive containers
- * • Preserved conversion CTA
+ * • Refined editorial spacing
+ * • Simplified luxury presentation
+ * • Improved visual hierarchy
+ * • Matches About / FAQ / Policies architecture
+ * • Mobile / iPad / desktop optimized
  *
  * ---
  *
@@ -24,9 +23,12 @@ import {
 } from "./instagram.constants";
 
 import InstagramGrid from "./InstagramGrid";
+
 import FollowButton from "./FollowButton";
 
+
 export default function Instagram() {
+
   return (
     <section
       className="
@@ -40,6 +42,7 @@ export default function Instagram() {
       "
     >
 
+
       {/* AMBIENT BACKGROUND */}
       <div
         aria-hidden
@@ -50,9 +53,11 @@ export default function Instagram() {
 
           inset-0
 
-          bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
+          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
+
+
 
 
 
@@ -75,19 +80,25 @@ export default function Instagram() {
 
           xl:px-24
 
-          pb-24
+          pb-20
+
+          sm:pb-24
 
           md:pb-32
         "
       >
 
 
+
+
         {/* HEADER */}
         <header
           className="
+            mx-auto
+
             flex
 
-            w-full
+            max-w-5xl
 
             flex-col
 
@@ -95,9 +106,9 @@ export default function Instagram() {
 
             text-center
 
-            mb-14
+            mb-12
 
-            md:mb-16
+            md:mb-14
           "
         >
 
@@ -105,11 +116,11 @@ export default function Instagram() {
             className="
               uppercase
 
-              tracking-[0.35em]
+              tracking-[0.4em]
 
-              text-xs
+              text-[11px]
 
-              md:text-sm
+              sm:text-xs
 
               text-[#8C5A6B]
             "
@@ -119,9 +130,10 @@ export default function Instagram() {
 
 
 
+
           <h1
             className="
-              mt-6
+              mt-5
 
               max-w-5xl
 
@@ -133,9 +145,9 @@ export default function Instagram() {
 
               md:text-6xl
 
-              leading-tight
+              leading-[1.08]
 
-              tracking-[-0.03em]
+              tracking-[-0.035em]
 
               text-[#3B2A26]
             "
@@ -145,15 +157,19 @@ export default function Instagram() {
 
 
 
+
+
           <p
             className="
-              mt-6
+              mt-5
 
               max-w-3xl
 
-              text-base
+              text-sm
 
-              sm:text-lg
+              sm:text-base
+
+              md:text-lg
 
               leading-relaxed
 
@@ -163,16 +179,25 @@ export default function Instagram() {
             {INSTAGRAM_CONFIG.description}
           </p>
 
+
         </header>
 
 
 
 
 
+
+
         {/* INSTAGRAM GRID */}
-        <div className="w-full">
+        <div
+          className="
+            w-full
+          "
+        >
           <InstagramGrid />
         </div>
+
+
 
 
 
@@ -181,7 +206,9 @@ export default function Instagram() {
         {/* FOLLOW CTA */}
         <div
           className="
-            mt-14
+            mt-12
+
+            sm:mt-14
 
             md:mt-16
 
@@ -192,20 +219,21 @@ export default function Instagram() {
             items-center
 
             gap-5
-
-            md:gap-6
           "
         >
+
 
           <p
             className="
               uppercase
 
-              tracking-[0.3em]
+              tracking-[0.35em]
 
-              text-xs
+              text-[11px]
 
-              font-semibold
+              sm:text-xs
+
+              font-medium
 
               text-[#9A857A]
             "
@@ -213,11 +241,17 @@ export default function Instagram() {
             {INSTAGRAM_CONFIG.handle}
           </p>
 
+
+
           <FollowButton />
+
 
         </div>
 
+
+
       </div>
+
 
     </section>
   );
