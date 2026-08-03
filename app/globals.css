@@ -15,21 +15,23 @@
  * Spacing
  * Colors
  * Layout Tokens
+ * Announcement + Navbar clearance
  * Responsive Rules
+ *
+ * Updated: August 2, 2026
+ * • Added announcement bar height tokens
+ * • nav-clearance = announcement + navbar
+ * • scroll-padding includes both
+ * • Script font token for slogan
  * -------------------------------------------------------------
  */
-
 @import "tailwindcss";
-
 
 /* =============================================================
    BRAND TOKENS
 ============================================================= */
-
 :root {
-
   /* Colors */
-
   --background: #FCF8F3;
   --background-soft: #F6E7E1;
   --card: #FFFFFF;
@@ -39,718 +41,305 @@
   --dusty-pink: #D4A9B6;
   --mauve: #9A6B7A;
   --plum: #8C5A6B;
-
   --espresso: #3B2A26;
   --taupe: #8C7468;
 
-  --text-primary:
-    #3B2A26;
+  --text-primary: #3B2A26;
+  --text-secondary: #6F5A50;
+  --border: #E8DDD8;
 
-  --text-secondary:
-    #6F5A50;
-
-  --border:
-    #E8DDD8;
-
-
+  /* Announcement bar (slogan strip) */
+  --announcement: #C9A0A8;
+  --announcement-text: #F7EDE8;
 
   /* Typography */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-script: var(--font-script);
 
-  --font-heading:
-    var(--font-heading);
+  /* Navbar heights (bar only) */
+  --nav-mobile: 110px;
+  --nav-tablet: 140px;
+  --nav-desktop: 168px;
 
-  --font-body:
-    var(--font-body);
+  /* Announcement heights by breakpoint */
+  --announcement-mobile: 36px;
+  --announcement-tablet: 44px;
+  --announcement-desktop: 48px;
 
-
-
-  /* Layout */
-
-  --nav-mobile:
-    110px;
-
-  --nav-tablet:
-    140px;
-
-  --nav-desktop:
-    168px;
-
-
+  /* Combined fixed header (announcement + navbar) */
+  --header-mobile: calc(var(--announcement-mobile) + var(--nav-mobile));
+  --header-tablet: calc(var(--announcement-tablet) + var(--nav-tablet));
+  --header-desktop: calc(var(--announcement-desktop) + var(--nav-desktop));
 
   /* Section rhythm */
-
-  --section-sm:
-    clamp(
-      3rem,
-      5vw,
-      5rem
-    );
-
-
-  --section:
-    clamp(
-      5rem,
-      8vw,
-      9rem
-    );
-
-
-  --section-lg:
-    clamp(
-      7rem,
-      10vw,
-      12rem
-    );
-
-
+  --section-sm: clamp(3rem, 5vw, 5rem);
+  --section: clamp(5rem, 8vw, 9rem);
+  --section-lg: clamp(7rem, 10vw, 12rem);
 
   /* Horizontal breathing room */
-
-  --gutter:
-
-    clamp(
-      1.25rem,
-      5vw,
-      5rem
-    );
-
-
+  --gutter: clamp(1.25rem, 5vw, 5rem);
 
   /* Card spacing */
-
-  --card-gap:
-
-    clamp(
-      1.5rem,
-      3vw,
-      3rem
-    );
-
+  --card-gap: clamp(1.5rem, 3vw, 3rem);
 }
-
-
 
 /* =============================================================
    TAILWIND THEME TOKENS
 ============================================================= */
-
 @theme {
-
-
-  --color-brand-background:
-    #FCF8F3;
-
-
-  --color-brand-soft:
-    #F6E7E1;
-
-
-  --color-brand-card:
-    #FFFFFF;
-
-
-  --color-brand-plum:
-    #8C5A6B;
-
-
-  --color-brand-mauve:
-    #9A6B7A;
-
-
-  --color-brand-champagne:
-    #D8B4A0;
-
-
-  --color-brand-border:
-    #E8DDD8;
-
-
-  --color-brand-text:
-    #3B2A26;
-
+  --color-brand-background: #FCF8F3;
+  --color-brand-soft: #F6E7E1;
+  --color-brand-card: #FFFFFF;
+  --color-brand-plum: #8C5A6B;
+  --color-brand-mauve: #9A6B7A;
+  --color-brand-champagne: #D8B4A0;
+  --color-brand-dusty-pink: #D4A9B6;
+  --color-brand-border: #E8DDD8;
+  --color-brand-text: #3B2A26;
+  --color-brand-announcement: #C9A0A8;
 }
-
-
 
 /* =============================================================
    RESET
 ============================================================= */
-
-
 *,
 *::before,
 *::after {
-
-  box-sizing:
-    border-box;
-
+  box-sizing: border-box;
 }
-
 
 html {
-
-  scroll-behavior:
-    smooth;
-
-
-  scroll-padding-top:
-    180px;
-
+  scroll-behavior: smooth;
+  /* announcement + navbar + small buffer */
+  scroll-padding-top: calc(var(--header-mobile) + 8px);
 }
 
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: calc(var(--header-tablet) + 8px);
+  }
+}
 
+@media (min-width: 1280px) {
+  html {
+    scroll-padding-top: calc(var(--header-desktop) + 8px);
+  }
+}
 
 body {
-
-  min-height:
-    100vh;
-
-
-  background:
-    var(--background);
-
-
-  color:
-    var(--text-primary);
-
-
-  font-family:
-    var(--font-body),
-    sans-serif;
-
-
-  -webkit-font-smoothing:
-    antialiased;
-
-
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
-
-
 
 /* =============================================================
    GLOBAL TYPOGRAPHY
 ============================================================= */
-
-
 h1,
 h2,
 h3,
 h4,
 h5 {
-
-  font-family:
-    var(--font-heading),
-    serif;
-
-
-  color:
-    var(--espresso);
-
-
-  font-weight:
-    500;
-
-
-  letter-spacing:
-    -0.045em;
-
-
-  line-height:
-    1.1;
-
+  font-family: var(--font-heading), serif;
+  color: var(--espresso);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
 }
-
-
 
 h1 {
-
-  font-size:
-
-    clamp(
-      2.5rem,
-      5vw,
-      5rem
-    );
-
+  font-size: clamp(2.5rem, 5vw, 5rem);
 }
-
-
 
 h2 {
-
-  font-size:
-
-    clamp(
-      2.25rem,
-      4vw,
-      4rem
-    );
-
+  font-size: clamp(2.25rem, 4vw, 4rem);
 }
-
-
 
 h3 {
-
-  font-size:
-
-    clamp(
-      1.4rem,
-      2vw,
-      2.25rem
-    );
-
+  font-size: clamp(1.4rem, 2vw, 2.25rem);
 }
-
-
 
 p {
-
-  font-family:
-    var(--font-body),
-    sans-serif;
-
-
-  color:
-    var(--text-secondary);
-
-
-  font-size:
-
-    clamp(
-      1rem,
-      1.2vw,
-      1.15rem
-    );
-
-
-  line-height:
-    1.9;
-
-
-  letter-spacing:
-    0.01em;
-
+  font-family: var(--font-body), sans-serif;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
 }
-
-
 
 /* =============================================================
    LUXURY TYPOGRAPHY UTILITIES
 ============================================================= */
-
-
 .luxury-heading {
-
-  font-family:
-    var(--font-heading),
-    serif;
-
-
-  font-weight:
-    500;
-
-
-  letter-spacing:
-    -0.045em;
-
-
-  color:
-    var(--espresso);
-
+  font-family: var(--font-heading), serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  color: var(--espresso);
 }
-
-
 
 .luxury-body {
-
-  font-family:
-    var(--font-body),
-    sans-serif;
-
-
-  color:
-    var(--text-secondary);
-
-
-  line-height:
-    1.9;
-
+  font-family: var(--font-body), sans-serif;
+  color: var(--text-secondary);
+  line-height: 1.9;
 }
-
-
 
 .eyebrow {
-
-  font-family:
-    var(--font-body),
-    sans-serif;
-
-
-  text-transform:
-    uppercase;
-
-
-  letter-spacing:
-    .35em;
-
-
-  font-size:
-    .7rem;
-
-
-  font-weight:
-    600;
-
-
-  color:
-    var(--plum);
-
+  font-family: var(--font-body), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--plum);
 }
-
-
 
 .caption {
-
-  font-size:
-    .85rem;
-
-
-  color:
-    var(--taupe);
-
+  font-size: 0.85rem;
+  color: var(--taupe);
 }
 
-
+.script {
+  font-family: var(--font-script), "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* =============================================================
    LAYOUT SYSTEM
 ============================================================= */
-
-
 .container-luxury {
-
-  width:
-    100%;
-
-
-  margin-inline:
-    auto;
-
-
-  padding-inline:
-    var(--gutter);
-
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
-
-
 
 .section-padding {
-
-  padding-block:
-    var(--section);
-
+  padding-block: var(--section);
 }
-
-
 
 .section-padding-lg {
-
-  padding-block:
-    var(--section-lg);
-
+  padding-block: var(--section-lg);
 }
 
-
-
-/* Navbar spacing */
-
+/* Clears fixed announcement + navbar */
 .nav-clearance {
-
-  padding-top:
-    var(--nav-mobile);
-
+  padding-top: var(--header-mobile);
 }
 
-
-
-@media(min-width:768px){
-
+@media (min-width: 768px) {
   .nav-clearance {
-
-    padding-top:
-      var(--nav-tablet);
-
+    padding-top: var(--header-tablet);
   }
-
 }
 
-
-
-@media(min-width:1280px){
-
+@media (min-width: 1280px) {
   .nav-clearance {
-
-    padding-top:
-      var(--nav-desktop);
-
+    padding-top: var(--header-desktop);
   }
-
 }
-
-
 
 /* =============================================================
    CARDS
 ============================================================= */
-
-
 .card-luxury {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      .92
-    );
-
-
-  border:
-    1px solid var(--border);
-
-
-  border-radius:
-    32px;
-
-
-  box-shadow:
-
-    0 18px 50px
-    rgba(
-      59,
-      42,
-      38,
-      .06
-    );
-
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  box-shadow: 0 18px 50px rgba(59, 42, 38, 0.06);
 }
-
-
 
 /* =============================================================
    SERVICE GRID
 ============================================================= */
-
-
 .service-grid {
-
-  display:
-    grid;
-
-
-  width:
-    100%;
-
-
-  grid-template-columns:
-    repeat(
-      1,
-      minmax(
-        0,
-        1fr
-      )
-    );
-
-
-  gap:
-    var(--card-gap);
-
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--card-gap);
 }
 
-
-
-@media(min-width:640px){
-
+@media (min-width: 640px) {
   .service-grid {
-
-    grid-template-columns:
-      repeat(
-        2,
-        minmax(
-          0,
-          1fr
-        )
-      );
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
-
-
-@media(min-width:1100px){
-
+@media (min-width: 1100px) {
   .service-grid {
-
-    grid-template-columns:
-      repeat(
-        3,
-        minmax(
-          0,
-          1fr
-        )
-      );
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
 }
 
-
-
-@media(min-width:1400px){
-
+@media (min-width: 1400px) {
   .service-grid {
-
-    grid-template-columns:
-      repeat(
-        4,
-        minmax(
-          0,
-          1fr
-        )
-      );
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-
 }
-
-
 
 /* =============================================================
    BUTTON SYSTEM
 ============================================================= */
-
-
 .btn-primary {
-
-  display:
-    inline-flex;
-
-
-  align-items:
-    center;
-
-
-  justify-content:
-    center;
-
-
-  min-height:
-    60px;
-
-
-  padding:
-    1rem 3rem;
-
-
-  border-radius:
-    999px;
-
-
-  background:
-    var(--plum);
-
-
-  color:
-    white;
-
-
-  font-family:
-    var(--font-body);
-
-
-  text-transform:
-    uppercase;
-
-
-  letter-spacing:
-    .22em;
-
-
-  font-size:
-    .8rem;
-
-
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 1rem 3rem;
+  border-radius: 999px;
+  background: var(--plum);
+  color: white;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.8rem;
 }
-
-
 
 /* =============================================================
    BACKGROUND HELPERS
 ============================================================= */
-
-
 .bg-soft {
-
-  background:
-    var(--background-soft);
-
+  background: var(--background-soft);
 }
-
-
 
 .bg-card {
-
-  background:
-    var(--card);
-
+  background: var(--card);
 }
-
-
 
 .bg-luxury {
-
-  background:
-
-    linear-gradient(
-      180deg,
-      #FCF8F3,
-      #F6E7E1
-    );
-
+  background: linear-gradient(180deg, #FCF8F3, #F6E7E1);
 }
-
-
 
 /* =============================================================
    RESPONSIVE
 ============================================================= */
-
-
-@media(max-width:768px){
-
+@media (max-width: 768px) {
   :root {
-
-    --gutter:
-      1.25rem;
-
+    --gutter: 1.25rem;
   }
-
 
   .section-padding {
-
-    padding-block:
-      4rem;
-
+    padding-block: 4rem;
   }
-
 
   .section-padding-lg {
+    padding-block: 5rem;
+  }
+}
 
-    padding-block:
-      5rem;
-
+/* =============================================================
+   REDUCED MOTION
+============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
