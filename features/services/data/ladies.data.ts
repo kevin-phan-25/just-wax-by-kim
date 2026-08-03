@@ -58,7 +58,7 @@ export const ladiesServices: Service[] = [
   id: "ladies-new-client-bikini",
   title: "New Client Bikini",
   category: "Bikini",
-  price: "$80",
+  price: "$85",
   duration: "30 minutes",
   gender: "ladies",
 },
