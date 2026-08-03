@@ -1,70 +1,97 @@
 /**
- *
  * ---
  * File:
  * components/layout/Announcement.tsx
  *
  * Description:
- * Homepage luxury slogan banner.
+ * Floating homepage slogan banner.
  *
  * Updates:
- * • Uses official slogan graphic
- * • Responsive sizing
- * • Homepage only
- *
+ * • Uses slogan_banner.jpg
+ * • Does not affect page layout
+ * • Floats between navbar and hero
+ * • Crops unwanted image background
+ * • Homepage-only display handled by layout
  * ---
- *
  */
 
-import Image from "next/image";
-
+"use client";
 
 export default function Announcement() {
   return (
-    <section
+    <div
       className="
+        pointer-events-none
+
+        absolute
+
+        top-[110px]
+
+        md:top-[140px]
+
+        xl:top-[168px]
+
+        left-1/2
+
+        -translate-x-1/2
+
+        z-40
+
         w-full
 
         flex
+
         justify-center
-        items-center
 
-        bg-[#FCF8F3]
-
-        py-3
-
-        sm:py-4
-
-        md:py-5
       "
     >
-
-      <Image
-        src="/hero/slogan_banner.jpg"
-        alt="Where every service is tailored just for you"
-
-        width={1600}
-        height={220}
-
-        priority
-
+      <div
         className="
-          w-[85%]
+          relative
 
-          sm:w-[75%]
+          w-[92%]
 
-          md:w-[65%]
+          sm:w-[80%]
 
-          lg:w-[55%]
+          md:w-[70%]
 
-          xl:w-[45%]
+          lg:w-[60%]
 
-          h-auto
+          xl:w-[55%]
 
-          object-contain
+          h-[55px]
+
+          sm:h-[65px]
+
+          md:h-[75px]
+
+          overflow-hidden
+
+          rounded-full
+
         "
-      />
+      >
+        <img
+          src="/hero/slogan_banner.jpg"
+          alt="Where every service is tailored just for you"
+          className="
+            absolute
 
-    </section>
+            inset-0
+
+            w-full
+
+            h-full
+
+            object-cover
+
+            object-center
+
+            scale-[1.35]
+
+          "
+        />
+      </div>
+    </div>
   );
 }
