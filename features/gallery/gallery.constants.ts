@@ -1,19 +1,26 @@
 /**
- * -----------------------------------------------------------------------------
- * File: features/gallery/gallery.constants.ts
  *
- * Created: July 27, 2026
+ * ---
+ * File:
+ * features/gallery/gallery.constants.ts
  *
  * Description:
- * Luxury gallery configuration.
- * -----------------------------------------------------------------------------
+ * Luxury gallery page copy configuration.
+ *
+ * Updates:
+ * • Shifted gallery from social style to studio editorial
+ * • Focused on comfort and personalization
+ * • Separated from Instagram journey messaging
+ *
+ * ---
+ *
  */
 
 export const GALLERY_CONFIG = {
-  eyebrow: "Inside the Studio",
+  eyebrow: "The Studio",
 
-  title: "Luxury in Every Detail",
+  title: "A Space Designed With You In Mind",
 
   description:
-    "Explore a calming studio environment where every detail is designed to create a comfortable and welcoming experience.",
+    "Every detail of Just Wax by Kim was thoughtfully created to provide a calm, welcoming environment where every guest feels comfortable, cared for, and confident.",
 };
