@@ -1,21 +1,17 @@
 /**
  *
  * ---
- * File: app/page.tsx
+ * File:
+ * app/page.tsx
  *
  * Description:
  * Main homepage composition for Just Wax by Kim.
  *
  * Changes:
  *
- * - July 29, 2026
- *   - Removed border-t section wrappers
- *   - Feature components own their section ids
- *
- * - August 2, 2026
- *   - Fixed Services import (exported as Service)
- *   - Removed Experience section
- *   - Maintained ~½ inch (gap-12 / 48px) separation between sections
+ * - Removed Experience section
+ * - Fixed Services component import
+ * - Maintained section spacing
  *
  * ---
  *
@@ -24,7 +20,7 @@
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Mission from "@/features/about/Mission";
-import { Service as Services } from "@/features/services";
+import Services from "@/features/services";
 import Gallery from "@/features/gallery";
 import Testimonials from "@/features/testimonials";
 import Instagram from "@/features/instagram";
