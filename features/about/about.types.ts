@@ -8,12 +8,10 @@
  *
  * Changes:
  * • Updated description to support editorial paragraphs
- * • Added slogan support with rich text formatting
+ * • Added slogan text support
  *
  * ---
  */
-
-import type { ReactNode } from "react";
 
 export interface AboutSection {
   eyebrow: string;
@@ -22,5 +20,5 @@ export interface AboutSection {
 
   description: string[];
 
-  slogan?: ReactNode;
+  slogan?: string;
 }
