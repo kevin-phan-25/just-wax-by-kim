@@ -5,43 +5,35 @@
  * features/services/ServicePricingPage.tsx
  *
  * Description:
- * Luxury service pricing page.
+ * Luxury service pricing menu.
  *
  * Updates:
- * • Added id support
- * • Compact pricing layout
- * • Reduced mobile scrolling
- * • Removed pricing disclaimer
- * • Added Inclusive Booking footer
+ * • Compact editorial pricing layout
+ * • Reduced scrolling
+ * • Mobile optimized
+ * • Brazilian prioritized
+ * • Body category organization
+ * • Removed card bubbles
+ * • Added inclusive booking note
  *
  * ---
  *
  */
 
-
 import ServiceGrid from "./ServiceGrid";
-import InclusiveBooking from "./InclusiveBooking";
-
 import type { Service } from "./services.types";
 
-
 interface Props {
-
   id?: string;
-
   title: string;
-
   description: string;
-
   services: Service[];
-
 }
 
 
+const categoryTitles: Record<string, string> = {
 
-const categoryTitles: Record<string,string> = {
-
-  "Brazilian Waxing":
+  Brazilian:
     "Brazilian",
 
   Face:
@@ -55,296 +47,322 @@ const categoryTitles: Record<string,string> = {
 
 
 export default function ServicePricingPage({
-
   id,
-
   title,
-
   description,
-
   services,
-
 }: Props) {
 
 
+  const groupedServices = services.reduce<
+    Record<string, Service[]>
+  >((groups, service) => {
 
-const groupedServices =
-services.reduce<Record<string,Service[]>>(
-(groups,service)=>{
+    if (!groups[service.category]) {
+      groups[service.category] = [];
+    }
 
+    groups[service.category].push(service);
 
-if(!groups[service.category]) {
+    return groups;
 
-  groups[service.category] = [];
+  }, {});
 
-}
 
 
-groups[service.category].push(service);
+  const categoryOrder = [
 
+    "Brazilian",
 
-return groups;
+    "Face",
 
+    "Body",
 
-},{});
+  ];
 
 
 
+  const orderedCategories =
+    categoryOrder.filter(
+      (category) =>
+        groupedServices[category]
+    );
 
-/*
-|--------------------------------------------------------------------------
-| Category Order
-|--------------------------------------------------------------------------
-|
-| Brazilian stays first.
-| Everything else follows body categories.
-|
-*/
 
 
-const categoryOrder = [
+  return (
 
-  "Brazilian Waxing",
+    <section
+      id={id}
+      className="
+        relative
+        w-full
+        overflow-hidden
+        py-16
+        sm:py-20
+        md:py-24
+      "
+    >
 
-  "Face",
 
-  "Body",
+      {/* Background */}
 
-];
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.22),transparent_60%)]
+        "
+      />
 
 
 
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          w-full
+          max-w-7xl
+          px-5
+          sm:px-8
+          md:px-12
+          lg:px-16
+        "
+      >
 
-const orderedCategories =
-categoryOrder.filter(
-(category)=>groupedServices[category]
-);
 
 
+        {/* HEADER */}
 
+        <header
+          className="
+            mx-auto
+            mb-12
+            max-w-3xl
+            text-center
+          "
+        >
 
-return (
+          <h1
+            className="
+              font-serif
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              tracking-tight
+              text-[#3B2A26]
+            "
+          >
 
-<section
+            {title}
 
-id={id}
+          </h1>
 
-className="
-relative
 
-w-full
+          <p
+            className="
+              mt-4
+              text-sm
+              sm:text-base
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
 
-px-5
+            {description}
 
-sm:px-8
+          </p>
 
-md:px-12
 
-lg:px-20
+        </header>
 
-py-14
 
-sm:py-16
 
-md:py-20
-"
 
->
 
+        {/* PRICE SECTIONS */}
 
-{/* BACKGROUND */}
 
-<div
+        <div
+          className="
+            flex
+            flex-col
+            gap-14
+            md:gap-16
+          "
+        >
 
-aria-hidden
 
-className="
-pointer-events-none
+          {orderedCategories.map(
+            (category) => (
 
-absolute
+              <section
+                key={category}
+              >
 
-inset-0
 
-bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
-"
+                {/* CATEGORY TITLE */}
 
-/>
+                <h2
+                  className="
+                    mb-6
+                    border-b
+                    border-[#E8DDD8]
+                    pb-3
+                    font-serif
+                    text-2xl
+                    sm:text-3xl
+                    text-[#3B2A26]
+                  "
+                >
 
+                  {categoryTitles[category]}
 
+                </h2>
 
-<div
 
-className="
-relative
 
-z-10
 
-"
 
->
+                {/* PRICE LIST */}
 
+                <div
+                  className="
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    gap-x-12
+                    gap-y-4
+                  "
+                >
 
-<header
+                  {groupedServices[category]
+                    .map((service)=>(
 
-className="
-mx-auto
+                    <div
+                      key={service.id}
+                      className="
+                        flex
+                        items-baseline
+                        justify-between
+                        gap-4
+                        border-b
+                        border-[#F0E8E3]
+                        pb-3
+                      "
+                    >
 
-max-w-4xl
+                      <div>
 
-text-center
+                        <h3
+                          className="
+                            text-sm
+                            sm:text-base
+                            font-medium
+                            text-[#3B2A26]
+                          "
+                        >
 
-mb-8
+                          {service.title}
 
-sm:mb-10
+                        </h3>
 
-"
 
->
+                        <p
+                          className="
+                            mt-1
+                            text-xs
+                            text-[#8C7468]
+                          "
+                        >
 
+                          {service.duration}
 
-<h1
+                        </p>
 
-className="
-font-serif
+                      </div>
 
-text-3xl
 
-sm:text-4xl
 
-md:text-5xl
 
-leading-tight
 
-tracking-[-0.03em]
+                      <span
+                        className="
+                          whitespace-nowrap
+                          font-serif
+                          text-lg
+                          text-[#8C5A6B]
+                        "
+                      >
 
-text-[#3B2A26]
-"
+                        {service.price}
 
->
+                      </span>
 
-{title}
 
-</h1>
+                    </div>
 
+                  ))}
 
 
-<p
+                </div>
 
-className="
-mt-3
 
-max-w-2xl
+              </section>
 
-mx-auto
+            )
+          )}
 
-text-sm
 
-sm:text-base
+        </div>
 
-leading-relaxed
 
-text-[#8C7468]
-"
 
->
 
-{description}
 
-</p>
+        {/* INCLUSIVE BOOKING NOTE */}
 
+        <div
+          className="
+            mt-16
+            border-t
+            border-[#E8DDD8]
+            pt-8
+            text-center
+          "
+        >
 
-</header>
+          <p
+            className="
+              mx-auto
+              max-w-3xl
+              text-sm
+              leading-relaxed
+              text-[#8C7468]
+            "
+          >
 
+            At Just Wax by Kim, everyone is welcome.
+            Services are booked based on the anatomy
+            being waxed to ensure the appropriate
+            appointment time and pricing.
+            If you are unsure which service to select,
+            please reach out — I’d love to help.
 
+          </p>
 
 
+        </div>
 
-<div
 
-className="
-flex
+      </div>
 
-flex-col
 
-gap-8
+    </section>
 
-sm:gap-10
-
-"
-
->
-
-
-{orderedCategories.map((category)=>(
-
-
-<section
-
-key={category}
-
->
-
-
-<h2
-
-className="
-mb-3
-
-font-serif
-
-text-xl
-
-sm:text-2xl
-
-text-[#3B2A26]
-
-border-b
-
-border-[#D8B4A0]
-
-pb-2
-"
-
->
-
-{categoryTitles[category] ?? category}
-
-</h2>
-
-
-
-
-<ServiceGrid
-
-services={groupedServices[category]}
-
-/>
-
-
-
-</section>
-
-
-))}
-
-
-
-</div>
-
-
-
-
-{/* BOOKING NOTE */}
-
-<InclusiveBooking />
-
-
-
-</div>
-
-
-</section>
-
-);
+  );
 
 }
