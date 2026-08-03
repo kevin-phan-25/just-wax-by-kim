@@ -9,9 +9,10 @@
  *
  * Updates:
  * • Inclusive service language
- * • Brazilian prioritized
+ * • Bikini services prioritized
  * • Removed unnecessary service labels
  * • Organized by body area
+ * • Added Inner Thigh service
  * • Prepared for compact editorial pricing layout
  *
  * ---
@@ -19,6 +20,7 @@
  */
 
 import type { Service } from "../services.types";
+
 
 
 /**
@@ -49,40 +51,40 @@ export const ladiesServices: Service[] = [
 
 
 // ---------------------------------------------------------------------------
-// BRAZILIAN
+// BIKINI
 // ---------------------------------------------------------------------------
 
 {
-  id: "ladies-new-client-brazilian",
-  title: "New Client Brazilian",
-  category: "Brazilian",
+  id: "ladies-new-client-bikini",
+  title: "New Client Bikini",
+  category: "Bikini",
   price: "$80",
   duration: "30 minutes",
   gender: "ladies",
 },
 
 {
-  id: "ladies-repeat-brazilian",
-  title: "Repeat Brazilian",
-  category: "Brazilian",
+  id: "ladies-repeat-bikini",
+  title: "Repeat Bikini",
+  category: "Bikini",
   price: "$75",
   duration: "20 minutes",
   gender: "ladies",
 },
 
 {
-  id: "ladies-extended-brazilian",
-  title: "Extended Brazilian",
-  category: "Brazilian",
+  id: "ladies-extended-bikini",
+  title: "Extended Bikini",
+  category: "Bikini",
   price: "$68",
   duration: "20 minutes",
   gender: "ladies",
 },
 
 {
-  id: "ladies-standard-brazilian",
-  title: "Standard Brazilian",
-  category: "Brazilian",
+  id: "ladies-standard-bikini",
+  title: "Standard Bikini",
+  category: "Bikini",
   price: "$53",
   duration: "15 minutes",
   gender: "ladies",
@@ -91,7 +93,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-buttocks",
   title: "Buttocks",
-  category: "Brazilian",
+  category: "Bikini",
   price: "$40",
   duration: "10 minutes",
   gender: "ladies",
@@ -100,7 +102,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-butt-strip",
   title: "Butt Strip",
-  category: "Brazilian",
+  category: "Bikini",
   price: "$30",
   duration: "10 minutes",
   gender: "ladies",
@@ -109,7 +111,7 @@ export const ladiesServices: Service[] = [
 {
   id: "ladies-inner-buttocks",
   title: "Inner Buttocks",
-  category: "Brazilian",
+  category: "Bikini",
   price: "$15",
   duration: "5 minutes",
   gender: "ladies",
@@ -217,7 +219,6 @@ export const ladiesServices: Service[] = [
 // BODY
 // ---------------------------------------------------------------------------
 
-
 // ARMS
 
 {
@@ -281,14 +282,13 @@ export const ladiesServices: Service[] = [
   duration: "5 minutes",
   gender: "ladies",
 },
-
-
-
-// HANDS & FEET
+// ---------------------------------------------------------------------------
+// HANDS + FEET
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-feet-toes",
-  title: "Feet & Toes",
+  title: "Feet + Toes",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
@@ -297,7 +297,7 @@ export const ladiesServices: Service[] = [
 
 {
   id: "ladies-hands-fingers",
-  title: "Hands & Fingers",
+  title: "Hands + Fingers",
   category: "Body",
   price: "$15",
   duration: "5 minutes",
@@ -306,7 +306,9 @@ export const ladiesServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // LEGS
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-full-legs",
@@ -337,7 +339,24 @@ export const ladiesServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
+// INNER THIGH
+// ---------------------------------------------------------------------------
+
+{
+  id: "ladies-inner-thigh",
+  title: "Inner Thigh",
+  category: "Body",
+  price: "$20",
+  duration: "10 minutes",
+  gender: "ladies",
+},
+
+
+
+// ---------------------------------------------------------------------------
 // STOMACH
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-stomach",
@@ -359,7 +378,9 @@ export const ladiesServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // UNDERARMS
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-underarms",
@@ -372,7 +393,9 @@ export const ladiesServices: Service[] = [
 
 
 
+// ---------------------------------------------------------------------------
 // FULL BODY LAST
+// ---------------------------------------------------------------------------
 
 {
   id: "ladies-full-body",
