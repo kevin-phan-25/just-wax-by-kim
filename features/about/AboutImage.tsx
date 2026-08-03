@@ -1,3 +1,21 @@
+/**
+ *
+ * ---
+ * File:
+ * features/about/AboutImage.tsx
+ *
+ * Description:
+ * Luxury editorial About image placeholder.
+ *
+ * Updates:
+ * • Reduced portrait size
+ * • Better alignment with editorial text
+ * • Preserved luxury styling
+ * • Maintained responsive behavior
+ *
+ * ---
+ */
+
 export default function AboutImage() {
   return (
     <div
@@ -5,6 +23,10 @@ export default function AboutImage() {
         relative
 
         w-full
+
+        flex
+
+        justify-center
       "
     >
 
@@ -13,11 +35,11 @@ export default function AboutImage() {
         className="
           absolute
 
-          -inset-5
+          -inset-4
 
-          sm:-inset-6
+          sm:-inset-5
 
-          rounded-[2.5rem]
+          rounded-[2rem]
 
           bg-[#E8DDD8]/40
 
@@ -30,9 +52,15 @@ export default function AboutImage() {
         className="
           relative
 
-          aspect-[4/5]
+          w-[85%]
 
-          w-full
+          sm:w-[75%]
+
+          md:w-full
+
+          max-w-[360px]
+
+          aspect-[4/5]
 
           overflow-hidden
 
@@ -84,9 +112,7 @@ export default function AboutImage() {
           Coming Soon
         </p>
 
-
       </div>
-
 
     </div>
   );
