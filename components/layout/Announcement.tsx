@@ -1,3 +1,4 @@
+```tsx
 /**
  *
  * ---
@@ -9,11 +10,12 @@
  *
  * Updates:
  * • Removed pill container appearance
- * • Removed border and shadow
- * • Blended slogan image into background
- * • Reduced background visibility
- * • Created floating editorial luxury appearance
+ * • Removed blend mode artifacts
+ * • Removed artificial background layer
+ * • Preserved transparent image rendering
+ * • Created clean floating editorial luxury appearance
  * • Preserved responsive positioning
+ *
  *
  * ---
  *
@@ -61,10 +63,6 @@ export default function Announcement() {
           lg:w-[460px]
 
           xl:w-[500px]
-
-          overflow-hidden
-
-          opacity-90
         "
       >
         <img
@@ -78,30 +76,10 @@ export default function Announcement() {
             h-auto
 
             object-contain
-
-            mix-blend-multiply
-
-            opacity-85
-
-            brightness-110
-
-            saturate-[70%]
-          "
-        />
-
-        {/* Soft background integration */}
-        <div
-          className="
-            absolute
-
-            inset-0
-
-            bg-[#FCF8F3]/30
-
-            mix-blend-screen
           "
         />
       </div>
     </div>
   );
 }
+```
