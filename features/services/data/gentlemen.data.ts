@@ -45,63 +45,63 @@ export const gentlemenServicePage = {
 
 export const gentlemenServices: Service[] = [
 
-  // ---------------------------------------------------------------------------
-  // BIKINI
-  // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// BIKINI
+// ---------------------------------------------------------------------------
 
-  {
-    id: "gentlemen-standard-bikini",
-    title: "Standard Bikini",
-    category: "Bikini",
-    price: "$85",
-    duration: "20 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-new-client-brazilian",
+  title: "New Client Brazilian",
+  category: "Bikini",
+  price: "$120",
+  duration: "40 minutes",
+  gender: "gentlemen",
+},
 
-  {
-    id: "gentlemen-new-client-brazilian",
-    title: "New Client Brazilian",
-    category: "Bikini",
-    price: "$120",
-    duration: "40 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-repeat-brazilian",
+  title: "Repeat Brazilian",
+  category: "Bikini",
+  price: "$105",
+  duration: "30 minutes",
+  gender: "gentlemen",
+},
 
-  {
-    id: "gentlemen-repeat-brazilian",
-    title: "Repeat Brazilian",
-    category: "Bikini",
-    price: "$105",
-    duration: "30 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-standard-bikini",
+  title: "Standard Bikini",
+  category: "Bikini",
+  price: "$85",
+  duration: "20 minutes",
+  gender: "gentlemen",
+},
 
-  {
-    id: "gentlemen-buttocks-butt-strip",
-    title: "Buttocks + Butt Strip",
-    category: "Bikini",
-    price: "$80",
-    duration: "20 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-buttocks-butt-strip",
+  title: "Buttocks + Butt Strip",
+  category: "Bikini",
+  price: "$80",
+  duration: "20 minutes",
+  gender: "gentlemen",
+},
 
-  {
-    id: "gentlemen-buttocks",
-    title: "Buttocks",
-    category: "Bikini",
-    price: "$50",
-    duration: "15 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-buttocks",
+  title: "Buttocks",
+  category: "Bikini",
+  price: "$50",
+  duration: "15 minutes",
+  gender: "gentlemen",
+},
 
-  {
-    id: "gentlemen-butt-strip",
-    title: "Butt Strip",
-    category: "Bikini",
-    price: "$40",
-    duration: "10 minutes",
-    gender: "gentlemen",
-  },
+{
+  id: "gentlemen-butt-strip",
+  title: "Butt Strip",
+  category: "Bikini",
+  price: "$40",
+  duration: "10 minutes",
+  gender: "gentlemen",
+},
 
 
   // ---------------------------------------------------------------------------
@@ -381,3 +381,4 @@ export const gentlemenServices: Service[] = [
   },
 
 ];
+

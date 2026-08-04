@@ -50,13 +50,15 @@ export const ladiesServices: Service[] = [
 
 
 
-// ---------------------------------------------------------------------------
-// BIKINI
-// ---------------------------------------------------------------------------
+/**
+ * ---------------------------------------------------------------------------
+ * BIKINI
+ * ---------------------------------------------------------------------------
+ */
 
 {
-  id: "ladies-new-client-bikini",
-  title: "New Client Bikini",
+  id: "ladies-new-client-brazilian",
+  title: "New Client Brazilian",
   category: "Bikini",
   price: "$85",
   duration: "30 minutes",
@@ -64,8 +66,8 @@ export const ladiesServices: Service[] = [
 },
 
 {
-  id: "ladies-repeat-bikini",
-  title: "Repeat Bikini",
+  id: "ladies-repeat-brazilian",
+  title: "Repeat Brazilian",
   category: "Bikini",
   price: "$75",
   duration: "20 minutes",
@@ -407,3 +409,4 @@ export const ladiesServices: Service[] = [
 },
 
 ];
+

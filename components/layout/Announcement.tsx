@@ -8,13 +8,12 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Reduced desktop banner size
- * • Reduced mobile banner size
- * • Preserved full slogan visibility
- * • Removed image cropping
- * • Prevented image enlargement
- * • Created dainty luxury floating appearance
- * • Preserved floating layout
+ * • Removed pill container appearance
+ * • Removed border and shadow
+ * • Blended slogan image into background
+ * • Reduced background visibility
+ * • Created floating editorial luxury appearance
+ * • Preserved responsive positioning
  *
  * ---
  *
@@ -65,19 +64,7 @@ export default function Announcement() {
 
           overflow-hidden
 
-          rounded-full
-
-          shadow-[0_20px_60px_-25px_rgba(140,90,107,0.35)]
-
-          ring-1
-
-          ring-[#E8C8BC]/50
-
-          transition-transform
-
-          duration-700
-
-          hover:-translate-y-1
+          opacity-90
         "
       >
         <img
@@ -92,41 +79,26 @@ export default function Announcement() {
 
             object-contain
 
-            brightness-105
+            mix-blend-multiply
 
-            saturate-[85%]
+            opacity-85
 
-            opacity-95
+            brightness-110
+
+            saturate-[70%]
           "
         />
 
-        {/* Background blend */}
+        {/* Soft background integration */}
         <div
           className="
             absolute
 
             inset-0
 
-            bg-[#FCF8F3]/10
+            bg-[#FCF8F3]/30
 
-            mix-blend-soft-light
-          "
-        />
-
-        {/* Soft luxury fade */}
-        <div
-          className="
-            absolute
-
-            inset-0
-
-            bg-gradient-to-b
-
-            from-[#FCF8F3]/10
-
-            via-transparent
-
-            to-[#FCF8F3]/25
+            mix-blend-screen
           "
         />
       </div>
