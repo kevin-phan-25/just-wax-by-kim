@@ -8,13 +8,13 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Reduced mobile banner footprint by 50%
+ * • Reduced desktop banner size
+ * • Reduced mobile banner size
  * • Preserved full slogan visibility
- * • Matched pill aspect ratio to artwork
- * • Removed white side gaps
+ * • Removed image cropping
  * • Prevented image enlargement
  * • Created dainty luxury floating appearance
- * • Preserved desktop presentation
+ * • Preserved floating layout
  *
  * ---
  *
@@ -53,19 +53,15 @@ export default function Announcement() {
         className="
           relative
 
-          w-[42%]
+          w-[240px]
 
-          min-w-[240px]
+          sm:w-[320px]
 
-          sm:w-[52%]
+          md:w-[420px]
 
-          md:w-[58%]
+          lg:w-[460px]
 
-          lg:w-[55%]
-
-          xl:w-[50%]
-
-          aspect-[5/1]
+          xl:w-[500px]
 
           overflow-hidden
 
@@ -88,17 +84,13 @@ export default function Announcement() {
           src="/hero/slogan_banner.jpg"
           alt="Where every service is tailored just for you"
           className="
-            absolute
-
-            inset-0
+            block
 
             w-full
 
-            h-full
+            h-auto
 
-            object-cover
-
-            object-center
+            object-contain
 
             brightness-105
 

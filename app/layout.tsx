@@ -1,4 +1,5 @@
 /**
+ *
  * ---
  * File:
  * app/layout.tsx
@@ -18,14 +19,18 @@
  * Typography:
  * • Playfair Display → luxury editorial headings
  * • Montserrat → body, navigation, buttons
- * • Great Vibes → slogan script (“tailored just for you”)
+ * • Great Vibes → homepage slogan script
+ * • Allura → service card overlay branding
  *
- * Updated: August 2, 2026
+ * Updated: August 4, 2026
+ *
  * ---
+ *
  */
+
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Great_Vibes } from "next/font/google";
+import { Great_Vibes, Allura } from "next/font/google";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -35,6 +40,7 @@ import { businessSchema } from "@/lib/seo";
 import { headingFont, bodyFont } from "@/config/fonts";
 import "./globals.css";
 
+
 const scriptFont = Great_Vibes({
   weight: "400",
   subsets: ["latin"],
@@ -42,7 +48,17 @@ const scriptFont = Great_Vibes({
   display: "swap",
 });
 
+
+const allureFont = Allura({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-allure",
+  display: "swap",
+});
+
+
 export const metadata: Metadata = createMetadata();
+
 
 export default function RootLayout({
   children,
@@ -56,18 +72,10 @@ export default function RootLayout({
         ${headingFont.variable}
         ${bodyFont.variable}
         ${scriptFont.variable}
+        ${allureFont.variable}
       `}
     >
-      <body
-        className="
-          min-h-screen
-          flex
-          flex-col
-          bg-[#FCF8F3]
-          text-[#3B2A26]
-          antialiased
-        "
-      >
+      <body>
         {/* SEO STRUCTURED DATA */}
         <Script
           id="business-schema"
