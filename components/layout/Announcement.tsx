@@ -8,11 +8,13 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Fixed mobile clipping
- * • Uses inset-x-0 instead of w-screen
- * • Safe responsive widths
- * • Preserves PNG transparency
- * * ---
+ * • Fixed mobile right-side clipping
+ * • Anchored to viewport instead of parent container
+ * • Removed w-screen overflow issue
+ * • Preserved transparent PNG rendering
+ * • Responsive mobile / iPad / desktop sizing
+ *
+ * ---
  *
  */
 
@@ -24,19 +26,23 @@ export default function Announcement() {
       className="
         pointer-events-none
 
-        absolute
+        fixed
 
         top-[115px]
         sm:top-[125px]
         md:top-[150px]
         xl:top-[175px]
 
-        inset-x-0
+        left-0
+        right-0
 
         z-40
 
         flex
         justify-center
+        items-center
+
+        overflow-visible
       "
     >
       <img
@@ -45,18 +51,19 @@ export default function Announcement() {
         className="
           block
 
-          w-[92%]
-          xs:w-[88%]
-          sm:w-[82%]
-          md:w-[700px]
+          w-[82vw]
+
+          sm:w-[75vw]
+
+          md:w-[600px]
+
+          xl:w-[700px]
 
           max-w-[700px]
 
           h-auto
 
           object-contain
-
-          mx-auto
         "
       />
     </div>
