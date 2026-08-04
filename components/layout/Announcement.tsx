@@ -9,9 +9,10 @@
  *
  * Updates:
  * • Fixed mobile clipping
- * • Added viewport-safe sizing
- * • Improved centering behavior
- * • Preserved transparent PNG rendering
+ * • Forced viewport-safe rendering
+ * • Centered banner across all devices
+ * • Optimized wide PNG aspect ratio
+ * • Preserved transparent PNG appearance
  * • Responsive mobile / iPad / desktop positioning
  *
  * ---
@@ -25,6 +26,7 @@ export default function Announcement() {
     <div
       className="
         pointer-events-none
+
         absolute
 
         top-[115px]
@@ -32,30 +34,31 @@ export default function Announcement() {
         md:top-[150px]
         xl:top-[175px]
 
-        left-0
-        right-0
+        left-1/2
+        -translate-x-1/2
 
         z-40
+
+        w-screen
 
         flex
         justify-center
         items-center
 
-        px-4
+        overflow-hidden
       "
     >
       <div
         className="
-          w-full
-          max-w-[260px]
+          flex
+          justify-center
+          items-center
 
-          sm:max-w-[340px]
+          w-[90vw]
 
-          md:max-w-[440px]
+          max-w-[700px]
 
-          lg:max-w-[500px]
-
-          xl:max-w-[560px]
+          px-4
         "
       >
         <img
@@ -65,6 +68,7 @@ export default function Announcement() {
             block
 
             w-full
+
             h-auto
 
             object-contain
