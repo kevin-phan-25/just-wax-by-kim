@@ -9,11 +9,12 @@
  *
  * Updates:
  * • Reduced mobile banner footprint by 50%
- * • Prevented slogan text cropping
- * • Switched image to full visibility mode
+ * • Preserved full slogan visibility
+ * • Matched pill aspect ratio to artwork
+ * • Removed white side gaps
+ * • Prevented image enlargement
  * • Created dainty luxury floating appearance
  * • Preserved desktop presentation
- * • Blended dots into website background
  *
  * ---
  *
@@ -52,23 +53,19 @@ export default function Announcement() {
         className="
           relative
 
-          w-[48%]
+          w-[42%]
 
-          min-w-[260px]
+          min-w-[240px]
 
-          sm:w-[60%]
+          sm:w-[52%]
 
-          md:w-[65%]
+          md:w-[58%]
 
-          lg:w-[60%]
+          lg:w-[55%]
 
-          xl:w-[55%]
+          xl:w-[50%]
 
-          h-[38px]
-
-          sm:h-[55px]
-
-          md:h-[75px]
+          aspect-[5/1]
 
           overflow-hidden
 
@@ -99,7 +96,7 @@ export default function Announcement() {
 
             h-full
 
-            object-contain
+            object-cover
 
             object-center
 
@@ -118,7 +115,7 @@ export default function Announcement() {
 
             inset-0
 
-            bg-[#FCF8F3]/20
+            bg-[#FCF8F3]/10
 
             mix-blend-soft-light
           "
@@ -133,11 +130,11 @@ export default function Announcement() {
 
             bg-gradient-to-b
 
-            from-[#FCF8F3]/15
+            from-[#FCF8F3]/10
 
             via-transparent
 
-            to-[#FCF8F3]/30
+            to-[#FCF8F3]/25
           "
         />
       </div>

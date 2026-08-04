@@ -13,7 +13,7 @@
  * • Reduced mobile footprint
  * • Updated luxury text overlays
  * • Matched Playfair Display typography
- * • Switched overlay branding font to script style
+ * • Switched overlay branding font to Allure script style
  * • Reduced overlay title size by 30%
  * • Responsive phone / iPad / desktop optimized
  *
@@ -22,7 +22,6 @@
  */
 
 import Link from "next/link";
-
 
 export default function Services() {
   return (
@@ -44,7 +43,6 @@ export default function Services() {
         md:pb-24
       "
     >
-
       {/* Ambient Background */}
       <div
         aria-hidden
@@ -55,7 +53,6 @@ export default function Services() {
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.22),transparent_55%)]
         "
       />
-
 
       {/* CONTENT */}
       <div
@@ -71,8 +68,6 @@ export default function Services() {
           xl:px-24
         "
       >
-
-
         {/* HEADER */}
         <header
           className="
@@ -82,7 +77,6 @@ export default function Services() {
             text-center
           "
         >
-
           <span
             className="
               uppercase
@@ -94,7 +88,6 @@ export default function Services() {
           >
             Our Services
           </span>
-
 
           <h2
             className="
@@ -116,7 +109,6 @@ export default function Services() {
             Luxury Waxing For Everyone
           </h2>
 
-
           <p
             className="
               mt-6
@@ -132,13 +124,10 @@ export default function Services() {
               text-[#8C7468]
             "
           >
-            Professional waxing services tailored to your needs, with a focus on
-            precision, comfort, and lasting confidence.
+            Professional waxing services tailored to your needs, with a focus
+            on precision, comfort, and lasting confidence.
           </p>
-
         </header>
-
-
 
         {/* SERVICE OPTIONS */}
         <div
@@ -164,8 +153,6 @@ export default function Services() {
             justify-items-center
           "
         >
-
-
           {/* LADIES */}
           <Link
             href="/services/ladies"
@@ -192,7 +179,6 @@ export default function Services() {
               hover:-translate-y-1
             "
           >
-
             <div
               className="
                 relative
@@ -204,7 +190,6 @@ export default function Services() {
                 rounded-[28px]
               "
             >
-
               <img
                 src="/images/services/ladies-view-pricing.jpg"
                 alt="Ladies luxury waxing services"
@@ -226,7 +211,6 @@ export default function Services() {
                   group-hover:scale-[1.03]
                 "
               />
-
 
               <div
                 className="
@@ -253,10 +237,9 @@ export default function Services() {
                   text-center
                 "
               >
-
                 <span
                   className="
-                    font-[var(--font-script)]
+                    font-[var(--font-allure)]
 
                     text-3xl
 
@@ -275,15 +258,9 @@ export default function Services() {
                 >
                   Ladies
                 </span>
-
               </div>
-
             </div>
-
           </Link>
-
-
-
 
           {/* GENTLEMEN */}
           <Link
@@ -311,7 +288,6 @@ export default function Services() {
               hover:-translate-y-1
             "
           >
-
             <div
               className="
                 relative
@@ -323,7 +299,6 @@ export default function Services() {
                 rounded-[28px]
               "
             >
-
               <img
                 src="/images/services/gentlement-view-pricing.jpg"
                 alt="Gentlemen luxury waxing services"
@@ -345,7 +320,6 @@ export default function Services() {
                   group-hover:scale-[1.03]
                 "
               />
-
 
               <div
                 className="
@@ -372,10 +346,9 @@ export default function Services() {
                   text-center
                 "
               >
-
                 <span
                   className="
-                    font-[var(--font-script)]
+                    font-[var(--font-allure)]
 
                     text-3xl
 
@@ -394,18 +367,11 @@ export default function Services() {
                 >
                   Gentlemen
                 </span>
-
               </div>
-
             </div>
-
           </Link>
-
-
         </div>
-
       </div>
-
     </section>
   );
 }
