@@ -8,9 +8,10 @@
  * Standalone luxury contact presentation.
  *
  * Updates:
- * • Navbar clearance moved to app/(studio)/layout.tsx
- * • Feature now controls only its own layout
- * • Matches FAQ / Gallery architecture
+ * • Added editorial top spacing matching Policies section
+ * • Navbar clearance remains controlled by app layout
+ * • Feature controls only its own layout
+ * • Matches FAQ / Gallery / Policies architecture
  * • Centered header content
  * • Balanced contact columns
  * • Phone / iPad / desktop support
@@ -68,6 +69,12 @@ export default function Contact() {
           z-10
 
           w-full
+
+          pt-20
+
+          sm:pt-24
+
+          md:pt-32
 
           px-5
 
