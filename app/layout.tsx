@@ -38,9 +38,12 @@ import Providers from "./providers";
 import { createMetadata } from "@/lib/metadata";
 import { businessSchema } from "@/lib/seo";
 import { headingFont, bodyFont } from "@/config/fonts";
+
 import "./globals.css";
 
-
+/**
+ * Homepage slogan script
+ */
 const scriptFont = Great_Vibes({
   weight: "400",
   subsets: ["latin"],
@@ -48,17 +51,17 @@ const scriptFont = Great_Vibes({
   display: "swap",
 });
 
-
-const allureFont = Allura({
+/**
+ * Service card overlay branding
+ */
+const alluraFont = Allura({
   weight: "400",
   subsets: ["latin"],
-  variable: "--font-allure",
+  variable: "--font-allura",
   display: "swap",
 });
 
-
 export const metadata: Metadata = createMetadata();
-
 
 export default function RootLayout({
   children,
@@ -72,7 +75,7 @@ export default function RootLayout({
         ${headingFont.variable}
         ${bodyFont.variable}
         ${scriptFont.variable}
-        ${allureFont.variable}
+        ${alluraFont.variable}
       `}
     >
       <body>
