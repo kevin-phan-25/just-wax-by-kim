@@ -9,13 +9,10 @@
  *
  * Updates:
  * • Fixed mobile clipping
- * • Forced viewport-safe rendering
- * • Centered banner across all devices
- * • Optimized wide PNG aspect ratio
- * • Preserved transparent PNG appearance
- * • Responsive mobile / iPad / desktop positioning
- *
- * ---
+ * • Uses inset-x-0 instead of w-screen
+ * • Safe responsive widths
+ * • Preserves PNG transparency
+ * * ---
  *
  */
 
@@ -34,47 +31,34 @@ export default function Announcement() {
         md:top-[150px]
         xl:top-[175px]
 
-        left-1/2
-        -translate-x-1/2
+        inset-x-0
 
         z-40
 
-        w-screen
-
         flex
         justify-center
-        items-center
-
-        overflow-hidden
       "
     >
-      <div
+      <img
+        src="/hero/slogan_banner.png"
+        alt="Where every service is tailored just for you"
         className="
-          flex
-          justify-center
-          items-center
+          block
 
-          w-[90vw]
+          w-[92%]
+          xs:w-[88%]
+          sm:w-[82%]
+          md:w-[700px]
 
           max-w-[700px]
 
-          px-4
+          h-auto
+
+          object-contain
+
+          mx-auto
         "
-      >
-        <img
-          src="/hero/slogan_banner.png"
-          alt="Where every service is tailored just for you"
-          className="
-            block
-
-            w-full
-
-            h-auto
-
-            object-contain
-          "
-        />
-      </div>
+      />
     </div>
   );
 }
