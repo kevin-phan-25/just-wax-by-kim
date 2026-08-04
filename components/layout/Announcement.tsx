@@ -8,11 +8,10 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Switched to transparent PNG asset
- * • Removed blend mode artifacts
- * • Removed artificial background layers
- * • Removed pill/card appearance
- * • Preserved floating editorial luxury appearance
+ * • Fixed mobile clipping
+ * • Added viewport-safe sizing
+ * • Improved centering behavior
+ * • Preserved transparent PNG rendering
  * • Responsive mobile / iPad / desktop positioning
  *
  * ---
@@ -26,41 +25,37 @@ export default function Announcement() {
     <div
       className="
         pointer-events-none
-
         absolute
 
-        top-[105px]
+        top-[115px]
+        sm:top-[125px]
+        md:top-[150px]
+        xl:top-[175px]
 
-        md:top-[140px]
-
-        xl:top-[168px]
-
-        left-1/2
-
-        -translate-x-1/2
+        left-0
+        right-0
 
         z-40
 
-        w-full
-
         flex
-
         justify-center
+        items-center
+
+        px-4
       "
     >
       <div
         className="
-          relative
+          w-full
+          max-w-[260px]
 
-          w-[240px]
+          sm:max-w-[340px]
 
-          sm:w-[320px]
+          md:max-w-[440px]
 
-          md:w-[420px]
+          lg:max-w-[500px]
 
-          lg:w-[460px]
-
-          xl:w-[500px]
+          xl:max-w-[560px]
         "
       >
         <img
@@ -70,7 +65,6 @@ export default function Announcement() {
             block
 
             w-full
-
             h-auto
 
             object-contain
