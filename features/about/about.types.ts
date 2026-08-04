@@ -20,5 +20,4 @@ export interface AboutSection {
 
   description: string[];
 
-  slogan?: string;
 }

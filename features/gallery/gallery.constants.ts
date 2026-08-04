@@ -9,24 +9,19 @@
  *
  * Updates:
  * • Refined emotional brand messaging
- * • Shifted from image showcase to studio experience
- * • Matches luxury editorial direction
+ * • Editorial storytelling copy
+ * • Matches luxury studio positioning
+ * • Differentiates Gallery from Instagram
  *
  * ---
  *
  */
 
 export const GALLERY_CONFIG = {
+  eyebrow: "Our Studio",
 
-  eyebrow:
-    "Our Studio",
-
-
-  title:
-    "A Space Designed For You In Mind",
-
+  title: "A Space Designed For You In Mind",
 
   description:
-    "A calming environment thoughtfully created to make every guest feel comfortable, confident, and cared for from the moment they arrive.",
-
+    "A calming environment created with intention, where every detail is designed to make you feel comfortable, cared for, and completely at ease.",
 };

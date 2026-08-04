@@ -197,23 +197,6 @@ export default function AboutContent() {
             )}
 
 
-            {/* FINAL SLOGAN */}
-            {aboutContent.slogan && (
-              <p
-                className="
-                  pt-4
-
-                  text-[#3B2A26]
-
-                  font-semibold
-
-                  tracking-[0.025em]
-                "
-              >
-                {aboutContent.slogan}
-              </p>
-            )}
-
           </div>
         </div>
 

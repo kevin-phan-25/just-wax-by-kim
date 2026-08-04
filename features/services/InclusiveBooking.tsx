@@ -14,8 +14,10 @@
  * • Reusable across pricing pages
  * • Preserved approved booking language
  * • Improved paragraph spacing and readability
+ * • Fixed mobile edge spacing
  *
  * ---
+ *
  */
 
 export default function InclusiveBooking() {
@@ -23,11 +25,11 @@ export default function InclusiveBooking() {
     <div
       className="
         mx-auto
-
+        w-full
         max-w-3xl
-
+        px-5
+        sm:px-8
         pt-6
-
         sm:pt-8
       "
     >
@@ -40,11 +42,8 @@ export default function InclusiveBooking() {
         <p
           className="
             text-sm
-
             sm:text-base
-
             leading-relaxed
-
             text-[#8C7468]
           "
         >
@@ -57,11 +56,8 @@ export default function InclusiveBooking() {
         <p
           className="
             text-sm
-
             sm:text-base
-
             leading-relaxed
-
             text-[#8C7468]
           "
         >

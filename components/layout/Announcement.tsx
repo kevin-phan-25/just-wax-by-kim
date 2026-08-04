@@ -8,13 +8,12 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed distracting fade effects
- * • Added subtle luxury depth
- * • Added soft premium shadow
- * • Added gentle hover movement
- * • Blended banner dots into website background
- * • Removed image zoom/cropping behavior
- * • Preserved floating layout
+ * • Reduced mobile banner footprint by 50%
+ * • Prevented slogan text cropping
+ * • Switched image to full visibility mode
+ * • Created dainty luxury floating appearance
+ * • Preserved desktop presentation
+ * • Blended dots into website background
  *
  * ---
  *
@@ -30,7 +29,7 @@ export default function Announcement() {
 
         absolute
 
-        top-[110px]
+        top-[105px]
 
         md:top-[140px]
 
@@ -53,31 +52,33 @@ export default function Announcement() {
         className="
           relative
 
-          w-[96%]
+          w-[48%]
 
-          sm:w-[85%]
+          min-w-[260px]
 
-          md:w-[75%]
+          sm:w-[60%]
 
-          lg:w-[65%]
+          md:w-[65%]
 
-          xl:w-[60%]
+          lg:w-[60%]
 
-          h-[70px]
+          xl:w-[55%]
 
-          sm:h-[80px]
+          h-[38px]
 
-          md:h-[90px]
+          sm:h-[55px]
+
+          md:h-[75px]
 
           overflow-hidden
 
           rounded-full
 
-          shadow-[0_25px_80px_-25px_rgba(140,90,107,0.45)]
+          shadow-[0_20px_60px_-25px_rgba(140,90,107,0.35)]
 
           ring-1
 
-          ring-[#E8C8BC]/70
+          ring-[#E8C8BC]/50
 
           transition-transform
 
@@ -98,7 +99,7 @@ export default function Announcement() {
 
             h-full
 
-            object-cover
+            object-contain
 
             object-center
 
@@ -106,30 +107,24 @@ export default function Announcement() {
 
             saturate-[85%]
 
-            opacity-90
-
-            transition-transform
-
-            duration-[12000ms]
-
-            ease-in-out
+            opacity-95
           "
         />
 
-        {/* Background blend to soften dots */}
+        {/* Background blend */}
         <div
           className="
             absolute
 
             inset-0
 
-            bg-[#FCF8F3]/25
+            bg-[#FCF8F3]/20
 
             mix-blend-soft-light
           "
         />
 
-        {/* Luxury fade into website background */}
+        {/* Soft luxury fade */}
         <div
           className="
             absolute
@@ -138,11 +133,11 @@ export default function Announcement() {
 
             bg-gradient-to-b
 
-            from-[#FCF8F3]/20
+            from-[#FCF8F3]/15
 
             via-transparent
 
-            to-[#FCF8F3]/35
+            to-[#FCF8F3]/30
           "
         />
       </div>

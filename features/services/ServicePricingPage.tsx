@@ -10,6 +10,7 @@
  * Updates:
  * • Compact editorial pricing layout
  * • Bikini prioritized
+ * • Brazilian services grouped under Bikini
  * • Body category organization
  * • Dropdown service options supported
  * • Full row dropdown interaction
@@ -17,11 +18,13 @@
  * • Mobile optimized
  *
  * ---
+ *
  */
 
 "use client";
 
 import { useState } from "react";
+
 import type { Service } from "./services.types";
 
 interface Props {
@@ -31,13 +34,13 @@ interface Props {
   services: Service[];
 }
 
+
 const categoryTitles: Record<string, string> = {
   Bikini: "Bikini",
-  Brazilian: "Brazilian",
-  "Brazilian Waxing": "Brazilian",
   Face: "Face",
   Body: "Body",
 };
+
 
 export default function ServicePricingPage({
   id,
@@ -45,18 +48,24 @@ export default function ServicePricingPage({
   description,
   services,
 }: Props) {
+
   const [openOptions, setOpenOptions] = useState<string | null>(null);
+
 
   const toggleOptions = (serviceId: string) => {
     setOpenOptions(
-      openOptions === serviceId ? null : serviceId
+      openOptions === serviceId
+        ? null
+        : serviceId
     );
   };
+
 
   const groupedServices = services.reduce<
     Record<string, Service[]>
   >(
     (groups, service) => {
+
       if (!groups[service.category]) {
         groups[service.category] = [];
       }
@@ -64,29 +73,32 @@ export default function ServicePricingPage({
       groups[service.category].push(service);
 
       return groups;
+
     },
     {}
   );
 
+
   const categoryOrder = [
     "Bikini",
-    "Brazilian",
-    "Brazilian Waxing",
     "Face",
     "Body",
   ];
+
 
   const orderedCategories = categoryOrder.filter(
     (category) =>
       groupedServices[category]
   );
 
+
   return (
+
     <section
       id={id}
       className="
         relative
-        w-full
+        overflow-hidden
       "
     >
 
@@ -115,6 +127,7 @@ export default function ServicePricingPage({
           lg:px-12
         "
       >
+
 
         {/* HEADER */}
         <header
@@ -212,6 +225,7 @@ export default function ServicePricingPage({
                         "
                       >
 
+
                         <button
                           type="button"
                           onClick={() =>
@@ -260,6 +274,7 @@ export default function ServicePricingPage({
                           </div>
 
 
+
                           <span
                             className="
                               whitespace-nowrap
@@ -272,6 +287,7 @@ export default function ServicePricingPage({
                               ? "View"
                               : service.price}
                           </span>
+
 
                         </button>
 
@@ -332,6 +348,7 @@ export default function ServicePricingPage({
                                     </div>
 
 
+
                                     <span
                                       className="
                                         font-serif
@@ -372,5 +389,7 @@ export default function ServicePricingPage({
       </div>
 
     </section>
+
   );
+
 }

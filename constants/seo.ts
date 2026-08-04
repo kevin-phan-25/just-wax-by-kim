@@ -1,5 +1,6 @@
 /**
- * -----------------------------------------------------------------------------
+ *
+ * ---
  * File: seo.ts
  *
  * Created: July 27, 2026
@@ -8,31 +9,51 @@
  * SEO keyword configuration.
  *
  * Changes:
- * - July 27, 2026
+ *
+ * • July 27, 2026
  *   - Added production SEO keywords.
  *
- * -----------------------------------------------------------------------------
+ * • August 4, 2026
+ *   - Added Bikini waxing keywords
+ *   - Added Gentlemen waxing keywords
+ *   - Added local SEO keywords
+ *   - Preserved Brazilian search terms
+ *
+ * ---
+ *
  */
-
 
 export const seoConfig = {
 
+  keywords: [
 
-keywords:[
+    // Brand
+    "Just Wax by Kim",
+    "Just Wax by Kim Virginia",
 
-"waxing studio",
+    // Core services
+    "waxing studio",
+    "luxury waxing",
+    "professional waxing",
+    "waxing services",
 
-"luxury waxing",
+    // Bikini / Brazilian
+    "bikini waxing",
+    "Brazilian waxing",
+    "Brazilian wax near me",
+    "bikini wax near me",
 
-"professional waxing",
+    // Gentlemen
+    "men's waxing",
+    "gentlemen waxing",
+    "male waxing services",
 
-"Brazilian waxing",
+    // Local SEO
+    "Virginia waxing",
+    "Tysons Corner waxing",
+    "Fairfax waxing",
+    "Northern Virginia waxing",
 
-"Virginia waxing",
-
-"Just Wax by Kim"
-
-]
-
+  ]
 
 };

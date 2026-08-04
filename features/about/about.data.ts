@@ -1,5 +1,5 @@
 /**
- *
+ * 
  * ---
  * File: features/about/about.data.ts
  *
@@ -11,9 +11,10 @@
  * • Removed credentials section
  * • Preserved paragraph separation
  * • Fixed syntax errors
- * • Added slogan text support
+ * • Removed slogan text support
  *
  * ---
+ *
  */
 
 import type {
@@ -22,10 +23,10 @@ import type {
 
 export const aboutContent: AboutSection = {
   eyebrow:
-    "Meet Kim",
+  "Meet Kim",
 
   title:
-    "Creating Moments Where Beauty Feels Effortless.",
+  "Creating Moments Where Beauty Feels Effortless.",
 
   description: [
     `Hi, I’m Kim! 🙋🏻‍♀️ Welcome to Just Wax by Kim.`,
@@ -36,7 +37,4 @@ export const aboutContent: AboutSection = {
 
     `I truly appreciate every client who trusts me with their care, and I can’t wait to welcome you to my studio!`,
   ],
-
-  slogan:
-    "More than just a wax — every service is tailored just for you.",
 };
