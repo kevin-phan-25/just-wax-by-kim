@@ -1,4 +1,3 @@
-```tsx
 /**
  *
  * ---
@@ -9,13 +8,12 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed pill container appearance
+ * • Switched to transparent PNG asset
  * • Removed blend mode artifacts
- * • Removed artificial background layer
- * • Preserved transparent image rendering
- * • Created clean floating editorial luxury appearance
- * • Preserved responsive positioning
- *
+ * • Removed artificial background layers
+ * • Removed pill/card appearance
+ * • Preserved floating editorial luxury appearance
+ * • Responsive mobile / iPad / desktop positioning
  *
  * ---
  *
@@ -66,7 +64,7 @@ export default function Announcement() {
         "
       >
         <img
-          src="/hero/slogan_banner.jpg"
+          src="/hero/slogan_banner.png"
           alt="Where every service is tailored just for you"
           className="
             block
@@ -82,4 +80,3 @@ export default function Announcement() {
     </div>
   );
 }
-```
