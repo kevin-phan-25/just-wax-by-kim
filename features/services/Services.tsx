@@ -13,7 +13,7 @@
  * • Reduced mobile footprint
  * • Updated luxury text overlays
  * • Matched Playfair Display typography
- * • Switched overlay branding font to Allure script style
+ * • Switched overlay branding font to Allura script style
  * • Reduced overlay title size by 30%
  * • Responsive phone / iPad / desktop optimized
  *
@@ -239,7 +239,7 @@ export default function Services() {
               >
                 <span
                   className="
-                    font-[var(--font-allure)]
+                    font-[var(--font-allura)]
 
                     text-3xl
 
@@ -348,7 +348,7 @@ export default function Services() {
               >
                 <span
                   className="
-                    font-[var(--font-allure)]
+                    font-[var(--font-allura)]
 
                     text-3xl
 
