@@ -239,7 +239,7 @@ export default function Services() {
               >
                 <span
                   className="
-                    font-[var(--font-allura)]
+                    allura
 
                     text-3xl
 
@@ -348,7 +348,7 @@ export default function Services() {
               >
                 <span
                   className="
-                    font-[var(--font-allura)]
+                    allura
 
                     text-3xl
 
