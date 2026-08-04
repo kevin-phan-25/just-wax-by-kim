@@ -113,7 +113,7 @@ export default function Footer() {
             color: "#8C7468",
           }}
         >
-          © Just Wax by Kim. All rights reserved.
+          © Just Wax by Kim. All Rights Reserved.
         </p>
       </div>
     </footer>
