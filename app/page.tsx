@@ -7,11 +7,14 @@ import Announcement from "@/components/layout/Announcement";
 export default function Home() {
   return (
     <>
-      {/* FLOATING HOMEPAGE SLOGAN */}
-      <Announcement />
+      {/* HERO AREA */}
+      <section className="relative overflow-visible">
+        {/* FLOATING HOMEPAGE SLOGAN */}
+        <Announcement />
 
-      {/* HERO */}
-      <Hero />
+        {/* HERO */}
+        <Hero />
+      </section>
 
       {/* ABOUT */}
       <About />
