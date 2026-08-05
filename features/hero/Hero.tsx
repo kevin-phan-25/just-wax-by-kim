@@ -8,15 +8,14 @@
  * Luxury responsive hero section.
  *
  * Updates:
- * • Increased spacing below announcement pill
+ * • Added relative positioning for announcement anchor
  * • Responsive navbar clearance
- * • Mobile / iPad / desktop spacing
  * • Preserves full hero image visibility
  * • Natural image scaling
  * • Editorial luxury spacing
- * • Balanced transition into About section
  *
  * ---
+ *
  */
 
 import HeroImage from "./HeroImage";
@@ -26,6 +25,8 @@ export default function Hero() {
     <section
       id="hero"
       className="
+        relative
+
         w-full
 
         pt-[calc(var(--nav-mobile)+5rem)]
