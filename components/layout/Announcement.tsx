@@ -8,8 +8,9 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed viewport-following behavior
- * • Anchored banner to hero/layout container
+ * • Fixed mobile right-side clipping
+ * • Anchored to viewport instead of parent container
+ * • Removed w-screen overflow issue
  * • Preserved transparent PNG rendering
  * • Responsive mobile / iPad / desktop sizing
  *
@@ -25,7 +26,7 @@ export default function Announcement() {
       className="
         pointer-events-none
 
-        absolute
+        fixed
 
         top-[115px]
         sm:top-[125px]
