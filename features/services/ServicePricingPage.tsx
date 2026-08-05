@@ -9,12 +9,14 @@
  *
  * Updates:
  * • Compact editorial pricing layout
+ * • Added reusable Packages section
  * • Bikini prioritized
  * • Brazilian services grouped under Bikini
  * • Body category organization
  * • Dropdown service options supported
  * • Full row dropdown interaction
  * • Replaced Select labels with Price Options
+ * • Removed InclusiveBooking from pricing component
  * • Mobile optimized
  *
  * ---
@@ -26,6 +28,8 @@
 import { useState } from "react";
 
 import type { Service } from "./services.types";
+import Packages from "./Packages";
+
 
 interface Props {
   id?: string;
@@ -42,6 +46,7 @@ const categoryTitles: Record<string, string> = {
 };
 
 
+
 export default function ServicePricingPage({
   id,
   title,
@@ -49,34 +54,46 @@ export default function ServicePricingPage({
   services,
 }: Props) {
 
-  const [openOptions, setOpenOptions] = useState<string | null>(null);
+
+  const [
+    openOptions,
+    setOpenOptions,
+  ] = useState<string | null>(null);
 
 
-  const toggleOptions = (serviceId: string) => {
+
+  const toggleOptions = (
+    serviceId: string
+  ) => {
+
     setOpenOptions(
       openOptions === serviceId
         ? null
         : serviceId
     );
+
   };
 
 
-  const groupedServices = services.reduce<
-    Record<string, Service[]>
-  >(
-    (groups, service) => {
 
-      if (!groups[service.category]) {
-        groups[service.category] = [];
-      }
+  const groupedServices =
+    services.reduce<Record<string, Service[]>>(
+      (groups, service) => {
 
-      groups[service.category].push(service);
+        if (!groups[service.category]) {
+          groups[service.category] = [];
+        }
 
-      return groups;
 
-    },
-    {}
-  );
+        groups[service.category].push(service);
+
+
+        return groups;
+
+      },
+      {}
+    );
+
 
 
   const categoryOrder = [
@@ -86,10 +103,13 @@ export default function ServicePricingPage({
   ];
 
 
-  const orderedCategories = categoryOrder.filter(
-    (category) =>
-      groupedServices[category]
-  );
+
+  const orderedCategories =
+    categoryOrder.filter(
+      (category) =>
+        groupedServices[category]
+    );
+
 
 
   return (
@@ -99,10 +119,16 @@ export default function ServicePricingPage({
       className="
         relative
         overflow-hidden
+        w-full
+        py-12
+        sm:py-16
+        md:py-20
       "
     >
 
+
       {/* Background */}
+
       <div
         aria-hidden
         className="
@@ -112,6 +138,7 @@ export default function ServicePricingPage({
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
+
 
 
       <div
@@ -129,7 +156,9 @@ export default function ServicePricingPage({
       >
 
 
+
         {/* HEADER */}
+
         <header
           className="
             mx-auto
@@ -153,6 +182,7 @@ export default function ServicePricingPage({
           </h1>
 
 
+
           <p
             className="
               mt-3
@@ -165,11 +195,22 @@ export default function ServicePricingPage({
             {description}
           </p>
 
+
         </header>
 
 
 
+
+        {/* PACKAGES */}
+
+        <Packages />
+
+
+
+
+
         {/* SERVICE SECTIONS */}
+
         <div
           className="
             flex
@@ -179,12 +220,14 @@ export default function ServicePricingPage({
           "
         >
 
+
           {orderedCategories.map(
             (category) => (
 
               <section
                 key={category}
               >
+
 
                 <h2
                   className="
@@ -203,6 +246,8 @@ export default function ServicePricingPage({
 
 
 
+
+
                 <div
                   className="
                     grid
@@ -212,6 +257,7 @@ export default function ServicePricingPage({
                     gap-y-1
                   "
                 >
+
 
                   {groupedServices[category].map(
                     (service) => (
@@ -224,6 +270,7 @@ export default function ServicePricingPage({
                           py-2
                         "
                       >
+
 
 
                         <button
@@ -241,6 +288,8 @@ export default function ServicePricingPage({
                             text-left
                           "
                         >
+
+
 
                           <div
                             className="
@@ -260,6 +309,7 @@ export default function ServicePricingPage({
                             </h3>
 
 
+
                             <p
                               className="
                                 text-[11px]
@@ -271,7 +321,10 @@ export default function ServicePricingPage({
                                 : service.duration}
                             </p>
 
+
                           </div>
+
+
 
 
 
@@ -289,11 +342,15 @@ export default function ServicePricingPage({
                           </span>
 
 
+
                         </button>
 
 
 
-                        {/* DROPDOWN OPTIONS */}
+
+
+                        {/* OPTIONS */}
+
                         {service.options &&
                           openOptions === service.id && (
 
@@ -349,6 +406,7 @@ export default function ServicePricingPage({
 
 
 
+
                                     <span
                                       className="
                                         font-serif
@@ -368,11 +426,14 @@ export default function ServicePricingPage({
 
                           )}
 
+
+
                       </div>
 
                     )
-
                   )}
+
+
 
                 </div>
 
@@ -380,13 +441,15 @@ export default function ServicePricingPage({
               </section>
 
             )
-
           )}
+
 
         </div>
 
 
+
       </div>
+
 
     </section>
 
