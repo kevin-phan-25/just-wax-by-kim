@@ -2,70 +2,67 @@
  *
  * ---
  * File:
- * components/layout/Announcement.tsx
+ * features/hero/Hero.tsx
  *
  * Description:
- * Floating homepage slogan banner.
+ * Luxury responsive hero section.
  *
  * Updates:
- * • Fixed mobile top clipping
- * • Shifted banner lower below navbar
- * • Preserved stationary viewport positioning
- * • Preserved transparent PNG rendering
- * • Responsive mobile / iPad / desktop sizing
+ * • Added relative positioning for announcement anchor
+ * • Responsive navbar clearance
+ * • Preserves full hero image visibility
+ * • Natural image scaling
+ * • Editorial luxury spacing
  *
  * ---
  *
  */
 
-"use client";
+import HeroImage from "./HeroImage";
 
-export default function Announcement() {
+export default function Hero() {
   return (
-    <div
+    <section
+      id="hero"
       className="
-        pointer-events-none
+        relative
 
-        fixed
+        w-full
 
-        top-[140px]
-        sm:top-[150px]
-        md:top-[175px]
-        xl:top-[200px]
+        pt-[calc(var(--nav-mobile)+5rem)]
 
-        left-0
-        right-0
+        md:pt-[calc(var(--nav-tablet)+6rem)]
 
-        z-40
+        xl:pt-[calc(var(--nav-desktop)+7rem)]
 
-        flex
-        justify-center
-        items-center
+        pb-12
 
-        overflow-visible
+        md:pb-16
+
+        xl:pb-20
       "
     >
-      <img
-        src="/hero/slogan_banner.png"
-        alt="Where every service is tailored just for you"
+      <div
         className="
-          block
+          container-luxury
 
-          w-[82vw]
+          w-full
 
-          sm:w-[75vw]
+          mx-auto
 
-          md:w-[600px]
+          px-5
 
-          xl:w-[700px]
+          sm:px-6
 
-          max-w-[700px]
+          md:px-8
 
-          h-auto
+          lg:px-12
 
-          object-contain
+          xl:px-16
         "
-      />
-    </div>
+      >
+        <HeroImage />
+      </div>
+    </section>
   );
 }
