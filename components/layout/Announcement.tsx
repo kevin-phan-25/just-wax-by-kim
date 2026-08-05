@@ -8,9 +8,9 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Removed fixed viewport behavior
- * • Anchored to hero layout
- * • Shifted image down for mobile visibility
+ * • Fixed mobile top clipping
+ * • Shifted banner lower below navbar
+ * • Preserved stationary viewport positioning
  * • Preserved transparent PNG rendering
  * • Responsive mobile / iPad / desktop sizing
  *
@@ -26,12 +26,12 @@ export default function Announcement() {
       className="
         pointer-events-none
 
-        absolute
+        fixed
 
-        top-[135px]
-        sm:top-[145px]
-        md:top-[165px]
-        xl:top-[195px]
+        top-[140px]
+        sm:top-[150px]
+        md:top-[175px]
+        xl:top-[200px]
 
         left-0
         right-0
