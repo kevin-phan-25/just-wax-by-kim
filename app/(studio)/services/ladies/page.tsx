@@ -10,20 +10,38 @@
  * Updates:
  * • Added centered ladies hero image
  * • Responsive image sizing
- * • Luxury rounded presentation
+ * • Added existing BookingCTA below pricing
+ * • Added existing BookingWidget modal support
+ * • Preserved InclusiveBooking section
  *
  * ---
  *
  */
 
+"use client";
+
+import {
+  useState,
+} from "react";
+
 import ServicePricingPage from "@/features/services/ServicePricingPage";
 import InclusiveBooking from "@/features/services/InclusiveBooking";
+
+import BookingCTA from "@/features/booking/BookingCTA";
+import BookingWidget from "@/features/booking/BookingWidget";
 
 import {
   ladiesServices,
 } from "@/features/services/data/ladies.data";
 
+
 export default function LadiesServicesPage() {
+
+  const [
+    bookingOpen,
+    setBookingOpen,
+  ] = useState(false);
+
 
   return (
     <>
@@ -103,7 +121,41 @@ export default function LadiesServicesPage() {
 
 
 
-      {/* BOOKING */}
+      {/* BOOKING CTA */}
+      <section
+        className="
+          flex
+
+          justify-center
+
+          py-12
+
+          sm:py-16
+        "
+      >
+
+        <BookingCTA
+          onClick={() =>
+            setBookingOpen(true)
+          }
+        />
+
+      </section>
+
+
+
+      {/* BOOKING MODAL */}
+      <BookingWidget
+        open={bookingOpen}
+
+        onClose={() =>
+          setBookingOpen(false)
+        }
+      />
+
+
+
+      {/* INCLUSIVE MESSAGE */}
       <InclusiveBooking />
 
     </>
