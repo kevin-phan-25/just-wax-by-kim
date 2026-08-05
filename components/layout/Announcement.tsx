@@ -46,7 +46,7 @@ export default function Announcement() {
       "
     >
       <img
-        src="/hero/slogan_banner.png"
+        src="/hero/slogan_banner_01.png"
         alt="Where every service is tailored just for you"
         className="
           block
