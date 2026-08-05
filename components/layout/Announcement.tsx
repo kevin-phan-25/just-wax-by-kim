@@ -7,11 +7,10 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Changed viewport-fixed positioning to hero-relative positioning
- * • Banner now scrolls naturally with page content
+ * • Positioned above hero image
+ * • Scrolls naturally with page
  * • Preserved transparent PNG rendering
- * • Preserved responsive mobile / iPad / desktop sizing
- * • Maintained navbar clearance spacing
+ * • Responsive mobile / iPad / desktop sizing
  *
  * ---
  */
@@ -26,15 +25,15 @@ export default function Announcement() {
 
         absolute
 
-        top-[140px]
-        sm:top-[150px]
-        md:top-[175px]
-        xl:top-[200px]
+        -top-[80px]
+        sm:-top-[90px]
+        md:-top-[110px]
+        xl:-top-[130px]
 
         left-0
         right-0
 
-        z-40
+        z-50
 
         flex
         justify-center
