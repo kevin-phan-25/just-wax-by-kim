@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * components/layout/Announcement.tsx
@@ -8,14 +7,13 @@
  * Floating homepage slogan banner.
  *
  * Updates:
- * • Fixed mobile top clipping
- * • Shifted banner lower below navbar
- * • Preserved stationary viewport positioning
+ * • Changed viewport-fixed positioning to hero-relative positioning
+ * • Banner now scrolls naturally with page content
  * • Preserved transparent PNG rendering
- * • Responsive mobile / iPad / desktop sizing
+ * • Preserved responsive mobile / iPad / desktop sizing
+ * • Maintained navbar clearance spacing
  *
  * ---
- *
  */
 
 "use client";
@@ -26,7 +24,7 @@ export default function Announcement() {
       className="
         pointer-events-none
 
-        fixed
+        absolute
 
         top-[140px]
         sm:top-[150px]
