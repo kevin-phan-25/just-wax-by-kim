@@ -4,13 +4,14 @@
  * components/layout/Announcement.tsx
  *
  * Description:
- * Floating homepage slogan banner.
+ * Homepage slogan banner anchored to hero section.
  *
  * Updates:
  * • Removed viewport-fixed behavior
- * • Anchored to homepage hero wrapper
- * • Positioned above hero image
- * • Preserved transparent PNG rendering
+ * • Anchored inside Hero wrapper
+ * • Scrolls naturally with Hero
+ * • Positioned below Navbar clearance
+ * • Lowered stacking priority below Navbar
  * • Responsive mobile / iPad / desktop sizing
  *
  * ---
@@ -26,17 +27,19 @@ export default function Announcement() {
 
         absolute
 
-        top-[70px]
+        top-[20px]
 
-        md:top-[90px]
+        sm:top-[30px]
 
-        xl:top-[110px]
+        md:top-[40px]
+
+        xl:top-[50px]
 
         left-0
 
         right-0
 
-        z-50
+        z-10
 
         flex
 
