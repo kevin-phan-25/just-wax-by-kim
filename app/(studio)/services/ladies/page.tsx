@@ -11,6 +11,7 @@
  * • Added fixed sticky booking bar
  * • Preserved booking widget modal support
  * • Preserved InclusiveBooking section
+ * • Responsive hero image sizing
  * • Responsive luxury layout preserved
  *
  * ---

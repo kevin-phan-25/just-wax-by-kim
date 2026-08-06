@@ -24,7 +24,7 @@ export const CONTACT_DATA = {
     "justwaxbykim@gmail.com",
 
   address:
-    "7777 Leesburg Pike Falls Church, VA 22043 Suite 306",
+    "VA",
 
   instagram:
     "@justwaxbykim",

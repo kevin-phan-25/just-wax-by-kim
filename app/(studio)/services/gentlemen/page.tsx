@@ -11,6 +11,7 @@
  * • Added fixed sticky booking bar
  * • Preserved booking widget modal support
  * • Preserved InclusiveBooking section
+ * • Responsive image sizing
  * • Responsive luxury layout preserved
  *
  * ---
@@ -94,7 +95,7 @@ export default function GentlemenServicesPage() {
 
               h-auto
 
-[O              rounded-[32px]
+              rounded-[32px]
 
               object-contain
             "

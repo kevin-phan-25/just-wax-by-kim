@@ -17,7 +17,9 @@
  */
 
 import Announcement from "@/components/layout/Announcement";
+
 import HeroImage from "./HeroImage";
+
 
 export default function Hero() {
   return (
@@ -41,7 +43,14 @@ export default function Hero() {
         xl:pb-20
       "
     >
+
+      {/* HOMEPAGE SLOGAN */}
+
       <Announcement />
+
+
+
+      {/* HERO IMAGE */}
 
       <div
         className="
@@ -62,8 +71,11 @@ export default function Hero() {
           xl:px-16
         "
       >
+
         <HeroImage />
+
       </div>
+
     </section>
   );
 }
