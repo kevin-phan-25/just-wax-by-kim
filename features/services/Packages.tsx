@@ -9,7 +9,7 @@
  * Updates:
  * • Packages title aligned with package offers
  * • Forced single-line mobile layout
- * • Reduced mobile typography
+ * • Reduced description prominence
  * • Compact luxury spacing
  *
  * ---
@@ -22,11 +22,10 @@ export default function Packages() {
         w-full
 
         text-center
-
-        overflow-hidden
       "
     >
 
+      {/* PACKAGE OFFERS */}
       <div
         className="
           flex
@@ -39,9 +38,9 @@ export default function Packages() {
 
           whitespace-nowrap
 
-          text-[11px]
+          text-sm
 
-          sm:text-sm
+          sm:text-base
         "
       >
 
@@ -49,7 +48,7 @@ export default function Packages() {
           className="
             uppercase
 
-            tracking-[0.14em]
+            tracking-[0.12em]
 
             font-semibold
 
@@ -83,21 +82,23 @@ export default function Packages() {
           {" "}• Save 10%
         </span>
 
+
       </div>
 
 
 
+      {/* PACKAGE DETAILS */}
       <p
         className="
           mx-auto
 
-          mt-3
+          mt-2
 
-          max-w-2xl
+          max-w-lg
 
-          text-[11px]
+          text-[10px]
 
-          sm:text-sm
+          sm:text-xs
 
           leading-relaxed
 
