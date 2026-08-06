@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * app/(studio)/services/ladies/page.tsx
@@ -8,27 +7,47 @@
  * Ladies waxing pricing page.
  *
  * Updates:
- * • Added centered ladies hero image
- * • Responsive image sizing
- * • Luxury rounded presentation
+ * • Removed inline booking CTA
+ * • Added fixed sticky booking bar
+ * • Preserved booking widget modal support
+ * • Preserved InclusiveBooking section
+ * • Responsive luxury layout preserved
  *
  * ---
- *
  */
 
+"use client";
+
+import {
+  useState,
+} from "react";
+
 import ServicePricingPage from "@/features/services/ServicePricingPage";
+
 import InclusiveBooking from "@/features/services/InclusiveBooking";
+
+import BookingWidget from "@/features/booking/BookingWidget";
+
+import StickyBookingBar from "@/components/layout/StickyBookingBar";
 
 import {
   ladiesServices,
 } from "@/features/services/data/ladies.data";
 
+
 export default function LadiesServicesPage() {
+
+  const [
+    bookingOpen,
+    setBookingOpen,
+  ] = useState(false);
+
 
   return (
     <>
 
       {/* LADIES HERO IMAGE */}
+
       <section
         className="
           w-full
@@ -88,6 +107,7 @@ export default function LadiesServicesPage() {
 
 
       {/* PRICING */}
+
       <ServicePricingPage
         id="ladies-pricing"
 
@@ -103,10 +123,32 @@ export default function LadiesServicesPage() {
 
 
 
-      {/* BOOKING */}
+      {/* FIXED BOOKING BAR */}
+
+      <StickyBookingBar
+        onBookingOpen={() =>
+          setBookingOpen(true)
+        }
+      />
+
+
+
+      {/* BOOKING MODAL */}
+
+      <BookingWidget
+        open={bookingOpen}
+
+        onClose={() =>
+          setBookingOpen(false)
+        }
+      />
+
+
+
+      {/* INCLUSIVE MESSAGE */}
+
       <InclusiveBooking />
 
     </>
   );
-
 }

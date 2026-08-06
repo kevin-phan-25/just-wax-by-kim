@@ -1,5 +1,4 @@
 /**
- *
  * ---
  * File:
  * features/services/ServicePricingPage.tsx
@@ -8,26 +7,29 @@
  * Luxury service pricing menu.
  *
  * Updates:
+ * • Removed booking responsibilities
+ * • Added bottom spacing for fixed booking bar
  * • Compact editorial pricing layout
  * • Added reusable Packages section
  * • Bikini prioritized
  * • Brazilian services grouped under Bikini
  * • Body category organization
  * • Dropdown service options supported
- * • Full row dropdown interaction
- * • Replaced Select labels with Price Options
- * • Removed InclusiveBooking from pricing component
  * • Mobile optimized
  *
  * ---
- *
  */
 
 "use client";
 
-import { useState } from "react";
+import {
+  useState,
+} from "react";
 
-import type { Service } from "./services.types";
+import type {
+  Service,
+} from "./services.types";
+
 import Packages from "./Packages";
 
 
@@ -63,7 +65,7 @@ export default function ServicePricingPage({
 
 
   const toggleOptions = (
-    serviceId: string
+    serviceId:string
   ) => {
 
     setOpenOptions(
@@ -78,7 +80,10 @@ export default function ServicePricingPage({
 
   const groupedServices =
     services.reduce<Record<string, Service[]>>(
-      (groups, service) => {
+      (
+        groups,
+        service
+      ) => {
 
         if (!groups[service.category]) {
           groups[service.category] = [];
@@ -113,28 +118,41 @@ export default function ServicePricingPage({
 
 
   return (
-
     <section
       id={id}
       className="
         relative
+
         overflow-hidden
+
         w-full
+
         py-12
+
+        pb-32
+
         sm:py-16
+
+        sm:pb-36
+
         md:py-20
+
+        md:pb-40
       "
     >
 
 
-      {/* Background */}
+      {/* BACKGROUND */}
 
       <div
         aria-hidden
         className="
           pointer-events-none
+
           absolute
+
           inset-0
+
           bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
         "
       />
@@ -144,17 +162,24 @@ export default function ServicePricingPage({
       <div
         className="
           relative
+
           z-10
+
           mx-auto
+
           w-full
+
           max-w-6xl
+
           px-5
+
           sm:px-8
+
           md:px-10
+
           lg:px-12
         "
       >
-
 
 
         {/* HEADER */}
@@ -162,8 +187,11 @@ export default function ServicePricingPage({
         <header
           className="
             mx-auto
+
             mb-8
+
             max-w-3xl
+
             text-center
           "
         >
@@ -171,10 +199,15 @@ export default function ServicePricingPage({
           <h1
             className="
               font-serif
+
               text-3xl
+
               sm:text-4xl
+
               md:text-5xl
+
               tracking-tight
+
               text-[#3B2A26]
             "
           >
@@ -182,22 +215,23 @@ export default function ServicePricingPage({
           </h1>
 
 
-
           <p
             className="
               mt-3
+
               text-sm
+
               sm:text-base
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
             {description}
           </p>
 
-
         </header>
-
 
 
 
@@ -207,19 +241,19 @@ export default function ServicePricingPage({
 
 
 
-
-
         {/* SERVICE SECTIONS */}
 
         <div
           className="
             flex
+
             flex-col
+
             gap-10
+
             sm:gap-12
           "
         >
-
 
           {orderedCategories.map(
             (category) => (
@@ -228,16 +262,22 @@ export default function ServicePricingPage({
                 key={category}
               >
 
-
                 <h2
                   className="
                     mb-3
+
                     border-b
+
                     border-[#E8DDD8]
+
                     pb-2
+
                     font-serif
+
                     text-xl
+
                     sm:text-2xl
+
                     text-[#3B2A26]
                   "
                 >
@@ -246,18 +286,19 @@ export default function ServicePricingPage({
 
 
 
-
-
                 <div
                   className="
                     grid
+
                     grid-cols-1
+
                     sm:grid-cols-2
+
                     gap-x-10
+
                     gap-y-1
                   "
                 >
-
 
                   {groupedServices[category].map(
                     (service) => (
@@ -266,12 +307,12 @@ export default function ServicePricingPage({
                         key={service.id}
                         className="
                           border-b
+
                           border-[#F2EAE5]
+
                           py-2
                         "
                       >
-
-
 
                         <button
                           type="button"
@@ -281,15 +322,18 @@ export default function ServicePricingPage({
                           }
                           className="
                             w-full
+
                             flex
+
                             items-center
+
                             justify-between
+
                             gap-3
+
                             text-left
                           "
                         >
-
-
 
                           <div
                             className="
@@ -300,8 +344,11 @@ export default function ServicePricingPage({
                             <h3
                               className="
                                 truncate
+
                                 text-sm
+
                                 font-medium
+
                                 text-[#3B2A26]
                               "
                             >
@@ -309,10 +356,10 @@ export default function ServicePricingPage({
                             </h3>
 
 
-
                             <p
                               className="
                                 text-[11px]
+
                                 text-[#8C7468]
                               "
                             >
@@ -321,18 +368,17 @@ export default function ServicePricingPage({
                                 : service.duration}
                             </p>
 
-
                           </div>
-
-
-
 
 
                           <span
                             className="
                               whitespace-nowrap
+
                               font-serif
+
                               text-base
+
                               text-[#8C5A6B]
                             "
                           >
@@ -342,117 +388,110 @@ export default function ServicePricingPage({
                           </span>
 
 
-
                         </button>
 
 
 
-
-
-                        {/* OPTIONS */}
-
                         {service.options &&
                           openOptions === service.id && (
 
-                            <div
-                              className="
-                                mt-3
-                                ml-2
-                                border-l
-                                border-[#E8DDD8]
-                                pl-4
-                                space-y-2
-                              "
-                            >
+                          <div
+                            className="
+                              mt-3
 
-                              {service.options.map(
-                                (option) => (
+                              ml-2
 
-                                  <div
-                                    key={option.label}
-                                    className="
-                                      flex
-                                      items-center
-                                      justify-between
-                                      text-sm
-                                    "
-                                  >
+                              border-l
 
-                                    <div>
+                              border-[#E8DDD8]
+
+                              pl-4
+
+                              space-y-2
+                            "
+                          >
+
+                            {service.options.map(
+                              (option) => (
+
+                                <div
+                                  key={option.label}
+                                  className="
+                                    flex
+
+                                    items-center
+
+                                    justify-between
+
+                                    text-sm
+                                  "
+                                >
+
+                                  <div>
+
+                                    <p
+                                      className="
+                                        text-[#3B2A26]
+                                      "
+                                    >
+                                      {option.label}
+                                    </p>
+
+
+                                    {option.duration && (
 
                                       <p
                                         className="
-                                          text-[#3B2A26]
+                                          text-[11px]
+
+                                          text-[#8C7468]
                                         "
                                       >
-                                        {option.label}
+                                        {option.duration}
                                       </p>
 
-
-                                      {option.duration && (
-
-                                        <p
-                                          className="
-                                            text-[11px]
-                                            text-[#8C7468]
-                                          "
-                                        >
-                                          {option.duration}
-                                        </p>
-
-                                      )}
-
-                                    </div>
-
-
-
-
-                                    <span
-                                      className="
-                                        font-serif
-                                        text-[#8C5A6B]
-                                      "
-                                    >
-                                      {option.price}
-                                    </span>
-
+                                    )}
 
                                   </div>
 
-                                )
-                              )}
 
-                            </div>
+                                  <span
+                                    className="
+                                      font-serif
 
-                          )}
+                                      text-[#8C5A6B]
+                                    "
+                                  >
+                                    {option.price}
+                                  </span>
 
+                                </div>
 
+                              )
+                            )}
+
+                          </div>
+
+                        )}
 
                       </div>
 
                     )
                   )}
 
-
-
                 </div>
-
 
               </section>
 
             )
           )}
 
-
         </div>
-
 
 
       </div>
 
 
     </section>
-
   );
-
 }

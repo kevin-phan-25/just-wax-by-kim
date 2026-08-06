@@ -1,92 +1,154 @@
 /**
- *
  * ---
  * File:
- * features/services/Packages.tsx
+ * app/(studio)/services/gentlemen/page.tsx
  *
  * Description:
- * Waxing package information section.
+ * Gentlemen waxing pricing page.
  *
  * Updates:
- * • Reusable across Ladies/Gentlemen pricing pages
- * • Luxury editorial styling
- * • No card styling
- * • Matches pricing menu aesthetic
+ * • Removed inline booking CTA
+ * • Added fixed sticky booking bar
+ * • Preserved booking widget modal support
+ * • Preserved InclusiveBooking section
+ * • Responsive luxury layout preserved
  *
  * ---
- *
  */
 
-export default function Packages() {
+"use client";
+
+import {
+  useState,
+} from "react";
+
+import ServicePricingPage from "@/features/services/ServicePricingPage";
+
+import InclusiveBooking from "@/features/services/InclusiveBooking";
+
+import BookingWidget from "@/features/booking/BookingWidget";
+
+import StickyBookingBar from "@/components/layout/StickyBookingBar";
+
+import {
+  gentlemenServices,
+} from "@/features/services/data/gentlemen.data";
+
+
+export default function GentlemenServicesPage() {
+
+  const [
+    bookingOpen,
+    setBookingOpen,
+  ] = useState(false);
+
+
   return (
-    <section
-      className="
-        mb-10
-        sm:mb-12
-      "
-    >
-      <div
+    <>
+
+      {/* GENTLEMEN HERO IMAGE */}
+
+      <section
         className="
-          mx-auto
-          max-w-3xl
-          border-b
-          border-[#E8DDD8]
-          pb-8
-          text-center
+          w-full
+
+          bg-[#FBF7F4]
+
+          pt-8
+
+          sm:pt-10
+
+          md:pt-14
+
+          px-5
+
+          sm:px-8
+
+          md:px-10
         "
       >
-        <h2
-          className="
-            font-serif
-            text-xl
-            sm:text-2xl
-            text-[#3B2A26]
-          "
-        >
-          Packages
-        </h2>
-
 
         <div
           className="
-            mt-4
-            space-y-1
-            text-sm
-            sm:text-base
-            text-[#8C5A6B]
+            mx-auto
+
+            flex
+
+            justify-center
           "
         >
-          <p>
-            <strong>
-              3 Visits • Save 5%
-            </strong>
-          </p>
 
-          <p>
-            <strong>
-              5 Visits • Save 10%
-            </strong>
-          </p>
+          <img
+            src="/images/services/gentlemen_on_page.jpg"
+            alt="Gentlemen luxury waxing services"
+            className="
+              w-[85%]
+
+              sm:w-[70%]
+
+              md:w-[55%]
+
+              lg:w-[45%]
+
+              max-w-[650px]
+
+              h-auto
+
+[O              rounded-[32px]
+
+              object-contain
+            "
+          />
+
         </div>
 
+      </section>
 
-        <p
-          className="
-            mx-auto
-            mt-4
-            max-w-2xl
-            text-xs
-            sm:text-sm
-            leading-relaxed
-            text-[#8C7468]
-          "
-        >
-          Designed to help you maintain a consistent waxing routine.
-          Packages are non-transferable, valid only for the service
-          purchased, and expire 12 months from the date of purchase.
-        </p>
 
-      </div>
-    </section>
+
+      {/* PRICING */}
+
+      <ServicePricingPage
+        id="gentlemen-pricing"
+
+        title="Gentlemen Waxing"
+
+        description="
+          Professional waxing services focused on comfort,
+          confidence, and personalized care.
+        "
+
+        services={gentlemenServices}
+      />
+
+
+
+      {/* FIXED BOOKING BAR */}
+
+      <StickyBookingBar
+        onBookingOpen={() =>
+          setBookingOpen(true)
+        }
+      />
+
+
+
+      {/* BOOKING MODAL */}
+
+      <BookingWidget
+        open={bookingOpen}
+
+        onClose={() =>
+          setBookingOpen(false)
+        }
+      />
+
+
+
+      {/* INCLUSIVE MESSAGE */}
+
+      <InclusiveBooking />
+
+    </>
   );
 }
