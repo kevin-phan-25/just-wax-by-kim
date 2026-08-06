@@ -1,497 +1,120 @@
 /**
  * ---
  * File:
- * features/services/ServicePricingPage.tsx
+ * features/services/Packages.tsx
  *
  * Description:
- * Luxury service pricing menu.
+ * Waxing package information section.
  *
  * Updates:
- * • Removed booking responsibilities
- * • Added bottom spacing for fixed booking bar
- * • Compact editorial pricing layout
- * • Added reusable Packages section
- * • Bikini prioritized
- * • Brazilian services grouped under Bikini
- * • Body category organization
- * • Dropdown service options supported
- * • Mobile optimized
+ * • Increased package offer readability
+ * • Preserved single-line mobile layout
+ * • Matched pricing description typography
+ * • Maintained compact luxury spacing
  *
  * ---
  */
 
-"use client";
-
-import {
-  useState,
-} from "react";
-
-import type {
-  Service,
-} from "./services.types";
-
-import Packages from "./Packages";
-
-
-interface Props {
-  id?: string;
-  title: string;
-  description: string;
-  services: Service[];
-}
-
-
-const categoryTitles: Record<string, string> = {
-  Bikini: "Bikini",
-  Face: "Face",
-  Body: "Body",
-};
-
-
-
-export default function ServicePricingPage({
-  id,
-  title,
-  description,
-  services,
-}: Props) {
-
-
-  const [
-    openOptions,
-    setOpenOptions,
-  ] = useState<string | null>(null);
-
-
-
-  const toggleOptions = (
-    serviceId:string
-  ) => {
-
-    setOpenOptions(
-      openOptions === serviceId
-        ? null
-        : serviceId
-    );
-
-  };
-
-
-
-  const groupedServices =
-    services.reduce<Record<string, Service[]>>(
-      (
-        groups,
-        service
-      ) => {
-
-        if (!groups[service.category]) {
-          groups[service.category] = [];
-        }
-
-
-        groups[service.category].push(service);
-
-
-        return groups;
-
-      },
-      {}
-    );
-
-
-
-  const categoryOrder = [
-    "Bikini",
-    "Face",
-    "Body",
-  ];
-
-
-
-  const orderedCategories =
-    categoryOrder.filter(
-      (category) =>
-        groupedServices[category]
-    );
-
-
-
+export default function Packages() {
   return (
-    <section
-      id={id}
+    <div
       className="
-        relative
-
-        overflow-hidden
-
         w-full
 
-        py-12
+        text-center
 
-        pb-32
-
-        sm:py-16
-
-        sm:pb-36
-
-        md:py-20
-
-        md:pb-40
+        overflow-hidden
       "
     >
 
-
-      {/* BACKGROUND */}
-
-      <div
-        aria-hidden
-        className="
-          pointer-events-none
-
-          absolute
-
-          inset-0
-
-          bg-[radial-gradient(ellipse_at_top,rgba(232,200,188,0.18),transparent_60%)]
-        "
-      />
-
-
-
       <div
         className="
-          relative
+          flex
 
-          z-10
+          items-center
 
-          mx-auto
+          justify-center
 
-          w-full
+          gap-3
 
-          max-w-6xl
+          sm:gap-5
 
-          px-5
+          whitespace-nowrap
 
-          sm:px-8
+          text-xs
 
-          md:px-10
+          sm:text-sm
 
-          lg:px-12
+          leading-relaxed
         "
       >
 
-
-        {/* HEADER */}
-
-        <header
+        <span
           className="
-            mx-auto
+            uppercase
 
-            mb-8
+            tracking-[0.16em]
 
-            max-w-3xl
+            font-semibold
 
-            text-center
+            text-[#3B2A26]
           "
         >
-
-          <h1
-            className="
-              font-serif
-
-              text-3xl
-
-              sm:text-4xl
-
-              md:text-5xl
-
-              tracking-tight
-
-              text-[#3B2A26]
-            "
-          >
-            {title}
-          </h1>
+          Packages
+        </span>
 
 
-          <p
-            className="
-              mt-3
-
-              text-sm
-
-              sm:text-base
-
-              leading-relaxed
-
-              text-[#8C7468]
-            "
-          >
-            {description}
-          </p>
-
-        </header>
-
-
-
-        {/* PACKAGES */}
-
-        <Packages />
-
-
-
-        {/* SERVICE SECTIONS */}
-
-        <div
+        <span
           className="
-            flex
-
-            flex-col
-
-            gap-10
-
-            sm:gap-12
+            text-[#8C5A6B]
           "
         >
-
-          {orderedCategories.map(
-            (category) => (
-
-              <section
-                key={category}
-              >
-
-                <h2
-                  className="
-                    mb-3
-
-                    border-b
-
-                    border-[#E8DDD8]
-
-                    pb-2
-
-                    font-serif
-
-                    text-xl
-
-                    sm:text-2xl
-
-                    text-[#3B2A26]
-                  "
-                >
-                  {categoryTitles[category]}
-                </h2>
-
-
-
-                <div
-                  className="
-                    grid
-
-                    grid-cols-1
-
-                    sm:grid-cols-2
-
-                    gap-x-10
-
-                    gap-y-1
-                  "
-                >
-
-                  {groupedServices[category].map(
-                    (service) => (
-
-                      <div
-                        key={service.id}
-                        className="
-                          border-b
-
-                          border-[#F2EAE5]
-
-                          py-2
-                        "
-                      >
-
-                        <button
-                          type="button"
-                          onClick={() =>
-                            service.options &&
-                            toggleOptions(service.id)
-                          }
-                          className="
-                            w-full
-
-                            flex
-
-                            items-center
-
-                            justify-between
-
-                            gap-3
-
-                            text-left
-                          "
-                        >
-
-                          <div
-                            className="
-                              min-w-0
-                            "
-                          >
-
-                            <h3
-                              className="
-                                truncate
-
-                                text-sm
-
-                                font-medium
-
-                                text-[#3B2A26]
-                              "
-                            >
-                              {service.title}
-                            </h3>
-
-
-                            <p
-                              className="
-                                text-[11px]
-
-                                text-[#8C7468]
-                              "
-                            >
-                              {service.options
-                                ? "Price Options"
-                                : service.duration}
-                            </p>
-
-                          </div>
-
-
-                          <span
-                            className="
-                              whitespace-nowrap
-
-                              font-serif
-
-                              text-base
-
-                              text-[#8C5A6B]
-                            "
-                          >
-                            {service.options
-                              ? "View"
-                              : service.price}
-                          </span>
-
-
-                        </button>
-
-
-
-                        {service.options &&
-                          openOptions === service.id && (
-
-                          <div
-                            className="
-                              mt-3
-
-                              ml-2
-
-                              border-l
-
-                              border-[#E8DDD8]
-
-                              pl-4
-
-                              space-y-2
-                            "
-                          >
-
-                            {service.options.map(
-                              (option) => (
-
-                                <div
-                                  key={option.label}
-                                  className="
-                                    flex
-
-                                    items-center
-
-                                    justify-between
-
-                                    text-sm
-                                  "
-                                >
-
-                                  <div>
-
-                                    <p
-                                      className="
-                                        text-[#3B2A26]
-                                      "
-                                    >
-                                      {option.label}
-                                    </p>
-
-
-                                    {option.duration && (
-
-                                      <p
-                                        className="
-                                          text-[11px]
-
-                                          text-[#8C7468]
-                                        "
-                                      >
-                                        {option.duration}
-                                      </p>
-
-                                    )}
-
-                                  </div>
-
-
-                                  <span
-                                    className="
-                                      font-serif
-
-                                      text-[#8C5A6B]
-                                    "
-                                  >
-                                    {option.price}
-                                  </span>
-
-                                </div>
-
-                              )
-                            )}
-
-                          </div>
-
-                        )}
-
-                      </div>
-
-                    )
-                  )}
-
-                </div>
-
-              </section>
-
-            )
-          )}
-
-        </div>
+          <strong>
+            3 Visits
+          </strong>
+          {" "}• Save 5%
+        </span>
+
+
+        <span
+          className="
+            text-[#8C5A6B]
+          "
+        >
+          <strong>
+            5 Visits
+          </strong>
+          {" "}• Save 10%
+        </span>
 
 
       </div>
 
 
-    </section>
+
+      <p
+        className="
+          mx-auto
+
+          mt-3
+
+          max-w-2xl
+
+          text-xs
+
+          sm:text-sm
+
+          leading-relaxed
+
+          text-[#8C7468]
+        "
+      >
+        Designed to help you maintain a consistent waxing routine.
+        Packages are non-transferable, valid only for the service
+        purchased, and expire 12 months from the date of purchase.
+      </p>
+
+
+    </div>
   );
 }
