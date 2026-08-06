@@ -7,10 +7,9 @@
  * Waxing package information section.
  *
  * Updates:
- * • Packages title aligned with package offers
- * • Forced single-line mobile layout
- * • Reduced description prominence
- * • Compact luxury spacing
+ * • Added paragraph spacing between package offers and details
+ * • Maintained single-line package layout
+ * • Reduced description visual weight
  *
  * ---
  */
@@ -20,7 +19,6 @@ export default function Packages() {
     <div
       className="
         w-full
-
         text-center
       "
     >
@@ -29,9 +27,7 @@ export default function Packages() {
       <div
         className="
           flex
-
           items-center
-
           justify-center
 
           gap-3
@@ -92,7 +88,7 @@ export default function Packages() {
         className="
           mx-auto
 
-          mt-2
+          mt-4
 
           max-w-lg
 
