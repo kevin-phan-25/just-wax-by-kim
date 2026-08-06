@@ -7,7 +7,9 @@
  * Fixed booking CTA bar for pricing pages.
  *
  * Updates:
- * • Replaces inline booking CTA
+ * • Removed divider accent
+ * • Blended sticky bar into pricing page
+ * • Added subtle luxury shadow
  * • Persistent bottom booking action
  * • Responsive mobile / iPad / desktop support
  * • Opens existing booking widget
@@ -21,6 +23,7 @@ interface StickyBookingBarProps {
   onBookingOpen: () => void;
 }
 
+
 export default function StickyBookingBar({
   onBookingOpen,
 }: StickyBookingBarProps) {
@@ -32,20 +35,20 @@ export default function StickyBookingBar({
         bottom-0
 
         left-0
+
         right-0
 
         z-40
 
-        border-t
-        border-[#E8DDD8]
-
-        bg-[#FCF8F3]/95
+        bg-[#FCF8F3]/90
 
         backdrop-blur-xl
 
         px-5
 
         py-4
+
+        shadow-[0_-12px_40px_rgba(59,42,38,0.08)]
 
         sm:px-8
 
@@ -54,6 +57,7 @@ export default function StickyBookingBar({
         lg:px-12
       "
     >
+
       <button
         type="button"
         onClick={onBookingOpen}
@@ -99,6 +103,7 @@ export default function StickyBookingBar({
       >
         Book Appointment
       </button>
+
     </div>
   );
 }
