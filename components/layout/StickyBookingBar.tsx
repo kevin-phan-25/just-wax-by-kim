@@ -1,108 +1,106 @@
 /**
  * ---
  * File:
- * components/layout/StickyBookingBar.tsx
+ * features/services/Packages.tsx
  *
  * Description:
- * Fixed booking CTA bar for pricing pages.
+ * Waxing package information section.
  *
  * Updates:
- * • Removed divider accent
- * • Blended sticky bar into pricing page
- * • Added subtle luxury shadow
- * • Persistent bottom booking action
- * • Responsive mobile / iPad / desktop support
- * • Opens existing booking widget
+ * • Package offers prioritized visually
+ * • Reduced description prominence
+ * • Maintained single-line package layout
+ * • Luxury editorial spacing
  *
  * ---
  */
 
-"use client";
-
-interface StickyBookingBarProps {
-  onBookingOpen: () => void;
-}
-
-
-export default function StickyBookingBar({
-  onBookingOpen,
-}: StickyBookingBarProps) {
+export default function Packages() {
   return (
     <div
       className="
-        fixed
-
-        bottom-0
-
-        left-0
-
-        right-0
-
-        z-40
-
-        bg-[#FCF8F3]/90
-
-        backdrop-blur-xl
-
-        px-5
-
-        py-4
-
-        shadow-[0_-12px_40px_rgba(59,42,38,0.08)]
-
-        sm:px-8
-
-        md:px-10
-
-        lg:px-12
+        text-center
       "
     >
 
-      <button
-        type="button"
-        onClick={onBookingOpen}
+      {/* PACKAGE OFFERS */}
+      <div
+        className="
+          flex
+          flex-nowrap
+          items-center
+          justify-center
+
+          gap-x-5
+
+          text-base
+
+          sm:text-lg
+
+          text-[#8C5A6B]
+        "
+      >
+        <span
+          className="
+            shrink-0
+
+            uppercase
+
+            tracking-[0.14em]
+
+            font-semibold
+
+            text-[#3B2A26]
+          "
+        >
+          Packages
+        </span>
+
+
+        <span className="shrink-0">
+          <strong>
+            3 Visits
+          </strong>
+          {" "}
+          • Save 5%
+        </span>
+
+
+        <span className="shrink-0">
+          <strong>
+            5 Visits
+          </strong>
+          {" "}
+          • Save 10%
+        </span>
+
+      </div>
+
+
+
+      {/* PACKAGE DETAILS */}
+      <p
         className="
           mx-auto
 
-          flex
-
-          min-h-[64px]
-
-          w-full
+          mt-2
 
           max-w-xl
 
-          items-center
+          text-[11px]
 
-          justify-center
+          sm:text-xs
 
-          rounded-full
+          leading-relaxed
 
-          border-2
-
-          border-[#8C5A6B]
-
-          uppercase
-
-          tracking-[0.22em]
-
-          text-sm
-
-          font-semibold
-
-          text-[#8C5A6B]
-
-          transition-all
-
-          duration-300
-
-          hover:bg-[#F6E7E1]
-
-          hover:scale-[1.02]
+          text-[#8C7468]
         "
       >
-        Book Appointment
-      </button>
+        Designed to help you maintain a consistent waxing routine.
+        Packages are non-transferable, valid only for the service
+        purchased, and expire 12 months from the date of purchase.
+      </p>
+
 
     </div>
   );
