@@ -8,8 +8,8 @@
  *
  * Updates:
  * • Integrated homepage announcement
+ * • Announcement positioned between Navbar and Hero image
  * • Announcement scrolls naturally with hero
- * • Added dedicated announcement spacing
  * • Preserves navbar clearance
  * • Preserves full hero image visibility
  * • Editorial luxury spacing
@@ -31,11 +31,11 @@ export default function Hero() {
 
         w-full
 
-        pt-[calc(var(--nav-mobile)+5rem)]
+        pt-[calc(var(--nav-mobile)+1rem)]
 
-        md:pt-[calc(var(--nav-tablet)+6rem)]
+        md:pt-[calc(var(--nav-tablet)+1.5rem)]
 
-        xl:pt-[calc(var(--nav-desktop)+7rem)]
+        xl:pt-[calc(var(--nav-desktop)+2rem)]
 
         pb-12
 
@@ -45,10 +45,17 @@ export default function Hero() {
       "
     >
 
-      {/* HOMEPAGE SLOGAN */}
+      {/* ANNOUNCEMENT */}
+
       <div
         className="
           relative
+
+          flex
+
+          justify-center
+
+          items-center
 
           h-[90px]
 
@@ -59,7 +66,9 @@ export default function Hero() {
           xl:h-[150px]
         "
       >
+
         <Announcement />
+
       </div>
 
 
@@ -89,6 +98,7 @@ export default function Hero() {
         <HeroImage />
 
       </div>
+
 
     </section>
   );
