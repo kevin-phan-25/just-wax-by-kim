@@ -4,20 +4,21 @@
  * components/layout/Announcement.tsx
  *
  * Description:
- * Homepage slogan banner anchored to hero section.
+ * Homepage slogan banner.
  *
  * Updates:
- * • Removed viewport-fixed behavior
- * • Anchored inside Hero wrapper
+ * • Removed viewport fixed positioning
+ * • Anchored inside Hero section
  * • Scrolls naturally with Hero
- * • Positioned below Navbar clearance
- * • Lowered stacking priority below Navbar
- * • Responsive mobile / iPad / desktop sizing
+ * • Positioned below Navbar
+ * • Preserved transparent PNG rendering
+ * • Responsive sizing
  *
  * ---
  */
 
 "use client";
+
 
 export default function Announcement() {
   return (
@@ -27,17 +28,7 @@ export default function Announcement() {
 
         absolute
 
-        top-[20px]
-
-        sm:top-[30px]
-
-        md:top-[40px]
-
-        xl:top-[50px]
-
-        left-0
-
-        right-0
+        inset-0
 
         z-10
 
@@ -50,6 +41,7 @@ export default function Announcement() {
         overflow-visible
       "
     >
+
       <img
         src="/hero/slogan_banner_01.png"
         alt="Where every service is tailored just for you"
@@ -71,6 +63,7 @@ export default function Announcement() {
           object-contain
         "
       />
+
     </div>
   );
 }
