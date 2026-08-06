@@ -8,7 +8,8 @@
  *
  * Updates:
  * • Integrated homepage announcement
- * • Announcement now scrolls naturally with hero
+ * • Announcement scrolls naturally with hero
+ * • Added dedicated announcement spacing
  * • Preserves navbar clearance
  * • Preserves full hero image visibility
  * • Editorial luxury spacing
@@ -45,8 +46,21 @@ export default function Hero() {
     >
 
       {/* HOMEPAGE SLOGAN */}
+      <div
+        className="
+          relative
 
-      <Announcement />
+          h-[90px]
+
+          sm:h-[110px]
+
+          md:h-[130px]
+
+          xl:h-[150px]
+        "
+      >
+        <Announcement />
+      </div>
 
 
 
