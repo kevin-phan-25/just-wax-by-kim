@@ -1,24 +1,26 @@
+```tsx
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * features/contact/Contact.tsx
  *
  * Description:
  * Standalone luxury contact presentation.
  *
- * Updates:
- * • Added editorial top spacing matching Policies section
- * • Navbar clearance remains controlled by app layout
- * • Feature controls only its own layout
- * • Matches FAQ / Gallery / Policies architecture
- * • Centered header content
- * • Balanced contact columns
- * • Phone / iPad / desktop support
- * • Preserved luxury spacing
+ * Responsibilities:
+ * • Contact page presentation
+ * • Contact information
+ * • Contact form
+ * • Business hours
+ * • Internal editorial spacing
  *
- * ---
+ * IMPORTANT:
+ * Header / Navbar / Announcement clearance is controlled by:
  *
+ * app/(studio)/layout.tsx
+ *
+ * This component must NOT add top spacing for the fixed header.
+ * -----------------------------------------------------------------------------
  */
 
 import ContactForm from "./ContactForm";
@@ -30,138 +32,87 @@ export default function Contact() {
     <section
       className="
         relative
-
         w-full
-
         overflow-hidden
-
         bg-[#FBF7F4]
-
         pb-20
-
         sm:pb-24
-
         md:pb-32
       "
     >
-
       {/* AMBIENT BACKGROUND */}
       <div
         aria-hidden
         className="
           pointer-events-none
-
           absolute
-
           inset-0
-
           bg-[radial-gradient(ellipse_at_30%_20%,rgba(232,200,188,0.25),transparent_50%)]
         "
       />
-
-
 
       {/* CONTENT */}
       <div
         className="
           relative
-
           z-10
-
           w-full
-
-          pt-20
-
-          sm:pt-24
-
-          md:pt-32
-
           px-5
-
+          pt-12
           sm:px-8
-
+          sm:pt-16
           md:px-10
-
+          md:pt-20
           lg:px-16
-
           xl:px-24
         "
       >
-
-
         {/* HEADER */}
         <header
           className="
             flex
-
             flex-col
-
             items-center
-
             text-center
-
             mb-16
-
             md:mb-24
           "
         >
-
           <p
             className="
               uppercase
-
               tracking-[0.35em]
-
               text-xs
-
               sm:text-sm
-
               text-[#8C5A6B]
             "
           >
             Get In Touch
           </p>
 
-
-
           <h1
             className="
               mt-6
-
               max-w-5xl
-
               font-serif
-
               text-4xl
-
               sm:text-5xl
-
               md:text-6xl
-
               leading-[1.1]
-
               tracking-[-0.035em]
-
               text-[#3B2A26]
             "
           >
             We'd Love To Hear From You
           </h1>
 
-
-
           <p
             className="
               mt-6
-
               max-w-3xl
-
               text-base
-
               sm:text-lg
-
               leading-relaxed
-
               text-[#8C7468]
             "
           >
@@ -169,110 +120,63 @@ export default function Contact() {
             or simply have a question, we're here to make every
             interaction feel warm, welcoming, and beautifully personal.
           </p>
-
-
         </header>
-
-
-
-
 
         {/* FIVE CELL EDITORIAL GRID */}
         <div
           className="
             grid
-
             w-full
-
             grid-cols-1
-
             lg:grid-cols-[0.2fr_0.8fr_1.2fr_0.8fr_0.2fr]
-
             gap-10
-
             xl:gap-14
-
             items-start
           "
         >
-
-
           {/* LEFT BREATHING CELL */}
-          <div
-            className="
-              hidden
-
-              lg:block
-            "
-          />
-
-
-
+          <div className="hidden lg:block" />
 
           {/* CONTACT INFO */}
           <div
             className="
               flex
-
               flex-col
-
               items-center
-
               text-center
-
               lg:items-start
-
               lg:text-left
             "
           >
-
             <ContactInfo />
-
           </div>
-
-
-
-
 
           {/* CONTACT FORM */}
           <div
             className="
               flex
-
               flex-col
-
               items-center
-
               text-center
-
               w-full
             "
           >
-
             <h2
               className="
                 font-serif
-
                 text-3xl
-
                 md:text-4xl
-
                 text-[#3B2A26]
               "
             >
               Send A Message
             </h2>
 
-
-
             <p
               className="
                 mt-4
-
                 max-w-md
-
                 leading-relaxed
-
                 text-[#6F5A50]
               "
             >
@@ -280,69 +184,30 @@ export default function Contact() {
               normal business hours.
             </p>
 
-
-
-
-            <div
-              className="
-                mt-10
-
-                w-full
-              "
-            >
-
+            <div className="mt-10 w-full">
               <ContactForm />
-
             </div>
-
-
           </div>
-
-
-
-
 
           {/* HOURS */}
           <div
             className="
               flex
-
               flex-col
-
               items-center
-
               text-center
-
               lg:items-start
-
               lg:text-left
             "
           >
-
             <ContactHours />
-
           </div>
 
-
-
-
-
           {/* RIGHT BREATHING CELL */}
-          <div
-            className="
-              hidden
-
-              lg:block
-            "
-          />
-
-
+          <div className="hidden lg:block" />
         </div>
-
-
       </div>
-
-
     </section>
   );
 }
+```
