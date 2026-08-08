@@ -8,11 +8,12 @@
  * Luxury responsive navigation for Just Wax by Kim.
  *
  * Behavior:
- * • Fixed navigation
- * • Information is dropdown-only and never navigates
- * • Services remains dropdown-enabled
+ * • Fixed navbar
+ * • Information is dropdown-only
+ * • Services is dropdown-only
+ * • Homepage anchors scroll beneath navbar
  * • Booking CTA opens booking widget
- * • Homepage anchors scroll beneath the navbar
+ * • Mobile menu supported
  * • Responsive desktop / tablet / mobile spacing
  * -----------------------------------------------------------------------------
  */
@@ -28,7 +29,7 @@ import { MobileMenu } from "@/components/layout/MobileMenu";
 import { navigation } from "@/constants/navigation";
 import { BookingWidget } from "@/features/booking";
 
-function getNavbarHeight() {
+function getNavbarHeight(): number {
   if (typeof window === "undefined") {
     return 168;
   }
@@ -44,7 +45,7 @@ function getNavbarHeight() {
   return 110;
 }
 
-function scrollToSection(href: string) {
+function scrollToSection(href: string): void {
   const id = href.split("#")[1];
 
   if (!id) {
@@ -77,6 +78,12 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] =
     useState<string | null>(null);
 
+  /*
+   * ---------------------------------------------------------------------------
+   * NAVBAR SCROLL STATE
+   * ---------------------------------------------------------------------------
+   */
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -93,6 +100,12 @@ export default function Navbar() {
     };
   }, []);
 
+  /*
+   * ---------------------------------------------------------------------------
+   * PREVENT BODY SCROLL WHEN MENU / BOOKING IS OPEN
+   * ---------------------------------------------------------------------------
+   */
+
   useEffect(() => {
     document.body.style.overflow =
       mobileOpen || bookingOpen ? "hidden" : "";
@@ -101,6 +114,12 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen, bookingOpen]);
+
+  /*
+   * ---------------------------------------------------------------------------
+   * HOMEPAGE ANCHOR NAVIGATION
+   * ---------------------------------------------------------------------------
+   */
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -114,9 +133,16 @@ export default function Navbar() {
       e.preventDefault();
 
       scrollToSection(href);
+
       setOpenDropdown(null);
     }
   };
+
+  /*
+   * ---------------------------------------------------------------------------
+   * RENDER
+   * ---------------------------------------------------------------------------
+   */
 
   return (
     <>
@@ -142,7 +168,10 @@ export default function Navbar() {
           }
         `}
       >
-        {/* LOGO */}
+        {/* ----------------------------------------------------------------- */}
+        {/* LOGO                                                             */}
+        {/* ----------------------------------------------------------------- */}
+
         <div
           className="
             absolute
@@ -162,7 +191,10 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* DESKTOP NAV */}
+        {/* ----------------------------------------------------------------- */}
+        {/* DESKTOP NAVIGATION                                               */}
+        {/* ----------------------------------------------------------------- */}
+
         <div
           className="
             hidden
@@ -191,10 +223,14 @@ export default function Navbar() {
               openDropdown === link.label;
 
             /*
-             * Information and Services are dropdown-only
-             * controls. They should never navigate when
-             * clicked.
+             * ---------------------------------------------------------------
+             * DROPDOWN NAVIGATION
+             *
+             * Information and Services do NOT navigate.
+             * Clicking them only opens/closes their dropdown.
+             * ---------------------------------------------------------------
              */
+
             if (hasDropdown) {
               return (
                 <div
@@ -210,23 +246,55 @@ export default function Navbar() {
                   <button
                     type="button"
                     aria-expanded={isOpen}
+                    aria-haspopup="true"
                     onClick={() =>
                       setOpenDropdown(
-                        isOpen ? null : link.label
+                        isOpen
+                          ? null
+                          : link.label
                       )
                     }
                     className="
+                      flex
+                      items-center
+                      gap-2
+
                       uppercase
                       tracking-[0.18em]
+
                       text-xs
                       font-semibold
+
                       text-[#3B2A26]/80
+
                       hover:text-[#8C5A6B]
+
                       transition
                     "
                   >
                     {link.label}
+
+                    <span
+                      className={`
+                        text-[10px]
+
+                        transition-transform
+                        duration-300
+
+                        ${
+                          isOpen
+                            ? "rotate-180"
+                            : ""
+                        }
+                      `}
+                    >
+                      ▾
+                    </span>
                   </button>
+
+                  {/* ------------------------------------------------------- */}
+                  {/* DROPDOWN                                                 */}
+                  {/* ------------------------------------------------------- */}
 
                   {isOpen && (
                     <div
@@ -234,66 +302,88 @@ export default function Navbar() {
                         absolute
                         left-1/2
                         top-full
-                        pt-6
                         -translate-x-1/2
+
+                        pt-6
                       "
                     >
                       <div
                         className="
-                          min-w-[270px]
+                          min-w-[290px]
+
                           rounded-3xl
+
                           border
                           border-[#E8DDD8]
+
                           bg-[#FCF8F3]
+
                           p-4
+
                           shadow-xl
                         "
                       >
-                        {link.dropdown?.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() =>
-                              setOpenDropdown(null)
-                            }
-                            className="
-                              block
-                              rounded-2xl
-                              px-5
-                              py-4
-                              text-center
-                              hover:bg-[#F6E7E1]
-                              transition
-                            "
-                          >
-                            <span
+                        {link.dropdown?.map(
+                          (item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={() =>
+                                setOpenDropdown(
+                                  null
+                                )
+                              }
                               className="
                                 block
-                                uppercase
-                                tracking-[0.15em]
-                                text-xs
-                                font-semibold
-                                text-[#3B2A26]
+
+                                rounded-2xl
+
+                                px-5
+                                py-4
+
+                                text-center
+
+                                transition
+
+                                hover:bg-[#F6E7E1]
                               "
                             >
-                              {item.label}
-                            </span>
-
-                            {item.description && (
                               <span
                                 className="
-                                  mt-2
                                   block
-                                  text-[11px]
-                                  leading-relaxed
-                                  text-[#8C7468]
+
+                                  uppercase
+                                  tracking-[0.15em]
+
+                                  text-xs
+                                  font-semibold
+
+                                  text-[#3B2A26]
                                 "
                               >
-                                {item.description}
+                                {item.label}
                               </span>
-                            )}
-                          </Link>
-                        ))}
+
+                              {item.description && (
+                                <span
+                                  className="
+                                    mt-2
+                                    block
+
+                                    text-[11px]
+                                    leading-relaxed
+
+                                    text-[#8C7468]
+                                  "
+                                >
+                                  {
+                                    item.description
+                                  }
+                                </span>
+                              )}
+                            </Link>
+                          )
+                        )}
                       </div>
                     </div>
                   )}
@@ -302,22 +392,32 @@ export default function Navbar() {
             }
 
             /*
-             * Normal navigation items.
+             * ---------------------------------------------------------------
+             * NORMAL NAVIGATION LINK
+             * ---------------------------------------------------------------
              */
+
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) =>
-                  handleNavigation(e, link.href)
+                  handleNavigation(
+                    e,
+                    link.href
+                  )
                 }
                 className="
                   uppercase
                   tracking-[0.18em]
+
                   text-xs
                   font-semibold
+
                   text-[#3B2A26]/80
+
                   hover:text-[#8C5A6B]
+
                   transition
                 "
               >
@@ -327,13 +427,18 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* RIGHT SIDE ACTIONS */}
+        {/* ----------------------------------------------------------------- */}
+        {/* RIGHT SIDE ACTIONS                                               */}
+        {/* ----------------------------------------------------------------- */}
+
         <div
           className="
             absolute
+
             right-6
             md:right-10
             xl:right-14
+
             top-1/2
             -translate-y-1/2
 
@@ -341,7 +446,10 @@ export default function Navbar() {
             items-center
           "
         >
-          {/* BOOKING CTA */}
+          {/* --------------------------------------------------------------- */}
+          {/* BOOKING CTA                                                     */}
+          {/* --------------------------------------------------------------- */}
+
           <button
             type="button"
             onClick={() => setBookingOpen(true)}
@@ -370,9 +478,11 @@ export default function Navbar() {
 
               text-sm
               font-semibold
+
               text-[#8C5A6B]
 
               transition-all
+              duration-300
 
               hover:bg-[#F6E7E1]
               hover:scale-[1.03]
@@ -381,7 +491,10 @@ export default function Navbar() {
             Book Appointment
           </button>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* --------------------------------------------------------------- */}
+          {/* MOBILE MENU BUTTON                                              */}
+          {/* --------------------------------------------------------------- */}
+
           <button
             type="button"
             aria-label={
@@ -399,6 +512,7 @@ export default function Navbar() {
               ml-4
 
               flex
+
               h-12
               w-12
 
@@ -413,6 +527,10 @@ export default function Navbar() {
               bg-white
 
               text-[#3B2A26]
+
+              transition
+
+              hover:bg-[#F6E7E1]
             "
           >
             {mobileOpen ? "×" : "☰"}
@@ -420,7 +538,10 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
+      {/* ------------------------------------------------------------------- */}
+      {/* MOBILE MENU                                                         */}
+      {/* ------------------------------------------------------------------- */}
+
       <MobileMenu
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
@@ -428,7 +549,10 @@ export default function Navbar() {
         links={navigation}
       />
 
-      {/* BOOKING WIDGET */}
+      {/* ------------------------------------------------------------------- */}
+      {/* BOOKING WIDGET                                                      */}
+      {/* ------------------------------------------------------------------- */}
+
       <BookingWidget
         open={bookingOpen}
         onClose={() => setBookingOpen(false)}
