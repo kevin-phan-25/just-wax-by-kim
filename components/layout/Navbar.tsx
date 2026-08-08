@@ -7,13 +7,14 @@
  * Luxury responsive navigation for Just Wax by Kim.
  *
  * Behavior:
- * • Fixed responsive navbar
- * • Services navigates to the homepage Services section
- * • Services dropdown contains Ladies / Gentlemen Waxing
- * • Information is dropdown-only and never navigates
- * • Information contains FAQ / Policies / Contact / Privacy Policy
- * • Book Appointment opens BookingWidget
- * • Mobile menu is handled by MobileMenu
+ * • Navbar remains fixed
+ * • Services navigates to #services on homepage
+ * • Services dropdown contains Ladies / Gentlemen
+ * • Information ONLY opens its dropdown
+ * • Information itself does not navigate
+ * • Booking CTA opens BookingWidget
+ * • Desktop and mobile navigation supported
+ * • No raw <a> elements
  * -----------------------------------------------------------------------------
  */
 
@@ -25,12 +26,31 @@ import {
 } from "react";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-import { Logo } from "@/components/ui/Logo";
-import { MobileMenu } from "@/components/layout/MobileMenu";
-import { navigation } from "@/constants/navigation";
-import { BookingWidget } from "@/features/booking";
+import {
+  usePathname,
+} from "next/navigation";
+
+import {
+  Logo,
+} from "@/components/ui/Logo";
+
+import {
+  MobileMenu,
+} from "@/components/layout/MobileMenu";
+
+import {
+  navigation,
+} from "@/constants/navigation";
+
+import {
+  BookingWidget,
+} from "@/features/booking";
+
+
+/* -----------------------------------------------------------------------------
+ * NAVBAR HEIGHT
+ * -------------------------------------------------------------------------- */
 
 function getNavbarHeight(): number {
   if (typeof window === "undefined") {
@@ -48,14 +68,22 @@ function getNavbarHeight(): number {
   return 110;
 }
 
-function scrollToSection(href: string): void {
+
+/* -----------------------------------------------------------------------------
+ * SCROLL TO ANCHOR
+ * -------------------------------------------------------------------------- */
+
+function scrollToSection(
+  href: string
+): void {
   const id = href.split("#")[1];
 
   if (!id) {
     return;
   }
 
-  const element = document.getElementById(id);
+  const element =
+    document.getElementById(id);
 
   if (!element) {
     return;
@@ -72,24 +100,44 @@ function scrollToSection(href: string): void {
   });
 }
 
+
+/* -----------------------------------------------------------------------------
+ * NAVBAR
+ * -------------------------------------------------------------------------- */
+
 export default function Navbar() {
   const pathname = usePathname();
 
-  const [scrolled, setScrolled] =
-    useState(false);
+  const [
+    scrolled,
+    setScrolled,
+  ] = useState(false);
 
-  const [mobileOpen, setMobileOpen] =
-    useState(false);
+  const [
+    mobileOpen,
+    setMobileOpen,
+  ] = useState(false);
 
-  const [bookingOpen, setBookingOpen] =
-    useState(false);
+  const [
+    bookingOpen,
+    setBookingOpen,
+  ] = useState(false);
 
-  const [openDropdown, setOpenDropdown] =
-    useState<string | null>(null);
+  const [
+    openDropdown,
+    setOpenDropdown,
+  ] = useState<string | null>(null);
+
+
+  /* ---------------------------------------------------------------------------
+   * SCROLL STATE
+   * ------------------------------------------------------------------------ */
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(
+        window.scrollY > 20
+      );
     };
 
     handleScroll();
@@ -110,6 +158,11 @@ export default function Navbar() {
     };
   }, []);
 
+
+  /* ---------------------------------------------------------------------------
+   * LOCK BODY WHEN MENU / BOOKING IS OPEN
+   * ------------------------------------------------------------------------ */
+
   useEffect(() => {
     document.body.style.overflow =
       mobileOpen || bookingOpen
@@ -124,11 +177,22 @@ export default function Navbar() {
     bookingOpen,
   ]);
 
-  /*
-   * ---------------------------------------------------------------------------
-   * NORMAL NAVIGATION
-   * ---------------------------------------------------------------------------
-   */
+
+  /* ---------------------------------------------------------------------------
+   * DESKTOP NAVIGATION
+   *
+   * Handles:
+   *
+   * /#hero
+   * /#about
+   * /#services
+   * /#booking
+   *
+   * When already on homepage, we prevent normal navigation and smoothly
+   * scroll to the section.
+   *
+   * When on another page, Next.js navigates to /#section.
+   * ------------------------------------------------------------------------ */
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -138,82 +202,31 @@ export default function Navbar() {
       return;
     }
 
-    /*
-     * Homepage anchor.
-     *
-     * Example:
-     * /#services
-     *
-     * If already on the homepage, smoothly scroll.
-     */
+    const [
+      path,
+    ] = href.split("#");
 
-    if (
-      href.startsWith("/#") &&
-      pathname === "/"
-    ) {
+    const targetPath =
+      path || "/";
+
+    const isHomepage =
+      pathname === "/" &&
+      targetPath === "/";
+
+    if (isHomepage) {
       e.preventDefault();
 
       scrollToSection(href);
 
       setOpenDropdown(null);
-
-      return;
+      setMobileOpen(false);
     }
-
-    /*
-     * If we are on another page, allow
-     * Next.js to navigate to "/#services".
-     */
-
-    setOpenDropdown(null);
   };
 
-  /*
-   * ---------------------------------------------------------------------------
-   * SERVICES
-   * ---------------------------------------------------------------------------
-   *
-   * Services has both:
-   *
-   * • a destination: /#services
-   * • a dropdown
-   *
-   * Clicking the main Services label should
-   * ALWAYS take the user to the Services section.
-   */
 
-  const handleServicesClick = (
-    e: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    e.preventDefault();
-
-    setOpenDropdown(null);
-
-    if (pathname === "/") {
-      scrollToSection("/#services");
-      return;
-    }
-
-    window.location.href = "/#services";
-  };
-
-  /*
-   * ---------------------------------------------------------------------------
-   * INFORMATION
-   * ---------------------------------------------------------------------------
-   *
-   * Information is intentionally NOT a Link.
-   *
-   * It only opens/closes the dropdown.
-   */
-
-  const handleInformationClick = () => {
-    setOpenDropdown((current) =>
-      current === "Information"
-        ? null
-        : "Information"
-    );
-  };
+  /* ---------------------------------------------------------------------------
+   * DESKTOP NAVIGATION RENDER
+   * ------------------------------------------------------------------------ */
 
   return (
     <>
@@ -224,11 +237,14 @@ export default function Navbar() {
           left-0
           right-0
           z-50
+
           h-[110px]
           md:h-[140px]
           xl:h-[168px]
+
           transition-all
           duration-500
+
           ${
             scrolled
               ? "bg-[#FCF8F3]/95 backdrop-blur-xl"
@@ -236,69 +252,85 @@ export default function Navbar() {
           }
         `}
       >
-        {/* ----------------------------------------------------------------- */}
-        {/* LOGO                                                             */}
-        {/* ----------------------------------------------------------------- */}
 
+        {/* -------------------------------------------------------------------
+         * LOGO
+         * ---------------------------------------------------------------- */}
         <div
           className="
             absolute
             left-6
             md:left-10
             xl:left-14
+
             top-1/2
-            z-10
             -translate-y-1/2
+
+            z-10
           "
         >
           <Link
             href="/"
             aria-label="Just Wax by Kim home"
-            onClick={() =>
-              setOpenDropdown(null)
-            }
+            onClick={() => {
+              setOpenDropdown(null);
+              setMobileOpen(false);
+            }}
           >
             <Logo />
           </Link>
         </div>
 
-        {/* ----------------------------------------------------------------- */}
-        {/* DESKTOP NAV                                                      */}
-        {/* ----------------------------------------------------------------- */}
 
+        {/* -------------------------------------------------------------------
+         * DESKTOP NAV
+         * ---------------------------------------------------------------- */}
         <nav
+          aria-label="Main navigation"
           className="
+            hidden
+            lg:flex
+
             absolute
             left-1/2
             top-1/2
-            hidden
+
             -translate-x-1/2
             -translate-y-1/2
+
             items-center
+
             gap-7
-            whitespace-nowrap
-            lg:flex
             xl:gap-10
+
+            whitespace-nowrap
           "
-          aria-label="Main navigation"
         >
+
           {navigation.map((link) => {
             const hasDropdown =
-              Boolean(link.dropdown?.length);
+              Boolean(
+                link.dropdown?.length
+              );
 
             const isOpen =
-              openDropdown === link.label;
+              openDropdown ===
+              link.label;
 
-            /*
-             * ---------------------------------------------------------------
+
+            /* -----------------------------------------------------------------
              * INFORMATION
-             * ---------------------------------------------------------------
              *
-             * Information is dropdown-only.
-             */
+             * IMPORTANT:
+             * Information has an empty href.
+             * It MUST NOT navigate.
+             *
+             * It only opens/closes the dropdown.
+             * ---------------------------------------------------------------- */
 
             if (
-              link.label === "Information"
+              link.label ===
+                "Information"
             ) {
               return (
                 <div
@@ -306,7 +338,7 @@ export default function Navbar() {
                   className="relative"
                   onMouseEnter={() =>
                     setOpenDropdown(
-                      "Information"
+                      link.label
                     )
                   }
                   onMouseLeave={() =>
@@ -315,22 +347,29 @@ export default function Navbar() {
                 >
                   <button
                     type="button"
-                    onClick={
-                      handleInformationClick
-                    }
                     aria-expanded={isOpen}
+                    onClick={() =>
+                      setOpenDropdown(
+                        isOpen
+                          ? null
+                          : link.label
+                      )
+                    }
                     className="
                       uppercase
                       tracking-[0.18em]
                       text-xs
                       font-semibold
+
                       text-[#3B2A26]/80
-                      transition
                       hover:text-[#8C5A6B]
+
+                      transition
                     "
                   >
                     {link.label}
                   </button>
+
 
                   {isOpen && (
                     <div
@@ -338,39 +377,55 @@ export default function Navbar() {
                         absolute
                         left-1/2
                         top-full
-                        -translate-x-1/2
+
                         pt-6
+
+                        -translate-x-1/2
                       "
                     >
                       <div
                         className="
                           min-w-[270px]
+
                           rounded-3xl
+
                           border
                           border-[#E8DDD8]
+
                           bg-[#FCF8F3]
+
                           p-4
+
                           shadow-xl
                         "
                       >
                         {link.dropdown?.map(
                           (item) => (
                             <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() =>
+                              key={
+                                item.href
+                              }
+                              href={
+                                item.href
+                              }
+                              onClick={() => {
                                 setOpenDropdown(
                                   null
-                                )
-                              }
+                                );
+                              }}
                               className="
                                 block
+
                                 rounded-2xl
+
                                 px-5
                                 py-4
+
                                 text-center
-                                transition
+
                                 hover:bg-[#F6E7E1]
+
+                                transition
                               "
                             >
                               <span
@@ -394,50 +449,55 @@ export default function Navbar() {
               );
             }
 
-            /*
-             * ---------------------------------------------------------------
-             * SERVICES
-             * ---------------------------------------------------------------
-             *
-             * Services main label navigates to
-             * the Services section.
-             *
-             * Dropdown appears on hover.
-             */
 
-            if (
-              link.label === "Services"
-            ) {
+            /* -----------------------------------------------------------------
+             * ITEMS WITH DROPDOWNS
+             *
+             * Services:
+             *
+             * • Clicking "Services" goes to #services
+             * • Hovering opens the service dropdown
+             * ---------------------------------------------------------------- */
+
+            if (hasDropdown) {
               return (
                 <div
                   key={link.label}
                   className="relative"
                   onMouseEnter={() =>
                     setOpenDropdown(
-                      "Services"
+                      link.label
                     )
                   }
                   onMouseLeave={() =>
                     setOpenDropdown(null)
                   }
                 >
-                  <a
-                    href="/#services"
-                    onClick={
-                      handleServicesClick
+                  <Link
+                    href={
+                      link.href || "/"
+                    }
+                    onClick={(e) =>
+                      handleNavigation(
+                        e,
+                        link.href
+                      )
                     }
                     className="
                       uppercase
                       tracking-[0.18em]
                       text-xs
                       font-semibold
+
                       text-[#3B2A26]/80
-                      transition
                       hover:text-[#8C5A6B]
+
+                      transition
                     "
                   >
                     {link.label}
-                  </a>
+                  </Link>
+
 
                   {isOpen && (
                     <div
@@ -445,39 +505,60 @@ export default function Navbar() {
                         absolute
                         left-1/2
                         top-full
-                        -translate-x-1/2
+
                         pt-6
+
+                        -translate-x-1/2
                       "
                     >
                       <div
                         className="
                           min-w-[270px]
+
                           rounded-3xl
+
                           border
                           border-[#E8DDD8]
+
                           bg-[#FCF8F3]
+
                           p-4
+
                           shadow-xl
                         "
                       >
                         {link.dropdown?.map(
                           (item) => (
                             <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() =>
+                              key={
+                                item.href
+                              }
+                              href={
+                                item.href
+                              }
+                              onClick={(e) => {
+                                handleNavigation(
+                                  e,
+                                  item.href
+                                );
+
                                 setOpenDropdown(
                                   null
-                                )
-                              }
+                                );
+                              }}
                               className="
                                 block
+
                                 rounded-2xl
+
                                 px-5
                                 py-4
+
                                 text-center
-                                transition
+
                                 hover:bg-[#F6E7E1]
+
+                                transition
                               "
                             >
                               <span
@@ -491,20 +572,6 @@ export default function Navbar() {
                               >
                                 {item.label}
                               </span>
-
-                              {item.description && (
-                                <span
-                                  className="
-                                    mt-2
-                                    block
-                                    text-[11px]
-                                    leading-relaxed
-                                    text-[#8C7468]
-                                  "
-                                >
-                                  {item.description}
-                                </span>
-                              )}
                             </Link>
                           )
                         )}
@@ -515,16 +582,17 @@ export default function Navbar() {
               );
             }
 
-            /*
-             * ---------------------------------------------------------------
-             * NORMAL NAVIGATION ITEMS
-             * ---------------------------------------------------------------
-             */
+
+            /* -----------------------------------------------------------------
+             * NORMAL NAVIGATION ITEM
+             * ---------------------------------------------------------------- */
 
             return (
               <Link
                 key={link.href}
-                href={link.href}
+                href={
+                  link.href || "/"
+                }
                 onClick={(e) =>
                   handleNavigation(
                     e,
@@ -536,20 +604,24 @@ export default function Navbar() {
                   tracking-[0.18em]
                   text-xs
                   font-semibold
+
                   text-[#3B2A26]/80
-                  transition
                   hover:text-[#8C5A6B]
+
+                  transition
                 "
               >
                 {link.label}
               </Link>
             );
           })}
+
         </nav>
 
-        {/* ----------------------------------------------------------------- */}
-        {/* BOOKING CTA                                                      */}
-        {/* ----------------------------------------------------------------- */}
+
+        {/* -------------------------------------------------------------------
+         * BOOKING CTA
+         * ---------------------------------------------------------------- */}
 
         <div
           className="
@@ -557,9 +629,11 @@ export default function Navbar() {
             right-6
             md:right-10
             xl:right-14
+
             top-1/2
-            flex
             -translate-y-1/2
+
+            flex
             items-center
           "
         >
@@ -570,33 +644,47 @@ export default function Navbar() {
             }
             className="
               hidden
+              sm:inline-flex
+
               min-h-[64px]
+              md:min-h-[70px]
+              xl:min-h-[78px]
+
               min-w-[220px]
+              md:min-w-[260px]
+              xl:min-w-[300px]
+
               items-center
               justify-center
+
               rounded-full
+
               border-2
               border-[#8C5A6B]
-              px-8
+
               uppercase
               tracking-[0.24em]
+
               text-sm
               font-semibold
+
               text-[#8C5A6B]
+
               transition-all
-              hover:scale-[1.03]
+              duration-300
+
               hover:bg-[#F6E7E1]
-              sm:inline-flex
-              md:min-h-[70px]
-              md:min-w-[260px]
-              xl:min-h-[78px]
-              xl:min-w-[300px]
+              hover:scale-[1.03]
             "
           >
             Book Appointment
           </button>
 
-          {/* MOBILE MENU BUTTON */}
+
+          {/* -----------------------------------------------------------------
+           * MOBILE MENU BUTTON
+           * ---------------------------------------------------------------- */}
+
           <button
             type="button"
             aria-label={
@@ -604,35 +692,48 @@ export default function Navbar() {
                 ? "Close menu"
                 : "Open menu"
             }
-            aria-expanded={mobileOpen}
+            aria-expanded={
+              mobileOpen
+            }
             onClick={() =>
               setMobileOpen(
                 !mobileOpen
               )
             }
             className="
+              lg:hidden
+
               ml-4
+
               flex
               h-12
               w-12
+
               items-center
               justify-center
+
               rounded-full
+
               border
               border-[#E8DDD8]
+
               bg-white
+
               text-[#3B2A26]
-              lg:hidden
             "
           >
-            ☰
+            {mobileOpen
+              ? "×"
+              : "☰"}
           </button>
         </div>
+
       </header>
 
-      {/* ------------------------------------------------------------------- */}
-      {/* MOBILE MENU                                                        */}
-      {/* ------------------------------------------------------------------- */}
+
+      {/* ---------------------------------------------------------------------
+       * MOBILE MENU
+       * ------------------------------------------------------------------ */}
 
       <MobileMenu
         open={mobileOpen}
@@ -645,9 +746,10 @@ export default function Navbar() {
         links={navigation}
       />
 
-      {/* ------------------------------------------------------------------- */}
-      {/* BOOKING WIDGET                                                     */}
-      {/* ------------------------------------------------------------------- */}
+
+      {/* ---------------------------------------------------------------------
+       * BOOKING WIDGET
+       * ------------------------------------------------------------------ */}
 
       <BookingWidget
         open={bookingOpen}
