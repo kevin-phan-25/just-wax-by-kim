@@ -12,7 +12,7 @@
  * • Allows the authentication API
  * • Uses an HTTP-only cookie after authentication
  * • Allows the normal (studio) application after authentication
- * • Can be disabled with SITE_LOCK_ENABLED=false
+ * • Controlled by SITE_LOCK_ENABLED
  * -----------------------------------------------------------------------------
  */
 
@@ -24,10 +24,18 @@ import {
 const ACCESS_COOKIE = "jwk_site_access";
 
 export function middleware(request: NextRequest) {
-  /*
+  /**
    * ---------------------------------------------------------------------------
-   * SITE LOCK SWITCH
+   * SITE LOCK
    * ---------------------------------------------------------------------------
+   *
+   * Private site:
+   *
+   * SITE_LOCK_ENABLED=true
+   *
+   * Public site:
+   *
+   * SITE_LOCK_ENABLED=false
    */
 
   const lockEnabled =
@@ -39,7 +47,7 @@ export function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  /*
+  /**
    * ---------------------------------------------------------------------------
    * ALLOWED ROUTES
    * ---------------------------------------------------------------------------
@@ -54,9 +62,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  /*
+  /**
    * ---------------------------------------------------------------------------
-   * CHECK AUTHENTICATION COOKIE
+   * CHECK ACCESS COOKIE
    * ---------------------------------------------------------------------------
    */
 
@@ -66,7 +74,7 @@ export function middleware(request: NextRequest) {
   const validAccessToken =
     process.env.SITE_ACCESS_TOKEN;
 
-  /*
+  /**
    * ---------------------------------------------------------------------------
    * AUTHENTICATED
    * ---------------------------------------------------------------------------
@@ -80,27 +88,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  /*
+  /**
    * ---------------------------------------------------------------------------
    * NOT AUTHENTICATED
    * ---------------------------------------------------------------------------
    */
 
-  const url = request.nextUrl.clone();
+  const url =
+    request.nextUrl.clone();
 
   url.pathname = "/site-access";
-
-  /*
-   * Preserve the complete original URL.
-   *
-   * Example:
-   *
-   * /services/ladies
-   *
-   * becomes:
-   *
-   * /site-access?from=%2Fservices%2Fladies
-   */
 
   url.searchParams.set(
     "from",
@@ -110,7 +107,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.redirect(url);
 }
 
-/*
+/**
  * -----------------------------------------------------------------------------
  * MATCHER
  * -----------------------------------------------------------------------------
