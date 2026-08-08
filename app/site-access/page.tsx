@@ -1,6 +1,6 @@
 ```tsx
 /**
- * ---------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
  * File:
  * app/site-access/page.tsx
  *
@@ -8,18 +8,18 @@
  * Private access page shown before the public website is launched.
  *
  * Behavior:
+ * • Completely independent from the public site layout
  * • No Navbar
  * • No Footer
- * • No Just Wax by Kim branding
- * • Simple under-construction message
- * • Password protected
- * ---------------------------------------------------------------------------
+ * • Password authentication
+ * • Redirects to the requested page after authentication
+ * -----------------------------------------------------------------------------
  */
 
 "use client";
 
 import {
-  FormEvent,
+  type FormEvent,
   useState,
 } from "react";
 
@@ -49,23 +49,22 @@ export default function SiteAccessPage() {
     setLoading(true);
 
     try {
-      const response =
-        await fetch(
-          "/api/site-access",
-          {
-            method: "POST",
+      const response = await fetch(
+        "/api/site-access",
+        {
+          method: "POST",
 
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
 
-            body: JSON.stringify({
-              password,
-              from,
-            }),
-          }
-        );
+          body: JSON.stringify({
+            password,
+            from,
+          }),
+        }
+      );
 
       const data =
         await response.json();
@@ -101,12 +100,18 @@ export default function SiteAccessPage() {
 
         bg-[#FCF8F3]
 
+        px-5
+        py-12
+
+        sm:px-8
+        sm:py-16
+
+        md:px-10
+        md:py-20
+
         flex
         items-center
         justify-center
-
-        px-5
-        sm:px-8
       "
     >
       <div
@@ -117,49 +122,39 @@ export default function SiteAccessPage() {
           text-center
         "
       >
+        {/* BRAND / HEADER */}
 
-        {/* UNDER CONSTRUCTION */}
-
-        <div
-          className="
-            mb-8
-          "
-        >
-
+        <div className="mb-10">
           <h1
             className="
               font-serif
 
-              text-3xl
-              sm:text-4xl
+              text-4xl
+
+              sm:text-5xl
 
               tracking-tight
 
               text-[#3B2A26]
             "
           >
-            Site Under Construction
+            Coming Soon
           </h1>
-
 
           <p
             className="
               mt-4
 
               text-sm
-              sm:text-base
 
               leading-relaxed
 
               text-[#8C7468]
             "
           >
-            This site is currently under
-            construction.
+            This site is under construction.
           </p>
-
         </div>
-
 
         {/* PASSWORD CARD */}
 
@@ -181,12 +176,12 @@ export default function SiteAccessPage() {
             shadow-[0_20px_60px_rgba(59,42,38,0.06)]
           "
         >
-
           <p
             className="
               text-xs
 
               uppercase
+
               tracking-[0.18em]
 
               font-semibold
@@ -196,7 +191,6 @@ export default function SiteAccessPage() {
           >
             Private Access
           </p>
-
 
           <p
             className="
@@ -214,7 +208,6 @@ export default function SiteAccessPage() {
             the website.
           </p>
 
-
           <form
             onSubmit={handleSubmit}
             className="
@@ -226,7 +219,6 @@ export default function SiteAccessPage() {
               gap-4
             "
           >
-
             <label
               htmlFor="site-password"
               className="sr-only"
@@ -234,28 +226,19 @@ export default function SiteAccessPage() {
               Access password
             </label>
 
-
             <input
               id="site-password"
-
               type="password"
-
               value={password}
-
               onChange={(event) =>
                 setPassword(
                   event.target.value
                 )
               }
-
               placeholder="Enter password"
-
               autoComplete="current-password"
-
               autoFocus
-
               disabled={loading}
-
               className="
                 h-14
 
@@ -290,7 +273,6 @@ export default function SiteAccessPage() {
               "
             />
 
-
             {error && (
               <p
                 role="alert"
@@ -304,15 +286,12 @@ export default function SiteAccessPage() {
               </p>
             )}
 
-
             <button
               type="submit"
-
               disabled={
                 loading ||
                 !password.trim()
               }
-
               className="
                 flex
 
@@ -329,6 +308,7 @@ export default function SiteAccessPage() {
                 border-[#8C5A6B]
 
                 uppercase
+
                 tracking-[0.22em]
 
                 text-xs
@@ -356,11 +336,8 @@ export default function SiteAccessPage() {
                 ? "Checking..."
                 : "Enter Website"}
             </button>
-
           </form>
-
         </div>
-
       </div>
     </main>
   );
