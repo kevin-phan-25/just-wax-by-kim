@@ -1,6 +1,5 @@
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * features/about/AboutContent.tsx
  *
@@ -14,9 +13,8 @@
  * • Responsive title scaling
  * • Balanced image/text composition
  * • Improved paragraph spacing
- * • Added final luxury slogan statement
- *
- * ---
+ * • Places eyebrow between title and description
+ * -----------------------------------------------------------------------------
  */
 
 import { aboutContent } from "./about.data";
@@ -27,162 +25,112 @@ export default function AboutContent() {
     <article
       className="
         w-full
-
-        pt-10
-
-        sm:pt-12
-
-        md:pt-16
-
-        xl:pt-20
-
         px-5
-
+        pt-10
         sm:px-8
-
+        sm:pt-12
         md:px-10
-
+        md:pt-16
         lg:px-16
-
         xl:px-24
+        xl:pt-20
       "
     >
       <div
         className="
           grid
-
           grid-cols-1
-
-          md:grid-cols-2
-
-          lg:grid-cols-3
-
           gap-10
-
+          md:grid-cols-2
           md:gap-12
-
+          lg:grid-cols-3
           lg:gap-16
         "
       >
-
         {/* HEADER */}
         <header
           className="
             col-span-1
-
-            md:col-span-2
-
-            lg:col-span-3
-
-            flex
-
-            flex-col
-
-            items-center
-
-            text-center
-
             mb-6
-
+            flex
+            flex-col
+            items-center
+            text-center
+            md:col-span-2
             md:mb-12
+            lg:col-span-3
           "
         >
-          <span
-            className="
-              uppercase
-
-              tracking-[0.45em]
-
-              text-[10px]
-
-              sm:text-xs
-
-              text-[#8C5A6B]
-
-              mb-5
-            "
-          >
-            {aboutContent.eyebrow}
-          </span>
-
+          {/* TITLE */}
           <h2
             className="
               w-full
-
               max-w-6xl
-
               font-serif
-
               text-4xl
-
-              sm:text-5xl
-
-              md:text-6xl
-
-              lg:text-7xl
-
               leading-[1.05]
-
               tracking-[-0.045em]
-
               text-[#3B2A26]
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
             "
           >
             {aboutContent.title}
           </h2>
-        </header>
 
+          {/* EYEBROW */}
+          <span
+            className="
+              mt-6
+              uppercase
+              tracking-[0.45em]
+              text-[10px]
+              text-[#8C5A6B]
+              sm:mt-7
+              sm:text-xs
+              md:mt-8
+            "
+          >
+            {aboutContent.eyebrow}
+          </span>
+        </header>
 
         {/* IMAGE CELL */}
         <div
           className="
             w-full
-
             lg:col-span-1
           "
         >
           <AboutImage />
         </div>
 
-
         {/* TEXT CONTENT */}
         <div
           className="
-            md:col-span-1
-
-            lg:col-span-2
-
             w-full
-
             text-center
-
-            md:text-left
-
-            text-[#75635B]
-
             text-base
-
-            sm:text-lg
-
-            md:text-xl
-
             leading-[1.9]
+            text-[#75635B]
+            md:col-span-1
+            md:text-left
+            md:text-lg
+            lg:col-span-2
+            lg:text-xl
+            sm:text-lg
           "
         >
           <div
             className="
               flex
-
               flex-col
-
               gap-8
-
               sm:gap-10
-
               md:gap-12
             "
           >
-
             {aboutContent.description.map(
               (paragraph, index) => (
                 <p
@@ -195,12 +143,10 @@ export default function AboutContent() {
                 </p>
               )
             )}
-
-
           </div>
         </div>
-
       </div>
     </article>
   );
 }
+

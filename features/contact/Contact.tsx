@@ -14,11 +14,11 @@
  * • Internal editorial spacing
  *
  * IMPORTANT:
- * Header / Navbar / Announcement clearance is controlled by:
+ * Navbar / header clearance is handled by:
  *
  * app/(studio)/layout.tsx
  *
- * This component does NOT add fixed-navbar clearance.
+ * This component does NOT add navbar clearance.
  * -----------------------------------------------------------------------------
  */
 
@@ -41,7 +41,7 @@ export default function Contact() {
     >
       {/* AMBIENT BACKGROUND */}
       <div
-        aria-hidden="true"
+        aria-hidden
         className="
           pointer-events-none
           absolute
@@ -61,9 +61,6 @@ export default function Contact() {
           md:px-10
           lg:px-16
           xl:px-24
-          pt-12
-          sm:pt-16
-          md:pt-20
         "
       >
         {/* HEADER */}
@@ -121,7 +118,7 @@ export default function Contact() {
           </p>
         </header>
 
-        {/* FIVE CELL EDITORIAL GRID */}
+        {/* CONTACT GRID */}
         <div
           className="
             grid
@@ -209,3 +206,4 @@ export default function Contact() {
     </section>
   );
 }
+
