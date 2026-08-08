@@ -22,11 +22,12 @@ import type {
 } from "./about.types";
 
 export const aboutContent: AboutSection = {
-  eyebrow:
-  "Meet Kim",
-
+  
   title:
   "Creating Moments Where Beauty Feels Effortless.",
+
+  eyebrow:
+  "Meet Kim",
 
   description: [
     `Hi, I’m Kim! 🙋🏻‍♀️ Welcome to Just Wax by Kim.`,
