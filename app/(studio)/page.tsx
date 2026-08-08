@@ -1,4 +1,3 @@
-```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
@@ -18,7 +17,6 @@
  * • Footer
  * -----------------------------------------------------------------------------
  */
-
 import Hero from "@/features/hero";
 import About from "@/features/about";
 import Services from "@/features/services/Services";
@@ -28,13 +26,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-
       <About />
-
       <Services />
-
       <Booking />
     </>
   );
 }
-```
