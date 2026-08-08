@@ -7,11 +7,14 @@
  * Main website navigation.
  *
  * Behavior:
- * • Home, About, Services, Book Now
- * • Information opens a dropdown only
+ * • Home → homepage hero
+ * • About → homepage About section
+ * • Services → homepage Services section
+ * • Services dropdown → Ladies / Gentlemen pages
+ * • Book Now → homepage booking section
+ * • Information → dropdown only
  * • Information itself does NOT navigate
- * • Services opens a dropdown
- * • Gallery, Instagram, and Testimonials are removed from Information
+ * • Gallery, Instagram, Testimonials removed
  * -----------------------------------------------------------------------------
  */
 
@@ -43,6 +46,7 @@ export const navigation: readonly NavigationItem[] = [
         description:
           "Professional waxing services, tailored to you",
       },
+
       {
         label: "Gentlemen Waxing",
         href: "/services/gentlemen",
@@ -67,18 +71,21 @@ export const navigation: readonly NavigationItem[] = [
         description:
           "Helpful answers before your visit",
       },
+
       {
         label: "Policies",
         href: "/policies",
         description:
           "Appointment guidelines and care",
       },
+
       {
         label: "Contact",
         href: "/contact",
         description:
           "We would love to hear from you",
       },
+
       {
         label: "Privacy Policy",
         href: "/privacy-policy",
