@@ -5,17 +5,15 @@
  * app/(studio)/page.tsx
  *
  * Description:
- * Just Wax by Kim homepage.
+ * Public homepage for Just Wax by Kim.
  *
- * This page is rendered inside:
+ * This page is rendered through:
  * app/(studio)/layout.tsx
  *
- * Therefore it automatically receives:
+ * The studio layout provides:
  * • Navbar
- * • MobileMenu
+ * • Page content
  * • Footer
- *
- * The middleware controls whether the visitor is allowed to reach this page.
  * -----------------------------------------------------------------------------
  */
 
@@ -28,25 +26,17 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-
       <Hero />
 
-
       {/* ABOUT */}
-
       <About />
 
-
       {/* SERVICES */}
-
       <Services />
 
-
       {/* BOOKING */}
-
       <Booking />
     </>
   );
 }
 ```
-
