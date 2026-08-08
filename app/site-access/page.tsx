@@ -1,4 +1,3 @@
-```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
@@ -95,8 +94,11 @@ export default function SiteAccessPage() {
   return (
     <main
       className="
+        flex
         min-h-screen
         w-full
+        items-center
+        justify-center
 
         bg-[#FCF8F3]
 
@@ -108,34 +110,26 @@ export default function SiteAccessPage() {
 
         md:px-10
         md:py-20
-
-        flex
-        items-center
-        justify-center
       "
     >
       <div
         className="
           w-full
           max-w-md
-
           text-center
         "
       >
-        {/* BRAND / HEADER */}
+        {/* HEADER */}
 
         <div className="mb-10">
           <h1
             className="
               font-serif
-
               text-4xl
+              tracking-tight
+              text-[#3B2A26]
 
               sm:text-5xl
-
-              tracking-tight
-
-              text-[#3B2A26]
             "
           >
             Coming Soon
@@ -144,11 +138,8 @@ export default function SiteAccessPage() {
           <p
             className="
               mt-4
-
               text-sm
-
               leading-relaxed
-
               text-[#8C7468]
             "
           >
@@ -170,22 +161,18 @@ export default function SiteAccessPage() {
             px-6
             py-8
 
+            shadow-[0_20px_60px_rgba(59,42,38,0.06)]
+
             sm:px-8
             sm:py-10
-
-            shadow-[0_20px_60px_rgba(59,42,38,0.06)]
           "
         >
           <p
             className="
               text-xs
-
-              uppercase
-
-              tracking-[0.18em]
-
               font-semibold
-
+              uppercase
+              tracking-[0.18em]
               text-[#3B2A26]
             "
           >
@@ -195,13 +182,11 @@ export default function SiteAccessPage() {
           <p
             className="
               mt-3
-
               text-xs
-              sm:text-sm
-
               leading-relaxed
-
               text-[#8C7468]
+
+              sm:text-sm
             "
           >
             Enter the password to preview
@@ -212,10 +197,8 @@ export default function SiteAccessPage() {
             onSubmit={handleSubmit}
             className="
               mt-7
-
               flex
               flex-col
-
               gap-4
             "
           >
@@ -241,9 +224,7 @@ export default function SiteAccessPage() {
               disabled={loading}
               className="
                 h-14
-
                 w-full
-
                 rounded-full
 
                 border
@@ -255,11 +236,9 @@ export default function SiteAccessPage() {
 
                 text-center
                 text-sm
-
                 text-[#3B2A26]
 
                 outline-none
-
                 transition
 
                 placeholder:text-[#8C7468]/60
@@ -278,7 +257,6 @@ export default function SiteAccessPage() {
                 role="alert"
                 className="
                   text-xs
-
                   text-[#8C5A6B]
                 "
               >
@@ -294,11 +272,8 @@ export default function SiteAccessPage() {
               }
               className="
                 flex
-
                 min-h-[58px]
-
                 w-full
-
                 items-center
                 justify-center
 
@@ -308,28 +283,23 @@ export default function SiteAccessPage() {
                 border-[#8C5A6B]
 
                 uppercase
-
                 tracking-[0.22em]
 
                 text-xs
-                sm:text-sm
-
                 font-semibold
-
                 text-[#8C5A6B]
 
                 transition-all
                 duration-300
 
                 hover:bg-[#F6E7E1]
-
                 hover:scale-[1.02]
 
                 disabled:cursor-not-allowed
-
                 disabled:opacity-50
-
                 disabled:hover:scale-100
+
+                sm:text-sm
               "
             >
               {loading
@@ -342,4 +312,3 @@ export default function SiteAccessPage() {
     </main>
   );
 }
-```
