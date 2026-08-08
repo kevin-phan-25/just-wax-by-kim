@@ -1,11 +1,19 @@
+```tsx
 /**
- * -----------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------
  * File:
  * app/site-access/page.tsx
  *
  * Description:
  * Private access page shown before the public website is launched.
- * -----------------------------------------------------------------------------
+ *
+ * Behavior:
+ * • No Navbar
+ * • No Footer
+ * • No Just Wax by Kim branding
+ * • Simple under-construction message
+ * • Password protected
+ * ---------------------------------------------------------------------------
  */
 
 "use client";
@@ -18,26 +26,19 @@ import {
 import { useSearchParams } from "next/navigation";
 
 export default function SiteAccessPage() {
-  const searchParams =
-    useSearchParams();
+  const searchParams = useSearchParams();
 
   const from =
     searchParams.get("from") || "/";
 
-  const [
-    password,
-    setPassword,
-  ] = useState("");
+  const [password, setPassword] =
+    useState("");
 
-  const [
-    error,
-    setError,
-  ] = useState("");
+  const [error, setError] =
+    useState("");
 
-  const [
-    loading,
-    setLoading,
-  ] = useState(false);
+  const [loading, setLoading] =
+    useState(false);
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>
@@ -97,65 +98,64 @@ export default function SiteAccessPage() {
       className="
         min-h-screen
         w-full
+
         bg-[#FCF8F3]
+
         flex
         items-center
         justify-center
-        px-6
-        py-16
+
+        px-5
+        sm:px-8
       "
     >
       <div
         className="
           w-full
           max-w-md
+
           text-center
         "
       >
 
-        {/* BRAND */}
+        {/* UNDER CONSTRUCTION */}
 
         <div
           className="
-            mb-10
+            mb-8
           "
         >
 
-          <p
-            className="
-              uppercase
-              tracking-[0.28em]
-              text-[10px]
-              sm:text-xs
-              font-semibold
-              text-[#8C5A6B]
-            "
-          >
-            Just Wax by Kim
-          </p>
-
           <h1
             className="
-              mt-5
               font-serif
-              text-4xl
-              sm:text-5xl
+
+              text-3xl
+              sm:text-4xl
+
               tracking-tight
+
               text-[#3B2A26]
             "
           >
-            Coming Soon
+            Site Under Construction
           </h1>
+
 
           <p
             className="
               mt-4
+
               text-sm
+              sm:text-base
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
-            This site is under construction.
+            This site is currently under
+            construction.
           </p>
 
         </div>
@@ -166,13 +166,18 @@ export default function SiteAccessPage() {
         <div
           className="
             rounded-[32px]
+
             border
             border-[#E8DDD8]
+
             bg-white/70
+
             px-6
             py-8
+
             sm:px-8
             sm:py-10
+
             shadow-[0_20px_60px_rgba(59,42,38,0.06)]
           "
         >
@@ -180,9 +185,12 @@ export default function SiteAccessPage() {
           <p
             className="
               text-xs
+
               uppercase
               tracking-[0.18em]
+
               font-semibold
+
               text-[#3B2A26]
             "
           >
@@ -193,9 +201,12 @@ export default function SiteAccessPage() {
           <p
             className="
               mt-3
+
               text-xs
               sm:text-sm
+
               leading-relaxed
+
               text-[#8C7468]
             "
           >
@@ -208,8 +219,10 @@ export default function SiteAccessPage() {
             onSubmit={handleSubmit}
             className="
               mt-7
+
               flex
               flex-col
+
               gap-4
             "
           >
@@ -224,29 +237,46 @@ export default function SiteAccessPage() {
 
             <input
               id="site-password"
+
               type="password"
+
               value={password}
+
               onChange={(event) =>
                 setPassword(
                   event.target.value
                 )
               }
+
               placeholder="Enter password"
+
               autoComplete="current-password"
+
               autoFocus
+
               disabled={loading}
+
               className="
                 h-14
+
                 w-full
+
                 rounded-full
+
                 border
                 border-[#E8DDD8]
+
                 bg-[#FCF8F3]
+
                 px-5
+
                 text-center
                 text-sm
+
                 text-[#3B2A26]
+
                 outline-none
+
                 transition
 
                 placeholder:text-[#8C7468]/60
@@ -266,6 +296,7 @@ export default function SiteAccessPage() {
                 role="alert"
                 className="
                   text-xs
+
                   text-[#8C5A6B]
                 "
               >
@@ -276,14 +307,19 @@ export default function SiteAccessPage() {
 
             <button
               type="submit"
+
               disabled={
                 loading ||
                 !password.trim()
               }
+
               className="
                 flex
+
                 min-h-[58px]
+
                 w-full
+
                 items-center
                 justify-center
 
@@ -297,6 +333,7 @@ export default function SiteAccessPage() {
 
                 text-xs
                 sm:text-sm
+
                 font-semibold
 
                 text-[#8C5A6B]
@@ -305,10 +342,13 @@ export default function SiteAccessPage() {
                 duration-300
 
                 hover:bg-[#F6E7E1]
+
                 hover:scale-[1.02]
 
                 disabled:cursor-not-allowed
+
                 disabled:opacity-50
+
                 disabled:hover:scale-100
               "
             >
@@ -321,22 +361,8 @@ export default function SiteAccessPage() {
 
         </div>
 
-
-        {/* FOOTER */}
-
-        <p
-          className="
-            mt-8
-            text-[10px]
-            uppercase
-            tracking-[0.16em]
-            text-[#8C7468]/70
-          "
-        >
-          Just Wax by Kim
-        </p>
-
       </div>
     </main>
   );
 }
+```
