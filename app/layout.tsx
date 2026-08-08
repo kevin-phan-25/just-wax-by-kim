@@ -1,4 +1,3 @@
-```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
@@ -15,18 +14,15 @@
  * • Global providers
  *
  * IMPORTANT:
- * Navbar and Footer are NOT rendered here.
+ * Navbar and Footer are intentionally NOT rendered here.
+ * They are rendered by app/(studio)/layout.tsx.
  *
- * Public website navigation is rendered by:
- * app/(studio)/layout.tsx
- *
- * This allows /site-access to remain completely independent from the
- * public website while the site is password protected.
+ * This allows /site-access to remain completely independent from
+ * the public website layout.
  * -----------------------------------------------------------------------------
  */
 
 import type { Metadata } from "next";
-
 import Script from "next/script";
 
 import {
@@ -36,14 +32,8 @@ import {
 
 import Providers from "./providers";
 
-import {
-  createMetadata,
-} from "@/lib/metadata";
-
-import {
-  businessSchema,
-} from "@/lib/seo";
-
+import { createMetadata } from "@/lib/metadata";
+import { businessSchema } from "@/lib/seo";
 import {
   headingFont,
   bodyFont,
@@ -52,7 +42,7 @@ import {
 import "./globals.css";
 
 /**
- * Homepage slogan script
+ * Homepage slogan script font
  */
 const scriptFont = Great_Vibes({
   weight: "400",
@@ -62,7 +52,7 @@ const scriptFont = Great_Vibes({
 });
 
 /**
- * Service card overlay branding
+ * Service card overlay branding font
  */
 const alluraFont = Allura({
   weight: "400",
@@ -112,5 +102,3 @@ export default function RootLayout({
     </html>
   );
 }
-```
-
