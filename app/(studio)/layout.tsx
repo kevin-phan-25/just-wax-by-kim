@@ -7,7 +7,6 @@
  * Shared public website layout for Just Wax by Kim.
  *
  * Responsibilities:
- * • Announcement
  * • Navbar
  * • MobileMenu through Navbar
  * • BookingWidget through Navbar
@@ -15,14 +14,13 @@
  * • Footer
  *
  * IMPORTANT:
- * No navbar clearance or page padding is added here.
- * Individual components and pages control their own spacing.
+ * Navbar is fixed. Main gets nav clearance so Information pages
+ * (and other non-hero routes) are not flushed under the nav.
+ * Homepage Hero keeps its own editorial spacing on top of this.
  * -----------------------------------------------------------------------------
  */
-
 import type { ReactNode } from "react";
 
-import Announcement from "@/components/layout/Announcement";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -33,14 +31,16 @@ export default function StudioLayout({
 }) {
   return (
     <>
-      <Announcement />
-
       <Navbar />
 
       <main
         className="
           w-full
           overflow-x-hidden
+
+          pt-[var(--nav-mobile)]
+          md:pt-[var(--nav-tablet)]
+          xl:pt-[var(--nav-desktop)]
         "
       >
         {children}
