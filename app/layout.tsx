@@ -1,3 +1,4 @@
+```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
@@ -6,18 +7,26 @@
  * Description:
  * Root application layout.
  *
- * Controls:
+ * Responsibilities:
  * • Global metadata
  * • SEO structured data
- * • Fonts
+ * • Global fonts
+ * • Global CSS
  * • Global providers
  *
- * Navigation and footer are handled by the studio layout.
- * This allows /site-access to render independently.
+ * IMPORTANT:
+ * Navbar and Footer are NOT rendered here.
+ *
+ * Public website navigation is rendered by:
+ * app/(studio)/layout.tsx
+ *
+ * This allows /site-access to remain completely independent from the
+ * public website while the site is password protected.
  * -----------------------------------------------------------------------------
  */
 
 import type { Metadata } from "next";
+
 import Script from "next/script";
 
 import {
@@ -27,8 +36,14 @@ import {
 
 import Providers from "./providers";
 
-import { createMetadata } from "@/lib/metadata";
-import { businessSchema } from "@/lib/seo";
+import {
+  createMetadata,
+} from "@/lib/metadata";
+
+import {
+  businessSchema,
+} from "@/lib/seo";
+
 import {
   headingFont,
   bodyFont,
@@ -97,3 +112,5 @@ export default function RootLayout({
     </html>
   );
 }
+```
+

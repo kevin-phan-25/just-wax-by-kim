@@ -1,20 +1,35 @@
+```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
  * app/(studio)/layout.tsx
  *
  * Description:
- * Shared luxury studio layout.
+ * Shared layout for the actual Just Wax by Kim website.
  *
- * Controls:
- * • Fixed Navbar
- * • Studio page content
- * • Global Footer
- * • Editorial page rhythm
+ * Responsibilities:
+ * • Navbar
+ * • Mobile navigation
+ * • Public page content
+ * • Footer
  *
- * Note:
- * • /site-access is intentionally outside this layout.
- * • Public website pages receive Navbar + Footer.
+ * IMPORTANT:
+ * This layout is only used by routes inside (studio).
+ *
+ * /site-access does NOT use this layout.
+ *
+ * Therefore:
+ *
+ * /site-access
+ *     → no Navbar
+ *     → no MobileMenu
+ *     → no Footer
+ *
+ * authenticated website
+ *     → Navbar
+ *     → MobileMenu
+ *     → page content
+ *     → Footer
  * -----------------------------------------------------------------------------
  */
 
@@ -28,15 +43,19 @@ export default function StudioLayout({
 }) {
   return (
     <>
-      {/* GLOBAL NAVIGATION */}
+      {/* ================================================================
+          PUBLIC WEBSITE NAVIGATION
+          ================================================================ */}
 
       <Navbar />
 
-      {/* PAGE CONTENT */}
+
+      {/* ================================================================
+          PUBLIC WEBSITE CONTENT
+          ================================================================ */}
 
       <main
         className="
-          flex-1
           w-full
           overflow-x-hidden
         "
@@ -44,9 +63,14 @@ export default function StudioLayout({
         {children}
       </main>
 
-      {/* GLOBAL FOOTER */}
+
+      {/* ================================================================
+          PUBLIC WEBSITE FOOTER
+          ================================================================ */}
 
       <Footer />
     </>
   );
 }
+```
+

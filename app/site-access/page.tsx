@@ -1,3 +1,4 @@
+```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
@@ -6,12 +7,14 @@
  * Description:
  * Private access page shown before the public website is launched.
  *
- * Behavior:
- * • Completely independent from the public site layout
- * • No Navbar
- * • No Footer
- * • Password authentication
- * • Redirects to the requested page after authentication
+ * IMPORTANT:
+ * This page intentionally does NOT render:
+ * • Navbar
+ * • MobileMenu
+ * • Footer
+ *
+ * Successful authentication redirects the visitor into the public
+ * (studio) application where the normal website layout takes over.
  * -----------------------------------------------------------------------------
  */
 
@@ -22,10 +25,13 @@ import {
   useState,
 } from "react";
 
-import { useSearchParams } from "next/navigation";
+import {
+  useSearchParams,
+} from "next/navigation";
 
 export default function SiteAccessPage() {
-  const searchParams = useSearchParams();
+  const searchParams =
+    useSearchParams();
 
   const from =
     searchParams.get("from") || "/";
@@ -48,22 +54,23 @@ export default function SiteAccessPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(
-        "/api/site-access",
-        {
-          method: "POST",
+      const response =
+        await fetch(
+          "/api/site-access",
+          {
+            method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/json",
-          },
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
 
-          body: JSON.stringify({
-            password,
-            from,
-          }),
-        }
-      );
+            body: JSON.stringify({
+              password,
+              from,
+            }),
+          }
+        );
 
       const data =
         await response.json();
@@ -79,6 +86,19 @@ export default function SiteAccessPage() {
 
         return;
       }
+
+      /*
+       * Force a complete navigation.
+       *
+       * This is intentional.
+       *
+       * The middleware will now see the newly-created
+       * authentication cookie and allow the visitor
+       * into the (studio) layout.
+       *
+       * That causes the normal Navbar + MobileMenu +
+       * Footer to render.
+       */
 
       window.location.href =
         data.redirect || "/";
@@ -119,7 +139,9 @@ export default function SiteAccessPage() {
           text-center
         "
       >
-        {/* HEADER */}
+        {/* ============================================================
+            HEADER
+            ============================================================ */}
 
         <div className="mb-10">
           <h1
@@ -147,7 +169,10 @@ export default function SiteAccessPage() {
           </p>
         </div>
 
-        {/* PASSWORD CARD */}
+
+        {/* ============================================================
+            PASSWORD CARD
+            ============================================================ */}
 
         <div
           className="
@@ -193,6 +218,7 @@ export default function SiteAccessPage() {
             the website.
           </p>
 
+
           <form
             onSubmit={handleSubmit}
             className="
@@ -225,6 +251,7 @@ export default function SiteAccessPage() {
               className="
                 h-14
                 w-full
+
                 rounded-full
 
                 border
@@ -236,9 +263,11 @@ export default function SiteAccessPage() {
 
                 text-center
                 text-sm
+
                 text-[#3B2A26]
 
                 outline-none
+
                 transition
 
                 placeholder:text-[#8C7468]/60
@@ -252,6 +281,7 @@ export default function SiteAccessPage() {
               "
             />
 
+
             {error && (
               <p
                 role="alert"
@@ -264,6 +294,7 @@ export default function SiteAccessPage() {
               </p>
             )}
 
+
             <button
               type="submit"
               disabled={
@@ -274,6 +305,7 @@ export default function SiteAccessPage() {
                 flex
                 min-h-[58px]
                 w-full
+
                 items-center
                 justify-center
 
@@ -312,3 +344,5 @@ export default function SiteAccessPage() {
     </main>
   );
 }
+```
+

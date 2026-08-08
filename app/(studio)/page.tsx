@@ -1,16 +1,21 @@
+```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
  * app/(studio)/page.tsx
  *
  * Description:
- * Homepage composition.
+ * Just Wax by Kim homepage.
  *
- * Updates:
- * • Homepage now lives inside the studio route group
- * • Automatically receives Navbar and Footer from studio layout
- * • Announcement remains inside Hero
- * • Preserved homepage section flow
+ * This page is rendered inside:
+ * app/(studio)/layout.tsx
+ *
+ * Therefore it automatically receives:
+ * • Navbar
+ * • MobileMenu
+ * • Footer
+ *
+ * The middleware controls whether the visitor is allowed to reach this page.
  * -----------------------------------------------------------------------------
  */
 
@@ -26,13 +31,16 @@ export default function Home() {
 
       <Hero />
 
+
       {/* ABOUT */}
 
       <About />
 
+
       {/* SERVICES */}
 
       <Services />
+
 
       {/* BOOKING */}
 
@@ -40,3 +48,5 @@ export default function Home() {
     </>
   );
 }
+```
+
