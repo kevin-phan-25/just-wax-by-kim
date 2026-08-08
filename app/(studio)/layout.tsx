@@ -1,35 +1,21 @@
-```tsx
 /**
  * -----------------------------------------------------------------------------
  * File:
  * app/(studio)/layout.tsx
  *
  * Description:
- * Shared layout for the actual Just Wax by Kim website.
+ * Shared public website layout for Just Wax by Kim.
  *
  * Responsibilities:
  * • Navbar
- * • Mobile navigation
+ * • MobileMenu through Navbar
+ * • BookingWidget through Navbar
  * • Public page content
  * • Footer
  *
  * IMPORTANT:
- * This layout is only used by routes inside (studio).
- *
- * /site-access does NOT use this layout.
- *
- * Therefore:
- *
- * /site-access
- *     → no Navbar
- *     → no MobileMenu
- *     → no Footer
- *
- * authenticated website
- *     → Navbar
- *     → MobileMenu
- *     → page content
- *     → Footer
+ * No padding or navbar clearance is added here.
+ * Existing components control their own spacing.
  * -----------------------------------------------------------------------------
  */
 
@@ -43,16 +29,7 @@ export default function StudioLayout({
 }) {
   return (
     <>
-      {/* ================================================================
-          PUBLIC WEBSITE NAVIGATION
-          ================================================================ */}
-
       <Navbar />
-
-
-      {/* ================================================================
-          PUBLIC WEBSITE CONTENT
-          ================================================================ */}
 
       <main
         className="
@@ -63,14 +40,7 @@ export default function StudioLayout({
         {children}
       </main>
 
-
-      {/* ================================================================
-          PUBLIC WEBSITE FOOTER
-          ================================================================ */}
-
       <Footer />
     </>
   );
 }
-```
-
