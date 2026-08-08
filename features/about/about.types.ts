@@ -14,9 +14,9 @@
  */
 
 export interface AboutSection {
-  eyebrow: string;
-
   title: string;
+
+  eyebrow: string;
 
   description: string[];
 
