@@ -7,6 +7,7 @@
  * Shared public website layout for Just Wax by Kim.
  *
  * Responsibilities:
+ * • Announcement
  * • Navbar
  * • MobileMenu through Navbar
  * • BookingWidget through Navbar
@@ -14,21 +15,26 @@
  * • Footer
  *
  * IMPORTANT:
- * No padding or navbar clearance is added here.
- * Existing components control their own spacing.
+ * No navbar clearance or page padding is added here.
+ * Individual components and pages control their own spacing.
  * -----------------------------------------------------------------------------
  */
 
+import type { ReactNode } from "react";
+
+import Announcement from "@/components/layout/Announcement";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 export default function StudioLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <>
+      <Announcement />
+
       <Navbar />
 
       <main
