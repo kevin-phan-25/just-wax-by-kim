@@ -12,14 +12,12 @@
  * • Fonts
  * • Global providers
  *
- * Site navigation and footer are handled by the studio layout so that
- * private pages such as /site-access can render completely independently.
- *
+ * Navigation and footer are handled by the studio layout.
+ * This allows /site-access to render independently.
  * -----------------------------------------------------------------------------
  */
 
 import type { Metadata } from "next";
-
 import Script from "next/script";
 
 import {
@@ -29,21 +27,14 @@ import {
 
 import Providers from "./providers";
 
-import {
-  createMetadata,
-} from "@/lib/metadata";
-
-import {
-  businessSchema,
-} from "@/lib/seo";
-
+import { createMetadata } from "@/lib/metadata";
+import { businessSchema } from "@/lib/seo";
 import {
   headingFont,
   bodyFont,
 } from "@/config/fonts";
 
 import "./globals.css";
-
 
 /**
  * Homepage slogan script
@@ -55,7 +46,6 @@ const scriptFont = Great_Vibes({
   display: "swap",
 });
 
-
 /**
  * Service card overlay branding
  */
@@ -66,10 +56,8 @@ const alluraFont = Allura({
   display: "swap",
 });
 
-
 export const metadata: Metadata =
   createMetadata();
-
 
 export default function RootLayout({
   children,
@@ -86,9 +74,7 @@ export default function RootLayout({
         ${alluraFont.variable}
       `}
     >
-
       <body>
-
         {/* SEO STRUCTURED DATA */}
 
         <Script
@@ -102,15 +88,12 @@ export default function RootLayout({
           }}
         />
 
-
         {/* GLOBAL PROVIDERS */}
 
         <Providers>
           {children}
         </Providers>
-
       </body>
-
     </html>
   );
 }

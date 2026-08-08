@@ -4,7 +4,7 @@
  * app/(studio)/layout.tsx
  *
  * Description:
- * Shared luxury studio page layout.
+ * Shared luxury studio layout.
  *
  * Controls:
  * • Fixed Navbar
@@ -12,13 +12,14 @@
  * • Global Footer
  * • Editorial page rhythm
  *
- * This layout intentionally does NOT wrap /site-access.
+ * Note:
+ * • /site-access is intentionally outside this layout.
+ * • Public website pages receive Navbar + Footer.
  * -----------------------------------------------------------------------------
  */
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
 
 export default function StudioLayout({
   children,
@@ -27,11 +28,9 @@ export default function StudioLayout({
 }) {
   return (
     <>
-
       {/* GLOBAL NAVIGATION */}
 
       <Navbar />
-
 
       {/* PAGE CONTENT */}
 
@@ -45,11 +44,9 @@ export default function StudioLayout({
         {children}
       </main>
 
-
       {/* GLOBAL FOOTER */}
 
       <Footer />
-
     </>
   );
 }
