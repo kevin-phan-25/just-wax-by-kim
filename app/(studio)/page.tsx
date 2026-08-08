@@ -7,10 +7,12 @@
  * Description:
  * Public homepage for Just Wax by Kim.
  *
- * This page is rendered through:
- * app/(studio)/layout.tsx
+ * Route:
+ * /
  *
- * The studio layout provides:
+ * The (studio) route group is invisible in the URL.
+ *
+ * The parent studio layout provides:
  * • Navbar
  * • Page content
  * • Footer
@@ -25,16 +27,12 @@ import { Booking } from "@/features/booking";
 export default function Home() {
   return (
     <>
-      {/* HERO */}
       <Hero />
 
-      {/* ABOUT */}
       <About />
 
-      {/* SERVICES */}
       <Services />
 
-      {/* BOOKING */}
       <Booking />
     </>
   );
