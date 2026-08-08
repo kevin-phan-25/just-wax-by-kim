@@ -1,21 +1,13 @@
+```tsx
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * constants/navigation.ts
  *
  * Description:
  * Main website navigation.
  *
- * Updates:
- * • Main nav: Home, About, Services, Book Now, Information
- * • Information dropdown pages
- * • Preserved Services dropdown
- * • Inclusive service descriptions
- * • Luxury editorial wording
- *
- * ---
- *
+ * -----------------------------------------------------------------------------
  */
 
 export interface NavigationItem {
@@ -44,13 +36,15 @@ export const navigation: readonly NavigationItem[] = [
       {
         label: "Ladies Waxing",
         href: "/services/ladies",
-        description: "Professional waxing services, tailored to you",
+        description:
+          "Professional waxing services, tailored to you",
       },
 
       {
         label: "Gentlemen Waxing",
         href: "/services/gentlemen",
-        description: "Professional waxing services, tailored to you",
+        description:
+          "Professional waxing services, tailored to you",
       },
     ],
   },
@@ -60,52 +54,69 @@ export const navigation: readonly NavigationItem[] = [
     href: "/#booking",
   },
 
+  /*
+   * IMPORTANT:
+   *
+   * Information is a menu trigger only.
+   *
+   * It must NOT navigate to Gallery or
+   * any other page when clicked.
+   */
   {
     label: "Information",
-    href: "/gallery",
+    href: "#",
 
     dropdown: [
       {
         label: "Gallery",
         href: "/gallery",
-        description: "A glimpse inside the studio",
+        description:
+          "A glimpse inside the studio",
       },
 
       {
         label: "Instagram",
         href: "/instagram",
-        description: "Studio moments and inspiration",
+        description:
+          "Studio moments and inspiration",
       },
 
       {
         label: "Testimonials",
         href: "/testimonials",
-        description: "Experiences from our clients",
+        description:
+          "Experiences from our clients",
       },
 
       {
         label: "FAQ",
         href: "/faq",
-        description: "Helpful answers before your visit",
+        description:
+          "Helpful answers before your visit",
       },
 
       {
         label: "Policies",
         href: "/policies",
-        description: "Appointment guidelines and care",
+        description:
+          "Appointment guidelines and care",
       },
 
       {
         label: "Contact",
         href: "/contact",
-        description: "We would love to hear from you",
+        description:
+          "We would love to hear from you",
       },
 
       {
         label: "Privacy Policy",
         href: "/privacy-policy",
-        description: "How we protect your information",
+        description:
+          "How we protect your information",
       },
     ],
   },
 ];
+```
+
