@@ -15,7 +15,7 @@ import {
 } from "next/server";
 
 const ACCESS_COOKIE =
-  "jwkb_site_access";
+  "jwk_site_access";
 
 export async function POST(
   request: NextRequest
