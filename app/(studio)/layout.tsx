@@ -1,6 +1,5 @@
 /**
- *
- * ---
+ * -----------------------------------------------------------------------------
  * File:
  * app/(studio)/layout.tsx
  *
@@ -8,13 +7,18 @@
  * Shared luxury studio page layout.
  *
  * Controls:
- * • Standalone page breathing room under fixed navbar
- * • Navbar remains fixed (unaffected)
+ * • Fixed Navbar
+ * • Studio page content
+ * • Global Footer
  * • Editorial page rhythm
  *
- * ---
- *
+ * This layout intentionally does NOT wrap /site-access.
+ * -----------------------------------------------------------------------------
  */
+
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 
 export default function StudioLayout({
   children,
@@ -22,16 +26,30 @@ export default function StudioLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className="
-        relative
-        w-full
-        pt-[180px]
-        md:pt-[200px]
-        xl:pt-[220px]
-      "
-    >
-      {children}
-    </div>
+    <>
+
+      {/* GLOBAL NAVIGATION */}
+
+      <Navbar />
+
+
+      {/* PAGE CONTENT */}
+
+      <main
+        className="
+          flex-1
+          w-full
+          overflow-x-hidden
+        "
+      >
+        {children}
+      </main>
+
+
+      {/* GLOBAL FOOTER */}
+
+      <Footer />
+
+    </>
   );
 }

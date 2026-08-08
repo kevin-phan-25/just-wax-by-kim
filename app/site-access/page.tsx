@@ -4,8 +4,7 @@
  * app/site-access/page.tsx
  *
  * Description:
- * Private site access page for Just Wax by Kim.
- *
+ * Private access page shown before the public website is launched.
  * -----------------------------------------------------------------------------
  */
 
@@ -77,16 +76,10 @@ export default function SiteAccessPage() {
         );
 
         setPassword("");
-
         setLoading(false);
 
         return;
       }
-
-      /*
-       * The API sets the secure HTTP-only
-       * access cookie.
-       */
 
       window.location.href =
         data.redirect || "/";
@@ -105,7 +98,6 @@ export default function SiteAccessPage() {
         min-h-screen
         w-full
         bg-[#FCF8F3]
-        text-[#3B2A26]
         flex
         items-center
         justify-center
@@ -120,12 +112,15 @@ export default function SiteAccessPage() {
           text-center
         "
       >
+
         {/* BRAND */}
+
         <div
           className="
             mb-10
           "
         >
+
           <p
             className="
               uppercase
@@ -160,11 +155,14 @@ export default function SiteAccessPage() {
               text-[#8C7468]
             "
           >
-            More than just a wax.
+            This site is under construction.
           </p>
+
         </div>
 
-        {/* ACCESS CARD */}
+
+        {/* PASSWORD CARD */}
+
         <div
           className="
             rounded-[32px]
@@ -178,6 +176,7 @@ export default function SiteAccessPage() {
             shadow-[0_20px_60px_rgba(59,42,38,0.06)]
           "
         >
+
           <p
             className="
               text-xs
@@ -187,8 +186,9 @@ export default function SiteAccessPage() {
               text-[#3B2A26]
             "
           >
-            Private Preview
+            Private Access
           </p>
+
 
           <p
             className="
@@ -199,11 +199,10 @@ export default function SiteAccessPage() {
               text-[#8C7468]
             "
           >
-            Our website is currently
-            being prepared for opening day.
-            Please enter the access password
-            to continue.
+            Enter the password to preview
+            the website.
           </p>
+
 
           <form
             onSubmit={handleSubmit}
@@ -214,14 +213,14 @@ export default function SiteAccessPage() {
               gap-4
             "
           >
+
             <label
               htmlFor="site-password"
-              className="
-                sr-only
-              "
+              className="sr-only"
             >
               Access password
             </label>
+
 
             <input
               id="site-password"
@@ -232,7 +231,7 @@ export default function SiteAccessPage() {
                   event.target.value
                 )
               }
-              placeholder="Enter access password"
+              placeholder="Enter password"
               autoComplete="current-password"
               autoFocus
               disabled={loading}
@@ -249,13 +248,18 @@ export default function SiteAccessPage() {
                 text-[#3B2A26]
                 outline-none
                 transition
+
                 placeholder:text-[#8C7468]/60
+
                 focus:border-[#8C5A6B]
+
                 focus:ring-2
                 focus:ring-[#8C5A6B]/10
+
                 disabled:opacity-60
               "
             />
+
 
             {error && (
               <p
@@ -269,6 +273,7 @@ export default function SiteAccessPage() {
               </p>
             )}
 
+
             <button
               type="submit"
               disabled={
@@ -281,19 +286,27 @@ export default function SiteAccessPage() {
                 w-full
                 items-center
                 justify-center
+
                 rounded-full
+
                 border-2
                 border-[#8C5A6B]
+
                 uppercase
                 tracking-[0.22em]
+
                 text-xs
                 sm:text-sm
                 font-semibold
+
                 text-[#8C5A6B]
+
                 transition-all
                 duration-300
+
                 hover:bg-[#F6E7E1]
                 hover:scale-[1.02]
+
                 disabled:cursor-not-allowed
                 disabled:opacity-50
                 disabled:hover:scale-100
@@ -303,10 +316,14 @@ export default function SiteAccessPage() {
                 ? "Checking..."
                 : "Enter Website"}
             </button>
+
           </form>
+
         </div>
 
+
         {/* FOOTER */}
+
         <p
           className="
             mt-8
@@ -316,8 +333,9 @@ export default function SiteAccessPage() {
             text-[#8C7468]/70
           "
         >
-          Opening soon
+          Just Wax by Kim
         </p>
+
       </div>
     </main>
   );
