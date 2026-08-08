@@ -6,38 +6,27 @@
  *
  * Description:
  * Luxury responsive navigation for Just Wax by Kim.
+ *
+ * Behavior:
+ * • Fixed navigation
+ * • Information is dropdown-only and never navigates
+ * • Services remains dropdown-enabled
+ * • Booking CTA opens booking widget
+ * • Homepage anchors scroll beneath the navbar
+ * • Responsive desktop / tablet / mobile spacing
  * -----------------------------------------------------------------------------
  */
 
 "use client";
 
-import {
-  useEffect,
-  useState,
-} from "react";
-
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import {
-  usePathname,
-} from "next/navigation";
-
-import {
-  Logo,
-} from "@/components/ui/Logo";
-
-import {
-  MobileMenu,
-} from "@/components/layout/MobileMenu";
-
-import {
-  navigation,
-} from "@/constants/navigation";
-
-import {
-  BookingWidget,
-} from "@/features/booking";
-
+import { Logo } from "@/components/ui/Logo";
+import { MobileMenu } from "@/components/layout/MobileMenu";
+import { navigation } from "@/constants/navigation";
+import { BookingWidget } from "@/features/booking";
 
 function getNavbarHeight() {
   if (typeof window === "undefined") {
@@ -55,7 +44,6 @@ function getNavbarHeight() {
   return 110;
 }
 
-
 function scrollToSection(href: string) {
   const id = href.split("#")[1];
 
@@ -63,8 +51,7 @@ function scrollToSection(href: string) {
     return;
   }
 
-  const element =
-    document.getElementById(id);
+  const element = document.getElementById(id);
 
   if (!element) {
     return;
@@ -81,74 +68,42 @@ function scrollToSection(href: string) {
   });
 }
 
-
 export default function Navbar() {
   const pathname = usePathname();
 
-  const [
-    scrolled,
-    setScrolled,
-  ] = useState(false);
-
-  const [
-    mobileOpen,
-    setMobileOpen,
-  ] = useState(false);
-
-  const [
-    bookingOpen,
-    setBookingOpen,
-  ] = useState(false);
-
-  const [
-    openDropdown,
-    setOpenDropdown,
-  ] = useState<string | null>(null);
-
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] =
+    useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(
-        window.scrollY > 20
-      );
+      setScrolled(window.scrollY > 20);
     };
 
     handleScroll();
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true,
-      }
-    );
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-
   useEffect(() => {
     document.body.style.overflow =
-      mobileOpen || bookingOpen
-        ? "hidden"
-        : "";
+      mobileOpen || bookingOpen ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
     };
-  }, [
-    mobileOpen,
-    bookingOpen,
-  ]);
-
+  }, [mobileOpen, bookingOpen]);
 
   const handleNavigation = (
-    e: React.MouseEvent,
+    e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
     if (!href.includes("#")) {
@@ -159,11 +114,9 @@ export default function Navbar() {
       e.preventDefault();
 
       scrollToSection(href);
-
       setOpenDropdown(null);
     }
   };
-
 
   return (
     <>
@@ -189,7 +142,6 @@ export default function Navbar() {
           }
         `}
       >
-
         {/* LOGO */}
         <div
           className="
@@ -202,27 +154,35 @@ export default function Navbar() {
             z-10
           "
         >
-          <Logo />
+          <Link
+            href="/"
+            aria-label="Just Wax by Kim home"
+          >
+            <Logo />
+          </Link>
         </div>
-
 
         {/* DESKTOP NAV */}
         <div
           className="
             hidden
             lg:flex
+
             absolute
             left-1/2
             top-1/2
+
             -translate-x-1/2
             -translate-y-1/2
+
             items-center
+
             gap-7
             xl:gap-10
+
             whitespace-nowrap
           "
         >
-
           {navigation.map((link) => {
             const hasDropdown =
               Boolean(link.dropdown?.length);
@@ -230,15 +190,10 @@ export default function Navbar() {
             const isOpen =
               openDropdown === link.label;
 
-
             /*
-             * -----------------------------------------------------------------
-             * INFORMATION / DROPDOWN ONLY
-             * -----------------------------------------------------------------
-             *
-             * A navigation item with a dropdown is rendered as a menu trigger.
-             *
-             * Information therefore NEVER navigates to Gallery.
+             * Information and Services are dropdown-only
+             * controls. They should never navigate when
+             * clicked.
              */
             if (hasDropdown) {
               return (
@@ -246,22 +201,18 @@ export default function Navbar() {
                   key={link.label}
                   className="relative"
                   onMouseEnter={() =>
-                    setOpenDropdown(
-                      link.label
-                    )
+                    setOpenDropdown(link.label)
                   }
                   onMouseLeave={() =>
                     setOpenDropdown(null)
                   }
                 >
-
                   <button
                     type="button"
+                    aria-expanded={isOpen}
                     onClick={() =>
                       setOpenDropdown(
-                        isOpen
-                          ? null
-                          : link.label
+                        isOpen ? null : link.label
                       )
                     }
                     className="
@@ -275,19 +226,7 @@ export default function Navbar() {
                     "
                   >
                     {link.label}
-
-                    <span
-                      className="
-                        ml-2
-                        text-[10px]
-                        inline-block
-                        transition-transform
-                      "
-                    >
-                      ▾
-                    </span>
                   </button>
-
 
                   {isOpen && (
                     <div
@@ -310,52 +249,51 @@ export default function Navbar() {
                           shadow-xl
                         "
                       >
-                        {link.dropdown?.map(
-                          (item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() =>
-                                setOpenDropdown(null)
-                              }
+                        {link.dropdown?.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() =>
+                              setOpenDropdown(null)
+                            }
+                            className="
+                              block
+                              rounded-2xl
+                              px-5
+                              py-4
+                              text-center
+                              hover:bg-[#F6E7E1]
+                              transition
+                            "
+                          >
+                            <span
                               className="
                                 block
-                                rounded-2xl
-                                px-5
-                                py-4
-                                text-center
-                                hover:bg-[#F6E7E1]
-                                transition
+                                uppercase
+                                tracking-[0.15em]
+                                text-xs
+                                font-semibold
+                                text-[#3B2A26]
                               "
                             >
+                              {item.label}
+                            </span>
+
+                            {item.description && (
                               <span
                                 className="
-                                  uppercase
-                                  tracking-[0.15em]
-                                  text-xs
-                                  font-semibold
-                                  text-[#3B2A26]
+                                  mt-2
+                                  block
+                                  text-[11px]
+                                  leading-relaxed
+                                  text-[#8C7468]
                                 "
                               >
-                                {item.label}
+                                {item.description}
                               </span>
-
-                              {item.description && (
-                                <span
-                                  className="
-                                    mt-2
-                                    block
-                                    text-[11px]
-                                    leading-relaxed
-                                    text-[#8C7468]
-                                  "
-                                >
-                                  {item.description}
-                                </span>
-                              )}
-                            </Link>
-                          )
-                        )}
+                            )}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -363,21 +301,15 @@ export default function Navbar() {
               );
             }
 
-
             /*
-             * -----------------------------------------------------------------
-             * NORMAL NAVIGATION ITEM
-             * -----------------------------------------------------------------
+             * Normal navigation items.
              */
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) =>
-                  handleNavigation(
-                    e,
-                    link.href
-                  )
+                  handleNavigation(e, link.href)
                 }
                 className="
                   uppercase
@@ -393,11 +325,9 @@ export default function Navbar() {
               </Link>
             );
           })}
-
         </div>
 
-
-        {/* BOOKING CTA + MOBILE BUTTON */}
+        {/* RIGHT SIDE ACTIONS */}
         <div
           className="
             absolute
@@ -406,16 +336,15 @@ export default function Navbar() {
             xl:right-14
             top-1/2
             -translate-y-1/2
+
             flex
             items-center
           "
         >
-
+          {/* BOOKING CTA */}
           <button
             type="button"
-            onClick={() =>
-              setBookingOpen(true)
-            }
+            onClick={() => setBookingOpen(true)}
             className="
               hidden
               sm:inline-flex
@@ -441,7 +370,6 @@ export default function Navbar() {
 
               text-sm
               font-semibold
-
               text-[#8C5A6B]
 
               transition-all
@@ -453,15 +381,21 @@ export default function Navbar() {
             Book Appointment
           </button>
 
-
+          {/* MOBILE MENU BUTTON */}
           <button
             type="button"
-            aria-label="Open navigation menu"
+            aria-label={
+              mobileOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+            aria-expanded={mobileOpen}
             onClick={() =>
               setMobileOpen(!mobileOpen)
             }
             className="
               lg:hidden
+
               ml-4
 
               flex
@@ -481,35 +415,25 @@ export default function Navbar() {
               text-[#3B2A26]
             "
           >
-            ☰
+            {mobileOpen ? "×" : "☰"}
           </button>
-
         </div>
-
       </nav>
 
-
+      {/* MOBILE MENU */}
       <MobileMenu
         open={mobileOpen}
-        onClose={() =>
-          setMobileOpen(false)
-        }
-        onBookingOpen={() =>
-          setBookingOpen(true)
-        }
+        onClose={() => setMobileOpen(false)}
+        onBookingOpen={() => setBookingOpen(true)}
         links={navigation}
       />
 
-
+      {/* BOOKING WIDGET */}
       <BookingWidget
         open={bookingOpen}
-        onClose={() =>
-          setBookingOpen(false)
-        }
+        onClose={() => setBookingOpen(false)}
       />
-
     </>
   );
 }
 ```
-
