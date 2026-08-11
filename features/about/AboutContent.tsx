@@ -26,7 +26,7 @@ export default function AboutContent() {
       className="
         w-full
         px-5
-        pt-10
+        pt-6
         sm:px-8
         sm:pt-12
         md:px-10
@@ -40,7 +40,7 @@ export default function AboutContent() {
         className="
           grid
           grid-cols-1
-          gap-10
+          gap-6
           md:grid-cols-2
           md:gap-12
           lg:grid-cols-3
@@ -51,7 +51,7 @@ export default function AboutContent() {
         <header
           className="
             col-span-1
-            mb-6
+            mb-4
             flex
             flex-col
             items-center
@@ -82,7 +82,7 @@ export default function AboutContent() {
           {/* EYEBROW */}
           <span
             className="
-              mt-6
+              mt-4
               uppercase
               tracking-[0.45em]
               text-[10px]
@@ -126,7 +126,7 @@ export default function AboutContent() {
             className="
               flex
               flex-col
-              gap-8
+              gap-6
               sm:gap-10
               md:gap-12
             "
