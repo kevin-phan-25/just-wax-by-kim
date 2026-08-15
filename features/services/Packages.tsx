@@ -6,6 +6,7 @@
  * • Package offers stay readable and compact
  * • Description size increased by 30%
  * • Forced into clean 2 lines on mobile + iPad
+ * • No longer overflows the screen
  * • Desktop stays open and comfortable
  */
 export default function Packages() {
@@ -24,20 +25,20 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION – 30% larger + clean 2 lines */}
+      {/* DESCRIPTION – 30% larger + clean 2 lines + fits on screen */}
       <p
         className="
           mx-auto
           mt-1.5
-          w-[200%]
-          -ml-[50%]
+          w-[155%]
+          -ml-[27.5%]
           origin-top
           scale-[0.65]
           text-[10px]
           leading-[1.5]
           text-[#8C7468]
-          sm:w-[180%]
-          sm:-ml-[40%]
+          sm:w-[150%]
+          sm:-ml-[25%]
           md:mt-2
           md:w-full
           md:ml-0
