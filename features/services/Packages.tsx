@@ -3,10 +3,10 @@
  * Description:
  * Subtle waxing package information section.
  * Updates:
- * • Package offers stay readable and compact
- * • Description size increased by 30%
- * • Forced into clean 2 lines on mobile + iPad
- * • No longer overflows the screen
+ * • Extra spacing between Packages line and description
+ * • Description ~30% larger
+ * • Forced clean 2 lines
+ * • Stays fully on screen (no bleeding)
  * • Desktop stays open and comfortable
  */
 export default function Packages() {
@@ -25,21 +25,21 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION – 30% larger + clean 2 lines + fits on screen */}
+      {/* DESCRIPTION – more spacing + ~30% larger + clean 2 lines + no overflow */}
       <p
         className="
           mx-auto
-          mt-1.5
-          w-[155%]
-          -ml-[27.5%]
+          mt-4
+          w-[150%]
+          -ml-[25%]
           origin-top
           scale-[0.65]
           text-[10px]
           leading-[1.5]
           text-[#8C7468]
-          sm:w-[150%]
-          sm:-ml-[25%]
-          md:mt-2
+          sm:w-[145%]
+          sm:-ml-[22.5%]
+          md:mt-3
           md:w-full
           md:ml-0
           md:max-w-lg
