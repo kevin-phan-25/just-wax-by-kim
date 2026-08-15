@@ -4,7 +4,7 @@
  * Subtle waxing package information section.
  * Updates:
  * • Package offers stay readable and compact
- * • Description reduced to 5px (much smaller than packages)
+ * • Description reduced to 2px
  * • Description stays centered and constrained on mobile
  * • Preserved responsive behavior
  */
@@ -24,19 +24,19 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION — 5px */}
+      {/* DESCRIPTION — 2px */}
       <p
         className="
           mx-auto
           mt-1.5
           w-full
           max-w-[280px]
-          text-[5px]
+          text-[2px]
           leading-relaxed
           text-[#8C7468]
           sm:max-w-sm
-          sm:text-[5px]
-          md:text-[5px]
+          sm:text-[2px]
+          md:text-[2px]
         "
       >
         Designed to help you maintain a consistent waxing routine.
