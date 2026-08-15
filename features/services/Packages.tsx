@@ -5,7 +5,7 @@
  * Updates:
  * • Package offers stay readable and compact
  * • Description keeps the good small size (scale) on mobile + iPad
- * • Clean natural 2-line break
+ * • Forced into clean 2 lines only
  * • Desktop stays open and comfortable
  */
 export default function Packages() {
@@ -24,19 +24,19 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION – good size kept + natural 2-line wording */}
+      {/* DESCRIPTION – good size + forced clean 2 lines */}
       <p
         className="
           mx-auto
           mt-1.5
           w-full
-          max-w-[340px]
+          max-w-[520px]
           origin-top
           scale-[0.5]
           text-[10px]
-          leading-[1.5]
+          leading-[1.45]
           text-[#8C7468]
-          sm:max-w-[380px]
+          sm:max-w-[560px]
           md:mt-2
           md:max-w-lg
           md:scale-100
