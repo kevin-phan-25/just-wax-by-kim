@@ -4,8 +4,8 @@
  * Subtle waxing package information section.
  * Updates:
  * • Package offers stay readable and compact
- * • Description keeps the good small size on mobile + iPad
- * • Forced into clean 2 lines only (no extra wrapping)
+ * • Description size increased by 30%
+ * • Forced into clean 2 lines on mobile + iPad
  * • Desktop stays open and comfortable
  */
 export default function Packages() {
@@ -24,7 +24,7 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION – good size + forced clean 2 lines */}
+      {/* DESCRIPTION – 30% larger + clean 2 lines */}
       <p
         className="
           mx-auto
@@ -32,7 +32,7 @@ export default function Packages() {
           w-[200%]
           -ml-[50%]
           origin-top
-          scale-[0.5]
+          scale-[0.65]
           text-[10px]
           leading-[1.5]
           text-[#8C7468]
