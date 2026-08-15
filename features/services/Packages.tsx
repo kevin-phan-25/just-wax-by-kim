@@ -4,9 +4,9 @@
  * Subtle waxing package information section.
  * Updates:
  * • Package offers stay readable and compact
- * • Description is much smaller only on mobile + iPad
- * • Desktop size remains normal (untouched)
- * • Description stays centered and constrained
+ * • Description much smaller only on mobile + iPad
+ * • Desktop description is more open and less cluttered
+ * • Better max-width + line-height on desktop
  * • Preserved responsive behavior
  */
 export default function Packages() {
@@ -25,7 +25,7 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION — smaller only on mobile + iPad */}
+      {/* DESCRIPTION */}
       <p
         className="
           mx-auto
@@ -38,8 +38,11 @@ export default function Packages() {
           leading-relaxed
           text-[#8C7468]
           sm:max-w-sm
+          md:mt-2
+          md:max-w-lg
           md:scale-100
-          md:text-xs
+          md:text-sm
+          md:leading-7
         "
       >
         Designed to help you maintain a consistent waxing routine.
