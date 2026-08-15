@@ -5,7 +5,7 @@
  * Updates:
  * • Package offers stay readable and compact
  * • Description keeps the good small size (scale) on mobile + iPad
- * • Forced into clean 2 lines only
+ * • Forced into clean 2 lines with <br />
  * • Desktop stays open and comfortable
  */
 export default function Packages() {
@@ -30,13 +30,13 @@ export default function Packages() {
           mx-auto
           mt-1.5
           w-full
-          max-w-[520px]
+          max-w-[280px]
           origin-top
           scale-[0.5]
           text-[10px]
-          leading-[1.45]
+          leading-[1.5]
           text-[#8C7468]
-          sm:max-w-[560px]
+          sm:max-w-sm
           md:mt-2
           md:max-w-lg
           md:scale-100
@@ -45,6 +45,7 @@ export default function Packages() {
         "
       >
         Designed to help you maintain a consistent waxing routine.
+        <br />
         Packages are non-transferable, valid only for the service
         purchased, and expire 12 months from the date of purchase.
       </p>
