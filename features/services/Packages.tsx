@@ -4,10 +4,10 @@
  * Subtle waxing package information section.
  * Updates:
  * • Package offers stay readable and compact
- * • Description is cleanly 2 lines on mobile + iPad
+ * • Description stays small on mobile + iPad (with scale)
+ * • Forced clean 2-line layout on mobile/iPad
  * • Desktop description is more open and less cluttered
- * • Better max-width + line-height across breakpoints
- * • Preserved responsive behavior
+ * • Better line-height so it doesn’t feel smooshed
  */
 export default function Packages() {
   return (
@@ -25,23 +25,24 @@ export default function Packages() {
         </span>
       </div>
 
-      {/* DESCRIPTION – 2 clean lines on mobile/iPad, more open on desktop */}
+      {/* DESCRIPTION – original small sizing restored + clean 2 lines */}
       <p
         className="
           mx-auto
-          mt-2
+          mt-1.5
           w-full
-          max-w-[255px]
-          text-[11px]
-          leading-[1.45]
+          max-w-[220px]
+          origin-top
+          scale-[0.5]
+          text-[10px]
+          leading-[1.55]
           text-[#8C7468]
-          sm:max-w-[280px]
-          sm:text-xs
-          sm:leading-[1.5]
-          md:mt-2.5
-          md:max-w-md
+          sm:max-w-[240px]
+          md:mt-2
+          md:max-w-lg
+          md:scale-100
           md:text-sm
-          md:leading-6
+          md:leading-7
         "
       >
         Designed to help you maintain a consistent waxing routine.
