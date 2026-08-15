@@ -364,7 +364,7 @@ export const ladiesServices: Service[] = [
   id: "ladies-stomach",
   title: "Stomach",
   category: "Body",
-  price: "$20",
+  price: "$40",
   duration: "10 minutes",
   gender: "ladies",
 },
