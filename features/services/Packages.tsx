@@ -6,12 +6,15 @@
  * Subtle waxing package information section.
  *
  * Updates:
- * • Package offers line made slightly larger
- * • Description made smaller than the package line
- * • Kept packages secondary to main services
+ * • Increased package offer text slightly
+ * • Kept mobile sizing compact
+ * • Reduced description text by approximately 25%
+ * • Prevented package line from becoming too large on mobile
+ * • Increased visual hierarchy between packages and description
  * • Preserved responsive behavior
  * -----------------------------------------------------------------------------
  */
+
 export default function Packages() {
   return (
     <div
@@ -22,19 +25,21 @@ export default function Packages() {
         items-center
         justify-center
         text-center
+        px-3
       "
     >
-      {/* PACKAGE OFFERS — slightly larger */}
+      {/* PACKAGE OFFERS */}
       <div
         className="
           flex
+          w-full
           flex-wrap
           items-center
           justify-center
           gap-x-2
           gap-y-1
-          text-[11px]
-          sm:text-xs
+          text-xs
+          sm:text-sm
           md:text-sm
         "
       >
@@ -48,27 +53,30 @@ export default function Packages() {
         >
           Packages
         </span>
+
         <span className="text-[#8C5A6B]">
           <strong>3 Visits</strong>
           {" "}• Save 5%
         </span>
+
         <span className="text-[#8C5A6B]">
           <strong>5 Visits</strong>
           {" "}• Save 10%
         </span>
       </div>
 
-      {/* DESCRIPTION — smaller than the package line */}
+      {/* DESCRIPTION */}
       <p
         className="
           mx-auto
-          mt-2.5
-          max-w-md
-          text-[8px]
+          mt-2
+          max-w-[320px]
+          text-[6px]
           leading-relaxed
           text-[#8C7468]
-          sm:text-[9px]
-          md:text-[10px]
+          sm:max-w-md
+          sm:text-[7px]
+          md:text-[8px]
         "
       >
         Designed to help you maintain a consistent waxing routine.
