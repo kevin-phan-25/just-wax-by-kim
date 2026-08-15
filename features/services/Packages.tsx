@@ -51,7 +51,7 @@ export default function Packages() {
         Designed to help you maintain a consistent waxing routine.
         <br />
         Packages are non-transferable, valid only for the service
-        purchased, and expire 12 months from the date of purchase.
+        purchased, and expires 12 months from the date of purchase.
       </p>
     </div>
   );
