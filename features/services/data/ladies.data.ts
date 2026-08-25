@@ -133,6 +133,15 @@ export const ladiesServices: Service[] = [
   duration: "10 minutes",
   gender: "ladies",
 },
+  
+{
+  id: "ladies-brow-shapeup",
+  title: "Brow Shapeup",
+  category: "Face",
+  price: "$50",
+  duration: "15 minutes",
+  gender: "ladies",
+},
 
 {
   id: "ladies-chin",
