@@ -8,6 +8,7 @@
  * • Forced clean 2 lines
  * • Stays fully on screen (no bleeding)
  * • Desktop stays open and comfortable
+ * • Desktop description properly centered
  */
 export default function Packages() {
   return (
@@ -41,7 +42,6 @@ export default function Packages() {
           sm:-ml-[22.5%]
           md:mt-3
           md:w-full
-          md:ml-0
           md:max-w-lg
           md:scale-100
           md:text-sm
