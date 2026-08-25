@@ -43,6 +43,7 @@ export default function Packages() {
           md:mt-3
           md:w-full
           md:max-w-lg
+          md:mx-auto
           md:scale-100
           md:text-sm
           md:leading-7
